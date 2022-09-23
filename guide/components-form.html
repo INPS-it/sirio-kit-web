@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+	<link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+	<link rel="stylesheet" href="../assets/css/font-lora.css">
+
+	<!-- CSS WebKit -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	<link rel="stylesheet" href="css/guide.css">
+
+	<title>Form - Sirio Webkit</title>
+
+</head>
+<body>
+	<div class="guide-wrapper">
+		<div class="guide-container">
+			<div class="guide-flex">
+				<aside class="guide-aside">
+					<div class="guide-sticky">
+
+	<header class="guide-header">
+		<h1><a href="index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
+		<button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
+	</header>
+	
+<nav aria-label="Menu dei componenti" class="guide-nav">
+	<div class="guide-row">
+		<div class="guide-col">
+			<h2 class="guide-title">Menu Sirio Webkit</h2>
+		</div>
+		<div class="guide-col-auto">
+			<button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');"><span class="fas fa-times"></span></button>
+		</div>
+	</div>
+	<ul id="guide-nav">
+		<li>
+			<a href="#nav-structure">
+				Struttura
+			</a>
+			<ul id="nav-structure">
+				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-typography">
+				Tipografia
+			</a>
+			<ul id="nav-typography">
+				<li><a href="components-typography.html#font">Font</a></li>
+				<li><a href="components-typography.html#heading">Heading</a></li>
+				<li><a href="components-typography.html#colors">Colori</a></li>
+				<li><a href="components-typography.html#icons">Icone</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-contents">
+				Contenuto
+			</a>
+			<ul id="nav-contents">
+				<li><a href="components-contents.html#breadcrumb">Breadcrumb</a></li>
+				<li><a href="components-contents.html#dropdown">Dropdown</a></li>
+				<li><a href="components-contents.html#card">Card</a></li>
+				<li><a href="components-contents.html#tag">Tag</a></li>
+				<li><a href="components-contents.html#tab">Tab</a></li>
+				<li><a href="components-contents.html#collapse">Collapse</a></li>
+				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
+				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
+				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
+				<li><a href="components-contents.html#dialog">Dialog</a></li>
+				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-form">
+				Form
+			</a>
+			<ul id="nav-form">
+				<li><a href="components-form.html#bottoni">Bottoni</a></li>
+				<li><a href="components-form.html#input">Input</a></li>
+				<li><a href="components-form.html#input-group">Input Group</a></li>
+				<li><a href="components-form.html#selectDropdown">Dropdown Select</a></li>
+				<li><a href="components-form.html#autocomplete">Autocomplete</a></li>
+				<li><a href="components-form.html#searchbar">Searchbar</a></li>
+				<li><a href="components-form.html#selezione">Selezione</a></li>
+				<li><a href="components-form.html#fileupload">File Upload</a></li>
+				<li><a href="components-form.html#slider">Slider</a></li>
+				<li><a href="components-form.html#datepicker">Date & Time Picker</a></li>
+				<li><a href="components-form.html#chip">Chip</a></li>
+				<li><a href="components-form.html#progress">Progress Bar</a></li>
+				<li><a href="components-form.html#validation">Validazione</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+					</div>
+				</aside>
+				<main class="guide-main">
+					<h2 class="guide-title">Form</h2>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="bottoni">Bottoni</h3>
+
+							<h4 class="guide-title">Bottone primario</h4>
+
+							<div class="blockquote">
+								<p>Utilizza i <strong>bottoni primari</strong> solo per le azioni principali.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-primary">Primario</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-primary">Primario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-primary" disabled>Primario disabilitato</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-btn-primario">
+                                <p class="guide-code-title">Bottone primario:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-primary">Primario</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone primario con icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-primary">Primario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone primario solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone primario disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-primary" disabled>Primario disabilitato</button>
+</xmp></pre>
+							</div>
+
+                            
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Bottone secondario</h4>
+
+							<div class="blockquote">
+								<p>Utilizza i <strong>bottoni secondari</strong> in combinazione ai bottoni primari con lo scopo di indicare l’azione opposta a qualla principale.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-secondary">Secondario</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-secondary">Secondario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-secondary sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-secondary" disabled>Secondario disabilitato</button>
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="code" aria-hidden="true" id="code-btn-secondario">
+                                <p class="guide-code-title">Bottone secondario:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-secondary">Secondario</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone secondario con icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-secondary">Secondario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone secondario solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-secondary sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone secondario disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-secondary" disabled>Secondario disabilitato</button>
+</xmp></pre>
+							</div>
+
+                            
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Bottone terziario</h4>
+
+							<div class="blockquote">
+								<p>Utilizza i <strong>bottoni terziari</strong> solo per le azioni indipendenti o di minore importanza.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary">Terziario</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary">Terziario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-icon sirio-btn-tertiary"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary" disabled>Terziario disabilitato</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-btn-terziario">
+                                <p class="guide-code-title">Bottone terziario:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary">Terziario</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario con icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary">Terziario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary" disabled>Terziario disabilitato</button>
+</xmp></pre>
+							</div>
+
+                            
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Bottone terziario light</h4>
+
+							<div class="blockquote">
+								<p>Utilizza <strong>bottoni terziari con colore di accento</strong> su sfondo scuro per permettere la loro corretta esaltazione e visualizzazione.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row sirio-bg-primary-dark-120">
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary-light">Terziario</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary-light">Terziario<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-icon sirio-btn-tertiary-light"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-tertiary-light" disabled>Terziario disabilitato</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-btn-terziario-light">
+                                <p class="guide-code-title">Bottone terziario light:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary-light">Terziario light</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario light con icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary-light">Terziario light<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario light solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone terziario light disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-tertiary-light" disabled>Terziario light disabilitato</button>
+</xmp></pre>
+							</div>
+
+                            
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Bottone fantasma</h4>
+
+							<div class="blockquote">
+								<p>Utilizza i <strong>bottoni fantasma</strong> solo per le azioni indipendenti o di minore importanza.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<button class="sirio-btn">Fantasma</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn">Fantasma<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn" disabled>Fantasma disabilitato</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-btn-fantasma">
+                                <p class="guide-code-title">Bottone fantasma:</p>
+<pre><xmp>
+<button class="sirio-btn">Fantasma</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone fantasma con icona:</p>
+<pre><xmp>
+<button class="sirio-btn">Fantasma<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone fantasma solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone fantasma disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn" disabled>Fantasma disabilitato</button>
+</xmp></pre>
+							</div>
+
+                            
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Bottone attenzione</h4>
+
+							<div class="blockquote">
+								<p>Utilizza i <strong>bottoni di attenzione</strong> solo per indicare azioni che hanno uno scopo distruttivo. I bottoni di attenzione non possiedono la variante solo con Icona poichè, data la loro funzione, devono sempre essere accompagnati da una label esplicativa.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-danger">Attenzione</button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-danger">Attenzione<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-icon sirio-btn-danger"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+									</div>
+									<div class="guide-col-auto">
+										<button class="sirio-btn sirio-btn-danger" disabled>Attenzione disabilitato</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-btn-danger">
+                                <p class="guide-code-title">Bottone attenzione:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-danger">Attenzione</button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone attenzione con icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-danger">Attenzione<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone attenzione solo icona:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-danger sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+</xmp></pre>
+
+								<p class="guide-code-title">Bottone attenzione disabilitato:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-danger" disabled>Attenzione disabilitato</button>
+</xmp></pre>
+							</div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="input">Input</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="input-text">Input text:</label>
+										<input type="text" id="input-text" name="input-text" class="sirio-form-control" placeholder="Inserisci il testo">
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="input-number">Input number:</label>
+										<input type="number" id="input-number" name="input-number" class="sirio-form-control" value="12345">
+									</div>
+									
+									<div class="guide-col-md-6">
+										<label for="input-textarea">Textarea:</label>
+										<textarea id="input-textarea" name="input-textarea" class="sirio-form-control" rows="5" placeholder="Descrizione messaggio"></textarea>
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="input-text-with-help">Input con text help:</label>
+										<input type="text" id="input-text-with-help" name="input-text-with-help" class="sirio-form-control" placeholder="Inserisci il testo" aria-describedby="input-text-help">
+										<span id="input-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</span>
+									</div>
+								  
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-input">
+                                <p class="guide-code-title">Input text:</p>
+<pre><xmp>
+<label for="input-text">Text:</label>
+<input type="text" id="input-text" name="input-text" class="sirio-form-control" placeholder="Inserisci il testo">
+</xmp></pre>
+                            
+							<p class="guide-code-title">Input number:</p>
+<pre><xmp>
+<label for="input-number">Input number:</label>
+<input type="number" id="input-number" name="input-number" class="sirio-form-control" value="12345">
+</xmp></pre>
+
+							<p class="guide-code-title">Textarea:</p>
+<pre><xmp>
+<label for="input-textarea">Textarea:</label>
+<textarea id="input-textarea" name="input-textarea" class="sirio-form-control" rows="5" placeholder="Descrizione messaggio"></textarea>
+</xmp></pre>
+
+							<p class="guide-code-title">Input con text help:</p>
+<pre><xmp>
+<label for="input-text-with-help">Input con text help:</label>
+<input type="text" id="input-text-with-help" name="input-text-with-help" class="sirio-form-control" placeholder="Inserisci il testo" aria-describedby="input-text-help">
+<span id="input-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</span>
+</xmp></pre>
+                            </div>
+
+							<h4 class="guide-title">Input disabilitati</h4>
+
+							<div class="blockquote">
+								<p>Ecco come si presentano i campi input quando hanno l'attributo <code>disabled</code>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="input-text-dis">Input text:</label>
+										<input type="text" id="input-text-dis" name="input-text-dis" class="sirio-form-control" placeholder="Inserisci il testo" disabled>
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="input-number-dis">Input number:</label>
+										<input type="number" id="input-number-dis" name="input-number-dis" class="sirio-form-control" value="12345" disabled>
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="input-text-with-help-dis">Input con text help:</label>
+										<input type="text" id="input-text-with-help-dis" name="input-text-with-help-dis" class="sirio-form-control" placeholder="Inserisci il testo" aria-describedby="input-text-help" disabled>
+										<span id="input-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</span>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<label for="input-textarea-dis">Textarea:</label>
+										<textarea id="input-textarea-dis" name="input-textarea-dis" class="sirio-form-control" rows="5" placeholder="Descrizione messaggio" disabled></textarea>
+									</div>
+								</div>
+							</div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="input-group">Input Group</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<div class="sirio-input-group">
+											<input type="text" class="sirio-form-control" placeholder="Inserisci termine da ricercare" aria-label="Ricerca parola">
+											<button class="sirio-btn sirio-btn-primary">Ricerca<span class="fas fa-search" aria-hidden="true"></span></button>
+										</div>
+									</div>
+									
+									<div class="guide-col-12">
+										<div class="sirio-input-group">
+											<span class="sirio-input-group-text"><span class="fas fa-envelope" aria-hidden="true"></span></span>
+											<input type="text" class="sirio-form-control" id="indirizzomail" placeholder="Indirizzo mail" aria-label="Indirizzo mail">
+											<button class="sirio-btn sirio-btn-primary">Invia mail</button>
+										</div>
+									</div>
+
+									<div class="guide-col-12">
+										<div class="sirio-input-group">
+											<input type="text" class="sirio-form-control" id="mailstart" placeholder="Inserisci username" aria-label="Username">
+											<span class="sirio-input-group-text"><span class="fas fa-at" aria-hidden="true"></span></span>
+											<input type="text" class="sirio-form-control" id="mailend" placeholder="Inserisci server" aria-label="Server">
+										</div>
+									</div>
+								  
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-input">
+                                <p class="guide-code-title">Ricerca:</p>
+<pre><xmp>
+<div class="sirio-input-group">
+	<input type="text" class="sirio-form-control" placeholder="Inserisci termine da ricercare" aria-label="Ricerca parola">
+	<button class="sirio-btn sirio-btn-primary">Ricerca<span class="fas fa-search" aria-hidden="true"></span></button>
+</div>
+</xmp></pre>
+                            
+							<p class="guide-code-title">Inserimento mail:</p>
+<pre><xmp>
+<div class="sirio-input-group">
+	<span class="sirio-input-group-text"><span class="fas fa-envelope" aria-hidden="true"></span></span>
+	<input type="text" class="sirio-form-control" id="indirizzomail" placeholder="Indirizzo mail" aria-label="Indirizzo mail">
+	<button class="sirio-btn sirio-btn-primary">Invia mail</button>
+</div>
+</xmp></pre>
+
+							<p class="guide-code-title">Inserimento mail:</p>
+<pre><xmp>
+<div class="sirio-input-group">
+	<input type="text" class="sirio-form-control" id="mailstart" placeholder="Inserisci username" aria-label="Username">
+	<span class="sirio-input-group-text"><span class="fas fa-at" aria-hidden="true"></span></span>
+	<input type="text" class="sirio-form-control" id="mailend" placeholder="Inserisci server" aria-label="Server">
+</div>
+</xmp></pre>
+                            </div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="selectDropdown">Dropdown Select</h3>
+
+							<div class="blockquote">
+								<p>Disponibile sia con scelta singola che, aggiungendo l'attributo <code>multiple</code>, con scelta multipla.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="selectIDsingle">Dropdown Select scelta singola</label>
+										<select name="selectIDsingle" id="selectIDsingle" class="sirio-form-control" data-sirio-component="select">
+											<option value="0">Tutte le opzioni</option>
+											<option value="1">Opzione 1</option>
+											<option value="2">Opzione 2</option>
+											<option value="3">Opzione 3</option>
+											<option value="4">Opzione 4</option>
+											<option value="5">Opzione 5</option>
+											<option value="6">Opzione 6</option>
+											<option value="7">Opzione 7</option>
+										</select>
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="selectIDmultiple">Dropdown Select scelta multipla</label>
+										<select name="selectIDmultiple" id="selectIDmultiple" class="sirio-form-control" title="Seleziona uno o più elementi" data-sirio-component="select" multiple>
+											<option value="1">Opzione 1</option>
+											<option value="2">Opzione 2</option>
+											<option value="3">Opzione 3</option>
+											<option value="4">Opzione 4</option>
+											<option value="5">Opzione 5</option>
+											<option value="6">Opzione 6</option>
+											<option value="7">Opzione 7</option>
+										</select>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-dropdown-select">
+                                <p class="guide-code-title">Dropdown Select:</p>
+<pre><xmp>
+<label for="selectIDsingle">Dropdown Select scelta singola</label>
+<select name="selectIDsingle" id="selectIDsingle" class="sirio-form-control" data-sirio-component="select">
+	<option value="0">Tutte le opzioni</option>
+	<option value="1">Opzione 1</option>
+	<option value="2">Opzione 2</option>
+	<option value="3">Opzione 3</option>
+	<option value="4">Opzione 4</option>
+	<option value="5">Opzione 5</option>
+	<option value="6">Opzione 6</option>
+	<option value="7">Opzione 7</option>
+</select>
+</xmp></pre>
+								<p class="guide-code-title">Dropdown Select scelta multipla:</p>
+<pre><xmp>
+<label for="selectIDmultiple">Dropdown Select scelta multipla</label>
+<select name="selectIDmultiple" id="selectIDmultiple" class="sirio-form-control" title="Seleziona uno o più elementi" data-sirio-component="select" multiple>
+	<option value="1">Opzione 1</option>
+	<option value="2">Opzione 2</option>
+	<option value="3">Opzione 3</option>
+	<option value="4">Opzione 4</option>
+	<option value="5">Opzione 5</option>
+	<option value="6">Opzione 6</option>
+	<option value="7">Opzione 7</option>
+</select>
+</xmp></pre>
+                            </div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="autocomplete">Autocomplete</h3>
+
+							<div class="blockquote">
+								<p>Il componente può essere popolato direttamente con un array tramite l'attributo <code>data-sirio-list</code> (es.: data-sirio-list='["opzione 1","opzione 1",...]') oppure tramite javascript.</p>
+								<p>La dropdown è impostato ad aprirsi alla digitazione dal terzo carattere.</p>
+							</div>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="autocompleteID">Autocomplete tramite attributo (es.: digita "rel")</label>
+										<input class="sirio-form-control" type="text" name="autocompleteID" id="autocompleteID" data-sirio-component="autocomplete" data-sirio-list='["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]'>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<label for="autocompleteID2">Autocomplete tramite javascript (es.: digita "rel")</label>
+										<input class="sirio-form-control" type="text" name="autocompleteID2" id="autocompleteID2" data-sirio-component="autocomplete">
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-dropdown-autocomplete">
+                                <p class="guide-code-title">Autocomplete popolamento tramite attributo:</p>
+<pre><xmp>
+<label for="autocompleteID">Autocomplete tramite attributo (es.: digita "rel")</label>
+<input class="sirio-form-control" type="text" name="autocompleteID" id="autocompleteID" data-sirio-component="autocomplete" data-sirio-list='["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]'>
+</xmp></pre>
+
+								<p class="guide-code-title">Autocomplete popolamento tramite javascript:</p>
+<pre><xmp>
+<label for="autocompleteID2">Autocomplete tramite javascript (es.: digita "rel")</label>
+<input class="sirio-form-control" type="text" name="autocompleteID2" id="autocompleteID2" data-sirio-component="autocomplete">
+
+<script>
+// Popolamento autocomplete tramite javascript
+let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
+let newOptions = ["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]
+inputComponent.setOptionElements(newOptions);
+</script>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="searchbar">Searchbar</h3>
+
+							<div class="blockquote">
+								<p>Per creare il componente si usano <a href="#input-group"><strong>Input group</strong></a> e <a href="#autocomplete"><strong>Autocomplete</strong></a>, si rimanda alla loro documentazione.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<label for="searchbarAutocomplete">Searchbar con autocomplete (es.: digita "rel")</label>
+										<div class="sirio-input-group mb-3">
+											<input class="sirio-form-control" type="text" id="searchbarAutocomplete" name="searchbarAutocomplete" data-sirio-component="autocomplete" data-sirio-list='["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]'>
+											<button class="sirio-btn sirio-btn-primary">Ricerca<span class="fas fa-search" aria-hidden="true"></span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+                          
+							<div class="code" aria-hidden="true" id="code-searchbar">
+                                <p class="guide-code-title">Searchbar:</p>
+<pre><xmp>
+<label for="searchbarAutocomplete">Campo testo autocomplete (es.: "rel")</label>
+<div class="sirio-input-group mb-3">
+	<input class="sirio-form-control" type="text" id="searchbarAutocomplete" name="searchbarAutocomplete" data-sirio-component="autocomplete" data-sirio-list='["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]'>
+	<button class="sirio-btn sirio-btn-primary">Ricerca<span class="fas fa-search" aria-hidden="true"></span></button>
+</div>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="selezione">Selezione</h3>
+							
+							<div class="blockquote">
+								<p><strong>Checkbox</strong>, <strong>Radio button</strong> e <strong>Toggle</strong> button sono tre diverse tipologie di elementi di selezione che possono essere utilizzati all’interno delle interfacce. </p>
+							</div>
+
+							<h4 class="guide-title">Checkbox</h4>
+
+							<div class="blockquote">
+								<p>I checkbox sono elementi che permettono la <strong>selezione multipla</strong> delle informazioni presentate.</p>
+								<p><strong>Possono essere posizionati sia orizzontalmente che verticalmente</strong>. Possono essere utilizzati per esempio per la selezione di diverse tipologie di entrate di reddito.</p>
+								<p>Per la versione disabilitata basterà aggiungere l'attributo <code>disabled</code> al TAG input.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<fieldset>
+											<legend class="sirio-label">Checkbox orizzontali</legend>
+											<div class="sirio-form-check sirio-form-check-inline">
+												<input type="checkbox" id="input-checkbox-1" name="input-checkbox-1" value="">
+												<label for="input-checkbox-1">Opzione 1</label>
+											</div>
+											<div class="sirio-form-check sirio-form-check-inline">
+												<input type="checkbox" id="input-checkbox-2" name="input-checkbox-2" value="">
+												<label for="input-checkbox-2">Opzione 2</label>
+											</div>
+											<div class="sirio-form-check sirio-form-check-inline">
+												<input type="checkbox" id="input-checkbox-3" name="input-checkbox-3" value="">
+												<label for="input-checkbox-3">Opzione 3</label>
+											</div>
+										</fieldset>
+										<br>
+										<fieldset>
+											<legend class="sirio-label">Checkbox disabilitati</legend>
+											<div class="sirio-form-check sirio-form-check-inline">
+												<input type="checkbox" id="input-checkbox-4" name="input-checkbox-4" value="" disabled>
+												<label for="input-checkbox-4">Opzione 4</label>
+											</div>
+											<div class="sirio-form-check sirio-form-check-inline">
+												<input type="checkbox" id="input-checkbox-5" name="input-checkbox-5" value="" disabled checked>
+												<label for="input-checkbox-5">Opzione 5</label>
+											</div>
+										</fieldset>
+									</div>
+									<div class="guide-col-md-6">
+										<fieldset>
+											<legend class="sirio-label">Checkbox verticali</legend>
+											<div class="sirio-form-check">
+												<input type="checkbox" id="input-checkbox-vert-1" name="input-checkbox-vert-1" value="">
+												<label for="input-checkbox-vert-1">Opzione 1</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="checkbox" id="input-checkbox-vert-2" name="input-checkbox-vert-2" value="">
+												<label for="input-checkbox-vert-2">Opzione 2</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="checkbox" id="input-checkbox-vert-3" name="input-checkbox-vert-3" value="">
+												<label for="input-checkbox-vert-3">Opzione 3</label>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-checkbox">
+                                <p class="guide-code-title">Checkbox orizzontali:</p>
+<pre><xmp>
+<fieldset>
+	<legend class="sirio-label">Checkbox orizzontali</legend>
+	<div class="sirio-form-check sirio-form-check-inline">
+		<input type="checkbox" id="input-checkbox-1" name="input-checkbox-1" value="">
+		<label for="input-checkbox-1">Opzione 1</label>
+	</div>
+	<div class="sirio-form-check sirio-form-check-inline">
+		<input type="checkbox" id="input-checkbox-2" name="input-checkbox-2" value="">
+		<label for="input-checkbox-2">Opzione 2</label>
+	</div>
+	<div class="sirio-form-check sirio-form-check-inline">
+		<input type="checkbox" id="input-checkbox-3" name="input-checkbox-3" value="">
+		<label for="input-checkbox-3">Opzione 3</label>
+	</div>
+	<div class="sirio-form-check sirio-form-check-inline">
+		<input type="checkbox" id="input-checkbox-4" name="input-checkbox-4" value="" disabled>
+		<label for="input-checkbox-4">Opzione disabilitata 4</label>
+	</div>
+	<div class="sirio-form-check sirio-form-check-inline">
+		<input type="checkbox" id="input-checkbox-5" name="input-checkbox-5" value="" disabled checked>
+		<label for="input-checkbox-5">Opzione disabilitata checked</label>
+	</div>
+</fieldset>
+</xmp></pre>
+                            
+                                <p class="guide-code-title">Checkbox verticali:</p>
+<pre><xmp>
+<fieldset>
+	<legend class="sirio-label">Checkbox verticali</legend>
+	<div class="sirio-form-check">
+		<input type="checkbox" id="input-checkbox-vert-1" name="input-checkbox-vert-1" value="">
+		<label for="input-checkbox-vert-1">Opzione 1</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="checkbox" id="input-checkbox-vert-2" name="input-checkbox-vert-2" value="">
+		<label for="input-checkbox-vert-2">Opzione 2</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="checkbox" id="input-checkbox-vert-3" name="input-checkbox-vert-3" value="">
+		<label for="input-checkbox-vert-3">Opzione 3</label>
+	</div>
+</fieldset>
+</xmp></pre>
+                            </div>
+
+							
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Radio button</h4>
+
+							<div class="blockquote">
+								<p>I radio button sono elementi che permettono la <strong>selezione singola</strong> di una delle informazioni presentate.</p> 
+								<p>Per convogliare il loro ruolo all’utente all’interno dell’interfaccia, <strong>ci impegniamo ad utilizzarli secondo una disposizione verticale</strong>. Possono essere utilizzati per esempio per la selezione della modalità di pagamento.</p>
+								<p>Per la versione disabilitata basterà aggiungere l'attributo <code>disabled</code> al TAG input.</p>
+							</div>
+
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<fieldset>
+											<legend class="sirio-label">Radio button verticali</legend>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-1" name="input-radio" value="" checked="">
+												<label for="input-radio-1">Opzione 1 (selezionata)</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-2" name="input-radio" value="">
+												<label for="input-radio-2">Opzione 2</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-3" name="input-radio" value="">
+												<label for="input-radio-3">Opzione 3</label>
+											</div>
+										</fieldset>
+									</div>
+									<div class="guide-col-md-6">
+										<fieldset>
+											<legend class="sirio-label">Radio button disabilitati</legend>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-dis-1" name="input-radio-dis" value="" disabled checked="">
+												<label for="input-radio-dis-1">Opzione 1 (selezionata)</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-dis-2" name="input-radio-dis" value="" disabled>
+												<label for="input-radio-dis-2">Opzione 2</label>
+											</div>
+											<div class="sirio-form-check">
+												<input type="radio" id="input-radio-dis-3" name="input-radio-dis" value="" disabled>
+												<label for="input-radio-dis-3">Opzione 3</label>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-radio">
+                                <p class="guide-code-title">Radio button verticali:</p>
+<pre><xmp>
+<fieldset>
+	<legend class="sirio-label">Radio button disabilitati</legend>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-1" name="input-radio-dis" value="" disabled checked="">
+		<label for="input-radio-dis-1">Opzione 1 (selezionata)</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-2" name="input-radio-dis" value="" disabled>
+		<label for="input-radio-dis-2">Opzione 2</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-3" name="input-radio-dis" value="" disabled>
+		<label for="input-radio-dis-3">Opzione 3</label>
+	</div>
+</fieldset>
+</xmp></pre>
+                            </div>
+
+							
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Toggle</h4>
+
+							<div class="blockquote">
+								<p>I toggle button sono elementi che prevedono due stati: acceso/spento. Permettono all’utente di <strong>accendere/spegnare</strong> una funzionalità, effettuando quindi un cambio di stato. </p>
+								<p>Possono essere utilizzati per esempio per il consenso verso l’iscrizione alla newsletter o la ricezione di notifiche. </p>
+								<p>Importante per l'accessibilità della presenza dell'attributo <code>aria-checked</code>.</p>
+								<p>Per la versione disabilitata basterà aggiungere l'attributo <code>disabled</code> al TAG input.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle" name="input-toggle" value="" aria-checked="false">
+												<label for="input-toggle">Toggle</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle-dx" name="input-toggle-dx" value="" aria-checked="false">
+												<label for="input-toggle-dx">Toggle a destra</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle-checked" name="input-toggle-checked" value="" aria-checked="true" checked>
+												<label for="input-toggle-checked">Toggle checked</label>
+											</div>
+										</div>
+									</div>
+								
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle-checked-dx" name="input-toggle-checked-dx" value="" aria-checked="true" checked>
+												<label for="input-toggle-checked-dx">Toggle checked a destra</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle-disabled" name="input-toggle-disabled" value="" aria-checked="false" disabled>
+												<label for="input-toggle-disabled">Toggle disabilitato</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<div class="sirio-form-group">
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
+												<input type="checkbox" role="switch" id="input-toggle-disabled-dx" name="input-toggle-disabled-dx" value="" aria-checked="false" disabled>
+												<label for="input-toggle-disabled-dx">Toggle disabilitato</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-toggle">
+                                <p class="guide-code-title">Toggle:</p>
+<pre><xmp>
+<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
+	<input type="checkbox" role="switch" id="input-toggle" name="input-toggle" aria-checked="false" value="">
+	<label for="input-toggle">Toggle</label>
+</div>
+</xmp></pre>
+
+                            <p class="guide-code-title">Toggle checked:</p>
+<pre><xmp>
+<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
+	<input type="checkbox" role="switch" id="input-toggle-checked" name="input-toggle-checked" value="" aria-checked="true" checked>
+	<label for="input-toggle-checked">Toggle checked</label>
+</div>
+</xmp></pre>
+
+                                <p class="guide-code-title">Toggle allineato a destra:</p>
+<pre><xmp>
+<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
+	<input type="checkbox" role="switch" id="input-toggle-dx" name="input-toggle-dx" aria-checked="false" value="">
+	<label for="input-toggle-dx">Toggle</label>
+</div>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="fileupload">File Upload</h3>
+
+							<div class="blockquote">
+								<p>Il componente simula l'aggiunta e la cancellazione dell'input file. Per ottenere i file per l'upload va ignorato l'input file originario e, tramite javascript, vanno recuperati dalla funzione <code>getUploadedFiles()</code>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<form method="post" action="" enctype="multipart/form-data">
+											<div class="sirio-upload" data-sirio-component="upload">
+												<div class="sirio-label">Label upload</div>
+												<span id="file-upload-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet.</span>
+												<input type="file" name="file-upload" id="file-upload" class="sirio-upload-file" multiple="multiple"  aria-describedby="file-upload-text-help">
+												<label for="file-upload" class="sirio-btn sirio-btn-primary">
+													<span>Upload</span>
+													<span class="fas fa-arrow-up" aria-hidden="true"></span>
+												</label>
+											</div>
+										</form>
+									</div>
+								</div>
+								
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-fileupload">
+                                <p class="guide-code-title">Upload:</p>
+<pre><xmp>
+<div class="sirio-upload" data-sirio-component="upload">
+	<div class="sirio-label">Label upload</div>
+	<span id="file-upload-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet.</span>
+	<input type="file" name="ID-file-upload" id="ID-file-upload" class="sirio-upload-file" multiple="multiple"  aria-describedby="file-upload-text-help">
+	<label for="ID-file-upload" class="sirio-btn sirio-btn-primary">
+		<span>Upload</span>
+		<span class="fas fa-arrow-up" aria-hidden="true"></span>
+	</label>
+</div>
+</xmp></pre>
+                            
+								<p class="guide-code-title">Recupero dei file:</p>
+<pre><xmp>
+let inputFilesComponent = SirioLib.getComponentById("ID-file-upload", "file-upload");
+fileList = inputFilesComponent.getUploadedFiles();
+</xmp></pre>
+															
+							</div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="slider">Slider</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="sliderexample">Slider label</label>
+										<small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
+										<div class="sirio-slider" data-sirio-component="slider">
+											<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
+											<input type="number" id="rangevalue" value="40" class="sirio-form-control">
+											<div class="sirio-slider-range" aria-hidden="true"><span>0</span><span>100</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-slider">
+                                <p class="guide-code-title">Slider:</p>
+<pre><xmp>
+<label for="sliderexample">Slider label</label>
+<small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
+<div class="sirio-slider" data-sirio-component="slider">
+	<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
+	<input type="number" id="rangevalue" value="40" class="sirio-form-control">
+	<div class="sirio-slider-range" aria-hidden="true"><span>0</span><span>100</span></div>
+</div>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="datepicker">Date & Time Picker</h3>
+
+							<h4 class="guide-title">Datepicker</h4>
+
+							<div class="blockquote">
+								<p>Il Datepicker si basa sulla plugin <strong>VanillaJS Datepicker</strong> modificata al fine di permettere anche la navigazione da tastiera.</p>
+								<p>Per la configurazione si rimanda alla documentazione ufficiale <a href="https://mymth.github.io/vanillajs-datepicker/#/">https://mymth.github.io/vanillajs-datepicker/#/</a></p>
+								<!--<p>È possibile abbinare alla label un bottone informativo "popover" che possa fornire
+								indicazioni sulla navigazione da tastiera: "Le frecce spostano il cursore all'interno dei giorni del mese attivo; il tab scorre fra le funzioni che permettono di scorrere fra i mesi o selezionandone uno dalla lista. Stessa funzionalità per gli anni e le decadi. Esc chiude il
+								datepicker"</p>-->
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="input-date">Data:</label>
+										<input type="text" id="input-date" name="input-date" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" autocomplete="off" maxlength="10">
+									</div>
+
+									<div class="guide-col-md-6">
+										<label for="range-start">Data range:</label>
+										<div class="sirio-input-group sirio-datepicker-range">
+											<input type="text" name="range-start" id="range-start" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" aria-label="Data di inizio periodo" autocomplete="off" maxlength="10">
+											<span class="sirio-input-group-text" aria-hidden="true">-</span>
+											<input type="text" name="range-end" id="range-end" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" aria-label="Data di fine periodo" autocomplete="off" maxlength="10">
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            
+							<div class="code" aria-hidden="true" id="code-datepicker">
+                                <p class="guide-code-title">datepicker:</p>
+<pre><xmp>
+<label for="input-date">Data:</label>
+<input type="text" id="input-date" name="input-date" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" autocomplete="off" maxlength="10">
+</xmp></pre>
+                            
+                                <p class="guide-code-title">datepicker range:</p>
+<pre><xmp>
+<label for="range-start">Data range:</label>
+<div class="sirio-input-group sirio-datepicker-range">
+	<input type="text" name="range-start" id="range-start" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" aria-label="Data di inizio periodo" autocomplete="off" maxlength="10">
+	<span class="sirio-input-group-text" aria-hidden="true">-</span>
+	<input type="text" name="range-end" id="range-end" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" aria-label="Data di fine periodo" autocomplete="off" maxlength="10">
+</div>
+</xmp></pre>
+                                <p class="guide-code-title">javascript:</p>
+<pre><xmp>
+// Inizializzazione Calendario VanillaJs Datepicker
+// Lingua italiana modifica per ottenere la grafica del design
+(function () {
+	Datepicker.locales.it = {
+		// Termini di base
+		days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
+		daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+		daysMin: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+		months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+		monthsShort: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+		today: "Oggi",
+		monthsTitle: "Mesi",
+		clear: "Cancella",
+		weekStart: 1,
+		format: "dd/mm/yyyy",
+
+		// Aggiunte per l'aria-label dei bottoni in testata 
+		btnMonth: "Cambia il mese",
+		btnPrevMonth: "Mese precedente",
+		btnNextMonth: "Mese successivo",
+		// Utilizzati dopo aver cliccato sul bottone centrale prima volta
+		btnYear: "Cambia l\'anno",
+		btnPrevYear: "Anno precedente",
+		btnNextYear: "Anno successivo",
+		// Utilizzati dopo aver cliccato sul bottone centrale seconda volta
+		btnDecade: "Cambia il decennio",
+		btnPrevDecade: "Decennio precedente",
+		btnNextDecade: "Decennio successivo",
+		// Utilizzati dopo aver cliccato sul bottone centrale terza volta
+		btnPrevCentury: "Secolo precedente",
+		btnNextCentury: "Secolo successivo"
+	};
+}());
+
+const elems = document.querySelectorAll(".sirio-datepicker");
+for (const elem of elems) {
+	if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+		const datepicker = new Datepicker(elem, {
+			format: "dd/mm/yyyy",
+			language: "it",
+			prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+			nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+			autohide: true
+		});
+	}
+}
+
+const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+for (const elemRange of elemsRange) {
+	const datepickerRange = new DateRangePicker(elemRange, {
+		format: "dd/mm/yyyy",
+		language: "it",
+		prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+		nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+	});
+}
+</xmp></pre>
+                            
+                            </div>
+
+
+							<h4 class="guide-title">Timepicker</h4>
+
+							<div class="blockquote">
+								<p>Selezionando il campo si aprirà il pannello per la scelta di ora e minuti.</p>
+								<p>Alla pressione del tasto TAB si entrerà nel componente e si potrà modificare l'ora. Premendo nuovamente il TAB, si potranno modificare i minuti.</p>
+							</div>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<label for="input-hour">Orario:</label>
+										<input type="text" id="input-hour" name="input-hour" class="sirio-form-control sirio-timepicker" data-sirio-component="timepicker" placeholder="hh:mm" autocomplete="off">
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-timepicker">
+                                <p class="guide-code-title">Timepicker:</p>
+<pre><xmp>
+<label for="input-hour">Orario:</label>
+<input type="text" id="input-hour" name="input-hour" class="sirio-form-control sirio-timepicker" data-sirio-component="timepicker" placeholder="hh:mm" autocomplete="off">
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="chip">Chips</h3>
+
+							<div class="blockquote">
+								<p><strong>Chips + Close & Icona (INPUT)</strong> Questa tipologia di Chips ci permette in primis di identificare la tipologia di contenuto grazie all’aiuto dell’icona (es. utente). Una volta attivate una o più Chips tramite la “X” è possibile rimuovere uno o più contenuti all’interno del campo di input/attributo/azione che si sta compiendo. Possono essere utilizzate in maniera sia singola che multipla.</p>
+								<p><strong>Chips + Close  (INPUT)</strong> Questa tipologia di chips è quella più frequentemente utilizzata in quanto permette di visualizzare il contenuto che si sta compilando all’interno del campo di input/attributo/azione (es. un indirizzo email). Tramite la “X” può essere rimosso uno o più contenuti. Anche in questo caso è possibile utilizzare le chips in maniera sia singola che multipla. </p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<div class="sirio-chip">
+											<span class="sirio-chip-label">Chip</span>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip">
+											<span class="sirio-chip-label"><span class="fas fa-user" aria-hidden="true"></span>Chip con icona</span>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip">
+											<span class="sirio-chip-label">Chip con Chiudi</span>
+											<button class="sirio-btn sirio-btn-primary">
+												<span class="fas fa-times" aria-hidden="true"></span>
+												<span class="sr-only">Elimina label</span>
+											</button>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip disabled">
+											<span class="sirio-chip-label"><span class="fas fa-user" aria-hidden="true"></span>Chip disabilitata</span>
+											<button class="sirio-btn sirio-btn-primary" disabled="disabled">
+												<span class="fas fa-times" aria-hidden="true"></span>
+												<span class="sr-only">Elimina label</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-chips">
+                                <p class="guide-code-title">Chip di base:</p>
+<pre><xmp>
+<div class="sirio-chip">
+	<span class="sirio-chip-label">Chip</span>
+</div>
+</xmp></pre>
+                            
+                                <p class="guide-code-title">Chip con icona:</p>
+<pre><xmp>
+<div class="sirio-chip">
+	<span class="sirio-chip-label"><span class="fas fa-user" aria-hidden="true"></span>Chip con icona</span>
+</div>
+</xmp></pre>
+                            
+								<p class="guide-code-title">Chip con chiudi:</p>
+<pre><xmp>
+<div class="sirio-chip">
+	<span class="sirio-chip-label">Chip con Chiudi</span>
+	<button class="sirio-btn sirio-btn-primary">
+		<span class="fas fa-times" aria-hidden="true"></span>
+		<span class="sr-only">Elimina label</span>
+	</button>
+</div>
+</xmp></pre>
+                            
+								<p class="guide-code-title">Chip disabilitata:</p>
+<pre><xmp>
+<div class="sirio-chip disabled">
+	<span class="sirio-chip-label"><span class="fas fa-user" aria-hidden="true"></span>Chip disabilitata</span>
+	<button class="sirio-btn sirio-btn-primary" disabled="disabled">
+		<span class="fas fa-times" aria-hidden="true"></span>
+		<span class="sr-only">Elimina label</span>
+	</button>
+</div>
+</xmp></pre>
+                            </div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Chips di selezione (Checkbox)</h4>
+
+							<div class="blockquote">
+								<p><strong>Chips solo Testo (SELEZIONE)</strong> Le chips solo testo hanno la possibilità di fornire all’utente la facoltà di selezione tra uno o più elementi. Anche in questo caso non è possibile rimuovere il contenuto ma utilizzarle per scegliere una o più opzioni tra quelle fornite.</p>
+								<p><strong>Chips + Icona (SELEZIONE)</strong> Le chips con icona permettono di visualizzare la tipologia di contenuto grazie all’icona ma non permettono la rimozione dello stesso in quanto non hanno l’icona “X”. Possono essere utilizzate ad esempio nel caso in cui si voglia fornire all’utente la facoltà di selezione tra uno o più elementi.</p>
+								<p>La <strong>struttura con checkbox</strong> permette una <strong>selezione multipla</strong>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" role="switch" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+											<label for="input-checkbox-chips-1">Chip</label>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" role="switch" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+											<label for="input-checkbox-chips-2"><span class="fas fa-check" aria-hidden="true"></span>Chip con icona</label>
+										</div>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-chips-checkbox">
+                                <p class="guide-code-title">Chips di selezione checkbox:</p>
+<pre><xmp>
+<div class="sirio-chip-selection">
+	<input type="checkbox" role="switch" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+	<label for="input-checkbox-chips-1">Chip</label>
+</div>
+<div class="sirio-chip-selection">
+	<input type="checkbox" role="switch" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+	<label for="input-checkbox-chips-2"><span class="fas fa-check" aria-hidden="true"></span>Chip con icona</label>
+</div>
+</xmp></pre>
+
+							</div>
+
+							<h4 class="guide-title">Chips di selezione (Radio button)</h4>
+
+
+							<div class="blockquote">
+								<p>La <strong>struttura con radio button</strong> presenta una <strong>selezione già attiva</strong>, poiché gli elementi non possono essere tutti contemporaneamente deselezionati.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<div class="sirio-chip-selection">
+											<input type="radio" role="switch" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
+											<label for="input-radio-chips-1">Chip 1</label>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip-selection">
+											<input type="radio" role="switch" id="input-radio-chips-2" name="input-radio-chips" value="2">
+											<label for="input-radio-chips-2">Chip 2</label>
+										</div>
+									</div>
+									<div class="guide-col-auto">
+										<div class="sirio-chip-selection">
+											<input type="radio" role="switch" id="input-radio-chips-3" name="input-radio-chips" value="3">
+											<label for="input-radio-chips-3">Chip 3</label>
+										</div>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-chips-radio">
+                                <p class="guide-code-title">Chips di selezione radio button:</p>
+<pre><xmp>
+<div class="sirio-chip-selection">
+	<input type="radio" role="switch" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
+	<label for="input-radio-chips-1">Chip 1</label>
+</div>
+<div class="sirio-chip-selection">
+	<input type="radio" role="switch" id="input-radio-chips-2" name="input-radio-chips" value="2">
+	<label for="input-radio-chips-2">Chip 2</label>
+</div>
+<div class="sirio-chip-selection">
+	<input type="radio" role="switch" id="input-radio-chips-3" name="input-radio-chips" value="3">
+	<label for="input-radio-chips-3">Chip 3</label>
+</div>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="progress">Progress Bar</h3>
+
+							<div class="blockquote">
+								<p>Una progress bar (barra di avanzamento) ha lo scopo di comunicare l’avanzamento di un processo che avanzerà senza l’interazione dell’utente.</p>
+								<p>Per fornire alle persone feedback sui progressi di processi avviati dall’utente all’interno di prodotti digitali utilizziamo una progress bar.</p>
+								<p>L’avanzamento viene misurato da 0% a 100% (lettura da destra a sinistra) dove lo stato zero corrisponde all’avviamento del processo e cento al suo completamento.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<label for="progress-example-0">Progress label</label>
+										<progress id="progress-example-0" class="sirio-progress" value="0" max="100">0%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">0%</span>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="progress-example-1">Progress label</label>
+										<progress id="progress-example-1" class="sirio-progress" value="20" max="100">20%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">20%</span>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="progress-example-2">Progress label</label>
+										<progress id="progress-example-2" class="sirio-progress" value="40" max="100">40%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">40%</span>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="progress-example-3">Progress label</label>
+										<progress id="progress-example-3" class="sirio-progress" value="60" max="100">60%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">60%</span>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="progress-example-4">Progress label</label>
+										<progress id="progress-example-4" class="sirio-progress" value="80" max="100">80%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">80%</span>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="progress-example-5">Progress label</label>
+										<progress id="progress-example-5" class="sirio-progress" value="100" max="100">100%</progress>
+										<span class="sirio-progress-number" aria-hidden="true">100%</span>
+									</div>
+								</div>
+							</div>
+                            
+							<div class="code" aria-hidden="true" id="code-progress">
+                                <p class="guide-code-title">Progress bar:</p>
+<pre><xmp>
+<label for="progress-example">Progress label</label>
+<progress id="progress-example" class="sirio-progress" value="20" max="100">20%</progress>
+<span class="sirio-progress-number" aria-hidden="true">20%</span>
+</xmp></pre>
+                            </div>
+
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="validation">Validazione</h3>
+
+							<div class="blockquote">
+								<p>Sono state previste le seguenti classi per la segnalazione di validazione.</p>
+								<ul>
+									<li><strong>sirio-is-valid</strong></li>
+									<li><strong>sirio-is-warning</strong></li>
+									<li><strong>sirio-is-invalid</strong></li>
+								</ul>
+								<p>L'eventuale testo informativo della validazione deve essere successivo al campo di input. Inizialmente è già nascosto e si attiva quando compaiono una delle classi sopracitate.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-text-valid">Text:</label>
+											<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo">
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-text-warning">Text:</label>
+											<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo">
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-text-invalid">Text:</label>
+											<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo">
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-textarea-valid">Textarea:</label>
+											<textarea id="input-textarea-valid" name="input-textarea-valid" class="sirio-form-control sirio-is-valid" rows="5" placeholder="Descrizione messaggio"></textarea>
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-textarea-warning">Textarea:</label>
+											<textarea id="input-textarea-warning" name="input-textarea-warning" class="sirio-form-control sirio-is-warning" rows="5" placeholder="Descrizione messaggio"></textarea>
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="form-group">
+											<label for="input-textarea-invalid">Textarea:</label>
+											<textarea id="input-textarea-invalid" name="input-textarea-invalid" class="sirio-form-control sirio-is-invalid" rows="5" placeholder="Descrizione messaggio"></textarea>
+											<span class="sirio-form-feedback">
+												Lorem ipsum onopossum tagit tua
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-validation">
+                                <p class="guide-code-title">Input text valida:</p>
+<pre><xmp>
+<label for="input-text-valid">Text:</label>
+<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo">
+<span class="sirio-form-feedback">
+	Lorem ipsum onopossum tagit tua
+</span>
+</xmp></pre>
+
+                                <p class="guide-code-title">Input text warning:</p>
+<pre><xmp>
+<label for="input-text-warning">Text:</label>
+<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo">
+<span class="sirio-form-feedback">
+	Lorem ipsum onopossum tagit tua
+</span>
+</xmp></pre>
+								<p class="guide-code-title">Input text invalida:</p>
+<pre><xmp>
+<label for="input-text-invalid">Text:</label>
+<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo">
+<span class="sirio-form-feedback">
+	Lorem ipsum onopossum tagit tua
+</span>
+</xmp></pre>
+							</div>
+					</section>
+				</main>
+			</div>
+		</div>
+	</div>
+	
+		
+		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
+			<span class="fas fa-chevron-up"></span>
+		</button>
+
+		<!-- JS Webkit -->
+		<script src="../assets/js/sirio-webkit-min.js"></script>
+		<script src="../assets/js/datepicker-full.js"></script>
+		<script src="../assets/js/locales/it.js"></script>
+
+		<!-- JS Guide -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/clipboard.min.js"></script>
+		<script src="js/guide.js"></script>
+
+		<script>
+
+			// Inizializzazione Autocomplete
+			if ($('#autocompleteID2').length) {
+				// Autocomplete
+				let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
+				let newOptions = ["relazionale", "relazione", "relazioni", "relazioni industriali", "relegare", "relegazioni", "religione", "religioni", "religiosa"]
+				inputComponent.setOptionElements(newOptions);
+			}
+			
+			// Inizializzazione Alert
+			if ($('.sirio-alert').length) {
+				var alertElems = document.querySelectorAll(".sirio-alert");
+				for (var alertElem of alertElems) {
+					var alertObj = new SirioLib.SirioAlert(alertElem)
+				}
+			}
+			
+			// Inizializzazione Calendario VanillaJs Datepicker
+			// Lingua italiana modifica per ottenere la grafica del design
+			(function () {
+				Datepicker.locales.it = {
+					days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
+					daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					//daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+					daysMin: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					monthsShort: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					//monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+					today: "Oggi",
+					monthsTitle: "Mesi",
+					clear: "Cancella",
+					weekStart: 1,
+					format: "dd/mm/yyyy",
+
+					// Aggiunte per l'aria-label dei bottoni in testata 
+					btnMonth: "Cambia il mese",
+					btnPrevMonth: "Mese precedente",
+					btnNextMonth: "Mese successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale prima volta
+					btnYear: "Cambia l\'anno",
+					btnPrevYear: "Anno precedente",
+					btnNextYear: "Anno successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale seconda volta
+					btnDecade: "Cambia il decennio",
+					btnPrevDecade: "Decennio precedente",
+					btnNextDecade: "Decennio successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale terza volta
+					btnPrevCentury: "Secolo precedente",
+					btnNextCentury: "Secolo successivo"
+				};
+			}());
+			
+			const elems = document.querySelectorAll(".sirio-datepicker");
+				for (const elem of elems) {
+					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+						const datepicker = new Datepicker(elem, {
+							format: "dd/mm/yyyy",
+							language: "it",
+							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+							autohide: true
+						});
+					}
+				}
+
+				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (const elemRange of elemsRange) {
+					const datepickerRange = new DateRangePicker(elemRange, {
+						format: "dd/mm/yyyy",
+						language: "it",
+						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+					});
+				}
+		</script>
+
+</body>
+</html>

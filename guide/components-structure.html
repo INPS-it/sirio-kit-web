@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+	<link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+	<link rel="stylesheet" href="../assets/css/font-lora.css">
+
+	<!-- CSS WebKit -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	<link rel="stylesheet" href="css/guide.css">
+
+	<title>Form - Sirio Webkit</title>
+
+</head>
+<body>
+	<div class="guide-wrapper">
+		<div class="guide-container">
+			<div class="guide-flex">
+				<aside class="guide-aside">
+					<div class="guide-sticky">
+
+	<header class="guide-header">
+		<h1><a href="index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
+		<button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
+	</header>
+	
+<nav aria-label="Menu dei componenti" class="guide-nav">
+	<div class="guide-row">
+		<div class="guide-col">
+			<h2 class="guide-title">Menu Sirio Webkit</h2>
+		</div>
+		<div class="guide-col-auto">
+			<button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');"><span class="fas fa-times"></span></button>
+		</div>
+	</div>
+	<ul id="guide-nav">
+		<li>
+			<a href="#nav-structure">
+				Struttura
+			</a>
+			<ul id="nav-structure">
+				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-typography">
+				Tipografia
+			</a>
+			<ul id="nav-typography">
+				<li><a href="components-typography.html#font">Font</a></li>
+				<li><a href="components-typography.html#heading">Heading</a></li>
+				<li><a href="components-typography.html#colors">Colori</a></li>
+				<li><a href="components-typography.html#icons">Icone</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-contents">
+				Contenuto
+			</a>
+			<ul id="nav-contents">
+				<li><a href="components-contents.html#breadcrumb">Breadcrumb</a></li>
+				<li><a href="components-contents.html#dropdown">Dropdown</a></li>
+				<li><a href="components-contents.html#card">Card</a></li>
+				<li><a href="components-contents.html#tag">Tag</a></li>
+				<li><a href="components-contents.html#tab">Tab</a></li>
+				<li><a href="components-contents.html#collapse">Collapse</a></li>
+				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
+				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
+				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
+				<li><a href="components-contents.html#dialog">Dialog</a></li>
+				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-form">
+				Form
+			</a>
+			<ul id="nav-form">
+				<li><a href="components-form.html#bottoni">Bottoni</a></li>
+				<li><a href="components-form.html#input">Input</a></li>
+				<li><a href="components-form.html#input-group">Input Group</a></li>
+				<li><a href="components-form.html#selectDropdown">Dropdown Select</a></li>
+				<li><a href="components-form.html#autocomplete">Autocomplete</a></li>
+				<li><a href="components-form.html#searchbar">Searchbar</a></li>
+				<li><a href="components-form.html#selezione">Selezione</a></li>
+				<li><a href="components-form.html#fileupload">File Upload</a></li>
+				<li><a href="components-form.html#slider">Slider</a></li>
+				<li><a href="components-form.html#datepicker">Date & Time Picker</a></li>
+				<li><a href="components-form.html#chip">Chip</a></li>
+				<li><a href="components-form.html#progress">Progress Bar</a></li>
+				<li><a href="components-form.html#validation">Validazione</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+					</div>
+				</aside>
+				<main class="guide-main">
+					<h2 class="guide-title">Struttura</h2>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="page">Pagina</h3>
+
+							<div class="blockquote">
+								<p>Per la struttura tipica di una pagina INPS guardate direttamente il codice HTML qui sotto riportato.</p>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-page">
+								<p class="guide-code-title">Struttura pagina HTML:</p>
+<pre><xmp>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<meta name="description" content="Sito ufficiale di INPS (Istituto Nazionale Previdenza Sociale)">
+
+	<!-- CSS Plugin -->
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/datepicker.min.css">
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/font-titillium-web.css">
+	<link rel="stylesheet" href="css/font-lora.css">
+	<link rel="stylesheet" href="css/font-roboto-mono.css">
+
+	<!-- CSS UIKit -->
+	<link rel="stylesheet" href="css/webkit.min.css">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+
+	<!-- Cookiebar -->
+
+	<!-- Skip link -->
+	<div class="skiplink">
+		<a href="#nav" class="sr-only sr-only-focusable m-2">Vai al menu di navigazione principale</a>
+		<a href="#main" class="sr-only sr-only-focusable m-2">Vai al contenuto principale</a>
+		<a href="#footer" class="sr-only sr-only-focusable m-2">Vai al footer</a>
+	</div>
+
+	<!-- Header-->
+	<header id="header">...</header>
+
+	<!-- Main -->
+	<main id="main">
+		...
+	</main>
+
+	<!-- Footer -->
+	<footer id="footer">...</footer>
+
+	<!-- JS WebKit -->
+	<script src="js/datepicker-full.js"></script>
+	<script src="js/sirio-webkit.js"></script>
+	
+</body>
+</html>
+</xmp></pre>
+							</div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="grid">System Grid</h3>
+
+							<div class="blockquote">
+								<p>Tra gli asset inclusi con il webkit Sirio c'è il <strong>Bootstrap System Grid 5.2</strong> che potete usare per la creazione delle interfacce con i componenti qui presentati. Si basa su un layout a 12 colonne e offre la possibilità di utilizzo di molteplici classi css volte a semplificare l’applicazione del layout in pagina.</p>
+								<p>Quando è presente, il webkit sovrascrive alcune classi di stile per adeguarlo alle spaziature richieste.</p>
+                <p>Nel <strong>Bootstrap System Grid 5.2</strong> è inclusa una lista di utilità che possono essere applicate per le diverse esigenze della UI: gestione del display, flex, ordinamento, allineamento, spaziatura interna ed esterna.</p>
+                <ul>
+                  <li>Display (<a href="https://getbootstrap.com/docs/5.2/utilities/display/">https://getbootstrap.com/docs/5.2/utilities/display/</a>)</li>
+                  <li>Flex (<a href="https://getbootstrap.com/docs/5.2/utilities/flex/">https://getbootstrap.com/docs/5.2/utilities/flex/</a>)</li>
+                  <li>Spacing (<a href="https://getbootstrap.com/docs/5.2/utilities/spacing/">https://getbootstrap.com/docs/5.2/utilities/spacing/</a>)</li>
+                </ul>
+                <p>Nel dettaglio:</p>
+                <ul>
+                  <li>display</li>
+                  <li>order</li>
+                  <li>flex</li>
+                  <li>flex-direction</li>
+                  <li>flex-grow</li>
+                  <li>flex-shrink</li>
+                  <li>flex-wrap</li>
+                  <li>justify-content</li>
+                  <li>align-items</li>
+                  <li>align-content</li>
+                  <li>align-self</li>
+                  <li>margin</li>
+                  <li>margin-x</li>
+                  <li>margin-y</li>
+                  <li>margin-top</li>
+                  <li>margin-end</li>
+                  <li>margin-bottom</li>
+                  <li>margin-start</li>
+                  <li>negative-margin</li>
+                  <li>negative-margin-x</li>
+                  <li>negative-margin-y</li>
+                  <li>negative-margin-top</li>
+                  <li>negative-margin-end</li>
+                  <li>negative-margin-bottom</li>
+                  <li>negative-margin-start</li>
+                  <li>padding</li>
+                  <li>padding-x</li>
+                  <li>padding-y</li>
+                  <li>padding-top</li>
+                  <li>padding-end</li>
+                  <li>padding-bottom</li>
+                  <li>padding-start</li>
+                </ul>
+                <p>Per maggiori informazioni sull'utilizzo del System Grid si rimanda al sito <a href="https://getbootstrap.com/docs/5.2/layout/grid/">https://getbootstrap.com/docs/5.2/layout/grid/</a></p>
+
+                <table class="guide-table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">
+                        xs<br>
+                        <span class="fw-normal">&lt;576px</span>
+                      </th>
+                      <th scope="col">
+                        sm<br>
+                        <span class="fw-normal">≥576px</span>
+                      </th>
+                      <th scope="col">
+                        md<br>
+                        <span class="fw-normal">≥768px</span>
+                      </th>
+                      <th scope="col">
+                        lg<br>
+                        <span class="fw-normal">≥992px</span>
+                      </th>
+                      <th scope="col">
+                        xl<br>
+                        <span class="fw-normal">≥1200px</span>
+                      </th>
+                      <th scope="col">
+                        xxl<br>
+                        <span class="fw-normal">≥1400px</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th class="text-nowrap" scope="row">Container <code class="fw-normal">max-width</code></th>
+                      <td>auto</td>
+                      <td>540px</td>
+                      <td>720px</td>
+                      <td>960px</td>
+                      <td>1140px</td>
+                      <td>1320px</td>
+                    </tr>
+                    <tr>
+                      <th class="text-nowrap" scope="row">Class prefix</th>
+                      <td><code>col-</code></td>
+                      <td><code>col-sm-</code></td>
+                      <td><code>col-md-</code></td>
+                      <td><code>col-lg-</code></td>
+                      <td><code>col-xl-</code></td>
+                      <td><code>col-xxl-</code></td>
+                    </tr>
+                    <tr>
+                      <th class="text-nowrap" scope="row">max # di colonne</th>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>12</td>
+                      <td>12</td>
+                      <td>12</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <th class="text-nowrap" scope="row">Gutter width</th>
+                      <td>8px</td>
+                      <td>12px</td>
+                      <td>20px</td>
+                      <td>20px</td>
+                      <td>28px</td>
+                      <td>28px</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="footercmp">Footer</h3>
+
+							<div class="blockquote">
+								<p>Struttura del footer, va utilizzato con la presenza del System Grid di Bootstrap.</p>
+								<p>Ci sono dei blocchi che sono facoltativi da utilizzare in base alle esigente, come il blocco azioni o il site map.</p>
+								<p>Il modulo con il Torna su deve puntare a un ID con contenuto "top-page" perchè funzioni.</p>
+							</div>
+
+							<div class="guide-example">
+								<p>COMING SOON</p>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-footer">
+								<p class="guide-code-title">Struttura Footer:</p>
+<pre><xmp>
+
+</xmp></pre>
+							</div>
+					</section>
+
+				</main>
+			</div>
+		</div>
+	</div>
+	
+		
+		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
+			<span class="fas fa-chevron-up"></span>
+		</button>
+
+		<!-- JS Webkit -->
+		<script src="../assets/js/sirio-webkit-min.js"></script>
+		<script src="../assets/js/datepicker-full.js"></script>
+		<script src="../assets/js/locales/it.js"></script>
+
+		<!-- JS Guide -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/clipboard.min.js"></script>
+		<script src="js/guide.js"></script>
+
+		<script>
+
+			// Inizializzazione Autocomplete
+			if ($('#autocompleteID2').length) {
+				// Autocomplete
+				let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
+				let newOptions = ["relazionale", "relazione", "relazioni", "relazioni industriali", "relegare", "relegazioni", "religione", "religioni", "religiosa"]
+				inputComponent.setOptionElements(newOptions);
+			}
+			
+			// Inizializzazione Alert
+			if ($('.sirio-alert').length) {
+				var alertElems = document.querySelectorAll(".sirio-alert");
+				for (var alertElem of alertElems) {
+					var alertObj = new SirioLib.SirioAlert(alertElem)
+				}
+			}
+
+			// Inizializzazione Calendario VanillaJs Datepicker
+			// Lingua italiana modifica per ottenere la grafica del design
+			(function () {
+				Datepicker.locales.it = {
+					days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
+					daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					//daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+					daysMin: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					monthsShort: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					//monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+					today: "Oggi",
+					monthsTitle: "Mesi",
+					clear: "Cancella",
+					weekStart: 1,
+					format: "dd/mm/yyyy",
+
+					// Aggiunte per l'aria-label dei bottoni in testata 
+					btnMonth: "Cambia il mese",
+					btnPrevMonth: "Mese precedente",
+					btnNextMonth: "Mese successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale prima volta
+					btnYear: "Cambia l\'anno",
+					btnPrevYear: "Anno precedente",
+					btnNextYear: "Anno successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale seconda volta
+					btnDecade: "Cambia il decennio",
+					btnPrevDecade: "Decennio precedente",
+					btnNextDecade: "Decennio successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale terza volta
+					btnPrevCentury: "Secolo precedente",
+					btnNextCentury: "Secolo successivo"
+				};
+			}());
+			
+			const elems = document.querySelectorAll(".sirio-datepicker");
+				for (const elem of elems) {
+					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+						const datepicker = new Datepicker(elem, {
+							format: "dd/mm/yyyy",
+							language: "it",
+							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+							autohide: true
+						});
+					}
+				}
+
+				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (const elemRange of elemsRange) {
+					const datepickerRange = new DateRangePicker(elemRange, {
+						format: "dd/mm/yyyy",
+						language: "it",
+						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+					});
+				}
+		</script>
+
+</body>
+</html>
