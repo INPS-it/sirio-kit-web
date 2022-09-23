@@ -1,0 +1,3714 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+	<link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+	<link rel="stylesheet" href="../assets/css/font-lora.css">
+
+	<!-- CSS WebKit -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	<link rel="stylesheet" href="css/guide.css">
+
+	<title>Contenuto - Sirio WebKit</title>
+
+</head>
+<body>
+	<div class="guide-wrapper">
+		<div class="guide-container">
+			<div class="guide-flex">
+				<aside class="guide-aside">
+					<div class="guide-sticky">
+
+	<header class="guide-header">
+		<h1><a href="index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
+		<button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
+	</header>
+	
+<nav aria-label="Menu dei componenti" class="guide-nav">
+	<div class="guide-row">
+		<div class="guide-col">
+			<h2 class="guide-title">Menu Sirio Webkit</h2>
+		</div>
+		<div class="guide-col-auto">
+			<button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');"><span class="fas fa-times"></span></button>
+		</div>
+	</div>
+	<ul id="guide-nav">
+		<li>
+			<a href="#nav-structure">
+				Struttura
+			</a>
+			<ul id="nav-structure">
+				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-typography">
+				Tipografia
+			</a>
+			<ul id="nav-typography">
+				<li><a href="components-typography.html#font">Font</a></li>
+				<li><a href="components-typography.html#heading">Heading</a></li>
+				<li><a href="components-typography.html#colors">Colori</a></li>
+				<li><a href="components-typography.html#icons">Icone</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-contents">
+				Contenuto
+			</a>
+			<ul id="nav-contents">
+				<li><a href="components-contents.html#breadcrumb">Breadcrumb</a></li>
+				<li><a href="components-contents.html#dropdown">Dropdown</a></li>
+				<li><a href="components-contents.html#card">Card</a></li>
+				<li><a href="components-contents.html#tag">Tag</a></li>
+				<li><a href="components-contents.html#tab">Tab</a></li>
+				<li><a href="components-contents.html#collapse">Collapse</a></li>
+				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
+				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
+				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
+				<li><a href="components-contents.html#dialog">Dialog</a></li>
+				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-form">
+				Form
+			</a>
+			<ul id="nav-form">
+				<li><a href="components-form.html#bottoni">Bottoni</a></li>
+				<li><a href="components-form.html#input">Input</a></li>
+				<li><a href="components-form.html#input-group">Input Group</a></li>
+				<li><a href="components-form.html#selectDropdown">Dropdown Select</a></li>
+				<li><a href="components-form.html#autocomplete">Autocomplete</a></li>
+				<li><a href="components-form.html#searchbar">Searchbar</a></li>
+				<li><a href="components-form.html#selezione">Selezione</a></li>
+				<li><a href="components-form.html#fileupload">File Upload</a></li>
+				<li><a href="components-form.html#slider">Slider</a></li>
+				<li><a href="components-form.html#datepicker">Date & Time Picker</a></li>
+				<li><a href="components-form.html#chip">Chip</a></li>
+				<li><a href="components-form.html#progress">Progress Bar</a></li>
+				<li><a href="components-form.html#validation">Validazione</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+					</div>
+				</aside>
+				<main class="guide-main">
+					<h2 class="guide-title">Contenuto</h2>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="breadcrumb">Breadcrumb</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+											<p class="sr-only">Ti trovi in:</p>
+											<ol class="sirio-breadcrumb" role="list">
+												<li><a href="#">Home</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li class="active">Dolor sit amet<span class="sr-only">Pagina corrente</span></li>
+											</ol>
+										</nav>
+																				
+										<nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+											<p class="sr-only">Ti trovi in:</p>
+											<ol class="sirio-breadcrumb" role="list">
+												<li><a href="#"><span class="fas fa-home" aria-hidden="true"></span>Home</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li class="active"><span class="fas fa-baby-carriage" aria-hidden="true"></span>Dolor sit amet<span class="sr-only">Pagina corrente</span></li>
+											</ol>
+										</nav>
+																		
+										<nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+											<p class="sr-only">Ti trovi in:</p>
+											<ol class="sirio-breadcrumb" role="list">
+												<li><a href="#"><span class="fas fa-home" aria-hidden="true"></span>Home</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li><a href="#">Lorem ipsum</a></li>
+												<li class="active">Dolor sit amet<span class="sr-only">Pagina corrente</span></li>
+											</ol>
+										</nav>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-breadcrumb">
+								<p class="guide-code-title">Breadcrumb:</p>
+<pre><xmp>
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+	<p class="sr-only">Ti trovi in:</p>
+	<ol class="sirio-breadcrumb" role="list">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Lorem ipsum</a></li>
+		<li class="active">Dolor sit amet<span class="sr-only">Pagina corrente</span></li>
+	</ol>
+</nav>
+</xmp></pre>
+								<p class="guide-code-title">Breadcrumb con icone:</p>
+<pre><xmp>
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+	<p class="sr-only">Ti trovi in:</p>
+	<ol class="sirio-breadcrumb" role="list">
+		<li><a href="#"><span class="fas fa-home" aria-hidden="true"></span>Home</a></li>
+		<li><a href="#">Lorem ipsum</a></li>
+		<li class="active"><span class="fas fa-baby-carriage" aria-hidden="true"></span>Dolor sit amet<span class="sr-only">Pagina corrente</span></li>
+	</ol>
+</nav>
+</xmp></pre>
+							</div>
+						</section>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="dropdown">Dropdown</h3>
+
+							<div class="blockquote">
+								<p>Per avere il menu allineato a destra aggiungere al sirio-dropdown-menu la classe <code>sirio-dropdown-menu-right</code></p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-1" data-sirio-toggle="dropdown" aria-expanded="false">
+												Dropdown menu
+											</button>
+											<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-1" data-sirio-visible="false">
+												<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-4" data-sirio-toggle="dropdown" aria-expanded="true">
+												Dropdown menu a destra
+											</button>
+											<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-4" data-sirio-visible="true">
+												<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+											</ul>
+										</div>
+									</div>
+								
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" type="button" id="dropdown-example-2" data-sirio-toggle="dropdown" aria-expanded="false">
+												<span class="sr-only">Scegli una funzione</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+											</button>
+											<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-2" data-sirio-visible="false">
+												<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+											</ul>
+										</div>
+									</div>
+								
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" type="button" id="dropdown-example-3" data-sirio-toggle="dropdown" aria-expanded="false">
+												<span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span>
+											</button>
+											<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-3" data-sirio-visible="false">
+												<li><a class="sirio-dropdown-item" href="#">Facebook</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Instagram</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Twitter</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dropdown">
+								<p class="guide-code-title">Dropdown:</p>
+<pre><xmp>
+<div class="sirio-dropdown" data-sirio-component="dropdown">
+	<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-1" data-sirio-toggle="dropdown" aria-expanded="false">
+		Dropdown menu
+	</button>
+	<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-1" data-sirio-visible="false">
+		<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+	</ul>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Dropdown a destra:</p>
+<pre><xmp>
+<div class="sirio-dropdown" data-sirio-component="dropdown">
+	<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-2" data-sirio-toggle="dropdown" aria-expanded="false">
+		Dropdown menu
+	</button>
+	<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-2" data-sirio-visible="false">
+		<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+	</ul>
+</div>
+</xmp></pre>
+							</div>
+						</section>
+						
+						<section class="guide-section">
+							<h3 class="guide-title" id="card">Card</h3>
+
+							<div class="blockquote">
+								<p>Il titolo di ogni card va conformato con il livello di HEADING in corso (h2, h3, h4,...)</p>
+								<p>Con l'aggiunta della classe <strong>sirio-card-dark</strong> alla card si ottiene il colore scuro. In questo caso cambiare la classe dei bottoni usati con <code>sirio-btn-tertiary</code> in <strong>sirio-btn-tertiary-light</strong> e aggiungerla ai bottoni con classe <code>sirio-btn-icon</code>.</p>
+								<p>Se usati all'interno del System Grid di Bootstrap, per ottenere che le card siano della stessa altezza aggiungere la class <strong>h-100</strong> alla card.</p>
+							</div>
+
+							<h4 class="guide-title">Card portrait: category</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+												<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+												<p class="sirio-card-signature">Firma autore</p>
+											</div>
+											<div class="sirio-card-footer">
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+												<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+												<p class="sirio-card-signature">Firma autore</p>
+											</div>
+											<div class="sirio-card-footer">
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+													<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-card-portrait-category">
+								<p class="guide-code-title">Card portrait: category</p>
+<pre><xmp>
+<div class="sirio-card">
+	<div class="sirio-card-header">
+		<p><span class="sirio-tag">Categoria</span></p>
+		<p class="sirio-card-data">13 Nov 2021</p>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+		<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+		<p class="sirio-card-signature">Firma autore</p>
+	</div>
+	<div class="sirio-card-footer">
+		<div class="sirio-card-btn-icons">
+			<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+			<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Card portrait: category dark version</p>
+<pre><xmp>
+<div class="sirio-card sirio-card-dark">
+	<div class="sirio-card-header">
+		<p><span class="sirio-tag">Categoria</span></p>
+		<p class="sirio-card-data">13 Nov 2021</p>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+		<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+		<p class="sirio-card-signature">Firma autore</p>
+	</div>
+	<div class="sirio-card-footer">
+		<div class="sirio-card-btn-icons">
+			<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+			<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Card portrait: azione</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+											</div>
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+									
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+											</div>
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-card-portrait-action">
+								<p class="guide-code-title">Card portrait: azione</p>
+<pre><xmp>
+<div class="sirio-card">
+	<div class="sirio-card-header">
+		<p><span class="sirio-tag">Categoria</span></p>
+		<p class="sirio-card-data">13 Nov 2021</p>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+	</div>
+	<div class="sirio-card-footer">
+		<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Card portrait: azione dark version</p>
+<pre><xmp>
+<div class="sirio-card sirio-card-dark">
+	<div class="sirio-card-header">
+		<p><span class="sirio-tag">Categoria</span></p>
+		<p class="sirio-card-data">13 Nov 2021</p>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+	</div>
+	<div class="sirio-card-footer">
+		<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Card link</h4>
+							
+							<div class="blockquote">
+								<p>Con la trasformazione da DIV a A della card si rende l'intera area cliccabile con focus interno. Va aggiunta un'<strong>aria-label</strong> col titolo della card.</p>
+							</div>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6 mx-auto">
+										<a href="#" class="sirio-card" aria-label="Titolo lorem ipsum dolor consectetur adipisci eli">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+												<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-card-link">
+								<p class="guide-code-title">Card link</p>
+<pre><xmp>
+<a href="#" class="sirio-card" aria-label="Titolo lorem ipsum dolor consectetur adipisci eli">
+	<div class="sirio-card-header">
+		<p><span class="sirio-tag">Categoria</span></p>
+		<p class="sirio-card-data">13 Nov 2021</p>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title">Titolo lorem ipsum dolor consectetur adipisci eli</h4>
+		<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+	</div>
+</a>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Card portrait con immagine superiore</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row guide-row-center">
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-image">
+												<img src="img/example-1.jpg" alt="">
+												<div class="sirio-card-header">
+													<p><span class="sirio-tag">Categoria</span></p>
+													<p class="sirio-card-data">13 Nov 2021</p>
+												</div>
+											</div>
+											<div class="sirio-card-body">
+												<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+												<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+												<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+												</p>
+												<p class="sirio-card-signature">Firma autore</p>
+											</div>
+											<div class="sirio-card-footer">
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-card-img-top">
+								<p class="guide-code-title">Card con immagine top</p>
+<pre><xmp>
+<div class="sirio-card">
+	<div class="sirio-card-image">
+		<img src="img/example-1.jpg" alt="">
+		<div class="sirio-card-header">
+			<p><span class="sirio-tag">Categoria</span></p>
+			<p class="sirio-card-data">13 Nov 2021</p>
+		</div>
+	</div>
+	<div class="sirio-card-body">
+		<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+		<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+		<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+		</p>
+		<p class="sirio-card-signature">Firma autore</p>
+	</div>
+	<div class="sirio-card-footer">
+		<div class="sirio-card-btn-icons">
+			<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+			<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+		</div>
+	</div>
+</div>
+</xmp></pre> 
+							</div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Card con immagine laterale</h4>
+					
+							<div class="blockquote">
+								<p>Di default l'immagine viene allineata a sinistra. Per averla a destra aggiungere la classe <code>sirio-card-image-right</code> al div con classe <code>sirio-card-image</code>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<div class="sirio-card sirio-card-image-wrapper">
+											<div class="sirio-card-image">
+												<img src="img/example-1.jpg" alt="">
+												<div class="sirio-card-header">
+													<p><span class="sirio-tag">Categoria</span></p>
+													<p class="sirio-card-data">13 Nov 2021</p>
+												</div>
+											</div>
+											<div class="sirio-card-col">
+												<div class="sirio-card-body">
+													<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+													<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+													<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+													</p>
+													<p class="sirio-card-signature">Firma autore</p>
+												</div>
+												<div class="sirio-card-footer">
+													<div class="sirio-card-btn-icons">
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-12">
+										<div class="sirio-card sirio-card-image-wrapper">
+											<div class="sirio-card-image sirio-card-image-right">
+												<img src="img/example-1.jpg" alt="">
+												<div class="sirio-card-header">
+													<p><span class="sirio-tag">Categoria</span></p>
+													<p class="sirio-card-data">13 Nov 2021</p>
+												</div>
+											</div>
+											<div class="sirio-card-col">
+												<div class="sirio-card-body">
+													<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+													<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+													<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+													</p>
+													<p class="sirio-card-signature">Firma autore</p>
+												</div>
+												<div class="sirio-card-footer">
+													<div class="sirio-card-btn-icons">
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-card-img-sx">
+								<p class="guide-code-title">Card con immagine a sinistra</p>
+<pre><xmp>
+<div class="sirio-card sirio-card-image-wrapper">
+	<div class="sirio-card-image">
+		<img src="img/example-1.jpg" alt="">
+		<div class="sirio-card-header">
+			<p><span class="sirio-tag">Categoria</span></p>
+			<p class="sirio-card-data">13 Nov 2021</p>
+		</div>
+	</div>
+	<div class="sirio-card-col">
+		<div class="sirio-card-body">
+			<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+			<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+			<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+			</p>
+			<p class="sirio-card-signature">Firma autore</p>
+		</div>
+		<div class="sirio-card-footer">
+			<div class="sirio-card-btn-icons">
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Card con immagine a destra</p>
+<pre><xmp>
+<div class="sirio-card sirio-card-image-wrapper">
+	<div class="sirio-card-image sirio-card-image-right">
+		<img src="img/example-1.jpg" alt="">
+		<div class="sirio-card-header">
+			<p><span class="sirio-tag">Categoria</span></p>
+			<p class="sirio-card-data">13 Nov 2021</p>
+		</div>
+	</div>
+	<div class="sirio-card-col">
+		<div class="sirio-card-body">
+			<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+			<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+			<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+			</p>
+			<p class="sirio-card-signature">Firma autore</p>
+		</div>
+		<div class="sirio-card-footer">
+			<div class="sirio-card-btn-icons">
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Card landscape con immagine</h4>
+
+							<div class="blockquote">
+								<p>Con l'aggiunta della classe <code>sirio-card-landscape</code> potrete ottenere una card con caratteri più grandi e più padding nella visualizzazione desktop.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<div class="sirio-card sirio-card-image-wrapper sirio-card-landscape">
+											<div class="sirio-card-image">
+												<img src="img/example-1.jpg" alt="">
+												<div class="sirio-card-header">
+													<p><span class="sirio-tag">Categoria</span></p>
+													<p class="sirio-card-data">13 Nov 2021</p>
+												</div>
+											</div>
+											<div class="sirio-card-col">
+												<div class="sirio-card-body">
+													<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+													<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+													<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+													</p>
+													<p class="sirio-card-signature">Firma autore</p>
+												</div>
+												<div class="sirio-card-footer">
+													<div class="sirio-card-btn-icons">
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+														<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="code" aria-hidden="true" id="code-card-img-big">
+								<p class="guide-code-title">Card landscape con immagine</p>
+<pre><xmp>
+<div class="sirio-card sirio-card-image-wrapper sirio-card-landscape">
+	<div class="sirio-card-image">
+		<img src="img/example-1.jpg" alt="">
+		<div class="sirio-card-header">
+			<p><span class="sirio-tag">Categoria</span></p>
+			<p class="sirio-card-data">13 Nov 2021</p>
+		</div>
+	</div>
+	<div class="sirio-card-col">
+		<div class="sirio-card-body">
+			<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+			<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+			<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+			</p>
+			<p class="sirio-card-signature">Firma autore</p>
+		</div>
+		<div class="sirio-card-footer">
+			<div class="sirio-card-btn-icons">
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+				<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+							
+							
+							<h4 class="guide-title">.sirio-card-header</h4>
+
+							<div class="guide-example">
+
+								<div class="guide-row guide-row-center">
+									<div class="guide-col-md-6 mb-4">
+										<div class="sirio-card">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6 mb-4">
+										<div class="sirio-card">
+											<div class="sirio-card-header">
+												<span class="fas fa-book fa-32" aria-hidden="true"></span>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="guide-row">
+									<div class="guide-col-md-6 mb-4">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-header">
+												<p><span class="sirio-tag">Categoria</span></p>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6 mb-4">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-header">
+												<span class="fas fa-book fa-32" aria-hidden="true"></span>
+												<p class="sirio-card-data">13 Nov 2021</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-card-header">
+								<p class="guide-code-title">Card header con badge</p>
+<pre><xmp>
+<div class="sirio-card-header">
+	<p><span class="sirio-tag">Categoria</span></p>
+	<p class="sirio-card-data">13 Nov 2021</p>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card header con icona</p>
+<pre><xmp>
+<div class="sirio-card-header">
+	<span class="fas fa-book fa-32" aria-hidden="true"></span>
+	<p class="sirio-card-data">13 Nov 2021</p>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">.sirio-card-footer</h4>
+
+							<div class="guide-example">
+								<div class="guide-row guide-row-center">
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-footer">
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+												<div class="sirio-card-btn-icons">
+													<button class="sirio-btn sirio-btn-icon" type="button" title="Scegli lorem ipsum">
+														<span class="sr-only">Scegli lorem ipsum</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary sirio-btn-block">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-card-footer">
+								<p class="guide-code-title">Card footer con solo icone</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<div class="sirio-card-btn-icons">
+		<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+		<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con btn + condivisione social</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+
+	<div class="sirio-card-btn-icons">
+		<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con btn + ellipsis</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+
+	<div class="sirio-card-btn-icons">
+		<button class="sirio-btn sirio-btn-icon" type="button" title="Scegli lorem ipsum">
+			<span class="sr-only">Scegli lorem ipsum</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+		</button>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con solo btn</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary">Lorem ipsum</a>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer btn sirio-btn-block</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary sirio-btn-block">Lorem ipsum</a>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+							
+
+							<h4 class="guide-title">.sirio-card-footer > Dark version</h4>
+							
+							<div class="blockquote">
+								<p>Con l'aggiunta della classe <strong>sirio-card-dark</strong> alla card si ottiene il colore scuro. In questo caso cambiare la classe dei bottoni usati con <code>sirio-btn-tertiary</code> in <strong>sirio-btn-tertiary-light</strong> e aggiungerla ai bottoni con classe <code>sirio-btn-icon</code>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row guide-row-center">
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-footer">
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+													<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+												<div class="sirio-card-btn-icons">
+													<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+												<div class="sirio-card-btn-icons">
+													<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" type="button" title="Scegli lorem ipsum">
+														<span class="sr-only">Scegli lorem ipsum</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+									<div class="guide-col-md-6">
+										<div class="sirio-card sirio-card-dark">
+											<div class="sirio-card-footer">
+												<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block">Lorem ipsum</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-card-footer-dark">
+								<p class="guide-code-title">Card footer con solo icone</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<div class="sirio-card-btn-icons">
+		<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+		<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con btn + condivisione social</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+
+	<div class="sirio-card-btn-icons">
+		<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con btn + ellipsis</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+
+	<div class="sirio-card-btn-icons">
+		<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" type="button" title="Scegli lorem ipsum">
+			<span class="sr-only">Scegli lorem ipsum</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+		</button>
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer con solo btn</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary-light">Lorem ipsum</a>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Card footer btn sirio-btn-block</p>
+<pre><xmp>
+<div class="sirio-card-footer">
+	<a href="#" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block">Lorem ipsum</a>
+</div>
+</xmp></pre>
+							</div>
+
+						</section>
+						
+						<section class="guide-section">
+							<h3 class="guide-title" id="tag">Tag</h3>
+
+							<div class="blockquote">
+								<p>I tag vengono utilizzati per promuovere una determinata tipologia di contenuto che solitamente è racchiuso in una una o due parole. Le Tags vengono utilizzate all’interno di componenti (es.: Card) per definirne la tipologia di contenuto.</p>
+								<hr>
+								<p><strong>ATTENZIONE</strong> I tag <strong>non sono elementi interattivi</strong> e non devono mai essere utilizzate al posto delle Chips INPUT o di SELEZIONE.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<span class="sirio-tag">Default</span>
+									</div>
+									
+									<div class="guide-col-auto">
+										<span class="sirio-tag sirio-bg-danger">Alert</span>
+									</div>
+									
+									<div class="guide-col-auto">
+										<span class="sirio-tag sirio-bg-warning">Warning</span>
+									</div>
+									
+									<div class="guide-col-auto">
+										<span class="sirio-tag sirio-bg-info">Info</span>
+									</div>
+									
+									<div class="guide-col-auto">
+										<span class="sirio-tag sirio-bg-success">Success</span>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="code" aria-hidden="true" id="code-tag">
+                                <p class="guide-code-title">Tag:</p>
+<pre><xmp>
+<span class="sirio-tag">Default</span>
+
+<span class="sirio-tag sirio-bg-danger">Alert</span>
+
+<span class="sirio-tag sirio-bg-warning">Warning</span>
+
+<span class="sirio-tag sirio-bg-info">Info</span>
+
+<span class="sirio-tag sirio-bg-success">Success</span>
+</xmp></pre>       
+                            </div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="tab">Tab</h3>
+
+							<h4 class="guide-title">Tab container orizzontale</h4>
+
+							<div class="guide-example">
+								<div class="sirio-tab" data-sirio-component="tab">
+									<ul class="sirio-tab-nav" role="tablist">
+										<li>
+											<a id="tab-label-1" href="#tab-content-1" data-sirio-toggle="tab" aria-controls="tab-content-1" aria-selected="true" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-label-2" href="#tab-content-2" data-sirio-toggle="tab" aria-controls="tab-content-2" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-label-3" href="#tab-content-3" data-sirio-toggle="tab" aria-controls="tab-content-3" aria-selected="false" role="tab"><span class="fas fa-file" aria-hidden="true"></span>Label tab con icona</a>
+										</li>
+										<li>
+											<a id="tab-label-4" href="#tab-content-4" data-sirio-toggle="tab" aria-controls="tab-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+										</li>
+										<li>
+											<a id="tab-label-5" href="#tab-content-5" data-sirio-toggle="tab" aria-controls="tab-content-5" aria-selected="false" role="tab">Label tab</a>
+										</li>
+									</ul>
+									<div class="sirio-tab-content">
+										<div id="tab-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-1" data-sirio-visible="true">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-2" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-3" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-4" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-5" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabs">
+								<p class="guide-code-title">Tab container orizzontale:</p>
+<pre><xmp>
+<div class="sirio-tab" data-sirio-component="tab">
+	<ul class="sirio-tab-nav" role="tablist">
+		<li>
+			<a id="tab-label-1" href="#tab-content-1" data-sirio-toggle="tab" aria-controls="tab-content-1" aria-selected="true" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-label-2" href="#tab-content-2" data-sirio-toggle="tab" aria-controls="tab-content-2" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-label-3" href="#tab-content-3" data-sirio-toggle="tab" aria-controls="tab-content-3" aria-selected="false" role="tab"><span class="fas fa-file" aria-hidden="true"></span>Label tab con icona</a>
+		</li>
+		<li>
+			<a id="tab-label-4" href="#tab-content-4" data-sirio-toggle="tab" aria-controls="tab-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+		</li>
+		<li>
+			<a id="tab-label-5" href="#tab-content-5" data-sirio-toggle="tab" aria-controls="tab-content-5" aria-selected="false" role="tab">Label tab</a>
+		</li>
+	</ul>
+	<div class="sirio-tab-content">
+		<div id="tab-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-1" data-sirio-visible="true">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-2" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-3" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-4" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-5" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+							
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Tab line orizzontale</h4>
+
+							<div class="guide-example">
+								<div class="sirio-tab" data-sirio-component="tab">
+									<ul class="sirio-tab-nav sirio-tab-nav-line" role="tablist">
+										<li>
+											<a id="tab-line-label-1" href="#tab-line-content-1" data-sirio-toggle="tab" aria-controls="tab-line-content-1" aria-selected="true" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-line-label-2" href="#tab-line-content-2" data-sirio-toggle="tab" aria-controls="tab-line-content-2" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-line-label-3" href="#tab-line-content-3" data-sirio-toggle="tab" aria-controls="tab-line-content-3" aria-selected="false" role="tab"><span class="fas fa-file" aria-hidden="true"></span>Label tab con icona</a>
+										</li>
+										<li>
+											<a id="tab-line-label-4" href="#tab-line-content-4" data-sirio-toggle="tab" aria-controls="tab-line-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+										</li>
+										<li>
+											<a id="tab-line-label-5" href="#tab-line-content-5" data-sirio-toggle="tab" aria-controls="tab-line-content-5" aria-selected="false" role="tab">Label tab</a>
+										</li>
+									</ul>
+									<div class="sirio-tab-content">
+										<div id="tab-line-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-1" data-sirio-visible="true">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-2" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-3" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-4" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-5" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabs-line">
+								<p class="guide-code-title">Tab line orizzontale:</p>
+<pre><xmp>
+<div class="sirio-tab" data-sirio-component="tab">
+	<ul class="sirio-tab-nav sirio-tab-nav-line" role="tablist">
+		<li>
+			<a id="tab-line-label-1" href="#tab-line-content-1" data-sirio-toggle="tab" aria-controls="tab-line-content-1" aria-selected="true" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-line-label-2" href="#tab-line-content-2" data-sirio-toggle="tab" aria-controls="tab-line-content-2" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-line-label-3" href="#tab-line-content-3" data-sirio-toggle="tab" aria-controls="tab-line-content-3" aria-selected="false" role="tab"><span class="fas fa-file" aria-hidden="true"></span>Label tab con icona</a>
+		</li>
+		<li>
+			<a id="tab-line-label-4" href="#tab-line-content-4" data-sirio-toggle="tab" aria-controls="tab-line-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+		</li>
+		<li>
+			<a id="tab-line-label-5" href="#tab-line-content-5" data-sirio-toggle="tab" aria-controls="tab-line-content-5" aria-selected="false" role="tab">Label tab</a>
+		</li>
+	</ul>
+	<div class="sirio-tab-content">
+		<div id="tab-line-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-1" data-sirio-visible="true">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-2" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-3" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-4" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-label-5" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Tab container verticale</h4>
+							
+							<div class="guide-example">
+								<div class="sirio-tab sirio-tab-vertical" data-sirio-component="tab">
+									<ul class="sirio-tab-nav" role="tablist" aria-orientation="vertical">
+										<li>
+											<a id="tab-vertical-label-1" href="#tab-vertical-content-1" data-sirio-toggle="tab" aria-controls="tab-vertical-content-1" aria-selected="true" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-vertical-label-2" href="#tab-vertical-content-2" data-sirio-toggle="tab" aria-controls="tab-vertical-content-2" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-vertical-label-3" href="#tab-vertical-content-3" data-sirio-toggle="tab" aria-controls="tab-vertical-content-3" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-vertical-label-4" href="#tab-vertical-content-4" data-sirio-toggle="tab" aria-controls="tab-vertical-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+										</li>
+										<li>
+											<a id="tab-vertical-label-5" href="#tab-vertical-content-5" data-sirio-toggle="tab" aria-controls="tab-vertical-content-5" aria-selected="false" role="tab">Label tab</a>
+										</li>
+									</ul>
+									<div class="sirio-tab-content">
+										<div id="tab-vertical-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-1" data-sirio-visible="true">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-vertical-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-2" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-vertical-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-3" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-vertical-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-4" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-vertical-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-5" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="code" aria-hidden="true" id="code-tab-vertical">
+								<p class="guide-code-title">Tab container verticale:</p>
+<pre><xmp>			
+<div class="sirio-tab sirio-tab-vertical" data-sirio-component="tab">
+	<ul class="sirio-tab-nav" role="tablist" aria-orientation="vertical">
+		<li>
+			<a id="tab-vertical-label-1" href="#tab-vertical-content-1" data-sirio-toggle="tab" aria-controls="tab-vertical-content-1" aria-selected="true" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-vertical-label-2" href="#tab-vertical-content-2" data-sirio-toggle="tab" aria-controls="tab-vertical-content-2" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-vertical-label-3" href="#tab-vertical-content-3" data-sirio-toggle="tab" aria-controls="tab-vertical-content-3" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-vertical-label-4" href="#tab-vertical-content-4" data-sirio-toggle="tab" aria-controls="tab-vertical-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+		</li>
+		<li>
+			<a id="tab-vertical-label-5" href="#tab-vertical-content-5" data-sirio-toggle="tab" aria-controls="tab-vertical-content-5" aria-selected="false" role="tab">Label tab</a>
+		</li>
+	</ul>
+	<div class="sirio-tab-content">
+		<div id="tab-vertical-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-1" data-sirio-visible="true">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-vertical-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-2" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-vertical-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-3" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-vertical-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-4" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-vertical-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-vertical-label-5" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+							
+
+							<h4 class="guide-title">Tab line verticale</h4>		
+							
+							<div class="guide-example">
+								<div class="sirio-tab sirio-tab-vertical" data-sirio-component="tab">
+									<ul class="sirio-tab-nav sirio-tab-nav-line" role="tablist" aria-orientation="vertical">
+										<li>
+											<a id="tab-line-vertical-label-1" href="#tab-line-vertical-content-1" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-1" aria-selected="true" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-line-vertical-label-2" href="#tab-line-vertical-content-2" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-2" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-line-vertical-label-3" href="#tab-line-vertical-content-3" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-3" aria-selected="false" role="tab">Label tab</a>
+										</li>
+										<li>
+											<a id="tab-line-vertical-label-4" href="#tab-line-vertical-content-4" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+										</li>
+										<li>
+											<a id="tab-line-vertical-label-5" href="#tab-line-vertical-content-5" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-5" aria-selected="false" role="tab">Label tab</a>
+										</li>
+									</ul>
+									<div class="sirio-tab-content">
+										<div id="tab-line-vertical-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-1" data-sirio-visible="true">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-vertical-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-2" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-vertical-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-3" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-vertical-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-4" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+										<div id="tab-line-vertical-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-5" data-sirio-visible="false">
+											<div class="sirio-tab-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tab-vertical-line">
+								<p class="guide-code-title">Tab verticali linea:</p>
+<pre><xmp>			
+<div class="sirio-tab sirio-tab-vertical" data-sirio-component="tab">
+	<ul class="sirio-tab-nav sirio-tab-nav-line" role="tablist" aria-orientation="vertical">
+		<li>
+			<a id="tab-line-vertical-label-1" href="#tab-line-vertical-content-1" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-1" aria-selected="true" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-line-vertical-label-2" href="#tab-line-vertical-content-2" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-2" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-line-vertical-label-3" href="#tab-line-vertical-content-3" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-3" aria-selected="false" role="tab">Label tab</a>
+		</li>
+		<li>
+			<a id="tab-line-vertical-label-4" href="#tab-line-vertical-content-4" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-4" aria-selected="false" role="tab" class="disabled" tabindex="-1">Label tab disabled</a>
+		</li>
+		<li>
+			<a id="tab-line-vertical-label-5" href="#tab-line-vertical-content-5" data-sirio-toggle="tab" aria-controls="tab-line-vertical-content-5" aria-selected="false" role="tab">Label tab</a>
+		</li>
+	</ul>
+	<div class="sirio-tab-content">
+		<div id="tab-line-vertical-content-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-1" data-sirio-visible="true">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-vertical-content-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-2" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-vertical-content-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-3" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-vertical-content-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-4" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+		<div id="tab-line-vertical-content-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-line-vertical-label-5" data-sirio-visible="false">
+			<div class="sirio-tab-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+						</section>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="collapse">Collapse</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+											
+										<button class="sirio-btn sirio-btn-primary" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseID-1" aria-expanded="false" aria-controls="collapseID-1">
+											<span>Collapse button</span>
+										</button>
+										<div id="collapseID-1" role="region" data-sirio-visible="false">
+											<div>
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+
+									</div>
+									<div class="guide-col-md-6">
+
+										<a href="#collapseID-2" class="sirio-btn sirio-btn-primary" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseID-2">
+											Collapse link
+										</a>
+										<div id="collapseID-2" role="region" data-sirio-visible="false">
+											<div>
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-collapse">
+								<p class="guide-code-title">Collapse button:</p>
+<pre><xmp>
+<button class="sirio-btn sirio-btn-primary" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseID-1" aria-expanded="false" aria-controls="collapseID-1">
+	<span>Collapse button</span>
+</button>
+<div id="collapseID-1" role="region" data-sirio-visible="false">
+	<div>
+		Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+	</div>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Collapse link:</p>
+<pre><xmp>
+<a href="#collapseID-2" class="sirio-btn sirio-btn-primary" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseID-2">
+	Collapse link
+</a>
+<div id="collapseID-2" role="region" data-sirio-visible="false">
+	<div>
+		Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+	</div>
+</div>
+</xmp></pre>
+							</div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="accordion">Accordion</h3>
+
+							<h4 class="guide-title">Versione Light</h4>
+							
+							<div class="blockquote">
+								<p>Quando hai la necessità di mostrare molti contenuti, come <strong>nel caso di numerosi approfondimenti da proporre all'utente</strong>, utilizza gli accordion.</p>
+								<p>Per avere l'apertura di un solo accordion per volta aggiungere l'attributo <code> data-sirio-parent="#idAccordionGroup"</code>.</p>
+								<p>Attenzione: utilizzare il tag heading (div, h3, h4...) corretto per la costruzione della struttura html.</code></p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-accordion" id="accordionGroup1" data-sirio-component="accordion">
+									<div class="sirio-accordion-item">
+										<div id="accordionHeader1" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody1" aria-expanded="true" aria-controls="accordionBody1">
+												<span>Accordion Title #1</span>
+											</button>
+										</div>
+										<div id="accordionBody1" class="sirio-accordion-body" aria-labelledby="accordionHeader1" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="true">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+									<div class="sirio-accordion-item">
+										<div id="accordionHeader2" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody2" aria-expanded="false" aria-controls="accordionBody2">
+												<span>Accordion Title #2</span>
+											</button>
+										</div>
+										<div id="accordionBody2" class="sirio-accordion-body" aria-labelledby="accordionHeader2" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="false">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+									<div class="sirio-accordion-item">
+										<div id="accordionHeader3" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody3" aria-expanded="false" aria-controls="accordionBody3">
+												<span>Accordion Title #3</span>
+											</button>
+										</div>
+										<div id="accordionBody3" class="sirio-accordion-body" aria-labelledby="accordionHeader3" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="false">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-accordion">
+								<p class="guide-code-title">Accordion:</p>
+<pre><xmp>
+<div class="sirio-accordion" id="accordionGroup1" data-sirio-component="accordion">
+	<div class="sirio-accordion-item">
+		<div id="accordionHeader1" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody1" aria-expanded="true" aria-controls="accordionBody1">
+				<span>Accordion Title #1</span>
+			</button>
+		</div>
+		<div id="accordionBody1" class="sirio-accordion-body" aria-labelledby="accordionHeader1" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="true">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+	<div class="sirio-accordion-item">
+		<div id="accordionHeader2" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody2" aria-expanded="false" aria-controls="accordionBody2">
+				<span>Accordion Title #2</span>
+			</button>
+		</div>
+		<div id="accordionBody2" class="sirio-accordion-body" aria-labelledby="accordionHeader2" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="false">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+	<div class="sirio-accordion-item">
+		<div id="accordionHeader3" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBody3" aria-expanded="false" aria-controls="accordionBody3">
+				<span>Accordion Title #3</span>
+			</button>
+		</div>
+		<div id="accordionBody3" class="sirio-accordion-body" aria-labelledby="accordionHeader3" data-sirio-parent="#accordionGroup1" role="region" data-sirio-visible="false">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+							
+
+							<h4 class="guide-title">Versione Dark</h4>
+							
+							<div class="blockquote">
+								<p>Nel caso in cui hai la necessità di mostrare pochi contenuti, come <strong>nel caso di contenuti informativi di basso rilievo</strong>, utilizza la variante dark degli accordion aggiungendo la classe <code>sirio-accordion-dark</code> al contenitore padre.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-accordion sirio-accordion-dark" id="accordionGroupDark1" data-sirio-component="accordion">
+									<div class="sirio-accordion-item">
+										<div id="accordionHeaderDark1" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark1" aria-expanded="true" aria-controls="accordionBodyDark1">
+												<span>Accordion Title #1</span>
+											</button>
+										</div>
+										<div id="accordionBodyDark1" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark1" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="true">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+									<div class="sirio-accordion-item">
+										<div id="accordionHeaderDark2" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark2" aria-expanded="false" aria-controls="accordionBodyDark2">
+												<span>Accordion Title #2</span>
+											</button>
+										</div>
+										<div id="accordionBodyDark2" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark2" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="false">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+									<div class="sirio-accordion-item">
+										<div id="accordionHeaderDark3" class="sirio-accordion-header">
+											<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark3" aria-expanded="false" aria-controls="accordionBodyDark3">
+												<span>Accordion Title #3</span>
+											</button>
+										</div>
+										<div id="accordionBodyDark3" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark3" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="false">
+											<div class="sirio-accordion-content">
+												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-accordion-dark">
+								<p class="guide-code-title">Accordion Dark:</p>
+<pre><xmp>
+<div class="sirio-accordion sirio-accordion-dark" id="accordionGroupDark1" data-sirio-component="accordion">
+	<div class="sirio-accordion-item">
+		<div id="accordionHeaderDark1" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark1" aria-expanded="true" aria-controls="accordionBodyDark1">
+				<span>Accordion Title #1</span>
+			</button>
+		</div>
+		<div id="accordionBodyDark1" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark1" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="true">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+	<div class="sirio-accordion-item">
+		<div id="accordionHeaderDark2" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark2" aria-expanded="false" aria-controls="accordionBodyDark2">
+				<span>Accordion Title #2</span>
+			</button>
+		</div>
+		<div id="accordionBodyDark2" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark2" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="false">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+	<div class="sirio-accordion-item">
+		<div id="accordionHeaderDark3" class="sirio-accordion-header">
+			<button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse" data-sirio-target="#accordionBodyDark3" aria-expanded="false" aria-controls="accordionBodyDark3">
+				<span>Accordion Title #3</span>
+			</button>
+		</div>
+		<div id="accordionBodyDark3" class="sirio-accordion-body" aria-labelledby="accordionHeaderDark3" data-sirio-parent="#accordionGroupDark1" role="region" data-sirio-visible="false">
+			<div class="sirio-accordion-content">
+				Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="tabelle">Tabelle</h3>
+
+							
+
+							<h4 class="guide-title">Tabella di base</h4>
+
+							<div class="blockquote">
+								<p>La tabella deve essere contenuta all'interno di un DIV con classe  <strong>sirio-table-responsive</strong>.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark" id="table1">
+										<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+										<thead>
+											<tr>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="ascending" aria-controls="table1" tabindex="0" class="sirio-sorting sirio-sorting-asc">
+													Oggetto
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table1" tabindex="0" class="sirio-sorting">
+													Data di pubblicazione
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table1" tabindex="0" class="sirio-sorting">
+													Data di scadenza
+												</th>
+												<th scope="col">
+													Stato
+												</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr>
+												<td>
+													<span class="cell-title">Corso per addetti alla lotta agli incendi
+														ed evacuazione - medio rischio incendio - suddiviso in tre
+														sessioni della durata di 8 ore</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="sirio-tag">Scaduto</span><br>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="cell-title">Corso per addetti alla lotta agli incendi
+														ed evacuazione - medio rischio incendio - suddiviso in tre
+														sessioni della durata di 8 ore</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="sirio-tag">Scaduto</span><br>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="cell-title">Corso per addetti alla lotta agli incendi
+														ed evacuazione - medio rischio incendio - suddiviso in tre
+														sessioni della durata di 8 ore</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="sirio-tag">Scaduto</span><br>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="cell-title">Corso per addetti alla lotta agli incendi
+														ed evacuazione - medio rischio incendio - suddiviso in tre
+														sessioni della durata di 8 ore</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="sirio-tag">Scaduto</span><br>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="cell-title">Corso per addetti alla lotta agli incendi
+														ed evacuazione - medio rischio incendio - suddiviso in tre
+														sessioni della durata di 8 ore</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="font-mono">05/05/2017</span>
+												</td>
+												<td>
+													<span class="sirio-tag">Scaduto</span><br>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-tabelle-base">
+								<p class="guide-code-title">Tabelle:</p>
+<pre><xmp>
+<div class="sirio-table-responsive">
+	<table class="sirio-table sirio-table-dark" id="table1">
+		<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+		<thead>
+			<tr>
+				<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="ascending" aria-controls="table1"
+					tabindex="0" class="sirio-sorting sirio-sorting-asc">
+					Oggetto
+				</th>
+				<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table1" tabindex="0"
+					class="sirio-sorting">
+					Data di pubblicazione
+				</th>
+				<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table1" tabindex="0"
+					class="sirio-sorting">
+					Data di scadenza
+				</th>
+				<th scope="col">
+					Stato
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>
+					<span class="cell-title">Corso per addetti alla lotta agli incendi
+						ed evacuazione - medio rischio incendio - suddiviso in tre
+						sessioni della durata di 8 ore</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="sirio-tag">Scaduto</span><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="cell-title">Corso per addetti alla lotta agli incendi
+						ed evacuazione - medio rischio incendio - suddiviso in tre
+						sessioni della durata di 8 ore</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="sirio-tag">Scaduto</span><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="cell-title">Corso per addetti alla lotta agli incendi
+						ed evacuazione - medio rischio incendio - suddiviso in tre
+						sessioni della durata di 8 ore</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="sirio-tag">Scaduto</span><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="cell-title">Corso per addetti alla lotta agli incendi
+						ed evacuazione - medio rischio incendio - suddiviso in tre
+						sessioni della durata di 8 ore</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="sirio-tag">Scaduto</span><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="cell-title">Corso per addetti alla lotta agli incendi
+						ed evacuazione - medio rischio incendio - suddiviso in tre
+						sessioni della durata di 8 ore</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="font-mono">05/05/2017</span>
+				</td>
+				<td>
+					<span class="sirio-tag">Scaduto</span><br>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</xmp></pre>
+							</div>
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Tabella con checkbox</h4>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark">
+										<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+										<thead>
+											<tr>
+												<th scope="col">
+													<div class="sirio-table-check">
+														<div class="sirio-form-check">
+															<input type="checkbox" id="chkAll" name="chkAll" value="chkAll">
+															<label for="chkAll"><span class="sr-only">Seleziona tutti gli elementi visualizzati</span></label>
+														</div>
+														Sede
+													</div>
+												</th>
+												<th scope="col">Causale</th>
+												<th scope="col">Codice</th>
+												<th scope="col">Periodo</th>
+												<th scope="col">Importo</th>
+												<th scope="col">Rata</th>
+												<th scope="col">Data Scadenza</th>
+												<th scope="col">Data Rinnovo</th>
+												<th scope="col">Codice Lorem</th>
+												<th scope="col">Codice Ipsum</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="sirio-table-check">
+														<div class="sirio-form-check">
+															<input type="checkbox" id="AB12345" name="IDSedeAB12345" value="AB12345">
+															<label for="AB12345"><span class="sr-only">AB12345 Seleziona l'elemento</span></label>
+														</div>
+														AB12345
+													</div>
+												</td>
+												<td>AS</td>
+												<td>1246745987345987</td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td>242342</td>
+												<td>34534534</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="sirio-table-check">
+														<div class="sirio-form-check">
+															<input type="checkbox" id="AB12346" name="IDSedeAB12346" value="AB12346">
+															<label for="AB12346"><span class="sr-only">AB12346 Seleziona l'elemento</span></label>
+														</div>
+														AB12346
+													</div>
+												</td>
+												<td>AS</td>
+												<td>1246745987345987</td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td>242342</td>
+												<td>34534534</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="sirio-table-check">
+														<div class="sirio-form-check">
+															<input type="checkbox" id="AB12347" name="IDSedeAB12347" value="AB12347">
+															<label for="AB12347"><span class="sr-only">AB12347 Seleziona l'elemento</span></label>
+														</div>
+														AB12347
+													</div>
+												</td>
+												<td>AS</td>
+												<td>1246745987345987</td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td>242342</td>
+												<td>34534534</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabelle-checkbox">
+								<p class="guide-code-title">Tabelle:</p>
+<pre><xmp>
+<div class="sirio-table-responsive">
+	<table class="sirio-table sirio-table-dark">
+		<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+		<thead>
+			<tr>
+				<th scope="col">
+					<div class="sirio-table-check">
+						<div class="sirio-form-check">
+							<input type="checkbox" id="chkAll" name="chkAll" value="chkAll">
+							<label for="chkAll"><span class="sr-only">Seleziona tutti gli elementi
+									visualizzati</span></label>
+						</div>
+						Sede
+					</div>
+				</th>
+				<th scope="col">Causale</th>
+				<th scope="col">Codice</th>
+				<th scope="col">Periodo</th>
+				<th scope="col">Importo</th>
+				<th scope="col">Rata</th>
+				<th scope="col">Data Scadenza</th>
+				<th scope="col">Data Rinnovo</th>
+				<th scope="col">Codice Lorem</th>
+				<th scope="col">Codice Ipsum</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<div class="sirio-table-check">
+						<div class="sirio-form-check">
+							<input type="checkbox" id="AB12345" name="IDSedeAB12345" value="AB12345">
+							<label for="AB12345"><span class="sr-only">AB12345 Seleziona l'elemento</span></label>
+						</div>
+						AB12345
+					</div>
+				</td>
+				<td>AS</td>
+				<td>1246745987345987</td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td>242342</td>
+				<td>34534534</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="sirio-table-check">
+						<div class="sirio-form-check">
+							<input type="checkbox" id="AB12346" name="IDSedeAB12346" value="AB12346">
+							<label for="AB12346"><span class="sr-only">AB12346 Seleziona l'elemento</span></label>
+						</div>
+						AB12346
+					</div>
+				</td>
+				<td>AS</td>
+				<td>1246745987345987</td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td>242342</td>
+				<td>34534534</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="sirio-table-check">
+						<div class="sirio-form-check">
+							<input type="checkbox" id="AB12347" name="IDSedeAB12347" value="AB12347">
+							<label for="AB12347"><span class="sr-only">AB12347 Seleziona l'elemento</span></label>
+						</div>
+						AB12347
+					</div>
+				</td>
+				<td>AS</td>
+				<td>1246745987345987</td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td>242342</td>
+				<td>34534534</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</xmp></pre>
+							</div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Titolo e Filtri</h4>
+
+							<div class="blockquote">
+								<p>Cambiare in base allo sprofondamento degli heading l'attributo <strong>aria-level</strong> di <em>sirio-filter-title</em>. (pensare se mettere un h3 come nelle card e poi lo sviluppo lo cambierà di conseguenza)</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-filter" id="table-filter">
+									<div class="sirio-filter-bar">
+										<div class="sirio-filter-title" role="heading" aria-level="3">
+											Titolo della Tabella
+											<small>Sottotitolo (opzionale)</small>
+										</div>
+										<div class="sirio-filter-action">
+											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span></button>
+										</div>
+									</div>
+									<div class="sirio-filter-collapse">
+										<div id="collapseFilter1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+											<div>
+												Contenuto Cerca
+											</div>
+										</div>
+										<div id="collapseFilter2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+											<div>
+												Contenuto Impostazioni
+											</div>
+										</div>
+										<div id="collapseFilter3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+											<div>
+												Contenuto Filtri
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="code" aria-hidden="true" id="code-tabelle-filtri">
+								<p class="guide-code-title">Filtri:</p>
+<pre><xmp>
+<div class="sirio-filter" id="table-filter">
+	<div class="sirio-filter-bar">
+		<div class="sirio-filter-title" role="heading" aria-level="3">
+			Titolo della Tabella
+			<small>Sottotitolo (opzionale)</small>
+		</div>
+		<div class="sirio-filter-action">
+			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
+			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-filter" aria-hidden="true"></span></button>
+			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
+		</div>
+	</div>
+	<div class="sirio-filter-collapse">
+		<div id="collapseFilter1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+			<div>
+				Contenuto Cerca
+			</div>
+		</div>
+		<div id="collapseFilter2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+			<div>
+				Contenuto Impostazioni
+			</div>
+		</div>
+		<div id="collapseFilter3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+			<div>
+				Contenuto Filtri
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Titolo e Filtri Dark Version</h4>
+
+							<div class="blockquote">
+								<p>Non basterà aggiungere la classe <code>sirio-filter-dark</code> al contenitore padre, ma bisognerà aggiungere ai bottoni la classe <code>sirio-btn-primary</code>.</p>
+								<p>Ai bottoni è possibile aggiungere anche un testo che si affiancherà all'icona, ma in quel caso non è necessario mettere l'attributo <code>aria-label</code> altrimenti lo screenreader leggerebbe due volte lo stesso contenuto.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-filter sirio-filter-dark" id="table-filter-dark">
+									<div class="sirio-filter-bar">
+										<div class="sirio-filter-title" role="heading" aria-level="3">
+											Titolo della Tabella
+											<small>Sottotitolo (opzionale)</small>
+										</div>
+										<div class="sirio-filter-action">
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+										</div>
+									</div>
+									<div class="sirio-filter-collapse">
+										<div id="collapseFilterDark1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+											<div>
+												Contenuto Cerca
+											</div>
+										</div>
+										<div id="collapseFilterDark2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+											<div>
+												Contenuto Impostazioni
+											</div>
+										</div>
+										<div id="collapseFilterDark3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+											<div>
+												Contenuto Filtri
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="code" aria-hidden="true" id="code-tabelle-filtri-dark">
+								<p class="guide-code-title">Filtri:</p>
+<pre><xmp>
+<div class="sirio-filter sirio-filter-dark" id="table-filter-dark">
+	<div class="sirio-filter-bar">
+		<div class="sirio-filter-title" role="heading" aria-level="3">
+			Titolo della Tabella
+			<small>Sottotitolo (opzionale)</small>
+		</div>
+		<div class="sirio-filter-action">
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+		</div>
+	</div>
+	<div class="sirio-filter-collapse">
+		<div id="collapseFilterDark1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+			<div>
+				Contenuto Cerca
+			</div>
+		</div>
+		<div id="collapseFilterDark2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+			<div>
+				Contenuto Impostazioni
+			</div>
+		</div>
+		<div id="collapseFilterDark3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+			<div>
+				Contenuto Filtri
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+					
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Spacing</h4>
+							
+							<div class="blockquote">
+								<p>Sono state predisposte le classi <code>sirio-table-sm</code> e <code>sirio-table-lg</code> per avere meno o più altezza delle celle rispetto a quella di default.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-sm" id="table-sm">
+										<thead>
+											<tr>
+												<th scope="col">
+													Lorem ipsum dolor sit amet
+												</th>
+												<th scope="col">
+													Consectetur adipiscing elit
+												</th>
+												<th scope="col">
+													Sed do eiusmod tempor incididunt 
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Lorem ipsum dolor sit amet</td>
+												<td>Consectetur adipiscing elit</td>
+												<td>Sed do eiusmod tempor incididunt</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-lg" id="table-lg">
+										<thead>
+											<tr>
+												<th scope="col">
+													Lorem ipsum dolor sit amet
+												</th>
+												<th scope="col">
+													Consectetur adipiscing elit
+												</th>
+												<th scope="col">
+													Sed do eiusmod tempor incididunt 
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Lorem ipsum dolor sit amet</td>
+												<td>Consectetur adipiscing elit</td>
+												<td>Sed do eiusmod tempor incididunt</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Dark version</h4>
+							
+							<div class="blockquote">
+								<p>Con l'aggiunta della classe <code>sirio-table-dark</code> le intestazioni cambiano di colore.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark" id="table-sm-dark">
+										<thead>
+											<tr>
+												<th scope="col">
+													Lorem ipsum dolor sit amet
+												</th>
+												<th scope="col">
+													Consectetur adipiscing elit
+												</th>
+												<th scope="col">
+													Sed do eiusmod tempor incididunt 
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Lorem ipsum dolor sit amet</td>
+												<td>Consectetur adipiscing elit</td>
+												<td>Sed do eiusmod tempor incididunt</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+
+							
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Sorting</h4>
+							
+							<div class="blockquote">
+								<p>Sono state predisposte le classi <code>sirio-sorting-asc</code> e <code>sirio-sorting-desc</code> per la gestione del sorting da aggiungere ai TH con classe <code>sirio-sorting</code> e utilizzare in base alle esigenze di sviluppo.</p>
+								<p>Nell'esempio i tre stati: default (sirio-sorting), discendente (+ sirio-sorting-desc), ascendente (+ sirio-sorting-asc)</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table" id="table-sorting">
+										<thead>
+											<tr>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table-sorting" tabindex="0" class="sirio-sorting">
+													Ordinamento originario
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="descending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting  sirio-sorting-desc">
+													Ordinamento discendente
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="ascending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting sirio-sorting-asc">
+													Ordinamento ascendente
+												</th>
+												<th scope="col">
+													Nessun ordinamento
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark" id="table-sorting-dark">
+										<thead>
+											<tr>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table-sorting" tabindex="0" class="sirio-sorting">
+													Ordinamento originario
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="descending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting  sirio-sorting-desc">
+													Ordinamento discendente
+												</th>
+												<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="ascending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting sirio-sorting-asc">
+													Ordinamento ascendente
+												</th>
+												<th scope="col">
+													Nessun ordinamento
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-tabelle-sorting">
+								<p class="guide-code-title">Ordinamento originario:</p>
+<pre><xmp>
+<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-controls="table-sorting" tabindex="0" class="sirio-sorting">
+	Ordinamento originario
+</th>
+</xmp></pre>
+								<p class="guide-code-title">Ordinamento discendente:</p>
+<pre><xmp>
+<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="descending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting  sirio-sorting-desc">
+	Ordinamento discendente
+</th>
+</xmp></pre>
+								<p class="guide-code-title">Ordinamento ascendente:</p>
+<pre><xmp>
+<th scope="col" aria-label="Oggetto: attiva l'ordinamento" aria-sort="ascending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting sirio-sorting-asc">
+	Ordinamento ascendente
+</th>
+</xmp></pre>
+							</div>
+
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="paginazione">Paginazione</h3>
+
+							<h4 class="guide-title">Paginazione con alto numero di pagine</h4>
+
+							<div class="guide-example">
+								<div class="sirio-pagination">
+									<div class="sirio-pagination-items">
+										Elementi per pagina: 
+										
+										<label for="input-number-items" class="sr-only">Numero elementi</label>
+										<select id="input-number-items" name="input-number-items" class="sirio-form-control">
+											<option value="10">10</option>
+											<option value="20">20</option>
+											<option value="30">30</option>
+										</select>
+										
+										<span>1</span> - <span>10</span> di <span>100</span> elementi
+									</div>
+									<div class="sirio-pagination-page">
+										<label for="input-number-page" class="sr-only">Numero pagine</label>
+										<select id="input-number-page" name="input-number-page" class="sirio-form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+										di <span>10</span> pagine
+									</div>
+									<div class="sirio-pagination-cursor">
+										<ul class="sirio-pagination-list">
+											<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+											<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-paginazione-complex">
+								<p class="guide-code-title">Paginazione con alto numero di pagine:</p>
+<pre><xmp>
+<div class="sirio-pagination">
+	<div class="sirio-pagination-items">
+		Elementi per pagina: 
+		
+		<label for="input-number-items" class="sr-only">Numero elementi</label>
+		<select id="input-number-items" name="input-number-items" class="sirio-form-control">
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+		</select>
+		
+		<span>1</span> - <span>10</span> di <span>100</span> elementi
+	</div>
+	<div class="sirio-pagination-page">
+		<label for="input-number-page" class="sr-only">Numero pagine</label>
+		<select id="input-number-page" name="input-number-page" class="sirio-form-control">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+		di <span>10</span> pagine
+	</div>
+	<div class="sirio-pagination-cursor">
+		<ul class="sirio-pagination-list">
+			<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+			<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
+		</ul>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+
+							<h4 class="guide-title">Cursori di navigazione</h4>
+
+							<div class="blockquote">
+								<p>Utilizziamo questi componenti quando il numero di pagine che proponiamo è limitato. Questo permette una maggiore comodità nello scorrere a proprio piacimento le diverse pagine. Nel caso in cui sono presenti molte pagine questo componente perde di significato.</p>
+							</div>
+
+							<div class="guide-example">
+								<nav class="sirio-pagination-center" aria-label="Paginazione nome lista">
+									<ul class="sirio-pagination-list">
+										<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+										<li><a href="#" aria-label="Pagina 1" aria-current="page">1</a></li>
+										<li><a href="#"><span class="sr-only">Pagina </span>2</a></li>
+										<li><a href="#"><span class="sr-only">Pagina </span>3</a></li>
+										<li><a href="#"><span class="sr-only">Pagina </span>4</a></li>
+										<li><a class="ellipsis">&#8230;</a></li>
+										<li><a href="#"><span class="sr-only">Pagina </span>6</a></li>
+										<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="code" aria-hidden="true" id="code-paginazione-cursor">
+								<p class="guide-code-title">Cursori di navigazione:</p>
+<pre><xmp>
+<nav class="sirio-pagination-center" aria-label="Paginazione nome lista">
+	<ul class="sirio-pagination-list">
+		<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+		<li><a href="#" aria-label="Pagina 1" aria-current="page">1</a></li>
+		<li><a href="#"><span class="sr-only">Pagina </span>2</a></li>
+		<li><a href="#"><span class="sr-only">Pagina </span>3</a></li>
+		<li><a href="#"><span class="sr-only">Pagina </span>4</a></li>
+		<li><a class="ellipsis">&#8230;</a></li>
+		<li><a href="#"><span class="sr-only">Pagina </span>6</a></li>
+		<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
+	</ul>
+</nav>
+</xmp></pre>
+							</div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="tooltip">Tooltip</h3>
+
+							<div class="blockquote">
+								<p>La posizione di default è in alto centrato, altrimenti potete personalizzarla tramite l'attributo <strong>data-sirio-placement</strong> con le seguenti opzioni:</p>
+								<ul>
+									<li>top</li>
+									<li>top-start</li>
+									<li>top-end</li>
+									<li>bottom</li>
+									<li>bottom-start</li>
+									<li>bottom-end</li>
+									<li>left</li>
+									<li>right</li>
+								</ul>
+							</div>	
+
+							<h4 class="guide-title">Tooltip solo testo</h4>
+
+							<div class="guide-example">
+
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" title="Tooltip top start">
+											Tooltip top start
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip top">
+											Tooltip top
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" title="Tooltip top-end">
+											Tooltip top-end
+										</button>
+									</div>
+									<div class="guide-col-md-6">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" title="Tooltip a destra">
+											Tooltip a destra
+										</button>
+									</div>
+									<div class="guide-col-md-6 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" title="Tooltip a sinistra">
+											Tooltip a sinistra
+										</button>
+									</div>
+									<div class="guide-col-md-4">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" title="Tooltip bottom start">
+											Tooltip bottom start
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" title="Tooltip bottom">
+											Tooltip bottom
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" title="Tooltip bottom-end">
+											Tooltip bottom-end
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tooltip-text">
+                                <p class="guide-code-title">Tooltip solo testo:</p>
+<pre><xmp>
+<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip in alto">
+	Tooltip in alto
+</button>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							
+                            <h4 class="guide-title">Tooltip titolo + descrizione</h4>
+                            
+							<div class="guide-example">
+								<div class="guide-row">
+									
+									<div class="guide-col-md-4">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" title="Tooltip top start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip top start
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip top
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" title="Tooltip top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip top-end
+										</button>
+									</div>
+									<div class="guide-col-md-6">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" title="Tooltip a destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip a destra
+										</button>
+									</div>
+									<div class="guide-col-md-6 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" title="Tooltip a sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip a sinistra
+										</button>
+									</div>
+									<div class="guide-col-md-4">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" title="Tooltip bottom start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip bottom start
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" title="Tooltip bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip bottom
+										</button>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" title="Tooltip bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+											Tooltip bottom-end
+										</button>
+									</div>
+
+								</div>
+							</div>
+							
+
+							<div class="code" aria-hidden="true" id="code-tooltip-desc">
+
+								<p class="guide-code-title">Tooltip titolo + descrizione:</p>
+<pre><xmp>
+<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip in alto" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+	Tooltip in alto
+</button>
+</xmp></pre>
+                            </div>
+
+							
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Tooltip interattivo (Popover)</h4>
+
+							<div class="blockquote">
+								<p>Quando c'è bisogno di inserire oltre al <strong>titolo</strong> e <strong>descrizione</strong> anche un'<strong>azione</strong> utilizzeremo il popover. Questi vengono visualizzati quando l’utente fa click su un’icona informativa, persistono fino a quando non vengono fatti scomparire intenzionalmente attraverso un click al di fuori dell’area che occupano sull’interfaccia.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<label for="input-text">Popover top-start
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-start" title="Popover top-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<label for="input-text">Popover top
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top" title="Popover top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<label for="input-text">Popover top-end
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-end" title="Popover top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-6">
+										<label for="input-text">Popover destra
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="right" title="Popover destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-6 text-right">
+										<label for="input-text">Popover sinistra
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="left" title="Popover sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-4">
+										<label for="input-text">Popover bottom-start
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-start" title="Popover bottom-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-4 text-center">
+										<label for="input-text">Popover bottom
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom" title="Popover bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+									<div class="guide-col-md-4 text-right">
+										<label for="input-text">Popover bottom-end
+											<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-end" title="Popover bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-tooltip-interattivo">
+                                <p class="guide-code-title">Tooltip interattivo:</p>
+<pre><xmp>
+<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top" title="Popover top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+</xmp></pre>
+                            </div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="dialog">Dialog</h3>
+
+							<div class="blockquote">
+
+								<p>L'attivazione della finestra di dialogo può avvenire tramite bottone o link</p>
+
+								<p>Per ottenere dimensioni diverse da quella di defaul <code>(max-width: 600px)</code> della finestra di dialogo si può aggiungere alla classe "sirio-modal-dialog-wrapper" una delle seguenti classi opzione:</p>
+								<ul>
+									<li><strong>.sirio-modal-sm</strong> (max-width: 300px)</li>
+									<li><strong>.sirio-modal-lg</strong> (max-width: 800px)</li>
+									<li><strong>.sirio-modal-xl</strong> (max-width: 1140px)</li>
+								</ul>
+
+							</div>
+
+							<div class="guide-example">
+								<p>
+									<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="dialog" data-sirio-target="#dialog-example">
+										Apri finestra dialogo con bottone
+									</button>
+
+									<a href="#dialog-example" class="sirio-btn sirio-btn-primary" data-sirio-toggle="dialog">
+										Apri finestra dialogo con link
+									</a>
+								</p>
+							</div>
+  
+							<!-- Modal esempio nascosta -->
+							<div class="sirio-dialog" id="dialog-example" tabindex="-1" role="dialog" aria-labelledby="heading-dialog" data-sirio-component="dialog" data-sirio-visible="false">
+							    <div class="sirio-dialog-wrapper dialog-centered">
+							        <div class="sirio-dialog-content">
+							            <div class="sirio-dialog-header">
+							                <h2 class="sirio-dialog-title" id="heading-dialog"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
+							                <button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+							                    <span class="fas fa-times" aria-hidden="true"></span>
+							                </button>
+							            </div>
+							            <div class="sirio-dialog-body">
+							                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							            </div>
+							            <div class="sirio-dialog-footer">
+							                <button type="button" class="sirio-btn sirio-btn-secondary" data-sirio-dismiss="dialog">Annulla</button>
+							                <button type="button" class="sirio-btn sirio-btn-primary">Invia</button>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dialog">
+								<p class="guide-code-title">Bottone:</p>
+<pre><xmp>
+<button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="dialog" data-sirio-target="#dialog-example">
+	Apri finestra dialogo con bottone
+</button>
+</xmp></pre>
+								<p class="guide-code-title">Link:</p>
+<pre><xmp>
+<a href="#dialog-example" class="sirio-btn sirio-btn-primary" data-sirio-toggle="dialog">
+	Apri finestra dialogo con link
+</a>
+</xmp></pre>
+							</div>
+
+							
+							
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Passiva</h4>
+
+							<div class="guide-example">
+								<div class="sirio-dialog" id="dialog-passiva" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-passiva"  data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog-wrapper">
+										<div class="sirio-dialog-content">
+											<div class="sirio-dialog-header">
+												<h2 class="sirio-dialog-title" id="heading-dialog-passiva"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+													<span class="fas fa-times" aria-hidden="true"></span>
+												</button>
+											</div>
+											<div class="sirio-dialog-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dialog-Passiva">
+								<p class="guide-code-title">Dialog passiva:</p>
+<pre><xmp>
+<div class="sirio-dialog" id="dialog-passiva" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-passiva"  data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<h2 class="sirio-dialog-title" id="heading-dialog-passiva"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+					<span class="fas fa-times" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+
+							
+							<h4 class="guide-title">Conferma</h4>
+							
+							<div class="guide-example">
+								<div class="sirio-dialog" id="dialog-conferma" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-conferma"  data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog-wrapper">
+										<div class="sirio-dialog-content">
+											<div class="sirio-dialog-header">
+												<h2 class="sirio-dialog-title" id="heading-dialog-conferma"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Vuoi confermare le informazioni?</h2>
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+													<span class="fas fa-times" aria-hidden="true"></span>
+												</button>
+											</div>
+											<div class="sirio-dialog-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+												<div class="row py-2">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="input-text-1">Label:</label>
+															<input type="text" id="input-text-1" name="input-text-1" class="sirio-form-control" placeholder="text">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="input-text-2">Label:</label>
+															<input type="text" id="input-text-2" name="input-text-2" class="sirio-form-control" placeholder="text">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="sirio-dialog-footer">
+												<button type="button" class="sirio-btn sirio-btn-primary">Conferma</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dialog-Conferma">
+								<p class="guide-code-title">Dialog conferma:</p>
+<pre><xmp>
+<div class="sirio-dialog" id="dialog-conferma" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-conferma"  data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<h2 class="sirio-dialog-title" id="heading-dialog-conferma"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Vuoi confermare le informazioni?</h2>
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+					<span class="fas fa-times" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="row py-2">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="input-text-1">Label:</label>
+							<input type="text" id="input-text-1" name="input-text-1" class="sirio-form-control" placeholder="text">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="input-text-2">Label:</label>
+							<input type="text" id="input-text-2" name="input-text-2" class="sirio-form-control" placeholder="text">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sirio-dialog-footer">
+				<button type="button" class="sirio-btn sirio-btn-primary">Conferma</button>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+
+							
+							<h4 class="guide-title">Azione</h4>
+
+							<div class="guide-example">
+								<div class="sirio-dialog" id="dialog-azione" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-azione"  data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog-wrapper">
+										<div class="sirio-dialog-content">
+											<div class="sirio-dialog-header">
+												<h2 class="sirio-dialog-title" id="heading-dialog-azione"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Invia i seguenti dati</h2>
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+													<span class="fas fa-times" aria-hidden="true"></span>
+												</button>
+											</div>
+											<div class="sirio-dialog-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+												<div class="row py-2">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="input-text-action-1">Label:</label>
+															<input type="text" id="input-text-action-1" name="input-text-action-1" class="sirio-form-control" placeholder="text">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="input-text-action-2">Label:</label>
+															<input type="text" id="input-text-action-2" name="input-text-action-2" class="sirio-form-control" placeholder="text">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="sirio-dialog-footer">
+												<button type="button" class="sirio-btn sirio-btn-secondary" data-sirio-dismiss="dialog">Annulla</button>
+												<button type="button" class="sirio-btn sirio-btn-primary">Invia</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-dialog-Azione">
+								<p class="guide-code-title">Dialog azione:</p>
+<pre><xmp>
+<div class="sirio-dialog" id="dialog-azione" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-azione"  data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<h2 class="sirio-dialog-title" id="heading-dialog-azione"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Invia i seguenti dati</h2>
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+					<span class="fas fa-times" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="row py-2">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="input-text-action-1">Label:</label>
+							<input type="text" id="input-text-action-1" name="input-text-action-1" class="sirio-form-control" placeholder="text">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="input-text-action-2">Label:</label>
+							<input type="text" id="input-text-action-2" name="input-text-action-2" class="sirio-form-control" placeholder="text">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sirio-dialog-footer">
+				<button type="button" class="sirio-btn sirio-btn-secondary" data-sirio-dismiss="dialog">Annulla</button>
+				<button type="button" class="sirio-btn sirio-btn-primary">Invia</button>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+
+							
+							<h4 class="guide-title">Avvertimento</h4>
+
+							<div class="guide-example">
+								<div class="sirio-dialog" id="dialog-warning" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-warning"  data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog-wrapper">
+										<div class="sirio-dialog-content">
+											<div class="sirio-dialog-header">
+												<h2 class="sirio-dialog-title" id="heading-dialog-warning"><span class="fas fa-exclamation-circle sirio-text-warning" aria-hidden="true"></span>Procendendo alla seguente richiesta, le modifiche non saranno salvate.</h2>
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+													<span class="fas fa-times" aria-hidden="true"></span>
+												</button>
+											</div>
+											<div class="sirio-dialog-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+											</div>
+											<div class="sirio-dialog-footer">
+												<button type="button" class="sirio-btn" data-sirio-dismiss="dialog">Annulla</button>
+												<button type="button" class="sirio-btn sirio-btn-primary">Salva modifiche</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dialog-warning">
+								<p class="guide-code-title">Dialog avvertimento:</p>
+<pre><xmp>
+<div class="sirio-dialog" id="dialog-warning" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-warning"  data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<h2 class="sirio-dialog-title" id="heading-dialog-warning"><span class="fas fa-exclamation-circle sirio-text-warning" aria-hidden="true"></span>Procendendo alla seguente richiesta, le modifiche non saranno salvate.</h2>
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+					<span class="fas fa-times" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			</div>
+			<div class="sirio-dialog-footer">
+				<button type="button" class="sirio-btn" data-sirio-dismiss="dialog">Annulla</button>
+				<button type="button" class="sirio-btn sirio-btn-primary">Salva modifiche</button>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<hr class="guide-separator">
+
+							
+							<h4 class="guide-title">Pericolo</h4>
+
+							<div class="guide-example">
+								<div class="sirio-dialog" id="dialog-danger" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-danger"  data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog-wrapper">
+										<div class="sirio-dialog-content">
+											<div class="sirio-dialog-header">
+												<h2 class="sirio-dialog-title" id="heading-dialog-danger"><span class="fas fa-exclamation-circle sirio-text-danger" aria-hidden="true"></span>Vuoi eliminare il tuo account?</h2>
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+													<span class="fas fa-times" aria-hidden="true"></span>
+												</button>
+											</div>
+											<div class="sirio-dialog-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+											</div>
+											<div class="sirio-dialog-footer">
+												<button type="button" class="sirio-btn" data-sirio-dismiss="dialog">Annulla</button>
+												<button type="button" class="sirio-btn sirio-btn-danger">Elimina</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-dialog-dannger">
+								<p class="guide-code-title">Dialog pericolo:</p>
+<pre><xmp>
+<div class="sirio-dialog" id="dialog-danger" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-danger"  data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<h2 class="sirio-dialog-title" id="heading-dialog-danger"><span class="fas fa-exclamation-circle sirio-text-danger" aria-hidden="true"></span>Vuoi eliminare il tuo account?</h2>
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+					<span class="fas fa-times" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			</div>
+			<div class="sirio-dialog-footer">
+				<button type="button" class="sirio-btn" data-sirio-dismiss="dialog">Annulla</button>
+				<button type="button" class="sirio-btn sirio-btn-danger">Elimina</button>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="notifiche">Notifiche</h3>
+
+							<h4 class="guide-title">Alert (notifiche in linea)</h4>
+
+							<div class="blockquote">
+								<p>Le notifiche in linea vengono <strong>posizionate nella parte alta del layout</strong>, solitamente sopra la header.</p>
+								<p>Le notifiche in linea <strong>presentano sempre la X di chiusura</strong>, persistono sulla pagina fino a che l’utente li elimina.</p>
+								<p>Nelle notifiche alert <strong>il link e il bottone</strong> di azione <strong>sono facoltativi</strong>. Nel caso si debba toglierle si ricorda di eliminare anche il contenitore <code>col-auto</code> relativo.</p>
+								<p>Gli alert debbono essere attivati lato javascript quando vengono inseriti <code>SirioLib.SirioAlert(alertElem)</code></p>
+								<p>Sono previsti i metodi javascript di Open, Close, Dispose (DA INTEGRARE)</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-12">
+										<div class="sirio-alert sirio-alert-error" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+											<div class="sirio-alert-body">
+												<div class="sirio-alert-message">
+													<p><strong>Alert di errore</strong> Repellendus ullamcorper repellat harum.</p>
+												</div>
+												<div class="sirio-alert-link">
+													<a href="#" class="sirio-link-accent">Testo link</a>
+												</div>
+												<div class="sirio-alert-btn">
+													<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+												</div>
+												<div class="sirio-alert-close">
+													<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="guide-col-12">
+										<div class="sirio-alert sirio-alert-info" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+											<div class="sirio-alert-body">
+												<div class="sirio-alert-message">
+													<p><strong>Alert di info</strong> Repellendus ullamcorper repellat harum.</p>
+												</div>
+												<div class="sirio-alert-link">
+													<a href="#" class="sirio-link-accent">Testo link</a>
+												</div>
+												<div class="sirio-alert-btn">
+													<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+												</div>
+												<div class="sirio-alert-close">
+													<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="guide-col-12">
+										<div class="sirio-alert sirio-alert-warning" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+											<div class="sirio-alert-body">
+												<div class="sirio-alert-message">
+													<p><strong>Alert di attenzione</strong> Repellendus ullamcorper repellat harum.</p>
+												</div>
+												<div class="sirio-alert-link">
+													<a href="#" class="sirio-link-accent">Testo link</a>
+												</div>
+												<div class="sirio-alert-btn">
+													<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+												</div>
+												<div class="sirio-alert-close">
+													<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="guide-col-12">
+										<div class="sirio-alert sirio-alert-success" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+											<div class="sirio-alert-body">
+												<div class="sirio-alert-message">
+													<p><strong>Alert di successo</strong> Repellendus ullamcorper repellat harum.</p>
+												</div>
+												<div class="sirio-alert-link">
+													<a href="#" class="sirio-link-accent">Testo link</a>
+												</div>
+												<div class="sirio-alert-btn">
+													<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+												</div>
+												<div class="sirio-alert-close">
+													<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-notifiche">
+								<p class="guide-code-title">Javascript di inizializzazione:</p>
+<pre><xmp>
+<script>
+	// Per tutti gli elementi alert inseriti nella pagina
+	var alertElems = document.querySelectorAll(".sirio-alert");
+	for (var alertElem of alertElems) {
+		var alertObj = new SirioLib.SirioAlert(alertElem)
+	}
+
+	// Per un alert specifico identificato da un ID
+	var alertConID = document.querySelector("#alert");
+	var alertObj = new SirioLib.SirioAlert(alertConID)
+</script>
+</xmp></pre>					
+								<p class="guide-code-title">Alert Error:</p>
+<pre><xmp>
+<div class="sirio-alert sirio-alert-error" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+	<div class="sirio-alert-body">
+		<div class="sirio-alert-message">
+			<p><strong>Alert di errore</strong> Repellendus ullamcorper repellat harum.</p>
+		</div>
+		<div class="sirio-alert-link">
+			<a href="#" class="sirio-link-accent">Testo link</a>
+		</div>
+		<div class="sirio-alert-btn">
+			<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+		</div>
+		<div class="sirio-alert-close">
+			<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Alert Info:</p>
+<pre><xmp>
+<div class="sirio-alert sirio-alert-info" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+	<div class="sirio-alert-body">
+		<div class="sirio-alert-message">
+			<p><strong>Alert di info</strong> Repellendus ullamcorper repellat harum.</p>
+		</div>
+		<div class="sirio-alert-link">
+			<a href="#" class="sirio-link-accent">Testo link</a>
+		</div>
+		<div class="sirio-alert-btn">
+			<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+		</div>
+		<div class="sirio-alert-close">
+			<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Alert Warning:</p>
+<pre><xmp>
+<div class="sirio-alert sirio-alert-warning" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+	<div class="sirio-alert-body">
+		<div class="sirio-alert-message">
+			<p><strong>Alert di attenzione</strong> Repellendus ullamcorper repellat harum.</p>
+		</div>
+		<div class="sirio-alert-link">
+			<a href="#" class="sirio-link-accent">Testo link</a>
+		</div>
+		<div class="sirio-alert-btn">
+			<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+		</div>
+		<div class="sirio-alert-close">
+			<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+								<p class="guide-code-title">Alert Success:</p>
+<pre><xmp>
+<div class="sirio-alert sirio-alert-success" data-sirio-component="alert" data-sirio-visible="true" role="alert">
+	<div class="sirio-alert-body">
+		<div class="sirio-alert-message">
+			<p><strong>Alert di successo</strong> Repellendus ullamcorper repellat harum.</p>
+		</div>
+		<div class="sirio-alert-link">
+			<a href="#" class="sirio-link-accent">Testo link</a>
+		</div>
+		<div class="sirio-alert-btn">
+			<button class="sirio-btn sirio-btn-tertiary-light">Azione</button>
+		</div>
+		<div class="sirio-alert-close">
+			<button type="button" class="sirio-btn sirio-btn-icon" data-sirio-dismiss="alert" aria-label="Chiudi messaggio di alert"><span class="fas fa-times" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+
+                            <hr class="guide-separator">
+
+
+							<h4 class="guide-title">Toast</h4>
+							
+							<div class="blockquote">
+								<p>Le notifiche Toast sono posizionate in genere nella parte in alto a destra della pagina. Sono più fastidiose delle
+								notifiche in linea e vengono utilizzate al meglio con i messaggi generati dal sistema che non corrispondono a una
+								sezione specifica dell'interfaccia utente (ad esempio, notifiche dell’account). Al contrario delle notifiche in linea
+								non sono persistenti, vengono eliminati automaticamente dopo 5/10 secondi dallo schermo. Possono anche includere un
+								pulsante di chiusura in modo che gli utenti possano ignorarli prima.</p>
+								<p>Nelle notifiche toast <strong>il link e il bottone</strong> di azione <strong>sono facoltativi</strong>.</p>
+								<hr>
+								<p><strong>ATTENZIONE:</strong> I toast <strong>vanno inseriti in un DIV contenitore</strong> con i seguenti attributi <code>class="toast-wrapper" aria-live="polite" aria-atomic="true"</code> (guarda il codice html di esempio).</p>
+								<p>Gli alert debbono essere attivati lato javascript quando vengono inseriti <code>SirioLib.SirioToast(toastElem)</code>
+								</p>
+								<p>Sono previsti i metodi javascript di Open, Close, Dispose (DA INTEGRARE)</p>
+								<p>ATTENZIONE: modifica in atto da data-sirio-visible="false" a data-sirio-visible="true"</p>
+							</div>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+		
+										<div class="sirio-toast sirio-toast-error" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+											<div class="sirio-toast-body">
+												<span class="fas fa-exclamation-triangle fa-24" aria-hidden="true"></span>
+												<p><strong>Titolo errore</strong></p>
+												<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.</p>
+												<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+												<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+												<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
+											</div>
+										</div>
+
+									</div>
+									<div class="guide-col-md-6">
+
+										<div class="sirio-toast sirio-toast-info" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+											<div class="sirio-toast-body">
+												<span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+												<p><strong>Titolo informativo</strong></p>
+												<p>Repellendus ullamcorper  repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.</p>
+												<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+												<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+												<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
+											</div>
+										</div>
+
+									</div>
+									<div class="guide-col-md-6">
+
+										<div class="sirio-toast sirio-toast-warning" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+											<div class="sirio-toast-body">
+												<span class="fas fa-exclamation-circle fa-24" aria-hidden="true"></span>
+												<p><strong>Titolo attenzione</strong></p>
+												<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.</p>
+												<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+												<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+												<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
+											</div>
+										</div>
+
+									</div>
+									<div class="guide-col-md-6">
+										
+										<div class="sirio-toast sirio-toast-success" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+											<div class="sirio-toast-body">
+												<span class="fas fa-check fa-24" aria-hidden="true"></span>
+												<p><strong>Titolo successo</strong></p>
+												<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.</p>
+												<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+												<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+												<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+                            <div class="code" aria-hidden="true" id="code-toast">
+								<p class="guide-code-title">Toast wrapper:</p>
+<pre><xmp>
+<div class="sirio-toast-wrapper" aria-live="polite" aria-atomic="true">
+    ... qui toast uno di seguito all'altro ...
+</div>
+<script>
+	// Per un toast specifico identificato da un ID
+	var toastConID = document.querySelector("#toast-test");
+	var toastObj = new SirioLib.SirioToast(toastConID);
+</script>
+</xmp></pre>
+
+                                <p class="guide-code-title">Toast Error:</p>
+<pre><xmp>
+<div class="sirio-toast sirio-toast-error" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+	<div class="sirio-toast-body">
+		<span class="fas fa-exclamation-triangle" aria-hidden="true"></span>
+		<p><strong>Titolo errore</strong></p>
+		<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.
+		</p>
+		<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+		<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+		<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
+	</div>
+</div>
+</xmp></pre>
+                                <p class="guide-code-title">Toast Info:</p>
+<pre><xmp>
+<div class="sirio-toast sirio-toast-info" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+	<div class="sirio-toast-body">
+		<span class="fas fa-info-circle" aria-hidden="true"></span>
+		<p><strong>Titolo informativo</strong></p>
+		<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.
+		</p>
+		<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+		<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+		<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times"
+				aria-hidden="true"></span></button>
+	</div>
+</div>
+</xmp></pre>
+                                <p class="guide-code-title">Toast Warning:</p>
+<pre><xmp>
+<div class="sirio-toast sirio-toast-warning" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+	<div class="sirio-toast-body">
+		<span class="fas fa-exclamation-circle" aria-hidden="true"></span>
+		<p><strong>Titolo attenzione</strong></p>
+		<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.
+		</p>
+		<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+		<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+		<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times"
+				aria-hidden="true"></span></button>
+	</div>
+</div>
+</xmp></pre>
+                                <p class="guide-code-title">Toast Success:</p>
+<pre><xmp>
+<div class="sirio-toast sirio-toast-success" data-sirio-component="toast" data-sirio-visible="true" role="alert" aria-live="assertive" aria-atomic="true" data-sirio-delay="10000">
+	<div class="sirio-toast-body">
+		<span class="fas fa-check" aria-hidden="true"></span>
+		<p><strong>Titolo successo</strong></p>
+		<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt ipsam.
+		</p>
+		<p><a href="#" class="sirio-link-accent">Testo link</a></p>
+		<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
+		<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast" aria-label="Chiudi messaggio"><span class="fas fa-times"
+				aria-hidden="true"></span></button>
+	</div>
+</div>
+</xmp></pre>
+                            </div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="stepper">Step Progress Bar</h3>
+
+							<div class="blockquote">
+								<p></p>
+							</div>
+
+							<div class="guide-example">
+								<p>COMING SOON</p>
+							</div>
+
+
+							<div class="code" aria-hidden="true" id="code-stetpper">
+                                <p class="guide-code-title">Stepper:</p>
+<pre><xmp>
+
+</xmp></pre>       
+                            </div>
+						</section>
+
+				</main>
+			</div>
+		</div>
+	</div>
+	
+		
+		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
+			<span class="fas fa-chevron-up"></span>
+		</button>
+		
+		<!-- JS Webkit -->
+		<script src="../assets/js/sirio-webkit-min.js"></script>
+		<script src="../assets/js/datepicker-full.js"></script>
+		<script src="../assets/js/locales/it.js"></script>
+
+		<!-- JS Guide -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/clipboard.min.js"></script>
+		<script src="js/guide.js"></script>
+
+		<script>
+
+			// Inizializzazione Autocomplete
+			if ($('#autocompleteID2').length) {
+				// Autocomplete
+				let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
+				let newOptions = ["relazionale", "relazione", "relazioni", "relazioni industriali", "relegare", "relegazioni", "religione", "religioni", "religiosa"]
+				inputComponent.setOptionElements(newOptions);
+			}
+			
+			// Inizializzazione Alert
+			if ($('.sirio-alert').length) {
+				var alertElems = document.querySelectorAll(".sirio-alert");
+				for (var alertElem of alertElems) {
+					var alertObj = new SirioLib.SirioAlert(alertElem)
+				}
+			}
+
+			// Inizializzazione Calendario VanillaJs Datepicker
+			// Lingua italiana modifica per ottenere la grafica del design
+			(function () {
+				Datepicker.locales.it = {
+					days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
+					daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					//daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+					daysMin: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					monthsShort: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					//monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+					today: "Oggi",
+					monthsTitle: "Mesi",
+					clear: "Cancella",
+					weekStart: 1,
+					format: "dd/mm/yyyy",
+
+					// Aggiunte per l'aria-label dei bottoni in testata 
+					btnMonth: "Cambia il mese",
+					btnPrevMonth: "Mese precedente",
+					btnNextMonth: "Mese successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale prima volta
+					btnYear: "Cambia l\'anno",
+					btnPrevYear: "Anno precedente",
+					btnNextYear: "Anno successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale seconda volta
+					btnDecade: "Cambia il decennio",
+					btnPrevDecade: "Decennio precedente",
+					btnNextDecade: "Decennio successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale terza volta
+					btnPrevCentury: "Secolo precedente",
+					btnNextCentury: "Secolo successivo"
+				};
+			}());
+			
+			const elems = document.querySelectorAll(".sirio-datepicker");
+				for (const elem of elems) {
+					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+						const datepicker = new Datepicker(elem, {
+							format: "dd/mm/yyyy",
+							language: "it",
+							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+							autohide: true
+						});
+					}
+				}
+
+				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (const elemRange of elemsRange) {
+					const datepickerRange = new DateRangePicker(elemRange, {
+						format: "dd/mm/yyyy",
+						language: "it",
+						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+					});
+				}
+		</script>
+
+</body>
+</html>

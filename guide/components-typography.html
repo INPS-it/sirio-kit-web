@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+	<link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+	<link rel="stylesheet" href="../assets/css/font-lora.css">
+
+	<!-- CSS WebKit -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	<link rel="stylesheet" href="css/guide.css">
+
+	<title>Tipografia - Sirio WebKit</title>
+
+</head>
+<body>
+	<div class="guide-wrapper">
+		<div class="guide-container">
+			<div class="guide-flex">
+				<aside class="guide-aside">
+					<div class="guide-sticky">
+
+	<header class="guide-header">
+		<h1><a href="index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
+		<button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
+	</header>
+	
+<nav aria-label="Menu dei componenti" class="guide-nav">
+	<div class="guide-row">
+		<div class="guide-col">
+			<h2 class="guide-title">Menu Sirio Webkit</h2>
+		</div>
+		<div class="guide-col-auto">
+			<button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');"><span class="fas fa-times"></span></button>
+		</div>
+	</div>
+	<ul id="guide-nav">
+		<li>
+			<a href="#nav-structure">
+				Struttura
+			</a>
+			<ul id="nav-structure">
+				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-typography">
+				Tipografia
+			</a>
+			<ul id="nav-typography">
+				<li><a href="components-typography.html#font">Font</a></li>
+				<li><a href="components-typography.html#heading">Heading</a></li>
+				<li><a href="components-typography.html#colors">Colori</a></li>
+				<li><a href="components-typography.html#icons">Icone</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-contents">
+				Contenuto
+			</a>
+			<ul id="nav-contents">
+				<li><a href="components-contents.html#breadcrumb">Breadcrumb</a></li>
+				<li><a href="components-contents.html#dropdown">Dropdown</a></li>
+				<li><a href="components-contents.html#card">Card</a></li>
+				<li><a href="components-contents.html#tag">Tag</a></li>
+				<li><a href="components-contents.html#tab">Tab</a></li>
+				<li><a href="components-contents.html#collapse">Collapse</a></li>
+				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
+				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
+				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
+				<li><a href="components-contents.html#dialog">Dialog</a></li>
+				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#nav-form">
+				Form
+			</a>
+			<ul id="nav-form">
+				<li><a href="components-form.html#bottoni">Bottoni</a></li>
+				<li><a href="components-form.html#input">Input</a></li>
+				<li><a href="components-form.html#input-group">Input Group</a></li>
+				<li><a href="components-form.html#selectDropdown">Dropdown Select</a></li>
+				<li><a href="components-form.html#autocomplete">Autocomplete</a></li>
+				<li><a href="components-form.html#searchbar">Searchbar</a></li>
+				<li><a href="components-form.html#selezione">Selezione</a></li>
+				<li><a href="components-form.html#fileupload">File Upload</a></li>
+				<li><a href="components-form.html#slider">Slider</a></li>
+				<li><a href="components-form.html#datepicker">Date & Time Picker</a></li>
+				<li><a href="components-form.html#chip">Chip</a></li>
+				<li><a href="components-form.html#progress">Progress Bar</a></li>
+				<li><a href="components-form.html#validation">Validazione</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+					</div>
+				</aside>
+				<main class="guide-main">
+					<h2 class="guide-title">Tipografia</h2>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="font">Font</h3>
+
+							<div class="blockquote">
+								<p>Nel webkit sono presenti i font <strong>Titillium Web</strong>, <strong>Lora</strong> e <strong>Roboto Mono</strong></p>
+								<p>Per utilizzarli basterà richiamare nel TAG <code>&lt;head&gt;</code> tra i fogli di stile i files <strong>css</code> relativi inclusi tra gli assets:</p>
+								<ul>
+									<li><strong>font-titillium.css</strong></li>
+									<li><strong>font-lora.css</strong></li>
+									<li><strong>font-roboto-mono.css</strong></li>
+								</ul>
+
+								<p>I tipi di file per ogni font presente sono:</p>
+								<ul>
+									<li><strong>*.eot</strong> per Explorer IE6-IE9 </li>
+									<li><strong>*.ttf</strong> per Safari, Android, iOS</li>
+									<li><strong>*.svg</strong> per Legacy iOS</li>
+									<li><strong>*.woff</strong> per Browser moderni</li>
+									<li><strong>*.woff2</strong> per Browser di ultima generazione</li>
+								</ul>
+							</div>
+
+							<h4 class="guide-title">Titillium Web</h4>
+
+							<div class="blockquote">
+								<p>Il <strong>Titillium Web</strong> è un typeface con licenza OFL. Viene utilizzato per quasi la totalità dei testi e componenti delle interfacce. </p>
+								<p class="guide-text-24">ABCDEFGHIJKLMNOPQRSTUVWsirioabcdefghijklmnopqrstuvwsirio<br>
+									1234567890‘?’“!”(%)[#]{@}/&amp;\&lt;+÷×=&gt;®©$€£¥¢:;,.*</p>
+								<p>Per utilizzarlo in contesti dove è presente un altro font usa la classe <code>font-sans</code></p>
+							</div>
+				
+							<div class="table-overflow-hidden">
+								<table class="table-font font-sans">
+									<thead>
+										<tr>
+											<th scope="col">Nome</th>
+											<th scope="col">Weight</th>
+											<th scope="col">Esempio</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>thin</td>
+											<td>200</td>
+											<td style="font-weight:200; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>thin italic</td>
+											<td>200</td>
+											<td style="font-weight:200; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>light</td>
+											<td>300</td>
+											<td style="font-weight:300; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>light italic </td>
+											<td>300</td>
+											<td style="font-weight:300; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>regular </td>
+											<td>400</td>
+											<td style="font-weight:400; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>regular italic </td>
+											<td>400</td>
+											<td style="font-weight:400; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>semibold</td>
+											<td>600</td>
+											<td style="font-weight:600; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>semibold italic</td>
+											<td>600</td>
+											<td style="font-weight:600; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold</td>
+											<td>700</td>
+											<td style="font-weight:700; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold italic</td>
+											<td>700</td>
+											<td style="font-weight:700; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>black</td>
+											<td>900</td>
+											<td style="font-weight:900; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h4 class="guide-title">Lora</h4>
+				
+							<div class="blockquote">
+								<p>Il <strong>Lora</strong> è un typeface con licenza OFL. Perfettamente bilanciato
+									per essere utilizzato nella lettura di testi particolamente lunghi.</p>
+								<p class="guide-text-24">ABCDEFGHIJKLMNOPQRSTUVWsirioabcdefghijklmnopqrstuvwsirio<br>
+									1234567890‘?’“!”(%)[#]{@}/&amp;\&lt;+÷×=&gt;®©$€£¥¢:;,.*</p>
+								<p>Per utilizzarlo in contesti dove è presente un altro font usa la classe <code>font-serif</code></p>
+							</div>
+				
+							<div class="table-overflow-hidden">
+								<table class="table-font font-serif">
+									<thead>
+										<tr>
+											<th scope="col">Nome</th>
+											<th scope="col">Weight</th>
+											<th scope="col">Esempio</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>regular</td>
+											<td>400</td>
+											<td style="font-weight:400; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>regular italic</td>
+											<td>400</td>
+											<td style="font-weight:400; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>medium</td>
+											<td>500</td>
+											<td style="font-weight:500; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>medium italic</td>
+											<td>500</td>
+											<td style="font-weight:500; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>semibold</td>
+											<td>600</td>
+											<td style="font-weight:600; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>semibold italic</td>
+											<td>600</td>
+											<td style="font-weight:600; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold</td>
+											<td>700</td>
+											<td style="font-weight:700; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold italic</td>
+											<td>700</td>
+											<td style="font-weight:700; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h4 class="guide-title">Roboto Mono</h4>
+			
+							<div class="blockquote">
+								<p>Il <strong>Roboto Mono</strong> è un typeface con licenza OFL. Per i testi monospace.</p>
+								<p>Per utilizzarlo in contesti dove è presente un altro font usa la classe <code>font-mono</code></p>
+							</div>
+
+							<div class="table-overflow-hidden">
+								<table class="table-font font-mono">
+									<thead>
+										<tr>
+											<th scope="col">Nome</th>
+											<th scope="col">Weight</th>
+											<th scope="col">Esempio</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>thin</td>
+											<td>100</td>
+											<td style="font-family:'Roboto Mono'; font-weight:100; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>thin italic</td>
+											<td>100</td>
+											<td style="font-family:'Roboto Mono'; font-weight:100; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>black</td>
+											<td>200</td>
+											<td style="font-family:'Roboto Mono'; font-weight:200; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>black italic</td>
+											<td>200</td>
+											<td style="font-family:'Roboto Mono'; font-weight:200; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>light</td>
+											<td>300</td>
+											<td style="font-family:'Roboto Mono'; font-weight:300; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>light italic</td>
+											<td>300</td>
+											<td style="font-family:'Roboto Mono'; font-weight:300; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>regular</td>
+											<td>400</td>
+											<td style="font-family:'Roboto Mono'; font-weight:400; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>regular italic</td>
+											<td>400</td>
+											<td style="font-family:'Roboto Mono'; font-weight:400; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>medium</td>
+											<td>500</td>
+											<td style="font-family:'Roboto Mono'; font-weight:500; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>medium italic</td>
+											<td>500</td>
+											<td style="font-family:'Roboto Mono'; font-weight:500; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold</td>
+											<td>700</td>
+											<td style="font-family:'Roboto Mono'; font-weight:700; font-style:normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+										<tr>
+											<td>bold italic</td>
+											<td>700</td>
+											<td style="font-family:'Roboto Mono'; font-weight:700; font-style:italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="heading">Heading</h3>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col">
+
+										<small>
+											<strong>h1/.h1</strong> <br>
+											(48 px / bold / line height 72 px) <strong>LG</strong> (52 px / bold / line height 78 px) <strong>XL</strong> (56 px / bold / line height 84 px)
+										</small>
+										<h1>h1 Lorem ipsum dolor sit</h1>
+
+										<small>
+											<strong>h2/.h2</strong> <br>
+											(40 px / bold / line height 60 px) <strong>LG</strong> (44 px / bold / line height 66 px)
+										</small>										
+										<h2>h2 Lorem ipsum dolor sit</h2>
+
+										<small>
+											<strong>h3/.h3</strong> <br>
+											(32 px / bold / line height 48 px) <strong>LG</strong> (36 px / bold / line height 54 px)
+										</small>
+										<h3>h3 Lorem ipsum dolor sit</h3>
+
+										<small>
+											<strong>h4/.h4</strong> <br>
+											(24 px / bold / line height 36 px) <strong>LG</strong> (28 px / bold / line height 42 px)
+										</small>										
+										<h4>h4 Lorem ipsum dolor sit</h4>
+
+										<small>
+											<strong>h5/.h5</strong> <br>
+											(20 px / semibold / line height 30 px)
+										</small>										
+										<h5>h5 Lorem ipsum dolor sit</h5>
+
+										<small>
+											<strong>h6/.h6</strong> <br>
+											(18 px / semibold / line height 27 px)
+										</small>
+										<h6>h6 Lorem ipsum dolor sit</h6>
+										
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-heading">
+                                <p class="guide-code-title">Heading:</p>
+<pre><xmp>
+<h1>H1 Lorem ipsum dolor sit</h1>
+<h2>H2 Lorem ipsum dolor sit</h2>
+<h3>H3 Lorem ipsum dolor sit</h3>
+<h4>H4 Lorem ipsum dolor sit</h4>
+<h5>H5 Lorem ipsum dolor sit</h5>
+<h6>H6 Lorem ipsum dolor sit</h6>
+</xmp></pre>
+                            </div>
+						</section>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="colors">Colori</h3>
+							
+							<h4 class="guide-title">Testo</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-dark"><strong>.sirio-text-dark</strong><br> #000000</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-secondary"><strong>.sirio-text-secondary</strong><br> #454D56</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-primary"><strong>.sirio-text-primary</strong><br> #005980</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-dark-130 guide-border p-4 pt-5 sirio-text-light"><strong>.sirio-text-light</strong><br> #EDF4F7</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-dark-130 guide-border p-4 pt-5 sirio-text-white"><strong>.sirio-text-white</strong><br> #ffffff</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-disabled"><strong>.sirio-text-disabled</strong><br> #8E98A4</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-danger"><strong>.sirio-text-danger</strong><br>#AA224F</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-warning"><strong>.sirio-text-warning</strong><br>#E26334</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-info"><strong>.sirio-text-info</strong><br>#0077a3</p>
+									</div>
+									<div class="guide-col-md-4">
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-success"><strong>.sirio-text-success</strong><br> #049894</p>
+									</div>
+								</div>
+							</div>
+
+							<h4 class="guide-title">Background primario</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-primary-light-40"></div><p><strong>.sirio-bg-primary-light-40</strong><br> #82b4c9</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-primary-light-50"></div><p><strong>.sirio-bg-primary-light-50</strong><br> #47a8d1</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-primary-light-60"></div><p><strong>.sirio-bg-primary-light-60</strong><br> #1798cf</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-primary-mid-70"></div><p><strong>.sirio-bg-primary-mid-70</strong><br> #82b4c9</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-primary-mid-80"></div><p><strong>.sirio-bg-primary-mid-80</strong><br> #47a8d1</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary-mid-90"></div><p><strong>.sirio-bg-primary-mid-90</strong><br> #1798cf</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary"></div><p><strong>.sirio-bg-primary</strong><br> #007db3</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary-dark-110"></div><p><strong>.sirio-bg-primary-dark-110</strong><br> #005980</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary-dark-115"></div><p><strong>.sirio-bg-primary-dark-115</strong><br> #004766</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary-dark-120"></div><p><strong>.sirio-bg-primary-dark-120</strong><br> #00354c</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-primary-dark-130"></div><p><strong>.sirio-bg-primary-dark-130</strong><br> #00121a</p>
+									</div>
+								</div>
+							</div>
+							
+							<h4 class="guide-title">Background secondario</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-secondary-light-40"></div><p><strong>.sirio-bg-secondary-light-40</strong><br> #e3e5e8</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-secondary-light-50"></div><p><strong>.sirio-bg-secondary-light-50</strong><br> #c6ccd2</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-secondary-light-60"></div><p><strong>.sirio-bg-secondary-light-60</strong><br> #aab2bb</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-secondary-mid-70"></div><p><strong>.sirio-bg-secondary-mid-70</strong><br> #8e98a4</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary-mid-80"></div><p><strong>.sirio-bg-secondary-mid-80</strong><br> #727f8d</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary-mid-90"></div><p><strong>.sirio-bg-secondary-mid-90</strong><br> #5b6571</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary"></div><p><strong>.sirio-bg-secondary</strong><br> #454D56</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary-dark-110"></div><p><strong>.sirio-bg-secondary-dark-110</strong><br> #2d3339</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary-dark-120"></div><p><strong>.sirio-bg-secondary-dark-120</strong><br> #17191c</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-white p-4 pt-5 sirio-bg-secondary-dark-130"></div><p><strong>.sirio-bg-secondary-dark-130</strong><br> #000000</p>
+									</div>
+								</div>
+							</div>
+
+							<h4 class="guide-title">Background gradient</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-gradient-1"></div>
+										<p><strong>.sirio-bg-gradient-1</strong></p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-gradient-2"></div>
+										<p><strong>.sirio-bg-gradient-2</strong></p>
+									</div>
+								</div>
+							</div>
+
+							<h4 class="guide-title">Background semantico</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-danger guide-border"></div>
+										<p><strong>.sirio-bg-danger</strong><br> #AA224F</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-warning guide-border"></div>
+										<p><strong>.sirio-bg-warning</strong><br> #E26334</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-info guide-border"></div>
+										<p><strong>.sirio-bg-info</strong><br> #0077a3</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-bg-success guide-border"></div>
+										<p><strong>.sirio-bg-success</strong><br> #049894</p>
+									</div>
+								</div>
+							</div>
+
+							<h4 class="guide-title">Border</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-primary guide-border"></div>
+										<p><strong>.sirio-border-primary</strong><br> #007db3</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-secondary guide-border"></div>
+										<p><strong>.sirio-border-secondary</strong><br> #454D56</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-danger guide-border"></div>
+										<p><strong>.sirio-border-danger</strong><br> #AA224F</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-warning guide-border"></div>
+										<p><strong>.sirio-border-warning</strong><br> #E26334</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-info guide-border"></div>
+										<p><strong>.sirio-border-info</strong><br> #0077a3</p>
+									</div>
+									<div class="guide-col-md-4">
+										<div class="text-black p-4 pt-5 sirio-border-success guide-border"></div>
+										<p><strong>.sirio-border-success</strong><br> #049894</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="guide-section">
+							<h3 class="guide-title" id="icons">Icone Font Awesome v5.15</h3>
+						
+							<div class="blockquote">
+									
+								<p>La griglia <strong>Font Awesome</strong> si basa su una dimensione 16x16 e ha un overflow orizzontale incorporato che permette di portare la sua larghezza massima a 20 pixel.</p>
+								<p>Le icone possono essere decorative o semantiche. Nel caso delle prime basterà l'attributo <code>aria-hidden="true"</code>. Nel secondo caso invece è necessario aggiungere l'attrivuto <code>title</code> con un testo esplicativo. Qualora l'icona sia utilizzata all'interno di un link si può in alternativa usare l'attributo <code>aria-label</code> direttamente nel link. Oppure con un testo nascosto all'interno.</p>
+								
+								<p><strong>Icone e testo:</strong> quando si utilizzano icone accompagnate da un testo (es. bottoni), l’icona va allineata centralmente al corpo del testo,
+									e non alla sua baseline. 
+									La dimensione dell’icona deve essere scelta in base al testo che l’accompagna, ad esempio un’ icona di grandezza 16px è bilanciata per font size di 14-16pt.
+									Non utilizzare icone e testo con colorazioni diverse.</p>
+								<p>Tutte le icone utilizzate su interfacce touch, come smartphone e tablet, devono mantenere un’area d’interazione minima di 44px.
+									Se l’icona utilizzata è più piccola del touch target di riferimento, assicurarsi di prevedere comunque l’aria d’interazione indicata.</p>
+								
+								<p>Per utilizzarli basterà richiamare nel TAG <code>&lt;head&gt;</code> tra i fogli di stile il file <code>fonts-awesome.css</code> incluso tra gli assets.</p>
+
+								<hr>
+								
+								<p><strong>ATTENZIONE: Cose da non fare</strong></p>
+								<ul>
+									<li>Non utilizzare icone e testo con colorazioni diverse.</li>
+									<li>Non impostare dimensioni eccessive delle icone in confronto al testo che le accompagna</li>
+									<li>Non scrivere parole all’interno delle icone</li>
+								</ul>
+
+							</div>
+
+							<h4 class="guide-title">Esempi di uso</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fas fa-calendar" aria-hidden="true"></span>
+										<p>Icona decorativa</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span aria-hidden="true" class="fas fa-calendar" title="Tempo rimanente"></span>
+										<span class="sr-only">Tempo rimanente:</span>
+										<span>4 giorni</span>
+										<p>Icona semantica</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<a href="#" aria-label="Apri il calendario">
+											<span class="fas fa-calendar" aria-hidden="true"></span>
+										</a>
+										<p>Icona link</p>
+									</div>
+									
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-icone">
+								<p class="guide-code-title">Icona decorativa</p>
+<pre><xmp>
+<span class="fas fa-calendar" aria-hidden="true"></span>
+</xmp></pre>
+
+								<p class="guide-code-title">Icona semantica</p>
+<pre><xmp>
+<span aria-hidden="true" class="fas fa-calendar" title="Tempo rimanente"></span>
+<span class="sr-only">Tempo rimanente:</span>
+<span>4 giorni</span>
+</xmp></pre>
+
+								<p class="guide-code-title">Icona link</p>
+<pre><xmp>
+<a href="#" aria-label="Apri il calendario">
+	<span class="fas fa-calendar" aria-hidden="true"></span>
+</a>
+</xmp></pre>
+							</div>
+	
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Dimensioni icone</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-16 fas fa-calendar"></span>
+										<p>fa-16<br>(16 px)</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-calendar"></span>
+										<p>fa-24<br>(24 px)</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-32 fas fa-calendar"></span>
+										<p>fa-32<br>(32 px)</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-64 fas fa-calendar"></span>
+										<p>fa-64<br>(64 px)</p>
+									</div>
+								</div>
+							</div>
+	
+							<div class="code" aria-hidden="true" id="code-icone-size">
+								<p class="guide-code-title">Dimensioni icone</p>
+<pre><xmp>
+<span class="fa-16 fas fa-calendar"></span>
+<span class="fa-24 fas fa-calendar"></span>
+<span class="fa-32 fas fa-calendar"></span>
+<span class="fa-64 fas fa-calendar"></span>
+</xmp></pre>
+							</div>
+	
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Icone Direzioni</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-angle-down"></span>
+										<p>fa-angle-down</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-angle-left"></span>
+										<p>fa-angle-left</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-angle-right"></span>
+										<p>fa-angle-right</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-angle-up"></span>
+										<p>fa-angle-up</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-circle-down"></span>
+										<p>fa-arrow-circle-down</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-circle-left"></span>
+										<p>fa-arrow-circle-left</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-circle-right"></span>
+										<p>fa-arrow-circle-right</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-circle-up"></span>
+										<p>fa-arrow-circle-up</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-down"></span>
+										<p>fa-arrow-down</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-left"></span>
+										<p>fa-arrow-left</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-right"></span>
+										<p>fa-arrow-right</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-arrow-up"></span>
+										<p>fa-arrow-up</p>
+									</div>
+								</div>
+							</div>
+
+							<h4 class="guide-title">Icone Interfaccia</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-bars"></span>
+										<p>fa-bars</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-bell"></span>
+										<p>fa-bell</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-user"></span>
+										<p>fa-user</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-times"></span>
+										<p>fa-times</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-plus"></span>
+										<p>fa-plus</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-sort"></span>
+										<p>fa-sort</p>
+									</div>
+								</div>
+							</div>
+							
+							<h4 class="guide-title">Icone semantiche e di informazione</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-exclamation-triangle"></span>
+										<p>fa-exclamation-triangle</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-exclamation-circle"></span>
+										<p>fa-exclamation-circle</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-check"></span>
+										<p>fa-check</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-info-circle"></span>
+										<p>fa-info-circle</p>
+									</div>
+								</div>
+							</div>
+							
+							<h4 class="guide-title">Selezione di icone</h4>
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-baby-carriage"></span>
+										<p>fa-baby-carriage</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-university"></span>
+										<p>fa-university</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-book"></span>
+										<p>fa-book</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-briefcase"></span>
+										<p>fa-briefcase</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-building"></span>
+										<p>fa-building</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-bullhorn"></span>
+										<p>fa-bullhorn</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-envelope"></span>
+										<p>fa-envelope</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-file"></span>
+										<p>fa-file</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-globe"></span>
+										<p>fa-globe</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-globe-africa"></span>
+										<p>fa-globe-africa</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-globe-americas"></span>
+										<p>fa-globe-americas</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-globe-asia"></span>
+										<p>fa-globe-asia</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-globe-europe"></span>
+										<p>fa-globe-europe</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-calendar-day"></span>
+										<p>fa-calendar-day</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-calendar-plus"></span>
+										<p>fa-calendar-plus</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-calendar-check"></span>
+										<p>fa-calendar-check</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-heart"></span>
+										<p>fa-heart</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-hourglass"></span>
+										<p>fa-hourglass</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-inbox"></span>
+										<p>fa-inbox</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-lightbulb"></span>
+										<p>fa-lightbulb</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-comment-alt"></span>
+										<p>fa-comment-alt</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-newspaper"></span>
+										<p>fa-newspaper</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-piggy-bank"></span>
+										<p>fa-piggy-bank</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-print"></span>
+										<p>fa-print</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-sliders-h"></span>
+										<p>fa-sliders-h</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-stethoscope"></span>
+										<p>fa-stethoscope</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-sun"></span>
+										<p>fa-sun</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-tag"></span>
+										<p>fa-tag</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-tags"></span>
+										<p>fa-tags</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-share"></span>
+										<p>fa-share</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-map-signs"></span>
+										<p>fa-map-signs</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-umbrella"></span>
+										<p>fa-umbrella</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-wheelchair"></span>
+										<p>fa-wheelchair</p>
+									</div>
+									<div class="guide-col-md-4 guide-col-lg-3">
+										<span class="fa-24 fas fa-wrench"></span>
+										<p>fa-wrench</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+				</main>
+			</div>
+		</div>
+	</div>
+	
+		
+		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
+			<span class="fas fa-chevron-up"></span>
+		</button>
+
+
+		<!-- JS Webkit -->
+		<script src="../assets/js/sirio-webkit-min.js"></script>
+		<script src="../assets/js/datepicker-full.js"></script>
+		<script src="../assets/js/locales/it.js"></script>
+
+		<!-- JS Guide -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/clipboard.min.js"></script>
+		<script src="js/guide.js"></script>
+
+		<script>
+
+			// Inizializzazione Autocomplete
+			if ($('#autocompleteID2').length) {
+				// Autocomplete
+				let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
+				let newOptions = ["relazionale", "relazione", "relazioni", "relazioni industriali", "relegare", "relegazioni", "religione", "religioni", "religiosa"]
+				inputComponent.setOptionElements(newOptions);
+			}
+			
+			// Inizializzazione Alert
+			if ($('.sirio-alert').length) {
+				var alertElems = document.querySelectorAll(".sirio-alert");
+				for (var alertElem of alertElems) {
+					var alertObj = new SirioLib.SirioAlert(alertElem)
+				}
+			}
+
+			// Inizializzazione Calendario VanillaJs Datepicker
+			// Lingua italiana modifica per ottenere la grafica del design
+			(function () {
+				Datepicker.locales.it = {
+					days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
+					daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					//daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+					daysMin: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+					months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					monthsShort: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+					//monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+					today: "Oggi",
+					monthsTitle: "Mesi",
+					clear: "Cancella",
+					weekStart: 1,
+					format: "dd/mm/yyyy",
+
+					// Aggiunte per l'aria-label dei bottoni in testata 
+					btnMonth: "Cambia il mese",
+					btnPrevMonth: "Mese precedente",
+					btnNextMonth: "Mese successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale prima volta
+					btnYear: "Cambia l\'anno",
+					btnPrevYear: "Anno precedente",
+					btnNextYear: "Anno successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale seconda volta
+					btnDecade: "Cambia il decennio",
+					btnPrevDecade: "Decennio precedente",
+					btnNextDecade: "Decennio successivo",
+					// Utilizzati dopo aver cliccato sul bottone centrale terza volta
+					btnPrevCentury: "Secolo precedente",
+					btnNextCentury: "Secolo successivo"
+				};
+			}());
+			
+			const elems = document.querySelectorAll(".sirio-datepicker");
+				for (const elem of elems) {
+					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+						const datepicker = new Datepicker(elem, {
+							format: "dd/mm/yyyy",
+							language: "it",
+							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+							autohide: true
+						});
+					}
+				}
+
+				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (const elemRange of elemsRange) {
+					const datepickerRange = new DateRangePicker(elemRange, {
+						format: "dd/mm/yyyy",
+						language: "it",
+						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+					});
+				}
+		</script>
+
+</body>
+</html>
