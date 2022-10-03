@@ -2646,6 +2646,7 @@ class SirioTimePicker {
             }
         });
         _SirioTimePicker_handleKeysHour.set(this, (event) => {
+            var _a;
             let key = event.key;
             let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             let length = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length + 1;
@@ -2657,6 +2658,10 @@ class SirioTimePicker {
                     __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + key);
                     __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                     event.preventDefault();
+                }
+                else {
+                    if (((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.toString().length) == 0 && __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value[0] !== "0")
+                        event.preventDefault();
                 }
             }
             else {
@@ -2706,6 +2711,7 @@ class SirioTimePicker {
             }
         });
         _SirioTimePicker_handleKeysMinute.set(this, (event) => {
+            var _a;
             let key = event.key;
             let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             let length = __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length + 1;
@@ -2717,6 +2723,10 @@ class SirioTimePicker {
                     __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value + key);
                     __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                     event.preventDefault();
+                }
+                else {
+                    if (((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.toString().length) == 0 && __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value[0] !== "0")
+                        event.preventDefault();
                 }
             }
             else {
@@ -2988,7 +2998,7 @@ class SirioTimePicker {
                     __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
                     __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                 }
-                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 2) {
+                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 1) {
                     if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value) > 23)
                         __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "23");
                     else
@@ -3001,7 +3011,7 @@ class SirioTimePicker {
                     __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
                     __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                 }
-                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length > 2) {
+                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length > 1) {
                     if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value) > 59)
                         __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "59");
                     else
