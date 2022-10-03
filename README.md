@@ -7,7 +7,7 @@ Viene messa a disposizione una guida html per poter approfondire l'uso dei compo
 - [Changelog](#changelog)
 - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
 
-## Installatione
+## Installazione
 
 Copiare le risorse presenti nella cartella ASSETS nel vostro server e aggiungere nelle pagine HTML i puntamenti corretti per caricarle in base alla struttura directories che scegliete di utilizzare.
 
