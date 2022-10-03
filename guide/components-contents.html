@@ -69,7 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
-				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
 		<li>
@@ -100,7 +100,7 @@
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
-				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
 		<li>
@@ -292,6 +292,22 @@
 </div>
 </xmp></pre>
 							</div>
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownMenu chiamante.</li>
+									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownMenu chiamante.</li>
+									<li><strong>getItemElements()</strong>: restituisce gli oggetti item HTMLElement collegati all'oggetto SirioDropdownMenu chiamante.</li>
+									<li><strong>isHidden()</strong>: restituisce <code>true</code> se il menu a discesa è nascosto. In caso contrario, restituisce <code>false</code>.</li>
+									<li><strong>show()</strong>: mostra il Dropdown Menu.</li>
+									<li><strong>hide()</strong>: nasconde il Dropdown Menu.</li>
+									<li><strong>toggle()</strong>: mostra o nasconde il Dropdown Menu, a seconda del suo stato attuale (mostrato o nascosto).</li>
+								</ul>
+							</div>
+
 						</section>
 						
 						<section class="guide-section">
@@ -1547,6 +1563,22 @@
 </div>
 </xmp></pre>
 							</div>
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getTabElement()</strong>: restituisce l'oggetto tab HTMLElement collegato all'oggetto SirioTab chiamante.</li>
+									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioTab chiamante.</li>
+									<li><strong>getGroupElement()</strong>: restituisce l'oggetto HTMLElement di gruppo collegato all'oggetto SirioTab chiamante.</li>
+									<li><strong>isDisabled()</strong>: restituisce <code>true</code> se il Tab è disabilitata. Altrimenti, se abilitato, restituisce <code>false</code>.</li>
+									<li><strong>enable()</strong>: abilita il Tab.</li>
+									<li><strong>disable()</strong>: disabilita il Tab.</li>
+									<li><strong>select()</strong>: mostra il Tab e pone il focus sul suo trigger HTMLElement.</li>
+								</ul>
+							</div>
+
 						</section>
 
 						<section class="guide-section">
@@ -1800,6 +1832,22 @@
 </div>
 </xmp></pre>
 							</div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getAccordionElement()</strong>: restituisce l'oggetto HTMLElement Accordion collegato all'oggetto SirioAccordion chiamante.</li>
+									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioAccordion chiamante.</li>
+									<li><strong>isExclusive()</strong>: restituisce <code>true</code> se l'oggetto SirioAccordion fa parte di un gruppo di accordion che si escludono a vicenda. In caso contrario, restituisce <code>false</code>.</li>
+									<li><strong>isHidden</strong>: restituisce <code>true</code> se Accordion HTMLElement è nascosto. Altrimenti, se espanso, restituisce <code>false</code>.</li>
+									<li><strong>getGroupElement</strong>: restituisce l'oggetto gruppo HTMLElement, contenente tutti gli accordion che si escludono a vicenda collegati all'oggetto SirioAccordion chiamante.</li>
+									<li><strong>toggle</strong>: mostra o nasconde il contenuto dell'accordion, a seconda del suo stato attuale (mostrato o nascosto) </li>
+								</ul>
+							</div>
+
 						</section>
 	
 						<section class="guide-section">
@@ -2241,23 +2289,23 @@
 											<small>Sottotitolo (opzionale)</small>
 										</div>
 										<div class="sirio-filter-action">
-											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
-											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
-											<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" id="collapseBtn1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" id="collapseBtn2" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" id="collapseBtn3" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span></button>
 										</div>
 									</div>
 									<div class="sirio-filter-collapse">
-										<div id="collapseFilter1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+										<div id="collapseFilter1" role="region" aria-labelledby="collapseBtn1" data-sirio-visible="false" data-sirio-parent="#table-filter">
 											<div>
 												Contenuto Cerca
 											</div>
 										</div>
-										<div id="collapseFilter2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+										<div id="collapseFilter2" role="region" aria-labelledby="collapseBtn2" data-sirio-visible="false" data-sirio-parent="#table-filter">
 											<div>
 												Contenuto Impostazioni
 											</div>
 										</div>
-										<div id="collapseFilter3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+										<div id="collapseFilter3" role="region" aria-labelledby="collapseBtn3" data-sirio-visible="false" data-sirio-parent="#table-filter">
 											<div>
 												Contenuto Filtri
 											</div>
@@ -2275,23 +2323,23 @@
 			<small>Sottotitolo (opzionale)</small>
 		</div>
 		<div class="sirio-filter-action">
-			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
-			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-filter" aria-hidden="true"></span></button>
-			<button class="sirio-btn sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
+			<button class="sirio-btn sirio-btn-icon" id="collapseBtn1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter1" aria-expanded="false" aria-controls="collapseFilter1" aria-label="Cerca" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span></button>
+			<button class="sirio-btn sirio-btn-icon" id="collapseBtn2" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter2" aria-expanded="false" aria-controls="collapseFilter2" aria-label="Impostazioni" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span></button>
+			<button class="sirio-btn sirio-btn-icon" id="collapseBtn3" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilter3" aria-expanded="false" aria-controls="collapseFilter3" aria-label="Filtri" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span></button>
 		</div>
 	</div>
 	<div class="sirio-filter-collapse">
-		<div id="collapseFilter1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+		<div id="collapseFilter1" role="region" aria-labelledby="collapseBtn1" data-sirio-visible="false" data-sirio-parent="#table-filter">
 			<div>
 				Contenuto Cerca
 			</div>
 		</div>
-		<div id="collapseFilter2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+		<div id="collapseFilter2" role="region" aria-labelledby="collapseBtn2" data-sirio-visible="false" data-sirio-parent="#table-filter">
 			<div>
 				Contenuto Impostazioni
 			</div>
 		</div>
-		<div id="collapseFilter3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter">
+		<div id="collapseFilter3" role="region" aria-labelledby="collapseBtn3" data-sirio-visible="false" data-sirio-parent="#table-filter">
 			<div>
 				Contenuto Filtri
 			</div>
@@ -2319,23 +2367,23 @@
 											<small>Sottotitolo (opzionale)</small>
 										</div>
 										<div class="sirio-filter-action">
-											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
-											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
-											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark2" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
 										</div>
 									</div>
 									<div class="sirio-filter-collapse">
-										<div id="collapseFilterDark1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+										<div id="collapseFilterDark1" role="region" aria-labelledby="collapseBtnDark1" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 											<div>
 												Contenuto Cerca
 											</div>
 										</div>
-										<div id="collapseFilterDark2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+										<div id="collapseFilterDark2" role="region" aria-labelledby="collapseBtnDark2" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 											<div>
 												Contenuto Impostazioni
 											</div>
 										</div>
-										<div id="collapseFilterDark3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+										<div id="collapseFilterDark3" role="region" aria-labelledby="collapseBtnDark3" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 											<div>
 												Contenuto Filtri
 											</div>
@@ -2353,23 +2401,23 @@
 			<small>Sottotitolo (opzionale)</small>
 		</div>
 		<div class="sirio-filter-action">
-			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
-			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
-			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark1" aria-expanded="false" aria-controls="collapseFilterDark1" title="Cerca"><span class="fas fa-search" aria-hidden="true"></span>Cerca</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark2" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark2" aria-expanded="false" aria-controls="collapseFilterDark2" title="Impostazioni"><span class="fas fa-sliders-h" aria-hidden="true"></span>Impostazioni</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterDark3" aria-expanded="false" aria-controls="collapseFilterDark3" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
 		</div>
 	</div>
 	<div class="sirio-filter-collapse">
-		<div id="collapseFilterDark1" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+		<div id="collapseFilterDark1" role="region" aria-labelledby="collapseBtnDark1" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 			<div>
 				Contenuto Cerca
 			</div>
 		</div>
-		<div id="collapseFilterDark2" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+		<div id="collapseFilterDark2" role="region" aria-labelledby="collapseBtnDark2" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 			<div>
 				Contenuto Impostazioni
 			</div>
 		</div>
-		<div id="collapseFilterDark3" role="region" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
+		<div id="collapseFilterDark3" role="region" aria-labelledby="collapseBtnDark3" data-sirio-visible="false" data-sirio-parent="#table-filter-dark">
 			<div>
 				Contenuto Filtri
 			</div>
@@ -3246,6 +3294,25 @@
 </xmp></pre>
 							</div>
 
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getDialogElement</strong>: restituisce l'oggetto dialog HTMLElement collegato all'oggetto SirioDialog chiamante.</li>
+									<li><strong>getTriggerElements</strong>: restituisce gli oggetti trigger HTMLElement collegati all'oggetto SirioDialog chiamante.</li>
+									<li><strong>getDismissElements</strong>: restituisce gli oggetti HTMLElement scartati collegati all'oggetto SirioDialog chiamante.</li>
+									<li><strong>setOnShow(callback)</strong>: imposta la funzione di callback da eseguire quando la finestra di dialogo sta per essere visualizzata.</li>
+									<li><strong>setOnShown(callback)</strong>: imposta la funzione di callback da eseguire quando viene visualizzata la finestra di dialogo.</li>
+									<li><strong>setOnHide(callback)</strong>: imposta la funzione di callback da eseguire quando la finestra di dialogo sta per essere nascosta.</li>
+									<li><strong>setOnHidden(callback)</strong>: imposta la funzione di callback da eseguire quando la finestra di dialogo è stata nascosta.</li>
+									<li><strong>show()</strong>: mostra la finestra di dialogo.</li>
+									<li><strong>hide()</strong>: nasconde la finestra di dialogo.</li>
+									<li><strong>toggle()</strong>: mostra o nasconde la finestra di dialogo, a seconda del suo stato attuale (mostrato o nascosto).</li>
+								</ul>
+							</div>
+
 						</section>
 	
 						<section class="guide-section">
@@ -3258,7 +3325,6 @@
 								<p>Le notifiche in linea <strong>presentano sempre la X di chiusura</strong>, persistono sulla pagina fino a che l’utente li elimina.</p>
 								<p>Nelle notifiche alert <strong>il link e il bottone</strong> di azione <strong>sono facoltativi</strong>. Nel caso si debba toglierle si ricorda di eliminare anche il contenitore <code>col-auto</code> relativo.</p>
 								<p>Gli alert debbono essere attivati lato javascript quando vengono inseriti <code>SirioLib.SirioAlert(alertElem)</code></p>
-								<p>Sono previsti i metodi javascript di Open, Close, Dispose (DA INTEGRARE)</p>
 							</div>
 
 							<div class="guide-example">
@@ -3435,6 +3501,31 @@
 </xmp></pre>
 							</div>
 
+							
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<p>Constructor <strong>SirioAlert(alertEl: HTMLElement, onClose?: VoidFunction, onClosed?: VoidFunction)</strong>.<br> Parameters:</p>
+								<ul>
+									<li><strong>alertEl</strong>: elemento Alert HTML</li>
+									<li><strong>onClose</strong>: funzione di callback opzionale da eseguire quando Alert sta per essere chiuso</li>
+									<li><strong>onClosed</strong>: funzione di callback opzionale da eseguire quando Alert è stato chiuso</li>
+								</ul>
+								<p>Eventi e metodi:</p>
+								<ul>
+									<li><strong>getAlertEl()</strong>: restituisce l'oggetto del componente Alert HTMLElement collegato all'oggetto SirioAlert chiamante.</li>
+									<li><strong>getAlertType()</strong>: restituisce la stringa del tipo di avviso collegata all'oggetto SirioAlert chiamante.</li>
+									<li><strong>isClosed()</strong>: restituisce true se l'oggetto HTMLElement del componente di avviso collegato all'oggetto SirioAlert chiamante è chiuso, altrimenti restituisce false.</li>
+									<li><strong>open()</strong>: apre l'oggetto Alert HTMLElement collegato all'oggetto SirioAlert chiamante.</li>
+									<li><strong>close()</strong>: chiude l'oggetto Alert HTMLElement collegato all'oggetto SirioAlert chiamante.</li>
+									<li><strong>dispose()</strong>: distrugge l'oggetto Alert HTMLElement collegato all'oggetto SirioAlert chiamante.</li>
+									<li><strong>setOnClose(callback)</strong>: imposta la funzione di callback da eseguire quando Alert sta per essere chiuso.</li>
+									<li><strong>setOnClosed(callback)</strong>: imposta la funzione di callback da eseguire quando Alert è stato chiuso.</li>
+								</ul>
+							</div>
+
 
                             <hr class="guide-separator">
 
@@ -3452,8 +3543,6 @@
 								<p><strong>ATTENZIONE:</strong> I toast <strong>vanno inseriti in un DIV contenitore</strong> con i seguenti attributi <code>class="toast-wrapper" aria-live="polite" aria-atomic="true"</code> (guarda il codice html di esempio).</p>
 								<p>Gli alert debbono essere attivati lato javascript quando vengono inseriti <code>SirioLib.SirioToast(toastElem)</code>
 								</p>
-								<p>Sono previsti i metodi javascript di Open, Close, Dispose (DA INTEGRARE)</p>
-								<p>ATTENZIONE: modifica in atto da data-sirio-visible="false" a data-sirio-visible="true"</p>
 							</div>
 							
 							<div class="guide-example">
@@ -3590,24 +3679,441 @@
 </div>
 </xmp></pre>
                             </div>
+			
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<p>Constructor <strong>SirioToast(toastEl: HTMLElement, onShow?: VoidFunction, onHide?: VoidFunction, onShown?: VoidFunction, onHidden?: VoidFunction)</strong>.<br>
+									Parameters:</p>
+								<ul>
+									<li><strong>toastEl</strong>: Elemento HTML Toast </li>
+									<li><strong>onShow</strong>: funzione callback opzionale da eseguire quando Toast sta per essere mostrata</li>
+									<li><strong>onShown</strong>: funzione callback opzionale da eseguire quando Toast è stata mostrata</li>
+									<li><strong>onHide</strong>: funzione callback opzionale da eseguire quando Toast sta per essere nascosta</li>
+									<li><strong>onHidden</strong>: funzione callback opzionale da eseguire quando Toast è stata nascosta</li>
+								</ul>
+								<p>Eventi e metodi:</p>
+								<ul>
+									<li><strong>getToastEl()</strong>: restituisce l'oggetto HTMLElement del componente toast collegato all'oggetto SirioToast chiamante.</li>
+									<li><strong>getDismissEl()</strong>: restituisce l'oggetto HTMLElement del componente di chiusura collegato all'oggetto SirioToast chiamante.</li>
+									<li><strong>getToastType()</strong>: restituisce la stringa di tipo toast collegata all'oggetto SirioToast chiamante.</li>
+									<li><strong>getDismissDelay()</strong>: restituisce il ritardo(ms) collegato al timeout dell'oggetto SirioToast chiamante prima dell'auto-hiding.</li>
+									<li><strong>isHidden()</strong>: restituisce true se l'oggetto HTMLElement del componente toast collegato all'oggetto SirioToast chiamante è chiuso, altrimenti restituisce false.</li>
+									<li><strong>shown()</strong>: mostra l'oggetto HTMLElement del componente toast collegato all'oggetto SirioToast chiamante.</li>
+									<li><strong>hide()</strong>: nasconde l'oggetto HTMLElement del componente toast collegato all'oggetto SirioToast chiamante.</li>
+									<li><strong>dispose()</strong>: distrugge l'oggetto HTMLElement del componente toast collegato all'oggetto SirioToast chiamante.</li>
+									<li><strong>setDismissDelay(delay: ritardo da impostare)</strong>: il ritardo (ms) collegato al timeout dell'oggetto SirioToast chiamante prima dell'auto-hiding.</li>
+									<li><strong>setOnShow(callback)</strong>: imposta la funzione di callback da eseguire quando Toast sta per essere mostrata.</li>
+									<li><strong>setOnShown(callback)</strong>: imposta la funzione di callback da eseguire quando Toast è stata mostrata.</li>
+									<li><strong>setOnHide(callback)</strong>: imposta la funzione di callback da eseguire quando Toast sta per essere nascosta.</li>
+									<li><strong>setOnHidden(callback)</strong>: imposta la funzione di callback da eseguire quando Toast è stata nascosta.</li>
+								</ul>
+							</div>
+
 						</section>
 	
 						<section class="guide-section">
 							<h3 class="guide-title" id="stepper">Step Progress Bar</h3>
 
 							<div class="blockquote">
-								<p></p>
+								<p>La Step Progress Bar è una rappresentazione visiva dei progressi di un utente attraverso una serie di passaggi, che guidano verso il completamento di un processo specifico.</p>
+								<p>Se presenti i link per navigare lo stepper usare come contenitore <code>nav</code> altrimenti se statico usare <code>div con role="group"</code>.</p>
+								<p>Lo Stepper è stato configurato anche per la versione responsive che lo trasformerà in un dropdown menu.</p>
+								<p><strong>ATTENZIONE:</strong> da aggiungere controllo in sirio-webkit.js per il dropdown menu anche con tag OL</p>
+							</div>
+
+							<h4 class="guide-title">Stepper statico</h4>
+
+							<div class="blockquote">
+								<p>Quando lo stepper non è usato per la navigazione degli step, ma solo da breadcrumb.</p>
 							</div>
 
 							<div class="guide-example">
-								<p>COMING SOON</p>
+								<div class="sirio-stepper">
+									<div class="sirio-stepper-count">
+										Passaggio 3 di 6
+									</div>
+									<div class="sirio-stepper-selector">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn" type="button" id="dropdown-stepper-1" data-sirio-toggle="dropdown"
+												aria-expanded="false">
+												<span class="sr-only">Step corrente:</span>
+												<span>Cosa è successo</span>
+												<span class="sr-only">Apri la barra di avanzamento</span>
+											</button>
+											<div role="group" aria-label="Barra di avanzamento">
+												<ul class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-1"
+													data-sirio-visible="false">
+													<li class="sirio-stepper-item is-success">
+														<span class="sr-only">Completato</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+																	cominciare</span></span>
+														</div>
+													</li>
+													<li class="sirio-stepper-item is-success">
+														<span class="sr-only">Completato</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
+														</div>
+													</li>
+													<li class="sirio-stepper-item is-active" aria-current="step">
+														<span class="sr-only">Step attivo</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
+														</div>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+														</div>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+														</div>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<div class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+														</div>
+													</li>
+												</ul>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-stepper-static">
+								<p class="guide-code-title">Stepper statico:</p>
+<pre><xmp>
+<div class="sirio-stepper">
+	<div class="sirio-stepper-count">
+		Passaggio 3 di 6
+	</div>
+	<div class="sirio-stepper-selector">
+		<div class="sirio-dropdown" data-sirio-component="dropdown">
+			<button class="sirio-btn" type="button" id="dropdown-stepper-1" data-sirio-toggle="dropdown"
+				aria-expanded="false">
+				<span class="sr-only">Step corrente:</span>
+				<span>Cosa è successo</span>
+				<span class="sr-only">Apri la barra di avanzamento</span>
+			</button>
+			<div role="group" aria-label="Barra di avanzamento">
+				<ul class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-1"
+					data-sirio-visible="false">
+					<li class="sirio-stepper-item is-success">
+						<span class="sr-only">Completato</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+									cominciare</span></span>
+						</div>
+					</li>
+					<li class="sirio-stepper-item is-success">
+						<span class="sr-only">Completato</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
+						</div>
+					</li>
+					<li class="sirio-stepper-item is-active" aria-current="step">
+						<span class="sr-only">Step attivo</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
+						</div>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+						</div>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+						</div>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<div class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Stepper con link</h4>
+							
+							<div class="blockquote">
+								<p>Il cambio e i controlli per la navigazione tra i vari step è appannaggio dello sviluppo.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-stepper">
+									<div class="sirio-stepper-count">
+										Passaggio 3 di 6
+									</div>
+									<div class="sirio-stepper-selector">
+										<div class="sirio-dropdown" data-sirio-component="dropdown">
+											<button class="sirio-btn" type="button" id="dropdown-stepper-2" data-sirio-toggle="dropdown"
+												aria-expanded="false">
+												<span class="sr-only">Step corrente:</span>
+												<span>Cosa è successo</span>
+												<span class="sr-only">Apri la barra di avanzamento</span>
+											</button>
+											<nav aria-label="Barra di avanzamento">
+												<ul class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-2"
+													data-sirio-visible="false">
+													<li class="sirio-stepper-item is-success">
+														<span class="sr-only">Completato</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+																	cominciare</span></span>
+														</a>
+													</li>
+													<li class="sirio-stepper-item is-success">
+														<span class="sr-only">Completato</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
+																	anagrafici</span></span>
+														</a>
+													</li>
+													<li class="sirio-stepper-item is-active" aria-current="step">
+														<span class="sr-only">Step attivo</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
+																	successo</span></span>
+														</a>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+														</a>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+														</a>
+													</li>
+													<li class="sirio-stepper-item">
+														<span class="sr-only">Non completato</span>
+														<a href="#" class="sirio-stepper-content">
+															<span class="sirio-stepper-marker"></span>
+															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-stepper-link">
+								<p class="guide-code-title">Stepper con link:</p>
+<pre><xmp>
+<div class="sirio-stepper">
+	<div class="sirio-stepper-count">
+		Passaggio 3 di 6
+	</div>
+	<div class="sirio-stepper-selector">
+		<div class="sirio-dropdown" data-sirio-component="dropdown">
+			<button class="sirio-btn" type="button" id="dropdown-stepper-2" data-sirio-toggle="dropdown"
+				aria-expanded="false">
+				<span class="sr-only">Step corrente:</span>
+				<span>Cosa è successo</span>
+				<span class="sr-only">Apri la barra di avanzamento</span>
+			</button>
+			<nav aria-label="Barra di avanzamento">
+				<ul class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-2"
+					data-sirio-visible="false">
+					<li class="sirio-stepper-item is-success">
+						<span class="sr-only">Completato</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+									cominciare</span></span>
+						</a>
+					</li>
+					<li class="sirio-stepper-item is-success">
+						<span class="sr-only">Completato</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
+									anagrafici</span></span>
+						</a>
+					</li>
+					<li class="sirio-stepper-item is-active" aria-current="step">
+						<span class="sr-only">Step attivo</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
+									successo</span></span>
+						</a>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+						</a>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+						</a>
+					</li>
+					<li class="sirio-stepper-item">
+						<span class="sr-only">Non completato</span>
+						<a href="#" class="sirio-stepper-content">
+							<span class="sirio-stepper-marker"></span>
+							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+							
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Stati degli step</h4>
+
+							<div class="blockquote">
+								<p>Sono previste le seguenti classi per stati, eccetto quello di default, da aggiungere al contenire con classe <code>sirio-stepper-item</code>:</p>
+								<ul>
+									<li><strong>Inattivo</strong> (default)</li>
+									<li>Step corrente <strong>attivo</strong> <code>is-active</code></li>
+									<li>Completato con <strong>successo</strong> <code>is-success</code></li>
+									<li>Con <strong>warning</strong> presenti <code>is-warning</code></li>
+									<li>Con <strong>errori</strong> presenti <code>is-error</code></li>
+								</ul>
+							</div>
+
+							<div class="guide-example">
+								<div role="group" aria-label="Barra di avanzamento">
+									<ol class="sirio-stepper-nav">
+										<li class="sirio-stepper-item is-warning">
+											<span class="sr-only">Warning</span>
+											<div class="sirio-stepper-content">
+												<span class="sirio-stepper-marker"></span>
+												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Warning</span></span>
+											</div>
+										</li>
+										<li class="sirio-stepper-item is-error">
+											<span class="sr-only">Error</span>
+											<div class="sirio-stepper-content">
+												<span class="sirio-stepper-marker"></span>
+												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Error</span></span>
+											</div>
+										</li>
+										<li class="sirio-stepper-item is-success">
+											<span class="sr-only">Completato</span>
+											<div class="sirio-stepper-content">
+												<span class="sirio-stepper-marker"></span>
+												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Completato</span></span>
+											</div>
+										</li>
+										<li class="sirio-stepper-item is-active" aria-current="step">
+											<span class="sr-only">Step attivo</span>
+											<div class="sirio-stepper-content">
+												<span class="sirio-stepper-marker"></span>
+												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Attivo</span></span>
+											</div>
+										</li>
+										<li class="sirio-stepper-item">
+											<span class="sr-only">Inactive</span>
+											<div class="sirio-stepper-content">
+												<span class="sirio-stepper-marker"></span>
+												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Inattivo</span></span>
+											</div>
+										</li>
+									</ol>
+								</div>
 							</div>
 
 
 							<div class="code" aria-hidden="true" id="code-stetpper">
                                 <p class="guide-code-title">Stepper:</p>
 <pre><xmp>
-
+<div role="group" aria-label="Barra di avanzamento">
+	<ol class="sirio-stepper-nav">
+		<li class="sirio-stepper-item is-warning">
+			<span class="sr-only">Warning</span>
+			<div class="sirio-stepper-content">
+				<span class="sirio-stepper-marker"></span>
+				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Warning</span></span>
+			</div>
+		</li>
+		<li class="sirio-stepper-item is-error">
+			<span class="sr-only">Error</span>
+			<div class="sirio-stepper-content">
+				<span class="sirio-stepper-marker"></span>
+				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Error</span></span>
+			</div>
+		</li>
+		<li class="sirio-stepper-item is-success">
+			<span class="sr-only">Completato</span>
+			<div class="sirio-stepper-content">
+				<span class="sirio-stepper-marker"></span>
+				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Completato</span></span>
+			</div>
+		</li>
+		<li class="sirio-stepper-item is-active" aria-current="step">
+			<span class="sr-only">Step attivo</span>
+			<div class="sirio-stepper-content">
+				<span class="sirio-stepper-marker"></span>
+				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Attivo</span></span>
+			</div>
+		</li>
+		<li class="sirio-stepper-item">
+			<span class="sr-only">Inactive</span>
+			<div class="sirio-stepper-content">
+				<span class="sirio-stepper-marker"></span>
+				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Inattivo</span></span>
+			</div>
+		</li>
+	</ol>
+</div>
 </xmp></pre>       
                             </div>
 						</section>
@@ -3621,11 +4127,10 @@
 		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
 			<span class="fas fa-chevron-up"></span>
 		</button>
-		
+
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
-		<script src="../assets/js/datepicker-full.js"></script>
-		<script src="../assets/js/locales/it.js"></script>
+		<script src="../assets/js/sirio-datepicker-full.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -3686,10 +4191,10 @@
 				};
 			}());
 			
-			const elems = document.querySelectorAll(".sirio-datepicker");
-				for (const elem of elems) {
+			var elems = document.querySelectorAll(".sirio-datepicker");
+				for (var elem of elems) {
 					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-						const datepicker = new Datepicker(elem, {
+						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
@@ -3699,9 +4204,9 @@
 					}
 				}
 
-				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-				for (const elemRange of elemsRange) {
-					const datepickerRange = new DateRangePicker(elemRange, {
+				var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (var elemRange of elemsRange) {
+					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',

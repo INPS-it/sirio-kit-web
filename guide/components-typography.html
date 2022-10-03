@@ -69,7 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
-				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
 		<li>
@@ -100,7 +100,7 @@
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
-				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
 		<li>
@@ -997,11 +997,9 @@
 			<span class="fas fa-chevron-up"></span>
 		</button>
 
-
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
-		<script src="../assets/js/datepicker-full.js"></script>
-		<script src="../assets/js/locales/it.js"></script>
+		<script src="../assets/js/sirio-datepicker-full.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -1062,10 +1060,10 @@
 				};
 			}());
 			
-			const elems = document.querySelectorAll(".sirio-datepicker");
-				for (const elem of elems) {
+			var elems = document.querySelectorAll(".sirio-datepicker");
+				for (var elem of elems) {
 					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-						const datepicker = new Datepicker(elem, {
+						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
@@ -1075,9 +1073,9 @@
 					}
 				}
 
-				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-				for (const elemRange of elemsRange) {
-					const datepickerRange = new DateRangePicker(elemRange, {
+				var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (var elemRange of elemsRange) {
+					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',

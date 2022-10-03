@@ -69,7 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
-				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
 		<li>
@@ -100,7 +100,7 @@
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
-				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
 		<li>
@@ -141,6 +141,17 @@
 					</section>
 
 					<section class="guide-section">
+
+						<h3 class="guide-title">Novità v.0.6.0</h3>
+						<ul>
+							<li>Aggiunti componenti:
+								<ul>
+									<li>Step Progress Bar</li>
+									<li>Footer</li>
+								</ul>
+							</li>
+						</ul>
+
 						<h3 class="guide-title">Novità v.0.5.0</h3>
 						<ul>
 							<li>Aggiunti componenti:
@@ -229,28 +240,9 @@
 			<span class="fas fa-chevron-up"></span>
 		</button>
 
-
-		<div class="sirio-toast-wrapper" aria-live="polite" aria-atomic="true">
-			<div id="toast-test" class="sirio-toast sirio-toast-error" data-sirio-component="toast" data-sirio-visible="true" role="alert"
-				aria-live="assertive" aria-atomic="true" data-sirio-delay="5000">
-				<div class="sirio-toast-body">
-					<span class="fas fa-exclamation-triangle fa-24" aria-hidden="true"></span>
-					<p><strong>Titolo errore</strong></p>
-					<p>Repellendus ullamcorper repellat harum cum dui, ipsam lectus nec? Explicabo consequuntur incididunt
-						ipsam.
-					</p>
-					<p><a href="#" class="sirio-link-accent">Testo link</a></p>
-					<div><button class="sirio-btn sirio-btn-tertiary-light">Azione</button></div>
-					<button type="button" class="sirio-btn sirio-btn-icon sirio-btn-close" data-sirio-dismiss="toast"
-						aria-label="Chiudi messaggio"><span class="fas fa-times" aria-hidden="true"></span></button>
-				</div>
-			</div>
-		</div>
-
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
-		<script src="../assets/js/datepicker-full.js"></script>
-		<script src="../assets/js/locales/it.js"></script>
+		<script src="../assets/js/sirio-datepicker-full.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -274,12 +266,6 @@
 				for (var alertElem of alertElems) {
 					var alertObj = new SirioLib.SirioAlert(alertElem)
 				}
-			}
-
-			// Inizializzazione Toast
-			if ($('.sirio-toast').length) {
-				var toastConID = document.querySelector("#toast-test");
-				var toastObj = new SirioLib.SirioToast(toastConID);
 			}
 
 			// Inizializzazione Calendario VanillaJs Datepicker
@@ -317,10 +303,10 @@
 				};
 			}());
 			
-			const elems = document.querySelectorAll(".sirio-datepicker");
-				for (const elem of elems) {
+			var elems = document.querySelectorAll(".sirio-datepicker");
+				for (var elem of elems) {
 					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-						const datepicker = new Datepicker(elem, {
+						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
@@ -330,9 +316,9 @@
 					}
 				}
 
-				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-				for (const elemRange of elemsRange) {
-					const datepickerRange = new DateRangePicker(elemRange, {
+				var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (var elemRange of elemsRange) {
+					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',

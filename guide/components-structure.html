@@ -23,7 +23,7 @@
 	<link rel="manifest" href="../assets/img/favicon/manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">	
+	<meta name="theme-color" content="#ffffff">
 
 	<!-- CSS Fonts -->
 	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
 	<link rel="stylesheet" href="../assets/css/webkit.min.css">
 	<link rel="stylesheet" href="css/guide.css">
 
-	<title>Form - Sirio Webkit</title>
+	<title>Struttura - Sirio Webkit</title>
 
 </head>
 <body>
@@ -51,7 +51,7 @@
 		<h1><a href="index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
 		<button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
 	</header>
-	
+
 <nav aria-label="Menu dei componenti" class="guide-nav">
 	<div class="guide-row">
 		<div class="guide-col">
@@ -69,7 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
-				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
 		<li>
@@ -100,7 +100,7 @@
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
-				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
 		<li>
@@ -206,9 +206,9 @@
 	<footer id="footer">...</footer>
 
 	<!-- JS WebKit -->
-	<script src="js/datepicker-full.js"></script>
+	<script src="js/sirio-datepicker-full.js"></script>
 	<script src="js/sirio-webkit.js"></script>
-	
+
 </body>
 </html>
 </xmp></pre>
@@ -345,32 +345,463 @@
 								<p>Il modulo con il Torna su deve puntare a un ID con contenuto "top-page" perchè funzioni.</p>
 							</div>
 
-							<div class="guide-example">
-								<p>COMING SOON</p>
-							</div>
+							<footer id="footer" class="sirio-footer">
+								<h2 class="sr-only">Footer</h2>
+
+								<!-- Blocco Torna su -->
+								<div class="sirio-footer-action">
+									<div class="container-fluid">
+										<div class="row align-items-md-center">
+											<div class="col-md-4 col-lg-3 mx-auto">
+												<a href="#top-page" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" title="Torna all'inizio pagina">Torna su<span class="fas fa-arrow-up ml-2" aria-hidden="true"></span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- Blocco Site Map -->
+								<div class="sirio-footer-sitemap">
+								    <div class="container-fluid">
+								        <div class="row g-0 sirio-accordion-dark">
+								            <div class="col-12 col-lg-4">
+								                <h3 class="h5 sirio-text-white">Heading</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+
+								            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader1">
+								                    <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+								                        data-sirio-target="#accordionBody1" aria-expanded="false" aria-controls="accordionBody1">
+								                        <span class="sr-only">Apri menu </span><span>Heading 1</span>
+								                    </button>
+								            </div>
+								            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody1" aria-labelledby="accordionHeader1" role="region" data-sirio-visible="false">
+								                <h3 class="h6 sirio-text-white">Heading 1</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+
+								            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader2">
+								                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+								                    data-sirio-target="#accordionBody2" aria-expanded="false" aria-controls="accordionBody2">
+								                    <span class="sr-only">Apri menu </span><span>Heading 2</span>
+								                </button>
+								            </div>
+								            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody2" aria-labelledby="accordionHeader2" role="region" data-sirio-visible="false">
+								                <h3 class="h6 sirio-text-white">Heading 2</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+								        </div>
+								        <div class="row g-0 sirio-accordion-dark">
+								            <div class="col-12 col-lg-4">
+								                <h3 class="h5 sirio-text-white">Heading</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+
+								            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader3">
+								                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+								                    data-sirio-target="#accordionBody3" aria-expanded="false" aria-controls="accordionBody3">
+								                    <span class="sr-only">Apri menu </span><span>Heading 3</span>
+								                </button>
+								            </div>
+								            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody3" aria-labelledby="accordionHeader3"
+								                role="region" data-sirio-visible="false">
+								                <h3 class="h6 sirio-text-white">Heading 3</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+
+								            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader4">
+								                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+								                    data-sirio-target="#accordionBody4" aria-expanded="false" aria-controls="accordionBody4">
+								                    <span class="sr-only">Apri menu </span><span>Heading 4</span>
+								                </button>
+								            </div>
+								            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody4" aria-labelledby="accordionHeader4"
+								                role="region" data-sirio-visible="false">
+								                <h3 class="h6 sirio-text-white">Heading 4</h3>
+								                <ul class="sirio-list-unstyled">
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+								                </ul>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+
+								<!-- Blocco Contatti -->
+								<div class="sirio-footer-contact">
+									<div class="container-fluid">
+										<div class="sirio-footer-grid">
+
+											<!-- Social -->
+											<div class="sirio-footer-social">
+												<ul class="sirio-list-inline sirio-list-unstyled">
+													<li>
+														<a href="https://www.facebook.com/INPSGiovani" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Facebook">
+															<span class="fa-24 fab fa-facebook-f"></span><span class="sr-only">Facebook: apre una nuova finestra</span>
+														</a>
+													</li>
+													<li>
+														<a href="http://www.twitter.com/Inps_it" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white"
+															title="Twitter">
+															<span class="fa-24 fab fa-twitter"></span><span class="sr-only">Twitter: apre una nuova finestra</span>
+														</a>
+													</li>
+													<li>
+														<a href="https://www.youtube.com/user/INPSComunica" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Youtube">
+															<span class="fa-24 fab fa-youtube"></span><span class="sr-only">Youtube: apre una nuova finestra</span>
+														</a>
+													</li>
+													<li>
+														<a href="https://www.instagram.com/inps_social/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Instagram">
+															<span class="fa-24 fab fa-instagram"></span><span class="sr-only">Instagram: apre una nuova finestra</span>
+														</a>
+													</li>
+													<li>
+														<a href="https://www.linkedin.com/company/inps-official/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Linkedin">
+															<span class="fa-24 fab fa-linkedin"></span><span class="sr-only">Linkedin: apre una nuova finestra</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+
+											<!-- Logo -->
+											<div class="sirio-footer-logo">
+												<img src="../assets/img/logo-inps-white.svg" alt="INPS (Istituto Nazionale Previdenza Sociale)">
+											</div>
+
+											<!-- Address -->
+											<div class="sirio-footer-address">
+												<p>
+													<strong>Sede Legale:</strong><br> Via Ciro il Grande, 21<br> 00144 Roma
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Blocco Copyright -->
+								<div class="sirio-footer-copy">
+								    <div class="container-fluid">
+								        <div class="d-flex align-items-start align-items-md-center justify-content-center">
+								            <div class="pe-2 pe-lg-5">
+								                <img src="../assets/img/logo-repubblica.svg" alt="Logo della Repubblica Italiana">
+								            </div>
+								            <div>
+								                <strong>www.inps.gov.it &copy; 1997-2022 Istituto Nazionale Previdenza Sociale. Tutti i diritti riservati.</strong>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+
+							</footer>
 
 							<div class="code" aria-hidden="true" id="code-footer">
-								<p class="guide-code-title">Struttura Footer:</p>
+								<p class="guide-code-title">Data entry:</p>
 <pre><xmp>
+<footer id="footer" class="sirio-footer">
+	<h2 class="sr-only">Footer</h2>
 
+	<!-- Blocco Torna su -->
+	<div class="sirio-footer-action">
+		<div class="container-fluid">
+			<div class="row align-items-md-center">
+				<div class="col-md-4 col-lg-3 mx-auto">
+					<a href="#top-page" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" title="Torna all'inizio pagina">Torna su<span class="fas fa-arrow-up ml-2" aria-hidden="true"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Blocco Site Map -->
+	<div class="sirio-footer-sitemap">
+	    <div class="container-fluid">
+	        <div class="row g-0 sirio-accordion-dark">
+	            <div class="col-12 col-lg-4">
+	                <h3 class="h5 sirio-text-white">Heading</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+
+	            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader1">
+	                    <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+	                        data-sirio-target="#accordionBody1" aria-expanded="false" aria-controls="accordionBody1">
+	                        <span class="sr-only">Apri menu </span><span>Heading 1</span>
+	                    </button>
+	            </div>
+	            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody1" aria-labelledby="accordionHeader1" role="region" data-sirio-visible="false">
+	                <h3 class="h6 sirio-text-white">Heading 1</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+
+	            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader2">
+	                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+	                    data-sirio-target="#accordionBody2" aria-expanded="false" aria-controls="accordionBody2">
+	                    <span class="sr-only">Apri menu </span><span>Heading 2</span>
+	                </button>
+	            </div>
+	            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody2" aria-labelledby="accordionHeader2" role="region" data-sirio-visible="false">
+	                <h3 class="h6 sirio-text-white">Heading 2</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div class="row g-0 sirio-accordion-dark">
+	            <div class="col-12 col-lg-4">
+	                <h3 class="h5 sirio-text-white">Heading</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+
+	            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader3">
+	                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+	                    data-sirio-target="#accordionBody3" aria-expanded="false" aria-controls="accordionBody3">
+	                    <span class="sr-only">Apri menu </span><span>Heading 3</span>
+	                </button>
+	            </div>
+	            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody3" aria-labelledby="accordionHeader3"
+	                role="region" data-sirio-visible="false">
+	                <h3 class="h6 sirio-text-white">Heading 3</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+
+	            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeader4">
+	                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+	                    data-sirio-target="#accordionBody4" aria-expanded="false" aria-controls="accordionBody4">
+	                    <span class="sr-only">Apri menu </span><span>Heading 4</span>
+	                </button>
+	            </div>
+	            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBody4" aria-labelledby="accordionHeader4"
+	                role="region" data-sirio-visible="false">
+	                <h3 class="h6 sirio-text-white">Heading 4</h3>
+	                <ul class="sirio-list-unstyled">
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- Blocco Contatti -->
+	<div class="sirio-footer-contact">
+		<div class="container-fluid">
+			<div class="sirio-footer-grid">
+
+				<!-- Social -->
+				<div class="sirio-footer-social">
+					<ul class="sirio-list-inline sirio-list-unstyled">
+						<li>
+							<a href="https://www.facebook.com/INPSGiovani" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Facebook">
+								<span class="fa-24 fab fa-facebook-f"></span><span class="sr-only">Facebook: apre una nuova finestra</span>
+							</a>
+						</li>
+						<li>
+							<a href="http://www.twitter.com/Inps_it" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white"
+								title="Twitter">
+								<span class="fa-24 fab fa-twitter"></span><span class="sr-only">Twitter: apre una nuova finestra</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/user/INPSComunica" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Youtube">
+								<span class="fa-24 fab fa-youtube"></span><span class="sr-only">Youtube: apre una nuova finestra</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/inps_social/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Instagram">
+								<span class="fa-24 fab fa-instagram"></span><span class="sr-only">Instagram: apre una nuova finestra</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/company/inps-official/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Linkedin">
+								<span class="fa-24 fab fa-linkedin"></span><span class="sr-only">Linkedin: apre una nuova finestra</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Logo -->
+				<div class="sirio-footer-logo">
+					<img src="../assets/img/logo-inps-white.svg" alt="INPS (Istituto Nazionale Previdenza Sociale)">
+				</div>
+
+				<!-- Address -->
+				<div class="sirio-footer-address">
+					<p>
+						<strong>Sede Legale:</strong><br> Via Ciro il Grande, 21<br> 00144 Roma
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Blocco Copyright -->
+	<div class="sirio-footer-copy">
+	    <div class="container-fluid">
+	        <div class="d-flex align-items-start align-items-md-center justify-content-center">
+	            <div class="pe-2 pe-lg-5">
+	                <img src="../assets/img/logo-repubblica.svg" alt="Logo della Repubblica Italiana">
+	            </div>
+	            <div>
+	                <strong>www.inps.gov.it &copy; 1997-2022 Istituto Nazionale Previdenza Sociale. Tutti i diritti riservati.</strong>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+</footer>
 </xmp></pre>
 							</div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Azioni > Data entry</h4>
+
+							<div class="sirio-footer">
+								<!-- Blocco Azioni -->
+								<form action="#">
+									<div class="sirio-footer-action">
+										<div class="container-fluid">
+											<div class="row align-items-md-center">
+												<div class="col-md-6 col-lg-8 mt-2">
+													<h3 class="h5 sirio-text-white">Lorem ipsum</h3>
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+												</div>
+												<div class="col-md-3 col-lg-2 my-2">
+													<input type="text" id="input-text" name="input-text" class="sirio-form-control" aria-label="Label del campo input" placeholder="Inserisci il testo">
+												</div>
+												<div class="col-md-3 col-lg-2 my-2">
+													<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" type="submit">Bottone<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-footer-action">
+								<p class="guide-code-title">Data entry:</p>
+<pre><xmp>
+<!-- Blocco Azioni -->
+<form action="#">
+	<div class="sirio-footer-action">
+		<div class="container-fluid">
+			<div class="row align-items-md-center">
+				<div class="col-md-6 col-lg-8 mt-2">
+					<h3 class="h5 sirio-text-white">Lorem ipsum</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+				<div class="col-md-3 col-lg-2 my-2">
+					<input type="text" id="input-text" name="input-text" class="sirio-form-control" aria-label="Label del campo input" placeholder="Inserisci il testo">
+				</div>
+				<div class="col-md-3 col-lg-2 my-2">
+					<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" type="submit">Bottone<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</xmp></pre>
+							</div>
+
+
+							<h4 class="guide-title">Azioni > Call to action</h4>
+
+							<div class="sirio-footer">
+								<!-- Blocco Torna su -->
+								<div class="sirio-footer-action">
+									<div class="container-fluid">
+										<div class="row align-items-md-center">
+											<div class="col-md-4 col-lg-3 mx-auto">
+												<a href="#top-page" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" title="Torna all'inizio pagina">Torna su<span class="fas fa-arrow-up ml-2" aria-hidden="true"></span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-footer-back">
+								<p class="guide-code-title">Call to action:</p>
+<pre><xmp>
+<!-- Blocco Torna su -->
+<div class="sirio-footer-action">
+	<div class="container-fluid">
+		<div class="row align-items-md-center">
+			<div class="col-md-4 col-lg-3 mx-auto">
+				<a href="#top-page" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" title="Torna all'inizio pagina">Torna su<span class="fas fa-arrow-up ml-2" aria-hidden="true"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
 					</section>
 
 				</main>
 			</div>
 		</div>
 	</div>
-	
-		
+
+
 		<button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio" aria-hidden="true">
 			<span class="fas fa-chevron-up"></span>
 		</button>
 
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
-		<script src="../assets/js/datepicker-full.js"></script>
-		<script src="../assets/js/locales/it.js"></script>
+		<script src="../assets/js/sirio-datepicker-full.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -387,7 +818,7 @@
 				let newOptions = ["relazionale", "relazione", "relazioni", "relazioni industriali", "relegare", "relegazioni", "religione", "religioni", "religiosa"]
 				inputComponent.setOptionElements(newOptions);
 			}
-			
+
 			// Inizializzazione Alert
 			if ($('.sirio-alert').length) {
 				var alertElems = document.querySelectorAll(".sirio-alert");
@@ -413,7 +844,7 @@
 					weekStart: 1,
 					format: "dd/mm/yyyy",
 
-					// Aggiunte per l'aria-label dei bottoni in testata 
+					// Aggiunte per l'aria-label dei bottoni in testata
 					btnMonth: "Cambia il mese",
 					btnPrevMonth: "Mese precedente",
 					btnNextMonth: "Mese successivo",
@@ -430,11 +861,11 @@
 					btnNextCentury: "Secolo successivo"
 				};
 			}());
-			
-			const elems = document.querySelectorAll(".sirio-datepicker");
-				for (const elem of elems) {
+
+			var elems = document.querySelectorAll(".sirio-datepicker");
+				for (var elem of elems) {
 					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-						const datepicker = new Datepicker(elem, {
+						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
@@ -444,9 +875,9 @@
 					}
 				}
 
-				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-				for (const elemRange of elemsRange) {
-					const datepickerRange = new DateRangePicker(elemRange, {
+				var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (var elemRange of elemsRange) {
+					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',

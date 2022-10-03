@@ -69,7 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
-				<li><a href="components-structure.html#footercmp">Footer<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
 		<li>
@@ -100,7 +100,7 @@
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
-				<li><a href="components-contents.html#stepper">Step Progress Bar<br><strong><small>(Coming soon)</small></strong></a></li>
+				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
 		<li>
@@ -585,7 +585,7 @@
 									<div class="guide-col-md-6">
 										<label for="selectIDsingle">Dropdown Select scelta singola</label>
 										<select name="selectIDsingle" id="selectIDsingle" class="sirio-form-control" data-sirio-component="select">
-											<option value="0">Tutte le opzioni</option>
+											<option value="0">Seleziona un valore</option>
 											<option value="1">Opzione 1</option>
 											<option value="2">Opzione 2</option>
 											<option value="3">Opzione 3</option>
@@ -616,7 +616,7 @@
 <pre><xmp>
 <label for="selectIDsingle">Dropdown Select scelta singola</label>
 <select name="selectIDsingle" id="selectIDsingle" class="sirio-form-control" data-sirio-component="select">
-	<option value="0">Tutte le opzioni</option>
+	<option value="0">Seleziona un valore</option>
 	<option value="1">Opzione 1</option>
 	<option value="2">Opzione 2</option>
 	<option value="3">Opzione 3</option>
@@ -640,6 +640,24 @@
 </select>
 </xmp></pre>
                             </div>
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownSelect chiamante.</li>
+									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownSelect chiamante.</li>
+									<li><strong>getItemElements()</strong>: restituisce gli oggetti item HTMLElement collegati all'oggetto SirioDropdownSelect chiamante.</li>
+									<li><strong>getSelectedValues()</strong>: restituisce l'elenco dei valori selezionati dell'oggetto SirioDropdownSelect.</li>
+									<li><strong>isHidden()</strong>: restituisce <code>true</code> se la selezione a discesa Dropdown Select è nascosta. In caso contrario, restituisce <code>false</code>.</li>
+									<li><strong>isMultiple()</strong>: restituisce <code>true</code> <code>true</code> se la selezione a discesa Dropdown Select è multipla. In caso contrario, restituisce <code>false</code>.</li>
+									<li><strong>show()</strong>: mostra la selezione a discesa Dropdown Select.</li>
+									<li><strong>hide()</strong>: nasconde la selezione a discesa Dropdown Select.</li>
+									<li><strong>toggle()</strong>: mostra o nasconde la selezione a discesa Dropdown Select, a seconda del suo stato attuale (mostrato o nascosto).</li>
+								</ul>
+							</div>
+
 					</section>
 
 					<section class="guide-section">
@@ -684,6 +702,27 @@ inputComponent.setOptionElements(newOptions);
 </script>
 </xmp></pre>
                             </div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownAutocomplete chiamante.</li>
+									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownAutocomplete chiamante.</li>
+									<li><strong>getOptionElements()</strong>: restituisce l'elenco delle opzioni degli oggetti HTMLElement collegati all'oggetto SirioDropdownAutocomplete chiamante.</li>
+									<li><strong>getFilteredOptionElements()</strong>: restituisce l'elenco delle opzioni filtrate degli oggetti HTMLElement collegati all'oggetto SirioDropdownAutocomplete chiamante.</li>
+									<li><strong>getFilterStart()</strong>: restituisce il numero di cifre da inserire prima di iniziare a filtrare le opzioni dell'oggetto SirioDropdownAutocomplete. Predefinito: 3.</li>
+									<li><strong>setFilterStart(newFilterStart: number)</strong>: imposta il numero di cifre da inserire prima di iniziare a filtrare le opzioni dell'oggetto SirioDropdownAutocomplete. Parametri: <code>newFilterStart</code> valore numerico da impostare.</li>
+									<li><strong>setOptionElements(options: string[])</strong>: imposta le opzioni dell'oggetto SirioDropdownAutocomplete. Parametri: <code>opzioni</code> stringa elenco di valori da utilizzare per creare l'opzione HTMLElements da impostare.</li>
+									<li><strong>addOptionElements(options: string[])</strong>: aggiunge le opzioni all'oggetto SirioDropdownAutocomplete. Parametri: <code>opzioni</code> stringa elenco di valori da utilizzare per creare l'opzione HTMLElements da impostare.</li>
+									<li><strong>isHidden()</strong>: restituisce <code>true</code> se il completamento automatico del menu a discesa è nascosto. In caso contrario, restituisce <code>false</code>.</li>
+									<li><strong>show()</strong>: mostra il completamento automatico del menu a discesa.</li>
+									<li><strong>hide()</strong>: nasconde il completamento automatico del menu a discesa.</li>
+									<li><strong>toggle()</strong>: mostra o nasconde il completamento automatico del menu a discesa, a seconda del suo stato attuale (mostrato o nascosto).</li>
+								</ul>
+							</div>
 
 					</section>
 
@@ -1059,6 +1098,18 @@ fileList = inputFilesComponent.getUploadedFiles();
 															
 							</div>
 
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getInputElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioFileUpload chiamante.</li>
+									<li><strong>getFileListElement()</strong>: restituisce l'elemento HTML dell'elenco delle chips.</li>
+									<li><strong>getUploadedFiles()</strong>: restituisce l'elenco dei file caricati.</li>
+								</ul>
+							</div>
+
 					</section>
 
 					<section class="guide-section">
@@ -1071,7 +1122,7 @@ fileList = inputFilesComponent.getUploadedFiles();
 										<small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
 										<div class="sirio-slider" data-sirio-component="slider">
 											<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
-											<input type="number" id="rangevalue" value="40" class="sirio-form-control">
+											<input type="number" id="rangevalue" value="40" class="sirio-form-control" aria-label="Valore selezionato">
 											<div class="sirio-slider-range" aria-hidden="true"><span>0</span><span>100</span></div>
 										</div>
 									</div>
@@ -1085,11 +1136,26 @@ fileList = inputFilesComponent.getUploadedFiles();
 <small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
 <div class="sirio-slider" data-sirio-component="slider">
 	<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
-	<input type="number" id="rangevalue" value="40" class="sirio-form-control">
+	<input type="number" id="rangevalue" value="40" class="sirio-form-control" aria-label="Valore selezionato">
 	<div class="sirio-slider-range" aria-hidden="true"><span>0</span><span>100</span></div>
 </div>
 </xmp></pre>
                             </div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getInputNumberEl()</strong>: restituisce l'oggetto HTMLElement contenente il numero del tipo di input collegato al SirioSlider chiamante. </li>
+									<li><strong>getSliderEl()</strong>: restituisce l'oggetto HTMLElement contenente l'intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
+									<li><strong>getMinValue()</strong>: restituisce il valore di intervallo minimo dell'oggetto HTMLElement intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
+									<li><strong>getMaxValue()</strong>: restituisce il valore di intervallo massimo dell'oggetto HTMLElement intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
+									<li><strong>getValue()</strong>: restituisce il valore effettivo dell'oggetto HTMLElement dell'intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
+									<li><strong>setValue(value: number)</strong>: imposta il valore dell'oggetto HTMLElement dell'intervallo del tipo di input e dell'oggetto HTMLElement numero del tipo di input collegato all'oggetto SirioSlider chiamante. Parametri: <code>value</code> valore da impostare.</li>
+								</ul>
+							</div>
 
 					</section>
 
@@ -1101,15 +1167,14 @@ fileList = inputFilesComponent.getUploadedFiles();
 							<div class="blockquote">
 								<p>Il Datepicker si basa sulla plugin <strong>VanillaJS Datepicker</strong> modificata al fine di permettere anche la navigazione da tastiera.</p>
 								<p>Per la configurazione si rimanda alla documentazione ufficiale <a href="https://mymth.github.io/vanillajs-datepicker/#/">https://mymth.github.io/vanillajs-datepicker/#/</a></p>
-								<!--<p>È possibile abbinare alla label un bottone informativo "popover" che possa fornire
-								indicazioni sulla navigazione da tastiera: "Le frecce spostano il cursore all'interno dei giorni del mese attivo; il tab scorre fra le funzioni che permettono di scorrere fra i mesi o selezionandone uno dalla lista. Stessa funzionalità per gli anni e le decadi. Esc chiude il
-								datepicker"</p>-->
+								<p>Per fornire indicazioni sulla navigazione da tastiera si consiglia di abbinare alla label un bottone informativo "popover" con una descrizione, ad esempio: "Le frecce spostano il cursore all'interno dei giorni del mese attivo; il tab scorre fra le funzioni che permettono di scorrere fra i mesi o selezionandone uno dalla lista. Stessa funzionalità per gli anni e le decadi. Esc chiude il datepicker"</p>
 							</div>
 
 							<div class="guide-example">
 								<div class="guide-row">
 									<div class="guide-col-md-6">
-										<label for="input-date">Data:</label>
+										<label for="input-date">Data: <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top" title="Popover top" data-sirio-content="<p>Le frecce spostano il cursore all'interno dei giorni del mese attivo; il tab scorre fra le funzioni che permettono di scorrere fra i mesi o selezionandone uno dalla lista. Stessa funzionalità per gli anni e le decadi. Esc chiude il datepicker.</p>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+										</label>
 										<input type="text" id="input-date" name="input-date" class="sirio-form-control sirio-datepicker" placeholder="gg/mm/aaaa" autocomplete="off" maxlength="10">
 									</div>
 
@@ -1227,6 +1292,19 @@ for (const elemRange of elemsRange) {
 <input type="text" id="input-hour" name="input-hour" class="sirio-form-control sirio-timepicker" data-sirio-component="timepicker" placeholder="hh:mm" autocomplete="off">
 </xmp></pre>
                             </div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
+
+							<div class="blockquote">
+								<ul>
+									<li><strong>getTextInputEl()</strong>: restituisce l'oggetto di tipo input text HTMLElement collegato all'oggetto SirioTimePicker chiamante.</li>
+									<li><strong>getSelectedTime()</strong>: restituisce la stringa temporale selezionata collegata all'oggetto SirioTimePicker chiamante.</li>
+									<li><strong>getSelectedHour()</strong>: restituisce il numero dell'ora selezionata collegato all'oggetto SirioTimePicker chiamante.</li>
+									<li><strong>getSelectedMinute()</strong>: restituisce il numero del minuto selezionato collegato all'oggetto SirioTimePicker chiamante.</li>
+								</ul>
+							</div>
 
 					</section>
 
@@ -1415,34 +1493,34 @@ for (const elemRange of elemsRange) {
 							<div class="guide-example">
 								<div class="guide-row">
 									<div class="guide-col-md-4">
-										<label for="progress-example-0">Progress label</label>
+										<label for="progress-example-0">Progress label</label> aria-hidden="true"
 										<progress id="progress-example-0" class="sirio-progress" value="0" max="100">0%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">0%</span>
+										<span class="sirio-progress-number">0%</span>
 									</div>
 									<div class="guide-col-md-4">
 										<label for="progress-example-1">Progress label</label>
-										<progress id="progress-example-1" class="sirio-progress" value="20" max="100">20%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">20%</span>
+										<progress id="progress-example-1" class="sirio-progress" aria-hidden="true" value="20" max="100">20%</progress>
+										<span class="sirio-progress-number">20%</span>
 									</div>
 									<div class="guide-col-md-4">
 										<label for="progress-example-2">Progress label</label>
-										<progress id="progress-example-2" class="sirio-progress" value="40" max="100">40%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">40%</span>
+										<progress id="progress-example-2" class="sirio-progress" aria-hidden="true" value="40" max="100">40%</progress>
+										<span class="sirio-progress-number">40%</span>
 									</div>
 									<div class="guide-col-md-4">
 										<label for="progress-example-3">Progress label</label>
-										<progress id="progress-example-3" class="sirio-progress" value="60" max="100">60%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">60%</span>
+										<progress id="progress-example-3" class="sirio-progress" aria-hidden="true" value="60" max="100">60%</progress>
+										<span class="sirio-progress-number">60%</span>
 									</div>
 									<div class="guide-col-md-4">
 										<label for="progress-example-4">Progress label</label>
-										<progress id="progress-example-4" class="sirio-progress" value="80" max="100">80%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">80%</span>
+										<progress id="progress-example-4" class="sirio-progress" aria-hidden="true" value="80" max="100">80%</progress>
+										<span class="sirio-progress-number">80%</span>
 									</div>
 									<div class="guide-col-md-4">
 										<label for="progress-example-5">Progress label</label>
-										<progress id="progress-example-5" class="sirio-progress" value="100" max="100">100%</progress>
-										<span class="sirio-progress-number" aria-hidden="true">100%</span>
+										<progress id="progress-example-5" class="sirio-progress" aria-hidden="true" value="100" max="100">100%</progress>
+										<span class="sirio-progress-number">100%</span>
 									</div>
 								</div>
 							</div>
@@ -1451,8 +1529,8 @@ for (const elemRange of elemsRange) {
                                 <p class="guide-code-title">Progress bar:</p>
 <pre><xmp>
 <label for="progress-example">Progress label</label>
-<progress id="progress-example" class="sirio-progress" value="20" max="100">20%</progress>
-<span class="sirio-progress-number" aria-hidden="true">20%</span>
+<progress id="progress-example" class="sirio-progress" aria-hidden="true" value="20" max="100">20%</progress>
+<span class="sirio-progress-number">20%</span>
 </xmp></pre>
                             </div>
 
@@ -1570,8 +1648,7 @@ for (const elemRange of elemsRange) {
 
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
-		<script src="../assets/js/datepicker-full.js"></script>
-		<script src="../assets/js/locales/it.js"></script>
+		<script src="../assets/js/sirio-datepicker-full.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -1596,7 +1673,7 @@ for (const elemRange of elemsRange) {
 					var alertObj = new SirioLib.SirioAlert(alertElem)
 				}
 			}
-			
+
 			// Inizializzazione Calendario VanillaJs Datepicker
 			// Lingua italiana modifica per ottenere la grafica del design
 			(function () {
@@ -1632,10 +1709,10 @@ for (const elemRange of elemsRange) {
 				};
 			}());
 			
-			const elems = document.querySelectorAll(".sirio-datepicker");
-				for (const elem of elems) {
+			var elems = document.querySelectorAll(".sirio-datepicker");
+				for (var elem of elems) {
 					if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-						const datepicker = new Datepicker(elem, {
+						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
@@ -1645,9 +1722,9 @@ for (const elemRange of elemsRange) {
 					}
 				}
 
-				const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-				for (const elemRange of elemsRange) {
-					const datepickerRange = new DateRangePicker(elemRange, {
+				var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+				for (var elemRange of elemsRange) {
+					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
