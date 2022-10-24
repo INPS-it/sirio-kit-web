@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*! 
- * Sirio WebKit v0.6.0
- * Copyright 2022 The Sirio WebKit
+ * Sirio WebKit v.4.0.0
+ * Copyright 2022 INPS
  */
 [data-sirio-visible=false] {
   display: none;
@@ -1435,7 +1435,7 @@ input[type=button].sirio-btn-block {
 }
 .sirio-form-control.disabled, .sirio-form-control:disabled, .sirio-form-control[readonly] {
   border-color: #c6ccd2;
-  background-color: #c6ccd2;
+  background-color: #c6ccd2 !important;
   color: #8e98a4;
 }
 .sirio-form-control.disabled::-moz-placeholder, .sirio-form-control:disabled::-moz-placeholder, .sirio-form-control[readonly]::-moz-placeholder {
@@ -1890,6 +1890,9 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
   background-repeat: no-repeat;
   background-position: right 15px top 50%;
 }
+.sirio-form-control[type=date]:disabled, .sirio-datepicker:disabled {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238e98a4' viewBox='0 0 448 512'%3E%3Cpath d='M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h96c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-96zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z'/%3e%3c/svg%3e");
+}
 
 .sirio-form-control[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(100%);
@@ -2015,6 +2018,11 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
 .sirio-datepicker-range .sirio-input-group-text {
   background: none;
   padding: 0;
+}
+.sirio-datepicker-range .sirio-datepicker:disabled ~ .sirio-input-group-text {
+  background-color: #c6ccd2 !important;
+  border-color: #c6ccd2 !important;
+  color: #8e98a4;
 }
 
 .datepicker-cell.range, .datepicker-cell.range-end:not(.selected), .datepicker-cell.range-start:not(.selected), .datepicker-cell.range:not(.disabled):not(.focused):not(.today):hover {
@@ -3723,6 +3731,15 @@ th {
   line-height: 16px;
   max-width: 256px;
 }
+.sirio-tooltip:before {
+  content: "";
+  left: -12px;
+  top: -12px;
+  bottom: -12px;
+  right: -12px;
+  position: absolute;
+  z-index: -1;
+}
 .sirio-tooltip strong {
   font-weight: 600;
 }
@@ -3740,6 +3757,7 @@ th {
 
 label .sirio-btn-icon[data-sirio-toggle=popover] {
   padding: 2px;
+  margin: -6px 0;
 }
 label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data-sirio-toggle=popover] .far, label .sirio-btn-icon[data-sirio-toggle=popover] .fas {
   margin: 0;

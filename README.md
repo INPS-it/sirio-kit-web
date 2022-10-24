@@ -1,15 +1,15 @@
-# SirioWebKit
+# SirioWebKit v.4.0.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
 ## Indice
-- [Installazione](#installatione)
+- [Installazione](#installazione)
 - [Changelog](#changelog)
 - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
 
 ## Installazione
 
-Copiare le risorse presenti nella cartella ASSETS nel vostro server e aggiungere nelle pagine HTML i puntamenti corretti per caricarle in base alla struttura directories che scegliete di utilizzare.
+Copiare le risorse presenti nella cartella ASSETS nel vostro server e aggiungere nelle pagine HTML i puntamenti corretti per caricarle in base alla struttura directories che avete scelto di utilizzare.
 
 Da inserire nella HEAD della pagina HTML
 
@@ -38,76 +38,59 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
-### 0.6.0 (2022-09-29)
+### 4.0.0 (2022-10-26)
 
-#### Aggiunto
-* **struttura:** Footer
-* **contenuto:** Step Progress Bar
-
-### 0.5.0 (2022-09-16)
-
-#### Aggiunto
-* **struttura:** System Grid
-* **struttura:** Struttura pagina di esempio
-* **tipografia:** Font
-* **tipografia:** Colori
-* **tipografia:** Heading
-* **tipografia:** Icone
-* **contenuto:** Notifiche
-* **contenuto:** Tabelle
-* **form:** Date & Time picker
-
-#### Modificato
-
-* **form:** Dropdown Select
-* **form:** Autocomplete
-
-### 0.4.0 (2022-07-29)
-
-#### Aggiunto
-- **contenuto** Collapse
-- **contenuto** Dropdown
-- **contenuto** Tag
-- **contenuto** Tooltip
-- **form** Input group
-- **form** Dropdown Select
-- **form** Autocomplete
-- **form** Searchbar
-- **form** Chip
-- **form** Slider
-- **form** Progress bar
-
-### 0.3.0 (2022-07-01)
-
-#### Aggiunto
-- **form** Input
-- **form** Selezione
-- **form** File Upload
-- **form** Validazione
-
-### 0.2.0 (2022-07-01)
-
-#### Aggiunto
-- **contenuto** Accordion
-- **contenuto** Dialog
-- **contenuto** Tab
-
-### 0.1.0 (2022-06-20)
-
-#### Aggiunto
-- **contenuto** Breadcrumb
-- **contenuto** Card
-- **contenuto** Paginazione
-- **form** Bottoni
-
+- **struttura**\System Grid
+- **struttura**\Struttura pagina di esempio
+- **struttura**\Footer
+- **tipografia**\Font
+- **tipografia**\Colori
+- **tipografia**\Heading
+- **tipografia**\Icone
+- **contenuto**\Accordion
+- **contenuto**\Dialog
+- **contenuto**\Tab
+- **contenuto**\Breadcrumb
+- **contenuto**\Card
+- **contenuto**\Paginazione
+- **contenuto**\Notifiche
+- **contenuto**\Tabelle
+- **contenuto**\Collapse
+- **contenuto**\Dropdown
+- **contenuto**\Tag
+- **contenuto**\Tooltip
+- **contenuto**\Step Progress Bar
+- **form**\Bottoni
+- **form**\Input
+- **form**\Input group
+- **form**\Dropdown Select
+- **form**\Autocomplete
+- **form**\Searchbar
+- **form**\Date & Time picker
+- **form**\Selezione
+- **form**\File Upload
+- **form**\Validazione
+- **form**\Chip
+- **form**\Slider
+- **form**\Progress bar
 
 ## Licenze software dei componenti di terze parti
 
-### Componenti distribuiti con Bootstrap Italia
+### Componenti distribuiti con SirioWebKit
 
 Vengono di seguito elencati i componenti distribuiti con Sirio WebKit.
 
+- [Bootstrap 5 Grid System](https://getbootstrap.com/), ©Twitter, Inc., licenza MIT
+
 - [Vanilla JS Datepicker](https://mymth.github.io/vanillajs-datepicker), licenza MIT
+
+- [Font Awesome Free 5.15.4](https://fontawesome.com/) ©Fonticons, Inc., licenza SIL OFL 1.1
+
+- [Font Titillium Web](http://nta.accademiadiurbino.it/titillium/) ©Accademia di Belle Arti di Urbino and students of MA course of Visual design, Inc., licenza SIL OFL 1.1
+
+- [Font Lora](http://www.cyreal.org/fonts/lora/) ©Cyreal Fonts, licenza SIL OFL 1.1
+
+- [Font Roboto Mono](https://github.com/googlefonts/robotomono) ©The Roboto Mono Project Authors, licenza SIL OFL 1.1
 
 ## Licenza
 [MIT](https://choosealicense.com/licenses/mit/)

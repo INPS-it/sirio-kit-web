@@ -1,3 +1,8 @@
+/*
+ * Vanilla JS Datepicker v.1.2.0
+ * Sirio WebKit v.4.0.0
+ * Copyright 2022 INPS
+ */
 (function () {
   'use strict';
 

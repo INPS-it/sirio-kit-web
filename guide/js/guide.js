@@ -1,4 +1,4 @@
-var version='0.6.0';
+var version='4.0.0';
 
 // Sidenav
 function openCollapse($this){
@@ -24,74 +24,9 @@ $("#guide-nav > li > a").each(function() {
 	}
 }); 
 
-/*
-// Prova collapse
-DA CANCELLARE UNA VOLTA PRESENTE IL JS WEBKIT 
-$(document).on('click', '[data-sirio-toggle="collapse2"]', function (e) {
+$(document).on('click', '.guide-section [href="#"]', function (e) {
 	e.preventDefault();
-	id = $(this).attr("data-sirio-target");
-	attr = $(id).attr("data-sirio-visible");
-	if (typeof attr !== 'undefined' && attr !== 'true') {
-		$(id).attr("data-sirio-visible","collapsing")
-		setTimeout('$(id).attr("style","height: 156px")', 50);// prendere la reale altezza
-		setTimeout('$(id).attr("data-sirio-visible","true").removeAttr("style")', 400);
-	} else {
-		$(id).attr("style","height: 156px") // prendere la reale altezza
-		setTimeout('$(id).attr("data-sirio-visible","collapsing").removeAttr("style")', 50);
-		setTimeout('$(id).attr("data-sirio-visible","false")', 400);
-	}
-	console.log('[data-sirio-toggle="collapse2"]')
 });
-*/
-
-// La costruzione e distruzione dell'elemento va fatta in relazione alla dimensione in lunghezza che supera quella della viewport dove è ospitato, non dell'intera pagina, ma solo dell'aria ospitante che non sappiamo possa essere anche una colonna interna di struttura. Andrebbe legato al resize della pagina, oltre che al caricamento iniziare onready della pagina.
-//$('[data-sirio-component="breadcrumb"]').attr("data-sirio-visible","truncate");
-//$('[data-sirio-component="breadcrumb"] li:first-child').after('<li><button title="Apri il breadcrumb completo" data-sirio-toggle="breadcrumb"><span aria-hidden="true">&#8230;</button></li>');
-/*
-$(document).on('click', '[data-sirio-toggle="breadcrumb"]', function (e) {
-	e.preventDefault();
-	$(this).closest("li").remove();
-	$('[data-sirio-component="breadcrumb"]').attr("data-sirio-visible","true");
-});
-
-
-$(document).on('click', '[data-sirio-toggle="dropdown"]', function (e) {
-	e.preventDefault();
-	menu = $(this).next();
-	visible = menu.attr("data-sirio-visible");
-	if (visible == "false") {
-		menu.attr("data-sirio-visible","true");
-	} else {
-		menu.attr("data-sirio-visible","false");
-	}
-});
-*/
-
-/* DA CANCELLARE UNA VOLTA PRESENTE IL JS WEBKIT 
-$(".sirio-tab-content .sirio-tab-item:not(:first-child)").attr("hidden","");
-$(document).on('click', '[data-sirio-toggle="tab"]', function (e) {
-	e.preventDefault();
-	id = $(this).attr("href");
-	attr = $(id).attr("hidden");
-	if (typeof attr !== 'undefined') {
-		$(id).closest(".sirio-tab-content").find(".sirio-tab-item").attr("hidden","");
-		$(id).removeAttr("hidden")
-	} else {
-		$(id).attr("hidden","")
-	}
-	console.log('[data-sirio-toggle="tab"]')
-	
-});
-$(document).on('click', '[data-sirio-toggle="modal"]', function (e) {
-	console.log("APRI MODALE")
-	id = $(this).attr("href");
-	$(id).removeAttr("hidden")
-});
-$(document).on('click', '[data-sirio-dismiss="modal"]', function (e) {
-	console.log("CHIUDI MODALE")
-	$(id).closest(".sirio-dialog").attr("hidden","")
-});
-/* FINO A QUI */
 
 $(document).ready(function() {
 
