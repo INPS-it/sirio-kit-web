@@ -14,7 +14,7 @@ body {
 	margin: 0;
 }
 a, a:visited {
-    color: #007db3;
+    color: #0076a8;
     font-weight: 700;
 }
 a:hover {
@@ -143,9 +143,9 @@ a:hover {
 	border-radius: 4px;
 	text-decoration: none;
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	color: #007db3;
+	color: #0076a8;
 	background-color: #fff;
-	border: 2px solid #007db3;
+	border: 2px solid #0076a8;
 }
 .guide-btn .fas, .guide-btn .far, .guide-btn .fa {
 	margin: 0 4px;
@@ -154,16 +154,16 @@ a:hover {
 	padding: 14px 12px;
 }
 .guide-btn:visited {
-	color: #007db3;
-	border: 2px solid #007db3;
+	color: #0076a8;
+	border: 2px solid #0076a8;
 }
 .guide-btn:hover {
 	color: #005980;
-	border: 2px solid #007db3;
+	border: 2px solid #0076a8;
 }
 .guide-btn:disabled, .guide-btn.disabled {
 	color: #8e98a4;
-	border: 2px solid #007db3;
+	border: 2px solid #0076a8;
 }
 .guide-btn:not(:disabled):not(.disabled):active, .guide-btn:not(:disabled):not(.disabled).active {
 	color: #ffffff;
@@ -680,7 +680,7 @@ div[id*=src-code] {
 	}
 	.guide-sticky {
 		scrollbar-width: auto;
-		scrollbar-color: #007db3 #ffffff;
+		scrollbar-color: #0076a8 #ffffff;
 	}
 	.guide-sticky::-webkit-scrollbar {
 		width: 16px;
@@ -689,7 +689,7 @@ div[id*=src-code] {
 		background: #ffffff;
 	}
 	.guide-sticky::-webkit-scrollbar-thumb {
-		background-color: #007db3;
+		background-color: #0076a8;
 		border-radius: 10px;
 		border: 3px solid #ffffff;
 	}
