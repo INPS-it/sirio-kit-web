@@ -38,7 +38,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioAccordion_instances, _SirioAccordion_id, _SirioAccordion_exclusive, _SirioAccordion_accordionElement, _SirioAccordion_triggerElementId, _SirioAccordion_triggerElement, _SirioAccordion_groupElementId, _SirioAccordion_groupElement, _SirioAccordion_contentElement, _SirioAccordion_show, _SirioAccordion_hide, _SirioAccordion_getAccordionId, _SirioAccordion_getTriggerElementId, _SirioAccordion_getGroupElementId, _SirioAccordion_setAccordionHeight;
+var _SirioAccordion_instances, _SirioAccordion_id, _SirioAccordion_exclusive, _SirioAccordion_accordionElement, _SirioAccordion_triggerElementId, _SirioAccordion_triggerElement, _SirioAccordion_groupElementId, _SirioAccordion_groupElement, _SirioAccordion_contentElement, _SirioAccordion_show, _SirioAccordion_hide, _SirioAccordion_getAccordionId, _SirioAccordion_getTriggerElementId, _SirioAccordion_getContentElement, _SirioAccordion_getGroupElementId, _SirioAccordion_setAccordionHeight;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioAccordion = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -177,9 +177,6 @@ class SirioAccordion {
     getAccordionElement() {
         return __classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f");
     }
-    getContentElement() {
-        return __classPrivateFieldGet(this, _SirioAccordion_contentElement, "f");
-    }
     getGroupElement() {
         return __classPrivateFieldGet(this, _SirioAccordion_groupElement, "f");
     }
@@ -222,6 +219,8 @@ _SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _
     return __classPrivateFieldGet(this, _SirioAccordion_id, "f");
 }, _SirioAccordion_getTriggerElementId = function _SirioAccordion_getTriggerElementId() {
     return __classPrivateFieldGet(this, _SirioAccordion_triggerElement, "f").id;
+}, _SirioAccordion_getContentElement = function _SirioAccordion_getContentElement() {
+    return __classPrivateFieldGet(this, _SirioAccordion_contentElement, "f");
 }, _SirioAccordion_getGroupElementId = function _SirioAccordion_getGroupElementId() {
     return __classPrivateFieldGet(this, _SirioAccordion_groupElementId, "f");
 }, _SirioAccordion_setAccordionHeight = function _SirioAccordion_setAccordionHeight() {
@@ -2273,7 +2272,7 @@ class SirioTab {
                 }
             });
             if (typeof this.activeTab === "string")
-                SirioTab.tabs[this.activeTab].select();
+                SirioTab.tabs[this.activeTab].select(false);
             SirioTab.setActiveTabByLocation();
         }
         else
@@ -3604,7 +3603,7 @@ exports.padStartWithZeros = padStartWithZeros;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -3618,14 +3617,14 @@ exports.padStartWithZeros = padStartWithZeros;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -3677,8 +3676,8 @@ function getComponentById(id, type) {
             return SirioDialog_1.SirioDialog.getDialogById(id);
         case "accordion":
             return SirioAccordion_1.SirioAccordion.getAccordionById(id);
-        case "tab":
-            return SirioTab_1.SirioTab.getTabById(id);
+        // case "tab":
+        //     return SirioTab.getTabById(id);
         case "dropdown-menu":
             return SirioDropdownMenu_1.SirioDropdownMenu.getMenuById(id);
         case "dropdown-select":
