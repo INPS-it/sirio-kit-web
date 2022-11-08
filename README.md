@@ -2,6 +2,8 @@
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
+Si include anche il file **variables.scss** dei Token Sirio di riferimento utilizzati.
+
 ## Indice
 - [Installazione](#installazione)
 - [Changelog](#changelog)
