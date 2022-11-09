@@ -2,7 +2,7 @@
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
-Si include anche il file **variables.scss** dei Token Sirio di riferimento utilizzati.
+Per personalizzare gli stili grafici si include tra i sorgenti il file **custom.scss** collegato a **variables.scss** con i Token Sirio di riferimento utilizzati.
 
 ## Indice
 - [Installazione](#installazione)
