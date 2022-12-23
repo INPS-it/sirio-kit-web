@@ -1,5 +1,5 @@
-/*
- * Sirio WebKit v.4.0.0
+/*!
+ * Sirio WebKit v.4.0.1
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -84,37 +84,36 @@ class SirioAccordion {
             throw TypeError(`HTML element with id="'${id}'" is not a valid Sirio-Accordion.`);
     }
     static init() {
-        let accordions = {};
-        let accordionGroups = {};
         let triggerElements = document.querySelectorAll(`[data-sirio-toggle="collapse"]`);
         triggerElements.forEach(function (trigger) {
-            var _a, _b;
-            let targetId;
-            switch (trigger.tagName.toLowerCase()) {
-                case "button":
-                    targetId = (_a = trigger.getAttribute("data-sirio-target")) === null || _a === void 0 ? void 0 : _a.substring(1); //substring per togliere il #
-                    break;
-                case "a":
-                    targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
-                    break;
-                default:
-            }
-            if (targetId != undefined) {
-                if (!(targetId in accordions)) {
-                    let accordionObj = new SirioAccordion(targetId, trigger);
-                    if (accordionObj != undefined)
-                        accordions[targetId] = accordionObj;
-                    if (__classPrivateFieldGet(accordionObj, _SirioAccordion_exclusive, "f")) {
-                        let groupElementId = __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getGroupElementId).call(accordionObj);
-                        if (!(groupElementId in accordionGroups))
-                            accordionGroups[groupElementId] = [];
-                        accordionGroups[groupElementId].push(accordionObj);
-                    }
+            SirioAccordion.initComponent(trigger);
+        });
+    }
+    static initComponent(trigger) {
+        var _a, _b;
+        let targetId;
+        switch (trigger.tagName.toLowerCase()) {
+            case "button":
+                targetId = (_a = trigger.getAttribute("data-sirio-target")) === null || _a === void 0 ? void 0 : _a.substring(1); //substring per togliere il #
+                break;
+            case "a":
+                targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
+                break;
+            default:
+        }
+        if (targetId != undefined) {
+            if (!(targetId in SirioAccordion.accordions)) {
+                let accordionObj = new SirioAccordion(targetId, trigger);
+                if (accordionObj != undefined)
+                    SirioAccordion.accordions[targetId] = accordionObj;
+                if (__classPrivateFieldGet(accordionObj, _SirioAccordion_exclusive, "f")) {
+                    let groupElementId = __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getGroupElementId).call(accordionObj);
+                    if (!(groupElementId in SirioAccordion.accordionGroups))
+                        SirioAccordion.accordionGroups[groupElementId] = [];
+                    SirioAccordion.accordionGroups[groupElementId].push(accordionObj);
                 }
             }
-        });
-        SirioAccordion.accordions = accordions;
-        SirioAccordion.accordionGroups = accordionGroups;
+        }
     }
     static isAccordion(id) {
         const validRoles = ["region"];
@@ -233,6 +232,8 @@ _SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _
     }
     return scrollHeight;
 };
+SirioAccordion.accordionGroups = {};
+SirioAccordion.accordions = {};
 
 
 /***/ }),
@@ -387,25 +388,28 @@ class SirioBreadcrumb {
     static init() {
         let breadcrumbComponentElements = Array.from(document.querySelectorAll(`[data-sirio-component="breadcrumb"]`));
         breadcrumbComponentElements.forEach(function (breadcrumbComponentEl) {
-            let breadcrumbEls = Array.from(breadcrumbComponentEl.getElementsByClassName(Constants_1.sirioPrefix + "breadcrumb"));
-            breadcrumbEls.forEach(function (breadcrumbEl) {
-                if (breadcrumbEl != null) {
-                    let breadcrumbObj = new SirioBreadcrumb(breadcrumbEl, breadcrumbComponentEl);
-                    window.addEventListener("load", function () {
-                        __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
-                    });
-                    window.addEventListener("resize", function () {
-                        if (!__classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_isResizing, "f")) {
-                            __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, true, "f");
-                            this.setTimeout(() => {
-                                __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_expand).call(breadcrumbObj);
-                                __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
-                                __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, false, "f");
-                            }, 200);
-                        }
-                    });
-                }
-            });
+            SirioBreadcrumb.initComponent(breadcrumbComponentEl);
+        });
+    }
+    static initComponent(breadcrumbComponentEl) {
+        let breadcrumbEls = Array.from(breadcrumbComponentEl.getElementsByClassName(Constants_1.sirioPrefix + "breadcrumb"));
+        breadcrumbEls.forEach(function (breadcrumbEl) {
+            if (breadcrumbEl != null) {
+                let breadcrumbObj = new SirioBreadcrumb(breadcrumbEl, breadcrumbComponentEl);
+                window.addEventListener("load", function () {
+                    __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
+                });
+                window.addEventListener("resize", function () {
+                    if (!__classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_isResizing, "f")) {
+                        __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, true, "f");
+                        this.setTimeout(() => {
+                            __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_expand).call(breadcrumbObj);
+                            __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
+                            __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, false, "f");
+                        }, 200);
+                    }
+                });
+            }
         });
     }
     static isBreadcrumb(breadcrumbEl) {
@@ -598,7 +602,7 @@ class SirioDialog {
             __classPrivateFieldSet(this, _SirioDialog_onShown, onShown, "f");
             __classPrivateFieldSet(this, _SirioDialog_onHidden, onHidden, "f");
             let staticString = (_a = __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f")) === null || _a === void 0 ? void 0 : _a.getAttribute("data-sirio-backdrop");
-            if (staticString == 'static') {
+            if (staticString == "static") {
                 __classPrivateFieldSet(this, _SirioDialog_static, true, "f");
             }
             else {
@@ -606,6 +610,12 @@ class SirioDialog {
             }
             __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_addTriggerElement).call(this, trigger);
             let dismissElements = Array.prototype.slice.call((_b = __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f")) === null || _b === void 0 ? void 0 : _b.querySelectorAll(`[data-sirio-dismiss="dialog"]`));
+            dismissElements = dismissElements.filter((node) => {
+                var _a;
+                let n = node;
+                let id = (_a = n.closest(`[data-sirio-component=dialog]`)) === null || _a === void 0 ? void 0 : _a.id;
+                return id === __classPrivateFieldGet(this, _SirioDialog_id, "f");
+            });
             dismissElements === null || dismissElements === void 0 ? void 0 : dismissElements.forEach((trigger) => {
                 __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_addDismissElement).call(this, trigger);
             });
@@ -614,34 +624,36 @@ class SirioDialog {
             throw TypeError(`HTML element with id="'${id}'" is not a valid Sirio-Dialog.`);
     }
     static init() {
-        let dialogs = {};
+        SirioDialog.dialogs = {};
         let triggerElements = document.querySelectorAll(`[data-sirio-toggle="dialog"]`);
         triggerElements.forEach(function (trigger) {
-            var _a, _b;
-            var _c;
-            let targetId = undefined;
-            switch (trigger.tagName.toLowerCase()) {
-                case "button":
-                    targetId = (_a = trigger.getAttribute("data-sirio-target")) === null || _a === void 0 ? void 0 : _a.substring(1); //substring per togliere il #
-                    break;
-                case "a":
-                    targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
-                    break;
-                default:
-            }
-            if (targetId != undefined) {
-                let dialogObj;
-                if (!(targetId in dialogs))
-                    dialogObj = new SirioDialog(targetId, trigger);
-                else {
-                    dialogObj = dialogs[targetId];
-                    __classPrivateFieldGet((_c = dialogObj), _SirioDialog_instances, "m", _SirioDialog_addTriggerElement).call(_c, trigger);
-                }
-                if (dialogObj != undefined)
-                    dialogs[targetId] = dialogObj;
-            }
+            SirioDialog.initComponent(trigger);
         });
-        SirioDialog.dialogs = dialogs;
+    }
+    static initComponent(trigger) {
+        var _a, _b;
+        var _c;
+        let targetId = undefined;
+        switch (trigger.tagName.toLowerCase()) {
+            case "button":
+                targetId = (_a = trigger.getAttribute("data-sirio-target")) === null || _a === void 0 ? void 0 : _a.substring(1); //substring per togliere il #
+                break;
+            case "a":
+                targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
+                break;
+            default:
+        }
+        if (targetId != undefined) {
+            let dialogObj;
+            if (!(targetId in SirioDialog.dialogs))
+                dialogObj = new SirioDialog(targetId, trigger);
+            else {
+                dialogObj = SirioDialog.dialogs[targetId];
+                __classPrivateFieldGet((_c = dialogObj), _SirioDialog_instances, "m", _SirioDialog_addTriggerElement).call(_c, trigger);
+            }
+            if (dialogObj != undefined)
+                SirioDialog.dialogs[targetId] = dialogObj;
+        }
     }
     static isDialog(id) {
         const validRoles = ["dialog", "alertdialog"];
@@ -692,6 +704,7 @@ class SirioDialog {
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("aria-modal", "true");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("tabindex", "0");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").focus();
+            SirioDialog.nDialogsOpen++;
             __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_disableScrolling).call(this);
             document.addEventListener("keyup", __classPrivateFieldGet(this, _SirioDialog_handleEscape, "f"));
             if (!__classPrivateFieldGet(this, _SirioDialog_static, "f")) {
@@ -708,7 +721,9 @@ class SirioDialog {
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").removeAttribute("aria-modal");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("data-sirio-visible", "false");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("tabindex", "-1");
-            __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_enableScrolling).call(this);
+            SirioDialog.nDialogsOpen--;
+            if (SirioDialog.nDialogsOpen == 0)
+                __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_enableScrolling).call(this);
             if (__classPrivateFieldGet(this, _SirioDialog_onHide, "f") != undefined) {
                 __classPrivateFieldGet(this, _SirioDialog_onHide, "f").call(this);
             }
@@ -745,13 +760,13 @@ _SirioDialog_id = new WeakMap(), _SirioDialog_dialogElement = new WeakMap(), _Si
 }, _SirioDialog_disableScrolling = function _SirioDialog_disableScrolling() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overflow = "hidden";
     window.onscroll = function () {
         window.scrollTo(scrollLeft, scrollTop);
     };
 }, _SirioDialog_enableScrolling = function _SirioDialog_enableScrolling() {
     window.onscroll = function () { };
-    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflow = "auto";
 }, _SirioDialog_trapFocus = function _SirioDialog_trapFocus(element) {
     let focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
     let firstFocusableEl = focusableEls[0];
@@ -770,6 +785,7 @@ _SirioDialog_id = new WeakMap(), _SirioDialog_dialogElement = new WeakMap(), _Si
         return null;
     }
 };
+SirioDialog.nDialogsOpen = 0;
 
 
 /***/ }),
@@ -869,22 +885,24 @@ class SirioDropdownAutocomplete {
             throw TypeError(`HTML element with id="'${id}'" is not a valid Sirio-Dropdown-Autocomplete.`);
     }
     static init() {
-        let autocompletes = {};
+        SirioDropdownAutocomplete.autocompletes = {};
         let autocompleteElements = Array.from(document.querySelectorAll(`[data-sirio-component="autocomplete"]`));
         autocompleteElements.forEach(function (autocomplete) {
-            if ((autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.tagName.toLowerCase()) == "input") {
-                let id = autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.id;
-                if (id != null) {
-                    let dropdownAutocompleteObj = new SirioDropdownAutocomplete(id, autocomplete);
-                    if (dropdownAutocompleteObj != undefined)
-                        autocompletes[id] = dropdownAutocompleteObj;
-                }
-            }
-            else {
-                return;
-            }
+            SirioDropdownAutocomplete.initComponent(autocomplete);
         });
-        SirioDropdownAutocomplete.autocompletes = autocompletes;
+    }
+    static initComponent(autocomplete) {
+        if ((autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.tagName.toLowerCase()) == "input") {
+            let id = autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.id;
+            if (id != null && !(id in SirioDropdownAutocomplete.autocompletes)) {
+                let dropdownAutocompleteObj = new SirioDropdownAutocomplete(id, autocomplete);
+                if (dropdownAutocompleteObj != undefined)
+                    SirioDropdownAutocomplete.autocompletes[id] = dropdownAutocompleteObj;
+            }
+        }
+        else {
+            return;
+        }
     }
     static isDropdownAutocomplete(id) {
         if (id)
@@ -1173,6 +1191,7 @@ class SirioDropdownMenu {
             __classPrivateFieldSet(this, _SirioDropdownMenu_trigger, document.getElementById(id), "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_menu, menu, "f");
             __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").setAttribute("data-sirio-visible", "false");
+            __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").setAttribute("aria-expanded", "false");
             __classPrivateFieldSet(this, _SirioDropdownMenu_items, Array.from(menu.querySelectorAll("li > a")), "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_dropdown, dropdown, "f");
             __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("click", () => this.toggle());
@@ -1245,29 +1264,47 @@ class SirioDropdownMenu {
             throw TypeError(`HTML element with id="'${id}'" is not a valid Sirio-Dropdown-Menu.`);
     }
     static init() {
-        let menus = {};
+        SirioDropdownMenu.menus = {};
         let dropdownElements = Array.from(document.querySelectorAll(`[data-sirio-component="dropdown"]`));
         dropdownElements.forEach(function (dropdown) {
-            let trigger = dropdown.querySelector(`[data-sirio-toggle="dropdown"]`);
-            if (trigger && trigger.tagName === "BUTTON") {
-                let id = trigger === null || trigger === void 0 ? void 0 : trigger.id;
-                let menuElementsUL = dropdown.getElementsByTagName("UL");
-                if (menuElementsUL.length == 1 && id != null) {
-                    let menu = menuElementsUL[0];
-                    let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
-                    if (dropdownMenuObj != undefined)
-                        menus[id] = dropdownMenuObj;
-                }
-                let menuElementsOL = dropdown.getElementsByTagName("OL");
-                if (menuElementsOL.length == 1 && id != null) {
-                    let menu = menuElementsOL[0];
-                    let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
-                    if (dropdownMenuObj != undefined)
-                        menus[id] = dropdownMenuObj;
-                }
-            }
+            SirioDropdownMenu.initComponent(dropdown);
         });
-        SirioDropdownMenu.menus = menus;
+    }
+    static initComponent(dropdown) {
+        let trigger = dropdown.querySelector(`[data-sirio-toggle="dropdown"]`);
+        if (trigger && trigger.tagName === "BUTTON") {
+            let id = trigger === null || trigger === void 0 ? void 0 : trigger.id;
+            let menuElementsSelects = Array.from(dropdown.getElementsByTagName("SELECT")).filter((node) => node.parentNode == dropdown);
+            if (menuElementsSelects.length > 0)
+                return;
+            let menuElementsAutocomplete = Array.from(dropdown.getElementsByTagName("INPUT")).filter((node) => node.parentNode == dropdown);
+            if (menuElementsAutocomplete.length > 0)
+                return;
+            let menuElementsUL = Array.from(dropdown.getElementsByTagName("UL")).filter((node) => node.parentNode == dropdown);
+            if (menuElementsUL.length == 1 && id != null) {
+                let menu = menuElementsUL[0];
+                let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
+                if (dropdownMenuObj != undefined)
+                    SirioDropdownMenu.menus[id] = dropdownMenuObj;
+                return;
+            }
+            let menuElementsOL = Array.from(dropdown.getElementsByTagName("OL")).filter((node) => node.parentNode == dropdown);
+            if (menuElementsOL.length == 1 && id != null) {
+                let menu = menuElementsOL[0];
+                let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
+                if (dropdownMenuObj != undefined)
+                    SirioDropdownMenu.menus[id] = dropdownMenuObj;
+                return;
+            }
+            let menuElementsDIV = Array.from(dropdown.querySelectorAll("DIV.sirio-dropdown-menu")).filter((node) => node.parentNode == dropdown);
+            if (menuElementsDIV.length == 1 && id != null) {
+                let menu = menuElementsDIV[0];
+                let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
+                if (dropdownMenuObj != undefined)
+                    SirioDropdownMenu.menus[id] = dropdownMenuObj;
+                return;
+            }
+        }
     }
     static isDropdownMenu(id) {
         const menuElement = document.getElementById(id);
@@ -1438,7 +1475,7 @@ class SirioDropdownSelect {
                 item.textContent = option.textContent;
                 item.tabIndex = 0;
                 if (value)
-                    item.setAttribute("sirio-option-value", value);
+                    item.setAttribute("data-sirio-option-value", value);
                 menu.appendChild(item);
                 __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").push(item);
                 if (option.selected)
@@ -1467,11 +1504,14 @@ class SirioDropdownSelect {
         SirioDropdownSelect.selects = {};
         let selectElements = Array.from(document.querySelectorAll(`[data-sirio-component="select"]`));
         selectElements.forEach(function (select) {
-            if (select != null) {
-                let id = select.id;
-                new SirioDropdownSelect(id, select);
-            }
+            SirioDropdownSelect.initComponent(select);
         });
+    }
+    static initComponent(select) {
+        let id = select.id;
+        if (select != null && !(id in SirioDropdownSelect.selects)) {
+            new SirioDropdownSelect(id, select);
+        }
     }
     static isDropdownSelect(id) {
         if (id)
@@ -1707,7 +1747,7 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
         };
     });
 }, _SirioDropdownSelect_handleItemClick = function _SirioDropdownSelect_handleItemClick(item, init = false) {
-    let value = item.getAttribute("sirio-option-value");
+    let value = item.getAttribute("data-sirio-option-value");
     if (__classPrivateFieldGet(this, _SirioDropdownSelect_multiple, "f")) {
         if (item.classList.contains("active")) {
             __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_unselectItem).call(this, item, value || "");
@@ -1832,23 +1872,25 @@ class SirioFileUpload {
             throw TypeError(`HTML element with id="'${id}'" is not a valid Sirio-File-Upload.`);
     }
     static init() {
-        let fileUploads = {};
+        SirioFileUpload.fileUploads = {};
         let uploadElements = Array.from(document.querySelectorAll(`[data-sirio-component="upload"]`));
         uploadElements.forEach(function (upload) {
-            let inputElement = upload.getElementsByTagName("input")[0];
-            if ((inputElement === null || inputElement === void 0 ? void 0 : inputElement.type.toLowerCase()) == "file") {
-                let id = inputElement === null || inputElement === void 0 ? void 0 : inputElement.id;
-                if (id != null) {
-                    let fileUploadObj = new SirioFileUpload(id, upload);
-                    if (fileUploadObj != undefined)
-                        fileUploads[id] = fileUploadObj;
-                }
-            }
-            else {
-                return;
-            }
+            SirioFileUpload.initComponent(upload);
         });
-        SirioFileUpload.fileUploads = fileUploads;
+    }
+    static initComponent(upload) {
+        let inputElement = upload.getElementsByTagName("input")[0];
+        if ((inputElement === null || inputElement === void 0 ? void 0 : inputElement.type.toLowerCase()) == "file") {
+            let id = inputElement === null || inputElement === void 0 ? void 0 : inputElement.id;
+            if (id != null) {
+                let fileUploadObj = new SirioFileUpload(id, upload);
+                if (fileUploadObj != undefined)
+                    SirioFileUpload.fileUploads[id] = fileUploadObj;
+            }
+        }
+        else {
+            return;
+        }
     }
     static isFileUpload(id) {
         const validTypes = ["file"];
@@ -1960,11 +2002,14 @@ class SirioPopover extends SirioTooltip_1.SirioTooltip {
     static init() {
         let triggerElements = document.querySelectorAll(`[data-sirio-toggle="popover"]`);
         triggerElements.forEach(function (trigger) {
-            let popover = new SirioPopover(trigger, 0);
-            trigger.addEventListener("click", function (event) {
-                event.preventDefault();
-                __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_toggle).call(popover);
-            });
+            SirioPopover.initComponent(trigger);
+        });
+    }
+    static initComponent(trigger) {
+        let popover = new SirioPopover(trigger, 0);
+        trigger.addEventListener("click", function (event) {
+            event.preventDefault();
+            __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_toggle).call(popover);
         });
     }
 }
@@ -2086,7 +2131,7 @@ class SirioSlider {
             else if (!numbers.includes(minString[i]))
                 throw TypeError("SirioSlider: min value is not a number");
         }
-        if (minString == '')
+        if (minString == "")
             throw TypeError("SirioSlider: min value is missing");
         if (minString == "-")
             throw TypeError("SirioSlider: min value is not a number");
@@ -2101,14 +2146,14 @@ class SirioSlider {
             else if (!numbers.includes(maxString[i]))
                 throw TypeError("SirioSlider: max value is not a number");
         }
-        if (maxString == '')
+        if (maxString == "")
             throw TypeError("SirioSlider: max value is missing");
         if (maxString == "-")
             throw TypeError("SirioSlider: max value is not a number");
         __classPrivateFieldSet(this, _SirioSlider_minValue, parseInt(minString), "f");
         __classPrivateFieldSet(this, _SirioSlider_maxValue, parseInt(maxString), "f");
         if (valueString == null) {
-            valueString = (__classPrivateFieldGet(this, _SirioSlider_minValue, "f")).toFixed().toString();
+            valueString = __classPrivateFieldGet(this, _SirioSlider_minValue, "f").toFixed().toString();
             sliderEl.style.setProperty("--val", valueString);
             inputNumberEl.value = valueString;
         }
@@ -2125,8 +2170,8 @@ class SirioSlider {
                     throw TypeError("SirioSlider: value is not a number");
             }
         }
-        if (valueString == '' || valueString == "-") {
-            valueString = (__classPrivateFieldGet(this, _SirioSlider_minValue, "f")).toFixed().toString();
+        if (valueString == "" || valueString == "-") {
+            valueString = __classPrivateFieldGet(this, _SirioSlider_minValue, "f").toFixed().toString();
             sliderEl.style.setProperty("--val", valueString);
             inputNumberEl.value = valueString;
         }
@@ -2149,30 +2194,33 @@ class SirioSlider {
         });
     }
     static init() {
-        let sliders = {};
+        SirioSlider.sliders = {};
         let sliderComponentElements = Array.from(document.querySelectorAll(`[data-sirio-component="slider"]`));
         sliderComponentElements.forEach(function (sliderComponentEl) {
-            let sliderEl = null;
-            let inputNumberEl = null;
-            let inputEls = Array.from(sliderComponentEl.getElementsByTagName("input"));
-            inputEls.forEach(function (inputEl) {
-                let type = inputEl.getAttribute("type");
-                switch (type) {
-                    case "range":
-                        sliderEl = inputEl;
-                        break;
-                    case "number":
-                        inputNumberEl = inputEl;
-                        break;
-                }
-            });
-            let rangeLabelsEls = sliderComponentEl.getElementsByClassName(Constants_1.sirioPrefix + "slider-range");
-            if (rangeLabelsEls.length > 0 && sliderEl != null && inputNumberEl != null) {
-                let rangeLabelEl = rangeLabelsEls[0];
-                let sirioSliderObj = new SirioSlider(sliderEl, inputNumberEl, rangeLabelEl);
-                sliders[sliderEl] = sirioSliderObj;
+            SirioSlider.initComponent(sliderComponentEl);
+        });
+    }
+    static initComponent(sliderComponentEl) {
+        let sliderEl = null;
+        let inputNumberEl = null;
+        let inputEls = Array.from(sliderComponentEl.getElementsByTagName("input"));
+        inputEls.forEach(function (inputEl) {
+            let type = inputEl.getAttribute("type");
+            switch (type) {
+                case "range":
+                    sliderEl = inputEl;
+                    break;
+                case "number":
+                    inputNumberEl = inputEl;
+                    break;
             }
         });
+        let rangeLabelsEls = sliderComponentEl.getElementsByClassName(Constants_1.sirioPrefix + "slider-range");
+        if (rangeLabelsEls.length > 0 && sliderEl != null && inputNumberEl != null) {
+            let rangeLabelEl = rangeLabelsEls[0];
+            let sirioSliderObj = new SirioSlider(sliderEl, inputNumberEl, rangeLabelEl);
+            SirioSlider.sliders[sliderEl] = sirioSliderObj;
+        }
     }
     static getSliderById(id) {
         return SirioSlider.sliders[id];
@@ -2235,6 +2283,130 @@ SirioSlider.sliders = {};
 
 /***/ }),
 
+/***/ 181:
+/***/ (function(__unused_webpack_module, exports) {
+
+
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var _SirioSticky_instances, _SirioSticky_stickyContainer, _SirioSticky_wrapper, _SirioSticky_isSticky, _SirioSticky_checkToSticky, _SirioSticky_checkToUnsticky, _SirioSticky_setSticky, _SirioSticky_unsetSticky, _SirioSticky_getUnstickyStartTrigger;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SirioSticky = void 0;
+class SirioSticky {
+    constructor(stickyContainer) {
+        _SirioSticky_instances.add(this);
+        _SirioSticky_stickyContainer.set(this, void 0);
+        _SirioSticky_wrapper.set(this, void 0);
+        _SirioSticky_isSticky.set(this, void 0);
+        __classPrivateFieldSet(this, _SirioSticky_stickyContainer, stickyContainer, "f");
+        __classPrivateFieldSet(this, _SirioSticky_wrapper, null, "f");
+        __classPrivateFieldSet(this, _SirioSticky_isSticky, false, "f");
+    }
+    static init() {
+        window.removeEventListener("scroll", SirioSticky.handleScroll);
+        window.removeEventListener("resize", SirioSticky.handleResize);
+        SirioSticky.stickys = [];
+        SirioSticky.lastScrollTop = 0;
+        SirioSticky.cumulativeHeight = 0;
+        let styckyElements = document.querySelectorAll(`[data-sirio-component="sticky"]`);
+        styckyElements.forEach(function (sticky) {
+            SirioSticky.initComponent(sticky);
+        });
+        window.addEventListener("scroll", SirioSticky.handleScroll);
+        window.addEventListener("resize", SirioSticky.handleResize);
+    }
+    static initComponent(sticky) {
+        let stickyObj = new SirioSticky(sticky);
+        if (stickyObj != undefined)
+            SirioSticky.stickys.push(stickyObj);
+    }
+    static handleScroll() {
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > SirioSticky.lastScrollTop) {
+            SirioSticky.stickys.forEach((sticky) => {
+                SirioSticky.cumulativeHeight += __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_checkToSticky).call(sticky, SirioSticky.cumulativeHeight);
+            });
+        }
+        else {
+            SirioSticky.stickys
+                .slice()
+                .reverse()
+                .forEach((sticky) => {
+                SirioSticky.cumulativeHeight += __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_checkToUnsticky).call(sticky, SirioSticky.cumulativeHeight);
+            });
+        }
+        SirioSticky.lastScrollTop = st <= 0 ? 0 : st;
+    }
+    static handleResize() {
+        SirioSticky.unsetAllSticky();
+        SirioSticky.cumulativeHeight = 0;
+        SirioSticky.stickys.forEach((sticky) => {
+            SirioSticky.cumulativeHeight += __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_checkToSticky).call(sticky, SirioSticky.cumulativeHeight);
+        });
+    }
+    static unsetAllSticky() {
+        SirioSticky.stickys.forEach((sticky) => {
+            __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_unsetSticky).call(sticky);
+        });
+    }
+}
+exports.SirioSticky = SirioSticky;
+_SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap(), _SirioSticky_isSticky = new WeakMap(), _SirioSticky_instances = new WeakSet(), _SirioSticky_checkToSticky = function _SirioSticky_checkToSticky(cumulativeHeight) {
+    if (!__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
+        let startTrigger = window.pageYOffset + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+        if (window.pageYOffset + cumulativeHeight > startTrigger) {
+            __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_setSticky).call(this, cumulativeHeight);
+            return +__classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+        }
+    }
+    return 0;
+}, _SirioSticky_checkToUnsticky = function _SirioSticky_checkToUnsticky(cumulativeHeight) {
+    if (__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
+        let startTrigger = window.pageYOffset + __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_getUnstickyStartTrigger).call(this);
+        if (window.pageYOffset + cumulativeHeight <= startTrigger) {
+            let offsetHeight = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+            __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_unsetSticky).call(this);
+            return -offsetHeight;
+        }
+    }
+    return 0;
+}, _SirioSticky_setSticky = function _SirioSticky_setSticky(cumulativeHeight) {
+    var _a;
+    let wrapper = document.createElement("DIV");
+    wrapper.style.height = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight + "px";
+    (_a = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(wrapper, __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f"));
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "true");
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").style.top = cumulativeHeight + "px";
+    __classPrivateFieldSet(this, _SirioSticky_wrapper, wrapper, "f");
+    __classPrivateFieldSet(this, _SirioSticky_isSticky, true, "f");
+}, _SirioSticky_unsetSticky = function _SirioSticky_unsetSticky() {
+    var _a;
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "false");
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").style.top = "";
+    (_a = __classPrivateFieldGet(this, _SirioSticky_wrapper, "f")) === null || _a === void 0 ? void 0 : _a.remove();
+    __classPrivateFieldSet(this, _SirioSticky_isSticky, false, "f");
+}, _SirioSticky_getUnstickyStartTrigger = function _SirioSticky_getUnstickyStartTrigger() {
+    let current = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getAttribute("data-sirio-toggle");
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "false");
+    let startTrigger = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", current || "false");
+    return startTrigger;
+};
+SirioSticky.lastScrollTop = 0;
+SirioSticky.cumulativeHeight = 0;
+
+
+/***/ }),
+
 /***/ 768:
 /***/ (function(__unused_webpack_module, exports) {
 
@@ -2279,12 +2451,15 @@ class SirioTab {
             throw TypeError(`HTML element is not a valid Sirio-Tab.`);
     }
     static init() {
-        let triggerElementsGroups = document.querySelectorAll(`[role="tablist"]`);
+        let triggerElementsGroups = document.querySelectorAll(`[data-sirio-component="tab"] > ul`);
         triggerElementsGroups.forEach(function (group) {
-            let newTabGroup = group;
-            new SirioTab(newTabGroup);
+            SirioTab.initComponent(group);
         });
         window.addEventListener("hashchange", () => SirioTab.setActiveTabByLocation());
+    }
+    static initComponent(group) {
+        let newTabGroup = group;
+        new SirioTab(newTabGroup);
     }
     static isValidTabGroup(group) {
         const validGroupRoles = ["tablist"];
@@ -2564,40 +2739,43 @@ class SirioTable {
     static init() {
         let tableElements = Array.from(document.getElementsByClassName("sirio-table"));
         tableElements.forEach(function (tableEl) {
-            let tableObj = new SirioTable(tableEl);
-            if (__classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_isResponsive).call(tableObj)) {
-                __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").addEventListener("scroll", function () {
-                    let maxScroll = __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollWidth - __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").clientWidth;
-                    if (__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft > 0) {
-                        __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-start");
-                        if (Math.ceil(__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft) >= maxScroll) {
-                            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-end");
-                        }
-                        else {
-                            if (!__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.contains("sirio-table-overflow-end")) {
-                                __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-end");
-                            }
-                        }
+            SirioTable.initComponent(tableEl);
+        });
+    }
+    static initComponent(tableEl) {
+        let tableObj = new SirioTable(tableEl);
+        if (__classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_isResponsive).call(tableObj)) {
+            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").addEventListener("scroll", function () {
+                let maxScroll = __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollWidth - __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").clientWidth;
+                if (__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft > 0) {
+                    __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-start");
+                    if (Math.ceil(__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft) >= maxScroll) {
+                        __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-end");
                     }
                     else {
-                        __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-start");
+                        if (!__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.contains("sirio-table-overflow-end")) {
+                            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-end");
+                        }
                     }
-                });
-                window.addEventListener("load", function () {
-                    __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
-                });
-                window.addEventListener("resize", function () {
-                    if (!__classPrivateFieldGet(tableObj, _SirioTable_isResizing, "f")) {
-                        __classPrivateFieldSet(tableObj, _SirioTable_isResizing, true, "f");
-                        this.setTimeout(() => {
-                            __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_expand).call(tableObj);
-                            __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
-                            __classPrivateFieldSet(tableObj, _SirioTable_isResizing, false, "f");
-                        }, 200);
-                    }
-                });
-            }
-        });
+                }
+                else {
+                    __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-start");
+                }
+            });
+            window.addEventListener("load", function () {
+                __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
+            });
+            window.addEventListener("resize", function () {
+                if (!__classPrivateFieldGet(tableObj, _SirioTable_isResizing, "f")) {
+                    __classPrivateFieldSet(tableObj, _SirioTable_isResizing, true, "f");
+                    this.setTimeout(() => {
+                        __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_expand).call(tableObj);
+                        __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
+                        __classPrivateFieldSet(tableObj, _SirioTable_isResizing, false, "f");
+                    }, 200);
+                }
+            });
+        }
     }
 }
 exports.SirioTable = SirioTable;
@@ -3061,17 +3239,19 @@ class SirioTimePicker {
             throw TypeError(`HTML element with id" '${id}'" is not a valid Sirio-TimePicker.`);
     }
     static init() {
-        let timePickers = {};
-        let inputs = Array.from(document.getElementsByClassName("sirio-timepicker"));
+        SirioTimePicker.timePickers = {};
+        let inputs = Array.from(document.querySelectorAll(`[data-sirio-component="timepicker"]`));
         inputs.forEach(function (input) {
-            let timePicker = new SirioTimePicker(input.id);
-            timePickers[input.id] = timePicker;
+            SirioTimePicker.initComponent(input);
         });
-        SirioTimePicker.timePickers = timePickers;
+    }
+    static initComponent(input) {
+        let timePicker = new SirioTimePicker(input.id);
+        SirioTimePicker.timePickers[input.id] = timePicker;
     }
     static isTimePicker(id) {
         let input = document.getElementById(id);
-        if (input != null) {
+        if (input != null && !(id in SirioTimePicker.timePickers)) {
             if (input.tagName.toLowerCase() == "input" && input.getAttribute("type") == "text" && input.classList.contains("sirio-form-control")) {
                 return true;
             }
@@ -3318,15 +3498,18 @@ class SirioToggle {
     static init() {
         let toggleComponentsElements = Array.from(document.querySelectorAll(`[data-sirio-component="toggle"]`));
         toggleComponentsElements.forEach(function (toggleComponentEl) {
-            let toggle = toggleComponentEl.getElementsByTagName('input')[0];
-            if (toggle && toggle.getAttribute('type') === "checkbox") {
-                if (toggle.checked)
-                    toggle.setAttribute("aria-checked", "true");
-                else
-                    toggle.setAttribute("aria-checked", "false");
-                toggle.addEventListener('click', () => toggle.setAttribute("aria-checked", String(toggle.checked)));
-            }
+            SirioToggle.initComponent(toggleComponentEl);
         });
+    }
+    static initComponent(toggleComponentEl) {
+        let toggle = toggleComponentEl.getElementsByTagName('input')[0];
+        if (toggle && toggle.getAttribute('type') === "checkbox") {
+            if (toggle.checked)
+                toggle.setAttribute("aria-checked", "true");
+            else
+                toggle.setAttribute("aria-checked", "false");
+            toggle.addEventListener('click', () => toggle.setAttribute("aria-checked", String(toggle.checked)));
+        }
     }
 }
 exports.SirioToggle = SirioToggle;
@@ -3389,15 +3572,18 @@ class SirioTooltip {
     static init() {
         let triggerElements = document.querySelectorAll(`[data-sirio-toggle="tooltip"]`);
         triggerElements.forEach(function (trigger) {
-            let tooltip = new SirioTooltip(trigger);
-            trigger.addEventListener("mouseover", function (event) {
-                event.preventDefault();
-                tooltip.show();
-            });
-            trigger.addEventListener("focus", function (event) {
-                event.preventDefault();
-                tooltip.show();
-            });
+            SirioTooltip.initComponent(trigger);
+        });
+    }
+    static initComponent(trigger) {
+        let tooltip = new SirioTooltip(trigger);
+        trigger.addEventListener("mouseover", function (event) {
+            event.preventDefault();
+            tooltip.show();
+        });
+        trigger.addEventListener("focus", function (event) {
+            event.preventDefault();
+            tooltip.show();
         });
     }
     getTriggerElement() {
@@ -3543,7 +3729,7 @@ var cyclePositions = {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.padStartWithZeros = exports.isDescendant = exports.makeNumberId = exports.dataSirioKeyboardHandler = exports.makeid = void 0;
+exports.querySelectorAllIncludeSelf = exports.padStartWithZeros = exports.isDescendant = exports.makeNumberId = exports.dataSirioKeyboardHandler = exports.makeid = void 0;
 function makeid(length) {
     var result = "";
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -3595,6 +3781,10 @@ function padStartWithZeros(toPad, length) {
     return toPad;
 }
 exports.padStartWithZeros = padStartWithZeros;
+function querySelectorAllIncludeSelf(element, selectors) {
+    return [element, ...element.querySelectorAll(selectors)].filter(el => el.matches(selectors));
+}
+exports.querySelectorAllIncludeSelf = querySelectorAllIncludeSelf;
 
 
 /***/ })
@@ -3603,7 +3793,7 @@ exports.padStartWithZeros = padStartWithZeros;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -3617,14 +3807,14 @@ exports.padStartWithZeros = padStartWithZeros;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -3652,6 +3842,8 @@ Object.defineProperty(exports, "SirioToast", ({ enumerable: true, get: function 
 const SirioTable_1 = __webpack_require__(353);
 const SirioTimePicker_1 = __webpack_require__(708);
 const SirioToggle_1 = __webpack_require__(226);
+const SirioSticky_1 = __webpack_require__(181);
+const Utils_2 = __webpack_require__(675);
 function initialize() {
     SirioDialog_1.SirioDialog.init();
     SirioAccordion_1.SirioAccordion.init();
@@ -3667,6 +3859,7 @@ function initialize() {
     SirioTable_1.SirioTable.init();
     SirioTimePicker_1.SirioTimePicker.init();
     SirioToggle_1.SirioToggle.init();
+    SirioSticky_1.SirioSticky.init();
 }
 (0, Utils_1.dataSirioKeyboardHandler)();
 initialize();
@@ -3676,8 +3869,6 @@ function getComponentById(id, type) {
             return SirioDialog_1.SirioDialog.getDialogById(id);
         case "accordion":
             return SirioAccordion_1.SirioAccordion.getAccordionById(id);
-        // case "tab":
-        //     return SirioTab.getTabById(id);
         case "dropdown-menu":
             return SirioDropdownMenu_1.SirioDropdownMenu.getMenuById(id);
         case "dropdown-select":
@@ -3695,6 +3886,89 @@ function getComponentById(id, type) {
     }
 }
 exports.getComponentById = getComponentById;
+const observer = new MutationObserver(function (mutations_list) {
+    mutations_list.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+            if (node instanceof Element) {
+                // Breadcrumb
+                let breadcrumbComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="breadcrumb"]`);
+                breadcrumbComponentElements.forEach(function (breadcrumbComponentEl) {
+                    SirioBreadcrumb_1.SirioBreadcrumb.initComponent(breadcrumbComponentEl);
+                });
+                // Dropdown menu
+                let dropdownElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="dropdown"]`);
+                dropdownElements.forEach(function (dropdown) {
+                    SirioDropdownMenu_1.SirioDropdownMenu.initComponent(dropdown);
+                });
+                // Tab
+                let tabGroups = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="tab"] > ul`);
+                tabGroups.forEach(function (group) {
+                    SirioTab_1.SirioTab.initComponent(group);
+                });
+                // Accordion
+                let accordionElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="collapse"]`);
+                accordionElements.forEach(function (trigger) {
+                    SirioAccordion_1.SirioAccordion.initComponent(trigger);
+                });
+                // Table
+                let tableElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, ".sirio-table");
+                tableElements.forEach(function (tableEl) {
+                    SirioTable_1.SirioTable.initComponent(tableEl);
+                });
+                // Dialogs
+                let triggerElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="dialog"]`);
+                triggerElements.forEach(function (trigger) {
+                    SirioDialog_1.SirioDialog.initComponent(trigger);
+                });
+                // Tooltip
+                let tooltipElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="tooltip"]`);
+                tooltipElements.forEach(function (trigger) {
+                    SirioTooltip_1.SirioTooltip.initComponent(trigger);
+                });
+                // Popover
+                let popoverElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="popover"]`);
+                popoverElements.forEach(function (trigger) {
+                    SirioPopover_1.SirioPopover.initComponent(trigger);
+                });
+                // Sticky
+                let stickyElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="sticky"]`);
+                if (stickyElements.length > 0)
+                    SirioSticky_1.SirioSticky.init();
+                // Dropdown select
+                let selectElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="select"]`);
+                selectElements.forEach(function (select) {
+                    SirioDropdownSelect_1.SirioDropdownSelect.initComponent(select);
+                });
+                // Dropdown autocomplete
+                let autocompleteElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="autocomplete"]`);
+                autocompleteElements.forEach(function (autocomplete) {
+                    SirioDropdownAutocomplete_1.SirioDropdownAutocomplete.initComponent(autocomplete);
+                });
+                // Toggle
+                let toggleComponentsElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="toggle"]`);
+                toggleComponentsElements.forEach(function (toggleComponentEl) {
+                    SirioToggle_1.SirioToggle.initComponent(toggleComponentEl);
+                });
+                // File upload
+                let uploadElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="upload"]`);
+                uploadElements.forEach(function (upload) {
+                    SirioFileUpload_1.SirioFileUpload.initComponent(upload);
+                });
+                // Slider 
+                let sliderComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="slider"]`);
+                sliderComponentElements.forEach(function (sliderComponentEl) {
+                    SirioSlider_1.SirioSlider.initComponent(sliderComponentEl);
+                });
+                // Timepicker
+                let timepickers = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="timepicker"]`);
+                timepickers.forEach(function (input) {
+                    SirioTimePicker_1.SirioTimePicker.initComponent(input);
+                });
+            }
+        });
+    });
+});
+observer.observe(document, { subtree: true, childList: true });
 
 })();
 

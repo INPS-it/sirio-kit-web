@@ -1,4 +1,4 @@
-# SirioWebKit v.4.0.0
+# SirioWebKit v.4.0.3
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -39,6 +39,10 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+
+### 4.0.1 (2022-12-12)
+
+- **contenuto**\fix gestione in tempo reale dei componenti
 
 ### 4.0.0 (2022-10-26)
 
