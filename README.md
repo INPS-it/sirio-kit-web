@@ -1,4 +1,4 @@
-# SirioWebKit v.4.0.3
+# SirioWebKit v.4.0.1
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
