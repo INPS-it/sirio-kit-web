@@ -69,6 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#headercmp">Header</a></li>
 				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
@@ -544,7 +545,7 @@
 								</div>
 							</div>
 
-							<div class="code" aria-hidden="true" id="code-input">
+							<div class="code" aria-hidden="true" id="code-input-group">
                                 <p class="guide-code-title">Ricerca:</p>
 <pre><xmp>
 <div class="sirio-input-group">
@@ -929,6 +930,26 @@ inputComponent.setOptionElements(newOptions);
                                 <p class="guide-code-title">Radio button verticali:</p>
 <pre><xmp>
 <fieldset>
+	<legend class="sirio-label">Radio button verticali</legend>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-1" name="input-radio-dis" value="" checked="">
+		<label for="input-radio-dis-1">Opzione 1 (selezionata)</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-2" name="input-radio-dis" value="">
+		<label for="input-radio-dis-2">Opzione 2</label>
+	</div>
+	<div class="sirio-form-check">
+		<input type="radio" id="input-radio-dis-3" name="input-radio-dis" value="">
+		<label for="input-radio-dis-3">Opzione 3</label>
+	</div>
+</fieldset>
+</xmp></pre>
+
+
+                                <p class="guide-code-title">Radio button disabilitati:</p>
+<pre><xmp>
+<fieldset>
 	<legend class="sirio-label">Radio button disabilitati</legend>
 	<div class="sirio-form-check">
 		<input type="radio" id="input-radio-dis-1" name="input-radio-dis" value="" disabled checked="">
@@ -964,8 +985,8 @@ inputComponent.setOptionElements(newOptions);
 								<div class="guide-row">
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle" name="input-toggle" value="" aria-checked="false">
+											<div class="sirio-form-check sirio-form-toggle">
+												<input type="checkbox" id="input-toggle" name="input-toggle" value="">
 												<label for="input-toggle">Toggle</label>
 											</div>
 										</div>
@@ -973,8 +994,8 @@ inputComponent.setOptionElements(newOptions);
 									
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle-dx" name="input-toggle-dx" value="" aria-checked="false">
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx">
+												<input type="checkbox" id="input-toggle-dx" name="input-toggle-dx" value="">
 												<label for="input-toggle-dx">Toggle a destra</label>
 											</div>
 										</div>
@@ -984,8 +1005,8 @@ inputComponent.setOptionElements(newOptions);
 								<div class="guide-row">
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle-checked" name="input-toggle-checked" value="" aria-checked="true" checked>
+											<div class="sirio-form-check sirio-form-toggle">
+												<input type="checkbox" id="input-toggle-checked" name="input-toggle-checked" value="" checked>
 												<label for="input-toggle-checked">Toggle checked</label>
 											</div>
 										</div>
@@ -993,8 +1014,8 @@ inputComponent.setOptionElements(newOptions);
 								
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle-checked-dx" name="input-toggle-checked-dx" value="" aria-checked="true" checked>
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx">
+												<input type="checkbox" id="input-toggle-checked-dx" name="input-toggle-checked-dx" value="" checked>
 												<label for="input-toggle-checked-dx">Toggle checked a destra</label>
 											</div>
 										</div>
@@ -1004,8 +1025,8 @@ inputComponent.setOptionElements(newOptions);
 								<div class="guide-row">
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle-disabled" name="input-toggle-disabled" value="" aria-checked="false" disabled>
+											<div class="sirio-form-check sirio-form-toggle">
+												<input type="checkbox" id="input-toggle-disabled" name="input-toggle-disabled" value="" disabled>
 												<label for="input-toggle-disabled">Toggle disabilitato</label>
 											</div>
 										</div>
@@ -1013,8 +1034,8 @@ inputComponent.setOptionElements(newOptions);
 									
 									<div class="guide-col-md-6">
 										<div class="sirio-form-group">
-											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
-												<input type="checkbox" role="switch" id="input-toggle-disabled-dx" name="input-toggle-disabled-dx" value="" aria-checked="false" disabled>
+											<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx">
+												<input type="checkbox" id="input-toggle-disabled-dx" name="input-toggle-disabled-dx" value="" disabled>
 												<label for="input-toggle-disabled-dx">Toggle disabilitato</label>
 											</div>
 										</div>
@@ -1025,24 +1046,24 @@ inputComponent.setOptionElements(newOptions);
 							<div class="code" aria-hidden="true" id="code-toggle">
                                 <p class="guide-code-title">Toggle:</p>
 <pre><xmp>
-<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
-	<input type="checkbox" role="switch" id="input-toggle" name="input-toggle" aria-checked="false" value="">
+<div class="sirio-form-check sirio-form-toggle">
+	<input type="checkbox" id="input-toggle" name="input-toggle" value="">
 	<label for="input-toggle">Toggle</label>
 </div>
 </xmp></pre>
 
                             <p class="guide-code-title">Toggle checked:</p>
 <pre><xmp>
-<div class="sirio-form-check sirio-form-toggle" data-sirio-component="toggle">
-	<input type="checkbox" role="switch" id="input-toggle-checked" name="input-toggle-checked" value="" aria-checked="true" checked>
+<div class="sirio-form-check sirio-form-toggle">
+	<input type="checkbox" id="input-toggle-checked" name="input-toggle-checked" value="" checked>
 	<label for="input-toggle-checked">Toggle checked</label>
 </div>
 </xmp></pre>
 
                                 <p class="guide-code-title">Toggle allineato a destra:</p>
 <pre><xmp>
-<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx" data-sirio-component="toggle">
-	<input type="checkbox" role="switch" id="input-toggle-dx" name="input-toggle-dx" aria-checked="false" value="">
+<div class="sirio-form-check sirio-form-toggle sirio-form-toggle-dx">
+	<input type="checkbox" id="input-toggle-dx" name="input-toggle-dx" value="">
 	<label for="input-toggle-dx">Toggle</label>
 </div>
 </xmp></pre>
@@ -1242,27 +1263,27 @@ fileList = inputFilesComponent.getUploadedFiles();
 	};
 }());
 
-const elems = document.querySelectorAll(".sirio-datepicker");
-for (const elem of elems) {
-	if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
-		const datepicker = new Datepicker(elem, {
-			format: "dd/mm/yyyy",
-			language: "it",
-			prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-			nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
-			autohide: true
-		});
-	}
+var elems = document.querySelectorAll(".sirio-datepicker");
+for (var elem of elems) {
+    if (!elem.parentNode.classList.contains("sirio-datepicker-range")) {
+        var datepicker = new Datepicker(elem, {
+            format: "dd/mm/yyyy",
+            language: "it",
+            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+            autohide: true
+        });
+    }
 }
 
-const elemsRange = document.querySelectorAll(".sirio-datepicker-range");
-for (const elemRange of elemsRange) {
-	const datepickerRange = new DateRangePicker(elemRange, {
-		format: "dd/mm/yyyy",
-		language: "it",
-		prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-		nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
-	});
+var elemsRange = document.querySelectorAll(".sirio-datepicker-range");
+for (var elemRange of elemsRange) {
+    var datepickerRange = new DateRangePicker(elemRange, {
+        format: "dd/mm/yyyy",
+        language: "it",
+        prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+        nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+    });
 }
 </xmp></pre>
                             
@@ -1403,13 +1424,13 @@ for (const elemRange of elemsRange) {
 								<div class="guide-row">
 									<div class="guide-col-auto">
 										<div class="sirio-chip-selection">
-											<input type="checkbox" role="switch" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+											<input type="checkbox" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
 											<label for="input-checkbox-chips-1">Chip</label>
 										</div>
 									</div>
 									<div class="guide-col-auto">
 										<div class="sirio-chip-selection">
-											<input type="checkbox" role="switch" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+											<input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
 											<label for="input-checkbox-chips-2"><span class="fas fa-check" aria-hidden="true"></span>Chip con icona</label>
 										</div>
 									</div>
@@ -1420,11 +1441,11 @@ for (const elemRange of elemsRange) {
                                 <p class="guide-code-title">Chips di selezione checkbox:</p>
 <pre><xmp>
 <div class="sirio-chip-selection">
-	<input type="checkbox" role="switch" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+	<input type="checkbox" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
 	<label for="input-checkbox-chips-1">Chip</label>
 </div>
 <div class="sirio-chip-selection">
-	<input type="checkbox" role="switch" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+	<input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
 	<label for="input-checkbox-chips-2"><span class="fas fa-check" aria-hidden="true"></span>Chip con icona</label>
 </div>
 </xmp></pre>
@@ -1442,19 +1463,19 @@ for (const elemRange of elemsRange) {
 								<div class="guide-row">
 									<div class="guide-col-auto">
 										<div class="sirio-chip-selection">
-											<input type="radio" role="switch" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
+											<input type="radio" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
 											<label for="input-radio-chips-1">Chip 1</label>
 										</div>
 									</div>
 									<div class="guide-col-auto">
 										<div class="sirio-chip-selection">
-											<input type="radio" role="switch" id="input-radio-chips-2" name="input-radio-chips" value="2">
+											<input type="radio" id="input-radio-chips-2" name="input-radio-chips" value="2">
 											<label for="input-radio-chips-2">Chip 2</label>
 										</div>
 									</div>
 									<div class="guide-col-auto">
 										<div class="sirio-chip-selection">
-											<input type="radio" role="switch" id="input-radio-chips-3" name="input-radio-chips" value="3">
+											<input type="radio" id="input-radio-chips-3" name="input-radio-chips" value="3">
 											<label for="input-radio-chips-3">Chip 3</label>
 										</div>
 									</div>
@@ -1465,15 +1486,15 @@ for (const elemRange of elemsRange) {
                                 <p class="guide-code-title">Chips di selezione radio button:</p>
 <pre><xmp>
 <div class="sirio-chip-selection">
-	<input type="radio" role="switch" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
+	<input type="radio" id="input-radio-chips-1" name="input-radio-chips" value="1" checked>
 	<label for="input-radio-chips-1">Chip 1</label>
 </div>
 <div class="sirio-chip-selection">
-	<input type="radio" role="switch" id="input-radio-chips-2" name="input-radio-chips" value="2">
+	<input type="radio" id="input-radio-chips-2" name="input-radio-chips" value="2">
 	<label for="input-radio-chips-2">Chip 2</label>
 </div>
 <div class="sirio-chip-selection">
-	<input type="radio" role="switch" id="input-radio-chips-3" name="input-radio-chips" value="3">
+	<input type="radio" id="input-radio-chips-3" name="input-radio-chips" value="3">
 	<label for="input-radio-chips-3">Chip 3</label>
 </div>
 </xmp></pre>
@@ -1493,8 +1514,8 @@ for (const elemRange of elemsRange) {
 							<div class="guide-example">
 								<div class="guide-row">
 									<div class="guide-col-md-4">
-										<label for="progress-example-0">Progress label</label> aria-hidden="true"
-										<progress id="progress-example-0" class="sirio-progress" value="0" max="100">0%</progress>
+										<label for="progress-example-0">Progress label</label>
+										<progress id="progress-example-0" class="sirio-progress" aria-hidden="true" value="0" max="100">0%</progress>
 										<span class="sirio-progress-number">0%</span>
 									</div>
 									<div class="guide-col-md-4">
@@ -1554,8 +1575,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-text-valid">Text:</label>
-											<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo">
-											<span class="sirio-form-feedback">
+											<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo" aria-describedby="input-text-valid-msg">
+											<span class="sirio-form-feedback" id="input-text-valid-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1563,8 +1584,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-text-warning">Text:</label>
-											<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo">
-											<span class="sirio-form-feedback">
+											<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo" aria-describedby="input-text-warning-msg">
+											<span class="sirio-form-feedback" id="input-text-warning-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1572,8 +1593,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-text-invalid">Text:</label>
-											<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo">
-											<span class="sirio-form-feedback">
+											<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo" aria-describedby="input-text-invalid-msg">
+											<span class="sirio-form-feedback" id="input-text-invalid-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1581,8 +1602,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-textarea-valid">Textarea:</label>
-											<textarea id="input-textarea-valid" name="input-textarea-valid" class="sirio-form-control sirio-is-valid" rows="5" placeholder="Descrizione messaggio"></textarea>
-											<span class="sirio-form-feedback">
+											<textarea id="input-textarea-valid" name="input-textarea-valid" class="sirio-form-control sirio-is-valid" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-valid-msg"></textarea>
+											<span class="sirio-form-feedback" id="input-textarea-valid-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1590,8 +1611,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-textarea-warning">Textarea:</label>
-											<textarea id="input-textarea-warning" name="input-textarea-warning" class="sirio-form-control sirio-is-warning" rows="5" placeholder="Descrizione messaggio"></textarea>
-											<span class="sirio-form-feedback">
+											<textarea id="input-textarea-warning" name="input-textarea-warning" class="sirio-form-control sirio-is-warning" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-warning-msg"></textarea>
+											<span class="sirio-form-feedback" id="input-textarea-warning-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1599,8 +1620,8 @@ for (const elemRange of elemsRange) {
 									<div class="guide-col-md-4">
 										<div class="form-group">
 											<label for="input-textarea-invalid">Textarea:</label>
-											<textarea id="input-textarea-invalid" name="input-textarea-invalid" class="sirio-form-control sirio-is-invalid" rows="5" placeholder="Descrizione messaggio"></textarea>
-											<span class="sirio-form-feedback">
+											<textarea id="input-textarea-invalid" name="input-textarea-invalid" class="sirio-form-control sirio-is-invalid" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-invalid-msg"></textarea>
+											<span class="sirio-form-feedback" id="input-textarea-invalid-msg">
 												Lorem ipsum onopossum tagit tua
 											</span>
 										</div>
@@ -1612,8 +1633,8 @@ for (const elemRange of elemsRange) {
                                 <p class="guide-code-title">Input text valida:</p>
 <pre><xmp>
 <label for="input-text-valid">Text:</label>
-<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo">
-<span class="sirio-form-feedback">
+<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo" aria-describedby="input-text-valid-msg">
+<span class="sirio-form-feedback" id="input-text-valid-msg">
 	Lorem ipsum onopossum tagit tua
 </span>
 </xmp></pre>
@@ -1621,16 +1642,16 @@ for (const elemRange of elemsRange) {
                                 <p class="guide-code-title">Input text warning:</p>
 <pre><xmp>
 <label for="input-text-warning">Text:</label>
-<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo">
-<span class="sirio-form-feedback">
+<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo" aria-describedby="input-text-warning-msg">
+<span class="sirio-form-feedback" id="input-text-warning-msg">
 	Lorem ipsum onopossum tagit tua
 </span>
 </xmp></pre>
 								<p class="guide-code-title">Input text invalida:</p>
 <pre><xmp>
 <label for="input-text-invalid">Text:</label>
-<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo">
-<span class="sirio-form-feedback">
+<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo" aria-describedby="input-text-invalid-msg">
+<span class="sirio-form-feedback" id="input-text-invalid-msg">
 	Lorem ipsum onopossum tagit tua
 </span>
 </xmp></pre>

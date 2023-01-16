@@ -1,6 +1,6 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.4.0.0
+ * Sirio WebKit v.4.0.4
  * Copyright 2022 INPS
  */
 (function () {
@@ -1240,9 +1240,9 @@
 
         el.className = `datepicker-cell ${this.cellClass}`;
         
-        // ATTENZIONE: AGGIUNGERE il aria-label con "nomeGiorno GIORNO MESE ANNO" per esteso e togliere il title momentaneo qui sotto
         el.title = `${this.picker.datepicker.config.locale.days[day]} ${date.getDate()} ${this.picker.datepicker.config.locale.months[date.getMonth()]} ${date.getFullYear()}`;
-        el.setAttribute("aria-label",`${el.title}`)
+        el.setAttribute("aria-label",`${el.title}`);
+        el.setAttribute("role", "button");
 
         el.dataset.date = current;
         el.textContent = date.getDate();

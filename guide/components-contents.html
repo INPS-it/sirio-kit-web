@@ -69,6 +69,7 @@
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
+				<li><a href="components-structure.html#headercmp">Header</a></li>
 				<li><a href="components-structure.html#footercmp">Footer</a></li>
 			</ul>
 		</li>
@@ -3743,9 +3744,8 @@
 												<span>Cosa è successo</span>
 												<span class="sr-only">Apri la barra di avanzamento</span>
 											</button>
-											<div role="group" aria-label="Barra di avanzamento">
-												<ol class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-1"
-													data-sirio-visible="false">
+											<div class="sirio-dropdown-menu" role="group" aria-label="Barra di avanzamento" aria-labelledby="dropdown-stepper-1" data-sirio-visible="false">
+												<ol class="sirio-stepper-nav">
 													<li class="sirio-stepper-item is-success">
 														<span class="sr-only">Completato</span>
 														<div class="sirio-stepper-content">
@@ -3812,9 +3812,8 @@
 				<span>Cosa è successo</span>
 				<span class="sr-only">Apri la barra di avanzamento</span>
 			</button>
-			<div role="group" aria-label="Barra di avanzamento">
-				<ol class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-1"
-					data-sirio-visible="false">
+			<div class="sirio-dropdown-menu" role="group" aria-label="Barra di avanzamento" aria-labelledby="dropdown-stepper-1" data-sirio-visible="false">
+				<ol class="sirio-stepper-nav">
 					<li class="sirio-stepper-item is-success">
 						<span class="sr-only">Completato</span>
 						<div class="sirio-stepper-content">
@@ -3888,56 +3887,57 @@
 												<span>Cosa è successo</span>
 												<span class="sr-only">Apri la barra di avanzamento</span>
 											</button>
-											<nav aria-label="Barra di avanzamento">
-												<ol class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-2"
-													data-sirio-visible="false">
-													<li class="sirio-stepper-item is-success">
-														<span class="sr-only">Completato</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
-																	cominciare</span></span>
-														</a>
-													</li>
-													<li class="sirio-stepper-item is-success">
-														<span class="sr-only">Completato</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
-																	anagrafici</span></span>
-														</a>
-													</li>
-													<li class="sirio-stepper-item is-active" aria-current="step">
-														<span class="sr-only">Step attivo</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
-																	successo</span></span>
-														</a>
-													</li>
-													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
-														</a>
-													</li>
-													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
-														</a>
-													</li>
-													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
-														<a href="#" class="sirio-stepper-content">
-															<span class="sirio-stepper-marker"></span>
-															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
-														</a>
-													</li>
-												</ol>
-											</nav>
+											<div class="sirio-dropdown-menu" aria-labelledby="dropdown-stepper-2" data-sirio-visible="false">
+												<nav aria-label="Barra di avanzamento">
+													<ol class="sirio-stepper-nav">
+														<li class="sirio-stepper-item is-success">
+															<span class="sr-only">Completato</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+																		cominciare</span></span>
+															</a>
+														</li>
+														<li class="sirio-stepper-item is-success">
+															<span class="sr-only">Completato</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
+																		anagrafici</span></span>
+															</a>
+														</li>
+														<li class="sirio-stepper-item is-active" aria-current="step">
+															<span class="sr-only">Step attivo</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
+																		successo</span></span>
+															</a>
+														</li>
+														<li class="sirio-stepper-item">
+															<span class="sr-only">Non completato</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+															</a>
+														</li>
+														<li class="sirio-stepper-item">
+															<span class="sr-only">Non completato</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+															</a>
+														</li>
+														<li class="sirio-stepper-item">
+															<span class="sr-only">Non completato</span>
+															<a href="#" class="sirio-stepper-content">
+																<span class="sirio-stepper-marker"></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+															</a>
+														</li>
+													</ol>
+												</nav>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -3958,56 +3958,57 @@
 				<span>Cosa è successo</span>
 				<span class="sr-only">Apri la barra di avanzamento</span>
 			</button>
-			<nav aria-label="Barra di avanzamento">
-				<ol class="sirio-dropdown-menu sirio-stepper-nav" aria-labelledby="dropdown-stepper-2"
-					data-sirio-visible="false">
-					<li class="sirio-stepper-item is-success">
-						<span class="sr-only">Completato</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
-									cominciare</span></span>
-						</a>
-					</li>
-					<li class="sirio-stepper-item is-success">
-						<span class="sr-only">Completato</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
-									anagrafici</span></span>
-						</a>
-					</li>
-					<li class="sirio-stepper-item is-active" aria-current="step">
-						<span class="sr-only">Step attivo</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
-									successo</span></span>
-						</a>
-					</li>
-					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
-						</a>
-					</li>
-					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
-						</a>
-					</li>
-					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
-						<a href="#" class="sirio-stepper-content">
-							<span class="sirio-stepper-marker"></span>
-							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
-						</a>
-					</li>
-				</ol>
-			</nav>
+			<div class="sirio-dropdown-menu" aria-labelledby="dropdown-stepper-2" data-sirio-visible="false">
+				<nav aria-label="Barra di avanzamento">
+					<ol class="sirio-stepper-nav">
+						<li class="sirio-stepper-item is-success">
+							<span class="sr-only">Completato</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
+										cominciare</span></span>
+							</a>
+						</li>
+						<li class="sirio-stepper-item is-success">
+							<span class="sr-only">Completato</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
+										anagrafici</span></span>
+							</a>
+						</li>
+						<li class="sirio-stepper-item is-active" aria-current="step">
+							<span class="sr-only">Step attivo</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
+										successo</span></span>
+							</a>
+						</li>
+						<li class="sirio-stepper-item">
+							<span class="sr-only">Non completato</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
+							</a>
+						</li>
+						<li class="sirio-stepper-item">
+							<span class="sr-only">Non completato</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
+							</a>
+						</li>
+						<li class="sirio-stepper-item">
+							<span class="sr-only">Non completato</span>
+							<a href="#" class="sirio-stepper-content">
+								<span class="sirio-stepper-marker"></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
+							</a>
+						</li>
+					</ol>
+				</nav>
+			</div>
 		</div>
 	</div>
 </div>

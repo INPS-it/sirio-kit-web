@@ -1,5 +1,5 @@
 /*!
- * Sirio WebKit v.4.0.1
+ * Sirio WebKit v.4.0.4
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -1433,7 +1433,6 @@ class SirioDropdownSelect {
             let id = (0, Utils_1.makeid)(6) + select.id;
             button.classList.add(Constants_1.sirioPrefix + "dropdown-select", Constants_1.sirioPrefix + "form-control");
             button.type = "button";
-            button.setAttribute("role", "menu");
             button.setAttribute("aria-label", "Apri lista selezione");
             button.id = id;
             button.setAttribute("data-sirio-toggle", "dropdown");
@@ -3119,11 +3118,10 @@ class SirioTimePicker {
             inputHour.setAttribute("max", "23");
             inputHour.setAttribute("value", "00");
             inputHour.setAttribute("aria-label", "Scegli ora");
-            inputHour.setAttribute("role", "spinbutton");
-            inputHour.setAttribute("aria-valuemin", "0");
-            inputHour.setAttribute("aria-valuemax", "23");
-            inputHour.setAttribute("aria-valuenow", "00");
-            inputHour.setAttribute("maxlength", "2");
+            //inputHour.setAttribute("aria-valuemin", "0");
+            //inputHour.setAttribute("aria-valuemax", "23");
+            //inputHour.setAttribute("aria-valuenow", "0");
+            //inputHour.setAttribute("role", "spinbutton");
             hourDiv.appendChild(inputHour);
             __classPrivateFieldSet(this, _SirioTimePicker_inputHour, inputHour, "f");
             let decrementHourButton = document.createElement("button");
@@ -3165,11 +3163,10 @@ class SirioTimePicker {
             inputMinute.setAttribute("max", "59");
             inputMinute.setAttribute("value", "00");
             inputMinute.setAttribute("aria-label", "Scegli minuti");
-            inputMinute.setAttribute("role", "spinbutton");
-            inputMinute.setAttribute("aria-valuemin", "0");
-            inputMinute.setAttribute("aria-valuemax", "59");
-            inputMinute.setAttribute("aria-valuenow", "00");
-            inputMinute.setAttribute("max-length", "2");
+            //inputMinute.setAttribute("aria-valuemin", "0");
+            //inputMinute.setAttribute("aria-valuemax", "59");
+            //inputMinute.setAttribute("aria-valuenow", "00");
+            //inputMinute.setAttribute("role", "spinbutton");
             minuteDiv.appendChild(inputMinute);
             __classPrivateFieldSet(this, _SirioTimePicker_inputMinute, inputMinute, "f");
             let decrementMinuteButton = document.createElement("button");
