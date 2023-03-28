@@ -1,6 +1,6 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.4.0.4
+ * Sirio WebKit v.5.0.1
  * Copyright 2022 INPS
  */
 (function () {
@@ -499,7 +499,6 @@
       clear: "Clear",
       titleFormat: "MM y",
       monthsTitle: "Months",
-      clear: "Clear",
       weekStart: 1,
       format: "dd/mm/yyyy",
       btnMonth: "Change the month",

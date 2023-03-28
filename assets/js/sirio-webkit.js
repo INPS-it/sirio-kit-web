@@ -1,5 +1,5 @@
 /*!
- * Sirio WebKit v.4.0.4
+ * Sirio WebKit v.5.0.0
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -116,23 +116,10 @@ class SirioAccordion {
         }
     }
     static isAccordion(id) {
-        const validRoles = ["region"];
         const accordionElement = document.getElementById(id);
-        if (accordionElement != null) {
-            let role = accordionElement.getAttribute("role");
-            if (typeof role === "string") {
-                if (validRoles.includes(role))
-                    return true;
-                else
-                    return false;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            return false;
-        }
+        if (accordionElement != null)
+            return true;
+        return false;
     }
     static getAccordionById(id) {
         return SirioAccordion.accordions[id];
@@ -805,7 +792,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDropdownAutocomplete_instances, _SirioDropdownAutocomplete_triggerId, _SirioDropdownAutocomplete_trigger, _SirioDropdownAutocomplete_dropdown, _SirioDropdownAutocomplete_menu, _SirioDropdownAutocomplete_options, _SirioDropdownAutocomplete_filteredOptions, _SirioDropdownAutocomplete_currentlyFocused, _SirioDropdownAutocomplete_filterStart, _SirioDropdownAutocomplete_onInput, _SirioDropdownAutocomplete_handleKeys, _SirioDropdownAutocomplete_setVisualFocus, _SirioDropdownAutocomplete_filter;
+var _SirioDropdownAutocomplete_instances, _SirioDropdownAutocomplete_triggerId, _SirioDropdownAutocomplete_trigger, _SirioDropdownAutocomplete_dropdown, _SirioDropdownAutocomplete_menu, _SirioDropdownAutocomplete_options, _SirioDropdownAutocomplete_filteredOptions, _SirioDropdownAutocomplete_currentlyFocused, _SirioDropdownAutocomplete_filterStart, _SirioDropdownAutocomplete_defaultVPos, _SirioDropdownAutocomplete_checkVPosTimeout, _SirioDropdownAutocomplete_onInput, _SirioDropdownAutocomplete_handleKeys, _SirioDropdownAutocomplete_setVisualFocus, _SirioDropdownAutocomplete_filter, _SirioDropdownAutocomplete_adjustPosition, _SirioDropdownAutocomplete_adjustVerticalPosition, _SirioDropdownAutocomplete_checkTopPosition, _SirioDropdownAutocomplete_checkBottomPosition;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDropdownAutocomplete = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -822,6 +809,8 @@ class SirioDropdownAutocomplete {
         _SirioDropdownAutocomplete_filteredOptions.set(this, void 0);
         _SirioDropdownAutocomplete_currentlyFocused.set(this, void 0);
         _SirioDropdownAutocomplete_filterStart.set(this, void 0);
+        _SirioDropdownAutocomplete_defaultVPos.set(this, void 0);
+        _SirioDropdownAutocomplete_checkVPosTimeout.set(this, void 0);
         _SirioDropdownAutocomplete_onInput.set(this, void 0);
         if (SirioDropdownAutocomplete.isDropdownAutocomplete(id)) {
             let dropdown = document.createElement("div");
@@ -849,6 +838,8 @@ class SirioDropdownAutocomplete {
             menu.setAttribute("data-sirio-visible", "false");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_menu, menu, "f");
             dropdown.appendChild(menu);
+            __classPrivateFieldSet(this, _SirioDropdownAutocomplete_defaultVPos, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+            __classPrivateFieldSet(this, _SirioDropdownAutocomplete_checkVPosTimeout, null, "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_options, [], "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_filteredOptions, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_options, "f"), "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_currentlyFocused, null, "f");
@@ -874,6 +865,12 @@ class SirioDropdownAutocomplete {
             });
             document.addEventListener("keydown", (event) => {
                 __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_handleKeys).call(this, event);
+            });
+            window.addEventListener("scroll", () => {
+                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
+            });
+            window.addEventListener("resize", () => {
+                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
             });
             let data = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").getAttribute("data-sirio-list");
             if (data) {
@@ -934,10 +931,11 @@ class SirioDropdownAutocomplete {
             __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").setAttribute("data-sirio-visible", "true");
             document.addEventListener("click", SirioDropdownAutocomplete.handleClick);
         }
+        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
     }
     hide() {
         var _a;
-        (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove('hover');
+        (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove("hover");
         __classPrivateFieldSet(this, _SirioDropdownAutocomplete_currentlyFocused, null, "f");
         __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").setAttribute("aria-expanded", "false");
         __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").setAttribute("data-sirio-visible", "false");
@@ -1024,7 +1022,7 @@ class SirioDropdownAutocomplete {
     }
 }
 exports.SirioDropdownAutocomplete = SirioDropdownAutocomplete;
-_SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete_trigger = new WeakMap(), _SirioDropdownAutocomplete_dropdown = new WeakMap(), _SirioDropdownAutocomplete_menu = new WeakMap(), _SirioDropdownAutocomplete_options = new WeakMap(), _SirioDropdownAutocomplete_filteredOptions = new WeakMap(), _SirioDropdownAutocomplete_currentlyFocused = new WeakMap(), _SirioDropdownAutocomplete_filterStart = new WeakMap(), _SirioDropdownAutocomplete_onInput = new WeakMap(), _SirioDropdownAutocomplete_instances = new WeakSet(), _SirioDropdownAutocomplete_handleKeys = function _SirioDropdownAutocomplete_handleKeys(event) {
+_SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete_trigger = new WeakMap(), _SirioDropdownAutocomplete_dropdown = new WeakMap(), _SirioDropdownAutocomplete_menu = new WeakMap(), _SirioDropdownAutocomplete_options = new WeakMap(), _SirioDropdownAutocomplete_filteredOptions = new WeakMap(), _SirioDropdownAutocomplete_currentlyFocused = new WeakMap(), _SirioDropdownAutocomplete_filterStart = new WeakMap(), _SirioDropdownAutocomplete_defaultVPos = new WeakMap(), _SirioDropdownAutocomplete_checkVPosTimeout = new WeakMap(), _SirioDropdownAutocomplete_onInput = new WeakMap(), _SirioDropdownAutocomplete_instances = new WeakSet(), _SirioDropdownAutocomplete_handleKeys = function _SirioDropdownAutocomplete_handleKeys(event) {
     var _a;
     let activeElement = document.activeElement;
     if (activeElement == __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f")) {
@@ -1090,7 +1088,7 @@ _SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete
                 break;
             case "arrowleft":
             case "arrowright":
-                (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove('hover');
+                (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove("hover");
                 __classPrivateFieldSet(this, _SirioDropdownAutocomplete_currentlyFocused, null, "f");
                 break;
             case "enter":
@@ -1126,12 +1124,12 @@ _SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete
     }
 }, _SirioDropdownAutocomplete_setVisualFocus = function _SirioDropdownAutocomplete_setVisualFocus(el) {
     var _a;
-    (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove('hover');
+    (_a = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_currentlyFocused, "f")) === null || _a === void 0 ? void 0 : _a.classList.remove("hover");
     if (!el.classList.contains("active")) {
-        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").setAttribute('aria-activedescendant', el.id);
+        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").setAttribute("aria-activedescendant", el.id);
         __classPrivateFieldSet(this, _SirioDropdownAutocomplete_currentlyFocused, el, "f");
         __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").scrollTop = el.offsetTop;
-        el.classList.add('hover');
+        el.classList.add("hover");
     }
 }, _SirioDropdownAutocomplete_filter = function _SirioDropdownAutocomplete_filter(autocomplete) {
     this.hide();
@@ -1156,6 +1154,47 @@ _SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete
             this.show();
         }
     }
+}, _SirioDropdownAutocomplete_adjustPosition = function _SirioDropdownAutocomplete_adjustPosition() {
+    if (!this.isHidden()) {
+        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustVerticalPosition).call(this);
+    }
+}, _SirioDropdownAutocomplete_adjustVerticalPosition = function _SirioDropdownAutocomplete_adjustVerticalPosition() {
+    if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_checkVPosTimeout, "f"))
+        clearTimeout(__classPrivateFieldGet(this, _SirioDropdownAutocomplete_checkVPosTimeout, "f"));
+    __classPrivateFieldSet(this, _SirioDropdownAutocomplete_checkVPosTimeout, setTimeout(() => {
+        const menuHeight = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").offsetHeight;
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        let currentVerticalPos = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom";
+        const rect = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").getBoundingClientRect();
+        if (currentVerticalPos == __classPrivateFieldGet(this, _SirioDropdownAutocomplete_defaultVPos, "f")) {
+            if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
+                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.add("sirio-dropdown-menu-top");
+            }
+            else if (currentVerticalPos == "top" && rect.top < 0) {
+                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            }
+        }
+        else {
+            if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
+                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
+                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.add("sirio-dropdown-menu-top");
+        }
+    }, 50), "f");
+}, _SirioDropdownAutocomplete_checkTopPosition = function _SirioDropdownAutocomplete_checkTopPosition(menuHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnTopPos = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").getBoundingClientRect().top;
+    if (btnTopPos - (translateY + menuHeight) > 0)
+        return true;
+    return false;
+}, _SirioDropdownAutocomplete_checkBottomPosition = function _SirioDropdownAutocomplete_checkBottomPosition(menuHeight, windowHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnBottomPos = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").getBoundingClientRect().bottom;
+    if (btnBottomPos + translateY + menuHeight < windowHeight)
+        return true;
+    return false;
 };
 
 
@@ -1176,16 +1215,21 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDropdownMenu_triggerId, _SirioDropdownMenu_trigger, _SirioDropdownMenu_menu, _SirioDropdownMenu_items, _SirioDropdownMenu_dropdown;
+var _SirioDropdownMenu_instances, _SirioDropdownMenu_triggerId, _SirioDropdownMenu_trigger, _SirioDropdownMenu_menu, _SirioDropdownMenu_items, _SirioDropdownMenu_dropdown, _SirioDropdownMenu_defaultVPos, _SirioDropdownMenu_defaultHPos, _SirioDropdownMenu_checkVPosTimeout, _SirioDropdownMenu_checkHPosTimeout, _SirioDropdownMenu_adjustPosition, _SirioDropdownMenu_adjustVerticalPosition, _SirioDropdownMenu_adjustHorizontalPosition, _SirioDropdownMenu_checkTopPosition, _SirioDropdownMenu_checkBottomPosition, _SirioDropdownMenu_checkLeftPosition, _SirioDropdownMenu_checkRightPosition;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDropdownMenu = void 0;
 class SirioDropdownMenu {
     constructor(id, menu, dropdown) {
+        _SirioDropdownMenu_instances.add(this);
         _SirioDropdownMenu_triggerId.set(this, void 0);
         _SirioDropdownMenu_trigger.set(this, void 0);
         _SirioDropdownMenu_menu.set(this, void 0);
         _SirioDropdownMenu_items.set(this, void 0);
         _SirioDropdownMenu_dropdown.set(this, void 0);
+        _SirioDropdownMenu_defaultVPos.set(this, void 0);
+        _SirioDropdownMenu_defaultHPos.set(this, void 0);
+        _SirioDropdownMenu_checkVPosTimeout.set(this, void 0);
+        _SirioDropdownMenu_checkHPosTimeout.set(this, void 0);
         if (SirioDropdownMenu.isDropdownMenu(id)) {
             __classPrivateFieldSet(this, _SirioDropdownMenu_triggerId, id, "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_trigger, document.getElementById(id), "f");
@@ -1194,6 +1238,10 @@ class SirioDropdownMenu {
             __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").setAttribute("aria-expanded", "false");
             __classPrivateFieldSet(this, _SirioDropdownMenu_items, Array.from(menu.querySelectorAll("li > a")), "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_dropdown, dropdown, "f");
+            __classPrivateFieldSet(this, _SirioDropdownMenu_defaultVPos, __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+            __classPrivateFieldSet(this, _SirioDropdownMenu_defaultHPos, __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.contains("sirio-dropdown-menu-right") ? "right" : "left", "f");
+            __classPrivateFieldSet(this, _SirioDropdownMenu_checkVPosTimeout, null, "f");
+            __classPrivateFieldSet(this, _SirioDropdownMenu_checkHPosTimeout, null, "f");
             __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("click", () => this.toggle());
             __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("keydown", (event) => {
                 let key = event.key.toLowerCase();
@@ -1258,6 +1306,12 @@ class SirioDropdownMenu {
                     }
                     this.hide();
                 });
+            });
+            window.addEventListener("scroll", () => {
+                __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
+            });
+            window.addEventListener("resize", () => {
+                __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
             });
         }
         else
@@ -1349,6 +1403,7 @@ class SirioDropdownMenu {
         __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").setAttribute("aria-expanded", "true");
         __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").setAttribute("data-sirio-visible", "true");
         document.addEventListener("click", SirioDropdownMenu.handleClick);
+        __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
     }
     hide() {
         __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").setAttribute("aria-expanded", "false");
@@ -1371,7 +1426,85 @@ class SirioDropdownMenu {
     }
 }
 exports.SirioDropdownMenu = SirioDropdownMenu;
-_SirioDropdownMenu_triggerId = new WeakMap(), _SirioDropdownMenu_trigger = new WeakMap(), _SirioDropdownMenu_menu = new WeakMap(), _SirioDropdownMenu_items = new WeakMap(), _SirioDropdownMenu_dropdown = new WeakMap();
+_SirioDropdownMenu_triggerId = new WeakMap(), _SirioDropdownMenu_trigger = new WeakMap(), _SirioDropdownMenu_menu = new WeakMap(), _SirioDropdownMenu_items = new WeakMap(), _SirioDropdownMenu_dropdown = new WeakMap(), _SirioDropdownMenu_defaultVPos = new WeakMap(), _SirioDropdownMenu_defaultHPos = new WeakMap(), _SirioDropdownMenu_checkVPosTimeout = new WeakMap(), _SirioDropdownMenu_checkHPosTimeout = new WeakMap(), _SirioDropdownMenu_instances = new WeakSet(), _SirioDropdownMenu_adjustPosition = function _SirioDropdownMenu_adjustPosition() {
+    if (!this.isHidden()) {
+        __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustVerticalPosition).call(this);
+        __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustHorizontalPosition).call(this);
+    }
+}, _SirioDropdownMenu_adjustVerticalPosition = function _SirioDropdownMenu_adjustVerticalPosition() {
+    if (__classPrivateFieldGet(this, _SirioDropdownMenu_checkVPosTimeout, "f"))
+        clearTimeout(__classPrivateFieldGet(this, _SirioDropdownMenu_checkVPosTimeout, "f"));
+    __classPrivateFieldSet(this, _SirioDropdownMenu_checkVPosTimeout, setTimeout(() => {
+        const menuHeight = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").offsetHeight;
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        let currentVerticalPos = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom";
+        const rect = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").getBoundingClientRect();
+        if (currentVerticalPos == __classPrivateFieldGet(this, _SirioDropdownMenu_defaultVPos, "f")) {
+            if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
+                if (__classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkTopPosition).call(this, menuHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.add("sirio-dropdown-menu-top");
+            }
+            else if (currentVerticalPos == "top" && rect.top < 0) {
+                if (__classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkBottomPosition).call(this, menuHeight, windowHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            }
+        }
+        else {
+            if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkBottomPosition).call(this, menuHeight, windowHeight))
+                __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkTopPosition).call(this, menuHeight))
+                __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.add("sirio-dropdown-menu-top");
+        }
+    }, 25), "f");
+}, _SirioDropdownMenu_adjustHorizontalPosition = function _SirioDropdownMenu_adjustHorizontalPosition() {
+    if (__classPrivateFieldGet(this, _SirioDropdownMenu_checkHPosTimeout, "f"))
+        clearTimeout(__classPrivateFieldGet(this, _SirioDropdownMenu_checkHPosTimeout, "f"));
+    __classPrivateFieldSet(this, _SirioDropdownMenu_checkHPosTimeout, setTimeout(() => {
+        const menuWidth = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").offsetWidth;
+        const windowWidth = document.documentElement.clientWidth;
+        let currentHorizontalPos = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.contains("sirio-dropdown-menu-right") ? "right" : "left";
+        const rect = __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").getBoundingClientRect();
+        if (currentHorizontalPos == __classPrivateFieldGet(this, _SirioDropdownMenu_defaultHPos, "f")) {
+            if (currentHorizontalPos == "left" && rect.right > windowWidth) {
+                if (__classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkRightPosition).call(this, menuWidth))
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.add("sirio-dropdown-menu-right");
+            }
+            else if (currentHorizontalPos == "right" && rect.left < 0) {
+                if (__classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkLeftPosition).call(this, menuWidth, windowWidth))
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.remove("sirio-dropdown-menu-right");
+            }
+        }
+        else {
+            if (currentHorizontalPos == "left" && __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkRightPosition).call(this, menuWidth))
+                __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.add("sirio-dropdown-menu-right");
+            else if (currentHorizontalPos == "right" && __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_checkLeftPosition).call(this, menuWidth, windowWidth))
+                __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.remove("sirio-dropdown-menu-right");
+        }
+    }, 25), "f");
+}, _SirioDropdownMenu_checkTopPosition = function _SirioDropdownMenu_checkTopPosition(menuHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnTopPos = __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").getBoundingClientRect().top;
+    if (btnTopPos - (translateY + menuHeight) > 0)
+        return true;
+    return false;
+}, _SirioDropdownMenu_checkBottomPosition = function _SirioDropdownMenu_checkBottomPosition(menuHeight, windowHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnBottomPos = __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").getBoundingClientRect().bottom;
+    if (btnBottomPos + translateY + menuHeight < windowHeight)
+        return true;
+    return false;
+}, _SirioDropdownMenu_checkLeftPosition = function _SirioDropdownMenu_checkLeftPosition(menuWidth, windowWidth) {
+    let btnTopPos = __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").getBoundingClientRect().left;
+    if (btnTopPos + menuWidth <= windowWidth)
+        return true;
+    return false;
+}, _SirioDropdownMenu_checkRightPosition = function _SirioDropdownMenu_checkRightPosition(menuWidth) {
+    let btnTopPos = __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").getBoundingClientRect().right;
+    if (btnTopPos - menuWidth >= 0) {
+        return true;
+    }
+    return false;
+};
 
 
 /***/ }),
@@ -1391,7 +1524,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDropdownSelect_instances, _SirioDropdownSelect_triggerId, _SirioDropdownSelect_trigger, _SirioDropdownSelect_select, _SirioDropdownSelect_multiple, _SirioDropdownSelect_dropdown, _SirioDropdownSelect_numSelected, _SirioDropdownSelect_selectedValues, _SirioDropdownSelect_selectedContent, _SirioDropdownSelect_menu, _SirioDropdownSelect_items, _SirioDropdownSelect_searchString, _SirioDropdownSelect_searching, _SirioDropdownSelect_searchIndex, _SirioDropdownSelect_searchReset, _SirioDropdownSelect_disabled, _SirioDropdownSelect_onBlur, _SirioDropdownSelect_handleKeys, _SirioDropdownSelect_handleSearch, _SirioDropdownSelect_search, _SirioDropdownSelect_handleItems, _SirioDropdownSelect_handleItemClick, _SirioDropdownSelect_selectItem, _SirioDropdownSelect_unselectItem, _SirioDropdownSelect_setSelectedOption, _SirioDropdownSelect_setNotSelectedOption;
+var _SirioDropdownSelect_instances, _SirioDropdownSelect_triggerId, _SirioDropdownSelect_trigger, _SirioDropdownSelect_select, _SirioDropdownSelect_placeholder, _SirioDropdownSelect_multiple, _SirioDropdownSelect_dropdown, _SirioDropdownSelect_numSelected, _SirioDropdownSelect_selectedValues, _SirioDropdownSelect_selectedContent, _SirioDropdownSelect_menu, _SirioDropdownSelect_items, _SirioDropdownSelect_searchString, _SirioDropdownSelect_searching, _SirioDropdownSelect_searchIndex, _SirioDropdownSelect_searchReset, _SirioDropdownSelect_disabled, _SirioDropdownSelect_onChange, _SirioDropdownSelect_defaultVPos, _SirioDropdownSelect_checkVPosTimeout, _SirioDropdownSelect_onBlur, _SirioDropdownSelect_handleKeys, _SirioDropdownSelect_handleSearch, _SirioDropdownSelect_search, _SirioDropdownSelect_handleItems, _SirioDropdownSelect_handleItemClick, _SirioDropdownSelect_selectItem, _SirioDropdownSelect_unselectItem, _SirioDropdownSelect_setSelectedOption, _SirioDropdownSelect_setNotSelectedOption, _SirioDropdownSelect_adjustPosition, _SirioDropdownSelect_adjustVerticalPosition, _SirioDropdownSelect_checkTopPosition, _SirioDropdownSelect_checkBottomPosition, _SirioDropdownSelect_createOptionElement;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDropdownSelect = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -1403,6 +1536,7 @@ class SirioDropdownSelect {
         _SirioDropdownSelect_triggerId.set(this, void 0);
         _SirioDropdownSelect_trigger.set(this, void 0);
         _SirioDropdownSelect_select.set(this, void 0);
+        _SirioDropdownSelect_placeholder.set(this, void 0);
         _SirioDropdownSelect_multiple.set(this, void 0);
         _SirioDropdownSelect_dropdown.set(this, void 0);
         _SirioDropdownSelect_numSelected.set(this, void 0);
@@ -1415,6 +1549,9 @@ class SirioDropdownSelect {
         _SirioDropdownSelect_searchIndex.set(this, void 0);
         _SirioDropdownSelect_searchReset.set(this, void 0);
         _SirioDropdownSelect_disabled.set(this, void 0);
+        _SirioDropdownSelect_onChange.set(this, void 0);
+        _SirioDropdownSelect_defaultVPos.set(this, void 0);
+        _SirioDropdownSelect_checkVPosTimeout.set(this, void 0);
         if (SirioDropdownSelect.isDropdownSelect(selectId)) {
             let dropdown = document.createElement("div");
             dropdown.setAttribute("data-sirio-component", "dropdown");
@@ -1456,13 +1593,13 @@ class SirioDropdownSelect {
             menu.tabIndex = -1;
             menu.setAttribute("data-sirio-visible", "false");
             let options = Array.from(select.children);
-            let placeholder = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").title;
+            __classPrivateFieldSet(this, _SirioDropdownSelect_placeholder, __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").title, "f");
             __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 0, "f");
             if (!this.isMultiple())
                 __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 1, "f");
             __classPrivateFieldSet(this, _SirioDropdownSelect_selectedValues, [], "f");
             __classPrivateFieldSet(this, _SirioDropdownSelect_selectedContent, __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").getElementsByTagName("span")[0], "f");
-            __classPrivateFieldGet(this, _SirioDropdownSelect_selectedContent, "f").textContent = placeholder || "";
+            __classPrivateFieldGet(this, _SirioDropdownSelect_selectedContent, "f").textContent = __classPrivateFieldGet(this, _SirioDropdownSelect_placeholder, "f") || "";
             __classPrivateFieldSet(this, _SirioDropdownSelect_searchString, "", "f");
             __classPrivateFieldSet(this, _SirioDropdownSelect_items, [], "f");
             options.forEach((option, i) => {
@@ -1482,11 +1619,19 @@ class SirioDropdownSelect {
             });
             dropdown.appendChild(menu);
             __classPrivateFieldSet(this, _SirioDropdownSelect_menu, menu, "f");
+            __classPrivateFieldSet(this, _SirioDropdownSelect_defaultVPos, __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+            __classPrivateFieldSet(this, _SirioDropdownSelect_checkVPosTimeout, null, "f");
             __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").addEventListener("click", () => this.toggle());
             document.addEventListener("keydown", (event) => {
                 __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleKeys).call(this, event);
             });
             __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItems).call(this);
+            window.addEventListener("scroll", () => {
+                __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustPosition).call(this);
+            });
+            window.addEventListener("resize", () => {
+                __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustPosition).call(this);
+            });
             __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").addEventListener("focus", (event) => {
                 __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").tabIndex = -1;
                 __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").focus();
@@ -1545,6 +1690,7 @@ class SirioDropdownSelect {
         __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").setAttribute("aria-expanded", "true");
         __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").setAttribute("data-sirio-visible", "true");
         document.addEventListener("click", SirioDropdownSelect.handleClick);
+        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustPosition).call(this);
     }
     hide() {
         __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").setAttribute("aria-expanded", "false");
@@ -1592,9 +1738,38 @@ class SirioDropdownSelect {
         __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").setAttribute("disabled", "true");
         __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").setAttribute("disabled", "true");
     }
+    setOptionElements(options) {
+        this.clearOptionElements();
+        this.addOptionElements(options);
+        if (!this.isMultiple())
+            __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 1, "f");
+        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[0], true);
+    }
+    addOptionElements(options) {
+        let select = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f");
+        options.forEach((option) => {
+            var optionElement = document.createElement("option");
+            optionElement.value = option.value;
+            optionElement.text = option.text;
+            select.appendChild(optionElement);
+            __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_createOptionElement).call(this, optionElement);
+        });
+        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItems).call(this);
+    }
+    clearOptionElements() {
+        __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").innerHTML = '';
+        __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").innerHTML = '';
+        __classPrivateFieldSet(this, _SirioDropdownSelect_items, [], "f");
+        __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 0, "f");
+        __classPrivateFieldSet(this, _SirioDropdownSelect_selectedValues, [], "f");
+        __classPrivateFieldGet(this, _SirioDropdownSelect_selectedContent, "f").textContent = __classPrivateFieldGet(this, _SirioDropdownSelect_placeholder, "f") || "";
+    }
+    setOnChange(onChange) {
+        __classPrivateFieldSet(this, _SirioDropdownSelect_onChange, onChange, "f");
+    }
 }
 exports.SirioDropdownSelect = SirioDropdownSelect;
-_SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = new WeakMap(), _SirioDropdownSelect_select = new WeakMap(), _SirioDropdownSelect_multiple = new WeakMap(), _SirioDropdownSelect_dropdown = new WeakMap(), _SirioDropdownSelect_numSelected = new WeakMap(), _SirioDropdownSelect_selectedValues = new WeakMap(), _SirioDropdownSelect_selectedContent = new WeakMap(), _SirioDropdownSelect_menu = new WeakMap(), _SirioDropdownSelect_items = new WeakMap(), _SirioDropdownSelect_searchString = new WeakMap(), _SirioDropdownSelect_searching = new WeakMap(), _SirioDropdownSelect_searchIndex = new WeakMap(), _SirioDropdownSelect_searchReset = new WeakMap(), _SirioDropdownSelect_disabled = new WeakMap(), _SirioDropdownSelect_instances = new WeakSet(), _SirioDropdownSelect_onBlur = function _SirioDropdownSelect_onBlur() {
+_SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = new WeakMap(), _SirioDropdownSelect_select = new WeakMap(), _SirioDropdownSelect_placeholder = new WeakMap(), _SirioDropdownSelect_multiple = new WeakMap(), _SirioDropdownSelect_dropdown = new WeakMap(), _SirioDropdownSelect_numSelected = new WeakMap(), _SirioDropdownSelect_selectedValues = new WeakMap(), _SirioDropdownSelect_selectedContent = new WeakMap(), _SirioDropdownSelect_menu = new WeakMap(), _SirioDropdownSelect_items = new WeakMap(), _SirioDropdownSelect_searchString = new WeakMap(), _SirioDropdownSelect_searching = new WeakMap(), _SirioDropdownSelect_searchIndex = new WeakMap(), _SirioDropdownSelect_searchReset = new WeakMap(), _SirioDropdownSelect_disabled = new WeakMap(), _SirioDropdownSelect_onChange = new WeakMap(), _SirioDropdownSelect_defaultVPos = new WeakMap(), _SirioDropdownSelect_checkVPosTimeout = new WeakMap(), _SirioDropdownSelect_instances = new WeakSet(), _SirioDropdownSelect_onBlur = function _SirioDropdownSelect_onBlur() {
     if (!__classPrivateFieldGet(this, _SirioDropdownSelect_dropdown, "f").contains(document.activeElement)) {
         __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").removeAttribute("tabindex");
         __classPrivateFieldGet(this, _SirioDropdownSelect_dropdown, "f").removeEventListener("blur", __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_onBlur));
@@ -1784,11 +1959,15 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
 }, _SirioDropdownSelect_selectItem = function _SirioDropdownSelect_selectItem(item) {
     item.classList.add("active");
     item.setAttribute("aria-selected", "true");
+    if (__classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f"))
+        __classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f").call(this);
 }, _SirioDropdownSelect_unselectItem = function _SirioDropdownSelect_unselectItem(item, value) {
     var _a;
     item.classList.remove("active");
     item.setAttribute("aria-selected", "false");
     (_a = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").querySelector(`option[value="${value}"]`)) === null || _a === void 0 ? void 0 : _a.removeAttribute("selected");
+    if (__classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f"))
+        __classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f").call(this);
 }, _SirioDropdownSelect_setSelectedOption = function _SirioDropdownSelect_setSelectedOption(value) {
     var _a;
     let option = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").querySelector("option[value='" + value + "']");
@@ -1812,6 +1991,60 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
         __classPrivateFieldGet(this, _SirioDropdownSelect_selectedValues, "f").splice(toRemoveIndex, 1);
         __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, (_a = __classPrivateFieldGet(this, _SirioDropdownSelect_numSelected, "f"), _a--, _a), "f");
     }
+}, _SirioDropdownSelect_adjustPosition = function _SirioDropdownSelect_adjustPosition() {
+    if (!this.isHidden()) {
+        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustVerticalPosition).call(this);
+    }
+}, _SirioDropdownSelect_adjustVerticalPosition = function _SirioDropdownSelect_adjustVerticalPosition() {
+    if (__classPrivateFieldGet(this, _SirioDropdownSelect_checkVPosTimeout, "f"))
+        clearTimeout(__classPrivateFieldGet(this, _SirioDropdownSelect_checkVPosTimeout, "f"));
+    __classPrivateFieldSet(this, _SirioDropdownSelect_checkVPosTimeout, setTimeout(() => {
+        const menuHeight = __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").offsetHeight;
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        let currentVerticalPos = __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom";
+        const rect = __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").getBoundingClientRect();
+        if (currentVerticalPos == __classPrivateFieldGet(this, _SirioDropdownSelect_defaultVPos, "f")) {
+            if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
+                if (__classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_checkTopPosition).call(this, menuHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.add("sirio-dropdown-menu-top");
+            }
+            else if (currentVerticalPos == "top" && rect.top < 0) {
+                if (__classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_checkBottomPosition).call(this, menuHeight, windowHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            }
+        }
+        else {
+            if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_checkBottomPosition).call(this, menuHeight, windowHeight))
+                __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.remove("sirio-dropdown-menu-top");
+            else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_checkTopPosition).call(this, menuHeight))
+                __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.add("sirio-dropdown-menu-top");
+        }
+    }, 50), "f");
+}, _SirioDropdownSelect_checkTopPosition = function _SirioDropdownSelect_checkTopPosition(menuHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnTopPos = __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").getBoundingClientRect().top;
+    if (btnTopPos - (translateY + menuHeight) > 0)
+        return true;
+    return false;
+}, _SirioDropdownSelect_checkBottomPosition = function _SirioDropdownSelect_checkBottomPosition(menuHeight, windowHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnBottomPos = __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").getBoundingClientRect().bottom;
+    if (btnBottomPos + translateY + menuHeight < windowHeight)
+        return true;
+    return false;
+}, _SirioDropdownSelect_createOptionElement = function _SirioDropdownSelect_createOptionElement(option) {
+    let item = document.createElement("li"), value = option.getAttribute("value");
+    item.setAttribute("role", "option");
+    item.id = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").id + "-" + __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").childElementCount;
+    ;
+    item.classList.add(Constants_1.sirioPrefix + "dropdown-item");
+    item.ariaSelected = "false";
+    item.textContent = option.textContent;
+    item.tabIndex = 0;
+    if (value)
+        item.setAttribute("data-sirio-option-value", value);
+    __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").appendChild(item);
+    __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").push(item);
 };
 
 
@@ -1864,6 +2097,7 @@ class SirioFileUpload {
                         __classPrivateFieldGet(this, _SirioFileUpload_instances, "m", _SirioFileUpload_createFileChip).call(this, fileName);
                     }
                     __classPrivateFieldGet(this, _SirioFileUpload_fileDictionary, "f")[fileName] = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").files[i];
+                    __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").value = '';
                 }
             };
         }
@@ -2009,6 +2243,11 @@ class SirioPopover extends SirioTooltip_1.SirioTooltip {
         trigger.addEventListener("click", function (event) {
             event.preventDefault();
             __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_toggle).call(popover);
+        });
+        window.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" || event.key === "Esc") {
+                __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_hide).call(popover);
+            }
         });
     }
 }
@@ -2821,7 +3060,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioTimePicker_instances, _SirioTimePicker_textInputEl, _SirioTimePicker_componentEl, _SirioTimePicker_dropdownEl, _SirioTimePicker_incrementHourButton, _SirioTimePicker_inputHour, _SirioTimePicker_decrementHourButton, _SirioTimePicker_incrementMinuteButton, _SirioTimePicker_inputMinute, _SirioTimePicker_decrementMinuteButton, _SirioTimePicker_minuteJustFocused, _SirioTimePicker_hourJustFocused, _SirioTimePicker_handleClick, _SirioTimePicker_handleKeysHour, _SirioTimePicker_handleKeysMinute, _SirioTimePicker_handleKeysInput, _SirioTimePicker_incrementHour, _SirioTimePicker_incrementMinute, _SirioTimePicker_decrementHour, _SirioTimePicker_decrementMinute, _SirioTimePicker_show, _SirioTimePicker_setInputHourValue, _SirioTimePicker_setInputMinuteValue, _SirioTimePicker_hide, _SirioTimePicker_isHidden;
+var _SirioTimePicker_instances, _SirioTimePicker_textInputEl, _SirioTimePicker_componentEl, _SirioTimePicker_dropdownEl, _SirioTimePicker_incrementHourButton, _SirioTimePicker_inputHour, _SirioTimePicker_decrementHourButton, _SirioTimePicker_incrementMinuteButton, _SirioTimePicker_inputMinute, _SirioTimePicker_decrementMinuteButton, _SirioTimePicker_minuteJustFocused, _SirioTimePicker_hourJustFocused, _SirioTimePicker_defaultVPos, _SirioTimePicker_checkVPosTimeout, _SirioTimePicker_handleClick, _SirioTimePicker_handleKeysHour, _SirioTimePicker_handleKeysMinute, _SirioTimePicker_handleKeysInput, _SirioTimePicker_incrementHour, _SirioTimePicker_incrementMinute, _SirioTimePicker_decrementHour, _SirioTimePicker_decrementMinute, _SirioTimePicker_show, _SirioTimePicker_adjustPosition, _SirioTimePicker_adjustVerticalPosition, _SirioTimePicker_checkTopPosition, _SirioTimePicker_checkBottomPosition, _SirioTimePicker_setInputHourValue, _SirioTimePicker_setInputMinuteValue, _SirioTimePicker_hide, _SirioTimePicker_isHidden;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTimePicker = void 0;
 const Utils_1 = __webpack_require__(675);
@@ -2839,6 +3078,8 @@ class SirioTimePicker {
         _SirioTimePicker_decrementMinuteButton.set(this, void 0);
         _SirioTimePicker_minuteJustFocused.set(this, false);
         _SirioTimePicker_hourJustFocused.set(this, false);
+        _SirioTimePicker_defaultVPos.set(this, void 0);
+        _SirioTimePicker_checkVPosTimeout.set(this, void 0);
         _SirioTimePicker_handleClick.set(this, (event) => {
             let target = (event.target || event.currentTarget);
             if (target != null) {
@@ -2964,6 +3205,7 @@ class SirioTimePicker {
                         if (!event.shiftKey) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
                         }
+                        break;
                     case "Enter":
                         if (length == 1) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "00");
@@ -3053,6 +3295,7 @@ class SirioTimePicker {
                                 __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.substring(0, 2));
                                 __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value[3]);
                                 __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+                                break;
                             case 6:
                                 __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.substring(0, 2));
                                 __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.substring(3, 5));
@@ -3091,7 +3334,6 @@ class SirioTimePicker {
             __classPrivateFieldSet(this, _SirioTimePicker_componentEl, componentEl, "f");
             let dropdownEl = document.createElement("div");
             dropdownEl.setAttribute("class", "sirio-dropdown-menu sirio-dropdown-timepicker");
-            dropdownEl.setAttribute("aria-label", "Seleziona orario");
             dropdownEl.setAttribute("data-sirio-visible", "false");
             componentEl.appendChild(dropdownEl);
             __classPrivateFieldSet(this, _SirioTimePicker_dropdownEl, dropdownEl, "f");
@@ -3112,16 +3354,13 @@ class SirioTimePicker {
             __classPrivateFieldSet(this, _SirioTimePicker_incrementHourButton, incrementHourButton, "f");
             let inputHour = document.createElement("input");
             inputHour.id = (0, Utils_1.makeid)(5) + "input-timepicker-hour";
-            inputHour.type = "number";
-            inputHour.setAttribute("step", "1");
-            inputHour.setAttribute("min", "0");
-            inputHour.setAttribute("max", "23");
+            inputHour.type = "text";
             inputHour.setAttribute("value", "00");
             inputHour.setAttribute("aria-label", "Scegli ora");
-            //inputHour.setAttribute("aria-valuemin", "0");
-            //inputHour.setAttribute("aria-valuemax", "23");
-            //inputHour.setAttribute("aria-valuenow", "0");
-            //inputHour.setAttribute("role", "spinbutton");
+            inputHour.setAttribute("role", "spinbutton");
+            inputHour.setAttribute("aria-valuemin", "0");
+            inputHour.setAttribute("aria-valuemax", "23");
+            inputHour.setAttribute("aria-valuenow", "00");
             hourDiv.appendChild(inputHour);
             __classPrivateFieldSet(this, _SirioTimePicker_inputHour, inputHour, "f");
             let decrementHourButton = document.createElement("button");
@@ -3157,16 +3396,13 @@ class SirioTimePicker {
             __classPrivateFieldSet(this, _SirioTimePicker_incrementMinuteButton, incrementMinuteButton, "f");
             let inputMinute = document.createElement("input");
             inputMinute.id = (0, Utils_1.makeid)(5) + "input-timepicker-minute";
-            inputMinute.type = "number";
-            inputMinute.setAttribute("step", "1");
-            inputMinute.setAttribute("min", "0");
-            inputMinute.setAttribute("max", "59");
+            inputMinute.type = "text";
             inputMinute.setAttribute("value", "00");
             inputMinute.setAttribute("aria-label", "Scegli minuti");
-            //inputMinute.setAttribute("aria-valuemin", "0");
-            //inputMinute.setAttribute("aria-valuemax", "59");
-            //inputMinute.setAttribute("aria-valuenow", "00");
-            //inputMinute.setAttribute("role", "spinbutton");
+            inputMinute.setAttribute("role", "spinbutton");
+            inputMinute.setAttribute("aria-valuemin", "0");
+            inputMinute.setAttribute("aria-valuemax", "59");
+            inputMinute.setAttribute("aria-valuenow", "00");
             minuteDiv.appendChild(inputMinute);
             __classPrivateFieldSet(this, _SirioTimePicker_inputMinute, inputMinute, "f");
             let decrementMinuteButton = document.createElement("button");
@@ -3181,6 +3417,8 @@ class SirioTimePicker {
             decrementMinuteButton.appendChild(decrementMinuteButtonSpan);
             minuteDiv.appendChild(decrementMinuteButton);
             __classPrivateFieldSet(this, _SirioTimePicker_decrementMinuteButton, decrementMinuteButton, "f");
+            __classPrivateFieldSet(this, _SirioTimePicker_defaultVPos, __classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+            __classPrivateFieldSet(this, _SirioTimePicker_checkVPosTimeout, null, "f");
             __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("click", (event) => {
                 event.preventDefault();
                 if (__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
@@ -3231,6 +3469,12 @@ class SirioTimePicker {
             __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("focus", () => {
                 __classPrivateFieldSet(this, _SirioTimePicker_minuteJustFocused, true, "f");
             });
+            window.addEventListener("scroll", () => {
+                __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+            });
+            window.addEventListener("resize", () => {
+                __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+            });
         }
         else
             throw TypeError(`HTML element with id" '${id}'" is not a valid Sirio-TimePicker.`);
@@ -3275,7 +3519,7 @@ class SirioTimePicker {
     }
 }
 exports.SirioTimePicker = SirioTimePicker;
-_SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new WeakMap(), _SirioTimePicker_dropdownEl = new WeakMap(), _SirioTimePicker_incrementHourButton = new WeakMap(), _SirioTimePicker_inputHour = new WeakMap(), _SirioTimePicker_decrementHourButton = new WeakMap(), _SirioTimePicker_incrementMinuteButton = new WeakMap(), _SirioTimePicker_inputMinute = new WeakMap(), _SirioTimePicker_decrementMinuteButton = new WeakMap(), _SirioTimePicker_minuteJustFocused = new WeakMap(), _SirioTimePicker_hourJustFocused = new WeakMap(), _SirioTimePicker_handleClick = new WeakMap(), _SirioTimePicker_handleKeysHour = new WeakMap(), _SirioTimePicker_handleKeysMinute = new WeakMap(), _SirioTimePicker_handleKeysInput = new WeakMap(), _SirioTimePicker_instances = new WeakSet(), _SirioTimePicker_incrementHour = function _SirioTimePicker_incrementHour() {
+_SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new WeakMap(), _SirioTimePicker_dropdownEl = new WeakMap(), _SirioTimePicker_incrementHourButton = new WeakMap(), _SirioTimePicker_inputHour = new WeakMap(), _SirioTimePicker_decrementHourButton = new WeakMap(), _SirioTimePicker_incrementMinuteButton = new WeakMap(), _SirioTimePicker_inputMinute = new WeakMap(), _SirioTimePicker_decrementMinuteButton = new WeakMap(), _SirioTimePicker_minuteJustFocused = new WeakMap(), _SirioTimePicker_hourJustFocused = new WeakMap(), _SirioTimePicker_defaultVPos = new WeakMap(), _SirioTimePicker_checkVPosTimeout = new WeakMap(), _SirioTimePicker_handleClick = new WeakMap(), _SirioTimePicker_handleKeysHour = new WeakMap(), _SirioTimePicker_handleKeysMinute = new WeakMap(), _SirioTimePicker_handleKeysInput = new WeakMap(), _SirioTimePicker_instances = new WeakSet(), _SirioTimePicker_incrementHour = function _SirioTimePicker_incrementHour() {
     let currentValue = parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
     let newValue;
     if (currentValue < 23) {
@@ -3331,6 +3575,48 @@ _SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new
         __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value = currentHour;
         __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = currentMinutes;
     }
+    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+}, _SirioTimePicker_adjustPosition = function _SirioTimePicker_adjustPosition() {
+    if (!__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
+        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustVerticalPosition).call(this);
+    }
+}, _SirioTimePicker_adjustVerticalPosition = function _SirioTimePicker_adjustVerticalPosition() {
+    if (__classPrivateFieldGet(this, _SirioTimePicker_checkVPosTimeout, "f"))
+        clearTimeout(__classPrivateFieldGet(this, _SirioTimePicker_checkVPosTimeout, "f"));
+    __classPrivateFieldSet(this, _SirioTimePicker_checkVPosTimeout, setTimeout(() => {
+        const menuHeight = __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").offsetHeight;
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        let currentVerticalPos = __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom";
+        const rect = __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").getBoundingClientRect();
+        if (currentVerticalPos == __classPrivateFieldGet(this, _SirioTimePicker_defaultVPos, "f")) {
+            if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
+                if (__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_checkTopPosition).call(this, menuHeight))
+                    __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").classList.add("sirio-dropdown-menu-top");
+            }
+            else if (currentVerticalPos == "top" && rect.top < 0) {
+                if (__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_checkBottomPosition).call(this, menuHeight, windowHeight))
+                    __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").classList.remove("sirio-dropdown-menu-top");
+            }
+        }
+        else {
+            if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_checkBottomPosition).call(this, menuHeight, windowHeight))
+                __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").classList.remove("sirio-dropdown-menu-top");
+            else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_checkTopPosition).call(this, menuHeight))
+                __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").classList.add("sirio-dropdown-menu-top");
+        }
+    }, 50), "f");
+}, _SirioTimePicker_checkTopPosition = function _SirioTimePicker_checkTopPosition(menuHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnTopPos = __classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f").getBoundingClientRect().top;
+    if (btnTopPos - (translateY + menuHeight) > 0)
+        return true;
+    return false;
+}, _SirioTimePicker_checkBottomPosition = function _SirioTimePicker_checkBottomPosition(menuHeight, windowHeight) {
+    let style = window.getComputedStyle(__classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f")), matrix = new WebKitCSSMatrix(style.transform), translateY = matrix.m41;
+    let btnBottomPos = __classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f").getBoundingClientRect().bottom;
+    if (btnBottomPos + translateY + menuHeight < windowHeight)
+        return true;
+    return false;
 }, _SirioTimePicker_setInputHourValue = function _SirioTimePicker_setInputHourValue(value) {
     if (parseInt(value) < 23) {
         __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value = (0, Utils_1.padStartWithZeros)(value, 2);
@@ -3485,35 +3771,6 @@ _SirioToast_toastEl = new WeakMap(), _SirioToast_dismissEl = new WeakMap(), _Sir
 
 /***/ }),
 
-/***/ 226:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SirioToggle = void 0;
-class SirioToggle {
-    static init() {
-        let toggleComponentsElements = Array.from(document.querySelectorAll(`[data-sirio-component="toggle"]`));
-        toggleComponentsElements.forEach(function (toggleComponentEl) {
-            SirioToggle.initComponent(toggleComponentEl);
-        });
-    }
-    static initComponent(toggleComponentEl) {
-        let toggle = toggleComponentEl.getElementsByTagName('input')[0];
-        if (toggle && toggle.getAttribute('type') === "checkbox") {
-            if (toggle.checked)
-                toggle.setAttribute("aria-checked", "true");
-            else
-                toggle.setAttribute("aria-checked", "false");
-            toggle.addEventListener('click', () => toggle.setAttribute("aria-checked", String(toggle.checked)));
-        }
-    }
-}
-exports.SirioToggle = SirioToggle;
-
-
-/***/ }),
-
 /***/ 713:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -3581,6 +3838,11 @@ class SirioTooltip {
         trigger.addEventListener("focus", function (event) {
             event.preventDefault();
             tooltip.show();
+        });
+        window.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" || event.key === "Esc") {
+                __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_hide).call(tooltip);
+            }
         });
     }
     getTriggerElement() {
@@ -3732,7 +3994,7 @@ function makeid(length) {
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     var charactersLength = characters.length;
     for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(cryptoRandom() * charactersLength));
     }
     return result + "-";
 }
@@ -3755,7 +4017,7 @@ function makeNumberId(length) {
     var characters = "0123456789";
     var charactersLength = characters.length;
     for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(cryptoRandom() * charactersLength));
     }
     return result;
 }
@@ -3782,6 +4044,12 @@ function querySelectorAllIncludeSelf(element, selectors) {
     return [element, ...element.querySelectorAll(selectors)].filter(el => el.matches(selectors));
 }
 exports.querySelectorAllIncludeSelf = querySelectorAllIncludeSelf;
+function cryptoRandom() {
+    const typedArray = new Uint8Array(1);
+    const randomValue = crypto.getRandomValues(typedArray)[0];
+    const randomFloat = randomValue / Math.pow(2, 8);
+    return randomFloat;
+}
 
 
 /***/ })
@@ -3838,7 +4106,6 @@ const SirioToast_1 = __webpack_require__(419);
 Object.defineProperty(exports, "SirioToast", ({ enumerable: true, get: function () { return SirioToast_1.SirioToast; } }));
 const SirioTable_1 = __webpack_require__(353);
 const SirioTimePicker_1 = __webpack_require__(708);
-const SirioToggle_1 = __webpack_require__(226);
 const SirioSticky_1 = __webpack_require__(181);
 const Utils_2 = __webpack_require__(675);
 function initialize() {
@@ -3855,7 +4122,7 @@ function initialize() {
     SirioSlider_1.SirioSlider.init();
     SirioTable_1.SirioTable.init();
     SirioTimePicker_1.SirioTimePicker.init();
-    SirioToggle_1.SirioToggle.init();
+    //SirioToggle.init();
     SirioSticky_1.SirioSticky.init();
 }
 (0, Utils_1.dataSirioKeyboardHandler)();
@@ -3942,10 +4209,10 @@ const observer = new MutationObserver(function (mutations_list) {
                     SirioDropdownAutocomplete_1.SirioDropdownAutocomplete.initComponent(autocomplete);
                 });
                 // Toggle
-                let toggleComponentsElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="toggle"]`);
-                toggleComponentsElements.forEach(function (toggleComponentEl) {
-                    SirioToggle_1.SirioToggle.initComponent(toggleComponentEl);
-                });
+                // let toggleComponentsElements = querySelectorAllIncludeSelf(node as HTMLElement, `[data-sirio-component="toggle"]`);
+                // toggleComponentsElements.forEach(function (toggleComponentEl) {
+                //     SirioToggle.initComponent(toggleComponentEl as HTMLElement);
+                // });
                 // File upload
                 let uploadElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="upload"]`);
                 uploadElements.forEach(function (upload) {

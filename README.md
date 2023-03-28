@@ -1,4 +1,4 @@
-# SirioWebKit v.4.0.4
+# SirioWebKit v.5.0.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -39,6 +39,12 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+
+### 5.0.0 (2023-03-28)
+
+- **tipografia**\Colori (rebranding)
+- **tipografia**\Icone (fontawesome v6.3.0)
+- **form**\Dropdown Select (added methods)
 
 ### 4.0.4 (2023-01-13)
 
@@ -93,7 +99,7 @@ Vengono di seguito elencati i componenti distribuiti con Sirio WebKit.
 
 - [Vanilla JS Datepicker](https://mymth.github.io/vanillajs-datepicker), licenza MIT
 
-- [Font Awesome Free 5.15.4](https://fontawesome.com/) ©Fonticons, Inc., licenza SIL OFL 1.1
+- [Font Awesome Free 6.3.0](https://fontawesome.com/) ©Fonticons, Inc., licenza SIL OFL 1.1
 
 - [Font Titillium Web](http://nta.accademiadiurbino.it/titillium/) ©Accademia di Belle Arti di Urbino and students of MA course of Visual design, Inc., licenza SIL OFL 1.1
 

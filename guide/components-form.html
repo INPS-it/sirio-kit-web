@@ -96,6 +96,7 @@
 				<li><a href="components-contents.html#tab">Tab</a></li>
 				<li><a href="components-contents.html#collapse">Collapse</a></li>
 				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#sidenav">Side Nav</a></li>
 				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
 				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
@@ -640,6 +641,35 @@
 	<option value="7">Opzione 7</option>
 </select>
 </xmp></pre>
+
+								<p class="guide-code-title">Aggiungi valori all'elenco:</p>
+<pre><xmp>
+let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
+let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1'}];
+select.addOptionElements(options);
+</xmp></pre>
+
+								<p class="guide-code-title">Sostituisci l'intero elenco:</p>
+<pre><xmp>
+let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
+let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1'}];
+select.setOptionElements(options);
+</xmp></pre>
+
+								<p class="guide-code-title">Svuota l'elenco:</p>
+<pre><xmp>
+let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
+select.clearOptionElements();
+select.disable();
+</xmp></pre>
+
+								<p class="guide-code-title">Intercetta il cambiamento di selezione:</p>
+<pre><xmp>
+let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
+select.setOnChange(function() {
+	alert('cambiamento selezione rilevata');
+});
+</xmp></pre>
                             </div>
 							<hr class="guide-separator">
 
@@ -651,11 +681,17 @@
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownSelect chiamante.</li>
 									<li><strong>getItemElements()</strong>: restituisce gli oggetti item HTMLElement collegati all'oggetto SirioDropdownSelect chiamante.</li>
 									<li><strong>getSelectedValues()</strong>: restituisce l'elenco dei valori selezionati dell'oggetto SirioDropdownSelect.</li>
+									<li><strong>addOptionElements(options: string[])</strong>: aggiunge nuovi valori all'elenco dell'oggetto SirioDropdownSelect.</li>
+									<li><strong>setOptionElements(options: string[])</strong>: sostituisce con nuovi valori l'elenco dell'oggetto SirioDropdownSelect.</li>
+									<li><strong>clearOptionElements()</strong>: svuota l'elenco dell'oggetto SirioDropdownSelect.</li>
+									<li><strong>setOnChange(callback)</strong>: imposta la funzione di callback da eseguire quando c'è un cambiamento di selezione di un valore dell'oggetto SirioDropdownSelect.</li>
 									<li><strong>isHidden()</strong>: restituisce <code>true</code> se la selezione a discesa Dropdown Select è nascosta. In caso contrario, restituisce <code>false</code>.</li>
 									<li><strong>isMultiple()</strong>: restituisce <code>true</code> <code>true</code> se la selezione a discesa Dropdown Select è multipla. In caso contrario, restituisce <code>false</code>.</li>
 									<li><strong>show()</strong>: mostra la selezione a discesa Dropdown Select.</li>
 									<li><strong>hide()</strong>: nasconde la selezione a discesa Dropdown Select.</li>
 									<li><strong>toggle()</strong>: mostra o nasconde la selezione a discesa Dropdown Select, a seconda del suo stato attuale (mostrato o nascosto).</li>
+									<li><strong>enable()</strong>: abilita la selezione a discesa Dropdown Select.</li>
+									<li><strong>disable()</strong>: disabilita la selezione a discesa Dropdown Select.</li>
 								</ul>
 							</div>
 
