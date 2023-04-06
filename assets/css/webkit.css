@@ -603,8 +603,8 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   }
 
   [data-sirio-keyboard=true] :focus {
-    outline: 2px solid #0065d1;
-    outline-offset: 2px;
+    outline: 1px solid #0065d1;
+    outline-offset: 3px;
     border-radius: 4px;
     z-index: 1;
   }
@@ -1155,10 +1155,6 @@ legend + * {
   padding: 0;
 }
 
-input::file-selector-button {
-  font: inherit;
-}
-
 ::-webkit-file-upload-button {
   font: inherit;
   -webkit-appearance: button;
@@ -1403,6 +1399,10 @@ input[type=button].sirio-btn-block {
   width: 100%;
 }
 
+[data-sirio-keyboard=true] .sirio-btn:focus {
+  outline: 2px solid #0065d1;
+}
+
 .sirio-form-control {
   display: block;
   width: 100%;
@@ -1498,37 +1498,13 @@ input[type=button].sirio-btn-block {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-input.sirio-form-control::file-selector-button {
-  padding: 0.375rem 0.75rem;
-  margin: -0.375rem -0.75rem;
-  -webkit-margin-end: 0.75rem;
-  margin-inline-end: 0.75rem;
-  color: #212529;
-  background-color: #e9ecef;
-  pointer-events: none;
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-  border-inline-end-width: 1px;
-  border-radius: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .sirio-form-control::-webkit-file-upload-button {
     -webkit-transition: none;
     transition: none;
   }
-
-  input.sirio-form-control::file-selector-button {
-    transition: none;
-  }
 }
 .sirio-form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
-  background-color: #dde0e3;
-}
-
-input.sirio-form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: #dde0e3;
 }
 
@@ -1598,8 +1574,6 @@ label + .sirio-form-text-help, .sirio-label + .sirio-form-text-help {
 [data-sirio-keyboard=true] .sirio-form-control:focus {
   color: #2f6dd5;
   border-color: #2f6dd5;
-  box-shadow: 0 0 7px 0px rgba(0, 125, 179, 0.7);
-  outline: 3px solid #fff;
 }
 
 .sirio-form-check {
@@ -1769,13 +1743,13 @@ label + .sirio-form-text-help, .sirio-label + .sirio-form-text-help {
     transition: none;
   }
 }
-[data-sirio-keyboard=true] .sirio-form-check input:not([disabled]):focus ~ label {
-  color: #2f6dd5;
-}
 [data-sirio-keyboard=true] .sirio-form-check input:not([disabled]):focus ~ label::before {
   border-color: #2f6dd5;
-  box-shadow: 0 0 7px 0px rgba(0, 125, 179, 0.7);
-  outline: 3px solid #fff;
+  outline: 1px solid #0065d1;
+  outline-offset: 2px;
+}
+[data-sirio-keyboard=true] .sirio-form-check:not(.sirio-form-toggle:not(:checked)) input:not([disabled]):focus ~ label {
+  color: #2f6dd5;
 }
 
 select.sirio-form-control, .sirio-dropdown-select {
@@ -2171,6 +2145,7 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
 .sirio-dropdown-timepicker input:focus {
   box-shadow: inset 0 0 0 1px #0065d1;
   outline: none;
+  border-radius: 15px;
 }
 .sirio-dropdown-timepicker input:disabled {
   color: #5b6571;
@@ -2279,7 +2254,6 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
 [data-sirio-keyboard=true] .sirio-chip-selection input[type=checkbox]:focus + label,
 [data-sirio-keyboard=true] .sirio-chip-selection input[type=radio]:focus + label {
   outline: 2px solid #0065d1;
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
   outline-offset: 2px;
 }
 
@@ -2400,13 +2374,13 @@ textarea.sirio-form-control.sirio-is-valid, textarea.sirio-form-control.sirio-is
   text-align: left;
   background-color: #fff;
   background-clip: padding-box;
-  inset: 24px auto auto 0px;
+  inset: 8px auto auto 0px;
   transform: translate(0px, 48px);
 }
 .sirio-dropdown .sirio-dropdown-menu.sirio-dropdown-menu-top {
   bottom: 24px;
   top: inherit;
-  transform: translateY(-48px);
+  transform: translateY(-34px);
 }
 @media (max-width: 576px) {
   .sirio-dropdown .sirio-dropdown-menu {
@@ -2431,27 +2405,52 @@ textarea.sirio-form-control.sirio-is-valid, textarea.sirio-form-control.sirio-is
   padding: 16px;
   display: block;
   color: #5b6772;
+  border-top: 1px solid #5b6772;
 }
 .sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:hover {
   color: #ffffff;
   background-color: #00368f;
+  border-top: 1px solid #00368f;
 }
-.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:focus, .sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item.hover {
+.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:focus {
+  color: #5b6772;
+  background-color: transparent;
+  border-radius: 0;
+  outline: 2px solid #2f6dd5;
+  outline-offset: -2px;
+}
+.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:focus + .sirio-dropdown-item {
+  border-color: transparent;
+}
+.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item.hover {
   color: #ffffff;
   background-color: #00368f;
   background-image: linear-gradient(#00368f, #00368f);
+  border-top: 1px solid #00368f;
 }
-.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:hover:not(:disabled):not(.disabled):active, .sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:hover:not(:disabled):not(.disabled).active {
+.sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item:not(:disabled):not(.disabled):active {
   color: #ffffff;
   background-color: #00173d;
+  border-top: 1px solid #00173d;
+  outline: 0;
 }
 .sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item[aria-selected=true], .sirio-dropdown .sirio-dropdown-menu .sirio-dropdown-item.active {
   color: #ffffff;
-  background-color: #00368f;
+  background-color: #2f6dd5;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
-  background-size: 10px;
+  background-size: 16px;
   background-repeat: no-repeat;
-  background-position: right 12px top 50%;
+  background-position: right 16px top 50%;
+  border-top: 1px solid #2f6dd5;
+}
+.sirio-dropdown .sirio-dropdown-menu li.sirio-dropdown-item:first-child {
+  border: 0;
+}
+.sirio-dropdown .sirio-dropdown-menu li:not(.sirio-dropdown-item):first-child .sirio-dropdown-item {
+  border: 0;
+}
+.sirio-dropdown .sirio-dropdown-menu li:not(.sirio-dropdown-item):first-child .sirio-dropdown-item + li:not(.sirio-dropdown-item) {
+  border-color: transparent;
 }
 
 .sirio-tag {
@@ -2764,9 +2763,6 @@ a.sirio-card .sirio-card-subtitle {
   background-color: #f2f6fc;
   border-color: #f2f6fc;
   color: #00368f;
-}
-.sirio-accordion-header .sirio-accordion-trigger:hover span {
-  text-decoration: underline;
 }
 .sirio-accordion-header .sirio-accordion-trigger:focus span {
   color: #00368f;
@@ -3094,7 +3090,7 @@ a.sirio-card .sirio-card-subtitle {
 
 .sirio-alert-error .sirio-alert-body:before {
   background-color: #aa224f;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 576 512'%3E%3Cpath d='M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z'/%3E%3C/svg%3E");
 }
 
 .sirio-alert-info .sirio-alert-body:before {
@@ -3711,6 +3707,7 @@ th {
 .sirio-tab-nav li {
   margin: 0 3px 0 0;
   white-space: nowrap;
+  font-size: 20px;
 }
 .sirio-tab-nav li a {
   padding: 16px 40px;
@@ -3728,6 +3725,7 @@ th {
 }
 .sirio-tab-nav li a .fas, .sirio-tab-nav li a .far, .sirio-tab-nav li a .fa {
   margin: 0 4px;
+  font-size: 16px;
 }
 .sirio-tab-nav li a:before {
   content: "";
@@ -3747,6 +3745,13 @@ th {
 }
 .sirio-tab-nav li a:hover:before {
   background-color: #00368f;
+}
+.sirio-tab-nav li a:not(:disabled):not(.disabled):active {
+  background-color: #f2f6fc;
+  color: #00173d;
+}
+.sirio-tab-nav li a:not(:disabled):not(.disabled):active:before {
+  background-color: #00173d;
 }
 .sirio-tab-nav li a:focus {
   background-color: #ffffff;
@@ -3837,6 +3842,7 @@ th {
   .sirio-tab-vertical .sirio-tab-nav li {
     margin-bottom: 2px;
     margin-right: 0;
+    font-size: 16px;
   }
   .sirio-tab-vertical .sirio-tab-nav li a {
     border-right: 0;
@@ -4164,7 +4170,7 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
 }
 
 .sirio-stepper-item:hover .sirio-stepper-marker {
-  background-color: none;
+  background-color: transparent;
 }
 
 .sirio-stepper-nav .sirio-stepper-text {

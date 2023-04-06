@@ -355,6 +355,7 @@
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'dropdown-menu'</code>.</li>
 									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownMenu chiamante.</li>
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownMenu chiamante.</li>
 									<li><strong>getItemElements()</strong>: restituisce gli oggetti item HTMLElement collegati all'oggetto SirioDropdownMenu chiamante.</li>
@@ -1626,6 +1627,7 @@
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'tab'</code>.</li>
 									<li><strong>getTabElement()</strong>: restituisce l'oggetto tab HTMLElement collegato all'oggetto SirioTab chiamante.</li>
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioTab chiamante.</li>
 									<li><strong>getGroupElement()</strong>: restituisce l'oggetto HTMLElement di gruppo collegato all'oggetto SirioTab chiamante.</li>
@@ -1896,6 +1898,7 @@
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'accordion'</code>.</li>
 									<li><strong>getAccordionElement()</strong>: restituisce l'oggetto HTMLElement Accordion collegato all'oggetto SirioAccordion chiamante.</li>
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioAccordion chiamante.</li>
 									<li><strong>isExclusive()</strong>: restituisce <code>true</code> se l'oggetto SirioAccordion fa parte di un gruppo di accordion che si escludono a vicenda. In caso contrario, restituisce <code>false</code>.</li>
@@ -3112,6 +3115,13 @@
 	Apri finestra dialogo con link
 </a>
 </xmp></pre>
+								<p class="guide-code-title">Finestra di dialogo aperta tramite javascript:</p>
+<pre><xmp>
+<script>
+let dialog = SirioLib.getComponentById("dialog-example", "dialog");
+dialog.show();
+</script>
+</xmp></pre>
 							</div>
 
 							
@@ -3431,6 +3441,7 @@
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'dialog'</code>.</li>
 									<li><strong>getDialogElement</strong>: restituisce l'oggetto dialog HTMLElement collegato all'oggetto SirioDialog chiamante.</li>
 									<li><strong>getTriggerElements</strong>: restituisce gli oggetti trigger HTMLElement collegati all'oggetto SirioDialog chiamante.</li>
 									<li><strong>getDismissElements</strong>: restituisce gli oggetti HTMLElement scartati collegati all'oggetto SirioDialog chiamante.</li>

@@ -96,7 +96,6 @@
 				<li><a href="components-contents.html#tab">Tab</a></li>
 				<li><a href="components-contents.html#collapse">Collapse</a></li>
 				<li><a href="components-contents.html#accordion">Accordion</a></li>
-				<li><a href="components-contents.html#sidenav">Side Nav</a></li>
 				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
 				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
@@ -677,6 +676,7 @@ select.setOnChange(function() {
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'dropdown-select'</code>.</li>
 									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownSelect chiamante.</li>
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownSelect chiamante.</li>
 									<li><strong>getItemElements()</strong>: restituisce gli oggetti item HTMLElement collegati all'oggetto SirioDropdownSelect chiamante.</li>
@@ -746,6 +746,7 @@ inputComponent.setOptionElements(newOptions);
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'dropdown-autocomplete'</code>.</li>
 									<li><strong>getMenuElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioDropdownAutocomplete chiamante.</li>
 									<li><strong>getTriggerElement()</strong>: restituisce l'oggetto trigger HTMLElement collegato all'oggetto SirioDropdownAutocomplete chiamante.</li>
 									<li><strong>getOptionElements()</strong>: restituisce l'elenco delle opzioni degli oggetti HTMLElement collegati all'oggetto SirioDropdownAutocomplete chiamante.</li>
@@ -1161,6 +1162,7 @@ fileList = inputFilesComponent.getUploadedFiles();
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'file-upload'</code>.</li>
 									<li><strong>getInputElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioFileUpload chiamante.</li>
 									<li><strong>getFileListElement()</strong>: restituisce l'elemento HTML dell'elenco delle chips.</li>
 									<li><strong>getUploadedFiles()</strong>: restituisce l'elenco dei file caricati.</li>
@@ -1205,6 +1207,7 @@ fileList = inputFilesComponent.getUploadedFiles();
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'slider'</code>.</li>
 									<li><strong>getInputNumberEl()</strong>: restituisce l'oggetto HTMLElement contenente il numero del tipo di input collegato al SirioSlider chiamante. </li>
 									<li><strong>getSliderEl()</strong>: restituisce l'oggetto HTMLElement contenente l'intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
 									<li><strong>getMinValue()</strong>: restituisce il valore di intervallo minimo dell'oggetto HTMLElement intervallo del tipo di input collegato all'oggetto SirioSlider chiamante.</li>
@@ -1356,6 +1359,7 @@ for (var elemRange of elemsRange) {
 
 							<div class="blockquote">
 								<ul>
+									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'timepicker'</code>.</li>
 									<li><strong>getTextInputEl()</strong>: restituisce l'oggetto di tipo input text HTMLElement collegato all'oggetto SirioTimePicker chiamante.</li>
 									<li><strong>getSelectedTime()</strong>: restituisce la stringa temporale selezionata collegata all'oggetto SirioTimePicker chiamante.</li>
 									<li><strong>getSelectedHour()</strong>: restituisce il numero dell'ora selezionata collegato all'oggetto SirioTimePicker chiamante.</li>

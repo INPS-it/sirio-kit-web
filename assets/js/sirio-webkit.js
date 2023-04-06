@@ -1,5 +1,5 @@
 /*!
- * Sirio WebKit v.5.0.0
+ * Sirio WebKit v.5.0.1
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -1956,18 +1956,16 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
             this.hide();
         }
     }
+    if (__classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f"))
+        __classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f").call(this);
 }, _SirioDropdownSelect_selectItem = function _SirioDropdownSelect_selectItem(item) {
     item.classList.add("active");
     item.setAttribute("aria-selected", "true");
-    if (__classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f"))
-        __classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f").call(this);
 }, _SirioDropdownSelect_unselectItem = function _SirioDropdownSelect_unselectItem(item, value) {
     var _a;
     item.classList.remove("active");
     item.setAttribute("aria-selected", "false");
     (_a = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").querySelector(`option[value="${value}"]`)) === null || _a === void 0 ? void 0 : _a.removeAttribute("selected");
-    if (__classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f"))
-        __classPrivateFieldGet(this, _SirioDropdownSelect_onChange, "f").call(this);
 }, _SirioDropdownSelect_setSelectedOption = function _SirioDropdownSelect_setSelectedOption(value) {
     var _a;
     let option = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").querySelector("option[value='" + value + "']");
