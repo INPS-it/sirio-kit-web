@@ -96,11 +96,13 @@
 				<li><a href="components-contents.html#tab">Tab</a></li>
 				<li><a href="components-contents.html#collapse">Collapse</a></li>
 				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#sidenav">Menu Spalla</a></li>
 				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
 				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#avvisi">Avvisi</a></li>
 				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
@@ -1911,6 +1913,378 @@
 						</section>
 	
 						<section class="guide-section">
+							<h3 class="guide-title" id="sidenav">Menu Spalla</h3>
+
+							<div class="blockquote">
+								<p>Il menu spalla, o navigazione laterale, consente agli utenti di navigare all'interno del contenuto di un prodotto o di una sezione. Può essere utilizzato per una navigazione a livello singolo o multilivello.</p>
+							</div>
+							
+							<h4 class="guide-title">Menu di sezione</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+											
+										<div class="sirio-dialog-sidenav-open">
+											<button type="button" id="heading-dialog-sidenav" class="sirio-btn sirio-btn-primary sirio-btn-sidenav sirio-btn-fixed-bottom" data-sirio-toggle="dialog" data-sirio-target="#dialog-sidenav">
+												<span>Apri menu
+												<small>Nome della sezione</small></span>
+											</button>
+										</div>
+
+										<div class="sirio-dialog sirio-dialog-sidenav" id="dialog-sidenav" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-sidenav"
+											data-sirio-component="dialog" data-sirio-visible="false">
+											<div class="sirio-dialog-wrapper">
+												<div class="sirio-dialog-content">
+													<div class="sirio-dialog-header">
+														<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-sidenav" data-sirio-dismiss="dialog" aria-label="chiudi menu">
+															<span>Chiudi menu
+															<small>Nome della sezione</small></span>
+														</button>
+													</div>
+													<div class="sirio-dialog-body">
+														<h3 class="sirio-sidenav-title">Nome della sezione</h3>
+														<nav aria-label="Menu della sezione Nome della sezione">
+															<ul role="menu" class="sirio-nav sirio-nav-side">
+																<li class="sirio-nav-item">
+																	<a href="#submenu-div-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-1">
+																		Label
+																	</a>
+																	<div role="region" data-sirio-visible="false" id="submenu-div-1" aria-labelledby="submenu-ul-1" data-sirio-parent="#sirio-nav-side">
+																		<ul role="menu" id="submenu-ul-1" class="sirio-nav" aria-label="Sottomenu di Label">
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																		</ul>
+																	</div>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#submenu-div-2" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-2">
+																		Label
+																	</a>
+																	<div role="region" data-sirio-visible="false" id="submenu-div-2" aria-labelledby="submenu-ul-2" data-sirio-parent="#sirio-nav-side">
+																		<ul role="menu" id="submenu-ul-2" class="sirio-nav" aria-label="Sottomenu di Label">
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																		</ul>
+																	</div>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#submenu-div-3" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-div-3">
+																		Label
+																	</a>
+																	<div role="region" data-sirio-visible="true" id="submenu-div-3" aria-labelledby="submenu-ul-3" data-sirio-parent="#sirio-nav-side">
+																		<ul role="menu" id="submenu-ul-3" class="sirio-nav" aria-label="Sottomenu di Label">
+																			<li class="sirio-nav-item">
+																				<a href="#submenu-div-3-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-div-3-1">
+																					Label
+																				</a>
+																				<div role="region" data-sirio-visible="true" id="submenu-div-3-1">
+																					<ul role="menu" id="submenu-ul-3-1" class="sirio-nav" aria-label="Sottomenu di Label">
+																						<li class="sirio-nav-item">
+																							<a class="sirio-nav-link active" href="#"><span class="sr-only">Pagina attiva </span>Label</a>
+																						</li>
+																					</ul>
+																				</div>
+																			</li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																		</ul>
+																	</div>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#submenu-div-4" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-4">
+																		Label
+																	</a>
+																	<div role="region" data-sirio-visible="false" id="submenu-div-4" aria-labelledby="submenu-ul-4" data-sirio-parent="#sirio-nav-side">
+																		<ul role="menu" id="submenu-ul-4" class="sirio-nav" aria-label="Sottomenu di Label">
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																			<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+																		</ul>
+																	</div>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		Label
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		Label
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-sidenav">
+								<p class="guide-code-title">Menu di sezione:</p>
+<pre><xmp>
+<div class="sirio-dialog-sidenav-open">
+	<button type="button" id="heading-dialog-sidenav" class="sirio-btn sirio-btn-primary sirio-btn-sidenav sirio-btn-fixed-bottom" data-sirio-toggle="dialog" data-sirio-target="#dialog-sidenav">
+		<span>Apri menu
+		<small>Nome della sezione</small></span>
+	</button>
+</div>
+
+<div class="sirio-dialog sirio-dialog-sidenav" id="dialog-sidenav" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-sidenav"
+	data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-sidenav" data-sirio-dismiss="dialog" aria-label="chiudi menu">
+					<span>Chiudi menu
+					<small>Nome della sezione</small></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<h3 class="sirio-sidenav-title">Nome della sezione</h3>
+				<nav aria-label="Menu della sezione Nome della sezione">
+					<ul role="menu" class="sirio-nav sirio-nav-side">
+						<li class="sirio-nav-item">
+							<a href="#submenu-div-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-1">
+								Label
+							</a>
+							<div role="region" data-sirio-visible="false" id="submenu-div-1" aria-labelledby="submenu-ul-1" data-sirio-parent="#sirio-nav-side">
+								<ul role="menu" id="submenu-ul-1" class="sirio-nav" aria-label="Sottomenu di Label">
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#submenu-div-2" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-2">
+								Label
+							</a>
+							<div role="region" data-sirio-visible="false" id="submenu-div-2" aria-labelledby="submenu-ul-2" data-sirio-parent="#sirio-nav-side">
+								<ul role="menu" id="submenu-ul-2" class="sirio-nav" aria-label="Sottomenu di Label">
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#submenu-div-3" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-div-3">
+								Label
+							</a>
+							<div role="region" data-sirio-visible="true" id="submenu-div-3" aria-labelledby="submenu-ul-3" data-sirio-parent="#sirio-nav-side">
+								<ul role="menu" id="submenu-ul-3" class="sirio-nav" aria-label="Sottomenu di Label">
+									<li class="sirio-nav-item">
+										<a href="#submenu-div-3-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-div-3-1">
+											Label
+										</a>
+										<div role="region" data-sirio-visible="true" id="submenu-div-3-1">
+											<ul role="menu" id="submenu-ul-3-1" class="sirio-nav" aria-label="Sottomenu di Label">
+												<li class="sirio-nav-item">
+													<a class="sirio-nav-link active" href="#"><span class="sr-only">Pagina attiva </span>Label</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#submenu-div-4" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-div-4">
+								Label
+							</a>
+							<div role="region" data-sirio-visible="false" id="submenu-div-4" aria-labelledby="submenu-ul-4" data-sirio-parent="#sirio-nav-side">
+								<ul role="menu" id="submenu-ul-4" class="sirio-nav" aria-label="Sottomenu di Label">
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+									<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Label</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								Label
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								Label
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Area personale</h4>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+											
+										<div class="sirio-dialog-sidenav-open">
+											<button type="button" id="heading-dialog-sidenav-user" class="sirio-btn sirio-btn-primary sirio-btn-sidenav sirio-btn-fixed-bottom" data-sirio-toggle="dialog" data-sirio-target="#dialog-sidenav-user">
+												<span>Apri menu
+												<small>Area personale</small></span>
+											</button>
+										</div>
+
+										<div class="sirio-dialog sirio-dialog-sidenav" id="dialog-sidenav-user" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-sidenav-user"
+											data-sirio-component="dialog" data-sirio-visible="false">
+											<div class="sirio-dialog-wrapper">
+												<div class="sirio-dialog-content">
+													<div class="sirio-dialog-header">
+														<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-sidenav" data-sirio-dismiss="dialog" aria-label="chiudi menu">
+															<span>Chiudi menu
+															<small>Area personale</small></span>
+														</button>
+													</div>
+													<div class="sirio-dialog-body">
+														<div class="sirio-sidenav-info">
+															<span class="fas fa-user fa-24" aria-hidden="true"></span>
+															<span>
+																<strong>Mario Rossi</strong><br>
+																Profilo <strong>Cittadino</strong>
+															</span>
+														</div>
+														<nav aria-label="Menu dell'area personale">
+															<ul role="menu" class="sirio-nav sirio-nav-side">
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link active">
+																		<span class="sr-only">Pagina attiva </span>Bacheca
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		I tuoi dati
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		Centro notifiche
+																		<span class="sirio-tag">3</span>
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		I tuoi servizi e strumenti
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		I tuoi preferiti
+																	</a>
+																</li>
+																<li class="sirio-nav-item">
+																	<a href="#" class="sirio-nav-link">
+																		Contatta INPS
+																	</a>
+																</li>
+																<li>
+																	<a href="#" class="sirio-btn sirio-btn-block mt-4">Esci<span class="fas fa-sign-out-alt" aria-hidden="true"></span></a>
+																</li>
+															</ul>
+															
+														</nav>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-sidenav-user">
+								<p class="guide-code-title">Menu area personale:</p>
+<pre><xmp>
+<div class="sirio-dialog-sidenav-open">
+	<button type="button" id="heading-dialog-sidenav-user" class="sirio-btn sirio-btn-primary sirio-btn-sidenav sirio-btn-fixed-bottom" data-sirio-toggle="dialog" data-sirio-target="#dialog-sidenav-user">
+		<span>Apri menu
+		<small>Area personale</small></span>
+	</button>
+</div>
+
+<div class="sirio-dialog sirio-dialog-sidenav" id="dialog-sidenav-user" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-sidenav-user"
+	data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog-wrapper">
+		<div class="sirio-dialog-content">
+			<div class="sirio-dialog-header">
+				<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-sidenav" data-sirio-dismiss="dialog" aria-label="chiudi menu">
+					<span>Chiudi menu
+					<small>Area personale</small></span>
+				</button>
+			</div>
+			<div class="sirio-dialog-body">
+				<div class="sirio-sidenav-info">
+					<span class="fas fa-user fa-24" aria-hidden="true"></span>
+					<span>
+						<strong>Mario Rossi</strong><br>
+						Profilo <strong>Cittadino</strong>
+					</span>
+				</div>
+				<nav aria-label="Menu dell'area personale">
+					<ul role="menu" class="sirio-nav sirio-nav-side">
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link active">
+								<span class="sr-only">Pagina attiva </span>Bacheca
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								I tuoi dati
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								Centro notifiche
+								<span class="sirio-tag">3</span>
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								I tuoi servizi e strumenti
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								I tuoi preferiti
+							</a>
+						</li>
+						<li class="sirio-nav-item">
+							<a href="#" class="sirio-nav-link">
+								Contatta INPS
+							</a>
+						</li>
+						<li>
+							<a href="#" class="sirio-btn sirio-btn-block mt-4">Esci<span class="fas fa-sign-out-alt" aria-hidden="true"></span></a>
+						</li>
+					</ul>
+					
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+						</section>
+	
+						<section class="guide-section">
 							<h3 class="guide-title" id="tabelle">Tabelle</h3>
 
 							
@@ -3118,8 +3492,19 @@
 								<p class="guide-code-title">Finestra di dialogo aperta tramite javascript:</p>
 <pre><xmp>
 <script>
+// Nel caso in cui c'è un bottone associato per l'attivazione del componente
 let dialog = SirioLib.getComponentById("dialog-example", "dialog");
 dialog.show();
+</script>
+</xmp></pre>
+
+								<p class="guide-code-title">Finestra di dialogo da creare aperta tramite javascript senza bottone:</p>
+<pre><xmp>
+<script>
+// Nel caso in cui non esiste nessun bottone associato per l'attivazione del componente
+// Crea il componente Dialog con id dell'elemento HTML con attributo data-sirio-component="dialog"
+let dialogObj = new SirioLib.SirioDialog('dialogId')
+dialogObj.show()
 </script>
 </xmp></pre>
 							</div>
@@ -3442,6 +3827,7 @@ dialog.show();
 							<div class="blockquote">
 								<ul>
 									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'dialog'</code>.</li>
+									<li><strong>SirioLib.SirioDialog(id: string)</strong>: crea il componente Dialog con id dell'elemento HTML avente attributo data-sirio-component="dialog". Utile nel caso si voglia creare una finestra di dialogo lato javascript senza avere a disposizione un bottone di attivazione. (Si rimanda all'esempio di utilizzo).</li>
 									<li><strong>getDialogElement</strong>: restituisce l'oggetto dialog HTMLElement collegato all'oggetto SirioDialog chiamante.</li>
 									<li><strong>getTriggerElements</strong>: restituisce gli oggetti trigger HTMLElement collegati all'oggetto SirioDialog chiamante.</li>
 									<li><strong>getDismissElements</strong>: restituisce gli oggetti HTMLElement scartati collegati all'oggetto SirioDialog chiamante.</li>
@@ -3857,6 +4243,146 @@ dialog.show();
 						</section>
 	
 						<section class="guide-section">
+							<h3 class="guide-title" id="avvisi">Avvisi</h3>
+							
+							<div class="blockquote">
+								<p><strong>L'Avviso è un elemento che permette di mostrare una
+								comunicazione</strong>. Comunica all’utente un cambiamento,
+								una novità su una sezione, una campagna informativa,
+								un nuovo contenuto o aggiornato <strong>che abbia una natura
+								di interesse primario e di rilevanza importante. Un Avviso dovrebbe essere posizionato
+								immediatamente dopo la <strong>sezione hero</strong>.</strong>
+								</p>
+								<p>Nel paragrafo descrittivo è possibile inserire un hyperlink che permette di accedere
+								ad un eventuale sezione di approfondimento.</p>
+								<p>Il bottone di azione è opzionale, deve essere utilizzato quando è necessario veicolare l’utente su una sezione specifica riferita al titolo.</p>
+								<p>Si sconsiglia l’inserimento di più Avvisi nella stessa pagina, qualora fosse necessario
+								si suggerisce di inserirne un <strong>massimo di due</strong> in righe successive</p>
+								<p><strong>ATTENZIONE:</strong> il componente nasce per essere inserito all'interno di una struttura ben precisa, che potete copiare direttamente dal codice sottostante gli esempi, contenente colore di sfondo, bordo inferiore e dimensione massima orizzontale.</p>
+							</div>
+
+							<h4 class="guide-title">Versione Light</h4>
+
+							<div class="blockquote">
+								<p>La versione light rende possibile l'aumento di contrasto quando nel layout sono già presenti elementi in versione dark.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md">
+										<div class="sirio-bg-primary-light-40 border-bottom sirio-border-primary-light-50">
+											<div class="container-fluid">
+												<div class="sirio-notify">
+													<div class="sirio-notify-icon">
+														<span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+													</div>
+													<!-- Corpo messaggio -->
+													<div class="sirio-notify-body">
+														<p class="sirio-notify-title">Titolo attenzione</p>
+														<p>Ac iaculis posuere turpis diam mi non viverra tempus eget. Nunc volutpat nunc erat risus eleifend convallis viverra bibendum. Mattis ante mauris sit montes. Scelerisque dui arcu tempus proin massa massa ultricies nunc duis. <a href="#">ipsam lectus nec?</a> Explicabo consequuntur incididunt ipsam.
+														</p>
+													</div>
+													<!-- Call to action (opzionale) -->
+													<div class="sirio-notify-action">
+														<a href="#" class="sirio-btn sirio-btn-tertiary">Testo link</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <div class="code" aria-hidden="true" id="code-notify">
+								<p class="guide-code-title">Avviso:</p>
+<pre><xmp>
+<div class="sirio-bg-primary-light-40 border-bottom sirio-border-primary-light-50">
+	<div class="container-fluid">
+		<div class="sirio-notify">
+			<div class="sirio-notify-icon">
+				<span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+			</div>
+			<!-- Corpo messaggio -->
+			<div class="sirio-notify-body">
+				<p class="sirio-notify-title">Titolo attenzione</p>
+				<p>Ac iaculis posuere turpis diam mi non viverra tempus eget. Nunc volutpat nunc erat risus eleifend convallis viverra bibendum. Mattis ante mauris sit montes. Scelerisque dui arcu tempus proin massa massa ultricies nunc duis. <a href="#">ipsam lectus nec?</a> Explicabo consequuntur incididunt ipsam.
+				</p>
+			</div>
+			<!-- Call to action (opzionale) -->
+			<div class="sirio-notify-action">
+				<a href="#" class="sirio-btn sirio-btn-tertiary">Testo link</a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+                            </div>
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Versione Dark</h4>
+
+							<div class="blockquote">
+								<p>La <strong>versione dark</strong> permette di aumentare il contrasto
+								rispetto al layout chiaro della pagina. Questa versione
+								veicolerà con maggiore evidenza l'informazione in essa
+								contenuta.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md">
+										<div class="sirio-bg-primary-dark-115 border-bottom sirio-border-primary-light-50">
+											<div class="container-fluid">
+												<div class="sirio-notify sirio-notify-dark">
+													<div class="sirio-notify-icon">
+														<span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+													</div>
+													<!-- Corpo messaggio -->
+													<div class="sirio-notify-body">
+														<p class="sirio-notify-title">Titolo attenzione</p>
+														<p>Ac iaculis posuere turpis diam mi non viverra tempus eget. Nunc volutpat nunc erat risus eleifend convallis viverra bibendum. Mattis ante mauris sit montes. Scelerisque dui arcu tempus proin massa massa ultricies nunc duis. <a href="#">ipsam lectus nec?</a> Explicabo consequuntur incididunt ipsam.
+														</p>
+													</div>
+													<!-- Call to action (opzionale) -->
+													<div class="sirio-notify-action">
+														<a href="#" class="sirio-btn sirio-btn-tertiary-light">Testo link</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+                            <div class="code" aria-hidden="true" id="code-notify-dark">
+                                <p class="guide-code-title">Avviso dark:</p>
+<pre><xmp>
+<div class="sirio-bg-primary-dark-115 border-bottom sirio-border-primary-light-50">
+	<div class="container-fluid">
+		<div class="sirio-notify sirio-notify-dark">
+			<div class="sirio-notify-icon">
+				<span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+			</div>
+			<!-- Corpo messaggio -->
+			<div class="sirio-notify-body">
+				<p class="sirio-notify-title">Titolo attenzione</p>
+				<p>Ac iaculis posuere turpis diam mi non viverra tempus eget. Nunc volutpat nunc erat risus eleifend convallis viverra bibendum. Mattis ante mauris sit montes. Scelerisque dui arcu tempus proin massa massa ultricies nunc duis. <a href="#">ipsam lectus nec?</a> Explicabo consequuntur incididunt ipsam.
+				</p>
+			</div>
+			<!-- Call to action (opzionale) -->
+			<div class="sirio-notify-action">
+				<a href="#" class="sirio-btn sirio-btn-tertiary-light">Testo link</a>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+                            </div>
+						</section>
+	
+						<section class="guide-section">
 							<h3 class="guide-title" id="stepper">Step Progress Bar</h3>
 
 							<div class="blockquote">
@@ -4155,21 +4681,6 @@ dialog.show();
 </div>
 </xmp></pre>
 							</div>
-							
-							<hr class="guide-separator">
-							
-							<h4 class="guide-title">Stati degli step</h4>
-
-							<div class="blockquote">
-								<p>Sono previste le seguenti classi per stati, eccetto quello di default, da aggiungere al contenire con classe <code>sirio-stepper-item</code>:</p>
-								<ul>
-									<li><strong>Inattivo</strong> (default)</li>
-									<li>Step corrente <strong>attivo</strong> <code>is-active</code></li>
-									<li>Completato con <strong>successo</strong> <code>is-success</code></li>
-									<li>Con <strong>warning</strong> presenti <code>is-warning</code></li>
-									<li>Con <strong>errori</strong> presenti <code>is-error</code></li>
-								</ul>
-							</div>
 
 							<div class="guide-example">
 								<div role="group" aria-label="Barra di avanzamento">
@@ -4258,6 +4769,51 @@ dialog.show();
 </div>
 </xmp></pre>       
                             </div>
+
+							
+							
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Stati degli step</h4>
+
+							<div class="blockquote">
+								<p>Sono previste le seguenti classi per stati, eccetto quello di default, da aggiungere al contenire con classe <code>sirio-stepper-item</code>:</p>
+								<ul>
+									<li><strong>Inattivo</strong> (default)</li>
+									<li>Step corrente <strong>attivo</strong> <code>is-active</code></li>
+									<li>Completato con <strong>successo</strong> <code>is-success</code></li>
+									<li>Con <strong>warning</strong> presenti <code>is-warning</code></li>
+									<li>Con <strong>errori</strong> presenti <code>is-error</code></li>
+								</ul>
+							</div>
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Controlli lato mobile</h4>
+							
+							<div class="blockquote">
+								<p>Per la versione mobile bisogna prevedere l'inserimento, alla fine dei contenuti dello stepper, dei controlli di navigazione utilizzando gli strumenti già messi a disposizione nel webkit e con il system grid di bootstrap. </p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-bg-primary-light-40">
+									<div class="row g-0 justify-content-between">
+										<div class="col-auto">
+											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-left" aria-hidden="true"></span>Indietro</button>
+										</div>
+										<div class="col-auto">
+											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone">Avanti<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-stetpper">
+								<p class="guide-code-title">Stepper:</p>
+<pre><xmp>
+	
+</xmp></pre>
+							</div>
 						</section>
 
 				</main>

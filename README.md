@@ -1,4 +1,4 @@
-# SirioWebKit v.5.0.1
+# SirioWebKit v.6.0.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -40,6 +40,15 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
+### 6.0.0 (2023-05-19)
+
+- **struttura**\Header (added submenu mobile)
+- **contenuto**\Menu Spalla
+- **contenuto**\Avvisi
+- **contenuto**\Step Progress Bar (fixed bug hover)
+- **form**\Upload (added maximum number of files)
+- **form**\Dropdown Select (added reset method)
+
 ### 5.0.1 (2023-04-06)
 
 - **form**\Dropdown Select (fixed bug onchange)
@@ -53,9 +62,9 @@ Da inserire in fondo alla pagina HTML
 ### 4.0.4 (2023-01-13)
 
 - **struttura**\Header
-- **contenuto**\Step Progress Bar (fix dropdown menu)
-- **form**\Selezione (fix toggle)
-- **form**\Chip (fix radio/checkbox)
+- **contenuto**\Step Progress Bar (fixed dropdown menu)
+- **form**\Selezione (fixed toggle)
+- **form**\Chip (fixed radio/checkbox)
 
 ### 4.0.0 (2022-10-26)
 

@@ -96,11 +96,13 @@
 				<li><a href="components-contents.html#tab">Tab</a></li>
 				<li><a href="components-contents.html#collapse">Collapse</a></li>
 				<li><a href="components-contents.html#accordion">Accordion</a></li>
+				<li><a href="components-contents.html#sidenav">Menu Spalla</a></li>
 				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
 				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
 				<li><a href="components-contents.html#dialog">Dialog</a></li>
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
+				<li><a href="components-contents.html#avvisi">Avvisi</a></li>
 				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
 			</ul>
 		</li>
@@ -644,14 +646,14 @@
 								<p class="guide-code-title">Aggiungi valori all'elenco:</p>
 <pre><xmp>
 let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
-let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1'}];
+let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1', selected: true}];
 select.addOptionElements(options);
 </xmp></pre>
 
 								<p class="guide-code-title">Sostituisci l'intero elenco:</p>
 <pre><xmp>
 let select = SirioLib.getComponentById('selectIDmultiple', 'dropdown-select');
-let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1'}];
+let options = [{value: 0, text: 'Opzione 0'}, {value: 1, text: 'Opzione 1', selected: true}];
 select.setOptionElements(options);
 </xmp></pre>
 
@@ -692,6 +694,7 @@ select.setOnChange(function() {
 									<li><strong>toggle()</strong>: mostra o nasconde la selezione a discesa Dropdown Select, a seconda del suo stato attuale (mostrato o nascosto).</li>
 									<li><strong>enable()</strong>: abilita la selezione a discesa Dropdown Select.</li>
 									<li><strong>disable()</strong>: disabilita la selezione a discesa Dropdown Select.</li>
+									<li><strong>reset()</strong>: azzera la selezione riportando i valori selezionati in precedenza.</li>
 								</ul>
 							</div>
 
@@ -1113,6 +1116,7 @@ inputComponent.setOptionElements(newOptions);
 
 							<div class="blockquote">
 								<p>Il componente simula l'aggiunta e la cancellazione dell'input file. Per ottenere i file per l'upload va ignorato l'input file originario e, tramite javascript, vanno recuperati dalla funzione <code>getUploadedFiles()</code>.</p>
+								<p>Per gestire il numero di file massimo consentito, modificare l'attributo <code>data-sirio-maxfiles</code> nel suo valore in base alla necessità. In alternativa, senza l'attributo, il componente accetterà un numero illimitato di file.</p>
 							</div>
 
 							<div class="guide-example">
@@ -1122,7 +1126,7 @@ inputComponent.setOptionElements(newOptions);
 											<div class="sirio-upload" data-sirio-component="upload">
 												<div class="sirio-label">Label upload</div>
 												<span id="file-upload-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet.</span>
-												<input type="file" name="file-upload" id="file-upload" class="sirio-upload-file" multiple="multiple"  aria-describedby="file-upload-text-help">
+												<input type="file" name="file-upload" id="file-upload" class="sirio-upload-file" multiple="multiple" data-sirio-maxfiles="4" aria-describedby="file-upload-text-help">
 												<label for="file-upload" class="sirio-btn sirio-btn-primary">
 													<span>Upload</span>
 													<span class="fas fa-arrow-up" aria-hidden="true"></span>
@@ -1140,7 +1144,7 @@ inputComponent.setOptionElements(newOptions);
 <div class="sirio-upload" data-sirio-component="upload">
 	<div class="sirio-label">Label upload</div>
 	<span id="file-upload-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet.</span>
-	<input type="file" name="ID-file-upload" id="ID-file-upload" class="sirio-upload-file" multiple="multiple"  aria-describedby="file-upload-text-help">
+	<input type="file" name="ID-file-upload" id="ID-file-upload" class="sirio-upload-file" multiple="multiple" data-sirio-maxfiles="4"  aria-describedby="file-upload-text-help">
 	<label for="ID-file-upload" class="sirio-btn sirio-btn-primary">
 		<span>Upload</span>
 		<span class="fas fa-arrow-up" aria-hidden="true"></span>

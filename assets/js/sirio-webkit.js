@@ -1,5 +1,5 @@
 /*!
- * Sirio WebKit v.5.0.1
+ * Sirio WebKit v.6.0.0
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -249,14 +249,16 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioAlert_alertEl, _SirioAlert_dismissEl, _SirioAlert_closed, _SirioAlert_onClose, _SirioAlert_onClosed;
+var _SirioAlert_instances, _SirioAlert_alertEl, _SirioAlert_dismissEl, _SirioAlert_closed, _SirioAlert_alertType, _SirioAlert_onClose, _SirioAlert_onClosed, _SirioAlert_checkType;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioAlert = void 0;
 class SirioAlert {
     constructor(alertEl, onClose, onClosed) {
+        _SirioAlert_instances.add(this);
         _SirioAlert_alertEl.set(this, void 0);
         _SirioAlert_dismissEl.set(this, void 0);
         _SirioAlert_closed.set(this, void 0);
+        _SirioAlert_alertType.set(this, void 0);
         _SirioAlert_onClose.set(this, void 0);
         _SirioAlert_onClosed.set(this, void 0);
         if (SirioAlert.isAlert(alertEl)) {
@@ -268,6 +270,7 @@ class SirioAlert {
                 event.preventDefault();
                 this.close();
             });
+            __classPrivateFieldSet(this, _SirioAlert_alertType, __classPrivateFieldGet(this, _SirioAlert_instances, "m", _SirioAlert_checkType).call(this), "f");
             __classPrivateFieldSet(this, _SirioAlert_closed, true, "f");
             this.open();
         }
@@ -292,6 +295,9 @@ class SirioAlert {
     }
     getAlertEl() {
         return __classPrivateFieldGet(this, _SirioAlert_alertEl, "f");
+    }
+    getAlertType() {
+        return __classPrivateFieldGet(this, _SirioAlert_alertType, "f");
     }
     isClosed() {
         return __classPrivateFieldGet(this, _SirioAlert_closed, "f");
@@ -325,7 +331,20 @@ class SirioAlert {
     }
 }
 exports.SirioAlert = SirioAlert;
-_SirioAlert_alertEl = new WeakMap(), _SirioAlert_dismissEl = new WeakMap(), _SirioAlert_closed = new WeakMap(), _SirioAlert_onClose = new WeakMap(), _SirioAlert_onClosed = new WeakMap();
+_SirioAlert_alertEl = new WeakMap(), _SirioAlert_dismissEl = new WeakMap(), _SirioAlert_closed = new WeakMap(), _SirioAlert_alertType = new WeakMap(), _SirioAlert_onClose = new WeakMap(), _SirioAlert_onClosed = new WeakMap(), _SirioAlert_instances = new WeakSet(), _SirioAlert_checkType = function _SirioAlert_checkType() {
+    if (__classPrivateFieldGet(this, _SirioAlert_alertEl, "f").classList.contains("sirio-alert-danger"))
+        return "danger";
+    else if (__classPrivateFieldGet(this, _SirioAlert_alertEl, "f").classList.contains("sirio-alert-error"))
+        return "error";
+    else if (__classPrivateFieldGet(this, _SirioAlert_alertEl, "f").classList.contains("sirio-alert-info"))
+        return "info";
+    else if (__classPrivateFieldGet(this, _SirioAlert_alertEl, "f").classList.contains("sirio-alert-warning"))
+        return "warning";
+    else if (__classPrivateFieldGet(this, _SirioAlert_alertEl, "f").classList.contains("sirio-alert-success"))
+        return "success";
+    else
+        return undefined;
+};
 
 
 /***/ }),
@@ -595,7 +614,10 @@ class SirioDialog {
             else {
                 __classPrivateFieldSet(this, _SirioDialog_static, false, "f");
             }
-            __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_addTriggerElement).call(this, trigger);
+            if (trigger)
+                __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_addTriggerElement).call(this, trigger);
+            else
+                __classPrivateFieldSet(this, _SirioDialog_triggerElements, [], "f");
             let dismissElements = Array.prototype.slice.call((_b = __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f")) === null || _b === void 0 ? void 0 : _b.querySelectorAll(`[data-sirio-dismiss="dialog"]`));
             dismissElements = dismissElements.filter((node) => {
                 var _a;
@@ -1739,11 +1761,17 @@ class SirioDropdownSelect {
         __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").setAttribute("disabled", "true");
     }
     setOptionElements(options) {
+        let forceSelected = false;
         this.clearOptionElements();
         this.addOptionElements(options);
         if (!this.isMultiple())
             __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 1, "f");
-        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[0], true);
+        options.forEach(option => {
+            if (option.selected === true)
+                forceSelected = true;
+        });
+        if (!forceSelected)
+            __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[0], true);
     }
     addOptionElements(options) {
         let select = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f");
@@ -1751,14 +1779,15 @@ class SirioDropdownSelect {
             var optionElement = document.createElement("option");
             optionElement.value = option.value;
             optionElement.text = option.text;
+            optionElement.selected = option.selected;
             select.appendChild(optionElement);
             __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_createOptionElement).call(this, optionElement);
         });
         __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItems).call(this);
     }
     clearOptionElements() {
-        __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").innerHTML = '';
-        __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").innerHTML = '';
+        __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").innerHTML = "";
+        __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").innerHTML = "";
         __classPrivateFieldSet(this, _SirioDropdownSelect_items, [], "f");
         __classPrivateFieldSet(this, _SirioDropdownSelect_numSelected, 0, "f");
         __classPrivateFieldSet(this, _SirioDropdownSelect_selectedValues, [], "f");
@@ -1766,6 +1795,19 @@ class SirioDropdownSelect {
     }
     setOnChange(onChange) {
         __classPrivateFieldSet(this, _SirioDropdownSelect_onChange, onChange, "f");
+    }
+    reset() {
+        if (this.isMultiple()) {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").forEach((item) => {
+                let value = item.getAttribute("data-sirio-option-value");
+                __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_unselectItem).call(this, item, value || "");
+            });
+            __classPrivateFieldGet(this, _SirioDropdownSelect_selectedContent, "f").textContent = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").title;
+        }
+        else {
+            if (__classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").length > 0)
+                __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[0]);
+        }
     }
 }
 exports.SirioDropdownSelect = SirioDropdownSelect;
@@ -2034,7 +2076,6 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
     let item = document.createElement("li"), value = option.getAttribute("value");
     item.setAttribute("role", "option");
     item.id = __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").id + "-" + __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").childElementCount;
-    ;
     item.classList.add(Constants_1.sirioPrefix + "dropdown-item");
     item.ariaSelected = "false";
     item.textContent = option.textContent;
@@ -2043,6 +2084,8 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
         item.setAttribute("data-sirio-option-value", value);
     __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").appendChild(item);
     __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").push(item);
+    if (option.selected)
+        __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, item, true);
 };
 
 
@@ -2063,7 +2106,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioFileUpload_instances, _SirioFileUpload_inputElementId, _SirioFileUpload_inputElement, _SirioFileUpload_upload, _SirioFileUpload_fileListElement, _SirioFileUpload_chips, _SirioFileUpload_fileDictionary, _SirioFileUpload_createFileListElement, _SirioFileUpload_createFileChip, _SirioFileUpload_onDismiss;
+var _SirioFileUpload_instances, _SirioFileUpload_inputElementId, _SirioFileUpload_inputElement, _SirioFileUpload_upload, _SirioFileUpload_fileListElement, _SirioFileUpload_multiple, _SirioFileUpload_maxFiles, _SirioFileUpload_chips, _SirioFileUpload_fileDictionary, _SirioFileUpload_createFileListElement, _SirioFileUpload_createFileChip, _SirioFileUpload_onDismiss;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioFileUpload = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -2075,6 +2118,8 @@ class SirioFileUpload {
         _SirioFileUpload_inputElement.set(this, void 0);
         _SirioFileUpload_upload.set(this, void 0);
         _SirioFileUpload_fileListElement.set(this, void 0);
+        _SirioFileUpload_multiple.set(this, void 0);
+        _SirioFileUpload_maxFiles.set(this, void 0);
         _SirioFileUpload_chips.set(this, void 0);
         _SirioFileUpload_fileDictionary.set(this, void 0);
         if (SirioFileUpload.isFileUpload(id)) {
@@ -2084,9 +2129,19 @@ class SirioFileUpload {
             __classPrivateFieldSet(this, _SirioFileUpload_fileListElement, null, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_chips, {}, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_fileDictionary, {}, "f");
+            __classPrivateFieldSet(this, _SirioFileUpload_multiple, __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").getAttribute('multiple') ? true : false, "f");
+            if (__classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").hasAttribute('data-sirio-maxfiles')) {
+                let maxFiles = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").getAttribute('data-sirio-maxfiles');
+                if (typeof maxFiles === 'string')
+                    __classPrivateFieldSet(this, _SirioFileUpload_maxFiles, parseInt(maxFiles), "f");
+            }
             __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").onchange = (event) => {
-                var _a;
-                let length = (_a = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").files) === null || _a === void 0 ? void 0 : _a.length;
+                var _a, _b;
+                let length = ((_a = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").files) === null || _a === void 0 ? void 0 : _a.length) + Object.keys(__classPrivateFieldGet(this, _SirioFileUpload_fileDictionary, "f")).length;
+                if (__classPrivateFieldGet(this, _SirioFileUpload_multiple, "f") && __classPrivateFieldGet(this, _SirioFileUpload_maxFiles, "f") && length > __classPrivateFieldGet(this, _SirioFileUpload_maxFiles, "f"))
+                    length = __classPrivateFieldGet(this, _SirioFileUpload_maxFiles, "f") - Object.keys(__classPrivateFieldGet(this, _SirioFileUpload_fileDictionary, "f")).length;
+                else
+                    length = (_b = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").files) === null || _b === void 0 ? void 0 : _b.length;
                 for (let i = 0; i < length; i++) {
                     if (!__classPrivateFieldGet(this, _SirioFileUpload_fileListElement, "f"))
                         __classPrivateFieldGet(this, _SirioFileUpload_instances, "m", _SirioFileUpload_createFileListElement).call(this);
@@ -2095,8 +2150,8 @@ class SirioFileUpload {
                         __classPrivateFieldGet(this, _SirioFileUpload_instances, "m", _SirioFileUpload_createFileChip).call(this, fileName);
                     }
                     __classPrivateFieldGet(this, _SirioFileUpload_fileDictionary, "f")[fileName] = __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").files[i];
-                    __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").value = '';
                 }
+                __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").value = '';
             };
         }
         else
@@ -2156,7 +2211,7 @@ class SirioFileUpload {
     }
 }
 exports.SirioFileUpload = SirioFileUpload;
-_SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement = new WeakMap(), _SirioFileUpload_upload = new WeakMap(), _SirioFileUpload_fileListElement = new WeakMap(), _SirioFileUpload_chips = new WeakMap(), _SirioFileUpload_fileDictionary = new WeakMap(), _SirioFileUpload_instances = new WeakSet(), _SirioFileUpload_createFileListElement = function _SirioFileUpload_createFileListElement() {
+_SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement = new WeakMap(), _SirioFileUpload_upload = new WeakMap(), _SirioFileUpload_fileListElement = new WeakMap(), _SirioFileUpload_multiple = new WeakMap(), _SirioFileUpload_maxFiles = new WeakMap(), _SirioFileUpload_chips = new WeakMap(), _SirioFileUpload_fileDictionary = new WeakMap(), _SirioFileUpload_instances = new WeakSet(), _SirioFileUpload_createFileListElement = function _SirioFileUpload_createFileListElement() {
     let ul = document.createElement("ul");
     ul.classList.add(Constants_1.sirioPrefix + "upload-file-list");
     __classPrivateFieldGet(this, _SirioFileUpload_upload, "f").appendChild(ul);
@@ -3663,15 +3718,17 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioToast_toastEl, _SirioToast_dismissEl, _SirioToast_hidden, _SirioToast_delay, _SirioToast_onShow, _SirioToast_onShown, _SirioToast_onHide, _SirioToast_onHidden;
+var _SirioToast_instances, _SirioToast_toastEl, _SirioToast_dismissEl, _SirioToast_hidden, _SirioToast_delay, _SirioToast_toastType, _SirioToast_onShow, _SirioToast_onShown, _SirioToast_onHide, _SirioToast_onHidden, _SirioToast_checkType;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioToast = void 0;
 class SirioToast {
     constructor(toastEl, onShow, onHide, onShown, onHidden) {
+        _SirioToast_instances.add(this);
         _SirioToast_toastEl.set(this, void 0);
         _SirioToast_dismissEl.set(this, void 0);
         _SirioToast_hidden.set(this, void 0);
         _SirioToast_delay.set(this, void 0);
+        _SirioToast_toastType.set(this, void 0);
         _SirioToast_onShow.set(this, void 0);
         _SirioToast_onShown.set(this, void 0);
         _SirioToast_onHide.set(this, void 0);
@@ -3688,6 +3745,7 @@ class SirioToast {
                 event.preventDefault();
                 this.hide();
             });
+            __classPrivateFieldSet(this, _SirioToast_toastType, __classPrivateFieldGet(this, _SirioToast_instances, "m", _SirioToast_checkType).call(this), "f");
             __classPrivateFieldSet(this, _SirioToast_hidden, true, "f");
             this.show();
         }
@@ -3707,6 +3765,9 @@ class SirioToast {
     }
     getToastEl() {
         return __classPrivateFieldGet(this, _SirioToast_toastEl, "f");
+    }
+    getToastType() {
+        return __classPrivateFieldGet(this, _SirioToast_toastType, "f");
     }
     getDismissEl() {
         return __classPrivateFieldGet(this, _SirioToast_dismissEl, "f");
@@ -3764,7 +3825,20 @@ class SirioToast {
     }
 }
 exports.SirioToast = SirioToast;
-_SirioToast_toastEl = new WeakMap(), _SirioToast_dismissEl = new WeakMap(), _SirioToast_hidden = new WeakMap(), _SirioToast_delay = new WeakMap(), _SirioToast_onShow = new WeakMap(), _SirioToast_onShown = new WeakMap(), _SirioToast_onHide = new WeakMap(), _SirioToast_onHidden = new WeakMap();
+_SirioToast_toastEl = new WeakMap(), _SirioToast_dismissEl = new WeakMap(), _SirioToast_hidden = new WeakMap(), _SirioToast_delay = new WeakMap(), _SirioToast_toastType = new WeakMap(), _SirioToast_onShow = new WeakMap(), _SirioToast_onShown = new WeakMap(), _SirioToast_onHide = new WeakMap(), _SirioToast_onHidden = new WeakMap(), _SirioToast_instances = new WeakSet(), _SirioToast_checkType = function _SirioToast_checkType() {
+    if (__classPrivateFieldGet(this, _SirioToast_toastEl, "f").classList.contains("sirio-toast-danger"))
+        return "danger";
+    else if (__classPrivateFieldGet(this, _SirioToast_toastEl, "f").classList.contains("sirio-toast-error"))
+        return "error";
+    else if (__classPrivateFieldGet(this, _SirioToast_toastEl, "f").classList.contains("sirio-toast-info"))
+        return "info";
+    else if (__classPrivateFieldGet(this, _SirioToast_toastEl, "f").classList.contains("sirio-toast-warning"))
+        return "warning";
+    else if (__classPrivateFieldGet(this, _SirioToast_toastEl, "f").classList.contains("sirio-toast-success"))
+        return "success";
+    else
+        return undefined;
+};
 
 
 /***/ }),
@@ -4085,10 +4159,11 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SirioToast = exports.SirioAlert = exports.getComponentById = void 0;
+exports.SirioDialog = exports.SirioToast = exports.SirioAlert = exports.getComponentById = void 0;
 const SirioPopover_1 = __webpack_require__(686);
 const SirioAccordion_1 = __webpack_require__(376);
 const SirioDialog_1 = __webpack_require__(291);
+Object.defineProperty(exports, "SirioDialog", ({ enumerable: true, get: function () { return SirioDialog_1.SirioDialog; } }));
 const SirioDropdownAutocomplete_1 = __webpack_require__(193);
 const SirioDropdownMenu_1 = __webpack_require__(541);
 const SirioDropdownSelect_1 = __webpack_require__(514);
@@ -4143,6 +4218,8 @@ function getComponentById(id, type) {
             return SirioSlider_1.SirioSlider.getSliderById(id);
         case "timepicker":
             return SirioTimePicker_1.SirioTimePicker.getTimePickerById(id);
+        case "tab":
+            return SirioTab_1.SirioTab.getTabById(id);
         default:
             throw TypeError(`Component of type '${type}' cannot be managed.`);
     }

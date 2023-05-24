@@ -1,6 +1,6 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.5.0.1
+ * Sirio WebKit v.6.0.0
  * Copyright 2022 INPS
  */
 (function () {
