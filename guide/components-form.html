@@ -97,6 +97,7 @@
 				<li><a href="components-contents.html#collapse">Collapse</a></li>
 				<li><a href="components-contents.html#accordion">Accordion</a></li>
 				<li><a href="components-contents.html#sidenav">Menu Spalla</a></li>
+				<li><a href="components-contents.html#title-bar">Title Bar</a></li>
 				<li><a href="components-contents.html#tabelle">Tabelle</a></li>
 				<li><a href="components-contents.html#paginazione">Paginazione</a></li>
 				<li><a href="components-contents.html#tooltip">Tooltip</a></li>
@@ -124,6 +125,7 @@
 				<li><a href="components-form.html#chip">Chip</a></li>
 				<li><a href="components-form.html#progress">Progress Bar</a></li>
 				<li><a href="components-form.html#validation">Validazione</a></li>
+				<li><a href="components-form.html#filter">Filtri</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -734,12 +736,10 @@ select.setOnChange(function() {
 <label for="autocompleteID2">Autocomplete tramite javascript (es.: digita "rel")</label>
 <input class="sirio-form-control" type="text" name="autocompleteID2" id="autocompleteID2" data-sirio-component="autocomplete">
 
-<script>
 // Popolamento autocomplete tramite javascript
 let inputComponent = SirioLib.getComponentById("autocompleteID2", "dropdown-autocomplete");
 let newOptions = ["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]
 inputComponent.setOptionElements(newOptions);
-</script>
 </xmp></pre>
                             </div>
 
@@ -1698,6 +1698,1184 @@ for (var elemRange of elemsRange) {
 <span class="sirio-form-feedback" id="input-text-invalid-msg">
 	Lorem ipsum onopossum tagit tua
 </span>
+</xmp></pre>
+							</div>
+					</section>
+
+					<section class="guide-section">
+							<h3 class="guide-title" id="filter">Filtri</h3>
+
+							<div class="blockquote">
+								<p>Per poter filtrare i risultati sono previste tre tipologie di filtri: verticali, orizzontali e con tabs.</p>
+							</div>
+							
+
+							<h4 class="guide-title">Filtri verticali</h4>
+
+							<div class="blockquote">
+								<p>Sono posizionati al posto del menù di spalla e sono spesso usati nei casi in cui si presentano pochi contenuti. La particolarità di questi filtri è quella di <strong>permettere all’utente di visualizzare ed interagire contemporaneamente con i filtri selezionati e i risultati di ricerca.</strong></p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md-6">
+										<div class="sirio-filter" id="side-filter-drawer-dark">
+										    <div class="sirio-title-bar sirio-title-bar-dark d-lg-none">
+										        <div class="sirio-title-bar-title" role="heading" aria-level="3">
+										            Filtri
+										        </div>
+										        <div class="sirio-title-bar-action">
+										            <button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="btn-Filter-Drawer-1" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-side-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Mostra</button>
+										        </div>
+										    </div>
+										    <div class="sirio-filter-selected d-lg-none">
+										        <span class="sr-only">Filtri selezionati</span>
+										        <div class="row g-3">
+										            <div class="col-auto">
+										                <div class="sirio-chip">
+										                    <span class="sirio-chip-label">Filtro scelto</span>
+										                    <button class="sirio-btn sirio-btn-primary">
+										                        <span class="fas fa-times" aria-hidden="true"></span>
+										                        <span class="sr-only">Elimina filtro</span>
+										                    </button>
+										                </div>
+										            </div>
+										            <div class="col-auto">
+										                <div class="sirio-chip">
+										                    <span class="sirio-chip-label">Filtro scelto numero 2</span>
+										                    <button class="sirio-btn sirio-btn-primary">
+										                        <span class="fas fa-times" aria-hidden="true"></span>
+										                        <span class="sr-only">Elimina filtro</span>
+										                    </button>
+										                </div>
+										            </div>
+										            <div class="col-auto">
+										                <div class="sirio-chip">
+										                    <span class="sirio-chip-label">Filtro scelto</span>
+										                    <button class="sirio-btn sirio-btn-primary">
+										                        <span class="fas fa-times" aria-hidden="true"></span>
+										                        <span class="sr-only">Elimina filtro</span>
+										                    </button>
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+										    <div class="sirio-drawer">
+										        <div class="sirio-dialog sirio-dialog-sidenav d-lg-flex" id="dialog-side-drawer-filter" tabindex="-1" role="dialog" aria-labelledby="dialog-side-drawer-title-bar-title" data-sirio-component="dialog" data-sirio-visible="false">
+										            <div class="sirio-dialog-wrapper">
+										                <div class="sirio-dialog-content">
+										                    <div class="sirio-dialog-header">
+										                        <h2 class="sirio-dialog-title" id="dialog-side-drawer-title-bar-title">Filtri</h2>
+										                        <button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+										                            <span class="fas fa-times" aria-hidden="true"></span>
+										                        </button>
+										                    </div>
+										                                
+										                    <div class="sirio-dialog-body">
+										                        <h4 class="h6"><strong>Section Title #1</strong></h4>
+										                        
+										                        <div class="py-4">
+										                            <div class="row gx-2 gy-1 mb-2">
+										                                <div class="col-auto col-lg-12">
+										                                    <div class="sirio-chip-selection">
+										                                        <input type="checkbox" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+										                                        <label for="input-checkbox-chips-1">Valore chip</label>
+										                                    </div>
+										                                </div>
+										                                <div class="col-auto col-lg-12">
+										                                    <div class="sirio-chip-selection">
+										                                        <input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+										                                        <label for="input-checkbox-chips-2">Valore chip molto lungo esageratamente</label>
+										                                    </div>
+										                                </div>
+										                                <div class="col-auto col-lg-12">
+										                                    <div class="sirio-chip-selection">
+										                                        <input type="checkbox" id="input-checkbox-chips-3" name="input-checkbox-chips-3" value="2">
+										                                        <label for="input-checkbox-chips-3">Valore chip</label>
+										                                    </div>
+										                                </div>
+										                                <div class="col-auto col-lg-12">
+										                                    <div class="sirio-chip-selection">
+										                                        <input type="checkbox" id="input-checkbox-chips-4" name="input-checkbox-chips-4" value="3">
+										                                        <label for="input-checkbox-chips-4">Valore chip</label>
+										                                    </div>
+										                                </div>
+										                                <div class="col-auto col-lg-12">
+										                                    <div class="sirio-chip-selection">
+										                                        <input type="checkbox" id="input-checkbox-chips-5" name="input-checkbox-chips-5" value="5">
+										                                        <label for="input-checkbox-chips-5">Valore chip</label>
+										                                    </div>
+										                                </div>
+										                            </div>
+
+										                            <a href="#collapseChip-1" class="sirio-expanded-true" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseChip-1">
+										                                Mostra tutto<span class="fas fa-arrow-down ms-2" aria-hidden="true"></span>
+										                            </a>
+										                            
+										                            <div id="collapseChip-1" role="region" data-sirio-visible="false">
+										                                <div>
+										                                    <div class="row gx-2 gy-1 mb-2">
+										                                        <div class="col-auto col-lg-12">
+										                                            <div class="sirio-chip-selection">
+										                                                <input type="checkbox" id="input-checkbox-chips-1a" name="input-checkbox-chips-1a" value="1">
+										                                                <label for="input-checkbox-chips-1a">Valore chip</label>
+										                                            </div>
+										                                        </div>
+										                                        <div class="col-auto col-lg-12">
+										                                            <div class="sirio-chip-selection">
+										                                                <input type="checkbox" id="input-checkbox-chips-2a" name="input-checkbox-chips-2a" value="1">
+										                                                <label for="input-checkbox-chips-2a">Valore chip</label>
+										                                            </div>
+										                                        </div>
+										                                        <div class="col-auto col-lg-12">
+										                                            <div class="sirio-chip-selection">
+										                                                <input type="checkbox" id="input-checkbox-chips-3a" name="input-checkbox-chips-3a" value="1">
+										                                                <label for="input-checkbox-chips-3a">Valore chip</label>
+										                                            </div>
+										                                        </div>
+										                                        <div class="col-auto col-lg-12">
+										                                            <div class="sirio-chip-selection">
+										                                                <input type="checkbox" id="input-checkbox-chips-4a" name="input-checkbox-chips-4a" value="1">
+										                                                <label for="input-checkbox-chips-4a">Valore chip</label>
+										                                            </div>
+										                                        </div>
+										                                    </div>
+										                                    
+										                                    <a href="#collapseChip-1" class="sirio-expanded-false" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseChip-1">
+										                                        Nascondi<span class="fas fa-arrow-up ms-2" aria-hidden="true"></span>
+										                                    </a>
+										                                </div>
+										                            </div>
+										                        </div>
+
+										                        <div class="py-4">
+										                            <h4 class="h6"><strong>Section Title #2</strong></h4>
+										                            <div class="row g-3 pt-4">
+										                                <div class="col-12">
+										                                    <div class="form-group">
+										                                        <label for="input-text-filter-side-1">Label:</label>
+										                                        <input type="text" id="input-text-filter-side-1" name="input-text-filter-side-1" class="sirio-form-control" placeholder="text">
+										                                    </div>
+										                                </div>
+										                                <div class="col-12">
+										                                    <div class="form-group">
+										                                        <label for="input-text-filter-side-2">Label:</label>
+										                                        <input type="text" id="input-text-filter-side-2" name="input-text-filter-side-2" class="sirio-form-control" placeholder="text">
+										                                    </div>
+										                                </div>
+										                            </div>
+										                        </div>
+										                        
+										                    </div>
+										                    <div class="sirio-dialog-footer">
+										                        <div class="row g-3 justify-content-center">
+										                            <div class="col-auto">
+										                                <button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+										                            </div>
+										                            <div class="col-auto">
+										                                <button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+										                            </div>
+										                        </div>
+										                    </div>
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="code" aria-hidden="true" id="code-filter-verticali">
+                                <p class="guide-code-title">Filter verticali:</p>
+<pre><xmp>
+<div class="sirio-filter" id="side-filter-drawer-dark">
+    <div class="sirio-title-bar sirio-title-bar-dark d-lg-none">
+        <div class="sirio-title-bar-title" role="heading" aria-level="3">
+            Filtri
+        </div>
+        <div class="sirio-title-bar-action">
+            <button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="btn-Filter-Drawer-1" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-side-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Mostra</button>
+        </div>
+    </div>
+    <div class="sirio-filter-selected d-lg-none">
+        <span class="sr-only">Filtri selezionati</span>
+        <div class="row g-3">
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto numero 2</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sirio-drawer">
+        <div class="sirio-dialog sirio-dialog-sidenav d-lg-flex" id="dialog-side-drawer-filter" tabindex="-1" role="dialog" aria-labelledby="dialog-side-drawer-title-bar-title" data-sirio-component="dialog" data-sirio-visible="false">
+            <div class="sirio-dialog-wrapper">
+                <div class="sirio-dialog-content">
+                    <div class="sirio-dialog-header">
+                        <h2 class="sirio-dialog-title" id="dialog-side-drawer-title-bar-title">Filtri</h2>
+                        <button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+                            <span class="fas fa-times" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                                
+                    <div class="sirio-dialog-body">
+                        <h4 class="h6"><strong>Section Title #1</strong></h4>
+                        
+                        <div class="py-4">
+                            <div class="row gx-2 gy-1 mb-2">
+                                <div class="col-auto col-lg-12">
+                                    <div class="sirio-chip-selection">
+                                        <input type="checkbox" id="input-checkbox-chips-1" name="input-checkbox-chips-1" value="1">
+                                        <label for="input-checkbox-chips-1">Valore chip</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto col-lg-12">
+                                    <div class="sirio-chip-selection">
+                                        <input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
+                                        <label for="input-checkbox-chips-2">Valore chip molto lungo esageratamente</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto col-lg-12">
+                                    <div class="sirio-chip-selection">
+                                        <input type="checkbox" id="input-checkbox-chips-3" name="input-checkbox-chips-3" value="2">
+                                        <label for="input-checkbox-chips-3">Valore chip</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto col-lg-12">
+                                    <div class="sirio-chip-selection">
+                                        <input type="checkbox" id="input-checkbox-chips-4" name="input-checkbox-chips-4" value="3">
+                                        <label for="input-checkbox-chips-4">Valore chip</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto col-lg-12">
+                                    <div class="sirio-chip-selection">
+                                        <input type="checkbox" id="input-checkbox-chips-5" name="input-checkbox-chips-5" value="5">
+                                        <label for="input-checkbox-chips-5">Valore chip</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#collapseChip-1" class="sirio-expanded-true" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseChip-1">
+                                Mostra tutto<span class="fas fa-arrow-down ms-2" aria-hidden="true"></span>
+                            </a>
+                            
+                            <div id="collapseChip-1" role="region" data-sirio-visible="false">
+                                <div>
+                                    <div class="row gx-2 gy-1 mb-2">
+                                        <div class="col-auto col-lg-12">
+                                            <div class="sirio-chip-selection">
+                                                <input type="checkbox" id="input-checkbox-chips-1a" name="input-checkbox-chips-1a" value="1">
+                                                <label for="input-checkbox-chips-1a">Valore chip</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto col-lg-12">
+                                            <div class="sirio-chip-selection">
+                                                <input type="checkbox" id="input-checkbox-chips-2a" name="input-checkbox-chips-2a" value="1">
+                                                <label for="input-checkbox-chips-2a">Valore chip</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto col-lg-12">
+                                            <div class="sirio-chip-selection">
+                                                <input type="checkbox" id="input-checkbox-chips-3a" name="input-checkbox-chips-3a" value="1">
+                                                <label for="input-checkbox-chips-3a">Valore chip</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto col-lg-12">
+                                            <div class="sirio-chip-selection">
+                                                <input type="checkbox" id="input-checkbox-chips-4a" name="input-checkbox-chips-4a" value="1">
+                                                <label for="input-checkbox-chips-4a">Valore chip</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="#collapseChip-1" class="sirio-expanded-false" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseChip-1">
+                                        Nascondi<span class="fas fa-arrow-up ms-2" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="py-4">
+                            <h4 class="h6"><strong>Section Title #2</strong></h4>
+                            <div class="row g-3 pt-4">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="input-text-filter-side-1">Label:</label>
+                                        <input type="text" id="input-text-filter-side-1" name="input-text-filter-side-1" class="sirio-form-control" placeholder="text">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="input-text-filter-side-2">Label:</label>
+                                        <input type="text" id="input-text-filter-side-2" name="input-text-filter-side-2" class="sirio-form-control" placeholder="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="sirio-dialog-footer">
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-auto">
+                                <button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</xmp></pre>
+							</div>
+							
+
+
+							<h4 class="guide-title">Filtri orizzontali</h4>
+
+							<div class="blockquote">
+								<p>I Filtri orizzontali possono essere visualizzati attraverso l’utilizzo della funzione “Mostra” presente nella Title Bar e <strong>vengono visualizzati all’interno di un pannello drawer</strong> che occupa parzialmente lo schermo. <strong>Il drawer permette di scorrere i contenuti qualora siano particolarmente numerosi</strong>. Una volta confermati i filtri che si desiderano aggiungere viene mostrato un pannello di riepilogo dei filtri applicati, offrendo all’utente la possibilità di rimuoverli.</p>
+								<p>Nella Title Bar bisogna cambiare, in base allo sprofondamento degli heading della pagina, l'attributo <strong>aria-level</strong> di <em>sirio-title-bar-title</em>.</p>
+							</div>
+							
+							<h4 class="guide-title">Filtri con apertura drawer</h4>
+
+							<div class="guide-example">
+								<div class="sirio-filter" id="table-filter-dark">
+									<div class="sirio-title-bar sirio-title-bar-dark">
+										<div class="sirio-title-bar-title" role="heading" aria-level="3">
+											Titolo della Tabella
+											<small>Sottotitolo (opzionale)</small>
+										</div>
+										<div class="sirio-title-bar-action">
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+										</div>
+									</div>
+									<div class="sirio-drawer">
+										<div class="sirio-dialog" id="dialog-drawer-filter" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-filter" data-sirio-component="dialog" data-sirio-visible="false">
+											<div class="sirio-dialog-wrapper">
+												<div class="sirio-dialog-content">
+													<div class="sirio-dialog-header">
+														<h2 class="sirio-dialog-title" id="heading-dialog-drawer-filter">Filtri</h2>
+														<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+															<span class="fas fa-times" aria-hidden="true"></span>
+														</button>
+													</div>
+													<div class="sirio-dialog-body">
+														<h3 class="h6"><strong>Section Title Chip Wrap</strong></h3>
+														<div class="py-4 mb-2">
+															<div class="row flex-wrap g-2">
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-1" name="input-checkbox-chips-drawer-1" value="1">
+																		<label for="input-checkbox-chips-drawer-1">Valore chip</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
+																		<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-3" name="input-checkbox-chips-drawer-3" value="2">
+																		<label for="input-checkbox-chips-drawer-3">Valore chip</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-4" name="input-checkbox-chips-drawer-4" value="3">
+																		<label for="input-checkbox-chips-drawer-4">Valore chip</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-5" name="input-checkbox-chips-drawer-5" value="3">
+																		<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-6" name="input-checkbox-chips-drawer-6" value="3">
+																		<label for="input-checkbox-chips-drawer-6">Valore chip</label>
+																	</div>
+																</div><div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-7" name="input-checkbox-chips-drawer-7" value="3">
+																		<label for="input-checkbox-chips-drawer-7">Valore chip</label>
+																	</div>
+																</div>
+																<div class="col-auto">
+																	<div class="sirio-chip-selection">
+																		<input type="checkbox" id="input-checkbox-chips-drawer-8" name="input-checkbox-chips-drawer-8" value="8">
+																		<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														
+														<h3 class="h6"><strong>Section Title Chip Nowrap</strong></h3>
+														<div class="py-4 mb-2">
+															<div class="overflow">
+																<div class="row flex-nowrap g-2">
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-1" name="input-checkbox-chips-drawer-1" value="1">
+																			<label for="input-checkbox-chips-drawer-1">Valore chip</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
+																			<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-3" name="input-checkbox-chips-drawer-3" value="2">
+																			<label for="input-checkbox-chips-drawer-3">Valore chip</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-4" name="input-checkbox-chips-drawer-4" value="3">
+																			<label for="input-checkbox-chips-drawer-4">Valore chip</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-5" name="input-checkbox-chips-drawer-5" value="3">
+																			<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-6" name="input-checkbox-chips-drawer-6" value="3">
+																			<label for="input-checkbox-chips-drawer-6">Valore chip</label>
+																		</div>
+																	</div><div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-7" name="input-checkbox-chips-drawer-7" value="3">
+																			<label for="input-checkbox-chips-drawer-7">Valore chip</label>
+																		</div>
+																	</div>
+																	<div class="col-auto">
+																		<div class="sirio-chip-selection">
+																			<input type="checkbox" id="input-checkbox-chips-drawer-8" name="input-checkbox-chips-drawer-8" value="8">
+																			<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<h3 class="h6"><strong>Section Title Input</strong></h3>
+														<div class="row g-3 pt-4 pb-5">
+															<div class="col-12">
+																<div class="form-group">
+																	<label for="input-text-0">Label:</label>
+																	<input type="text" id="input-text-0" name="input-text-0" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group">
+																	<label for="input-text-1">Label:</label>
+																	<input type="text" id="input-text-1" name="input-text-1" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group">
+																	<label for="input-text-2">Label:</label>
+																	<input type="text" id="input-text-2" name="input-text-2" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group">
+																	<label for="input-text-3">Label:</label>
+																	<input type="text" id="input-text-3" name="input-text-3" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label for="input-text-4">Label:</label>
+																	<input type="text" id="input-text-4" name="input-text-4" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label for="input-text-5">Label:</label>
+																	<input type="text" id="input-text-5" name="input-text-5" class="sirio-form-control" placeholder="text">
+																</div>
+															</div>
+														</div>
+
+														<h3 class="h6"><strong>Section Title Selector</strong></h3>
+														<div class="row g-3 py-4">
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="checkbox" id="input-checkbox-drawer-1" name="input-checkbox-drawer-1" value="">
+																	<label for="input-checkbox-drawer-1">Opzione 1</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="checkbox" id="input-checkbox-drawer-2" name="input-checkbox-drawer-2" value="">
+																	<label for="input-checkbox-drawer-2">Opzione 2</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="checkbox" id="input-checkbox-drawer-3" name="input-checkbox-drawer-3" value="">
+																	<label for="input-checkbox-drawer-3">Opzione 3</label>
+																</div>
+															</div>
+														</div>
+
+														<div class="row g-3 py-4">
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="radio" id="input-radio-drawer-1" name="input-radio-drawer" value="" checked="">
+																	<label for="input-radio-drawer-1">Opzione 1</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="radio" id="input-radio-drawer-2" name="input-radio-drawer" value="">
+																	<label for="input-radio-drawer-2">Opzione 2</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check">
+																	<input type="radio" id="input-radio-drawer-3" name="input-radio-drawer" value="">
+																	<label for="input-radio-drawer-3">Opzione 3</label>
+																</div>
+															</div>
+														</div>
+														
+
+														<div class="row g-3 py-4">
+															<div class="col-md-4">
+																<div class="sirio-form-check sirio-form-toggle">
+																	<input type="checkbox" id="input-toggle-drawer-1" name="input-toggle-drawer-1" value="">
+																	<label for="input-toggle-drawer-1">Toggle</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check sirio-form-toggle">
+																	<input type="checkbox" id="input-toggle-drawer-2" name="input-toggle-drawer-2" value="">
+																	<label for="input-toggle-drawer-2">Toggle</label>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="sirio-form-check sirio-form-toggle">
+																	<input type="checkbox" id="input-toggle-drawer-3" name="input-toggle-drawer-3" value="">
+																	<label for="input-toggle-drawer-3">Toggle</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="sirio-dialog-footer">
+														<div class="row g-3 justify-content-center">
+															<div class="col-6 col-md-auto">
+																<button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+															</div>
+															<div class="col-6 col-md-auto">
+																<button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-filter-drawer">
+                                <p class="guide-code-title">Filter drawer:</p>
+<pre><xmp>
+<div class="sirio-filter" id="table-filter-dark">
+	<div class="sirio-title-bar sirio-title-bar-dark">
+		<div class="sirio-title-bar-title" role="heading" aria-level="3">
+			Titolo della Tabella
+			<small>Sottotitolo (opzionale)</small>
+		</div>
+		<div class="sirio-title-bar-action">
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+		</div>
+	</div>
+	<div class="sirio-drawer">
+		<div class="sirio-dialog" id="dialog-drawer-filter" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-filter" data-sirio-component="dialog" data-sirio-visible="false">
+			<div class="sirio-dialog-wrapper">
+				<div class="sirio-dialog-content">
+					<div class="sirio-dialog-header">
+						<h2 class="sirio-dialog-title" id="heading-dialog-drawer-filter">Filtri</h2>
+						<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+							<span class="fas fa-times" aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="sirio-dialog-body">
+						<h3 class="h6"><strong>Section Title Chip Wrap</strong></h3>
+						<div class="py-4 mb-2">
+							<div class="row flex-wrap g-2">
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-1" name="input-checkbox-chips-drawer-1" value="1">
+										<label for="input-checkbox-chips-drawer-1">Valore chip</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
+										<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-3" name="input-checkbox-chips-drawer-3" value="2">
+										<label for="input-checkbox-chips-drawer-3">Valore chip</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-4" name="input-checkbox-chips-drawer-4" value="3">
+										<label for="input-checkbox-chips-drawer-4">Valore chip</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-5" name="input-checkbox-chips-drawer-5" value="3">
+										<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-6" name="input-checkbox-chips-drawer-6" value="3">
+										<label for="input-checkbox-chips-drawer-6">Valore chip</label>
+									</div>
+								</div><div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-7" name="input-checkbox-chips-drawer-7" value="3">
+										<label for="input-checkbox-chips-drawer-7">Valore chip</label>
+									</div>
+								</div>
+								<div class="col-auto">
+									<div class="sirio-chip-selection">
+										<input type="checkbox" id="input-checkbox-chips-drawer-8" name="input-checkbox-chips-drawer-8" value="8">
+										<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<h3 class="h6"><strong>Section Title Chip Nowrap</strong></h3>
+						<div class="py-4 mb-2">
+							<div class="overflow">
+								<div class="row flex-nowrap g-2">
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-1" name="input-checkbox-chips-drawer-1" value="1">
+											<label for="input-checkbox-chips-drawer-1">Valore chip</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
+											<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-3" name="input-checkbox-chips-drawer-3" value="2">
+											<label for="input-checkbox-chips-drawer-3">Valore chip</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-4" name="input-checkbox-chips-drawer-4" value="3">
+											<label for="input-checkbox-chips-drawer-4">Valore chip</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-5" name="input-checkbox-chips-drawer-5" value="3">
+											<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-6" name="input-checkbox-chips-drawer-6" value="3">
+											<label for="input-checkbox-chips-drawer-6">Valore chip</label>
+										</div>
+									</div><div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-7" name="input-checkbox-chips-drawer-7" value="3">
+											<label for="input-checkbox-chips-drawer-7">Valore chip</label>
+										</div>
+									</div>
+									<div class="col-auto">
+										<div class="sirio-chip-selection">
+											<input type="checkbox" id="input-checkbox-chips-drawer-8" name="input-checkbox-chips-drawer-8" value="8">
+											<label for="input-checkbox-chips-drawer-5">Valore chip</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="h6"><strong>Section Title Input</strong></h3>
+						<div class="row g-3 pt-4 pb-5">
+							<div class="col-12">
+								<div class="form-group">
+									<label for="input-text-0">Label:</label>
+									<input type="text" id="input-text-0" name="input-text-0" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="input-text-1">Label:</label>
+									<input type="text" id="input-text-1" name="input-text-1" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="input-text-2">Label:</label>
+									<input type="text" id="input-text-2" name="input-text-2" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="input-text-3">Label:</label>
+									<input type="text" id="input-text-3" name="input-text-3" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="input-text-4">Label:</label>
+									<input type="text" id="input-text-4" name="input-text-4" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="input-text-5">Label:</label>
+									<input type="text" id="input-text-5" name="input-text-5" class="sirio-form-control" placeholder="text">
+								</div>
+							</div>
+						</div>
+
+						<h3 class="h6"><strong>Section Title Selector</strong></h3>
+						<div class="row g-3 py-4">
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="checkbox" id="input-checkbox-drawer-1" name="input-checkbox-drawer-1" value="">
+									<label for="input-checkbox-drawer-1">Opzione 1</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="checkbox" id="input-checkbox-drawer-2" name="input-checkbox-drawer-2" value="">
+									<label for="input-checkbox-drawer-2">Opzione 2</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="checkbox" id="input-checkbox-drawer-3" name="input-checkbox-drawer-3" value="">
+									<label for="input-checkbox-drawer-3">Opzione 3</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row g-3 py-4">
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="radio" id="input-radio-drawer-1" name="input-radio-drawer" value="" checked="">
+									<label for="input-radio-drawer-1">Opzione 1</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="radio" id="input-radio-drawer-2" name="input-radio-drawer" value="">
+									<label for="input-radio-drawer-2">Opzione 2</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check">
+									<input type="radio" id="input-radio-drawer-3" name="input-radio-drawer" value="">
+									<label for="input-radio-drawer-3">Opzione 3</label>
+								</div>
+							</div>
+						</div>
+						
+
+						<div class="row g-3 py-4">
+							<div class="col-md-4">
+								<div class="sirio-form-check sirio-form-toggle">
+									<input type="checkbox" id="input-toggle-drawer-1" name="input-toggle-drawer-1" value="">
+									<label for="input-toggle-drawer-1">Toggle</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check sirio-form-toggle">
+									<input type="checkbox" id="input-toggle-drawer-2" name="input-toggle-drawer-2" value="">
+									<label for="input-toggle-drawer-2">Toggle</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="sirio-form-check sirio-form-toggle">
+									<input type="checkbox" id="input-toggle-drawer-3" name="input-toggle-drawer-3" value="">
+									<label for="input-toggle-drawer-3">Toggle</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sirio-dialog-footer">
+						<div class="row g-3 justify-content-center">
+							<div class="col-6 col-md-auto">
+								<button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+							</div>
+							<div class="col-6 col-md-auto">
+								<button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Filtri selezionati</h4>
+							
+							<div class="blockquote">
+								<p>Una volta selezionato uno o più filtri, va inserito il blocco di codice html con classe <code>sirio-filter-selected</code> dopo la title bar con le chip relative ai filtri selezionati e implementare la gestione di cancellazione. </p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-filter">
+								    <div class="sirio-filter-selected">
+								        <span class="sr-only">Filtri selezionati</span>
+								        <div class="row g-3">
+								            <div class="col-auto">
+								                <div class="sirio-chip">
+								                    <span class="sirio-chip-label">Filtro scelto</span>
+								                    <button class="sirio-btn sirio-btn-primary">
+								                        <span class="fas fa-times" aria-hidden="true"></span>
+								                        <span class="sr-only">Elimina filtro</span>
+								                    </button>
+								                </div>
+								            </div>
+								            <div class="col-auto">
+								                <div class="sirio-chip">
+								                    <span class="sirio-chip-label">Filtro scelto numero 2</span>
+								                    <button class="sirio-btn sirio-btn-primary">
+								                        <span class="fas fa-times" aria-hidden="true"></span>
+								                        <span class="sr-only">Elimina filtro</span>
+								                    </button>
+								                </div>
+								            </div>
+								            <div class="col-auto">
+								                <div class="sirio-chip">
+								                    <span class="sirio-chip-label">Filtro scelto</span>
+								                    <button class="sirio-btn sirio-btn-primary">
+								                        <span class="fas fa-times" aria-hidden="true"></span>
+								                        <span class="sr-only">Elimina filtro</span>
+								                    </button>
+								                </div>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-filter-selected">
+                                <p class="guide-code-title">Filter selected:</p>
+<pre><xmp>
+<div class="sirio-filter">
+    <div class="sirio-filter-selected">
+        <span class="sr-only">Filtri selezionati</span>
+        <div class="row g-3">
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto numero 2</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="sirio-chip">
+                    <span class="sirio-chip-label">Filtro scelto</span>
+                    <button class="sirio-btn sirio-btn-primary">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                        <span class="sr-only">Elimina filtro</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</xmp></pre>
+							</div>
+
+
+							<hr class="guide-separator">
+
+							<h4 class="guide-title">Filtri con Tab</h4>
+							
+							<div class="blockquote">
+								<p>Quando Javascript si accorge che l'area dei tab di navigazione è inferiore alla lunghezza dei tab viene aggiunta la classe .sirio-tab-scroll che fa comparire le frecce laterali. L'html dei controlli sempre presenti, ma nascoste finchè non verrà aggiunta la classe .sirio-tab-scroll. Deve essere un comportamento standard per i tar orizzontali</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-filter" id="sirio-filter-tab">
+									<div class="sirio-title-bar sirio-title-bar-dark">
+										<div class="sirio-title-bar-title" role="heading" aria-level="3">
+											Filtri
+										</div>
+										<div class="sirio-title-bar-action">
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnTab1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterTab1" aria-expanded="false" aria-controls="collapseFilterTab1" title="Mostra filtri"><span class="fas fa-filter" aria-hidden="true"></span><span class="sirio-msg-show">Mostra</span><span class="sirio-msg-hide">Chiudi</span></button>
+										</div>
+									</div>
+									<div class="sirio-title-bar-collapse">
+										<div id="collapseFilterTab1" role="region" aria-labelledby="collapseBtnTab1" data-sirio-visible="false" data-sirio-parent="#table-filter-tab">
+											<div class="sirio-tab sirio-tab-scroll" data-sirio-component="tab">
+												<div class="sirio-tab-control">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scorri a sinistra" title="Scorri a sinistra"><span class="fas fa-angle-left" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scorri a destra" title="Scorri a destra"><span class="fas fa-angle-right" aria-hidden="true"></span></button>
+												</div>
+												<ul class="sirio-tab-nav" role="tablist">
+													<li>
+														<a id="tab-label-filter-1" href="#tab-content-filter-1" data-sirio-toggle="tab" aria-controls="tab-content-filter-1" aria-selected="true" role="tab">Label tab</a>
+													</li>
+													<li>
+														<a id="tab-label-filter-2" href="#tab-content-filter-2" data-sirio-toggle="tab" aria-controls="tab-content-filter-2" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+													</li>
+													<li>
+														<a id="tab-label-filter-3" href="#tab-content-filter-3" data-sirio-toggle="tab" aria-controls="tab-content-filter-3" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+													</li>
+													<li>
+														<a id="tab-label-filter-4" href="#tab-content-filter-4" data-sirio-toggle="tab" aria-controls="tab-content-filter-4" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+													</li>
+													<li>
+														<a id="tab-label-filter-5" href="#tab-content-filter-5" data-sirio-toggle="tab" aria-controls="tab-content-filter-5" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+													</li>
+												</ul>
+												<div class="sirio-tab-content">
+													<div id="tab-content-filter-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-1" data-sirio-visible="true">
+														<div class="sirio-tab-body">
+															<div class="row g-3 mb-4">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="input-text-filter-1">Label:</label>
+																		<input type="text" id="input-text-filter-1" name="input-text-filter-1" class="sirio-form-control" placeholder="text">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="input-text-filter-2">Label:</label>
+																		<input type="text" id="input-text-filter-2" name="input-text-filter-2" class="sirio-form-control" placeholder="text">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="input-text-filter-3">Label:</label>
+																		<input type="text" id="input-text-filter-3" name="input-text-filter-3" class="sirio-form-control" placeholder="text">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="input-text-filter-4">Label:</label>
+																		<input type="text" id="input-text-filter-4" name="input-text-filter-4" class="sirio-form-control" placeholder="text">
+																	</div>
+																</div>
+															</div>
+															<div class="row g-3 justify-content-center">
+																<div class="col-6 col-md-auto">
+																	<button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+																</div>
+																<div class="col-6 col-md-auto">
+																	<button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div id="tab-content-filter-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-2" data-sirio-visible="false">
+														<div class="sirio-tab-body">
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+														</div>
+													</div>
+													<div id="tab-content-filter-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-3" data-sirio-visible="false">
+														<div class="sirio-tab-body">
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+														</div>
+													</div>
+													<div id="tab-content-filter-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-4" data-sirio-visible="false">
+														<div class="sirio-tab-body">
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+														</div>
+													</div>
+													<div id="tab-content-filter-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-5" data-sirio-visible="false">
+														<div class="sirio-tab-body">
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="code" aria-hidden="true" id="code-filter-tab">
+                                <p class="guide-code-title">Filter tab:</p>
+<pre><xmp>
+<div class="sirio-filter" id="sirio-filter-tab">
+	<div class="sirio-title-bar sirio-title-bar-dark">
+		<div class="sirio-title-bar-title" role="heading" aria-level="3">
+			Filtri
+		</div>
+		<div class="sirio-title-bar-action">
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnTab1" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseFilterTab1" aria-expanded="false" aria-controls="collapseFilterTab1" title="Mostra filtri"><span class="fas fa-filter" aria-hidden="true"></span><span class="sirio-msg-show">Mostra</span><span class="sirio-msg-hide">Chiudi</span></button>
+		</div>
+	</div>
+	<div class="sirio-title-bar-collapse">
+		<div id="collapseFilterTab1" role="region" aria-labelledby="collapseBtnTab1" data-sirio-visible="false" data-sirio-parent="#table-filter-tab">
+			<div class="sirio-tab sirio-tab-scroll" data-sirio-component="tab">
+				<div class="sirio-tab-control">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scorri a sinistra" title="Scorri a sinistra"><span class="fas fa-angle-left" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scorri a destra" title="Scorri a destra"><span class="fas fa-angle-right" aria-hidden="true"></span></button>
+				</div>
+				<ul class="sirio-tab-nav" role="tablist">
+					<li>
+						<a id="tab-label-filter-1" href="#tab-content-filter-1" data-sirio-toggle="tab" aria-controls="tab-content-filter-1" aria-selected="true" role="tab">Label tab</a>
+					</li>
+					<li>
+						<a id="tab-label-filter-2" href="#tab-content-filter-2" data-sirio-toggle="tab" aria-controls="tab-content-filter-2" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+					</li>
+					<li>
+						<a id="tab-label-filter-3" href="#tab-content-filter-3" data-sirio-toggle="tab" aria-controls="tab-content-filter-3" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+					</li>
+					<li>
+						<a id="tab-label-filter-4" href="#tab-content-filter-4" data-sirio-toggle="tab" aria-controls="tab-content-filter-4" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+					</li>
+					<li>
+						<a id="tab-label-filter-5" href="#tab-content-filter-5" data-sirio-toggle="tab" aria-controls="tab-content-filter-5" aria-selected="false" role="tab" tabindex="-1">Label tab</a>
+					</li>
+				</ul>
+				<div class="sirio-tab-content">
+					<div id="tab-content-filter-1" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-1" data-sirio-visible="true">
+						<div class="sirio-tab-body">
+							<div class="row g-3 mb-4">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="input-text-filter-1">Label:</label>
+										<input type="text" id="input-text-filter-1" name="input-text-filter-1" class="sirio-form-control" placeholder="text">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="input-text-filter-2">Label:</label>
+										<input type="text" id="input-text-filter-2" name="input-text-filter-2" class="sirio-form-control" placeholder="text">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="input-text-filter-3">Label:</label>
+										<input type="text" id="input-text-filter-3" name="input-text-filter-3" class="sirio-form-control" placeholder="text">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="input-text-filter-4">Label:</label>
+										<input type="text" id="input-text-filter-4" name="input-text-filter-4" class="sirio-form-control" placeholder="text">
+									</div>
+								</div>
+							</div>
+							<div class="row g-3 justify-content-center">
+								<div class="col-6 col-md-auto">
+									<button type="button" class="sirio-btn sirio-btn-tertiary w-100">Elimina filtri</button>
+								</div>
+								<div class="col-6 col-md-auto">
+									<button type="button" class="sirio-btn sirio-btn-primary w-100">Applica filtri</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-content-filter-2" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-2" data-sirio-visible="false">
+						<div class="sirio-tab-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+						</div>
+					</div>
+					<div id="tab-content-filter-3" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-3" data-sirio-visible="false">
+						<div class="sirio-tab-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+						</div>
+					</div>
+					<div id="tab-content-filter-4" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-4" data-sirio-visible="false">
+						<div class="sirio-tab-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+						</div>
+					</div>
+					<div id="tab-content-filter-5" class="sirio-tab-item" role="tabpanel" tabindex="0" aria-labelledby="tab-label-filter-5" data-sirio-visible="false">
+						<div class="sirio-tab-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum dictum ligula, sed cursus nisl volutpat id. Nulla molestie turpis ac massa tincidunt, non bibendum mauris finibus.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </xmp></pre>
 							</div>
 					</section>

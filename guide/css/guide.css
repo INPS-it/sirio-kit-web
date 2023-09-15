@@ -373,7 +373,7 @@ h4.guide-title:before {
     position: relative;
 	z-index: 0;
 }
-.guide-example .sirio-dialog-sidenav[data-sirio-component="dialog"][data-sirio-visible="false"] {
+.guide-example .sirio-dialog-sidenav[data-sirio-component="dialog"][data-sirio-visible="false"], .guide-example .sirio-drawer [data-sirio-component="dialog"][data-sirio-visible="false"] {
 	display: none;
 	padding: 0;
 }

@@ -1,4 +1,4 @@
-var version='6.0.0';
+var version='7.0.0';
 
 // Sidenav
 function openCollapse($this){
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		$(id).slideToggle('slow');
 	});
 
-	$('xmp').each(function() {
+	$('pre xmp').each(function() {
 		var data = $(this).html().toString().replace(/</g, '&lt;').replace(/>/g, '&gt;');
 		$(this).replaceWith('<code>'+data+'</code>');
 	});

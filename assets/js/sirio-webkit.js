@@ -1,5 +1,5 @@
 /*!
- * Sirio WebKit v.6.0.0
+ * Sirio WebKit v.7.0.0
  * Copyright 2022 INPS
  */
 var SirioLib;
@@ -24,7 +24,7 @@ exports.alphabeth = [
 /***/ }),
 
 /***/ 376:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ (function(__unused_webpack_module, exports) {
 
 
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
@@ -38,10 +38,9 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioAccordion_instances, _SirioAccordion_id, _SirioAccordion_exclusive, _SirioAccordion_accordionElement, _SirioAccordion_triggerElementId, _SirioAccordion_triggerElement, _SirioAccordion_groupElementId, _SirioAccordion_groupElement, _SirioAccordion_contentElement, _SirioAccordion_show, _SirioAccordion_hide, _SirioAccordion_getAccordionId, _SirioAccordion_getTriggerElementId, _SirioAccordion_getContentElement, _SirioAccordion_getGroupElementId, _SirioAccordion_setAccordionHeight;
+var _SirioAccordion_instances, _SirioAccordion_id, _SirioAccordion_exclusive, _SirioAccordion_accordionElement, _SirioAccordion_triggerElement, _SirioAccordion_groupElementId, _SirioAccordion_groupElement, _SirioAccordion_show, _SirioAccordion_hide, _SirioAccordion_toggleHandler, _SirioAccordion_getAccordionId, _SirioAccordion_getGroupElementId, _SirioAccordion_setAccordionHeight;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioAccordion = void 0;
-const Constants_1 = __webpack_require__(738);
 class SirioAccordion {
     constructor(id, trigger) {
         var _a;
@@ -49,26 +48,18 @@ class SirioAccordion {
         _SirioAccordion_id.set(this, void 0);
         _SirioAccordion_exclusive.set(this, void 0);
         _SirioAccordion_accordionElement.set(this, void 0);
-        _SirioAccordion_triggerElementId.set(this, void 0);
         _SirioAccordion_triggerElement.set(this, void 0);
         _SirioAccordion_groupElementId.set(this, void 0);
         _SirioAccordion_groupElement.set(this, void 0);
-        _SirioAccordion_contentElement.set(this, void 0);
+        _SirioAccordion_toggleHandler.set(this, (event) => {
+            event.preventDefault();
+            this.toggle();
+        });
         if (SirioAccordion.isAccordion(id)) {
             __classPrivateFieldSet(this, _SirioAccordion_id, id, "f");
             __classPrivateFieldSet(this, _SirioAccordion_accordionElement, document.getElementById(id), "f");
-            trigger.addEventListener("click", (event) => {
-                event.preventDefault();
-                this.toggle();
-            });
+            trigger.addEventListener("click", __classPrivateFieldGet(this, _SirioAccordion_toggleHandler, "f"));
             __classPrivateFieldSet(this, _SirioAccordion_triggerElement, trigger, "f");
-            __classPrivateFieldSet(this, _SirioAccordion_triggerElementId, trigger.id, "f");
-            __classPrivateFieldSet(this, _SirioAccordion_contentElement, null, "f");
-            let className = Constants_1.sirioPrefix + "accordion-content";
-            let contents = __classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f").getElementsByClassName(className);
-            if (contents.length > 0) {
-                __classPrivateFieldSet(this, _SirioAccordion_contentElement, contents[0], "f");
-            }
             if (__classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f").hasAttribute("data-sirio-parent")) {
                 __classPrivateFieldSet(this, _SirioAccordion_exclusive, true, "f");
                 __classPrivateFieldSet(this, _SirioAccordion_groupElementId, (_a = __classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f").getAttribute("data-sirio-parent")) === null || _a === void 0 ? void 0 : _a.substring(1), "f");
@@ -100,19 +91,35 @@ class SirioAccordion {
                 targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
                 break;
             default:
+                break;
         }
         if (targetId != undefined) {
-            if (!(targetId in SirioAccordion.accordions)) {
-                let accordionObj = new SirioAccordion(targetId, trigger);
-                if (accordionObj != undefined)
-                    SirioAccordion.accordions[targetId] = accordionObj;
-                if (__classPrivateFieldGet(accordionObj, _SirioAccordion_exclusive, "f")) {
-                    let groupElementId = __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getGroupElementId).call(accordionObj);
-                    if (!(groupElementId in SirioAccordion.accordionGroups))
-                        SirioAccordion.accordionGroups[groupElementId] = [];
-                    SirioAccordion.accordionGroups[groupElementId].push(accordionObj);
-                }
+            let accordionObj = new SirioAccordion(targetId, trigger);
+            if (accordionObj != undefined) {
+                SirioAccordion.accordions.set(trigger, accordionObj);
             }
+            if (__classPrivateFieldGet(accordionObj, _SirioAccordion_exclusive, "f")) {
+                let groupElementId = __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getGroupElementId).call(accordionObj);
+                if (!(groupElementId in SirioAccordion.accordionGroups))
+                    SirioAccordion.accordionGroups[groupElementId] = [];
+                SirioAccordion.accordionGroups[groupElementId].push(accordionObj);
+            }
+        }
+    }
+    static destroy(trigger) {
+        let accordion = SirioAccordion.accordions.get(trigger);
+        if (accordion) {
+            accordion.removeEventListeners();
+            if (__classPrivateFieldGet(accordion, _SirioAccordion_groupElementId, "f")) {
+                let groupElementId = __classPrivateFieldGet(accordion, _SirioAccordion_instances, "m", _SirioAccordion_getGroupElementId).call(accordion);
+                let group = SirioAccordion.accordionGroups[groupElementId];
+                group.splice(group.indexOf(accordion), 1);
+                SirioAccordion.accordionGroups[groupElementId] = group;
+                if (SirioAccordion.accordionGroups[groupElementId].length == 0)
+                    delete SirioAccordion.accordionGroups[groupElementId];
+            }
+            SirioAccordion.accordions.delete(trigger);
+            accordion = null;
         }
     }
     static isAccordion(id) {
@@ -121,25 +128,27 @@ class SirioAccordion {
             return true;
         return false;
     }
-    static getAccordionById(id) {
-        return SirioAccordion.accordions[id];
+    static getAccordionByElement(trigger) {
+        return SirioAccordion.accordions.get(trigger) || null;
     }
     toggle() {
         let hidden = this.isHidden();
-        if (hidden) {
-            if (__classPrivateFieldGet(this, _SirioAccordion_exclusive, "f")) {
-                let id = __classPrivateFieldGet(this, _SirioAccordion_id, "f");
-                let accordionGroup = SirioAccordion.accordionGroups[__classPrivateFieldGet(this, _SirioAccordion_groupElementId, "f")];
-                accordionGroup.forEach(function (accordionObj) {
-                    if (__classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getAccordionId).call(accordionObj) != id && !accordionObj.isHidden()) {
-                        __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_hide).call(accordionObj);
-                    }
-                });
+        if (__classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f")) {
+            if (hidden) {
+                if (__classPrivateFieldGet(this, _SirioAccordion_exclusive, "f")) {
+                    let id = __classPrivateFieldGet(this, _SirioAccordion_id, "f");
+                    let accordionGroup = SirioAccordion.accordionGroups[__classPrivateFieldGet(this, _SirioAccordion_groupElementId, "f")];
+                    accordionGroup.forEach(function (accordionObj) {
+                        if (accordionObj && __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getAccordionId).call(accordionObj) != id && !accordionObj.isHidden()) {
+                            __classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_hide).call(accordionObj);
+                        }
+                    });
+                }
+                __classPrivateFieldGet(this, _SirioAccordion_instances, "m", _SirioAccordion_show).call(this);
             }
-            __classPrivateFieldGet(this, _SirioAccordion_instances, "m", _SirioAccordion_show).call(this);
-        }
-        else {
-            __classPrivateFieldGet(this, _SirioAccordion_instances, "m", _SirioAccordion_hide).call(this);
+            else {
+                __classPrivateFieldGet(this, _SirioAccordion_instances, "m", _SirioAccordion_hide).call(this);
+            }
         }
     }
     isHidden() {
@@ -166,13 +175,23 @@ class SirioAccordion {
     getGroupElement() {
         return __classPrivateFieldGet(this, _SirioAccordion_groupElement, "f");
     }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioAccordion_triggerElement, "f").removeEventListener("click", __classPrivateFieldGet(this, _SirioAccordion_toggleHandler, "f"));
+    }
 }
 exports.SirioAccordion = SirioAccordion;
-_SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _SirioAccordion_accordionElement = new WeakMap(), _SirioAccordion_triggerElementId = new WeakMap(), _SirioAccordion_triggerElement = new WeakMap(), _SirioAccordion_groupElementId = new WeakMap(), _SirioAccordion_groupElement = new WeakMap(), _SirioAccordion_contentElement = new WeakMap(), _SirioAccordion_instances = new WeakSet(), _SirioAccordion_show = function _SirioAccordion_show() {
+_SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _SirioAccordion_accordionElement = new WeakMap(), _SirioAccordion_triggerElement = new WeakMap(), _SirioAccordion_groupElementId = new WeakMap(), _SirioAccordion_groupElement = new WeakMap(), _SirioAccordion_toggleHandler = new WeakMap(), _SirioAccordion_instances = new WeakSet(), _SirioAccordion_show = function _SirioAccordion_show() {
     if (__classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f") != null) {
         let accordionElement = __classPrivateFieldGet(this, _SirioAccordion_accordionElement, "f");
         let scrollHeight = __classPrivateFieldGet(this, _SirioAccordion_instances, "m", _SirioAccordion_setAccordionHeight).call(this);
         accordionElement.setAttribute("data-sirio-visible", "collapsing");
+        let accordions = SirioAccordion.accordions;
+        accordions.forEach((accordionObj) => {
+            var _a;
+            if (__classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getAccordionId).call(accordionObj) === __classPrivateFieldGet(this, _SirioAccordion_id, "f")) {
+                (_a = accordionObj.getTriggerElement()) === null || _a === void 0 ? void 0 : _a.setAttribute("aria-expanded", "true");
+            }
+        });
         __classPrivateFieldGet(this, _SirioAccordion_triggerElement, "f").setAttribute("aria-expanded", "true");
         setTimeout(() => {
             accordionElement.style.height = scrollHeight;
@@ -191,6 +210,13 @@ _SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _
         accordionElement.style.height = scrollHeight;
         accordionElement.setAttribute("data-sirio-visible", "collapsing");
         __classPrivateFieldGet(this, _SirioAccordion_triggerElement, "f").setAttribute("aria-expanded", "false");
+        let accordions = SirioAccordion.accordions;
+        accordions.forEach((accordionObj) => {
+            var _a;
+            if (__classPrivateFieldGet(accordionObj, _SirioAccordion_instances, "m", _SirioAccordion_getAccordionId).call(accordionObj) === __classPrivateFieldGet(this, _SirioAccordion_id, "f")) {
+                (_a = accordionObj.getTriggerElement()) === null || _a === void 0 ? void 0 : _a.setAttribute("aria-expanded", "false");
+            }
+        });
         setTimeout(() => {
             accordionElement.style.height = "0px";
         }, 50);
@@ -203,10 +229,6 @@ _SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _
     }
 }, _SirioAccordion_getAccordionId = function _SirioAccordion_getAccordionId() {
     return __classPrivateFieldGet(this, _SirioAccordion_id, "f");
-}, _SirioAccordion_getTriggerElementId = function _SirioAccordion_getTriggerElementId() {
-    return __classPrivateFieldGet(this, _SirioAccordion_triggerElement, "f").id;
-}, _SirioAccordion_getContentElement = function _SirioAccordion_getContentElement() {
-    return __classPrivateFieldGet(this, _SirioAccordion_contentElement, "f");
 }, _SirioAccordion_getGroupElementId = function _SirioAccordion_getGroupElementId() {
     return __classPrivateFieldGet(this, _SirioAccordion_groupElementId, "f");
 }, _SirioAccordion_setAccordionHeight = function _SirioAccordion_setAccordionHeight() {
@@ -220,7 +242,7 @@ _SirioAccordion_id = new WeakMap(), _SirioAccordion_exclusive = new WeakMap(), _
     return scrollHeight;
 };
 SirioAccordion.accordionGroups = {};
-SirioAccordion.accordions = {};
+SirioAccordion.accordions = new Map();
 
 
 /***/ }),
@@ -415,8 +437,17 @@ class SirioBreadcrumb {
                         }, 200);
                     }
                 });
+                SirioBreadcrumb.breadcrumbs.set(breadcrumbComponentEl, breadcrumbObj);
             }
         });
+    }
+    static destroy(breadcrumbComponentEl) {
+        let breadcrumb = SirioBreadcrumb.breadcrumbs.get(breadcrumbComponentEl);
+        if (breadcrumb) {
+            breadcrumb.removeEventListeners();
+            SirioBreadcrumb.breadcrumbs.delete(breadcrumbComponentEl);
+            breadcrumb = null;
+        }
     }
     static isBreadcrumb(breadcrumbEl) {
         const validRoles = ["list"];
@@ -436,8 +467,27 @@ class SirioBreadcrumb {
             return false;
         }
     }
+    static getBreadcrumbByElement(breadcrumbEl) {
+        return SirioBreadcrumb.breadcrumbs.get(breadcrumbEl) || undefined;
+    }
     isTruncated() {
         return __classPrivateFieldGet(this, _SirioBreadcrumb_truncated, "f");
+    }
+    removeEventListeners() {
+        let breadcrumbObj = this;
+        window.removeEventListener("load", function () {
+            __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
+        });
+        window.removeEventListener("resize", function () {
+            if (!__classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_isResizing, "f")) {
+                __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, true, "f");
+                this.setTimeout(() => {
+                    __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_expand).call(breadcrumbObj);
+                    __classPrivateFieldGet(breadcrumbObj, _SirioBreadcrumb_instances, "m", _SirioBreadcrumb_determineBreadcrumbVisibility).call(breadcrumbObj);
+                    __classPrivateFieldSet(breadcrumbObj, _SirioBreadcrumb_isResizing, false, "f");
+                }, 200);
+            }
+        });
     }
 }
 exports.SirioBreadcrumb = SirioBreadcrumb;
@@ -486,6 +536,7 @@ _SirioBreadcrumb_breadcrumbEl = new WeakMap(), _SirioBreadcrumb_breadcrumbCompon
         __classPrivateFieldSet(this, _SirioBreadcrumb_truncated, false, "f");
     }
 };
+SirioBreadcrumb.breadcrumbs = new Map();
 
 
 /***/ }),
@@ -505,34 +556,26 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioChip_chipElement, _SirioChip_label, _SirioChip_dismissElement, _SirioChip_onDismiss;
+var _SirioChip_chipElement, _SirioChip_onDismiss;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioChip = void 0;
 class SirioChip {
     constructor(chip, label, dismissElement, onDismiss) {
         _SirioChip_chipElement.set(this, void 0);
-        _SirioChip_label.set(this, void 0);
-        _SirioChip_dismissElement.set(this, void 0);
         _SirioChip_onDismiss.set(this, void 0);
         __classPrivateFieldSet(this, _SirioChip_chipElement, chip, "f");
-        __classPrivateFieldSet(this, _SirioChip_dismissElement, dismissElement, "f");
-        __classPrivateFieldSet(this, _SirioChip_label, label, "f");
         __classPrivateFieldSet(this, _SirioChip_onDismiss, onDismiss, "f");
         dismissElement.addEventListener("click", () => {
             this.dismiss();
         });
-        if (SirioChip.chips == null)
-            SirioChip.chips = {};
-        SirioChip.chips[label] = this;
     }
     dismiss() {
         __classPrivateFieldGet(this, _SirioChip_onDismiss, "f").call(this);
         __classPrivateFieldGet(this, _SirioChip_chipElement, "f").remove();
-        delete SirioChip.chips[__classPrivateFieldGet(this, _SirioChip_label, "f")];
     }
 }
 exports.SirioChip = SirioChip;
-_SirioChip_chipElement = new WeakMap(), _SirioChip_label = new WeakMap(), _SirioChip_dismissElement = new WeakMap(), _SirioChip_onDismiss = new WeakMap();
+_SirioChip_chipElement = new WeakMap(), _SirioChip_onDismiss = new WeakMap();
 
 
 /***/ }),
@@ -552,7 +595,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDialog_instances, _SirioDialog_id, _SirioDialog_dialogElement, _SirioDialog_triggerElements, _SirioDialog_dismissElements, _SirioDialog_static, _SirioDialog_onShow, _SirioDialog_onShown, _SirioDialog_onHide, _SirioDialog_onHidden, _SirioDialog_addTriggerElement, _SirioDialog_addDismissElement, _SirioDialog_disableScrolling, _SirioDialog_enableScrolling, _SirioDialog_handleEscape, _SirioDialog_handleClick, _SirioDialog_handleTab, _SirioDialog_trapFocus, _SirioDialog_isHidden;
+var _SirioDialog_instances, _SirioDialog_id, _SirioDialog_dialogElement, _SirioDialog_triggerElements, _SirioDialog_dismissElements, _SirioDialog_static, _SirioDialog_onShow, _SirioDialog_onShown, _SirioDialog_onHide, _SirioDialog_onHidden, _SirioDialog_triggerHandler, _SirioDialog_addTriggerElement, _SirioDialog_dismissHandler, _SirioDialog_addDismissElement, _SirioDialog_disableScrolling, _SirioDialog_enableScrolling, _SirioDialog_handleEscape, _SirioDialog_handleClick, _SirioDialog_handleTab, _SirioDialog_trapFocus, _SirioDialog_isHidden;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDialog = void 0;
 class SirioDialog {
@@ -568,6 +611,14 @@ class SirioDialog {
         _SirioDialog_onShown.set(this, void 0);
         _SirioDialog_onHide.set(this, void 0);
         _SirioDialog_onHidden.set(this, void 0);
+        _SirioDialog_triggerHandler.set(this, (event) => {
+            event.preventDefault();
+            this.show();
+        });
+        _SirioDialog_dismissHandler.set(this, (event) => {
+            event.preventDefault();
+            this.hide();
+        });
         _SirioDialog_handleEscape.set(this, (event) => {
             let key = event.key.toLowerCase();
             if (key == "escape") {
@@ -664,6 +715,14 @@ class SirioDialog {
                 SirioDialog.dialogs[targetId] = dialogObj;
         }
     }
+    static destroy(id) {
+        if (id in SirioDialog.dialogs) {
+            let dialogObj = SirioDialog.dialogs[id];
+            dialogObj.removeEventListeners();
+            delete SirioDialog.dialogs[id];
+            dialogObj = null;
+        }
+    }
     static isDialog(id) {
         const validRoles = ["dialog", "alertdialog"];
         const dialogElement = document.getElementById(id);
@@ -709,6 +768,9 @@ class SirioDialog {
     }
     show() {
         if (__classPrivateFieldGet(this, _SirioDialog_dialogElement, "f") != null) {
+            if (__classPrivateFieldGet(this, _SirioDialog_onShow, "f") != undefined) {
+                __classPrivateFieldGet(this, _SirioDialog_onShow, "f").call(this);
+            }
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("data-sirio-visible", "true");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("aria-modal", "true");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("tabindex", "0");
@@ -720,21 +782,24 @@ class SirioDialog {
                 document.addEventListener("click", __classPrivateFieldGet(this, _SirioDialog_handleClick, "f"));
             }
             __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_trapFocus).call(this, __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f"));
-            if (__classPrivateFieldGet(this, _SirioDialog_onShow, "f") != undefined) {
-                __classPrivateFieldGet(this, _SirioDialog_onShow, "f").call(this);
+            if (__classPrivateFieldGet(this, _SirioDialog_onShown, "f") != undefined) {
+                __classPrivateFieldGet(this, _SirioDialog_onShown, "f").call(this);
             }
         }
     }
     hide() {
         if (__classPrivateFieldGet(this, _SirioDialog_dialogElement, "f") != null) {
+            if (__classPrivateFieldGet(this, _SirioDialog_onHide, "f") != undefined) {
+                __classPrivateFieldGet(this, _SirioDialog_onHide, "f").call(this);
+            }
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").removeAttribute("aria-modal");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("data-sirio-visible", "false");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("tabindex", "-1");
             SirioDialog.nDialogsOpen--;
             if (SirioDialog.nDialogsOpen == 0)
                 __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_enableScrolling).call(this);
-            if (__classPrivateFieldGet(this, _SirioDialog_onHide, "f") != undefined) {
-                __classPrivateFieldGet(this, _SirioDialog_onHide, "f").call(this);
+            if (__classPrivateFieldGet(this, _SirioDialog_onHidden, "f") != undefined) {
+                __classPrivateFieldGet(this, _SirioDialog_onHidden, "f").call(this);
             }
         }
     }
@@ -747,24 +812,36 @@ class SirioDialog {
             this.hide();
         }
     }
+    removeEventListeners() {
+        var _a, _b;
+        (_a = this.getTriggerElements()) === null || _a === void 0 ? void 0 : _a.forEach((trigger) => {
+            trigger.removeEventListener("click", __classPrivateFieldGet(this, _SirioDialog_triggerHandler, "f"));
+        });
+        (_b = this.getDismissElements()) === null || _b === void 0 ? void 0 : _b.forEach((dismiss) => {
+            dismiss.removeEventListener("click", __classPrivateFieldGet(this, _SirioDialog_dismissHandler, "f"));
+        });
+        document.removeEventListener("keyup", __classPrivateFieldGet(this, _SirioDialog_handleEscape, "f"));
+        if (!__classPrivateFieldGet(this, _SirioDialog_static, "f")) {
+            document.removeEventListener("click", __classPrivateFieldGet(this, _SirioDialog_handleClick, "f"));
+        }
+        let firstFocusableEl = null;
+        let lastFocusableEl = null;
+        document.removeEventListener("keydown", (event) => {
+            __classPrivateFieldGet(this, _SirioDialog_handleTab, "f").call(this, event, firstFocusableEl, lastFocusableEl);
+        });
+    }
 }
 exports.SirioDialog = SirioDialog;
-_SirioDialog_id = new WeakMap(), _SirioDialog_dialogElement = new WeakMap(), _SirioDialog_triggerElements = new WeakMap(), _SirioDialog_dismissElements = new WeakMap(), _SirioDialog_static = new WeakMap(), _SirioDialog_onShow = new WeakMap(), _SirioDialog_onShown = new WeakMap(), _SirioDialog_onHide = new WeakMap(), _SirioDialog_onHidden = new WeakMap(), _SirioDialog_handleEscape = new WeakMap(), _SirioDialog_handleClick = new WeakMap(), _SirioDialog_handleTab = new WeakMap(), _SirioDialog_instances = new WeakSet(), _SirioDialog_addTriggerElement = function _SirioDialog_addTriggerElement(element) {
+_SirioDialog_id = new WeakMap(), _SirioDialog_dialogElement = new WeakMap(), _SirioDialog_triggerElements = new WeakMap(), _SirioDialog_dismissElements = new WeakMap(), _SirioDialog_static = new WeakMap(), _SirioDialog_onShow = new WeakMap(), _SirioDialog_onShown = new WeakMap(), _SirioDialog_onHide = new WeakMap(), _SirioDialog_onHidden = new WeakMap(), _SirioDialog_triggerHandler = new WeakMap(), _SirioDialog_dismissHandler = new WeakMap(), _SirioDialog_handleEscape = new WeakMap(), _SirioDialog_handleClick = new WeakMap(), _SirioDialog_handleTab = new WeakMap(), _SirioDialog_instances = new WeakSet(), _SirioDialog_addTriggerElement = function _SirioDialog_addTriggerElement(element) {
     if (!__classPrivateFieldGet(this, _SirioDialog_triggerElements, "f").includes(element)) {
         __classPrivateFieldGet(this, _SirioDialog_triggerElements, "f").push(element);
-        element.addEventListener("click", (event) => {
-            event.preventDefault();
-            this.show();
-        });
+        element.addEventListener("click", __classPrivateFieldGet(this, _SirioDialog_triggerHandler, "f"));
     }
 }, _SirioDialog_addDismissElement = function _SirioDialog_addDismissElement(element) {
     var _a;
     if (!__classPrivateFieldGet(this, _SirioDialog_dismissElements, "f").includes(element)) {
         (_a = __classPrivateFieldGet(this, _SirioDialog_dismissElements, "f")) === null || _a === void 0 ? void 0 : _a.push(element);
-        element.addEventListener("click", (event) => {
-            event.preventDefault();
-            this.hide();
-        });
+        element.addEventListener("click", __classPrivateFieldGet(this, _SirioDialog_dismissHandler, "f"));
     }
 }, _SirioDialog_disableScrolling = function _SirioDialog_disableScrolling() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -790,9 +867,7 @@ _SirioDialog_id = new WeakMap(), _SirioDialog_dialogElement = new WeakMap(), _Si
         else
             return false;
     }
-    else {
-        return null;
-    }
+    return null;
 };
 SirioDialog.nDialogsOpen = 0;
 
@@ -814,14 +889,13 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDropdownAutocomplete_instances, _SirioDropdownAutocomplete_triggerId, _SirioDropdownAutocomplete_trigger, _SirioDropdownAutocomplete_dropdown, _SirioDropdownAutocomplete_menu, _SirioDropdownAutocomplete_options, _SirioDropdownAutocomplete_filteredOptions, _SirioDropdownAutocomplete_currentlyFocused, _SirioDropdownAutocomplete_filterStart, _SirioDropdownAutocomplete_defaultVPos, _SirioDropdownAutocomplete_checkVPosTimeout, _SirioDropdownAutocomplete_onInput, _SirioDropdownAutocomplete_handleKeys, _SirioDropdownAutocomplete_setVisualFocus, _SirioDropdownAutocomplete_filter, _SirioDropdownAutocomplete_adjustPosition, _SirioDropdownAutocomplete_adjustVerticalPosition, _SirioDropdownAutocomplete_checkTopPosition, _SirioDropdownAutocomplete_checkBottomPosition;
+var _SirioDropdownAutocomplete_instances, _SirioDropdownAutocomplete_triggerId, _SirioDropdownAutocomplete_trigger, _SirioDropdownAutocomplete_dropdown, _SirioDropdownAutocomplete_menu, _SirioDropdownAutocomplete_options, _SirioDropdownAutocomplete_filteredOptions, _SirioDropdownAutocomplete_currentlyFocused, _SirioDropdownAutocomplete_filterStart, _SirioDropdownAutocomplete_defaultVPos, _SirioDropdownAutocomplete_checkVPosTimeout, _SirioDropdownAutocomplete_onInput, _SirioDropdownAutocomplete_clickHandler, _SirioDropdownAutocomplete_inputHandler, _SirioDropdownAutocomplete_keydownHandler, _SirioDropdownAutocomplete_scrollHandler, _SirioDropdownAutocomplete_resizeHandler, _SirioDropdownAutocomplete_handleKeys, _SirioDropdownAutocomplete_setVisualFocus, _SirioDropdownAutocomplete_filter, _SirioDropdownAutocomplete_adjustPosition, _SirioDropdownAutocomplete_adjustVerticalPosition, _SirioDropdownAutocomplete_checkTopPosition, _SirioDropdownAutocomplete_checkBottomPosition;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDropdownAutocomplete = void 0;
 const Constants_1 = __webpack_require__(738);
 const Utils_1 = __webpack_require__(675);
 class SirioDropdownAutocomplete {
     constructor(id, autocomplete, onInput) {
-        var _a;
         _SirioDropdownAutocomplete_instances.add(this);
         _SirioDropdownAutocomplete_triggerId.set(this, void 0);
         _SirioDropdownAutocomplete_trigger.set(this, void 0);
@@ -834,15 +908,44 @@ class SirioDropdownAutocomplete {
         _SirioDropdownAutocomplete_defaultVPos.set(this, void 0);
         _SirioDropdownAutocomplete_checkVPosTimeout.set(this, void 0);
         _SirioDropdownAutocomplete_onInput.set(this, void 0);
+        _SirioDropdownAutocomplete_clickHandler.set(this, (event) => {
+            if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.length >= __classPrivateFieldGet(this, _SirioDropdownAutocomplete_filterStart, "f"))
+                this.toggle();
+        });
+        _SirioDropdownAutocomplete_inputHandler.set(this, (event) => {
+            let inputEvent = event;
+            if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.length >= __classPrivateFieldGet(this, _SirioDropdownAutocomplete_filterStart, "f")) {
+                if (inputEvent.inputType == "insertText" || __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value == "") {
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_filter).call(this, true);
+                }
+                else {
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_filter).call(this, false);
+                }
+                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_onInput, "f"))
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_onInput, "f").call(this, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.substring(0, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").selectionStart || 0));
+            }
+            else if (!this.isHidden())
+                this.hide();
+        });
+        _SirioDropdownAutocomplete_keydownHandler.set(this, (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_handleKeys).call(this, event);
+        });
+        _SirioDropdownAutocomplete_scrollHandler.set(this, (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
+        });
+        _SirioDropdownAutocomplete_resizeHandler.set(this, (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
+        });
         if (SirioDropdownAutocomplete.isDropdownAutocomplete(id)) {
             let dropdown = document.createElement("div");
             dropdown.setAttribute("data-sirio-component", "dropdown");
             dropdown.classList.add("sirio-dropdown");
-            (_a = autocomplete.parentNode) === null || _a === void 0 ? void 0 : _a.replaceChild(dropdown, autocomplete);
+            autocomplete.parentNode.replaceChild(dropdown, autocomplete);
             dropdown.appendChild(autocomplete);
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_dropdown, dropdown, "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_triggerId, id, "f");
             let ariaControl = id + (0, Utils_1.makeid)(6) + "listbox";
+            autocomplete.setAttribute("data-sirio-init", "false");
             autocomplete.setAttribute("role", "combobox");
             autocomplete.setAttribute("aria-autocomplete", "both");
             autocomplete.setAttribute("data-sirio-toggle", "dropdown");
@@ -860,40 +963,18 @@ class SirioDropdownAutocomplete {
             menu.setAttribute("data-sirio-visible", "false");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_menu, menu, "f");
             dropdown.appendChild(menu);
-            __classPrivateFieldSet(this, _SirioDropdownAutocomplete_defaultVPos, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+            autocomplete.removeAttribute("data-sirio-init");
+            __classPrivateFieldSet(this, _SirioDropdownAutocomplete_defaultVPos, "bottom", "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_checkVPosTimeout, null, "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_options, [], "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_filteredOptions, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_options, "f"), "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_currentlyFocused, null, "f");
             __classPrivateFieldSet(this, _SirioDropdownAutocomplete_filterStart, 3, "f");
-            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").addEventListener("click", () => {
-                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.length >= __classPrivateFieldGet(this, _SirioDropdownAutocomplete_filterStart, "f"))
-                    this.toggle();
-            });
-            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").addEventListener("input", (event) => {
-                let inputEvent = event;
-                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.length >= __classPrivateFieldGet(this, _SirioDropdownAutocomplete_filterStart, "f")) {
-                    if (inputEvent.inputType == "insertText" || __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value == "") {
-                        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_filter).call(this, true);
-                    }
-                    else {
-                        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_filter).call(this, false);
-                    }
-                    if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_onInput, "f"))
-                        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_onInput, "f").call(this, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").value.substring(0, __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").selectionStart || 0));
-                }
-                else if (!this.isHidden())
-                    this.hide();
-            });
-            document.addEventListener("keydown", (event) => {
-                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_handleKeys).call(this, event);
-            });
-            window.addEventListener("scroll", () => {
-                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
-            });
-            window.addEventListener("resize", () => {
-                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_adjustPosition).call(this);
-            });
+            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").addEventListener("click", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_clickHandler, "f"));
+            __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").addEventListener("input", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_inputHandler, "f"));
+            document.addEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_keydownHandler, "f"));
+            window.addEventListener("scroll", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_scrollHandler, "f"));
+            window.addEventListener("resize", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_resizeHandler, "f"));
             let data = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").getAttribute("data-sirio-list");
             if (data) {
                 let options = JSON.parse(data);
@@ -921,6 +1002,14 @@ class SirioDropdownAutocomplete {
         }
         else {
             return;
+        }
+    }
+    static destroy(id) {
+        if (id in SirioDropdownAutocomplete.autocompletes) {
+            let autocomplete = SirioDropdownAutocomplete.autocompletes[id];
+            autocomplete.removeEventListeners();
+            delete SirioDropdownAutocomplete.autocompletes[id];
+            autocomplete = null;
         }
     }
     static isDropdownAutocomplete(id) {
@@ -1042,9 +1131,17 @@ class SirioDropdownAutocomplete {
         if (i == autocompletes.length)
             document.removeEventListener("click", SirioDropdownAutocomplete.handleClick);
     }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").removeEventListener("click", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_clickHandler, "f"));
+        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f").removeEventListener("input", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_inputHandler, "f"));
+        document.removeEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_keydownHandler, "f"));
+        window.removeEventListener("scroll", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_scrollHandler, "f"));
+        window.removeEventListener("resize", __classPrivateFieldGet(this, _SirioDropdownAutocomplete_resizeHandler, "f"));
+        document.removeEventListener("click", SirioDropdownAutocomplete.handleClick);
+    }
 }
 exports.SirioDropdownAutocomplete = SirioDropdownAutocomplete;
-_SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete_trigger = new WeakMap(), _SirioDropdownAutocomplete_dropdown = new WeakMap(), _SirioDropdownAutocomplete_menu = new WeakMap(), _SirioDropdownAutocomplete_options = new WeakMap(), _SirioDropdownAutocomplete_filteredOptions = new WeakMap(), _SirioDropdownAutocomplete_currentlyFocused = new WeakMap(), _SirioDropdownAutocomplete_filterStart = new WeakMap(), _SirioDropdownAutocomplete_defaultVPos = new WeakMap(), _SirioDropdownAutocomplete_checkVPosTimeout = new WeakMap(), _SirioDropdownAutocomplete_onInput = new WeakMap(), _SirioDropdownAutocomplete_instances = new WeakSet(), _SirioDropdownAutocomplete_handleKeys = function _SirioDropdownAutocomplete_handleKeys(event) {
+_SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete_trigger = new WeakMap(), _SirioDropdownAutocomplete_dropdown = new WeakMap(), _SirioDropdownAutocomplete_menu = new WeakMap(), _SirioDropdownAutocomplete_options = new WeakMap(), _SirioDropdownAutocomplete_filteredOptions = new WeakMap(), _SirioDropdownAutocomplete_currentlyFocused = new WeakMap(), _SirioDropdownAutocomplete_filterStart = new WeakMap(), _SirioDropdownAutocomplete_defaultVPos = new WeakMap(), _SirioDropdownAutocomplete_checkVPosTimeout = new WeakMap(), _SirioDropdownAutocomplete_onInput = new WeakMap(), _SirioDropdownAutocomplete_clickHandler = new WeakMap(), _SirioDropdownAutocomplete_inputHandler = new WeakMap(), _SirioDropdownAutocomplete_keydownHandler = new WeakMap(), _SirioDropdownAutocomplete_scrollHandler = new WeakMap(), _SirioDropdownAutocomplete_resizeHandler = new WeakMap(), _SirioDropdownAutocomplete_instances = new WeakSet(), _SirioDropdownAutocomplete_handleKeys = function _SirioDropdownAutocomplete_handleKeys(event) {
     var _a;
     let activeElement = document.activeElement;
     if (activeElement == __classPrivateFieldGet(this, _SirioDropdownAutocomplete_trigger, "f")) {
@@ -1187,22 +1284,24 @@ _SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete
         const menuHeight = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").offsetHeight;
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         let currentVerticalPos = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom";
-        const rect = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").getBoundingClientRect();
-        if (currentVerticalPos == __classPrivateFieldGet(this, _SirioDropdownAutocomplete_defaultVPos, "f")) {
-            if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
-                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
+        if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f")) {
+            const rect = __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").getBoundingClientRect();
+            if (currentVerticalPos == __classPrivateFieldGet(this, _SirioDropdownAutocomplete_defaultVPos, "f")) {
+                if (currentVerticalPos == "bottom" && rect.bottom > windowHeight) {
+                    if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
+                        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.add("sirio-dropdown-menu-top");
+                }
+                else if (currentVerticalPos == "top" && rect.top < 0) {
+                    if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
+                        __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
+                }
+            }
+            else {
+                if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
+                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
+                else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
                     __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.add("sirio-dropdown-menu-top");
             }
-            else if (currentVerticalPos == "top" && rect.top < 0) {
-                if (__classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
-                    __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
-            }
-        }
-        else {
-            if (currentVerticalPos == "top" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkBottomPosition).call(this, menuHeight, windowHeight))
-                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.remove("sirio-dropdown-menu-top");
-            else if (currentVerticalPos == "bottom" && __classPrivateFieldGet(this, _SirioDropdownAutocomplete_instances, "m", _SirioDropdownAutocomplete_checkTopPosition).call(this, menuHeight))
-                __classPrivateFieldGet(this, _SirioDropdownAutocomplete_menu, "f").classList.add("sirio-dropdown-menu-top");
         }
     }, 50), "f");
 }, _SirioDropdownAutocomplete_checkTopPosition = function _SirioDropdownAutocomplete_checkTopPosition(menuHeight) {
@@ -1237,7 +1336,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioDropdownMenu_instances, _SirioDropdownMenu_triggerId, _SirioDropdownMenu_trigger, _SirioDropdownMenu_menu, _SirioDropdownMenu_items, _SirioDropdownMenu_dropdown, _SirioDropdownMenu_defaultVPos, _SirioDropdownMenu_defaultHPos, _SirioDropdownMenu_checkVPosTimeout, _SirioDropdownMenu_checkHPosTimeout, _SirioDropdownMenu_adjustPosition, _SirioDropdownMenu_adjustVerticalPosition, _SirioDropdownMenu_adjustHorizontalPosition, _SirioDropdownMenu_checkTopPosition, _SirioDropdownMenu_checkBottomPosition, _SirioDropdownMenu_checkLeftPosition, _SirioDropdownMenu_checkRightPosition;
+var _SirioDropdownMenu_instances, _SirioDropdownMenu_triggerId, _SirioDropdownMenu_trigger, _SirioDropdownMenu_menu, _SirioDropdownMenu_items, _SirioDropdownMenu_dropdown, _SirioDropdownMenu_defaultVPos, _SirioDropdownMenu_defaultHPos, _SirioDropdownMenu_checkVPosTimeout, _SirioDropdownMenu_checkHPosTimeout, _SirioDropdownMenu_clickHandler, _SirioDropdownMenu_keydownHandler, _SirioDropdownMenu_itemKeydownHandler, _SirioDropdownMenu_itemClickHandler, _SirioDropdownMenu_adjustPosition, _SirioDropdownMenu_adjustVerticalPosition, _SirioDropdownMenu_adjustHorizontalPosition, _SirioDropdownMenu_checkTopPosition, _SirioDropdownMenu_checkBottomPosition, _SirioDropdownMenu_checkLeftPosition, _SirioDropdownMenu_checkRightPosition;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioDropdownMenu = void 0;
 class SirioDropdownMenu {
@@ -1252,6 +1351,71 @@ class SirioDropdownMenu {
         _SirioDropdownMenu_defaultHPos.set(this, void 0);
         _SirioDropdownMenu_checkVPosTimeout.set(this, void 0);
         _SirioDropdownMenu_checkHPosTimeout.set(this, void 0);
+        _SirioDropdownMenu_clickHandler.set(this, (event) => {
+            this.toggle();
+        });
+        _SirioDropdownMenu_keydownHandler.set(this, (event) => {
+            let key = event.key.toLowerCase();
+            if (!this.isHidden()) {
+                __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
+                if (key == "escape") {
+                    this.hide();
+                }
+                else if (key == "tab") {
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
+                    event.preventDefault();
+                }
+                else if (key == "arrowdown") {
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
+                    event.preventDefault();
+                }
+            }
+            else {
+                if (key == "arrowdown") {
+                    this.show();
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
+                    event.preventDefault();
+                }
+            }
+        });
+        _SirioDropdownMenu_itemKeydownHandler.set(this, (event) => {
+            let key = event.key.toLowerCase();
+            if (!this.isHidden()) {
+                let index = __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").indexOf(event.target);
+                if (key == "arrowdown") {
+                    if (index < __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").length - 1)
+                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index + 1].focus();
+                    event.preventDefault();
+                }
+                else if (key == "arrowup") {
+                    if (index > 0)
+                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index - 1].focus();
+                    event.preventDefault();
+                }
+                else if (key == "enter") {
+                    event.preventDefault();
+                    __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index].click();
+                }
+                else if (key == "escape") {
+                    this.hide();
+                }
+                else if (key == "tab" && index == __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").length - 1) {
+                    this.hide();
+                }
+            }
+        });
+        _SirioDropdownMenu_itemClickHandler.set(this, (event, item) => {
+            if (item.classList.contains("active")) {
+                item.classList.remove("active");
+            }
+            else {
+                __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").forEach((item) => {
+                    item.classList.remove("active");
+                });
+                item.classList.add("active");
+            }
+            this.hide();
+        });
         if (SirioDropdownMenu.isDropdownMenu(id)) {
             __classPrivateFieldSet(this, _SirioDropdownMenu_triggerId, id, "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_trigger, document.getElementById(id), "f");
@@ -1264,70 +1428,11 @@ class SirioDropdownMenu {
             __classPrivateFieldSet(this, _SirioDropdownMenu_defaultHPos, __classPrivateFieldGet(this, _SirioDropdownMenu_menu, "f").classList.contains("sirio-dropdown-menu-right") ? "right" : "left", "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_checkVPosTimeout, null, "f");
             __classPrivateFieldSet(this, _SirioDropdownMenu_checkHPosTimeout, null, "f");
-            __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("click", () => this.toggle());
-            __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("keydown", (event) => {
-                let key = event.key.toLowerCase();
-                if (!this.isHidden()) {
-                    __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
-                    if (key == "escape") {
-                        this.hide();
-                    }
-                    else if (key == "tab") {
-                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
-                        event.preventDefault();
-                    }
-                    else if (key == "arrowdown") {
-                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
-                        event.preventDefault();
-                    }
-                }
-                else {
-                    if (key == "arrowdown") {
-                        this.show();
-                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[0].focus();
-                        event.preventDefault();
-                    }
-                }
-            });
+            __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("click", __classPrivateFieldGet(this, _SirioDropdownMenu_clickHandler, "f"));
+            __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownMenu_keydownHandler, "f"));
             __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").forEach((item) => {
-                item.addEventListener("keydown", (event) => {
-                    let key = event.key.toLowerCase();
-                    if (!this.isHidden()) {
-                        let index = __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").indexOf(event.target);
-                        if (key == "arrowdown") {
-                            if (index < __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").length - 1)
-                                __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index + 1].focus();
-                            event.preventDefault();
-                        }
-                        else if (key == "arrowup") {
-                            if (index > 0)
-                                __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index - 1].focus();
-                            event.preventDefault();
-                        }
-                        else if (key == "enter") {
-                            event.preventDefault();
-                            __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f")[index].click();
-                        }
-                        else if (key == "escape") {
-                            this.hide();
-                        }
-                        else if (key == "tab" && index == __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").length - 1) {
-                            this.hide();
-                        }
-                    }
-                });
-                item.addEventListener("click", (event) => {
-                    if (item.classList.contains("active")) {
-                        item.classList.remove("active");
-                    }
-                    else {
-                        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").forEach((item) => {
-                            item.classList.remove("active");
-                        });
-                        item.classList.add("active");
-                    }
-                    this.hide();
-                });
+                item.addEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownMenu_itemKeydownHandler, "f"));
+                item.addEventListener("click", (event) => __classPrivateFieldGet(this, _SirioDropdownMenu_itemClickHandler, "f").call(this, event, item));
             });
             window.addEventListener("scroll", () => {
                 __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
@@ -1372,7 +1477,7 @@ class SirioDropdownMenu {
                     SirioDropdownMenu.menus[id] = dropdownMenuObj;
                 return;
             }
-            let menuElementsDIV = Array.from(dropdown.querySelectorAll("DIV.sirio-dropdown-menu")).filter((node) => node.parentNode == dropdown);
+            let menuElementsDIV = Array.from(dropdown.querySelectorAll("div.sirio-dropdown-menu")).filter((node) => node.parentNode == dropdown);
             if (menuElementsDIV.length == 1 && id != null) {
                 let menu = menuElementsDIV[0];
                 let dropdownMenuObj = new SirioDropdownMenu(id, menu, dropdown);
@@ -1380,6 +1485,14 @@ class SirioDropdownMenu {
                     SirioDropdownMenu.menus[id] = dropdownMenuObj;
                 return;
             }
+        }
+    }
+    static destroy(id) {
+        if (id in SirioDropdownMenu.menus) {
+            let menu = SirioDropdownMenu.menus[id];
+            menu.removeEventListeners();
+            delete SirioDropdownMenu.menus[id];
+            menu = null;
         }
     }
     static isDropdownMenu(id) {
@@ -1446,9 +1559,24 @@ class SirioDropdownMenu {
         if (i == menus.length)
             document.removeEventListener("click", SirioDropdownMenu.handleClick);
     }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").removeEventListener("click", __classPrivateFieldGet(this, _SirioDropdownMenu_clickHandler, "f"));
+        __classPrivateFieldGet(this, _SirioDropdownMenu_trigger, "f").removeEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownMenu_keydownHandler, "f"));
+        __classPrivateFieldGet(this, _SirioDropdownMenu_items, "f").forEach((item) => {
+            item.removeEventListener("keydown", __classPrivateFieldGet(this, _SirioDropdownMenu_itemKeydownHandler, "f"));
+            item.removeEventListener("click", (event) => __classPrivateFieldGet(this, _SirioDropdownMenu_itemClickHandler, "f").call(this, event, item));
+        });
+        document.removeEventListener("click", SirioDropdownMenu.handleClick);
+        window.addEventListener("scroll", () => {
+            __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
+        });
+        window.addEventListener("resize", () => {
+            __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustPosition).call(this);
+        });
+    }
 }
 exports.SirioDropdownMenu = SirioDropdownMenu;
-_SirioDropdownMenu_triggerId = new WeakMap(), _SirioDropdownMenu_trigger = new WeakMap(), _SirioDropdownMenu_menu = new WeakMap(), _SirioDropdownMenu_items = new WeakMap(), _SirioDropdownMenu_dropdown = new WeakMap(), _SirioDropdownMenu_defaultVPos = new WeakMap(), _SirioDropdownMenu_defaultHPos = new WeakMap(), _SirioDropdownMenu_checkVPosTimeout = new WeakMap(), _SirioDropdownMenu_checkHPosTimeout = new WeakMap(), _SirioDropdownMenu_instances = new WeakSet(), _SirioDropdownMenu_adjustPosition = function _SirioDropdownMenu_adjustPosition() {
+_SirioDropdownMenu_triggerId = new WeakMap(), _SirioDropdownMenu_trigger = new WeakMap(), _SirioDropdownMenu_menu = new WeakMap(), _SirioDropdownMenu_items = new WeakMap(), _SirioDropdownMenu_dropdown = new WeakMap(), _SirioDropdownMenu_defaultVPos = new WeakMap(), _SirioDropdownMenu_defaultHPos = new WeakMap(), _SirioDropdownMenu_checkVPosTimeout = new WeakMap(), _SirioDropdownMenu_checkHPosTimeout = new WeakMap(), _SirioDropdownMenu_clickHandler = new WeakMap(), _SirioDropdownMenu_keydownHandler = new WeakMap(), _SirioDropdownMenu_itemKeydownHandler = new WeakMap(), _SirioDropdownMenu_itemClickHandler = new WeakMap(), _SirioDropdownMenu_instances = new WeakSet(), _SirioDropdownMenu_adjustPosition = function _SirioDropdownMenu_adjustPosition() {
     if (!this.isHidden()) {
         __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustVerticalPosition).call(this);
         __classPrivateFieldGet(this, _SirioDropdownMenu_instances, "m", _SirioDropdownMenu_adjustHorizontalPosition).call(this);
@@ -1676,7 +1804,19 @@ class SirioDropdownSelect {
     static initComponent(select) {
         let id = select.id;
         if (select != null && !(id in SirioDropdownSelect.selects)) {
-            new SirioDropdownSelect(id, select);
+            try {
+                new SirioDropdownSelect(id, select);
+            }
+            catch (e) {
+            }
+        }
+    }
+    static destroy(id) {
+        if (id in SirioDropdownSelect.selects) {
+            let select = SirioDropdownSelect.selects[id];
+            select.removeEventListeners();
+            delete SirioDropdownSelect.selects[id];
+            select = null;
         }
     }
     static isDropdownSelect(id) {
@@ -1809,6 +1949,24 @@ class SirioDropdownSelect {
                 __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItemClick).call(this, __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[0]);
         }
     }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").removeEventListener("click", () => this.toggle());
+        document.removeEventListener("keydown", (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleKeys).call(this, event);
+        });
+        window.removeEventListener("scroll", () => {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustPosition).call(this);
+        });
+        window.removeEventListener("resize", () => {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_adjustPosition).call(this);
+        });
+        __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").removeEventListener("focus", (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_select, "f").tabIndex = -1;
+            __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").focus();
+        });
+        document.removeEventListener("focus", () => __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_onBlur).call(this), true);
+        document.removeEventListener("click", SirioDropdownSelect.handleClick);
+    }
 }
 exports.SirioDropdownSelect = SirioDropdownSelect;
 _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = new WeakMap(), _SirioDropdownSelect_select = new WeakMap(), _SirioDropdownSelect_placeholder = new WeakMap(), _SirioDropdownSelect_multiple = new WeakMap(), _SirioDropdownSelect_dropdown = new WeakMap(), _SirioDropdownSelect_numSelected = new WeakMap(), _SirioDropdownSelect_selectedValues = new WeakMap(), _SirioDropdownSelect_selectedContent = new WeakMap(), _SirioDropdownSelect_menu = new WeakMap(), _SirioDropdownSelect_items = new WeakMap(), _SirioDropdownSelect_searchString = new WeakMap(), _SirioDropdownSelect_searching = new WeakMap(), _SirioDropdownSelect_searchIndex = new WeakMap(), _SirioDropdownSelect_searchReset = new WeakMap(), _SirioDropdownSelect_disabled = new WeakMap(), _SirioDropdownSelect_onChange = new WeakMap(), _SirioDropdownSelect_defaultVPos = new WeakMap(), _SirioDropdownSelect_checkVPosTimeout = new WeakMap(), _SirioDropdownSelect_instances = new WeakSet(), _SirioDropdownSelect_onBlur = function _SirioDropdownSelect_onBlur() {
@@ -1889,7 +2047,7 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
                 break;
             case " ":
                 activeElement.click();
-                if (!this.isMultiple) {
+                if (!this.isMultiple()) {
                     __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").focus();
                     this.hide();
                 }
@@ -2106,7 +2264,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioFileUpload_instances, _SirioFileUpload_inputElementId, _SirioFileUpload_inputElement, _SirioFileUpload_upload, _SirioFileUpload_fileListElement, _SirioFileUpload_multiple, _SirioFileUpload_maxFiles, _SirioFileUpload_chips, _SirioFileUpload_fileDictionary, _SirioFileUpload_createFileListElement, _SirioFileUpload_createFileChip, _SirioFileUpload_onDismiss;
+var _SirioFileUpload_instances, _SirioFileUpload_inputElementId, _SirioFileUpload_inputElement, _SirioFileUpload_upload, _SirioFileUpload_fileListElement, _SirioFileUpload_multiple, _SirioFileUpload_maxFiles, _SirioFileUpload_fileDictionary, _SirioFileUpload_createFileListElement, _SirioFileUpload_createFileChip, _SirioFileUpload_onDismiss;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioFileUpload = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -2120,14 +2278,12 @@ class SirioFileUpload {
         _SirioFileUpload_fileListElement.set(this, void 0);
         _SirioFileUpload_multiple.set(this, void 0);
         _SirioFileUpload_maxFiles.set(this, void 0);
-        _SirioFileUpload_chips.set(this, void 0);
         _SirioFileUpload_fileDictionary.set(this, void 0);
         if (SirioFileUpload.isFileUpload(id)) {
             __classPrivateFieldSet(this, _SirioFileUpload_inputElementId, id, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_upload, upload, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_inputElement, document.getElementById(id), "f");
             __classPrivateFieldSet(this, _SirioFileUpload_fileListElement, null, "f");
-            __classPrivateFieldSet(this, _SirioFileUpload_chips, {}, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_fileDictionary, {}, "f");
             __classPrivateFieldSet(this, _SirioFileUpload_multiple, __classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").getAttribute('multiple') ? true : false, "f");
             if (__classPrivateFieldGet(this, _SirioFileUpload_inputElement, "f").hasAttribute('data-sirio-maxfiles')) {
@@ -2178,6 +2334,16 @@ class SirioFileUpload {
             return;
         }
     }
+    static destroy(id) {
+        if (id in SirioFileUpload.fileUploads) {
+            let fileUpload = SirioFileUpload.getFileUploadById(id);
+            let inputElement = fileUpload.getInputElement();
+            if (inputElement != null)
+                inputElement.onchange = null;
+            delete SirioFileUpload.fileUploads[id];
+            fileUpload = null;
+        }
+    }
     static isFileUpload(id) {
         const validTypes = ["file"];
         const triggerElement = document.getElementById(id);
@@ -2211,7 +2377,7 @@ class SirioFileUpload {
     }
 }
 exports.SirioFileUpload = SirioFileUpload;
-_SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement = new WeakMap(), _SirioFileUpload_upload = new WeakMap(), _SirioFileUpload_fileListElement = new WeakMap(), _SirioFileUpload_multiple = new WeakMap(), _SirioFileUpload_maxFiles = new WeakMap(), _SirioFileUpload_chips = new WeakMap(), _SirioFileUpload_fileDictionary = new WeakMap(), _SirioFileUpload_instances = new WeakSet(), _SirioFileUpload_createFileListElement = function _SirioFileUpload_createFileListElement() {
+_SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement = new WeakMap(), _SirioFileUpload_upload = new WeakMap(), _SirioFileUpload_fileListElement = new WeakMap(), _SirioFileUpload_multiple = new WeakMap(), _SirioFileUpload_maxFiles = new WeakMap(), _SirioFileUpload_fileDictionary = new WeakMap(), _SirioFileUpload_instances = new WeakSet(), _SirioFileUpload_createFileListElement = function _SirioFileUpload_createFileListElement() {
     let ul = document.createElement("ul");
     ul.classList.add(Constants_1.sirioPrefix + "upload-file-list");
     __classPrivateFieldGet(this, _SirioFileUpload_upload, "f").appendChild(ul);
@@ -2241,7 +2407,11 @@ _SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement =
     chip.appendChild(dismissButton);
     li.appendChild(chip);
     (_a = __classPrivateFieldGet(this, _SirioFileUpload_fileListElement, "f")) === null || _a === void 0 ? void 0 : _a.appendChild(li);
-    new SirioChip_1.SirioChip(li, fileName, dismissButton, () => __classPrivateFieldGet(this, _SirioFileUpload_instances, "m", _SirioFileUpload_onDismiss).call(this, fileName));
+    try {
+        new SirioChip_1.SirioChip(li, fileName, dismissButton, () => __classPrivateFieldGet(this, _SirioFileUpload_instances, "m", _SirioFileUpload_onDismiss).call(this, fileName));
+    }
+    catch (e) {
+    }
 }, _SirioFileUpload_onDismiss = function _SirioFileUpload_onDismiss(fileName) {
     var _a;
     delete __classPrivateFieldGet(this, _SirioFileUpload_fileDictionary, "f")[fileName];
@@ -2263,7 +2433,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioPopover_instances, _SirioPopover_isResizing, _SirioPopover_handleClick, _SirioPopover_handleResize, _SirioPopover_toggle, _SirioPopover_show, _SirioPopover_hide, _SirioPopover_handleTriggerTab, _SirioPopover_handlePopoverTab;
+var _SirioPopover_instances, _SirioPopover_isResizing, _SirioPopover_handleClick, _SirioPopover_handleResize, _SirioPopover_toggle, _SirioPopover_handleTriggerTab, _SirioPopover_handlePopoverTab;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioPopover = void 0;
 const SirioTooltip_1 = __webpack_require__(713);
@@ -2275,13 +2445,13 @@ class SirioPopover extends SirioTooltip_1.SirioTooltip {
         _SirioPopover_handleClick.set(this, (event) => {
             let target = event.target;
             if (!this.element.contains(target) && !this.triggerElement.contains(target)) {
-                __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_hide).call(this);
+                this.hide();
             }
         });
         _SirioPopover_handleResize.set(this, (event) => {
             var _a;
             if (!__classPrivateFieldGet(this, _SirioPopover_isResizing, "f") && !((_a = this.element) === null || _a === void 0 ? void 0 : _a.hidden)) {
-                this.show("popover", true);
+                this.showElement("popover", true);
             }
         });
     }
@@ -2299,43 +2469,72 @@ class SirioPopover extends SirioTooltip_1.SirioTooltip {
         });
         window.addEventListener("keydown", function (event) {
             if (event.key === "Escape" || event.key === "Esc") {
-                __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_hide).call(popover);
+                popover.hide();
             }
         });
+        SirioPopover.popovers.set(trigger, popover);
+    }
+    static destroy(trigger) {
+        let popover = SirioPopover.popovers.get(trigger);
+        if (popover) {
+            popover.removeEventListeners();
+            SirioPopover.popovers.delete(trigger);
+            popover = null;
+        }
+    }
+    static getPopoverByElement(element) {
+        return SirioPopover.popovers.get(element) || null;
+    }
+    show() {
+        this.showElement("popover");
+        if (this.triggerElement)
+            this.triggerElement.addEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handleTriggerTab).call(this, event));
+        document.addEventListener("click", __classPrivateFieldGet(this, _SirioPopover_handleClick, "f"));
+        window.addEventListener("resize", __classPrivateFieldGet(this, _SirioPopover_handleResize, "f"));
+    }
+    hide() {
+        var _a;
+        if (!this.hidden) {
+            this.triggerElement.addEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handleTriggerTab).call(this, event));
+            this.triggerElement.removeAttribute("style");
+            this.triggerElement.removeAttribute("aria-describedby");
+            (_a = this.element) === null || _a === void 0 ? void 0 : _a.remove();
+            this.element = null;
+            this.hidden = true;
+            document.removeEventListener("click", __classPrivateFieldGet(this, _SirioPopover_handleClick, "f"));
+            window.removeEventListener("resize", __classPrivateFieldGet(this, _SirioPopover_handleResize, "f"));
+        }
+    }
+    removeEventListeners() {
+        let popover = this;
+        this.triggerElement.removeEventListener("click", function (event) {
+            event.preventDefault();
+            __classPrivateFieldGet(popover, _SirioPopover_instances, "m", _SirioPopover_toggle).call(popover);
+        });
+        window.removeEventListener("keydown", function (event) {
+            if (event.key === "Escape" || event.key === "Esc") {
+                popover.hide();
+            }
+        });
+        this.triggerElement.removeEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handleTriggerTab).call(this, event));
+        document.removeEventListener("click", __classPrivateFieldGet(this, _SirioPopover_handleClick, "f"));
+        window.removeEventListener("resize", __classPrivateFieldGet(this, _SirioPopover_handleResize, "f"));
     }
 }
 exports.SirioPopover = SirioPopover;
 _SirioPopover_isResizing = new WeakMap(), _SirioPopover_handleClick = new WeakMap(), _SirioPopover_handleResize = new WeakMap(), _SirioPopover_instances = new WeakSet(), _SirioPopover_toggle = function _SirioPopover_toggle() {
     if (this.hidden) {
-        __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_show).call(this);
+        this.show();
     }
     else {
-        __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_hide).call(this);
-    }
-}, _SirioPopover_show = function _SirioPopover_show() {
-    this.show("popover");
-    if (this.triggerElement)
-        this.triggerElement.addEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handleTriggerTab).call(this, event));
-    document.addEventListener("click", __classPrivateFieldGet(this, _SirioPopover_handleClick, "f"));
-    window.addEventListener("resize", __classPrivateFieldGet(this, _SirioPopover_handleResize, "f"));
-}, _SirioPopover_hide = function _SirioPopover_hide() {
-    var _a, _b, _c, _d;
-    if (!this.hidden) {
-        (_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.addEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handleTriggerTab).call(this, event));
-        (_b = this.triggerElement) === null || _b === void 0 ? void 0 : _b.removeAttribute("style");
-        (_c = this.triggerElement) === null || _c === void 0 ? void 0 : _c.removeAttribute("aria-describedby");
-        (_d = this.element) === null || _d === void 0 ? void 0 : _d.remove();
-        this.element = null;
-        this.hidden = true;
-        document.removeEventListener("click", __classPrivateFieldGet(this, _SirioPopover_handleClick, "f"));
-        window.removeEventListener("resize", __classPrivateFieldGet(this, _SirioPopover_handleResize, "f"));
+        this.hide();
     }
 }, _SirioPopover_handleTriggerTab = function _SirioPopover_handleTriggerTab(event) {
     var _a, _b;
     let e = event;
     let key = e.key.toLowerCase();
     if (key === "tab" && event.shiftKey) {
-        __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_hide).call(this);
+        this.hide();
     }
     else if (key === "tab") {
         if (!this.hidden && this.element) {
@@ -2348,27 +2547,28 @@ _SirioPopover_isResizing = new WeakMap(), _SirioPopover_handleClick = new WeakMa
         }
     }
 }, _SirioPopover_handlePopoverTab = function _SirioPopover_handlePopoverTab(event, dispatchEvent = true) {
-    var _a, _b, _c, _d;
+    var _a, _b;
     if (!this.hidden && this.element) {
         let focusableEls = this.element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
         let key = event.key.toLowerCase();
         if (key === "tab" && event.shiftKey) {
             if (document.activeElement === focusableEls[0]) {
-                (_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.focus();
-                __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_hide).call(this);
-                (_b = this.element) === null || _b === void 0 ? void 0 : _b.removeEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handlePopoverTab).call(this, event, false));
+                this.triggerElement.focus();
+                this.hide();
+                (_a = this.element) === null || _a === void 0 ? void 0 : _a.removeEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handlePopoverTab).call(this, event, false));
                 event.preventDefault();
             }
         }
         else if (key === "tab") {
             if (document.activeElement === focusableEls[focusableEls.length - 1]) {
-                (_c = this.triggerElement) === null || _c === void 0 ? void 0 : _c.focus();
-                __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_hide).call(this);
-                (_d = this.element) === null || _d === void 0 ? void 0 : _d.removeEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handlePopoverTab).call(this, event, false));
+                this.triggerElement.focus();
+                this.hide();
+                (_b = this.element) === null || _b === void 0 ? void 0 : _b.removeEventListener("keydown", (event) => __classPrivateFieldGet(this, _SirioPopover_instances, "m", _SirioPopover_handlePopoverTab).call(this, event, false));
             }
         }
     }
 };
+SirioPopover.popovers = new Map();
 
 
 /***/ }),
@@ -2508,10 +2708,17 @@ class SirioSlider {
         });
         let rangeLabelsEls = sliderComponentEl.getElementsByClassName(Constants_1.sirioPrefix + "slider-range");
         if (rangeLabelsEls.length > 0 && sliderEl != null && inputNumberEl != null) {
+            let id = sliderEl.id;
             let rangeLabelEl = rangeLabelsEls[0];
             let sirioSliderObj = new SirioSlider(sliderEl, inputNumberEl, rangeLabelEl);
-            SirioSlider.sliders[sliderEl] = sirioSliderObj;
+            SirioSlider.sliders[id] = sirioSliderObj;
         }
+    }
+    static destroy(id) {
+        let sirioSliderObj = SirioSlider.getSliderById(id);
+        sirioSliderObj.removeEventListeners();
+        delete SirioSlider.sliders[id];
+        sirioSliderObj = null;
     }
     static getSliderById(id) {
         return SirioSlider.sliders[id];
@@ -2544,10 +2751,24 @@ class SirioSlider {
         }
         else {
             stringValue = value.toString();
-            __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").style.setProperty("--val", stringValue);
-            __classPrivateFieldGet(this, _SirioSlider_inputNumberEl, "f").value = stringValue;
-            __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").value = stringValue;
         }
+        __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").style.setProperty("--val", stringValue);
+        __classPrivateFieldGet(this, _SirioSlider_inputNumberEl, "f").value = stringValue;
+        __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").value = stringValue;
+    }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").removeEventListener("input", (event) => {
+            event.preventDefault();
+            __classPrivateFieldGet(this, _SirioSlider_instances, "m", _SirioSlider_updateInputNumber).call(this);
+        });
+        __classPrivateFieldGet(this, _SirioSlider_sliderEl, "f").removeEventListener("click", (event) => {
+            event.preventDefault();
+            __classPrivateFieldGet(this, _SirioSlider_instances, "m", _SirioSlider_updateInputNumber).call(this);
+        });
+        __classPrivateFieldGet(this, _SirioSlider_inputNumberEl, "f").removeEventListener("input", (event) => {
+            event.preventDefault();
+            __classPrivateFieldGet(this, _SirioSlider_instances, "m", _SirioSlider_updateSlider).call(this);
+        });
     }
 }
 exports.SirioSlider = SirioSlider;
@@ -2605,7 +2826,7 @@ class SirioSticky {
     static init() {
         window.removeEventListener("scroll", SirioSticky.handleScroll);
         window.removeEventListener("resize", SirioSticky.handleResize);
-        SirioSticky.stickys = [];
+        SirioSticky.stickys = new Map();
         SirioSticky.lastScrollTop = 0;
         SirioSticky.cumulativeHeight = 0;
         let styckyElements = document.querySelectorAll(`[data-sirio-component="sticky"]`);
@@ -2618,17 +2839,17 @@ class SirioSticky {
     static initComponent(sticky) {
         let stickyObj = new SirioSticky(sticky);
         if (stickyObj != undefined)
-            SirioSticky.stickys.push(stickyObj);
+            SirioSticky.stickys.set(sticky, stickyObj);
     }
     static handleScroll() {
-        var st = window.pageYOffset || document.documentElement.scrollTop;
+        var st = window.scrollY || document.documentElement.scrollTop;
         if (st > SirioSticky.lastScrollTop) {
             SirioSticky.stickys.forEach((sticky) => {
                 SirioSticky.cumulativeHeight += __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_checkToSticky).call(sticky, SirioSticky.cumulativeHeight);
             });
         }
         else {
-            SirioSticky.stickys
+            Array.from(SirioSticky.stickys.values())
                 .slice()
                 .reverse()
                 .forEach((sticky) => {
@@ -2649,12 +2870,15 @@ class SirioSticky {
             __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_unsetSticky).call(sticky);
         });
     }
+    static getStickyByElement(element) {
+        return SirioSticky.stickys.get(element) || null;
+    }
 }
 exports.SirioSticky = SirioSticky;
 _SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap(), _SirioSticky_isSticky = new WeakMap(), _SirioSticky_instances = new WeakSet(), _SirioSticky_checkToSticky = function _SirioSticky_checkToSticky(cumulativeHeight) {
     if (!__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
-        let startTrigger = window.pageYOffset + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
-        if (window.pageYOffset + cumulativeHeight > startTrigger) {
+        let startTrigger = window.scrollY + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+        if (window.scrollY + cumulativeHeight > startTrigger) {
             __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_setSticky).call(this, cumulativeHeight);
             return +__classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
         }
@@ -2662,8 +2886,8 @@ _SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap
     return 0;
 }, _SirioSticky_checkToUnsticky = function _SirioSticky_checkToUnsticky(cumulativeHeight) {
     if (__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
-        let startTrigger = window.pageYOffset + __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_getUnstickyStartTrigger).call(this);
-        if (window.pageYOffset + cumulativeHeight <= startTrigger) {
+        let startTrigger = window.scrollY + __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_getUnstickyStartTrigger).call(this);
+        if (window.scrollY + cumulativeHeight <= startTrigger) {
             let offsetHeight = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
             __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_unsetSticky).call(this);
             return -offsetHeight;
@@ -2692,6 +2916,7 @@ _SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap
     __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", current || "false");
     return startTrigger;
 };
+SirioSticky.stickys = new Map();
 SirioSticky.lastScrollTop = 0;
 SirioSticky.cumulativeHeight = 0;
 
@@ -2699,7 +2924,7 @@ SirioSticky.cumulativeHeight = 0;
 /***/ }),
 
 /***/ 768:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
@@ -2713,27 +2938,49 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioTab_tabGroup, _SirioTab_vertical, _SirioTab_tabsList, _SirioTabElement_instances, _SirioTabElement_id, _SirioTabElement_triggerId, _SirioTabElement_triggerElement, _SirioTabElement_tabsGroup, _SirioTabElement_tabPanel, _SirioTabElement_disabled, _SirioTabElement_show, _SirioTabElement_hide;
+var _SirioTab_instances, _SirioTab_tabGroup, _SirioTab_vertical, _SirioTab_tabsList, _SirioTab_scrollLeft, _SirioTab_scrollRight, _SirioTab_observer, _SirioTab_handleOverflow, _SirioTab_activeScrollButtons, _SirioTab_scrollRightHandler, _SirioTab_scrollLeftHandler, _SirioTabElement_instances, _SirioTabElement_index, _SirioTabElement_id, _SirioTabElement_triggerId, _SirioTabElement_triggerElement, _SirioTabElement_tabsGroup, _SirioTabElement_tabPanel, _SirioTabElement_disabled, _SirioTabElement_show, _SirioTabElement_hide;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTab = void 0;
+const Utils_1 = __webpack_require__(675);
 class SirioTab {
     constructor(group) {
+        _SirioTab_instances.add(this);
         _SirioTab_tabGroup.set(this, void 0);
         _SirioTab_vertical.set(this, void 0);
         _SirioTab_tabsList.set(this, void 0);
+        _SirioTab_scrollLeft.set(this, null);
+        _SirioTab_scrollRight.set(this, null);
+        _SirioTab_observer.set(this, null);
         if (SirioTab.isValidTabGroup(group)) {
             __classPrivateFieldSet(this, _SirioTab_tabsList, [], "f");
             __classPrivateFieldSet(this, _SirioTab_tabGroup, group, "f");
             __classPrivateFieldSet(this, _SirioTab_vertical, __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").getAttribute("aria-orientation") == "vertical" ? true : false, "f");
             this.activeTab = null;
             let tabElements = __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").querySelectorAll(`[data-sirio-toggle="tab"]`);
+            let i = 0;
             tabElements.forEach((tab) => {
                 let targetId = tab.getAttribute("aria-controls");
                 if (targetId != null) {
-                    let newTab = new SirioTabElement(targetId, tab, this);
+                    let newTab = new SirioTabElement(i++, targetId, tab, this);
                     __classPrivateFieldGet(this, _SirioTab_tabsList, "f").push(newTab);
                 }
             });
+            if (!__classPrivateFieldGet(this, _SirioTab_vertical, "f") && __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").parentElement) {
+                let tabComponent = __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").parentElement.querySelector('div.sirio-tab-control');
+                if (tabComponent) {
+                    let scrollBtns = Array.from(tabComponent.querySelectorAll('button'));
+                    if ((scrollBtns === null || scrollBtns === void 0 ? void 0 : scrollBtns.length) >= 2) {
+                        __classPrivateFieldSet(this, _SirioTab_scrollLeft, scrollBtns[0], "f");
+                        __classPrivateFieldSet(this, _SirioTab_scrollRight, scrollBtns[1], "f");
+                        __classPrivateFieldGet(this, _SirioTab_scrollRight, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_scrollRightHandler).call(this));
+                        __classPrivateFieldGet(this, _SirioTab_scrollLeft, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_scrollLeftHandler).call(this));
+                        __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_handleOverflow).call(this);
+                        __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").addEventListener("scroll", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_activeScrollButtons).call(this));
+                        window.addEventListener("resize", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_handleOverflow).call(this));
+                        __classPrivateFieldSet(this, _SirioTab_observer, (0, Utils_1.onVisible)(__classPrivateFieldGet(this, _SirioTab_tabGroup, "f"), __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_handleOverflow).bind(this)), "f");
+                    }
+                }
+            }
             if (typeof this.activeTab === "string")
                 SirioTab.tabs[this.activeTab].select(false);
             SirioTab.setActiveTabByLocation();
@@ -2750,7 +2997,30 @@ class SirioTab {
     }
     static initComponent(group) {
         let newTabGroup = group;
-        new SirioTab(newTabGroup);
+        try {
+            let tabGroup = new SirioTab(newTabGroup);
+            SirioTab.tabsGroup.set(newTabGroup, tabGroup);
+        }
+        catch (e) {
+        }
+    }
+    static destroy(group) {
+        let tabElements = group.querySelectorAll(`[data-sirio-toggle="tab"]`);
+        tabElements.forEach((tab) => {
+            let targetId = tab.id;
+            if (SirioTab.tabs[targetId]) {
+                let tab = SirioTab.tabs[targetId];
+                tab.removeEventListeners();
+                delete SirioTab.tabs[targetId];
+                tab = null;
+            }
+            let tabGroup = SirioTab.tabsGroup.get(group);
+            if (tabGroup) {
+                tabGroup.removeEventListeners();
+                SirioTab.tabsGroup.delete(group);
+                tabGroup = null;
+            }
+        });
     }
     static isValidTabGroup(group) {
         const validGroupRoles = ["tablist"];
@@ -2769,6 +3039,9 @@ class SirioTab {
         else {
             return false;
         }
+    }
+    static getTabGroupByElement(element) {
+        return SirioTab.tabsGroup.get(element) || null;
     }
     isVertical() {
         return __classPrivateFieldGet(this, _SirioTab_vertical, "f");
@@ -2795,11 +3068,11 @@ class SirioTab {
         }
         return null;
     }
-    getNextTab() {
+    getNextTab(loop = true) {
         if (this.activeTab) {
             let currentTab = SirioTab.tabs[this.activeTab], lastTab = this.getLastActiveTab();
             if (currentTab) {
-                if (currentTab === lastTab) {
+                if (loop && currentTab === lastTab) {
                     return this.getFirstActiveTab();
                 }
                 else {
@@ -2813,11 +3086,11 @@ class SirioTab {
         }
         return null;
     }
-    getPreviousTab() {
+    getPreviousTab(loop = true) {
         if (this.activeTab) {
             let currentTab = SirioTab.tabs[this.activeTab], firstTab = this.getFirstActiveTab();
             if (currentTab) {
-                if (currentTab === firstTab) {
+                if (loop && currentTab === firstTab) {
                     return this.getLastActiveTab();
                 }
                 else {
@@ -2831,6 +3104,27 @@ class SirioTab {
         }
         return null;
     }
+    adjustScrollActiveTab(index) {
+        var _a;
+        let cumulativeWidth = 0;
+        for (let i = 0; i < __classPrivateFieldGet(this, _SirioTab_tabsList, "f").length; i++) {
+            let tabElement = (_a = __classPrivateFieldGet(this, _SirioTab_tabsList, "f")[i].getTabElement()) === null || _a === void 0 ? void 0 : _a.parentElement;
+            if (tabElement) {
+                let style = window.getComputedStyle(tabElement);
+                let tabWidth = Math.ceil(tabElement.getBoundingClientRect().width);
+                if (i === index && cumulativeWidth < __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft) {
+                    __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft = cumulativeWidth - parseInt(style.marginRight, 10);
+                    break;
+                }
+                cumulativeWidth += tabWidth + parseInt(style.marginRight, 10);
+                if (i === index && cumulativeWidth >= __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft + __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").offsetWidth) {
+                    __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft = cumulativeWidth - __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").offsetWidth;
+                    break;
+                }
+            }
+        }
+        __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_activeScrollButtons).call(this);
+    }
     static getTabById(id) {
         return SirioTab.tabs[id];
     }
@@ -2843,13 +3137,86 @@ class SirioTab {
             }
         }
     }
+    removeEventListeners() {
+        var _a, _b, _c;
+        (_a = __classPrivateFieldGet(this, _SirioTab_scrollRight, "f")) === null || _a === void 0 ? void 0 : _a.removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_scrollRightHandler).call(this));
+        (_b = __classPrivateFieldGet(this, _SirioTab_scrollLeft, "f")) === null || _b === void 0 ? void 0 : _b.removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_scrollLeftHandler).call(this));
+        __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").removeEventListener("scroll", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_activeScrollButtons).call(this));
+        window.removeEventListener("resize", () => __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_handleOverflow).call(this));
+        (_c = __classPrivateFieldGet(this, _SirioTab_observer, "f")) === null || _c === void 0 ? void 0 : _c.disconnect();
+    }
 }
 exports.SirioTab = SirioTab;
-_SirioTab_tabGroup = new WeakMap(), _SirioTab_vertical = new WeakMap(), _SirioTab_tabsList = new WeakMap();
+_SirioTab_tabGroup = new WeakMap(), _SirioTab_vertical = new WeakMap(), _SirioTab_tabsList = new WeakMap(), _SirioTab_scrollLeft = new WeakMap(), _SirioTab_scrollRight = new WeakMap(), _SirioTab_observer = new WeakMap(), _SirioTab_instances = new WeakSet(), _SirioTab_handleOverflow = function _SirioTab_handleOverflow() {
+    var _a, _b;
+    if (__classPrivateFieldGet(this, _SirioTab_tabGroup, "f").offsetWidth < __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollWidth) {
+        (_a = __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").parentElement) === null || _a === void 0 ? void 0 : _a.classList.add("sirio-tab-scroll");
+    }
+    else {
+        (_b = __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").parentElement) === null || _b === void 0 ? void 0 : _b.classList.remove("sirio-tab-scroll");
+    }
+    __classPrivateFieldGet(this, _SirioTab_instances, "m", _SirioTab_activeScrollButtons).call(this);
+}, _SirioTab_activeScrollButtons = function _SirioTab_activeScrollButtons() {
+    var _a, _b, _c, _d, _e, _f;
+    if (this.activeTab) {
+        if (((_a = this.getFirstActiveTab()) === null || _a === void 0 ? void 0 : _a.getTabElement()) === SirioTab.tabs[this.activeTab].getTabElement())
+            (_b = __classPrivateFieldGet(this, _SirioTab_scrollLeft, "f")) === null || _b === void 0 ? void 0 : _b.setAttribute("disabled", "true");
+        else
+            (_c = __classPrivateFieldGet(this, _SirioTab_scrollLeft, "f")) === null || _c === void 0 ? void 0 : _c.removeAttribute("disabled");
+        if (((_d = this.getLastActiveTab()) === null || _d === void 0 ? void 0 : _d.getTabElement()) === SirioTab.tabs[this.activeTab].getTabElement())
+            (_e = __classPrivateFieldGet(this, _SirioTab_scrollRight, "f")) === null || _e === void 0 ? void 0 : _e.setAttribute("disabled", "true");
+        else
+            (_f = __classPrivateFieldGet(this, _SirioTab_scrollRight, "f")) === null || _f === void 0 ? void 0 : _f.removeAttribute("disabled");
+    }
+}, _SirioTab_scrollRightHandler = function _SirioTab_scrollRightHandler() {
+    var _a;
+    let tab = this.getNextTab(false);
+    if (tab)
+        tab.select();
+    else {
+        let availableWidth = __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").offsetWidth + __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft;
+        let cumulativeWidth = 0;
+        for (let i = 0; i < __classPrivateFieldGet(this, _SirioTab_tabsList, "f").length; i++) {
+            let tabElement = (_a = __classPrivateFieldGet(this, _SirioTab_tabsList, "f")[i].getTabElement()) === null || _a === void 0 ? void 0 : _a.parentElement;
+            if (tabElement) {
+                let tabWidth = Math.ceil(tabElement.getBoundingClientRect().width);
+                let style = window.getComputedStyle(tabElement);
+                cumulativeWidth += tabWidth + parseInt(style.marginRight, 10);
+                if (cumulativeWidth > availableWidth) {
+                    __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft += cumulativeWidth - availableWidth;
+                    return;
+                }
+            }
+        }
+        ;
+    }
+}, _SirioTab_scrollLeftHandler = function _SirioTab_scrollLeftHandler() {
+    var _a;
+    let tab = this.getPreviousTab(false);
+    if (tab)
+        tab.select();
+    else {
+        let cumulativeWidth = 0;
+        for (let i = 0; i < __classPrivateFieldGet(this, _SirioTab_tabsList, "f").length; i++) {
+            let tabElement = (_a = __classPrivateFieldGet(this, _SirioTab_tabsList, "f")[i].getTabElement()) === null || _a === void 0 ? void 0 : _a.parentElement;
+            if (tabElement) {
+                let tabWidth = Math.ceil(tabElement.getBoundingClientRect().width);
+                cumulativeWidth += tabWidth;
+                if (cumulativeWidth >= __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft) {
+                    __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft -= tabWidth - (cumulativeWidth - __classPrivateFieldGet(this, _SirioTab_tabGroup, "f").scrollLeft);
+                    return;
+                }
+            }
+        }
+        ;
+    }
+};
+SirioTab.tabsGroup = new Map();
 SirioTab.tabs = {};
 class SirioTabElement {
-    constructor(id, trigger, group) {
+    constructor(index, id, trigger, group) {
         _SirioTabElement_instances.add(this);
+        _SirioTabElement_index.set(this, void 0);
         _SirioTabElement_id.set(this, void 0);
         _SirioTabElement_triggerId.set(this, void 0);
         _SirioTabElement_triggerElement.set(this, void 0);
@@ -2857,6 +3224,7 @@ class SirioTabElement {
         _SirioTabElement_tabPanel.set(this, void 0);
         _SirioTabElement_disabled.set(this, void 0);
         if (SirioTabElement.isTab(id, trigger)) {
+            __classPrivateFieldSet(this, _SirioTabElement_index, index, "f");
             __classPrivateFieldSet(this, _SirioTabElement_id, id, "f");
             __classPrivateFieldSet(this, _SirioTabElement_triggerId, trigger.id, "f");
             __classPrivateFieldSet(this, _SirioTabElement_triggerElement, trigger, "f");
@@ -2915,6 +3283,7 @@ class SirioTabElement {
                     if (setFocus)
                         __classPrivateFieldGet(tab, _SirioTabElement_triggerElement, "f").focus();
                     __classPrivateFieldGet(currentTab, _SirioTabElement_tabsGroup, "f").activeTab = __classPrivateFieldGet(this, _SirioTabElement_triggerId, "f");
+                    __classPrivateFieldGet(this, _SirioTabElement_tabsGroup, "f").adjustScrollActiveTab(__classPrivateFieldGet(this, _SirioTabElement_index, "f"));
                 }
                 else {
                     trigger.setAttribute("aria-selected", "false");
@@ -2977,8 +3346,12 @@ class SirioTabElement {
     getGroupElement() {
         return __classPrivateFieldGet(this, _SirioTabElement_tabsGroup, "f").getTabGroup();
     }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").removeEventListener("keydown", this.onKeydown);
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").removeEventListener("click", this.onClick.bind(this));
+    }
 }
-_SirioTabElement_id = new WeakMap(), _SirioTabElement_triggerId = new WeakMap(), _SirioTabElement_triggerElement = new WeakMap(), _SirioTabElement_tabsGroup = new WeakMap(), _SirioTabElement_tabPanel = new WeakMap(), _SirioTabElement_disabled = new WeakMap(), _SirioTabElement_instances = new WeakSet(), _SirioTabElement_show = function _SirioTabElement_show() {
+_SirioTabElement_index = new WeakMap(), _SirioTabElement_id = new WeakMap(), _SirioTabElement_triggerId = new WeakMap(), _SirioTabElement_triggerElement = new WeakMap(), _SirioTabElement_tabsGroup = new WeakMap(), _SirioTabElement_tabPanel = new WeakMap(), _SirioTabElement_disabled = new WeakMap(), _SirioTabElement_instances = new WeakSet(), _SirioTabElement_show = function _SirioTabElement_show() {
     if (__classPrivateFieldGet(this, _SirioTabElement_tabPanel, "f") != null) {
         __classPrivateFieldGet(this, _SirioTabElement_tabPanel, "f").setAttribute("data-sirio-visible", "true");
         __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").setAttribute("aria-selected", "true");
@@ -3008,7 +3381,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioTable_instances, _SirioTable_tableEl, _SirioTable_containerEl, _SirioTable_responsive, _SirioTable_isResizing, _SirioTable_determineTableVisibility, _SirioTable_getTableEl, _SirioTable_getContainerEl, _SirioTable_isResponsive, _SirioTable_isOverflowed, _SirioTable_expand, _SirioTable_overflow;
+var _SirioTable_instances, _SirioTable_tableEl, _SirioTable_containerEl, _SirioTable_responsive, _SirioTable_isResizing, _SirioTable_determineTableVisibility, _SirioTable_isResponsive, _SirioTable_isOverflowed, _SirioTable_expand, _SirioTable_overflow, _SirioTable_handleScroll, _SirioTable_handleLoad, _SirioTable_handleResize;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTable = void 0;
 class SirioTable {
@@ -3036,37 +3409,34 @@ class SirioTable {
     static initComponent(tableEl) {
         let tableObj = new SirioTable(tableEl);
         if (__classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_isResponsive).call(tableObj)) {
-            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").addEventListener("scroll", function () {
-                let maxScroll = __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollWidth - __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").clientWidth;
-                if (__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft > 0) {
-                    __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-start");
-                    if (Math.ceil(__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").scrollLeft) >= maxScroll) {
-                        __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-end");
-                    }
-                    else {
-                        if (!__classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.contains("sirio-table-overflow-end")) {
-                            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-end");
-                        }
-                    }
-                }
-                else {
-                    __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-start");
-                }
-            });
-            window.addEventListener("load", function () {
-                __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
-            });
-            window.addEventListener("resize", function () {
-                if (!__classPrivateFieldGet(tableObj, _SirioTable_isResizing, "f")) {
-                    __classPrivateFieldSet(tableObj, _SirioTable_isResizing, true, "f");
-                    this.setTimeout(() => {
-                        __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_expand).call(tableObj);
-                        __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(tableObj);
-                        __classPrivateFieldSet(tableObj, _SirioTable_isResizing, false, "f");
-                    }, 200);
-                }
-            });
+            __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").addEventListener("scroll", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleScroll).call(tableObj));
+            window.addEventListener("load", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleLoad).call(tableObj));
+            window.addEventListener("resize", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleResize).call(tableObj));
+            SirioTable.tables.set(tableEl, tableObj);
         }
+    }
+    static destroy(tableEl) {
+        let tableObj = SirioTable.tables.get(tableEl);
+        if (tableObj != null) {
+            tableObj.removeEventListeners();
+            SirioTable.tables.delete(tableEl);
+            tableObj = null;
+        }
+    }
+    static getTableByElement(element) {
+        return SirioTable.tables.get(element) || null;
+    }
+    getTableEl() {
+        return __classPrivateFieldGet(this, _SirioTable_tableEl, "f");
+    }
+    getContainerEl() {
+        return __classPrivateFieldGet(this, _SirioTable_containerEl, "f");
+    }
+    removeEventListeners() {
+        let tableObj = this;
+        __classPrivateFieldGet(tableObj, _SirioTable_containerEl, "f").removeEventListener("scroll", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleScroll).call(tableObj));
+        window.removeEventListener("load", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleLoad).call(tableObj));
+        window.removeEventListener("resize", () => __classPrivateFieldGet(tableObj, _SirioTable_instances, "m", _SirioTable_handleResize).call(tableObj));
     }
 }
 exports.SirioTable = SirioTable;
@@ -3076,10 +3446,6 @@ _SirioTable_tableEl = new WeakMap(), _SirioTable_containerEl = new WeakMap(), _S
     if (containerWidth < tableWidth) {
         __classPrivateFieldGet(this, _SirioTable_instances, "m", _SirioTable_overflow).call(this);
     }
-}, _SirioTable_getTableEl = function _SirioTable_getTableEl() {
-    return __classPrivateFieldGet(this, _SirioTable_tableEl, "f");
-}, _SirioTable_getContainerEl = function _SirioTable_getContainerEl() {
-    return __classPrivateFieldGet(this, _SirioTable_containerEl, "f");
 }, _SirioTable_isResponsive = function _SirioTable_isResponsive() {
     return __classPrivateFieldGet(this, _SirioTable_responsive, "f");
 }, _SirioTable_isOverflowed = function _SirioTable_isOverflowed() {
@@ -3093,7 +3459,35 @@ _SirioTable_tableEl = new WeakMap(), _SirioTable_containerEl = new WeakMap(), _S
     if (!__classPrivateFieldGet(this, _SirioTable_instances, "m", _SirioTable_isOverflowed).call(this)) {
         __classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-end");
     }
+}, _SirioTable_handleScroll = function _SirioTable_handleScroll() {
+    let maxScroll = __classPrivateFieldGet(this, _SirioTable_containerEl, "f").scrollWidth - __classPrivateFieldGet(this, _SirioTable_containerEl, "f").clientWidth;
+    if (__classPrivateFieldGet(this, _SirioTable_containerEl, "f").scrollLeft > 0) {
+        __classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-start");
+        if (Math.ceil(__classPrivateFieldGet(this, _SirioTable_containerEl, "f").scrollLeft) >= maxScroll) {
+            __classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-end");
+        }
+        else {
+            if (!__classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.contains("sirio-table-overflow-end")) {
+                __classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.add("sirio-table-overflow-end");
+            }
+        }
+    }
+    else {
+        __classPrivateFieldGet(this, _SirioTable_containerEl, "f").classList.remove("sirio-table-overflow-start");
+    }
+}, _SirioTable_handleLoad = function _SirioTable_handleLoad() {
+    __classPrivateFieldGet(this, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(this);
+}, _SirioTable_handleResize = function _SirioTable_handleResize() {
+    if (!__classPrivateFieldGet(this, _SirioTable_isResizing, "f")) {
+        __classPrivateFieldSet(this, _SirioTable_isResizing, true, "f");
+        setTimeout(() => {
+            __classPrivateFieldGet(this, _SirioTable_instances, "m", _SirioTable_expand).call(this);
+            __classPrivateFieldGet(this, _SirioTable_instances, "m", _SirioTable_determineTableVisibility).call(this);
+            __classPrivateFieldSet(this, _SirioTable_isResizing, false, "f");
+        }, 200);
+    }
 };
+SirioTable.tables = new Map();
 
 
 /***/ }),
@@ -3113,7 +3507,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioTimePicker_instances, _SirioTimePicker_textInputEl, _SirioTimePicker_componentEl, _SirioTimePicker_dropdownEl, _SirioTimePicker_incrementHourButton, _SirioTimePicker_inputHour, _SirioTimePicker_decrementHourButton, _SirioTimePicker_incrementMinuteButton, _SirioTimePicker_inputMinute, _SirioTimePicker_decrementMinuteButton, _SirioTimePicker_minuteJustFocused, _SirioTimePicker_hourJustFocused, _SirioTimePicker_defaultVPos, _SirioTimePicker_checkVPosTimeout, _SirioTimePicker_handleClick, _SirioTimePicker_handleKeysHour, _SirioTimePicker_handleKeysMinute, _SirioTimePicker_handleKeysInput, _SirioTimePicker_incrementHour, _SirioTimePicker_incrementMinute, _SirioTimePicker_decrementHour, _SirioTimePicker_decrementMinute, _SirioTimePicker_show, _SirioTimePicker_adjustPosition, _SirioTimePicker_adjustVerticalPosition, _SirioTimePicker_checkTopPosition, _SirioTimePicker_checkBottomPosition, _SirioTimePicker_setInputHourValue, _SirioTimePicker_setInputMinuteValue, _SirioTimePicker_hide, _SirioTimePicker_isHidden;
+var _SirioTimePicker_instances, _SirioTimePicker_textInputEl, _SirioTimePicker_componentEl, _SirioTimePicker_dropdownEl, _SirioTimePicker_incrementHourButton, _SirioTimePicker_inputHour, _SirioTimePicker_decrementHourButton, _SirioTimePicker_incrementMinuteButton, _SirioTimePicker_inputMinute, _SirioTimePicker_decrementMinuteButton, _SirioTimePicker_defaultVPos, _SirioTimePicker_checkVPosTimeout, _SirioTimePicker_handleClick, _SirioTimePicker_handleKeysHour, _SirioTimePicker_handleKeysMinute, _SirioTimePicker_handleKeysInput, _SirioTimePicker_incrementHour, _SirioTimePicker_incrementMinute, _SirioTimePicker_decrementHour, _SirioTimePicker_decrementMinute, _SirioTimePicker_adjustPosition, _SirioTimePicker_adjustVerticalPosition, _SirioTimePicker_checkTopPosition, _SirioTimePicker_checkBottomPosition, _SirioTimePicker_setInputHourValue, _SirioTimePicker_setInputMinuteValue, _SirioTimePicker_handleInputHour, _SirioTimePicker_handleInputMinute;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTimePicker = void 0;
 const Utils_1 = __webpack_require__(675);
@@ -3129,21 +3523,19 @@ class SirioTimePicker {
         _SirioTimePicker_incrementMinuteButton.set(this, void 0);
         _SirioTimePicker_inputMinute.set(this, void 0);
         _SirioTimePicker_decrementMinuteButton.set(this, void 0);
-        _SirioTimePicker_minuteJustFocused.set(this, false);
-        _SirioTimePicker_hourJustFocused.set(this, false);
         _SirioTimePicker_defaultVPos.set(this, void 0);
         _SirioTimePicker_checkVPosTimeout.set(this, void 0);
         _SirioTimePicker_handleClick.set(this, (event) => {
             let target = (event.target || event.currentTarget);
             if (target != null) {
                 if (!(0, Utils_1.isDescendant)(__classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f"), target)) {
-                    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
+                    this.hide();
                     event.preventDefault();
                 }
             }
         });
         _SirioTimePicker_handleKeysHour.set(this, (event) => {
-            var _a;
+            var _a, _b;
             let key = event.key;
             let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             let length = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length + 1;
@@ -3172,34 +3564,34 @@ class SirioTimePicker {
                         __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementHour).call(this);
                         break;
                     case "Enter":
-                        if (length == 1) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "00");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        else if (length == 2) {
+                        if (length == 2 || length == 3) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
                             __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                         }
-                        else {
+                        else if (length > 3) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "23");
                             __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = "23:" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                         }
                         break;
                     case "Tab":
-                        if (length == 1) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "00");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        else if (length == 2) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        else {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "23");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = "23:" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
                         break;
+                    //     if (length == 1) {
+                    //         this.#setInputHourValue("00");
+                    //         this.#textInputEl.value = this.#inputHour.value + ":" + this.#inputMinute.value;
+                    //     } else if (length == 2 || length == 3) {
+                    //         this.#setInputHourValue(this.#inputHour.value);
+                    //         this.#textInputEl.value = this.#inputHour.value + ":" + this.#inputMinute.value;
+                    //     } else if (length > 3) {
+                    //         this.#setInputHourValue("23");
+                    //         this.#textInputEl.value = "23:" + this.#inputMinute.value;
+                    //     }
+                    //     break;
                     case "Backspace":
+                        const selectedText = (_b = window.getSelection()) === null || _b === void 0 ? void 0 : _b.toString();
+                        if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value == selectedText || __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value == "00" || __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value == "" || __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value == undefined) {
+                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = "";
+                            __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value = "";
+                        }
                         break;
                     default:
                         event.preventDefault();
@@ -3208,7 +3600,7 @@ class SirioTimePicker {
             }
         });
         _SirioTimePicker_handleKeysMinute.set(this, (event) => {
-            var _a;
+            var _a, _b;
             let key = event.key;
             let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             let length = __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length + 1;
@@ -3232,44 +3624,50 @@ class SirioTimePicker {
                         event.preventDefault();
                         if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value) > 59) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "59");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":59";
                         }
                         else
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementMinute).call(this);
+                        if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 1)
+                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
                         break;
                     case "ArrowDown":
                         event.preventDefault();
                         if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value) > 59) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "59");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":59";
                         }
                         else
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementMinute).call(this);
-                        break;
-                    case "Tab":
-                        if (length == 1) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "00");
+                        if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 1)
                             __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        else if (length == 2) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        if (!event.shiftKey) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
-                        }
+                        ;
                         break;
                     case "Enter":
-                        if (length == 1) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "00");
-                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                        }
-                        else if (length == 2) {
+                        if (length == 2 || length == 3) {
                             __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
                             __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+                        }
+                        break;
+                    case "Tab":
+                        // if(this.#inputHour.value.length < 2) {
+                        //     this.#textInputEl.value = "";
+                        // } else if (length == 1) {
+                        //     this.#setInputMinuteValue("");
+                        //     this.#textInputEl.value = this.#inputHour.value + ":" + this.#inputMinute.value;
+                        // }
+                        // } else if (length == 2) {
+                        //     this.#setInputMinuteValue(this.#inputMinute.value);
+                        //     this.#textInputEl.value = this.#inputHour.value + ":" + this.#inputMinute.value;
+                        // }
+                        if (!event.shiftKey) {
+                            this.hide();
                         }
                         break;
                     case "Backspace":
+                        const selectedText = (_b = window.getSelection()) === null || _b === void 0 ? void 0 : _b.toString();
+                        if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value == selectedText || __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value == "00" || __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value == "" || __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value == undefined) {
+                            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = "";
+                            __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = "";
+                        }
                         break;
                     default:
                         event.preventDefault();
@@ -3282,8 +3680,8 @@ class SirioTimePicker {
             let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             let permittedKeys = ["Backspace", "Escape", "Tab", "Enter", ":"];
             let length = __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.length + 1;
-            if (length < 7 && __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
-                __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_show).call(this);
+            if (length < 7 && this.isHidden()) {
+                this.show();
             }
             if (numbers.includes(key)) {
                 let newValue = __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value + key;
@@ -3358,15 +3756,15 @@ class SirioTimePicker {
                                 event.preventDefault();
                                 break;
                         }
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
+                        this.hide();
                         break;
                     case "Escape":
                         __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").blur();
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
+                        this.hide();
                         break;
                     case "Tab":
                         if (event.shiftKey) {
-                            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_hide).call(this);
+                            this.hide();
                         }
                         break;
                     default:
@@ -3377,160 +3775,124 @@ class SirioTimePicker {
                 event.preventDefault();
             }
         });
-        if (SirioTimePicker.isTimePicker(id)) {
-            __classPrivateFieldSet(this, _SirioTimePicker_textInputEl, document.getElementById(id), "f");
-            let componentEl = document.createElement("div");
-            componentEl.setAttribute("class", "sirio-dropdown");
-            componentEl.setAttribute("data-sirio-component", "dropdown");
-            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").parentNode.insertBefore(componentEl, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f"));
-            componentEl.appendChild(__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f"));
-            __classPrivateFieldSet(this, _SirioTimePicker_componentEl, componentEl, "f");
-            let dropdownEl = document.createElement("div");
-            dropdownEl.setAttribute("class", "sirio-dropdown-menu sirio-dropdown-timepicker");
-            dropdownEl.setAttribute("data-sirio-visible", "false");
-            componentEl.appendChild(dropdownEl);
-            __classPrivateFieldSet(this, _SirioTimePicker_dropdownEl, dropdownEl, "f");
-            let hourDiv = document.createElement("div");
-            hourDiv.setAttribute("class", "sirio-dropdown-timepicker-hour");
-            dropdownEl.appendChild(hourDiv);
-            let incrementHourButton = document.createElement("button");
-            incrementHourButton.setAttribute("class", "sirio-btn sirio-btn-icon");
-            incrementHourButton.id = (0, Utils_1.makeid)(5) + "iduph";
-            incrementHourButton.title = "Incrementa ora";
-            incrementHourButton.tabIndex = -1;
-            incrementHourButton.setAttribute("aria-hidden", "true");
-            let incrementButtonSpan = document.createElement("span");
-            incrementButtonSpan.setAttribute("class", "fas fa-angle-up");
-            incrementButtonSpan.setAttribute("aria-hidden", "true");
-            incrementHourButton.appendChild(incrementButtonSpan);
-            hourDiv.appendChild(incrementHourButton);
-            __classPrivateFieldSet(this, _SirioTimePicker_incrementHourButton, incrementHourButton, "f");
-            let inputHour = document.createElement("input");
-            inputHour.id = (0, Utils_1.makeid)(5) + "input-timepicker-hour";
-            inputHour.type = "text";
-            inputHour.setAttribute("value", "00");
-            inputHour.setAttribute("aria-label", "Scegli ora");
-            inputHour.setAttribute("role", "spinbutton");
-            inputHour.setAttribute("aria-valuemin", "0");
-            inputHour.setAttribute("aria-valuemax", "23");
-            inputHour.setAttribute("aria-valuenow", "00");
-            hourDiv.appendChild(inputHour);
-            __classPrivateFieldSet(this, _SirioTimePicker_inputHour, inputHour, "f");
-            let decrementHourButton = document.createElement("button");
-            decrementHourButton.setAttribute("class", "sirio-btn sirio-btn-icon");
-            decrementHourButton.id = (0, Utils_1.makeid)(5) + "iddownh";
-            decrementHourButton.title = "Decrementa ora";
-            decrementHourButton.tabIndex = -1;
-            decrementHourButton.setAttribute("aria-hidden", "true");
-            let decrementButtonSpan = document.createElement("span");
-            decrementButtonSpan.setAttribute("class", "fas fa-angle-down");
-            decrementButtonSpan.setAttribute("aria-hidden", "true");
-            decrementHourButton.appendChild(decrementButtonSpan);
-            hourDiv.appendChild(decrementHourButton);
-            __classPrivateFieldSet(this, _SirioTimePicker_decrementHourButton, decrementHourButton, "f");
-            let separatorDiv = document.createElement("div");
-            separatorDiv.setAttribute("class", "sirio-dropdown-timepicker-sep");
-            separatorDiv.setAttribute("aria-hidden", "true");
-            dropdownEl.appendChild(separatorDiv);
-            let minuteDiv = document.createElement("div");
-            minuteDiv.setAttribute("class", "sirio-dropdown-timepicker-min");
-            dropdownEl.appendChild(minuteDiv);
-            let incrementMinuteButton = document.createElement("button");
-            incrementMinuteButton.setAttribute("class", "sirio-btn sirio-btn-icon");
-            incrementMinuteButton.id = (0, Utils_1.makeid)(5) + "idupm";
-            incrementMinuteButton.title = "Incrementa minuti";
-            incrementMinuteButton.tabIndex = -1;
-            incrementMinuteButton.setAttribute("aria-hidden", "true");
-            let incrementMinuteButtonSpan = document.createElement("span");
-            incrementMinuteButtonSpan.setAttribute("class", "fas fa-angle-up");
-            incrementMinuteButtonSpan.setAttribute("aria-hidden", "true");
-            incrementMinuteButton.appendChild(incrementMinuteButtonSpan);
-            minuteDiv.appendChild(incrementMinuteButton);
-            __classPrivateFieldSet(this, _SirioTimePicker_incrementMinuteButton, incrementMinuteButton, "f");
-            let inputMinute = document.createElement("input");
-            inputMinute.id = (0, Utils_1.makeid)(5) + "input-timepicker-minute";
-            inputMinute.type = "text";
-            inputMinute.setAttribute("value", "00");
-            inputMinute.setAttribute("aria-label", "Scegli minuti");
-            inputMinute.setAttribute("role", "spinbutton");
-            inputMinute.setAttribute("aria-valuemin", "0");
-            inputMinute.setAttribute("aria-valuemax", "59");
-            inputMinute.setAttribute("aria-valuenow", "00");
-            minuteDiv.appendChild(inputMinute);
-            __classPrivateFieldSet(this, _SirioTimePicker_inputMinute, inputMinute, "f");
-            let decrementMinuteButton = document.createElement("button");
-            decrementMinuteButton.setAttribute("class", "sirio-btn sirio-btn-icon");
-            decrementMinuteButton.id = (0, Utils_1.makeid)(5) + "iddownm";
-            decrementMinuteButton.title = "Decrementa minuti";
-            decrementMinuteButton.tabIndex = -1;
-            decrementMinuteButton.setAttribute("aria-hidden", "true");
-            let decrementMinuteButtonSpan = document.createElement("span");
-            decrementMinuteButtonSpan.setAttribute("class", "fas fa-angle-down");
-            decrementMinuteButtonSpan.setAttribute("aria-hidden", "true");
-            decrementMinuteButton.appendChild(decrementMinuteButtonSpan);
-            minuteDiv.appendChild(decrementMinuteButton);
-            __classPrivateFieldSet(this, _SirioTimePicker_decrementMinuteButton, decrementMinuteButton, "f");
-            __classPrivateFieldSet(this, _SirioTimePicker_defaultVPos, __classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
-            __classPrivateFieldSet(this, _SirioTimePicker_checkVPosTimeout, null, "f");
-            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("click", (event) => {
-                event.preventDefault();
-                if (__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
-                    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_show).call(this);
-                }
-            });
-            __classPrivateFieldGet(this, _SirioTimePicker_incrementHourButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementHour).call(this));
-            __classPrivateFieldGet(this, _SirioTimePicker_incrementMinuteButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementMinute).call(this));
-            __classPrivateFieldGet(this, _SirioTimePicker_decrementHourButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementHour).call(this));
-            __classPrivateFieldGet(this, _SirioTimePicker_decrementMinuteButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementMinute).call(this));
-            __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysHour, "f"));
-            __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysMinute, "f"));
-            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysInput, "f"));
-            __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").addEventListener("input", () => {
-                if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length == 1) {
-                    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
-                    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                }
-                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 1) {
-                    if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value) > 23)
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "23");
-                    else
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value).toString());
-                    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                }
-            });
-            __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("input", () => {
-                if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length == 1) {
-                    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
-                    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                }
-                else if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length > 1) {
-                    if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value) > 59)
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "59");
-                    else
-                        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value).toString());
-                    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-                }
-            });
-            __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("focus", () => {
-                if (__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
-                    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_show).call(this);
-                }
-            });
-            __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").addEventListener("focus", () => {
-                __classPrivateFieldSet(this, _SirioTimePicker_hourJustFocused, true, "f");
-            });
-            __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("focus", () => {
-                __classPrivateFieldSet(this, _SirioTimePicker_minuteJustFocused, true, "f");
-            });
-            window.addEventListener("scroll", () => {
-                __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
-            });
-            window.addEventListener("resize", () => {
-                __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
-            });
-        }
-        else
-            throw TypeError(`HTML element with id" '${id}'" is not a valid Sirio-TimePicker.`);
+        __classPrivateFieldSet(this, _SirioTimePicker_textInputEl, document.getElementById(id), "f");
+        let componentEl = document.createElement("div");
+        componentEl.setAttribute("class", "sirio-dropdown");
+        componentEl.setAttribute("data-sirio-component", "dropdown");
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").parentNode.insertBefore(componentEl, __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f"));
+        componentEl.appendChild(__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f"));
+        __classPrivateFieldSet(this, _SirioTimePicker_componentEl, componentEl, "f");
+        let dropdownEl = document.createElement("div");
+        dropdownEl.setAttribute("class", "sirio-dropdown-menu sirio-dropdown-timepicker");
+        dropdownEl.setAttribute("data-sirio-visible", "false");
+        componentEl.appendChild(dropdownEl);
+        __classPrivateFieldSet(this, _SirioTimePicker_dropdownEl, dropdownEl, "f");
+        let hourDiv = document.createElement("div");
+        hourDiv.setAttribute("class", "sirio-dropdown-timepicker-hour");
+        dropdownEl.appendChild(hourDiv);
+        let incrementHourButton = document.createElement("button");
+        incrementHourButton.setAttribute("class", "sirio-btn sirio-btn-icon");
+        incrementHourButton.id = (0, Utils_1.makeid)(5) + "iduph";
+        incrementHourButton.title = "Incrementa ora";
+        incrementHourButton.tabIndex = -1;
+        incrementHourButton.setAttribute("aria-hidden", "true");
+        let incrementButtonSpan = document.createElement("span");
+        incrementButtonSpan.setAttribute("class", "fas fa-angle-up");
+        incrementButtonSpan.setAttribute("aria-hidden", "true");
+        incrementHourButton.appendChild(incrementButtonSpan);
+        hourDiv.appendChild(incrementHourButton);
+        __classPrivateFieldSet(this, _SirioTimePicker_incrementHourButton, incrementHourButton, "f");
+        let inputHour = document.createElement("input");
+        inputHour.id = (0, Utils_1.makeid)(5) + "input-timepicker-hour";
+        inputHour.type = "text";
+        inputHour.setAttribute("aria-label", "Scegli ora");
+        inputHour.setAttribute("role", "spinbutton");
+        inputHour.setAttribute("aria-valuemin", "0");
+        inputHour.setAttribute("aria-valuemax", "23");
+        inputHour.setAttribute("aria-valuenow", "00");
+        hourDiv.appendChild(inputHour);
+        __classPrivateFieldSet(this, _SirioTimePicker_inputHour, inputHour, "f");
+        let decrementHourButton = document.createElement("button");
+        decrementHourButton.setAttribute("class", "sirio-btn sirio-btn-icon");
+        decrementHourButton.id = (0, Utils_1.makeid)(5) + "iddownh";
+        decrementHourButton.title = "Decrementa ora";
+        decrementHourButton.tabIndex = -1;
+        decrementHourButton.setAttribute("aria-hidden", "true");
+        let decrementButtonSpan = document.createElement("span");
+        decrementButtonSpan.setAttribute("class", "fas fa-angle-down");
+        decrementButtonSpan.setAttribute("aria-hidden", "true");
+        decrementHourButton.appendChild(decrementButtonSpan);
+        hourDiv.appendChild(decrementHourButton);
+        __classPrivateFieldSet(this, _SirioTimePicker_decrementHourButton, decrementHourButton, "f");
+        let separatorDiv = document.createElement("div");
+        separatorDiv.setAttribute("class", "sirio-dropdown-timepicker-sep");
+        separatorDiv.setAttribute("aria-hidden", "true");
+        dropdownEl.appendChild(separatorDiv);
+        let minuteDiv = document.createElement("div");
+        minuteDiv.setAttribute("class", "sirio-dropdown-timepicker-min");
+        dropdownEl.appendChild(minuteDiv);
+        let incrementMinuteButton = document.createElement("button");
+        incrementMinuteButton.setAttribute("class", "sirio-btn sirio-btn-icon");
+        incrementMinuteButton.id = (0, Utils_1.makeid)(5) + "idupm";
+        incrementMinuteButton.title = "Incrementa minuti";
+        incrementMinuteButton.tabIndex = -1;
+        incrementMinuteButton.setAttribute("aria-hidden", "true");
+        let incrementMinuteButtonSpan = document.createElement("span");
+        incrementMinuteButtonSpan.setAttribute("class", "fas fa-angle-up");
+        incrementMinuteButtonSpan.setAttribute("aria-hidden", "true");
+        incrementMinuteButton.appendChild(incrementMinuteButtonSpan);
+        minuteDiv.appendChild(incrementMinuteButton);
+        __classPrivateFieldSet(this, _SirioTimePicker_incrementMinuteButton, incrementMinuteButton, "f");
+        let inputMinute = document.createElement("input");
+        inputMinute.id = (0, Utils_1.makeid)(5) + "input-timepicker-minute";
+        inputMinute.type = "text";
+        inputMinute.setAttribute("aria-label", "Scegli minuti");
+        inputMinute.setAttribute("role", "spinbutton");
+        inputMinute.setAttribute("aria-valuemin", "0");
+        inputMinute.setAttribute("aria-valuemax", "59");
+        inputMinute.setAttribute("aria-valuenow", "00");
+        minuteDiv.appendChild(inputMinute);
+        __classPrivateFieldSet(this, _SirioTimePicker_inputMinute, inputMinute, "f");
+        let decrementMinuteButton = document.createElement("button");
+        decrementMinuteButton.setAttribute("class", "sirio-btn sirio-btn-icon");
+        decrementMinuteButton.id = (0, Utils_1.makeid)(5) + "iddownm";
+        decrementMinuteButton.title = "Decrementa minuti";
+        decrementMinuteButton.tabIndex = -1;
+        decrementMinuteButton.setAttribute("aria-hidden", "true");
+        let decrementMinuteButtonSpan = document.createElement("span");
+        decrementMinuteButtonSpan.setAttribute("class", "fas fa-angle-down");
+        decrementMinuteButtonSpan.setAttribute("aria-hidden", "true");
+        decrementMinuteButton.appendChild(decrementMinuteButtonSpan);
+        minuteDiv.appendChild(decrementMinuteButton);
+        __classPrivateFieldSet(this, _SirioTimePicker_decrementMinuteButton, decrementMinuteButton, "f");
+        __classPrivateFieldSet(this, _SirioTimePicker_defaultVPos, __classPrivateFieldGet(this, _SirioTimePicker_componentEl, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
+        __classPrivateFieldSet(this, _SirioTimePicker_checkVPosTimeout, null, "f");
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("click", (event) => {
+            event.preventDefault();
+            if (this.isHidden()) {
+                this.show();
+            }
+        });
+        __classPrivateFieldGet(this, _SirioTimePicker_incrementHourButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_incrementMinuteButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_decrementHourButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_decrementMinuteButton, "f").addEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysHour, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysMinute, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysInput, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").addEventListener("input", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_handleInputHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").addEventListener("input", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_handleInputMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").addEventListener("focus", () => {
+            if (this.isHidden()) {
+                this.show();
+            }
+        });
+        window.addEventListener("scroll", () => {
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+        });
+        window.addEventListener("resize", () => {
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+        });
     }
     static init() {
         SirioTimePicker.timePickers = {};
@@ -3540,8 +3902,19 @@ class SirioTimePicker {
         });
     }
     static initComponent(input) {
-        let timePicker = new SirioTimePicker(input.id);
-        SirioTimePicker.timePickers[input.id] = timePicker;
+        let id = input.id;
+        if (SirioTimePicker.isTimePicker(id)) {
+            let timePicker = new SirioTimePicker(id);
+            SirioTimePicker.timePickers[id] = timePicker;
+        }
+    }
+    static destroy(id) {
+        if (id in SirioTimePicker.timePickers) {
+            let timePicker = SirioTimePicker.timePickers[id];
+            timePicker.removeEventListeners();
+            delete SirioTimePicker.timePickers[id];
+            timePicker = null;
+        }
     }
     static isTimePicker(id) {
         let input = document.getElementById(id);
@@ -3565,14 +3938,89 @@ class SirioTimePicker {
         return __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value;
     }
     getSelectedHour() {
-        return parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
+        if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.length > 1)
+            return parseInt(__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.split(":")[0]);
+        return null;
     }
     getSelectedMinute() {
-        return parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
+        if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.length > 4)
+            return parseInt(__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.split(":")[1]);
+        return null;
+    }
+    getDropdownEl() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f");
+    }
+    getInputTextElement() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f");
+    }
+    getInputHour() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f");
+    }
+    getInputMinute() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f");
+    }
+    getIncrementHourButton() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_incrementHourButton, "f");
+    }
+    getDecrementHourButton() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_decrementHourButton, "f");
+    }
+    getIncrementMinuteButton() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_incrementMinuteButton, "f");
+    }
+    getDecrementMinuteButton() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_decrementMinuteButton, "f");
+    }
+    show() {
+        __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").setAttribute("data-sirio-visible", "true");
+        document.addEventListener("click", __classPrivateFieldGet(this, _SirioTimePicker_handleClick, "f"));
+        if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value == "") {
+            let currentDate = new Date();
+            let currentHour = (0, Utils_1.padStartWithZeros)(currentDate.getHours().toString(), 2);
+            let currentMinutes = (0, Utils_1.padStartWithZeros)(currentDate.getMinutes().toString(), 2);
+            __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value = currentHour;
+            __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = currentMinutes;
+        }
+        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+    }
+    hide() {
+        __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").setAttribute("data-sirio-visible", "false");
+        document.removeEventListener("click", __classPrivateFieldGet(this, _SirioTimePicker_handleClick, "f"));
+    }
+    isHidden() {
+        return __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").getAttribute("data-sirio-visible") == "false";
+    }
+    removeEventListeners() {
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").removeEventListener("click", (event) => {
+            event.preventDefault();
+            if (this.isHidden()) {
+                this.show();
+            }
+        });
+        __classPrivateFieldGet(this, _SirioTimePicker_incrementHourButton, "f").removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_incrementMinuteButton, "f").removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_decrementHourButton, "f").removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_decrementMinuteButton, "f").removeEventListener("click", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").removeEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysHour, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").removeEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysMinute, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").removeEventListener("keydown", __classPrivateFieldGet(this, _SirioTimePicker_handleKeysInput, "f"));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").removeEventListener("input", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_handleInputHour).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").removeEventListener("input", () => __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_handleInputMinute).call(this));
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").removeEventListener("focus", () => {
+            if (this.isHidden()) {
+                this.show();
+            }
+        });
+        window.removeEventListener("scroll", () => {
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+        });
+        window.removeEventListener("resize", () => {
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+        });
     }
 }
 exports.SirioTimePicker = SirioTimePicker;
-_SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new WeakMap(), _SirioTimePicker_dropdownEl = new WeakMap(), _SirioTimePicker_incrementHourButton = new WeakMap(), _SirioTimePicker_inputHour = new WeakMap(), _SirioTimePicker_decrementHourButton = new WeakMap(), _SirioTimePicker_incrementMinuteButton = new WeakMap(), _SirioTimePicker_inputMinute = new WeakMap(), _SirioTimePicker_decrementMinuteButton = new WeakMap(), _SirioTimePicker_minuteJustFocused = new WeakMap(), _SirioTimePicker_hourJustFocused = new WeakMap(), _SirioTimePicker_defaultVPos = new WeakMap(), _SirioTimePicker_checkVPosTimeout = new WeakMap(), _SirioTimePicker_handleClick = new WeakMap(), _SirioTimePicker_handleKeysHour = new WeakMap(), _SirioTimePicker_handleKeysMinute = new WeakMap(), _SirioTimePicker_handleKeysInput = new WeakMap(), _SirioTimePicker_instances = new WeakSet(), _SirioTimePicker_incrementHour = function _SirioTimePicker_incrementHour() {
+_SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new WeakMap(), _SirioTimePicker_dropdownEl = new WeakMap(), _SirioTimePicker_incrementHourButton = new WeakMap(), _SirioTimePicker_inputHour = new WeakMap(), _SirioTimePicker_decrementHourButton = new WeakMap(), _SirioTimePicker_incrementMinuteButton = new WeakMap(), _SirioTimePicker_inputMinute = new WeakMap(), _SirioTimePicker_decrementMinuteButton = new WeakMap(), _SirioTimePicker_defaultVPos = new WeakMap(), _SirioTimePicker_checkVPosTimeout = new WeakMap(), _SirioTimePicker_handleClick = new WeakMap(), _SirioTimePicker_handleKeysHour = new WeakMap(), _SirioTimePicker_handleKeysMinute = new WeakMap(), _SirioTimePicker_handleKeysInput = new WeakMap(), _SirioTimePicker_instances = new WeakSet(), _SirioTimePicker_incrementHour = function _SirioTimePicker_incrementHour() {
     let currentValue = parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
     let newValue;
     if (currentValue < 23) {
@@ -3591,10 +4039,12 @@ _SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new
     }
     else {
         newValue = 0;
-        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementHour).call(this);
+        if (currentValue == 59)
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_incrementHour).call(this);
     }
     __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = (0, Utils_1.padStartWithZeros)(newValue.toString(), 2);
-    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+    if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.length > 3)
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
 }, _SirioTimePicker_decrementHour = function _SirioTimePicker_decrementHour() {
     let currentValue = parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
     let newValue;
@@ -3617,20 +4067,10 @@ _SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new
         __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_decrementHour).call(this);
     }
     __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = (0, Utils_1.padStartWithZeros)(newValue.toString(), 2);
-    __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
-}, _SirioTimePicker_show = function _SirioTimePicker_show() {
-    __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").setAttribute("data-sirio-visible", "true");
-    document.addEventListener("click", __classPrivateFieldGet(this, _SirioTimePicker_handleClick, "f"));
-    if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value == "") {
-        let currentDate = new Date();
-        let currentHour = (0, Utils_1.padStartWithZeros)(currentDate.getHours().toString(), 2);
-        let currentMinutes = (0, Utils_1.padStartWithZeros)(currentDate.getMinutes().toString(), 2);
-        __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value = currentHour;
-        __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = currentMinutes;
-    }
-    __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustPosition).call(this);
+    if (__classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value.length > 3)
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
 }, _SirioTimePicker_adjustPosition = function _SirioTimePicker_adjustPosition() {
-    if (!__classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_isHidden).call(this)) {
+    if (!this.isHidden()) {
         __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_adjustVerticalPosition).call(this);
     }
 }, _SirioTimePicker_adjustVerticalPosition = function _SirioTimePicker_adjustVerticalPosition() {
@@ -3684,11 +4124,30 @@ _SirioTimePicker_textInputEl = new WeakMap(), _SirioTimePicker_componentEl = new
     else {
         __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value = "59";
     }
-}, _SirioTimePicker_hide = function _SirioTimePicker_hide() {
-    __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").setAttribute("data-sirio-visible", "false");
-    document.removeEventListener("click", __classPrivateFieldGet(this, _SirioTimePicker_handleClick, "f"));
-}, _SirioTimePicker_isHidden = function _SirioTimePicker_isHidden() {
-    return __classPrivateFieldGet(this, _SirioTimePicker_dropdownEl, "f").getAttribute("data-sirio-visible") == "false";
+}, _SirioTimePicker_handleInputHour = function _SirioTimePicker_handleInputHour() {
+    if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length == 1) {
+        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value);
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+    }
+    else if (__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value.length > 1) {
+        if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value) > 23)
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, "23");
+        else
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputHourValue).call(this, parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value).toString());
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+    }
+}, _SirioTimePicker_handleInputMinute = function _SirioTimePicker_handleInputMinute() {
+    if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length == 1) {
+        __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "0" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value);
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+    }
+    else if (__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value.length > 1) {
+        if (parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value) > 59)
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, "59");
+        else
+            __classPrivateFieldGet(this, _SirioTimePicker_instances, "m", _SirioTimePicker_setInputMinuteValue).call(this, parseInt(__classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value).toString());
+        __classPrivateFieldGet(this, _SirioTimePicker_textInputEl, "f").value = __classPrivateFieldGet(this, _SirioTimePicker_inputHour, "f").value + ":" + __classPrivateFieldGet(this, _SirioTimePicker_inputMinute, "f").value;
+    }
 };
 
 
@@ -3858,7 +4317,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioTooltip_instances, _SirioTooltip_placement, _SirioTooltip_title, _SirioTooltip_content, _SirioTooltip_margin, _SirioTooltip_createHTMLElement, _SirioTooltip_hide, _SirioTooltip_calculatePosition, _SirioTooltip_calculateXY;
+var _SirioTooltip_instances, _SirioTooltip_placement, _SirioTooltip_title, _SirioTooltip_content, _SirioTooltip_margin, _SirioTooltip_createHTMLElement, _SirioTooltip_calculatePosition, _SirioTooltip_calculateXY, _SirioTooltip_handleMouseOver, _SirioTooltip_handleMouseOut, _SirioTooltip_handleMouseOutTrigger, _SirioTooltip_handleBlur, _SirioTooltip_handleClick, _SirioTooltip_handleKeyDown, _SirioTooltip_handleFocus;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTooltip = void 0;
 const Constants_1 = __webpack_require__(738);
@@ -3879,20 +4338,8 @@ class SirioTooltip {
         this.element = null;
         __classPrivateFieldSet(this, _SirioTooltip_margin, margin, "f");
         if (dataSirioToggle === "tooltip") {
-            this.triggerElement.addEventListener("mouseout", (event) => {
-                var _a;
-                event.preventDefault();
-                let newTarget = event.relatedTarget;
-                if (newTarget && !((_a = this.element) === null || _a === void 0 ? void 0 : _a.contains(newTarget)))
-                    __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_hide).call(this);
-            });
-            this.triggerElement.addEventListener("blur", (event) => {
-                var _a, _b;
-                event.preventDefault();
-                let target = (event).relatedTarget;
-                if (target && !(((_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.contains(target)) || ((_b = this.element) === null || _b === void 0 ? void 0 : _b.contains(target))))
-                    __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_hide).call(this);
-            });
+            this.triggerElement.addEventListener("mouseout", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOut).call(this, event));
+            this.triggerElement.addEventListener("blur", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleBlur).call(this, event));
         }
     }
     static init() {
@@ -3903,41 +4350,36 @@ class SirioTooltip {
     }
     static initComponent(trigger) {
         let tooltip = new SirioTooltip(trigger);
-        trigger.addEventListener("mouseover", function (event) {
-            event.preventDefault();
-            tooltip.show();
-        });
-        trigger.addEventListener("focus", function (event) {
-            event.preventDefault();
-            tooltip.show();
-        });
-        window.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" || event.key === "Esc") {
-                __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_hide).call(tooltip);
-            }
-        });
+        trigger.addEventListener("mouseover", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOver).call(tooltip, event));
+        trigger.addEventListener("focus", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleFocus).call(tooltip, event));
+        window.addEventListener("keydown", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleKeyDown).call(tooltip, event));
+        SirioTooltip.tooltips.set(trigger, tooltip);
+    }
+    static destroy(trigger) {
+        let tooltip = SirioTooltip.tooltips.get(trigger);
+        if (tooltip) {
+            tooltip.removeEventListeners();
+            SirioTooltip.tooltips.delete(trigger);
+            tooltip = null;
+        }
+    }
+    static getTooltipByElement(element) {
+        return SirioTooltip.tooltips.get(element) || null;
     }
     getTriggerElement() {
         return this.triggerElement;
     }
-    show(idName = "tooltip", forceRepositioning = false) {
+    show() {
+        this.showElement();
+    }
+    showElement(idName = "tooltip", forceRepositioning = false) {
         let tooltipElement;
         if (this.hidden) {
             tooltipElement = __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_createHTMLElement).call(this, idName);
             document.body.appendChild(tooltipElement);
             if (idName === "tooltip") {
-                tooltipElement.addEventListener("mouseout", (event) => {
-                    var _a, _b;
-                    event.preventDefault();
-                    let newTarget = event.relatedTarget;
-                    if (newTarget && !(((_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.contains(newTarget)) || ((_b = this.element) === null || _b === void 0 ? void 0 : _b.contains(newTarget))))
-                        __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_hide).call(this);
-                });
-                tooltipElement.addEventListener("click", (event) => {
-                    var _a;
-                    event.preventDefault();
-                    (_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.focus();
-                });
+                tooltipElement.addEventListener("mouseout", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOutTrigger).call(this, event));
+                tooltipElement.addEventListener("click", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleClick).call(this, event));
             }
         }
         if (this.hidden || forceRepositioning) {
@@ -3948,20 +4390,47 @@ class SirioTooltip {
         }
         this.hidden = false;
     }
+    hide() {
+        var _a;
+        if (!this.hidden) {
+            this.triggerElement.removeAttribute("aria-describedby");
+            this.triggerElement.removeAttribute("style");
+            (_a = this.element) === null || _a === void 0 ? void 0 : _a.remove();
+            this.element = null;
+            this.hidden = true;
+        }
+    }
     setMargin(margin) {
         __classPrivateFieldSet(this, _SirioTooltip_margin, margin, "f");
+    }
+    removeEventListeners() {
+        var _a, _b;
+        let trigger = this.triggerElement;
+        if (trigger !== null) {
+            let tooltip = this;
+            trigger.removeEventListener("mouseover", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOver).call(tooltip, event));
+            trigger.removeEventListener("focus", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleFocus).call(tooltip, event));
+            window.removeEventListener("keydown", (event) => __classPrivateFieldGet(tooltip, _SirioTooltip_instances, "m", _SirioTooltip_handleKeyDown).call(tooltip, event));
+            let dataSirioToggle = this.triggerElement.getAttribute("data-sirio-toggle");
+            if (dataSirioToggle === "tooltip") {
+                this.triggerElement.removeEventListener("mouseout", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOut).call(this, event));
+                this.triggerElement.removeEventListener("blur", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleBlur).call(this, event));
+                (_a = this.element) === null || _a === void 0 ? void 0 : _a.removeEventListener("mouseout", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleMouseOutTrigger).call(this, event));
+                (_b = this.element) === null || _b === void 0 ? void 0 : _b.removeEventListener("click", (event) => __classPrivateFieldGet(this, _SirioTooltip_instances, "m", _SirioTooltip_handleClick).call(this, event));
+            }
+        }
+        return;
     }
 }
 exports.SirioTooltip = SirioTooltip;
 _SirioTooltip_placement = new WeakMap(), _SirioTooltip_title = new WeakMap(), _SirioTooltip_content = new WeakMap(), _SirioTooltip_margin = new WeakMap(), _SirioTooltip_instances = new WeakSet(), _SirioTooltip_createHTMLElement = function _SirioTooltip_createHTMLElement(idName) {
-    var _a;
     let tooltipElement = document.createElement("div");
     tooltipElement.classList.add(Constants_1.sirioPrefix + "tooltip");
     tooltipElement.setAttribute("role", "tooltip");
     let randomPart = (0, Utils_1.makeNumberId)(5);
     tooltipElement.id = idName + randomPart;
     tooltipElement.tabIndex = -1;
-    (_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.setAttribute("aria-describedby", tooltipElement.id);
+    this.triggerElement.setAttribute("aria-describedby", tooltipElement.id);
     let titleElement = document.createElement("strong");
     titleElement.textContent = __classPrivateFieldGet(this, _SirioTooltip_title, "f");
     if (__classPrivateFieldGet(this, _SirioTooltip_content, "f") == null) {
@@ -3981,15 +4450,6 @@ _SirioTooltip_placement = new WeakMap(), _SirioTooltip_title = new WeakMap(), _S
     tooltipElement.style.left = "0";
     tooltipElement.style.willChange = "transform";
     return tooltipElement;
-}, _SirioTooltip_hide = function _SirioTooltip_hide() {
-    var _a, _b, _c;
-    if (!this.hidden) {
-        (_a = this.triggerElement) === null || _a === void 0 ? void 0 : _a.removeAttribute("aria-describedby");
-        (_b = this.triggerElement) === null || _b === void 0 ? void 0 : _b.removeAttribute("style");
-        (_c = this.element) === null || _c === void 0 ? void 0 : _c.remove();
-        this.element = null;
-        this.hidden = true;
-    }
 }, _SirioTooltip_calculatePosition = function _SirioTooltip_calculatePosition(tooltipElement) {
     let triggerPosition = this.triggerElement.getBoundingClientRect(), triggerX = triggerPosition.x + document.documentElement.scrollLeft, triggerY = triggerPosition.y + document.documentElement.scrollTop;
     let thisCyclePosition = cyclePositions[__classPrivateFieldGet(this, _SirioTooltip_placement, "f")];
@@ -4037,19 +4497,130 @@ _SirioTooltip_placement = new WeakMap(), _SirioTooltip_title = new WeakMap(), _S
             y = triggerY + triggerHeight + __classPrivateFieldGet(this, _SirioTooltip_margin, "f");
             break;
     }
-    if (!force && (x < 0 || y < 0 || x + tooltipWidth > document.body.offsetWidth || y + tooltipHeight > document.body.offsetHeight))
+    if (!force &&
+        (x < 0 ||
+            y < 0 ||
+            x + tooltipWidth > document.body.offsetWidth ||
+            y + tooltipHeight > document.body.offsetHeight))
         throw "Element is outside document";
     return [x, y];
+}, _SirioTooltip_handleMouseOver = function _SirioTooltip_handleMouseOver(event) {
+    event.preventDefault();
+    this.showElement();
+}, _SirioTooltip_handleMouseOut = function _SirioTooltip_handleMouseOut(event) {
+    var _a;
+    event.preventDefault();
+    let newTarget = event.relatedTarget;
+    if (newTarget && !((_a = this.element) === null || _a === void 0 ? void 0 : _a.contains(newTarget)))
+        this.hide();
+}, _SirioTooltip_handleMouseOutTrigger = function _SirioTooltip_handleMouseOutTrigger(event) {
+    var _a;
+    event.preventDefault();
+    let newTarget = event.relatedTarget;
+    if (newTarget &&
+        !(this.triggerElement.contains(newTarget) ||
+            ((_a = this.element) === null || _a === void 0 ? void 0 : _a.contains(newTarget))))
+        this.hide();
+}, _SirioTooltip_handleBlur = function _SirioTooltip_handleBlur(event) {
+    var _a;
+    event.preventDefault();
+    let target = event.relatedTarget;
+    if (target &&
+        !(this.triggerElement.contains(target) || ((_a = this.element) === null || _a === void 0 ? void 0 : _a.contains(target))))
+        this.hide();
+}, _SirioTooltip_handleClick = function _SirioTooltip_handleClick(event) {
+    event.preventDefault();
+    this.triggerElement.focus();
+}, _SirioTooltip_handleKeyDown = function _SirioTooltip_handleKeyDown(event) {
+    if (event.key === "Escape" || event.key === "Esc") {
+        this.hide();
+    }
+}, _SirioTooltip_handleFocus = function _SirioTooltip_handleFocus(event) {
+    event.preventDefault();
+    this.showElement();
 };
+SirioTooltip.tooltips = new Map();
 var cyclePositions = {
-    top: ["top", "bottom", "top-start", "top-end", "bottom-start", "bottom-end", "left", "right"],
-    bottom: ["bottom", "top", "bottom-start", "bottom-end", "top-start", "top-end", "left", "right"],
-    left: ["left", "right", "top", "bottom", "top-start", "bottom-start", "top-end", "bottom-end"],
-    right: ["right", "left", "top", "bottom", "top-end", "bottom-end", "top-start", "bottom-start"],
-    "top-start": ["top-start", "bottom-start", "top", "bottom", "top-end", "bottom-end", "left", "right"],
-    "bottom-start": ["bottom-start", "top-start", "bottom", "top", "bottom-end", "top-end", "left", "right"],
-    "top-end": ["top-end", "bottom-end", "top", "bottom", "top-start", "bottom-start", "left", "right"],
-    "bottom-end": ["bottom-end", "top-end", "bottom", "top", "bottom-start", "top-start", "left", "right"],
+    top: [
+        "top",
+        "bottom",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "right",
+    ],
+    bottom: [
+        "bottom",
+        "top",
+        "bottom-start",
+        "bottom-end",
+        "top-start",
+        "top-end",
+        "left",
+        "right",
+    ],
+    left: [
+        "left",
+        "right",
+        "top",
+        "bottom",
+        "top-start",
+        "bottom-start",
+        "top-end",
+        "bottom-end",
+    ],
+    right: [
+        "right",
+        "left",
+        "top",
+        "bottom",
+        "top-end",
+        "bottom-end",
+        "top-start",
+        "bottom-start",
+    ],
+    "top-start": [
+        "top-start",
+        "bottom-start",
+        "top",
+        "bottom",
+        "top-end",
+        "bottom-end",
+        "left",
+        "right",
+    ],
+    "bottom-start": [
+        "bottom-start",
+        "top-start",
+        "bottom",
+        "top",
+        "bottom-end",
+        "top-end",
+        "left",
+        "right",
+    ],
+    "top-end": [
+        "top-end",
+        "bottom-end",
+        "top",
+        "bottom",
+        "top-start",
+        "bottom-start",
+        "left",
+        "right",
+    ],
+    "bottom-end": [
+        "bottom-end",
+        "top-end",
+        "bottom",
+        "top",
+        "bottom-start",
+        "top-start",
+        "left",
+        "right",
+    ],
 };
 
 
@@ -4060,7 +4631,7 @@ var cyclePositions = {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.querySelectorAllIncludeSelf = exports.padStartWithZeros = exports.isDescendant = exports.makeNumberId = exports.dataSirioKeyboardHandler = exports.makeid = void 0;
+exports.onVisible = exports.querySelectorAllIncludeSelf = exports.padStartWithZeros = exports.isDescendant = exports.makeNumberId = exports.dataSirioKeyboardHandler = exports.makeid = void 0;
 function makeid(length) {
     var result = "";
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -4076,7 +4647,6 @@ function dataSirioKeyboardHandler() {
         let key = event.key.toLowerCase();
         if (key == "tab")
             document.body.setAttribute("data-sirio-keyboard", "true");
-        // else if (document.body.getAttribute("data-sirio-keyboard") && key != "shift") document.body.removeAttribute("data-sirio-keyboard");
     });
     document.body.addEventListener("click", (event) => {
         if (document.body.getAttribute("data-sirio-keyboard"))
@@ -4113,7 +4683,9 @@ function padStartWithZeros(toPad, length) {
 }
 exports.padStartWithZeros = padStartWithZeros;
 function querySelectorAllIncludeSelf(element, selectors) {
-    return [element, ...element.querySelectorAll(selectors)].filter(el => el.matches(selectors));
+    if (element && element instanceof HTMLElement)
+        return [element, ...element.querySelectorAll(selectors)].filter((el) => el.matches(selectors));
+    return [];
 }
 exports.querySelectorAllIncludeSelf = querySelectorAllIncludeSelf;
 function cryptoRandom() {
@@ -4122,6 +4694,19 @@ function cryptoRandom() {
     const randomFloat = randomValue / Math.pow(2, 8);
     return randomFloat;
 }
+function onVisible(element, callback) {
+    var observerObj = null;
+    new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                callback(element);
+                observerObj = observer;
+            }
+        });
+    }).observe(element);
+    return observerObj;
+}
+exports.onVisible = onVisible;
 
 
 /***/ })
@@ -4159,7 +4744,7 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SirioDialog = exports.SirioToast = exports.SirioAlert = exports.getComponentById = void 0;
+exports.SirioDialog = exports.SirioToast = exports.SirioAlert = exports.getComponentByElement = exports.getComponentById = void 0;
 const SirioPopover_1 = __webpack_require__(686);
 const SirioAccordion_1 = __webpack_require__(376);
 const SirioDialog_1 = __webpack_require__(291);
@@ -4195,7 +4780,6 @@ function initialize() {
     SirioSlider_1.SirioSlider.init();
     SirioTable_1.SirioTable.init();
     SirioTimePicker_1.SirioTimePicker.init();
-    //SirioToggle.init();
     SirioSticky_1.SirioSticky.init();
 }
 (0, Utils_1.dataSirioKeyboardHandler)();
@@ -4204,8 +4788,6 @@ function getComponentById(id, type) {
     switch (type) {
         case "dialog":
             return SirioDialog_1.SirioDialog.getDialogById(id);
-        case "accordion":
-            return SirioAccordion_1.SirioAccordion.getAccordionById(id);
         case "dropdown-menu":
             return SirioDropdownMenu_1.SirioDropdownMenu.getMenuById(id);
         case "dropdown-select":
@@ -4225,86 +4807,212 @@ function getComponentById(id, type) {
     }
 }
 exports.getComponentById = getComponentById;
-const observer = new MutationObserver(function (mutations_list) {
-    mutations_list.forEach(function (mutation) {
-        mutation.addedNodes.forEach(function (node) {
-            if (node instanceof Element) {
-                // Breadcrumb
-                let breadcrumbComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="breadcrumb"]`);
-                breadcrumbComponentElements.forEach(function (breadcrumbComponentEl) {
-                    SirioBreadcrumb_1.SirioBreadcrumb.initComponent(breadcrumbComponentEl);
-                });
-                // Dropdown menu
-                let dropdownElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="dropdown"]`);
-                dropdownElements.forEach(function (dropdown) {
-                    SirioDropdownMenu_1.SirioDropdownMenu.initComponent(dropdown);
-                });
-                // Tab
-                let tabGroups = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="tab"] > ul`);
-                tabGroups.forEach(function (group) {
-                    SirioTab_1.SirioTab.initComponent(group);
-                });
-                // Accordion
-                let accordionElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="collapse"]`);
-                accordionElements.forEach(function (trigger) {
-                    SirioAccordion_1.SirioAccordion.initComponent(trigger);
-                });
-                // Table
-                let tableElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, ".sirio-table");
-                tableElements.forEach(function (tableEl) {
-                    SirioTable_1.SirioTable.initComponent(tableEl);
-                });
-                // Dialogs
-                let triggerElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="dialog"]`);
-                triggerElements.forEach(function (trigger) {
-                    SirioDialog_1.SirioDialog.initComponent(trigger);
-                });
-                // Tooltip
-                let tooltipElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="tooltip"]`);
-                tooltipElements.forEach(function (trigger) {
-                    SirioTooltip_1.SirioTooltip.initComponent(trigger);
-                });
-                // Popover
-                let popoverElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="popover"]`);
-                popoverElements.forEach(function (trigger) {
-                    SirioPopover_1.SirioPopover.initComponent(trigger);
-                });
-                // Sticky
-                let stickyElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="sticky"]`);
-                if (stickyElements.length > 0)
-                    SirioSticky_1.SirioSticky.init();
-                // Dropdown select
-                let selectElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="select"]`);
-                selectElements.forEach(function (select) {
-                    SirioDropdownSelect_1.SirioDropdownSelect.initComponent(select);
-                });
-                // Dropdown autocomplete
-                let autocompleteElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="autocomplete"]`);
-                autocompleteElements.forEach(function (autocomplete) {
-                    SirioDropdownAutocomplete_1.SirioDropdownAutocomplete.initComponent(autocomplete);
-                });
-                // Toggle
-                // let toggleComponentsElements = querySelectorAllIncludeSelf(node as HTMLElement, `[data-sirio-component="toggle"]`);
-                // toggleComponentsElements.forEach(function (toggleComponentEl) {
-                //     SirioToggle.initComponent(toggleComponentEl as HTMLElement);
-                // });
-                // File upload
-                let uploadElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="upload"]`);
-                uploadElements.forEach(function (upload) {
-                    SirioFileUpload_1.SirioFileUpload.initComponent(upload);
-                });
-                // Slider 
-                let sliderComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="slider"]`);
-                sliderComponentElements.forEach(function (sliderComponentEl) {
-                    SirioSlider_1.SirioSlider.initComponent(sliderComponentEl);
-                });
-                // Timepicker
-                let timepickers = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="timepicker"]`);
-                timepickers.forEach(function (input) {
-                    SirioTimePicker_1.SirioTimePicker.initComponent(input);
-                });
+function getComponentByElement(element, type) {
+    switch (type) {
+        case 'accordion':
+            return SirioAccordion_1.SirioAccordion.getAccordionByElement(element);
+        case 'breadcrumb':
+            return SirioBreadcrumb_1.SirioBreadcrumb.getBreadcrumbByElement(element);
+        case 'popover':
+            return SirioPopover_1.SirioPopover.getPopoverByElement(element);
+        case 'tooltip':
+            return SirioTooltip_1.SirioTooltip.getTooltipByElement(element);
+        case 'tab':
+            return SirioTab_1.SirioTab.getTabGroupByElement(element);
+        case 'table':
+            return SirioTable_1.SirioTable.getTableByElement(element);
+        case 'sticky':
+            return SirioSticky_1.SirioSticky.getStickyByElement(element);
+        default:
+            throw TypeError(`Component of type '${type}' cannot be managed.`);
+    }
+}
+exports.getComponentByElement = getComponentByElement;
+function handleAddedNodes(addedNodes) {
+    addedNodes.forEach(function (node) {
+        if (node instanceof Element) {
+            // Breadcrumb
+            let breadcrumbComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="breadcrumb"]`);
+            breadcrumbComponentElements.forEach(function (breadcrumbComponentEl) {
+                SirioBreadcrumb_1.SirioBreadcrumb.initComponent(breadcrumbComponentEl);
+            });
+            // Dropdown menu
+            let dropdownElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="dropdown"]`);
+            dropdownElements.forEach(function (dropdown) {
+                SirioDropdownMenu_1.SirioDropdownMenu.initComponent(dropdown);
+            });
+            // Tab
+            let tabGroups = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="tab"] > ul`);
+            tabGroups.forEach(function (group) {
+                SirioTab_1.SirioTab.initComponent(group);
+            });
+            // Accordion
+            let accordionElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="collapse"]`);
+            accordionElements.forEach(function (trigger) {
+                SirioAccordion_1.SirioAccordion.initComponent(trigger);
+            });
+            // Table
+            let tableElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, ".sirio-table");
+            tableElements.forEach(function (tableEl) {
+                SirioTable_1.SirioTable.initComponent(tableEl);
+            });
+            // Dialogs
+            let triggerElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="dialog"]`);
+            triggerElements.forEach(function (trigger) {
+                SirioDialog_1.SirioDialog.initComponent(trigger);
+            });
+            // Tooltip
+            let tooltipElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="tooltip"]`);
+            tooltipElements.forEach(function (trigger) {
+                SirioTooltip_1.SirioTooltip.initComponent(trigger);
+            });
+            // Popover
+            let popoverElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="popover"]`);
+            popoverElements.forEach(function (trigger) {
+                SirioPopover_1.SirioPopover.initComponent(trigger);
+            });
+            // Sticky
+            let stickyElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="sticky"]`);
+            if (stickyElements.length > 0)
+                SirioSticky_1.SirioSticky.init();
+            // Dropdown select
+            let selectElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="select"]`);
+            selectElements.forEach(function (select) {
+                SirioDropdownSelect_1.SirioDropdownSelect.initComponent(select);
+            });
+            // Dropdown autocomplete
+            let autocompleteElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="autocomplete"]`);
+            autocompleteElements.forEach(function (autocomplete) {
+                SirioDropdownAutocomplete_1.SirioDropdownAutocomplete.initComponent(autocomplete);
+            });
+            // File upload
+            let uploadElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="upload"]`);
+            uploadElements.forEach(function (upload) {
+                SirioFileUpload_1.SirioFileUpload.initComponent(upload);
+            });
+            // Slider
+            let sliderComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="slider"]`);
+            sliderComponentElements.forEach(function (sliderComponentEl) {
+                SirioSlider_1.SirioSlider.initComponent(sliderComponentEl);
+            });
+            // Timepicker
+            let timepickers = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="timepicker"]`);
+            timepickers.forEach(function (input) {
+                SirioTimePicker_1.SirioTimePicker.initComponent(input);
+            });
+        }
+    });
+}
+function handleRemovedNodes(removedNodes) {
+    removedNodes.forEach(function (node) {
+        // Accordion
+        let accordionElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="collapse"]`);
+        accordionElements.forEach(function (trigger) {
+            SirioAccordion_1.SirioAccordion.destroy(trigger);
+        });
+        // Dialogs
+        let dialogElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="dialog"]`);
+        dialogElements.forEach(function (trigger) {
+            var _a, _b;
+            let targetId;
+            switch (trigger.tagName.toLowerCase()) {
+                case "button":
+                    targetId = (_a = trigger.getAttribute("data-sirio-target")) === null || _a === void 0 ? void 0 : _a.substring(1); //substring per togliere il #
+                    break;
+                case "a":
+                    targetId = (_b = trigger.getAttribute("href")) === null || _b === void 0 ? void 0 : _b.substring(1);
+                    break;
+                default:
+            }
+            if (targetId != undefined) {
+                SirioDialog_1.SirioDialog.destroy(targetId);
             }
         });
+        // SirioDropdown
+        let dropdownElement = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="dropdown"]`);
+        dropdownElement.forEach(function (dropdown) {
+            // Autocomplete
+            let autocompleteElements = (0, Utils_2.querySelectorAllIncludeSelf)(dropdown, `[data-sirio-component="autocomplete"]`);
+            autocompleteElements.forEach(function (autocomplete) {
+                if ((autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.tagName.toLowerCase()) == "input") {
+                    let id = autocomplete === null || autocomplete === void 0 ? void 0 : autocomplete.id;
+                    SirioDropdownAutocomplete_1.SirioDropdownAutocomplete.destroy(id);
+                }
+            });
+            // Dropdown
+            let dropdownTriggers = (0, Utils_2.querySelectorAllIncludeSelf)(dropdown, `[data-sirio-toggle="dropdown"]`);
+            dropdownTriggers.forEach(function (trigger) {
+                if (trigger && trigger.tagName === "BUTTON") {
+                    let id = trigger.id;
+                    SirioDropdownMenu_1.SirioDropdownMenu.destroy(id);
+                }
+            });
+            // Select
+            let selectElements = (0, Utils_2.querySelectorAllIncludeSelf)(dropdown, `[data-sirio-component="select"]`);
+            selectElements.forEach(function (select) {
+                if ((select === null || select === void 0 ? void 0 : select.tagName.toLowerCase()) == "select") {
+                    let id = select === null || select === void 0 ? void 0 : select.id;
+                    SirioDropdownSelect_1.SirioDropdownSelect.destroy(id);
+                }
+            });
+            // Timepicker
+            let timepickers = (0, Utils_2.querySelectorAllIncludeSelf)(dropdown, `[data-sirio-component="timepicker"]`);
+            timepickers.forEach(function (input) {
+                SirioTimePicker_1.SirioTimePicker.destroy(input.id);
+            });
+        });
+        // File upload
+        let fileUploadElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="upload"]`);
+        fileUploadElements.forEach(function (fileUpload) {
+            let input = fileUpload.querySelector("input");
+            if (input) {
+                let id = input.id;
+                SirioFileUpload_1.SirioFileUpload.destroy(id);
+            }
+        });
+        // Popover
+        let popoverTriggers = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="popover"]`);
+        popoverTriggers.forEach(function (trigger) {
+            SirioPopover_1.SirioPopover.destroy(trigger);
+        });
+        // Tooltip
+        let tooltipElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-toggle="tooltip"]`);
+        tooltipElements.forEach(function (trigger) {
+            SirioTooltip_1.SirioTooltip.destroy(trigger);
+        });
+        // Slider
+        let sliderElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="slider"]`);
+        sliderElements.forEach(function (sliderComponentEl) {
+            let sliderEl = sliderComponentEl.getElementsByTagName("input")[0];
+            SirioSlider_1.SirioSlider.destroy(sliderEl.id);
+        });
+        // Breadcrumb
+        let breadcrumbElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="breadcrumb"]`);
+        breadcrumbElements.forEach(function (breadcrumbComponentEl) {
+            SirioBreadcrumb_1.SirioBreadcrumb.destroy(breadcrumbComponentEl);
+        });
+        // Tab
+        let tabElementsGroups = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="tab"] > ul`);
+        tabElementsGroups.forEach(function (group) {
+            SirioTab_1.SirioTab.destroy(group);
+        });
+        // Table
+        let tableElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, ".sirio-table");
+        tableElements.forEach(function (table) {
+            SirioTable_1.SirioTable.destroy(table);
+        });
+        // Sticky
+        let stickyElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="sticky"]`);
+        if (stickyElements.length > 0)
+            SirioSticky_1.SirioSticky.init();
+    });
+}
+const observer = new MutationObserver(function (mutations_list) {
+    mutations_list.forEach(function (mutation) {
+        if (mutation.addedNodes.length > 0)
+            handleAddedNodes(mutation.addedNodes);
+        if (mutation.removedNodes.length > 0)
+            handleRemovedNodes(mutation.removedNodes);
     });
 });
 observer.observe(document, { subtree: true, childList: true });

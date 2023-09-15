@@ -1,6 +1,6 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.6.0.0
+ * Sirio WebKit v.7.0.0
  * Copyright 2022 INPS
  */
 (function () {
@@ -69,7 +69,7 @@
   // Remove the spacing surrounding tags for HTML parser not to create text nodes
   // before/after elements
   function optimizeTemplateHTML(html) {
-    return html.replace(/>\s+/g, '>').replace(/\s+</, '<');
+    return html.replace(/>\s+/g, '>').replace(/\s{1,100}</, '<');
   }
 
   function stripTime(timeValue) {
@@ -314,10 +314,11 @@
       },
       formatter(date, locale) {
         let dateStr = partFormatters.reduce((str, fn, index) => {
-          return str += `${separators[index]}${fn(date, locale)}`;
+            str += `${separators[index]}${fn(date, locale)}`;
+            return str;
         }, '');
         // separators' length is always parts' length + 1,
-        return dateStr += lastItemOf(separators);
+        return (dateStr += lastItemOf(separators));
       },
     };
   }
@@ -3216,7 +3217,11 @@
     registerListeners(rangepicker, [
       [el, 'changeDate', changeDateListener],
     ]);
-    new Datepicker(el, options, rangepicker);
+    try {
+        new Datepicker(el, options, rangepicker);
+    } catch (e) {
+
+    }
   }
 
   function onChangeDate(rangepicker, ev) {

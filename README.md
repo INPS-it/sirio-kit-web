@@ -1,4 +1,4 @@
-# SirioWebKit v.6.0.0
+# SirioWebKit v.7.0.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -39,6 +39,14 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+
+### 7.0.0 (2023-09-15)
+
+- **contenuto**\Card (header moved)
+- **contenuto**\Tab (added nav)
+- **contenuto**\Title Bar
+- **contenuto**\Tabelle (added drawer)
+- **form**\Filtri
 
 ### 6.0.0 (2023-05-19)
 

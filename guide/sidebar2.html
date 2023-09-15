@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+
+	<!-- CSS Fonts -->
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+	<link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+	<link rel="stylesheet" href="../assets/css/font-lora.css">
+
+	<!-- CSS WebKit -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+
+	<title>Sidebar - Sirio WebKit</title>
+
+</head>
+<body id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="sirio-header" data-sirio-component="sticky" data-sirio-toggle="false">
+	
+		<!-- Topbar -->
+		<div class="sirio-header-top">
+		    <div class="container-fluid">
+		        <div class="row g-0 align-items-center">
+
+		            <!-- Navigazione secondaria -->
+		            <div class="col-auto d-none d-lg-block">
+		                <nav aria-label="Navigazione sito principale">
+		                    <ul class="sirio-nav sirio-nav-top">
+		                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link">Label</a></li>
+		                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link">Label</a></li>
+		                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link">Label</a></li>
+		                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link">Label</a></li>
+		                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link">Label</a></li>
+		                    </ul>
+		                </nav>
+		            </div>
+
+		            <!-- Lingue -->
+		            <div class="col-auto ml-auto d-none d-lg-block">
+		                <div class="sirio-dropdown" data-sirio-component="dropdown">
+		                    <button class="sirio-btn sirio-btn-icon sirio-btn-lang" type="button" id="dropdown-language2" data-sirio-toggle="dropdown"
+		                        aria-expanded="false">
+		                        ITA<span class="sr-only"> Lingua italiana</span>
+		                    </button>
+		                    <ul class="sirio-dropdown-menu" aria-labelledby="dropdown-language2" data-sirio-visible="false">
+		                        <li><a class="sirio-dropdown-item active" href="#">ITA<span class="sr-only"> Lingua italiana attiva</span></a></li>
+		                        <li><a class="sirio-dropdown-item" href="#" lang="de">DEU<span class="sr-only"> Deutsche sprache</span></a></li>
+		                        <li><a class="sirio-dropdown-item" href="#" lang="en">ENG<span class="sr-only"> English language</span></a></li>
+		                    </ul>
+		                </div>
+		            </div>
+		            
+		            <!-- Navigazione sito mobile -->
+		            <div class="col-auto d-lg-none">
+		                <button type="button" class="sirio-btn sirio-btn-light sirio-btn-icon" aria-label="Apri menu di navigazione del sito" data-sirio-toggle="dialog" data-sirio-target="#dialog-nav-mobile">
+		                    <span class="fas fa-bars ml-2" aria-hidden="true"></span>
+		                </button>
+		                <div class="sirio-dialog sirio-dialog-full sirio-dialog-nav-mobile" id="dialog-nav-mobile" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-nav-mobile"
+		                    data-sirio-component="dialog" data-sirio-visible="false">
+		                    <div class="sirio-dialog-wrapper">
+		                        <div class="sirio-dialog-content">
+		                            <div class="sirio-dialog-header">
+		                                <h2 class="sr-only" id="heading-dialog-nav-mobile">Menu di navigazione del sito</h2>
+		                                <button type="button" class="sirio-btn sirio-btn-light sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi Menu di navigazione del sito">
+		                                    <span class="fas fa-times" aria-hidden="true"></span>
+		                                </button>
+		                                <a href="#" title="torna alla homepage INPS" class="sirio-btn sirio-btn-home">
+		                                    <img class="logo-mobile" alt="logo inps" src="../assets/img/logo-inps-mobile.svg">
+		                                </a>
+		                            </div>
+		                            <div class="sirio-dialog-body">
+
+		                                <div class="sirio-bg-white">
+		                                    <nav aria-label="Navigazione sito principale">
+		                                        <ul class="sirio-nav sirio-nav-mobile">
+		                                            <li class="sirio-nav-item">
+		                                                <button type="button" class="sirio-nav-link sirio-nav-link-chevron sirio-font-weight-600" data-sirio-toggle="dialog" data-sirio-target="#dialog-nav-mobile-link" aria-label="Apri menu Label navigabile">
+		                                                    Label navigabile
+		                                                </button>
+		                                                <div class="sirio-dialog sirio-dialog-full sirio-dialog-nav-mobile" id="dialog-nav-mobile-link" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-nav-mobile-link" data-sirio-component="dialog" data-sirio-visible="false">
+		                                                    <div class="sirio-dialog-wrapper">
+		                                                        <div class="sirio-dialog-content">
+		                                                            <div class="sirio-dialog-header">
+		                                                                <button type="button" class="sirio-btn sirio-btn-icon sirio-btn-back" data-sirio-dismiss="dialog" aria-label="Torna alla navigazione principale">
+		                                                                    <span class="fas fa-angle-left" aria-hidden="true"></span>
+		                                                                    <span class="sirio-dialog-heading" role="heading" aria-level="3" id="heading-dialog-nav-mobile-link">Label navigabile</span>
+		                                                                </button>
+		                                                            </div>
+		                                                            <div class="sirio-dialog-body">
+		                                                                <nav aria-label="Navigazione sezione Label navigabile">
+		                                                                    <ul class="sirio-nav sirio-nav-mobile">
+		                                                                        <li class="sirio-nav-item">
+		                                                                            <button type="button" class="sirio-nav-link sirio-nav-link-chevron sirio-font-weight-600" data-sirio-toggle="dialog" data-sirio-target="#dialog-nav-mobile-link-inside" aria-label="Apri menu Label navigabile successiva">
+		                                                                                Label navigabile successiva
+		                                                                            </button>
+		                                                                            <div class="sirio-dialog sirio-dialog-full sirio-dialog-nav-mobile" id="dialog-nav-mobile-link-inside" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-nav-mobile-link-inside" data-sirio-component="dialog" data-sirio-visible="false">
+		                                                                                <div class="sirio-dialog-wrapper">
+		                                                                                    <div class="sirio-dialog-content">
+		                                                                                        <div class="sirio-dialog-header">
+		                                                                                            <button type="button" class="sirio-btn sirio-btn-icon sirio-btn-back" data-sirio-dismiss="dialog" aria-label="Torna alla navigazione precedente">
+		                                                                                                <span class="fas fa-angle-left" aria-hidden="true"></span>
+		                                                                                                <span class="sirio-dialog-heading" role="heading" aria-level="4" id="heading-dialog-nav-mobile-link-inside">Label navigabile successiva</span>
+		                                                                                            </button>
+		                                                                                        </div>
+		                                                                                        <div class="sirio-dialog-body">
+		                                                                                            <nav aria-label="Navigazione sezione Label navigabile successiva">
+		                                                                                                <ul class="sirio-nav sirio-nav-mobile">
+		                                                                                                    <li class="sirio-nav-item">
+		                                                                                                        <a href="#" class="sirio-nav-link">Label</a>
+		                                                                                                    </li>
+		                                                                                                    <li class="sirio-nav-item">
+		                                                                                                        <a href="#" class="sirio-nav-link">Label</a>
+		                                                                                                    </li>
+		                                                                                                    <li class="sirio-nav-item">
+		                                                                                                        <a href="#" class="sirio-nav-link">Label</a>
+		                                                                                                    </li>
+		                                                                                                    <li class="sirio-nav-item">
+		                                                                                                        <a href="#" class="sirio-nav-link">Label</a>
+		                                                                                                    </li>
+		                                                                                                </ul>
+		                                                                                            </nav>
+
+		                                                                                        </div>
+		                                                                                    </div>
+		                                                                                </div>
+		                                                                            </div>
+		                                                                        </li>
+		                                                                        <li class="sirio-nav-item">
+		                                                                            <a href="#" class="sirio-nav-link">Label</a>
+		                                                                        </li>
+		                                                                        <li class="sirio-nav-item">
+		                                                                            <a href="#" class="sirio-nav-link">Label</a>
+		                                                                        </li>
+		                                                                        <li class="sirio-nav-item">
+		                                                                            <a href="#" class="sirio-nav-link">Label</a>
+		                                                                        </li>
+		                                                                    </ul>
+		                                                                </nav>
+
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+		                                            </li>
+		                                            <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron sirio-font-weight-600">Label</a></li>
+		                                            <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron sirio-font-weight-600">Label</a></li>
+		                                            <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron sirio-font-weight-600">Label</a></li>
+		                                        </ul>
+		                                    </nav>
+		                                </div>
+		                                
+		                                <nav aria-label="Navigazione sito secondaria">
+		                                    <ul class="sirio-nav sirio-nav-mobile">
+		                                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron">Label</a></li>
+		                                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron">Label</a></li>
+		                                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron">Label</a></li>
+		                                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron">Label</a></li>
+		                                        <li class="sirio-nav-item"><a href="#" class="sirio-nav-link sirio-nav-link-chevron">Label</a></li>
+		                                    </ul>
+		                                </nav>
+
+		                                <nav aria-label="Selezione linguaggio del sito">
+		                                    <ul class="sirio-nav sirio-nav-lang">
+		                                        <li class="sirio-nav-item"><a class="sirio-nav-link active" href="#">ITA<span class="sr-only"> Lingua italiana attiva</span></a></li>
+		                                        <li class="sirio-nav-item"><a class="sirio-nav-link" href="#" lang="de">DEU<span class="sr-only"> Deutsche sprache</span></a></li>
+		                                        <li class="sirio-nav-item"><a class="sirio-nav-link" href="#" lang="en">ENG<span class="sr-only"> English language</span></a></li>
+		                                    </ul>
+		                                </nav>
+
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <!-- Logo mobile -->
+		            <div class="col-auto d-lg-none me-auto">
+		                <a href="#" title="torna alla homepage INPS">
+		                    <img class="logo-mobile" alt="logo inps" src="../assets/img/logo-inps-mobile.svg">
+		                </a>
+		            </div>
+
+		            <!-- Search Mobile -->
+		            <div class="col-auto d-lg-none">
+		                <button type="button" class="sirio-btn sirio-btn-light sirio-btn-icon" aria-label="Ricerca nel sito">
+		                    <span class="fas fa-search ml-2" aria-hidden="true"></span>
+		                </button>
+		            </div>
+		            <div class="col-auto text-right">
+		                <a href="#" class="sirio-btn sirio-btn-light sirio-btn-icon" aria-label="Notifiche" title="Notifiche">
+		                    <span class="fas fa-bell" aria-hidden="true"></span>
+		                </a>
+		            </div>
+		            <div class="col-auto text-right">
+		                <a href="#" class="sirio-btn sirio-btn-light sirio-btn-icon" aria-label="Messaggi" title="Messaggi">
+		                    <span class="fas fa-envelope" aria-hidden="true"></span>
+		                </a>
+		            </div>
+		            <div class="col-auto text-right">
+		                <a href="#" class="sirio-btn sirio-btn-light" aria-label="Accedi all'area riservata">
+		                    <span class="d-none d-lg-inline-block me-3 sirio-text-underline">Accedi</span><span class="fas fa-user" aria-hidden="true"></span>
+		                </a>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	
+		<!-- Navbar -->
+		<div class="sirio-header-mid d-none d-lg-block" id="sirio-header-sticky">
+		    <div class="container-fluid">
+		        <div class="row flex-nowrap align-items-lg-center">
+
+		            <!-- Logo -->
+		            <div class="col-auto col-xl-2 d-flex">
+		                <a href="#" title="torna alla homepage INPS" class="d-inline-block">
+		                    <img class="logo pt-lg-4 mt-lg-2" alt="logo inps" src="../assets/img/logo-inps.svg">
+		                    <img class="logo-sticky" alt="logo inps" src="../assets/img/logo-inps-sticky.svg">
+		                </a>
+		            </div>
+		            
+		            <div class="col">
+
+		                <!-- Cerca -->
+		                <div id="header-search">
+		                    <div class="sirio-input-group my-4 pt-2">
+		                        <input type="text" class="sirio-form-control" placeholder="Inserisci termine da ricercare"
+		                            aria-label="Ricerca parola">
+		                        <button class="sirio-btn sirio-btn-primary">Ricerca<span class="fas fa-search" aria-hidden="true"></span></button>
+		                    </div>
+		                </div>
+		                
+		                <!-- Navigazione sito principale -->
+		                <nav id="nav-main" aria-label="Navigazione sito principale">
+		                    <ul class="sirio-nav sirio-nav-main">
+		                        <li class="sirio-nav-item col-auto">
+		                            <a href="#" class="sirio-nav-link active">Label</a>
+		                        </li>
+		                        <li class="sirio-nav-item col-auto">
+		                            <a href="#" class="sirio-nav-link">Label</a>
+		                        </li>
+		                        <li class="sirio-nav-item col-auto">
+		                            <a href="#" class="sirio-nav-link">Label</a>
+		                        </li>
+		                        <li class="sirio-nav-item col-auto">
+		                            <a href="#" class="sirio-nav-link">Label</a>
+		                        </li>
+		                    </ul>
+		                </nav>
+		            </div>
+		            
+		            <!-- Button sticky -->
+		            <div class="col-auto ml-auto justify-content-end align-items-baseline button-sticky">
+		                <button class="sirio-btn sirio-btn-icon" aria-label="Ricerca nel sito" title="Apri cerca">
+		                    <span class="fas fa-search"></span><span class="sr-only">Cerca</span>
+		                </button>
+		                <a href="#" class="sirio-btn sirio-btn-light" aria-label="Accedi all'area riservata">
+		                    <span class="d-none d-lg-inline-block me-3 sirio-text-underline">Accedi</span><span class="fas fa-user" aria-hidden="true"></span>
+		                </a>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	
+	</header>
+
+	<main class="py-5">
+
+		
+		<div class="container-fluid">
+			<div class="row g-0">
+
+				<!-- MENU SINISTRO -->
+				<div class="col-lg-4 col-xl-3 pe-0">
+
+					<nav aria-label="Menu della sezione Nome della sezione">
+
+						<!-- Riportare come titolo del Menu di sezione la voce selezionata del Menu principale -->
+						<h2 id="sirio-nav-side-title" class="d-flex d-lg-none m-0">
+							<button type="button" class="sirio-btn sirio-btn-primary w-100" data-sirio-toggle="dialog" data-sirio-target="#sirio-nav-side">
+								<span class="fas fa-bars me-2"></span>
+								<span class="sr-only">Menu della sezione </span>Nome della sezione
+							</button>
+						</h2>
+
+						<div class="sirio-dialog sirio-dialog-full sirio-dialog-nav-mobile d-lg-block" id="sirio-nav-side" tabindex="0" role="dialog" aria-labelledby="heading-sirio-nav-side" data-sirio-component="dialog" data-sirio-visible="false" aria-modal="false">
+		                    <div class="sirio-dialog-wrapper">
+		                        <div class="sirio-dialog-content">
+		                            <div class="sirio-dialog-header">
+		                                <h2 class="h4" id="heading-sirio-nav-side">Menu di navigazione del sito</h2>
+										<button type="button" class="sirio-btn sirio-btn-light sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi Menu di navigazione del sito">
+											<span class="fas fa-times" aria-hidden="true"></span>
+		                                </button>
+									</div>
+									<ul role="menu" class="sirio-nav sirio-nav-side">
+										<li class="sirio-nav-item">
+											<a href="#submenu-l-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-l-1">
+												Informazioni utili
+											</a>
+											<div role="region" data-sirio-visible="false" id="submenu-l-1" data-sirio-parent="#sirio-nav-side">
+												<ul role="menu" class="sirio-nav" aria-label="Sottomenu di Informazioni utili">
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 1</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 2</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#submenu-l-2" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-l-2">
+												Invalidità civile
+											</a>
+											<div role="region" data-sirio-visible="false" id="submenu-l-2" data-sirio-parent="#sirio-nav-side">
+												<ul role="menu" class="sirio-nav" aria-label="Sottomenu di Invalidità civile">
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 1</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 2</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#" class="sirio-nav-link">
+												Prestazioni e pensioni sociali
+											</a>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#submenu-l-4" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-l-4">
+												Misure di contrasto alla povertà
+											</a>
+											<div role="region" data-sirio-visible="true" id="submenu-l-4" data-sirio-parent="#sirio-nav-side">
+												<ul role="menu" class="sirio-nav" aria-label="Sottomenu di Misure di contrasto alla povertà">
+													<li class="sirio-nav-item">
+														<a href="#submenu-l-4-1" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="true" aria-controls="submenu-l-4-1">
+															Asdi
+														</a>
+														<div role="region" data-sirio-visible="true" id="submenu-l-4-1">
+															<ul role="menu" class="sirio-nav" aria-label="Sottomenu di Asdi">
+																<li class="sirio-nav-item">
+																	<a class="sirio-nav-link active" href="#"><span class="sr-only">Pagina attiva </span>Assegno sociale di disoccupazione</a>
+																</li>
+															</ul>
+														</div>
+													</li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Carta acquisti ordinaria</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Carta acquisti sperimentale</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Reddito di cittadinanza</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Reddito di emergenza</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">REI (Reddito di inclusione)</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#submenu-l-5" class="sirio-nav-link" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="submenu-l-5">
+												Sostegno al reddito della famiglia
+											</a>
+											<div role="region" data-sirio-visible="false" id="submenu-l-5" data-sirio-parent="#sirio-nav-side">
+												<ul role="menu" class="sirio-nav" aria-label="Sottomenu di Sostegno al reddito della famiglia">
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 1</a></li>
+													<li class="sirio-nav-item"><a class="sirio-nav-link" href="#">Voce 2</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#" class="sirio-nav-link">
+												Tirocini e sussidi
+											</a>
+										</li>
+										<li class="sirio-nav-item">
+											<a href="#" class="sirio-nav-link">
+												Trasversali
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+
+				<!-- CONTENUTO PAGINA -->
+				<div class="col-lg-8 col-xl-9 p-3 p-lg-5">
+					<h3>Timepicker</h3>
+					<p><br>
+						
+					- Togliere button.setAttribute("role", "menu");<br>
+					- Togliere inputHour.setAttribute("maxlength", "2");<br>
+					- Togliere inputMinute.setAttribute("maxlength", "2");<br>
+					<br>
+					Va reingegnerizzato il timepicker in modo che abbia solo "aria-valuemin" e "aria-valuemax" invece di "min" e "max"<br>
+					VA APPROFONDITO PER VEDERE PRIMA LA VERSIONE CORRETTA FINALE, tutto dipende al momento da "role" -> "spinbutton" che va ripristinato insieme a:<br> 
+					<br>
+					inputHour.setAttribute("aria-valuemin", "0");<br>
+					inputHour.setAttribute("aria-valuemax", "23");<br>
+					<br>
+					inputMinute.setAttribute("aria-valuemin", "0");<br>
+					inputMinute.setAttribute("aria-valuemax", "59");<br>
+					inputMinute.setAttribute("aria-valuenow", "00");</p>
+					<div class="row py-3">
+						<div class="col-12 col-md-6 mb-4">
+							<label for="input-hour">Orario:</label>
+							<input type="text" id="input-hour" name="input-hour" class="sirio-form-control sirio-timepicker"
+								data-sirio-component="timepicker" placeholder="hh:mm" autocomplete="off">
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<h3>FILE UPLOAD</h3>
+					<div class="row py-3">
+						<div class="col-12 col-md-6 mb-4">
+							<div class="sirio-upload" data-sirio-component="upload">
+								<div class="sirio-label">Label upload</div>
+								<span id="file-upload-text-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet.</span>
+								<input type="file" name="ID-file-upload" id="ID-file-upload" class="sirio-upload-file" multiple="multiple"  aria-describedby="file-upload-text-help">
+								<label for="ID-file-upload" class="sirio-btn sirio-btn-primary">
+									<span>Upload</span>
+									<span class="fas fa-arrow-up" aria-hidden="true"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<h3>DROPDOWN</h3>
+					Quando la finestrella esce dalla parte dello schermo questa deve essere direzionata al lato opposto.<br>
+					classi da applicare/togliere al click e allo scroll:<br>
+					<code>sirio-dropdown-menu-top</code><br>
+					<code>sirio-dropdown-menu-right</code><br>
+					lo script è in fondo alla pagina con link da cui son partito.
+					<br>
+					<br><br>
+					<div class="row py-3">
+						<div class="col-12 col-md-6 mb-4">
+							<div class="form-group">
+								<label for="motivoNotifica">Motivo notifica</label>
+								<select class="sirio-form-control" id="motivoNotifica" name="motivoNotifica" data-sirio-component="select">
+									<option value="0">Selezionare motivo della notifica</option>
+									<option value="1">Opzione 1</option>
+									<option value="2">Opzione 2</option>
+									<option value="3">Opzione 3</option>
+									<option value="4">Opzione 4</option>
+									<option value="5">Opzione 5</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-12 col-md-auto mb-4 ml-auto">
+							<div class="sirio-dropdown" data-sirio-component="dropdown">
+								<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-2" data-sirio-toggle="dropdown"
+									aria-expanded="false">
+									Right
+								</button>
+								<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-2"
+									data-sirio-visible="false">
+									<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-12 col-md-6 mb-4">
+							<div class="sirio-dropdown" data-sirio-component="dropdown">
+								<button class="sirio-btn sirio-btn-primary w-100" type="button" id="dropdown-example-1" data-sirio-toggle="dropdown" aria-expanded="false">
+									Dropdown menu
+								</button>
+								<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-1" data-sirio-visible="false">
+									<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+	
+	<!-- Footer -->
+	<footer id="footer" class="sirio-footer">
+		<h2 class="sr-only">Footer</h2>
+	
+		<!-- Blocco Torna su -->
+		<div class="sirio-footer-action">
+			<div class="container-fluid">
+				<div class="row align-items-md-center">
+					<div class="col-md-auto mx-auto">
+						<a href="#top-page" class="sirio-btn sirio-btn-tertiary-light sirio-btn-block" title="Torna all'inizio pagina">Torna su<span class="fas fa-arrow-up ml-2" aria-hidden="true"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+		<!-- Blocco Site Map -->
+		<div class="sirio-footer-sitemap">
+		    <div class="container-fluid">
+		        <div class="row g-0 sirio-accordion-dark">
+		            <div class="col-12 col-lg-4">
+		                <h3 class="h5 sirio-text-white">Heading</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        
+		            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeaderFooter1">
+		                    <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+		                        data-sirio-target="#accordionBodyFooter1" aria-expanded="false" aria-controls="accordionBodyFooter1">
+		                        <span class="sr-only">Apri menu </span><span>Heading 1</span>
+		                    </button>
+		            </div>
+		            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBodyFooter1" aria-labelledby="accordionHeaderFooter1" role="region" data-sirio-visible="false">
+		                <h3 class="h6 sirio-text-white">Heading 1</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        
+		            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeaderFooter2">
+		                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+		                    data-sirio-target="#accordionBodyFooter2" aria-expanded="false" aria-controls="accordionBodyFooter2">
+		                    <span class="sr-only">Apri menu </span><span>Heading 2</span>
+		                </button>
+		            </div>
+		            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBodyFooter2" aria-labelledby="accordionHeaderFooter2" role="region" data-sirio-visible="false">
+		                <h3 class="h6 sirio-text-white">Heading 2</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        </div>
+		        <div class="row g-0 sirio-accordion-dark">
+		            <div class="col-12 col-lg-4">
+		                <h3 class="h5 sirio-text-white">Heading</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        
+		            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeaderFooter3">
+		                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+		                    data-sirio-target="#accordionBodyFooter3" aria-expanded="false" aria-controls="accordionBodyFooter3">
+		                    <span class="sr-only">Apri menu </span><span>Heading 3</span>
+		                </button>
+		            </div>
+		            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBodyFooter3" aria-labelledby="accordionHeaderFooter3"
+		                role="region" data-sirio-visible="false">
+		                <h3 class="h6 sirio-text-white">Heading 3</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        
+		            <div class="col-12 d-lg-none sirio-accordion-header" id="accordionHeaderFooter4">
+		                <button type="button" class="sirio-accordion-trigger" data-sirio-toggle="collapse"
+		                    data-sirio-target="#accordionBodyFooter4" aria-expanded="false" aria-controls="accordionBodyFooter4">
+		                    <span class="sr-only">Apri menu </span><span>Heading 4</span>
+		                </button>
+		            </div>
+		            <div class="col-12 col-lg-4 sirio-accordion-body" id="accordionBodyFooter4" aria-labelledby="accordionHeaderFooter4"
+		                role="region" data-sirio-visible="false">
+		                <h3 class="h6 sirio-text-white">Heading 4</h3>
+		                <ul class="sirio-list-unstyled">
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                    <li><a href="#" class="sirio-link-accent">Label placeholder</a></li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	
+		<!-- Blocco Contatti -->
+		<div class="sirio-footer-contact">
+			<div class="container-fluid">
+				<div class="sirio-footer-grid">
+					
+					<!-- Social -->
+					<div class="sirio-footer-social">
+						<ul class="sirio-list-inline sirio-list-unstyled">
+							<li>
+								<a href="https://www.facebook.com/INPSGiovani" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Facebook">
+									<span class="fa-24 fab fa-facebook-f"></span><span class="sr-only">Facebook: apre una nuova finestra</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://www.twitter.com/Inps_it" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white"
+									title="Twitter">
+									<span class="fa-24 fab fa-twitter"></span><span class="sr-only">Twitter: apre una nuova finestra</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/INPSComunica" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Youtube">
+									<span class="fa-24 fab fa-youtube"></span><span class="sr-only">Youtube: apre una nuova finestra</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/inps_social/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Instagram">
+									<span class="fa-24 fab fa-instagram"></span><span class="sr-only">Instagram: apre una nuova finestra</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/company/inps-official/" target="_blank" class="sirio-btn sirio-btn-icon sirio-text-white" title="Linkedin">
+									<span class="fa-24 fab fa-linkedin"></span><span class="sr-only">Linkedin: apre una nuova finestra</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Logo -->
+					<div class="sirio-footer-logo">
+						<img src="../assets/img/logo-inps-white.svg" alt="INPS (Istituto Nazionale Previdenza Sociale)">
+					</div>
+
+					<!-- Address -->
+					<div class="sirio-footer-address">
+						<p>
+							<strong>Sede Legale:</strong><br> Via Ciro il Grande, 21<br> 00144 Roma
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Blocco Copyright -->
+		<div class="sirio-footer-copy">
+		    <div class="container-fluid">
+		        <div class="d-flex align-items-start align-items-md-center justify-content-center">
+		            <div class="pe-2 pe-lg-5">
+		                <img src="../assets/img/logo-repubblica.svg" alt="Logo della Repubblica Italiana">
+		            </div>
+		            <div>
+		                <strong>www.inps.gov.it &copy; 1997-2022 Istituto Nazionale Previdenza Sociale. Tutti i diritti riservati.</strong>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	
+	</footer>
+		
+	<!-- JS Webkit -->
+	<script src="../assets/js/sirio-webkit-min.js"></script>
+	<script src="../assets/js/sirio-datepicker-full.js"></script>
+
+</body>
+</html>
