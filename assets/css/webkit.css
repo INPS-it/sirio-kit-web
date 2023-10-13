@@ -1,6 +1,6 @@
 /*! 
- * Sirio WebKit v.7.0.0
- * Copyright 2022 INPS
+ * Sirio WebKit v.7.0.1
+ * Copyright 2023 INPS
  */
 [data-sirio-visible=false] {
   display: none;
@@ -152,12 +152,6 @@
 
 .overflow::-webkit-scrollbar {
   height: 10px;
-}
-.overflow::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-.overflow::-webkit-scrollbar-thumb {
-  background-color: transparent;
 }
 .overflow::-webkit-scrollbar-track {
   background-color: #f2f6fc;
@@ -351,15 +345,15 @@ iframe {
 }
 
 .sirio-bg-gradient-1 {
-  background-image: linear-gradient(90deg, #2f6dd5 0%, #18cee7 100%);
+  background-image: linear-gradient(90deg, rgb(47, 109, 213) 0%, rgb(24, 206, 231) 100%);
 }
 
 .sirio-bg-gradient-2 {
-  background-image: linear-gradient(-90deg, #002460 0%, #2f6dd5 50%, #18cee7 100%);
+  background-image: linear-gradient(-90deg, rgb(0, 36, 96) 0%, rgb(47, 109, 213) 50%, rgb(24, 206, 231) 100%);
 }
 
 .sirio-bg-gradient-3 {
-  background-image: linear-gradient(90deg, #2f6dd5 0%, #002460 100%);
+  background-image: linear-gradient(90deg, rgb(47, 109, 213) 0%, rgb(0, 36, 96) 100%);
 }
 
 .sirio-border-primary {
@@ -603,22 +597,18 @@ h6, .h6 {
     font-size: 52px;
     line-height: 78px;
   }
-
   h2, .h2 {
     font-size: 44px;
     line-height: 66px;
   }
-
   h3, .h3 {
     font-size: 36px;
     line-height: 54px;
   }
-
   h4, .h4 {
     font-size: 28px;
     line-height: 42px;
   }
-
   P {
     font-size: 18px;
     line-height: 27px;
@@ -680,14 +670,12 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
     outline: 0;
     box-shadow: none;
   }
-
   [data-sirio-keyboard=true] :focus {
     outline: 1px solid #0065d1;
     outline-offset: 3px;
     border-radius: 4px;
     z-index: 1;
   }
-
   [data-sirio-keyboard=true] .sirio-link-accent:focus, [data-sirio-keyboard=true] .sirio-btn-tertiary-light:focus {
     outline-color: #18cee7;
   }
@@ -825,55 +813,42 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   .container-sm, .container-fluid {
     --bs-gutter-x: 24px;
   }
-
   .row-sm {
     --bs-gutter-x: 24px;
   }
-
   .g-sm-0, .gx-sm-0 {
     --bs-gutter-x: 0;
   }
-
   .g-sm-0, .gy-sm-0 {
     --bs-gutter-y: 0;
   }
-
   .g-sm-1, .gx-sm-1 {
     --bs-gutter-x: 8px;
   }
-
   .g-sm-1, .gy-sm-1 {
     --bs-gutter-y: 8px;
   }
-
   .g-sm-2, .gx-sm-2 {
     --bs-gutter-x: 12px;
   }
-
   .g-sm-2, .gy-sm-2 {
     --bs-gutter-y: 12px;
   }
-
   .g-sm-3, .gx-sm-3 {
     --bs-gutter-x: 20px;
   }
-
   .g-sm-3, .gy-sm-3 {
     --bs-gutter-y: 20px;
   }
-
   .g-sm-4, .gx-sm-4 {
     --bs-gutter-x: 28px;
   }
-
   .g-sm-4, .gy-sm-4 {
     --bs-gutter-y: 28px;
   }
-
   .g-sm-5, .gx-sm-5 {
     --bs-gutter-x: 32px;
   }
-
   .g-sm-5, .gy-sm-5 {
     --bs-gutter-y: 32px;
   }
@@ -882,55 +857,42 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   .container-md, .container-fluid {
     --bs-gutter-x: 40px;
   }
-
   .row-md {
     --bs-gutter-x: 40px;
   }
-
   .g-md-0, .gx-md-0 {
     --bs-gutter-x: 0;
   }
-
   .g-md-0, .gy-md-0 {
     --bs-gutter-y: 0;
   }
-
   .g-md-1, .gx-md-1 {
     --bs-gutter-x: 8px;
   }
-
   .g-md-1, .gy-md-1 {
     --bs-gutter-y: 8px;
   }
-
   .g-md-2, .gx-md-2 {
     --bs-gutter-x: 12px;
   }
-
   .g-md-2, .gy-md-2 {
     --bs-gutter-y: 12px;
   }
-
   .g-md-3, .gx-md-3 {
     --bs-gutter-x: 20px;
   }
-
   .g-md-3, .gy-md-3 {
     --bs-gutter-y: 20px;
   }
-
   .g-md-4, .gx-md-4 {
     --bs-gutter-x: 28px;
   }
-
   .g-md-4, .gy-md-4 {
     --bs-gutter-y: 28px;
   }
-
   .g-md-5, .gx-md-5 {
     --bs-gutter-x: 32px;
   }
-
   .g-md-5, .gy-md-5 {
     --bs-gutter-y: 32px;
   }
@@ -939,55 +901,42 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   .container-lg, .container-fluid {
     --bs-gutter-x: 40px;
   }
-
   .row-lg {
     --bs-gutter-x: 40px;
   }
-
   .g-lg-0, .gx-lg-0 {
     --bs-gutter-x: 0;
   }
-
   .g-lg-0, .gy-lg-0 {
     --bs-gutter-y: 0;
   }
-
   .g-lg-1, .gx-lg-1 {
     --bs-gutter-x: 8px;
   }
-
   .g-lg-1, .gy-lg-1 {
     --bs-gutter-y: 8px;
   }
-
   .g-lg-2, .gx-lg-2 {
     --bs-gutter-x: 12px;
   }
-
   .g-lg-2, .gy-lg-2 {
     --bs-gutter-y: 12px;
   }
-
   .g-lg-3, .gx-lg-3 {
     --bs-gutter-x: 20px;
   }
-
   .g-lg-3, .gy-lg-3 {
     --bs-gutter-y: 20px;
   }
-
   .g-lg-4, .gx-lg-4 {
     --bs-gutter-x: 28px;
   }
-
   .g-lg-4, .gy-lg-4 {
     --bs-gutter-y: 28px;
   }
-
   .g-lg-5, .gx-lg-5 {
     --bs-gutter-x: 32px;
   }
-
   .g-lg-5, .gy-lg-5 {
     --bs-gutter-y: 32px;
   }
@@ -996,55 +945,42 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   .container-xl, .container-fluid {
     --bs-gutter-x: 56px;
   }
-
   .row-xl {
     --bs-gutter-x: 56px;
   }
-
   .g-xl-0, .gx-xl-0 {
     --bs-gutter-x: 0;
   }
-
   .g-xl-0, .gy-xl-0 {
     --bs-gutter-y: 0;
   }
-
   .g-xl-1, .gx-xl-1 {
     --bs-gutter-x: 8px;
   }
-
   .g-xl-1, .gy-xl-1 {
     --bs-gutter-y: 8px;
   }
-
   .g-xl-2, .gx-xl-2 {
     --bs-gutter-x: 12px;
   }
-
   .g-xl-2, .gy-xl-2 {
     --bs-gutter-y: 12px;
   }
-
   .g-xl-3, .gx-xl-3 {
     --bs-gutter-x: 20px;
   }
-
   .g-xl-3, .gy-xl-3 {
     --bs-gutter-y: 20px;
   }
-
   .g-xl-4, .gx-xl-4 {
     --bs-gutter-x: 28px;
   }
-
   .g-xl-4, .gy-xl-4 {
     --bs-gutter-y: 28px;
   }
-
   .g-xl-5, .gx-xl-5 {
     --bs-gutter-x: 32px;
   }
-
   .g-xl-5, .gy-xl-5 {
     --bs-gutter-y: 32px;
   }
@@ -1053,55 +989,42 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   .container-xxl, .container-fluid {
     --bs-gutter-x: 56px;
   }
-
   .row-xxl {
     --bs-gutter-x: 56px;
   }
-
   .g-xxl-0, .gx-xxl-0 {
     --bs-gutter-x: 0;
   }
-
   .g-xxl-0, .gy-xxl-0 {
     --bs-gutter-y: 0;
   }
-
   .g-xxl-1, .gx-xxl-1 {
     --bs-gutter-x: 8px;
   }
-
   .g-xxl-1, .gy-xxl-1 {
     --bs-gutter-y: 8px;
   }
-
   .g-xxl-2, .gx-xxl-2 {
     --bs-gutter-x: 12px;
   }
-
   .g-xxl-2, .gy-xxl-2 {
     --bs-gutter-y: 12px;
   }
-
   .g-xxl-3, .gx-xxl-3 {
     --bs-gutter-x: 20px;
   }
-
   .g-xxl-3, .gy-xxl-3 {
     --bs-gutter-y: 20px;
   }
-
   .g-xxl-4, .gx-xxl-4 {
     --bs-gutter-x: 28px;
   }
-
   .g-xxl-4, .gy-xxl-4 {
     --bs-gutter-y: 28px;
   }
-
   .g-xxl-5, .gx-xxl-5 {
     --bs-gutter-x: 32px;
   }
-
   .g-xxl-5, .gy-xxl-5 {
     --bs-gutter-y: 32px;
   }
@@ -2035,7 +1958,7 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
 }
 
 .datepicker-dropdown .datepicker-picker {
-  box-shadow: 0px 0px 24px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 24px 0px rgb(227, 229, 232);
   border-radius: 0;
 }
 
@@ -2188,7 +2111,7 @@ select.sirio-form-control[multiple] option:hover, select.sirio-form-control[mult
 .sirio-dropdown-timepicker {
   min-width: auto !important;
   transform: translate(0, 6px) !important;
-  box-shadow: 0px 0px 24px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 24px 0px rgb(227, 229, 232);
   border: 0 !important;
   border-radius: 0 !important;
 }
@@ -2504,7 +2427,7 @@ textarea.sirio-form-control.sirio-is-valid, textarea.sirio-form-control.sirio-is
   font-weight: 600;
 }
 .sirio-drawer .sirio-dialog-footer {
-  box-shadow: 0px 0px 16px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 16px 0px rgb(227, 229, 232);
   padding: 24px 32px;
 }
 .sirio-drawer .sirio-dialog-footer .sirio-btn {
@@ -2739,11 +2662,11 @@ textarea.sirio-form-control.sirio-is-valid, textarea.sirio-form-control.sirio-is
   background-color: #ffffff;
   background-clip: border-box;
   border-radius: 4px;
-  box-shadow: 0px 0px 16px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 16px 0px rgb(227, 229, 232);
   color: #454d56;
 }
 .sirio-card:hover {
-  box-shadow: 0px 0px 24px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 24px 0px rgb(227, 229, 232);
 }
 .sirio-card-link a:after {
   position: absolute;
@@ -2928,26 +2851,22 @@ a.sirio-card .sirio-card-subtitle {
   right: 0;
   top: 0;
   bottom: 0;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, black 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
 @media (min-width: 576px) {
   .sirio-card-header {
     padding: 32px 32px 0;
   }
-
   .sirio-card-body {
     padding: 24px 32px;
   }
-
   .sirio-card-body:first-child {
     padding-top: 32px;
   }
-
   .sirio-card-body:last-child {
     padding-bottom: 16px;
   }
-
   .sirio-card-footer {
     padding: 0 32px 32px;
   }
@@ -2978,7 +2897,6 @@ a.sirio-card .sirio-card-subtitle {
     font-size: 32px;
     line-height: 48px;
   }
-
   .sirio-card-image-wrapper .sirio-card-image {
     max-width: 33.333333%;
   }
@@ -3178,7 +3096,7 @@ a.sirio-card .sirio-card-subtitle {
   outline: 0;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0px 0px 40px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 40px 0px rgb(227, 229, 232);
   height: auto;
 }
 
@@ -3231,38 +3149,30 @@ a.sirio-card .sirio-card-subtitle {
     margin: 24px auto;
     min-height: calc(100% - 48px);
   }
-
   .sirio-dialog-sm {
     max-width: 300px;
   }
-
   .sirio-dialog-lg {
     max-width: 800px;
   }
-
   .sirio-dialog-xl {
     max-width: 1140px;
   }
-
   .sirio-dialog-content {
     padding: 32px;
     margin: 0 24px;
   }
-
   .sirio-dialog-header {
     padding: 0 0 32px;
   }
-
   .sirio-dialog-title .fas {
     font-size: 32px;
     margin-bottom: 24px;
   }
-
   .sirio-dialog-footer {
     padding: 32px 0 0;
     flex-direction: row;
   }
-
   .sirio-dialog-footer .sirio-btn {
     width: auto;
   }
@@ -4121,19 +4031,19 @@ th {
 }
 
 .sirio-progress[value]::-webkit-progress-value {
-  background-image: linear-gradient(-90deg, #002460 0%, #2f6dd5 50%, #18cee7 100%);
+  background-image: linear-gradient(-90deg, rgb(0, 36, 96) 0%, rgb(47, 109, 213) 50%, rgb(24, 206, 231) 100%);
   border-radius: 8px;
   height: 8px;
 }
 
 .sirio-progress[value]::-moz-progress-value {
-  background-image: linear-gradient(-90deg, #002460 0%, #2f6dd5 50%, #18cee7 100%);
+  background-image: linear-gradient(-90deg, rgb(0, 36, 96) 0%, rgb(47, 109, 213) 50%, rgb(24, 206, 231) 100%);
   border-radius: 8px;
   height: 8px;
 }
 
 .sirio-progress[value]::-moz-progress-bar {
-  background: linear-gradient(-90deg, #002460 0%, #2f6dd5 50%, #18cee7 100%);
+  background: linear-gradient(-90deg, rgb(0, 36, 96) 0%, rgb(47, 109, 213) 50%, rgb(24, 206, 231) 100%);
   margin: 2px;
   border-radius: 8px;
   height: 8px;
@@ -4520,7 +4430,7 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
 .sirio-stepper-selector .sirio-dropdown-menu {
   width: 100%;
   inset: 8px auto auto 0;
-  box-shadow: 0px 0px 24px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 24px 0px rgb(227, 229, 232);
   border: 0;
   border-radius: 0;
 }
@@ -4696,7 +4606,6 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
   .sirio-stepper .sirio-stepper-selector {
     width: 100%;
   }
-
   .sirio-stepper-nav {
     display: flex;
     margin: auto;
@@ -4704,7 +4613,6 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
     padding: 3px;
     overflow: hidden;
   }
-
   .sirio-stepper-selector .sirio-dropdown-menu {
     position: relative;
     display: flex !important;
@@ -4719,7 +4627,6 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
   .sirio-stepper-selector .sirio-dropdown-menu > * {
     width: 100%;
   }
-
   .sirio-stepper-item:not(:last-child)::after {
     content: "";
     display: block;
@@ -4735,17 +4642,14 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
     transition: background-color 0.3s;
     transform: translateX(calc(50% - 14px));
   }
-
   .sirio-stepper-selector .sirio-btn, .sirio-stepper-count {
     display: none !important;
   }
-
   .sirio-stepper-nav .sirio-stepper-title {
     margin: 0;
     text-align: center;
     max-width: 100px;
   }
-
   .sirio-stepper-content {
     display: block;
     padding: 0;
@@ -5007,15 +4911,13 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
 
 @media (min-width: 992px) {
   .sirio-dialog-sidenav,
-.sirio-dialog-sidenav .sirio-dialog-content {
+  .sirio-dialog-sidenav .sirio-dialog-content {
     position: relative;
     display: block !important;
   }
-
   .sirio-dialog-sidenav .sirio-sidenav-info, .sirio-dialog-sidenav .sirio-dialog-header, .sirio-dialog-sidenav-open {
     display: none;
   }
-
   .sirio-dialog-sidenav {
     display: flex;
   }
@@ -5245,7 +5147,7 @@ label .sirio-btn-icon[data-sirio-toggle=popover] .fa, label .sirio-btn-icon[data
 }
 .sirio-header[data-sirio-component=sticky][data-sirio-toggle=true] {
   background-color: #ffffff;
-  box-shadow: 0px 0px 16px 0px rgba(227, 229, 232, 0.7);
+  box-shadow: 0px 0px 16px 0px rgb(227, 229, 232);
   z-index: 1001;
 }
 @media (min-width: 992px) {
