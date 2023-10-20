@@ -1,7 +1,7 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.7.0.0
- * Copyright 2022 INPS
+ * Sirio WebKit v.7.0.1
+ * Copyright 2023 INPS
  */
 (function () {
   'use strict';
@@ -2009,14 +2009,15 @@
     }
   }
 
-  function triggerDatepickerEvent(datepicker, type) {
-    const detail = {
-      date: datepicker.getDate(),
-      viewDate: new Date(datepicker.picker.viewDate),
-      viewId: datepicker.picker.currentView.id,
-      datepicker,
-    };
-    datepicker.element.dispatchEvent(new CustomEvent(type, {detail}));
+  function triggerDatepickerEvent(datepicker, type, bubbles = false) {
+      const detail = {
+          date: datepicker.getDate(),
+          viewDate: new Date(datepicker.picker.viewDate),
+          viewId: datepicker.picker.currentView.id,
+          datepicker,
+          type: type
+      };
+      datepicker.element.dispatchEvent(new CustomEvent("sirioWebKit", {bubbles, detail}));
   }
 
   // direction: -1 (to previous), 1 (to next)
@@ -3114,6 +3115,7 @@
 
       const inputDates = Array.isArray(dates[0]) ? dates[0] : dates;
       setDate(this, inputDates, opts);
+      triggerDatepickerEvent(this, 'change', true);
     }
 
     /**
