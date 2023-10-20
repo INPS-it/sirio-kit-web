@@ -1,4 +1,4 @@
-# SirioWebKit v.7.0.0
+# SirioWebKit v.7.0.1
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -39,6 +39,12 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+
+### 7.0.1 (2023-10-16)
+
+- Propagation of custom events for DropdownSelect, FileUpload, TimePicker and Datepicker components
+- SirioTimePicker - new keydown event management
+- **scss**\variables changed
 
 ### 7.0.0 (2023-09-15)
 
