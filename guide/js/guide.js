@@ -1,4 +1,4 @@
-var version='7.0.1';
+var version='7.0.2';
 
 // Sidenav
 function openCollapse($this){

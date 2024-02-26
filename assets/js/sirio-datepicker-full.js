@@ -1,6 +1,6 @@
 /*
  * Vanilla JS Datepicker v.1.2.0
- * Sirio WebKit v.7.0.1
+ * Sirio WebKit v.7.0.2
  * Copyright 2023 INPS
  */
 (function () {
@@ -2017,6 +2017,7 @@
           datepicker,
           type: type
       };
+      if(type === "changeDate") datepicker.element.dispatchEvent(new CustomEvent(type, {bubbles: false}));
       datepicker.element.dispatchEvent(new CustomEvent("sirioWebKit", {bubbles, detail}));
   }
 
