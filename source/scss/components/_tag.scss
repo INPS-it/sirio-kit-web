@@ -1,0 +1,15 @@
+// Tag
+.#{$prefix}tag {
+    background-color: $color-global-secondary-100;
+    color: $color-global-primary-000;
+    font-size: #{$typography-global-font-size-04}px;
+    line-height: #{$typography-global-font-size-05}px;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 4px 16px 4px 16px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.#{$prefix}tag.#{$prefix}bg-warning-80 {
+    color: $color-alias-text-color-secondary-dark-130;
+}

@@ -1,0 +1,44 @@
+// Tooltip
+.#{$prefix}tooltip {
+    background-color: $color-alias-background-color-primary-dark-120;
+    padding: 6px 16px;
+    border-radius: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-global-primary-000;
+    font-size: #{$typography-global-font-size-04}px;
+    line-height: #{$typography-global-font-size-04}px;
+    max-width: 256px;
+    z-index: 1000;
+    &:before {
+        content: '';
+        left: -12px;
+        top: -12px;
+        bottom: -12px;
+        right: -12px;
+        position: absolute;
+        z-index: -1;
+    }
+    & strong {
+        font-weight: 600;
+    }
+    & .#{$prefix}tooltip-inner {
+        padding: 10px 0;
+        & p {
+            font-size: #{$typography-global-font-size-04}px;
+            line-height: #{$typography-global-line-heights-04}px;
+        }
+    }
+}
+.sirio-btn-icon[data-sirio-toggle="popover"] {
+    padding: 7px 3px;
+}
+label .sirio-btn-icon[data-sirio-toggle=popover] {
+    padding: 2px;
+    margin: -6px 0;
+    & .fa, .far, .fas {
+        margin: 0;
+    }
+}

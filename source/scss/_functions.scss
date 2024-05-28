@@ -1,0 +1,43 @@
+// Functions
+@function value($name, $value) {
+  @if map-has-key($name, $value) {
+    $value: map-get($name, $value);
+    @return $value;
+  }
+
+  @return null;
+}
+
+@function color($palette, $type, $tone) {
+  @if map-has-key($palette, $type) {
+    $type: map-get($palette, $type);
+
+    @if map-has-key($type, $tone) {
+      $tone: map-get($type, $tone);
+      @return $tone;
+    }
+
+    @return null;
+  }
+
+  @return null;
+}
+
+
+@mixin property($property,$value) {
+  @if $value != null {
+    #{$property}: $value;
+  }
+}
+
+@mixin media-breakpoint($breakpoint) {
+  @if $breakpoint ==0 {
+    @content;
+  }
+
+  @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}

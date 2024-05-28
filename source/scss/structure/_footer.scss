@@ -1,0 +1,145 @@
+// Footer
+.#{$prefix}footer {
+    background-color: $color-global-dark-primary-120;
+    color: $color-alias-text-color-primary-light-0;
+
+    & .container-fluid {
+        padding: 16px 24px;
+    }
+    & .#{$prefix}footer-action {
+        background-color: $color-global-dark-primary-115;
+        @media (max-width: 576px) {
+            .#{$prefix}btn {
+                width: 100%;
+            }
+        }
+    }
+
+    .#{$prefix}footer-grid {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        gap: 16px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "social social social"
+            "logo address address";
+    }
+    .#{$prefix}footer-social {
+        grid-area: social;
+    }
+    .#{$prefix}footer-logo {
+        grid-area: logo;
+        & img {
+            width: 66px;
+        }
+    }
+    .#{$prefix}footer-address {
+        grid-area: address;
+        & p {
+            margin: 0;
+        }
+    }
+    .#{$prefix}footer-sitemap {
+        border-bottom: 1px solid $color-global-dark-primary-115;
+        & .container-fluid {
+            padding: 0;
+        }
+        & .container-fluid > .row > * {
+            padding: 0 32px;
+        }
+        & a {
+            font-weight: 400;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        & .h5 {
+            font-weight: 700;
+            padding-top: 16px;
+        }
+        & .h6 {
+            font-weight: 700;
+            margin-bottom: 11px;
+        }
+        & .#{$prefix}list-unstyled li {
+            margin-bottom: 8px;
+        }
+        & .col-12 {
+            position: relative;
+        }
+        & .#{$prefix}accordion-header {
+            border-top: 1px solid $color-global-dark-primary-115;
+            border-bottom: 1px solid $color-global-dark-primary-115;
+            & .#{$prefix}accordion-trigger {
+                background-color: transparent;
+                border-color: transparent;
+                padding: 24px 0;
+        
+                &:hover,
+                &:active {
+                    background-color: transparent;
+                    border-color: transparent
+                }
+            }
+        }
+        & .#{$prefix}accordion-body {
+            border-bottom: 1px solid $color-global-dark-primary-115;
+            & > .h6 {
+                padding-top: 16px !important;
+            }
+        }
+    }
+    .#{$prefix}footer-copy {
+        background-color: $color-global-dark-primary-115;
+        & .container-fluid {
+            padding: 16px 32px;
+        }  
+        &:before {
+            content: "";
+            background-color: $color-global-dark-primary-115;
+            height: 1px;
+            display: block;
+            margin: 0 32px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .#{$prefix}footer-grid {
+            padding: 0 16px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "logo logo address"
+                "logo logo social";
+        }
+        .#{$prefix}footer-address br {
+            display: none;
+        }
+        .#{$prefix}footer-social > * {
+            margin: 0;
+        }
+        .#{$prefix}footer-sitemap {
+            margin-bottom: 8px;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            & > .h5, & > .h6 {
+                padding-top: 0 !important;
+            }
+            & .container-fluid {
+                padding: 32px 24px;
+            }
+            & .container-fluid > .row > * {
+                padding: 0 8px;
+            }
+            & .#{$prefix}btn.#{$prefix}btn-icon {
+                display: none;
+            }
+            & [data-sirio-visible="false"] {
+                display: block;
+            }
+            & .#{$prefix}accordion-body {
+                border: 0;
+            }
+        }
+    }
+}

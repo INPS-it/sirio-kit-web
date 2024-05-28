@@ -1,0 +1,271 @@
+// Nav
+.#{$prefix}nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  &[data-sirio-visible="false"] {
+    display: none;
+  }
+  & .#{$prefix}nav-link {
+    text-align: left;
+    border-left: 0;
+    border-right: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    background-color: transparent;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 24px;
+    text-decoration: none;
+    font-weight: 400;
+    color: $color-alias-interactive-secondary-default;
+    & .#{$prefix}tag {
+      margin: 0 0 0 8px;
+    }
+  }
+  & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
+    margin-right: 0;
+  }
+  & .#{$prefix}nav-link:hover {
+    color: $color-alias-interactive-primary-hover !important;
+    border-bottom-color: $color-alias-interactive-primary-hover !important;
+  }
+  & .#{$prefix}nav-link.active,
+  & .#{$prefix}nav-link[aria-expanded=true],
+  & .#{$prefix}nav-link[aria-expanded=true]:focus,
+  & .#{$prefix}nav-link[aria-expanded=true]:hover {
+    color: $color-alias-interactive-primary-pressed !important;
+    border-bottom-color: $color-alias-interactive-primary-pressed !important;
+  }
+}
+
+[data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}nav-link:focus, [data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}btn:focus {
+  outline: 1px solid $color-alias-interactive-border-focus;
+  outline-offset: -1px;
+  border-radius: 0;
+}
+[data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}nav-link:focus:before {
+  border-bottom: 1px solid $color-alias-interactive-border-focus;
+}
+
+.#{$prefix}nav-side {
+  flex-direction: column;
+  width: 100%;
+  & .#{$prefix}nav {
+    background-color: $color-global-light-primary-40;
+    flex-direction: column;
+    width: 100%;
+  }
+  & [data-sirio-visible="false"] {
+    display: none;
+  }
+  & [data-sirio-visible="true"] {
+    display: flex;
+  }
+  & .#{$prefix}nav-item {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid $color-global-light-primary-50;
+    }
+    &:last-child:before {
+      display: none;
+    }
+  }
+  & .#{$prefix}nav-link {
+    padding: 16px;
+    font-weight: 600;
+    margin: 0;
+    border: 0;
+    position: relative;
+    &[data-sirio-toggle="collapse"] {
+      display: flex;
+      justify-content: space-between;
+      &:after {
+        content: "\f107";
+        font-family: $font-family-icon;
+        font-weight: 900;
+        vertical-align: middle;
+        margin-left: 16px;
+        font-size: 24px;
+      }
+      &[aria-expanded="true"] {
+        background-color: $color-global-light-primary-50;
+        &:after {
+          content: "\f106";
+        }
+      }
+      
+    }
+    &:hover {
+      color: $color-alias-interactive-primary-default !important;
+      position: relative;
+      padding-left: 12px;
+      border-left: 4px solid $color-alias-interactive-primary-default;
+      transition: background .5s;
+    }
+    &.active {
+      color: $color-alias-interactive-primary-pressed !important;
+      background-color: $color-global-light-primary-50;
+      position: relative;
+      padding-left: 12px;
+      border-left: 4px solid $color-alias-interactive-primary-pressed;
+    }
+    &.disabled {
+      background-color: $color-alias-background-color-disabled;
+      color: $color-alias-text-color-disabled;
+    }
+    
+  }
+  & .#{$prefix}nav {
+    & .#{$prefix}nav-link {
+      padding-left: 24px;
+      &.active, &:hover {
+        padding-left: 20px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid $color-global-light-primary-50;
+      }
+    }
+    & .#{$prefix}nav {
+      & .#{$prefix}nav-link {
+        padding-left: 32px;
+        &.active, &:hover {
+          padding-left: 28px;
+        }
+      }
+    }
+  }
+  & ul {
+    margin: 0;
+  }
+}
+
+@keyframes slideUpContent {
+    0% { top: 100%; }
+    100% { top: 0; }
+}
+.#{$prefix}dialog-sidenav {
+  background: none;
+  animation: none;
+  z-index: 1000;
+  & .#{$prefix}dialog-wrapper {
+    max-width: inherit;
+    margin: 0;
+    min-height: 100%;
+    display: block;
+  }
+  & .#{$prefix}dialog-content {
+    transition: 1s all;
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    animation: slideUpContent 1s;
+  }
+  &[data-sirio-visible="true"] {
+    z-index: 1050;
+    & .#{$prefix}dialog-content {
+      top: 0;
+    }
+  }
+  & .#{$prefix}dialog-header {
+    padding: 0;
+  }
+  & .#{$prefix}dialog-body {
+    background: #fff;
+    height: 100%;
+    overflow: auto;
+  }
+  & .#{$prefix}sidenav-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 21px;
+    color: $color-alias-interactive-primary-default;
+    border-bottom: 4px solid;
+    padding: 16px;
+    margin: 32px 0 0;
+  }
+
+  & .#{$prefix}sidenav-info {
+    border-bottom: 1px solid $color-alias-background-color-primary-light-60;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    gap: 24px;
+    background: $color-alias-background-color-primary-light-50;
+    color: $color-alias-text-color-primary-dark-110;
+    margin: 0 0 32px;
+  }
+}
+.#{$prefix}btn-sidenav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0;
+  width: 100%;
+  font-size: 18px;
+  padding: 16px 24px;
+  line-height: 24px;
+  text-align: left;
+  z-index: 1;
+  & small {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  &:after {
+    content: "\f106";
+    font-family: $font-family-icon;
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 16px;
+    font-size: 24px;
+  }
+  &[data-sirio-dismiss="dialog"]:after {
+    content: "\f00d";
+  }
+  &.#{$prefix}btn-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    z-index: 999;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .#{$prefix}dialog-sidenav,
+  .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
+    position: relative;
+    display: block !important;
+  }
+
+  .#{$prefix}dialog-sidenav .#{$prefix}sidenav-info, .#{$prefix}dialog-sidenav .#{$prefix}dialog-header, .#{$prefix}dialog-sidenav-open {
+    display: none;
+  }
+  .#{$prefix}dialog-sidenav {
+    display: flex;
+  }
+}

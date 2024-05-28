@@ -1,0 +1,40 @@
+// Hero
+.#{$prefix}hero {
+  border-bottom: 1px solid $color-global-light-primary-50;
+  background-color: #fff;
+  padding-top: 32px;
+  & .#{$prefix}breadcrumb {
+    margin-top: 0;
+  }
+  & .#{$prefix}hero-title {
+    font-size: #{$typography-alias-h2-md-size-11}px;
+    line-height: #{$typography-alias-h2-md-line-height-11}px;
+    color: $color-global-dark-primary-115;
+    margin-bottom: 16px;
+  }
+  & .#{$prefix}hero-subtitle {
+    font-size: #{$typography-alias-h4-md-size-07}px;
+    line-height: #{$typography-alias-h4-md-line-height-07}px;
+    font-weight: 700;
+  }
+  & p {
+    font-size: #{$typography-alias-p-md-size-04}px;
+    line-height: #{$typography-alias-p-md-line-height-04}px;
+  }
+  & img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 320px;
+  }
+  & .#{$prefix}btn {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .#{$prefix}hero {
+    & .container, & .container-fluid {
+      --bs-gutter-x: 32px;
+    }
+  }
+}

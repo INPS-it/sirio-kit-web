@@ -34,7 +34,9 @@
 	<!-- CSS WebKit -->
 	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/splide.min.css">
 	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	
 	<link rel="stylesheet" href="css/guide.css">
 
 	<title>Home - Sirio Webkit</title>
@@ -68,6 +70,7 @@
 			</a>
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#javascript">Javascript</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
 				<li><a href="components-structure.html#headercmp">Header</a></li>
 				<li><a href="components-structure.html#footercmp">Footer</a></li>
@@ -105,6 +108,8 @@
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
 				<li><a href="components-contents.html#avvisi">Avvisi</a></li>
 				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
+				<li><a href="components-contents.html#hero">Hero</a></li>
+				<li><a href="components-contents.html#carousel">Carousel</a></li>
 			</ul>
 		</li>
 		<li>
@@ -153,6 +158,9 @@
 								<p><a href="https://mymth.github.io/vanillajs-datepicker" target="_blank">Vanilla JS Datepicker</a>, licenza MIT</p>
 							</li>
 							<li>
+								<p><a href="https://splidejs.com/" target="_blank">Splide</a>, licenza MIT</p>
+							</li>
+							<li>
 								<p><a href="https://fontawesome.com/" target="_blank">Font Awesome Free 6.4.2</a> ©Fonticons, Inc., licenza SIL OFL 1.1</p>
 							</li>
 							<li>
@@ -194,6 +202,7 @@
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
 		<script src="../assets/js/sirio-datepicker-full.js"></script>
+		<script src="../assets/js/splide.min.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -276,6 +285,118 @@
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});
 				}
+
+				
+			// Inizializzazione SplideJS Carousel
+			if (document.getElementsByClassName("splide").length) {
+				var splide1 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splide2 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				var splide3 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						perPage: 3,
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splideI18n = {
+					prev: 'Slide precedente',
+					next: 'Slide successiva',
+					pageX: 'Vai alla pagina %s',
+					slideX: 'Vai alla slide %s',
+					first: 'Vai alla prima slide',
+					last: 'Vai all\'ultima slide',
+					play: 'Avvia riproduzione automatica',
+					pause: 'Ferma riproduzione automatica',
+					select: 'Seleziona slide da visualizzare',
+					slideLabel: '%s di %s'
+				}
+				var splideClasses = {
+					prev: 'splide__arrow--prev sirio-btn sirio-btn-icon fas fa-chevron-left',
+					next: 'splide__arrow--next sirio-btn sirio-btn-icon fas fa-chevron-right',
+				}
+
+				var splideElem = document.getElementsByClassName("splide");
+				for (var i = 0; i < splideElem.length; i++) {
+					var bp = splide3;
+					var pages = 3;
+					if (splideElem[i].classList.contains('splide-1')) {
+						bp = splide1;
+						pages = 1;
+					}
+					if (splideElem[i].classList.contains('splide-2')) {
+						bp = splide2;
+						pages = 2;
+					}
+					arrOptions = {
+						perPage: pages,
+						gap: 24,
+						mediaQuery: 'min',
+						breakpoints: bp,
+						classes: splideClasses,
+						i18n: splideI18n
+					}
+					var splideInstance = new Splide(splideElem[i], arrOptions);
+					splideInstance.mount();
+				}
+			}
 		</script>
 
 </body>

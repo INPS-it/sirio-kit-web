@@ -1,0 +1,94 @@
+// Accordion
+.#{$prefix}accordion-header {
+  margin: 0;
+  padding: 0;
+  .#{$prefix}accordion-trigger {
+    background-color: $color-global-primary-000;
+    border: 1px solid $color-global-light-primary-50;
+    color: $color-alias-text-color-primary-dark-110;
+    font-size: 16px;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    &:after {
+      display: inline-block;
+      content: "\f078";
+      font-family: $font-family-icon;
+      text-align: center;
+      font-weight: 900;
+    }
+    &[aria-expanded="true"] {
+      background-color: $color-global-light-primary-40;
+      border-color: $color-global-light-primary-40;
+      color: $color-alias-text-color-primary-dark-110;
+      &:after {
+        content: "\f077";
+      }
+    }
+    &:hover {
+      background-color: $color-global-light-primary-40;
+      border-color: $color-global-light-primary-40;
+      color: $color-alias-text-color-primary-dark-110;
+    }
+    &:focus span {
+      color: $color-alias-text-color-primary-dark-110;
+      text-decoration: underline;
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+      color: $color-alias-text-color-primary-dark-110;
+    }
+    &:disabled {
+      background-color: $color-alias-background-color-disabled;
+      border-color: $color-alias-background-color-disabled;
+      color: $color-alias-text-color-disabled;
+    }
+    &:focus {
+      border-radius: 0;
+    }
+  }
+}
+
+// Dark version
+.#{$prefix}accordion-dark .#{$prefix}accordion-header .#{$prefix}accordion-trigger {
+  background-color: $color-alias-interactive-primary-default;
+  border: 1px solid $color-alias-interactive-primary-default;
+  color: $color-global-primary-000;
+  &[aria-expanded="true"] {
+    background-color: $color-alias-interactive-primary-pressed;
+    border-color: $color-alias-interactive-primary-pressed;
+    color: $color-global-primary-000;
+  }
+  &:hover {
+    background-color: $color-alias-interactive-primary-hover;
+    border-color: $color-alias-interactive-primary-hover;
+    color: $color-global-primary-000;
+  }
+  &:focus span {
+    color: $color-global-primary-000;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: $color-global-primary-000;
+  }
+  &:disabled {
+    background-color: $color-alias-background-color-disabled;
+    border-color: $color-alias-background-color-disabled;
+    color: $color-alias-text-color-disabled;
+  }
+}
+.#{$prefix}accordion-dark .#{$prefix}accordion-item:not(:first-child) .#{$prefix}accordion-header {
+  margin-top: 2px;
+}
+
+.#{$prefix}accordion-body .#{$prefix}accordion-content {
+  background-color: $color-global-primary-000;
+  border: 1px solid $color-global-light-primary-40;
+  padding: 16px;
+  @media (min-width: 768px) {
+    padding: 32px 64px;
+  }
+}

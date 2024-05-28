@@ -1,0 +1,53 @@
+// System Grid
+$prefix-bs-gutter-x: "--bs-gutter-x";
+$prefix-bs-gutter-y: "--bs-gutter-y";
+$content-gutters: (
+  xs: 16px,
+  sm: 24px,
+  md: 40px,
+  lg: 40px,
+  xl: 56px,
+  xxl: 56px
+) !default;
+$gutters: (
+  0: 0,
+  1: 8px,
+  2: 12px,
+  3: 20px,
+  4: 28px,
+  5: 32px,
+) !default;
+
+.container-fluid {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  padding-right: var(--bs-gutter-x);
+  padding-left: var(--bs-gutter-x);
+}
+
+@each $name, $breakpoint in $breakpoints {
+  $infix: "-#{$name}";
+  @if $breakpoint == 0 {
+      $infix: "";
+  }
+  @include media-breakpoint($breakpoint) {
+    .container#{$infix}, .container-fluid {
+      @include property($prefix-bs-gutter-x,value($content-gutters, $name));
+    }
+    .row#{$infix} { // e quelle precedenti il breakpoint va fatto
+      @include property($prefix-bs-gutter-x,value($content-gutters, $name));
+    }
+    // Gutters
+    @each $key, $value in $gutters {
+      .g#{$infix}-#{$key}, .gx#{$infix}-#{$key} {
+        @include property($prefix-bs-gutter-x,$value);
+      }
+      .g#{$infix}-#{$key}, .gy#{$infix}-#{$key} {
+        @include property($prefix-bs-gutter-y,$value);
+      }
+    }
+  }
+}

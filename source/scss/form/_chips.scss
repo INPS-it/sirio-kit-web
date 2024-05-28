@@ -1,0 +1,122 @@
+// Chips
+.#{$prefix}chip {
+    display: inline-flex;
+    justify-content: space-evenly;
+    background: $color-alias-interactive-secondary-default;
+    border: 2px solid $color-alias-interactive-secondary-default;
+    color: $color-global-primary-000;
+    border-radius: 32px;
+    white-space: nowrap;
+    font-size: #{$typography-global-font-size-04}px;
+    line-height: #{$typography-global-font-size-04}px;
+    font-weight: 700;
+    padding: 8px 16px;
+    &:hover {
+        background-color: $color-alias-interactive-secondary-hover;
+        border-color: $color-alias-interactive-secondary-hover;
+    }
+    &:disabled, &.disabled {
+        background-color: $color-alias-background-color-disabled;
+        border-color: $color-alias-background-color-disabled;
+        color: $color-alias-text-color-disabled;
+        .#{$prefix}btn {
+            background-color: transparent;
+            border-color: transparent !important;
+            color: $color-alias-text-color-disabled;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+    .#{$prefix}chip-label {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+        & > .fas {
+            margin-right: 8px;
+        }
+    }
+    & .#{$prefix}btn {
+        padding: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 100%;
+        margin: -6px -14px -6px 8px;
+        border: 1px solid $color-global-primary-000 !important;
+        &:focus {
+            outline-color: #FFB13D;
+        }
+    }
+}
+
+
+// Chips selector
+.#{$prefix}chip-selection {
+    position: relative;
+    input[type="checkbox"], input[type="radio"] {
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        & + label {
+            font-size: #{$typography-global-font-size-04}px;
+            line-height: #{$typography-global-font-size-04}px;
+            background-color: $color-global-primary-000;
+            border: solid 2px $color-alias-interactive-primary-default;
+            color: $color-alias-interactive-primary-default;
+            cursor: pointer;
+            border-radius: 32px;
+            padding: 8px 16px;
+            display: inline-block;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            & > .fas {
+                margin-right: 8px;
+            }
+            &:hover {
+                background-color: $color-global-primary-000;
+                border: solid 2px $color-alias-interactive-primary-hover;
+                color: $color-alias-interactive-primary-hover;
+            }
+        }
+        &:checked + label {
+            background-color: $color-alias-interactive-primary-default;
+            border: solid 2px $color-alias-interactive-primary-default;
+            color: $color-global-primary-000;
+        }
+        &:disabled + label {
+            color: $color-alias-text-color-disabled;
+            background-color: transparent;
+            border-color: $color-alias-background-color-disabled;
+            pointer-events: none;
+        }
+        &:checked:disabled + label {
+            color: $color-alias-text-color-disabled;
+            background-color: $color-alias-background-color-disabled;
+            border-color: $color-alias-background-color-disabled;
+            pointer-events: none;
+        }
+    }
+    input[type="checkbox"]:checked + label:hover {
+        background-color: $color-alias-interactive-primary-hover;
+        border: solid 2px $color-alias-interactive-primary-hover;
+        color: $color-global-primary-000;
+    }
+    input[type="radio"]:checked + label:hover {
+        cursor: default;
+    }
+}
+
+[data-sirio-keyboard="true"] .#{$prefix}chip-selection {
+    input[type="checkbox"],
+    input[type="radio"] {
+        &:focus+label {
+            outline: 2px solid $color-alias-interactive-border-focus;
+            outline-offset: 2px;
+        }
+    }
+}

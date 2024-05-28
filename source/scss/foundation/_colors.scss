@@ -1,0 +1,138 @@
+// Colors
+
+// Text
+.#{$prefix}text-white {
+    color: $color-alias-text-color-primary-light-0 !important;
+}
+.#{$prefix}text-light {
+    color: $color-alias-text-color-primary-light-40 !important;
+}
+.#{$prefix}text-primary {
+    color: $color-alias-text-color-primary-dark-110 !important;
+}
+.#{$prefix}text-secondary {
+    color: $color-alias-text-color-secondary-dark-100 !important;
+}
+.#{$prefix}text-dark {
+    color: $color-alias-text-color-secondary-dark-130 !important;
+}
+.#{$prefix}text-disabled {
+    color: $color-alias-text-color-disabled  !important;
+}
+.#{$prefix}text-danger {
+    color: $color-global-semantic-alert-100 !important;
+}
+.#{$prefix}text-warning {
+    color: $color-global-semantic-warning-100 !important;
+}
+.#{$prefix}text-info {
+    color: $color-global-semantic-info-100 !important;
+}
+.#{$prefix}text-success {
+    color: $color-global-semantic-success-100 !important;
+}
+
+// Background
+.#{$prefix}bg-white {
+    background-color: #FFFFFF !important;
+}
+.#{$prefix}bg-primary-light-40 {
+    background-color: $color-alias-background-color-primary-light-40 !important;
+}
+.#{$prefix}bg-primary-light-50 {
+    background-color: $color-alias-background-color-primary-light-50 !important;
+}
+.#{$prefix}bg-primary-light-60 {
+    background-color: $color-alias-background-color-primary-light-60 !important;
+}
+.#{$prefix}bg-primary {
+    background-color: $color-global-primary-100 !important;
+}
+.#{$prefix}bg-primary-dark-110 {
+    background-color: $color-alias-background-color-primary-dark-110 !important;
+}
+.#{$prefix}bg-primary-dark-115 {
+    background-color: $color-alias-background-color-primary-dark-115 !important;
+}
+.#{$prefix}bg-primary-dark-120 {
+    background-color: $color-alias-background-color-primary-dark-120 !important;
+}
+.#{$prefix}bg-secondary-light-40 {
+    background-color: $color-alias-background-color-secondary-light-40 !important;
+}
+.#{$prefix}bg-secondary-light-50 {
+    background-color: $color-alias-background-color-secondary-light-50 !important;
+}
+.#{$prefix}bg-secondary-light-90 {
+    background-color: $color-alias-background-color-secondary-mid-90 !important;
+}
+.#{$prefix}bg-secondary {
+    background-color: $color-global-secondary-100 !important;
+}
+.#{$prefix}bg-secondary-dark-110 {
+    background-color: $color-alias-background-color-secondary-dark-110 !important;
+}
+.#{$prefix}bg-secondary-dark-120 {
+    background-color: $color-alias-background-color-secondary-dark-120 !important;
+}
+.#{$prefix}bg-secondary-dark-125 {
+    background-color: $color-alias-background-color-secondary-dark-125 !important;
+}
+.#{$prefix}bg-dark {
+    background-color: $color-alias-background-color-secondary-dark-130 !important;
+}
+.#{$prefix}bg-danger {
+    background-color: $color-global-semantic-alert-100 !important;
+}
+.#{$prefix}bg-warning-80 {
+    background-color: $color-global-semantic-warning-80 !important;
+}
+.#{$prefix}bg-warning-90 {
+    background-color: $color-global-semantic-warning-90 !important;
+}
+.#{$prefix}bg-warning {
+    background-color: $color-global-semantic-warning-100 !important;
+}
+.#{$prefix}bg-warning-110 {
+    background-color: $color-global-semantic-warning-110 !important;
+}
+.#{$prefix}bg-info {
+    background-color: $color-global-semantic-info-100 !important;
+}
+.#{$prefix}bg-success {
+    background-color: $color-global-semantic-success-100 !important;
+}
+
+// Background gradient
+.#{$prefix}bg-gradient-1 {
+    background-image: $color-global-gradient-01;
+}
+.#{$prefix}bg-gradient-2 {
+    background-image: $color-global-gradient-02;
+}
+.#{$prefix}bg-gradient-3 {
+    background-image: $color-global-gradient-03;
+}
+
+// Border
+.#{$prefix}border-primary {
+    border-color: $color-global-primary-100 !important;
+}
+.#{$prefix}border-primary-light-50 {
+    border-color: $color-alias-background-color-primary-light-50 !important;
+}
+.#{$prefix}border-secondary {
+    border-color: $color-specific-data-entry-border-color-default !important;
+}
+.#{$prefix}border-danger {
+    border-color: $color-global-semantic-alert-100 !important;
+}
+.#{$prefix}border-warning {
+    border-color: $color-global-semantic-warning-100 !important;
+}
+.#{$prefix}border-info {
+    border-color: $color-global-semantic-info-100 !important;
+}
+.#{$prefix}border-success {
+    border-color: $color-global-semantic-success-100 !important;
+}

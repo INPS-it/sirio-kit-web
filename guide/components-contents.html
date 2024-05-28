@@ -34,7 +34,9 @@
 	<!-- CSS WebKit -->
 	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/splide.min.css">
 	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	
 	<link rel="stylesheet" href="css/guide.css">
 
 	<title>Contenuto - Sirio WebKit</title>
@@ -68,6 +70,7 @@
 			</a>
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#javascript">Javascript</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
 				<li><a href="components-structure.html#headercmp">Header</a></li>
 				<li><a href="components-structure.html#footercmp">Footer</a></li>
@@ -105,6 +108,8 @@
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
 				<li><a href="components-contents.html#avvisi">Avvisi</a></li>
 				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
+				<li><a href="components-contents.html#hero">Hero</a></li>
+				<li><a href="components-contents.html#carousel">Carousel</a></li>
 			</ul>
 		</li>
 		<li>
@@ -1646,6 +1651,7 @@
 							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
 
 							<div class="blockquote">
+								<p>Per recuperare l’istanza della classe SirioTab, si ricorda che è possibile utilizzare il metodo statico <code>getTabGroupByElement(element: Element)</code>, che richiedo in input l’elemento HTML corrispondente al selettore <code>'[data-sirio-component="tab"] > ul'</code>.</p>
 								<ul>
 									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'tab'</code>.</li>
 									<li><strong>getTabElement()</strong>: restituisce l'oggetto tab HTMLElement collegato all'oggetto SirioTab chiamante.</li>
@@ -1655,6 +1661,9 @@
 									<li><strong>enable()</strong>: abilita il Tab.</li>
 									<li><strong>disable()</strong>: disabilita il Tab.</li>
 									<li><strong>select()</strong>: mostra il Tab e pone il focus sul suo trigger HTMLElement.</li>
+									<li><strong>getScrollLeftButton()</strong>: restituisce il bottone per lo scroll verso sinistra.</li>
+									<li><strong>getScrollRightButton()</strong>: restituisce il bottone per lo scroll verso destra.</li>
+									<li><strong>setScrollButtons(setScrollButtons(left: HTMLButtonElement, right: HTMLButtonElement):</strong>: : imposta nuovi bottoni da utilizzare per lo scroll dei tab</li>
 								</ul>
 							</div>
 
@@ -1670,7 +1679,7 @@
 										<button class="sirio-btn sirio-btn-primary" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseID-1" aria-expanded="false" aria-controls="collapseID-1">
 											<span>Collapse button</span>
 										</button>
-										<div id="collapseID-1" role="region" data-sirio-visible="false">
+										<div id="collapseID-1" role="region" data-sirio-visible="false" aria-label="Descrizione contenuto">
 											<div>
 												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
 											</div>
@@ -1682,7 +1691,7 @@
 										<a href="#collapseID-2" class="sirio-btn sirio-btn-primary" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseID-2">
 											Collapse link
 										</a>
-										<div id="collapseID-2" role="region" data-sirio-visible="false">
+										<div id="collapseID-2" role="region" data-sirio-visible="false" aria-label="Descrizione contenuto">
 											<div>
 												Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
 											</div>
@@ -1698,7 +1707,7 @@
 <button class="sirio-btn sirio-btn-primary" type="button" data-sirio-toggle="collapse" data-sirio-target="#collapseID-1" aria-expanded="false" aria-controls="collapseID-1">
 	<span>Collapse button</span>
 </button>
-<div id="collapseID-1" role="region" data-sirio-visible="false">
+<div id="collapseID-1" role="region" data-sirio-visible="false" aria-label="Descrizione contenuto">
 	<div>
 		Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
 	</div>
@@ -1710,7 +1719,7 @@
 <a href="#collapseID-2" class="sirio-btn sirio-btn-primary" data-sirio-toggle="collapse" aria-expanded="false" aria-controls="collapseID-2">
 	Collapse link
 </a>
-<div id="collapseID-2" role="region" data-sirio-visible="false">
+<div id="collapseID-2" role="region" data-sirio-visible="false" aria-label="Descrizione contenuto">
 	<div>
 		Il componente fisarmonica fornisce grandi quantità di contenuto in un piccolo spazio attraverso la divulgazione progressiva. L'utente ottiene dettagli chiave sul contenuto sottostante e può scegliere di espandere quel contenuto entro i vincoli della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili o quando lo spazio verticale è un premio.
 	</div>
@@ -2317,8 +2326,8 @@
 									</div>
 									<div class="sirio-title-bar-action">
 										<div class="sirio-dropdown" data-sirio-component="dropdown">
-											<button class="sirio-btn sirio-btn-icon" type="button" id="dropdown-title-bar-1" data-sirio-toggle="dropdown" aria-expanded="false">
-												<span class="sr-only">Scegli una funzione</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+											<button class="sirio-btn sirio-btn-icon" type="button" id="dropdown-title-bar-1" data-sirio-toggle="dropdown" aria-expanded="false" aria-label="Scegli una funzione del menu">
+												<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
 											</button>
 											<ul class="sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right"
 												aria-labelledby="dropdown-title-bar-1" data-sirio-visible="false">
@@ -2346,8 +2355,8 @@
 	</div>
 	<div class="sirio-title-bar-action">
 		<div class="sirio-dropdown" data-sirio-component="dropdown">
-			<button class="sirio-btn sirio-btn-icon" type="button" id="dropdown-title-bar-1" data-sirio-toggle="dropdown" aria-expanded="false">
-				<span class="sr-only">Scegli una funzione</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+			<button class="sirio-btn sirio-btn-icon" type="button" id="dropdown-title-bar-1" data-sirio-toggle="dropdown" aria-expanded="false" aria-label="Scegli una funzione del menu">
+				<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
 			</button>
 			<ul class="sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right"
 				aria-labelledby="dropdown-title-bar-1" data-sirio-visible="false">
@@ -3368,9 +3377,8 @@
 										<li><a href="#" aria-label="Pagina 1" aria-current="page">1</a></li>
 										<li><a href="#"><span class="sr-only">Pagina </span>2</a></li>
 										<li><a href="#"><span class="sr-only">Pagina </span>3</a></li>
-										<li><a href="#"><span class="sr-only">Pagina </span>4</a></li>
 										<li><a class="ellipsis">&#8230;</a></li>
-										<li><a href="#"><span class="sr-only">Pagina </span>6</a></li>
+										<li><a href="#"><span class="sr-only">Pagina </span>15</a></li>
 										<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 									</ul>
 								</nav>
@@ -3384,9 +3392,8 @@
 		<li><a href="#" aria-label="Pagina 1" aria-current="page">1</a></li>
 		<li><a href="#"><span class="sr-only">Pagina </span>2</a></li>
 		<li><a href="#"><span class="sr-only">Pagina </span>3</a></li>
-		<li><a href="#"><span class="sr-only">Pagina </span>4</a></li>
 		<li><a class="ellipsis">&#8230;</a></li>
-		<li><a href="#"><span class="sr-only">Pagina </span>6</a></li>
+		<li><a href="#"><span class="sr-only">Pagina </span>15</a></li>
 		<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 	</ul>
 </nav>
@@ -3628,7 +3635,7 @@
 							        <div class="sirio-dialog-content">
 							            <div class="sirio-dialog-header">
 							                <h2 class="sirio-dialog-title" id="heading-dialog"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
-							                <button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+							                <button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 							                    <span class="fas fa-times" aria-hidden="true"></span>
 							                </button>
 							            </div>
@@ -3684,7 +3691,7 @@ dialogObj.show()
 										<div class="sirio-dialog-content">
 											<div class="sirio-dialog-header">
 												<h2 class="sirio-dialog-title" id="heading-dialog-passiva"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
-												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 													<span class="fas fa-times" aria-hidden="true"></span>
 												</button>
 											</div>
@@ -3704,7 +3711,7 @@ dialogObj.show()
 		<div class="sirio-dialog-content">
 			<div class="sirio-dialog-header">
 				<h2 class="sirio-dialog-title" id="heading-dialog-passiva"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Titolo finestra di dialogo</h2>
-				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 					<span class="fas fa-times" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -3729,7 +3736,7 @@ dialogObj.show()
 										<div class="sirio-dialog-content">
 											<div class="sirio-dialog-header">
 												<h2 class="sirio-dialog-title" id="heading-dialog-conferma"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Vuoi confermare le informazioni?</h2>
-												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 													<span class="fas fa-times" aria-hidden="true"></span>
 												</button>
 											</div>
@@ -3766,7 +3773,7 @@ dialogObj.show()
 		<div class="sirio-dialog-content">
 			<div class="sirio-dialog-header">
 				<h2 class="sirio-dialog-title" id="heading-dialog-conferma"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Vuoi confermare le informazioni?</h2>
-				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 					<span class="fas fa-times" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -3808,7 +3815,7 @@ dialogObj.show()
 										<div class="sirio-dialog-content">
 											<div class="sirio-dialog-header">
 												<h2 class="sirio-dialog-title" id="heading-dialog-azione"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Invia i seguenti dati</h2>
-												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 													<span class="fas fa-times" aria-hidden="true"></span>
 												</button>
 											</div>
@@ -3846,7 +3853,7 @@ dialogObj.show()
 		<div class="sirio-dialog-content">
 			<div class="sirio-dialog-header">
 				<h2 class="sirio-dialog-title" id="heading-dialog-azione"><span class="fas fa-exclamation-circle" aria-hidden="true"></span>Invia i seguenti dati</h2>
-				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 					<span class="fas fa-times" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -3889,7 +3896,7 @@ dialogObj.show()
 										<div class="sirio-dialog-content">
 											<div class="sirio-dialog-header">
 												<h2 class="sirio-dialog-title" id="heading-dialog-warning"><span class="fas fa-exclamation-circle sirio-text-warning" aria-hidden="true"></span>Procendendo alla seguente richiesta, le modifiche non saranno salvate.</h2>
-												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 													<span class="fas fa-times" aria-hidden="true"></span>
 												</button>
 											</div>
@@ -3913,7 +3920,7 @@ dialogObj.show()
 		<div class="sirio-dialog-content">
 			<div class="sirio-dialog-header">
 				<h2 class="sirio-dialog-title" id="heading-dialog-warning"><span class="fas fa-exclamation-circle sirio-text-warning" aria-hidden="true"></span>Procendendo alla seguente richiesta, le modifiche non saranno salvate.</h2>
-				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 					<span class="fas fa-times" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -3942,7 +3949,7 @@ dialogObj.show()
 										<div class="sirio-dialog-content">
 											<div class="sirio-dialog-header">
 												<h2 class="sirio-dialog-title" id="heading-dialog-danger"><span class="fas fa-exclamation-circle sirio-text-danger" aria-hidden="true"></span>Vuoi eliminare il tuo account?</h2>
-												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+												<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 													<span class="fas fa-times" aria-hidden="true"></span>
 												</button>
 											</div>
@@ -3966,7 +3973,7 @@ dialogObj.show()
 		<div class="sirio-dialog-content">
 			<div class="sirio-dialog-header">
 				<h2 class="sirio-dialog-title" id="heading-dialog-danger"><span class="fas fa-exclamation-circle sirio-text-danger" aria-hidden="true"></span>Vuoi eliminare il tuo account?</h2>
-				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+				<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Chiudi finestra di dialogo">
 					<span class="fas fa-times" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -4578,44 +4585,44 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 											<div class="sirio-dropdown-menu" role="group" aria-label="Barra di avanzamento" aria-labelledby="dropdown-stepper-1" data-sirio-visible="false">
 												<ol class="sirio-stepper-nav">
 													<li class="sirio-stepper-item is-success">
-														<span class="sr-only">Completato</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Completato</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
 																	cominciare</span></span>
 														</div>
 													</li>
 													<li class="sirio-stepper-item is-success">
-														<span class="sr-only">Completato</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Completato</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
 														</div>
 													</li>
 													<li class="sirio-stepper-item is-active" aria-current="step">
-														<span class="sr-only">Step attivo</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Step attivo</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
 														</div>
 													</li>
 													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Non completato</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
 														</div>
 													</li>
 													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Non completato</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
 														</div>
 													</li>
 													<li class="sirio-stepper-item">
-														<span class="sr-only">Non completato</span>
 														<div class="sirio-stepper-content">
+															<span class="sr-only">Non completato</span>
 															<span class="sirio-stepper-marker"></span>
 															<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
 														</div>
@@ -4646,44 +4653,44 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 			<div class="sirio-dropdown-menu" role="group" aria-label="Barra di avanzamento" aria-labelledby="dropdown-stepper-1" data-sirio-visible="false">
 				<ol class="sirio-stepper-nav">
 					<li class="sirio-stepper-item is-success">
-						<span class="sr-only">Completato</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Completato</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
 									cominciare</span></span>
 						</div>
 					</li>
 					<li class="sirio-stepper-item is-success">
-						<span class="sr-only">Completato</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Completato</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
 						</div>
 					</li>
 					<li class="sirio-stepper-item is-active" aria-current="step">
-						<span class="sr-only">Step attivo</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Step attivo</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
 						</div>
 					</li>
 					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Non completato</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
 						</div>
 					</li>
 					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Non completato</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
 						</div>
 					</li>
 					<li class="sirio-stepper-item">
-						<span class="sr-only">Non completato</span>
 						<div class="sirio-stepper-content">
+							<span class="sr-only">Non completato</span>
 							<span class="sirio-stepper-marker"></span>
 							<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
 						</div>
@@ -4722,46 +4729,46 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 												<nav aria-label="Barra di avanzamento">
 													<ol class="sirio-stepper-nav">
 														<li class="sirio-stepper-item is-success">
-															<span class="sr-only">Completato</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
 																		cominciare</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item is-success">
-															<span class="sr-only">Completato</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
 																		anagrafici</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item is-active" aria-current="step">
-															<span class="sr-only">Step attivo</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Step attivo</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
 																		successo</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item">
-															<span class="sr-only">Non completato</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item">
-															<span class="sr-only">Non completato</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item">
-															<span class="sr-only">Non completato</span>
 															<a href="#" class="sirio-stepper-content">
+																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
 															</a>
@@ -4793,46 +4800,46 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 				<nav aria-label="Barra di avanzamento">
 					<ol class="sirio-stepper-nav">
 						<li class="sirio-stepper-item is-success">
-							<span class="sr-only">Completato</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
 										cominciare</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item is-success">
-							<span class="sr-only">Completato</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
 										anagrafici</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item is-active" aria-current="step">
-							<span class="sr-only">Step attivo</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Step attivo</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
 										successo</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item">
-							<span class="sr-only">Non completato</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item">
-							<span class="sr-only">Non completato</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item">
-							<span class="sr-only">Non completato</span>
 							<a href="#" class="sirio-stepper-content">
+								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
 							</a>
@@ -4979,6 +4986,894 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 </xmp></pre>
 							</div>
 						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="hero">Hero</h3>
+							
+							<div class="blockquote">
+								<p>La sezione Hero ha la funzione di catturare l'attenzione degli utenti, comunicare messaggi chiave e guidare le azioni. È spesso il primo elemento visibile quando si visita una pagina, quindi la sua progettazione e il suo contenuto devono essere attentamente considerati per creare un impatto positivo e coinvolgente impostando il tono dell’esperienza utente in linea con il brand.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-md">
+										<div class="sirio-hero">
+										    <div class="container-fluid">
+										        <div class="row">
+										            <div class="col-lg-6 mb-lg-4">
+
+										                <!-- Breadcrumb -->
+										                <nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+										                    <p class="sr-only">Ti trovi in:</p>
+										                    <ol class="sirio-breadcrumb" role="list">
+										                        <li><a href="#">Home</a></li>
+										                        <li><a href="#">Lorem ipsum</a></li>
+										                        <li class="active">Dolor sit amet<span class="sr-only"> Pagina corrente</span></li>
+										                    </ol>
+										                </nav>
+
+										                <h1 class="sirio-hero-title">Titolo hero</h1>
+										                <p class="sirio-hero-subtitle">Sottotitolo</p>
+										                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper ante aliquet lectus imperdiet, <a href="#">nec vehicula sapien</a> placerat. Etiam sollicitudin elementum ligula eget aliquet. Fusce mollis facilisis leo.</p>
+														<p><a href="#" class="sirio-btn sirio-btn-tertiary">Testo link</a></p>
+										            </div>
+
+										            <!-- Immagine -->
+										            <div class="col-lg-6 pt-3 mt-auto">
+										                <img src="../assets/img/img-hero.svg" alt="">
+										            </div>
+										        </div>
+										    </div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <div class="code" aria-hidden="true" id="code-hero">
+								<p class="guide-code-title">Avviso:</p>
+<pre><xmp>
+<div class="sirio-hero">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 mb-lg-4">
+
+                <!-- Breadcrumb -->
+                <nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
+                    <p class="sr-only">Ti trovi in:</p>
+                    <ol class="sirio-breadcrumb" role="list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li class="active">Dolor sit amet<span class="sr-only"> Pagina corrente</span></li>
+                    </ol>
+                </nav>
+
+                <h1 class="sirio-hero-title">Titolo hero</h1>
+                <p class="sirio-hero-subtitle">Sottotitolo</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper ante aliquet lectus imperdiet, <a href="#">nec vehicula sapien</a> placerat. Etiam sollicitudin elementum ligula eget aliquet. Fusce mollis facilisis leo.</p>
+				<p><a href="#" class="sirio-btn sirio-btn-tertiary">Testo link</a></p>
+            </div>
+
+            <!-- Immagine -->
+            <div class="col-lg-6 pt-3 mt-auto">
+                <img src="../assets/img/img-hero.svg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</xmp></pre>
+                            </div>
+						</section>
+	
+						<section class="guide-section">
+							<h3 class="guide-title" id="carousel">Carousel</h3>
+							
+							<div class="blockquote">
+								<p>Per il Carousel viene utilizzata la plugin <strong>Splide</strong> e per inizializzarlo va usato il codice javascript sottostante.</p>
+								<p>Per la configurazione diversa da quella proposta si rimanda alla documentazione ufficiale <a href="https://splidejs.com/">https://splidejs.com/</a></p>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-carousel">
+								<p class="guide-code-title">javascript:</p>
+<pre><xmp>
+// Inizializzazione SplideJS Carousel
+if (document.getElementsByClassName("splide").length) {
+	var splide1 = {
+		0: {
+			gap: 16,
+			perPage: 1,
+			padding: { left: 36, right: 36 },
+			drag: true,
+			arrows: false
+		},
+		768: {
+			gap: 24,
+			padding: { left: 12, right: 12 },
+			arrows: true
+		},
+		1200: {
+			gap: 32,
+			padding: { left: 16, right: 16 },
+			drag: false,
+			arrows: true
+		}
+	}
+	
+	var splide2 = {
+		0: {
+			gap: 16,
+			perPage: 1,
+			padding: { left: 36, right: 36 },
+			drag: true,
+			arrows: false
+		},
+		768: {
+			perPage: 2,
+			gap: 24,
+			padding: { left: 12, right: 12 },
+			drag: true,
+			arrows: true
+		},
+		1200: {
+			gap: 32,
+			padding: { left: 16, right: 16 },
+			drag: false,
+			arrows: true
+		}
+	}
+	var splide3 = {
+		0: {
+			gap: 16,
+			perPage: 1,
+			padding: { left: 36, right: 36 },
+			drag: true,
+			arrows: false
+		},
+		768: {
+			perPage: 2,
+			gap: 24,
+			padding: { left: 12, right: 12 },
+			drag: true,
+			arrows: true
+		},
+		1200: {
+			perPage: 3,
+			gap: 32,
+			padding: { left: 16, right: 16 },
+			drag: false,
+			arrows: true
+		}
+	}
+	
+	var splideI18n = {
+		prev: 'Slide precedente',
+		next: 'Slide successiva',
+		pageX: 'Vai alla pagina %s',
+		slideX: 'Vai alla slide %s',
+		first: 'Vai alla prima slide',
+		last: 'Vai all\'ultima slide',
+		play: 'Avvia riproduzione automatica',
+		pause: 'Ferma riproduzione automatica',
+		select: 'Seleziona slide da visualizzare',
+		slideLabel: '%s di %s'
+	}
+	var splideClasses = {
+		prev: 'splide__arrow--prev sirio-btn sirio-btn-icon fas fa-chevron-left',
+		next: 'splide__arrow--next sirio-btn sirio-btn-icon fas fa-chevron-right',
+	}
+
+	var splideElem = document.getElementsByClassName("splide");
+	for (var i = 0; i < splideElem.length; i++) {
+		var bp = splide3;
+		var pages = 3;
+		if (splideElem[i].classList.contains('splide-1')) {
+			bp = splide1;
+			pages = 1;
+		}
+		if (splideElem[i].classList.contains('splide-2')) {
+			bp = splide2;
+			pages = 2;
+		}
+		arrOptions = {
+			perPage: pages,
+			gap: 24,
+			mediaQuery: 'min',
+			breakpoints: bp,
+			classes: splideClasses,
+			i18n: splideI18n
+		}
+		var splideInstance = new Splide(splideElem[i], arrOptions);
+		splideInstance.mount();
+	}
+}
+</xmp></pre>
+							</div>
+
+							<h4 class="guide-title" id="carousel">Carousel card singola</h4>
+
+							<div class="blockquote">
+								<p>Con l'aggiunta della classe <code>splide-1</code> il Carousel visualizzerà una card per volta.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="overflow-hidden">
+									<div class="splide sirio-carousel splide-1" id="splide-1" aria-label="Descrizione del contenuto">
+										<div class="splide__track">
+											<ul class="splide__list">
+												<li class="splide__slide">				
+													<div class="sirio-card sirio-card-image-wrapper">
+														<div class="sirio-card-image">
+															<img src="img/example-1.jpg" alt="">
+														</div>
+														<div class="sirio-card-col">
+															<div class="sirio-card-header">
+																<p><span class="sirio-tag">Categoria</span></p>
+																<p class="sirio-card-data">13 Nov 2021</p>
+															</div>
+															<div class="sirio-card-body">
+																<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+																<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+																<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+																</p>
+																<p class="sirio-card-signature">Firma autore</p>
+															</div>
+															<div class="sirio-card-footer">
+																<div class="sirio-card-btn-icons">
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card sirio-card-image-wrapper">
+														<div class="sirio-card-image">
+															<img src="img/example-2.jpg" alt="">
+														</div>
+														<div class="sirio-card-col">
+															<div class="sirio-card-header">
+																<p><span class="sirio-tag">Categoria</span></p>
+																<p class="sirio-card-data">13 Nov 2021</p>
+															</div>
+															<div class="sirio-card-body">
+																<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+																<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+																<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+																</p>
+																<p class="sirio-card-signature">Firma autore</p>
+															</div>
+															<div class="sirio-card-footer">
+																<div class="sirio-card-btn-icons">
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">				
+													<div class="sirio-card sirio-card-image-wrapper">
+														<div class="sirio-card-image">
+															<img src="img/example-3.jpg" alt="">
+														</div>
+														<div class="sirio-card-col">
+															<div class="sirio-card-header">
+																<p><span class="sirio-tag">Categoria</span></p>
+																<p class="sirio-card-data">13 Nov 2021</p>
+															</div>
+															<div class="sirio-card-body">
+																<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+																<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+																<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+																</p>
+																<p class="sirio-card-signature">Firma autore</p>
+															</div>
+															<div class="sirio-card-footer">
+																<div class="sirio-card-btn-icons">
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																	<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-carousel-1">
+								<p class="guide-code-title">carousel card singola:</p>
+<pre><xmp>
+<div class="splide sirio-carousel splide-1" id="splide-1" aria-label="Descrizione del contenuto">
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">				
+				<div class="sirio-card sirio-card-image-wrapper">
+					<div class="sirio-card-image">
+						<img src="img/example-1.jpg" alt="">
+					</div>
+					<div class="sirio-card-col">
+						<div class="sirio-card-header">
+							<p><span class="sirio-tag">Categoria</span></p>
+							<p class="sirio-card-data">13 Nov 2021</p>
+						</div>
+						<div class="sirio-card-body">
+							<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+							<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+							<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+							</p>
+							<p class="sirio-card-signature">Firma autore</p>
+						</div>
+						<div class="sirio-card-footer">
+							<div class="sirio-card-btn-icons">
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card sirio-card-image-wrapper">
+					<div class="sirio-card-image">
+						<img src="img/example-2.jpg" alt="">
+					</div>
+					<div class="sirio-card-col">
+						<div class="sirio-card-header">
+							<p><span class="sirio-tag">Categoria</span></p>
+							<p class="sirio-card-data">13 Nov 2021</p>
+						</div>
+						<div class="sirio-card-body">
+							<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+							<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+							<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+							</p>
+							<p class="sirio-card-signature">Firma autore</p>
+						</div>
+						<div class="sirio-card-footer">
+							<div class="sirio-card-btn-icons">
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">				
+				<div class="sirio-card sirio-card-image-wrapper">
+					<div class="sirio-card-image">
+						<img src="img/example-3.jpg" alt="">
+					</div>
+					<div class="sirio-card-col">
+						<div class="sirio-card-header">
+							<p><span class="sirio-tag">Categoria</span></p>
+							<p class="sirio-card-data">13 Nov 2021</p>
+						</div>
+						<div class="sirio-card-body">
+							<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+							<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+							<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+							</p>
+							<p class="sirio-card-signature">Firma autore</p>
+						</div>
+						<div class="sirio-card-footer">
+							<div class="sirio-card-btn-icons">
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+								<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+
+							<h4 class="guide-title" id="carousel">Carousel card doppia</h4>
+
+							<div class="blockquote">
+								<p>Con l'aggiunta della classe <code>splide-2</code> il Carousel visualizzerà due card per volta.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="overflow-hidden">
+									<div class="splide sirio-carousel splide-2" id="splide-2" aria-label="Descrizione del contenuto">
+										<div class="splide__track">
+											<ul class="splide__list">
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-carousel-2">
+								<p class="guide-code-title">carousel card doppia:</p>
+<pre><xmp>
+<div class="splide sirio-carousel splide-2" id="splide-2" aria-label="Descrizione del contenuto">
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+
+							
+							<h4 class="guide-title" id="carousel">Carousel card tripla</h4>
+
+							<div class="blockquote">
+								<p>Di default il Carousel visualizzerà tre card per volta.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="overflow-hidden">
+									<div class="splide sirio-carousel splide-3" id="splide-3" aria-label="Descrizione del contenuto">
+										<div class="splide__track">
+											<ul class="splide__list">
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sd tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+												<li class="splide__slide">
+													<div class="sirio-card h-100">
+														<div class="sirio-card-header">
+															<p><span class="sirio-tag">Categoria</span></p>
+															<p class="sirio-card-data">13 Nov 2021</p>
+														</div>
+														<div class="sirio-card-body">
+															<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+															<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+															<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+															</p>
+															<p class="sirio-card-signature">Firma autore</p>
+														</div>
+														<div class="sirio-card-footer">
+															<div class="sirio-card-btn-icons">
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+																<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="code" aria-hidden="true" id="code-carousel-3">
+								<p class="guide-code-title">carousel card tripla:</p>
+<pre><xmp>
+<div class="splide sirio-carousel splide-3" id="splide-3" aria-label="Descrizione del contenuto">
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sd tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+			
+			<li class="splide__slide">
+				<div class="sirio-card h-100">
+					<div class="sirio-card-header">
+						<p><span class="sirio-tag">Categoria</span></p>
+						<p class="sirio-card-data">13 Nov 2021</p>
+					</div>
+					<div class="sirio-card-body">
+						<h4 class="sirio-card-title"><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>
+						<p class="sirio-card-subtitle">Lorem ipsum dolor sit amet consectetur adipisci eli</p>
+						<p class="sirio-card-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua
+						</p>
+						<p class="sirio-card-signature">Firma autore</p>
+					</div>
+					<div class="sirio-card-footer">
+						<div class="sirio-card-btn-icons">
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Condivisione social"><span class="sr-only">Condividi "Titolo della card" con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span></a>
+							<a href="#" class="sirio-btn sirio-btn-icon" title="Metti mi piace"><span class="sr-only">Metti mi piace</span><span class="fas fa-heart" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+						</section>
 
 				</main>
 			</div>
@@ -4993,6 +5888,7 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
 		<script src="../assets/js/sirio-datepicker-full.js"></script>
+		<script src="../assets/js/splide.min.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -5075,6 +5971,118 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});
 				}
+
+				
+			// Inizializzazione SplideJS Carousel
+			if (document.getElementsByClassName("splide").length) {
+				var splide1 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splide2 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				var splide3 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						perPage: 3,
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splideI18n = {
+					prev: 'Slide precedente',
+					next: 'Slide successiva',
+					pageX: 'Vai alla pagina %s',
+					slideX: 'Vai alla slide %s',
+					first: 'Vai alla prima slide',
+					last: 'Vai all\'ultima slide',
+					play: 'Avvia riproduzione automatica',
+					pause: 'Ferma riproduzione automatica',
+					select: 'Seleziona slide da visualizzare',
+					slideLabel: '%s di %s'
+				}
+				var splideClasses = {
+					prev: 'splide__arrow--prev sirio-btn sirio-btn-icon fas fa-chevron-left',
+					next: 'splide__arrow--next sirio-btn sirio-btn-icon fas fa-chevron-right',
+				}
+
+				var splideElem = document.getElementsByClassName("splide");
+				for (var i = 0; i < splideElem.length; i++) {
+					var bp = splide3;
+					var pages = 3;
+					if (splideElem[i].classList.contains('splide-1')) {
+						bp = splide1;
+						pages = 1;
+					}
+					if (splideElem[i].classList.contains('splide-2')) {
+						bp = splide2;
+						pages = 2;
+					}
+					arrOptions = {
+						perPage: pages,
+						gap: 24,
+						mediaQuery: 'min',
+						breakpoints: bp,
+						classes: splideClasses,
+						i18n: splideI18n
+					}
+					var splideInstance = new Splide(splideElem[i], arrOptions);
+					splideInstance.mount();
+				}
+			}
 		</script>
 
 </body>

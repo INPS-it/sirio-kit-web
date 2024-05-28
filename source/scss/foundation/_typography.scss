@@ -1,0 +1,367 @@
+// Typography
+:root {
+    font-size: 16px;
+}
+
+// Normalize TAG
+hr {
+	margin: 1rem 0;
+	color: inherit;
+	background-color: currentColor;
+	border: 0;
+	opacity: 0.25;
+}
+hr:not([size]) {
+	height: 1px;
+}
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+summary {
+    display: list-item;
+    cursor: pointer;
+}
+abbr[title] {
+	-webkit-text-decoration: underline dotted;
+	text-decoration: underline dotted;
+	cursor: help;
+	-webkit-text-decoration-skip-ink: none;
+	text-decoration-skip-ink: none;
+}
+address {
+	margin-bottom: 1rem;
+	font-style: normal;
+	line-height: inherit;
+}
+ol,
+ul {
+	padding-left: 2rem;
+}
+ol,
+ul,
+dl {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+	margin-bottom: 0;
+}
+dt {
+	font-weight: 700;
+}
+dd {
+	margin-bottom: 0.5rem;
+	margin-left: 0;
+}
+blockquote {
+	margin: 0 0 1rem;
+}
+b,
+strong {
+	font-weight: bold;
+}
+small {
+	font-size: 0.875em;
+}
+mark {
+	padding: 3px;
+    background-color: $color-global-light-primary-50;
+    color: $color-global-dark-primary-130;
+}
+sub,
+sup {
+	position: relative;
+	font-size: 0.75em;
+	line-height: 0;
+	vertical-align: baseline;
+}
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
+pre,
+code,
+kbd,
+samp {
+	font-family: $font-family-mono;
+	font-size: 16px;
+	direction: ltr
+		/* rtl:ignore */
+	;
+	unicode-bidi: bidi-override;
+}
+pre {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	overflow: auto;
+	font-size: 14px;
+}
+pre code {
+	font-size: inherit;
+	color: inherit;
+	word-break: normal;
+}
+code {
+	font-size: 14px;
+	color: #d63384;
+	word-wrap: break-word;
+}
+a>code {
+	color: inherit;
+}
+kbd {
+	padding: 0.2rem 0.4rem;
+	font-size: 14px;
+	color: #fff;
+	background-color: #212529;
+	border-radius: 0.2rem;
+}
+kbd kbd {
+	padding: 0;
+	font-size: 14px;
+	font-weight: 700;
+}
+p::selection {
+    background-color: $color-global-light-primary-50;
+    color: $color-global-dark-primary-130;
+}
+
+// Font
+.font-sans {
+	font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
+}
+.font-serif {
+	font-family: "Lora", serif;
+}
+.font-mono {
+	font-family: "Roboto Mono", monospace;
+}
+
+// Heading
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: $color-global-secondary-100;
+}
+h1, .h1 {
+    color: $color-global-dark-primary-110;
+    font-size: #{$typography-alias-h1-md-size-13}px;
+    line-height: #{$typography-alias-h1-md-line-height-13}px;
+}
+h2, .h2 {
+    font-size: #{$typography-alias-h2-md-size-11}px;
+    line-height: #{$typography-alias-h2-md-line-height-11}px;
+}
+h3, .h3 {
+    font-size: #{$typography-alias-h3-md-size-09}px;
+    line-height: #{$typography-alias-h3-md-line-height-09}px;
+}
+h4, .h4 {
+    font-size: #{$typography-alias-h4-md-size-07}px;
+    line-height: #{$typography-alias-h4-md-line-height-07}px;
+}
+h5, .h5 {
+    font-size: #{$typography-alias-h5-md-size-06}px;
+    line-height: #{$typography-alias-h5-md-line-height-06}px;
+    font-weight: 600;
+}
+h6, .h6 {
+    font-size: #{$typography-alias-h6-md-size-05}px;
+    line-height: #{$typography-alias-h6-md-line-height-05}px;
+    font-weight: 600;
+}
+@media (min-width: 992px) {
+    h1, .h1 {
+        font-size: #{$typography-alias-h1-lg-size-14}px;
+        line-height: #{$typography-alias-h1-lg-line-height-14}px;
+    }
+    h2, .h2 {
+        font-size: #{$typography-alias-h2-lg-size-12}px;
+        line-height: #{$typography-alias-h2-lg-line-height-12}px;
+    }
+    h3, .h3 {
+        font-size: #{$typography-alias-h3-lg-size-10}px;
+        line-height: #{$typography-alias-h3-lg-line-height-10}px;
+    }
+    h4, .h4 {
+        font-size: #{$typography-alias-h4-lg-size-08}px;
+        line-height: #{$typography-alias-h4-lg-line-height-08}px;
+    }
+    P {
+        font-size: #{$typography-alias-p-lg-size-05}px;
+        line-height: #{$typography-alias-p-lg-line-height-05}px;
+        
+    }
+}
+@media (min-width: 1200px) {
+    h1, .h1 {
+        font-size: #{$typography-alias-h1-xl-size-15}px;
+        line-height: #{$typography-alias-h1-xl-line-height-15}px;
+    }
+}
+
+// Link
+a {
+    color: $color-alias-interactive-primary-default;
+    font-weight: 700;
+    &:visited {
+        color: $color-alias-interactive-primary-default;
+    }
+    &:hover {
+        color: $color-alias-interactive-primary-hover;
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        color: $color-alias-interactive-primary-pressed;
+    }
+    &.disabled:not(.#{$prefix}btn),
+    &:not(.#{$prefix}btn):disabled,
+    &[disabled]:not(.#{$prefix}btn) {
+        color: $color-alias-text-color-disabled;
+    }
+    &[disabled] {
+        pointer-events: none;
+    }
+    &:not(.#{$prefix}btn) {
+        text-decoration: underline;
+    }
+    &:not([href]):not([class]), &:not([href]):not([class]):hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed !important;
+}
+
+
+.#{$prefix}link-accent {
+    color: $color-alias-interactive-accent-default;
+    &:visited {
+        color: $color-alias-interactive-accent-default;
+    }
+    &:hover {
+        color: $color-alias-interactive-accent-hover;
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        color: $color-alias-interactive-accent-pressed;
+    }
+}
+
+
+// Focus
+@media (min-width: 576px) {
+    :focus {
+        outline: 0;
+        box-shadow: none;
+    }
+    [data-sirio-keyboard="true"] :focus {
+        outline: 1px solid $color-alias-interactive-border-focus;
+        outline-offset: 3px;
+        border-radius: 4px;
+        z-index: 1;
+    }
+    [data-sirio-keyboard="true"] .#{$prefix}link-accent:focus, [data-sirio-keyboard="true"] .#{$prefix}btn-tertiary-light:focus {
+        outline-color: $color-alias-interactive-accent-focus !important;
+    }
+}
+
+
+// Icon fontawesome size
+.fa-16 {
+    font-size: 16px;
+}
+.fa-24 {
+    font-size: 24px;
+}
+.fa-32 {
+    font-size: 32px;
+}
+.fa-64 {
+    font-size: 64px;
+}
+
+// List
+.#{$prefix}list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+.#{$prefix}list-inline > * {
+    display: inline-block;
+    margin-right: 8px;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.#{$prefix}list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    & li {
+        margin: 0 20px 0 30px;
+        padding: 0 0 8px;
+        position: relative;
+        &:before {
+            content: "";
+            display: inline-block;
+            height: 8px;
+            margin-left: 6px;
+            position: absolute;
+            top: 8px;
+            width: 8px;
+            background-color: $color-alias-background-color-primary-light-60;
+            left: -30px;
+        }
+        & a {
+            color: $color-global-dark-primary-120;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}
+.#{$prefix}list-link {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    & a {
+        border-bottom: 1px solid #d9e4f7;
+        padding: 16px 0;
+        font-weight: 700;
+        display: flex;
+        flex-wrap: wrap;
+        &:after {
+            display: block;
+            content: "\f061";
+            font-family: $font-family-icon;
+            text-align: center;
+            font-weight: 900;
+            float: right;
+            margin-left: auto;
+            padding-left: 8px;
+        }
+    }
+    & li:last-child a {
+        border-bottom: 0;
+    }
+}
+
+// Vari
+.#{$prefix}font-weight-400 {
+    font-weight: 400 !important;
+}
+.#{$prefix}font-weight-600 {
+    font-weight: 600 !important;
+}
+.#{$prefix}text-underline {
+    text-decoration: underline;
+}

@@ -34,7 +34,9 @@
 	<!-- CSS WebKit -->
 	<link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="../assets/css/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/css/splide.min.css">
 	<link rel="stylesheet" href="../assets/css/webkit.min.css">
+	
 	<link rel="stylesheet" href="css/guide.css">
 
 	<title>Form - Sirio Webkit</title>
@@ -68,6 +70,7 @@
 			</a>
 			<ul id="nav-structure">
 				<li><a href="components-structure.html#page">Pagina</a></li>
+				<li><a href="components-structure.html#javascript">Javascript</a></li>
 				<li><a href="components-structure.html#grid">System Grid</a></li>
 				<li><a href="components-structure.html#headercmp">Header</a></li>
 				<li><a href="components-structure.html#footercmp">Footer</a></li>
@@ -105,6 +108,8 @@
 				<li><a href="components-contents.html#notifiche">Notifiche</a></li>
 				<li><a href="components-contents.html#avvisi">Avvisi</a></li>
 				<li><a href="components-contents.html#stepper">Step Progress Bar</a></li>
+				<li><a href="components-contents.html#hero">Hero</a></li>
+				<li><a href="components-contents.html#carousel">Carousel</a></li>
 			</ul>
 		</li>
 		<li>
@@ -1165,11 +1170,13 @@ fileList = inputFilesComponent.getUploadedFiles();
 							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
 
 							<div class="blockquote">
+								<p></p>
 								<ul>
 									<li><strong>SirioLib.getComponentById(id: string, type: string)</strong>: restituisce l'oggetto Sirio Component del tipo richiesto tramite ID se esiste. Altrimenti genera un'eccezione. Parametri: <code>id</code>: stringa dell'identificativo del componente; <code>type</code>: stringa del tipo di componente, in questo caso <code>'file-upload'</code>.</li>
 									<li><strong>getInputElement()</strong>: restituisce l'oggetto menu HTMLElement collegato all'oggetto SirioFileUpload chiamante.</li>
 									<li><strong>getFileListElement()</strong>: restituisce l'elemento HTML dell'elenco delle chips.</li>
 									<li><strong>getUploadedFiles()</strong>: restituisce l'elenco dei file caricati.</li>
+									<li><strong>addNewFile(fileInfo: { fileName: string, base64Data: string base64, contentType (opzionale): string })</strong>: consente di aggiungere un file dinamicamente tramite codice Javascript. Se non specificato il contentType viene utilizzato 'application/octet-stream'</li>
 								</ul>
 							</div>
 
@@ -1183,6 +1190,7 @@ fileList = inputFilesComponent.getUploadedFiles();
 									<div class="guide-col-md-6">
 										<label for="sliderexample">Slider label</label>
 										<small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
+										<span class="sr-only">I valori rientrano nell'intervallo tra 0 e 100</span>
 										<div class="sirio-slider" data-sirio-component="slider">
 											<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
 											<input type="number" id="rangevalue" value="40" class="sirio-form-control" aria-label="Valore selezionato">
@@ -1191,12 +1199,13 @@ fileList = inputFilesComponent.getUploadedFiles();
 									</div>
 								</div>
 							</div>
-                            
+							
 							<div class="code" aria-hidden="true" id="code-slider">
                                 <p class="guide-code-title">Slider:</p>
 <pre><xmp>
 <label for="sliderexample">Slider label</label>
 <small id="range-help" class="sirio-form-text-help">* Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna ali</small>
+<span class="sr-only">I valori rientrano nell'intervallo tra 0 e 100</span>
 <div class="sirio-slider" data-sirio-component="slider">
 	<input type="range" value="40" min="0" max="100" id="sliderexample" class="sirio-form-range" aria-describedby="range-help">
 	<input type="number" id="rangevalue" value="40" class="sirio-form-control" aria-label="Valore selezionato">
@@ -1621,7 +1630,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-text-valid">Text:</label>
 											<input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo" aria-describedby="input-text-valid-msg">
 											<span class="sirio-form-feedback" id="input-text-valid-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1630,7 +1639,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-text-warning">Text:</label>
 											<input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo" aria-describedby="input-text-warning-msg">
 											<span class="sirio-form-feedback" id="input-text-warning-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1639,7 +1648,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-text-invalid">Text:</label>
 											<input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo" aria-describedby="input-text-invalid-msg">
 											<span class="sirio-form-feedback" id="input-text-invalid-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1648,7 +1657,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-textarea-valid">Textarea:</label>
 											<textarea id="input-textarea-valid" name="input-textarea-valid" class="sirio-form-control sirio-is-valid" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-valid-msg"></textarea>
 											<span class="sirio-form-feedback" id="input-textarea-valid-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1657,7 +1666,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-textarea-warning">Textarea:</label>
 											<textarea id="input-textarea-warning" name="input-textarea-warning" class="sirio-form-control sirio-is-warning" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-warning-msg"></textarea>
 											<span class="sirio-form-feedback" id="input-textarea-warning-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1666,7 +1675,7 @@ for (var elemRange of elemsRange) {
 											<label for="input-textarea-invalid">Textarea:</label>
 											<textarea id="input-textarea-invalid" name="input-textarea-invalid" class="sirio-form-control sirio-is-invalid" rows="5" placeholder="Descrizione messaggio" aria-describedby="input-textarea-invalid-msg"></textarea>
 											<span class="sirio-form-feedback" id="input-textarea-invalid-msg">
-												Lorem ipsum onopossum tagit tua
+												Lorem ipsum dolor sit amet
 											</span>
 										</div>
 									</div>
@@ -1679,7 +1688,7 @@ for (var elemRange of elemsRange) {
 <label for="input-text-valid">Text:</label>
 <input type="text" id="input-text-valid" name="input-text-valid" class="sirio-form-control sirio-is-valid" placeholder="Inserisci il testo" aria-describedby="input-text-valid-msg">
 <span class="sirio-form-feedback" id="input-text-valid-msg">
-	Lorem ipsum onopossum tagit tua
+	Lorem ipsum dolor sit amet
 </span>
 </xmp></pre>
 
@@ -1688,7 +1697,7 @@ for (var elemRange of elemsRange) {
 <label for="input-text-warning">Text:</label>
 <input type="text" id="input-text-warning" name="input-text-warning" class="sirio-form-control sirio-is-warning" placeholder="Inserisci il testo" aria-describedby="input-text-warning-msg">
 <span class="sirio-form-feedback" id="input-text-warning-msg">
-	Lorem ipsum onopossum tagit tua
+	Lorem ipsum dolor sit amet
 </span>
 </xmp></pre>
 								<p class="guide-code-title">Input text invalida:</p>
@@ -1696,7 +1705,7 @@ for (var elemRange of elemsRange) {
 <label for="input-text-invalid">Text:</label>
 <input type="text" id="input-text-invalid" name="input-text-invalid" class="sirio-form-control sirio-is-invalid" placeholder="Inserisci il testo" aria-describedby="input-text-invalid-msg">
 <span class="sirio-form-feedback" id="input-text-invalid-msg">
-	Lorem ipsum onopossum tagit tua
+	Lorem ipsum dolor sit amet
 </span>
 </xmp></pre>
 							</div>
@@ -1785,7 +1794,7 @@ for (var elemRange of elemsRange) {
 										                                <div class="col-auto col-lg-12">
 										                                    <div class="sirio-chip-selection">
 										                                        <input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
-										                                        <label for="input-checkbox-chips-2">Valore chip molto lungo esageratamente</label>
+										                                        <label for="input-checkbox-chips-2">Valore chip lungo</label>
 										                                    </div>
 										                                </div>
 										                                <div class="col-auto col-lg-12">
@@ -1812,7 +1821,7 @@ for (var elemRange of elemsRange) {
 										                                Mostra tutto<span class="fas fa-arrow-down ms-2" aria-hidden="true"></span>
 										                            </a>
 										                            
-										                            <div id="collapseChip-1" role="region" data-sirio-visible="false">
+										                            <div id="collapseChip-1" role="region" data-sirio-visible="false" aria-label="Mostra il resto dell'elenco chip">
 										                                <div>
 										                                    <div class="row gx-2 gy-1 mb-2">
 										                                        <div class="col-auto col-lg-12">
@@ -1957,7 +1966,7 @@ for (var elemRange of elemsRange) {
                                 <div class="col-auto col-lg-12">
                                     <div class="sirio-chip-selection">
                                         <input type="checkbox" id="input-checkbox-chips-2" name="input-checkbox-chips-2" value="2">
-                                        <label for="input-checkbox-chips-2">Valore chip molto lungo esageratamente</label>
+                                        <label for="input-checkbox-chips-2">Valore chip lungo</label>
                                     </div>
                                 </div>
                                 <div class="col-auto col-lg-12">
@@ -1984,7 +1993,7 @@ for (var elemRange of elemsRange) {
                                 Mostra tutto<span class="fas fa-arrow-down ms-2" aria-hidden="true"></span>
                             </a>
                             
-                            <div id="collapseChip-1" role="region" data-sirio-visible="false">
+                            <div id="collapseChip-1" role="region" data-sirio-visible="false" aria-label="Mostra il resto dell'elenco chip">
                                 <div>
                                     <div class="row gx-2 gy-1 mb-2">
                                         <div class="col-auto col-lg-12">
@@ -2077,7 +2086,7 @@ for (var elemRange of elemsRange) {
 											<small>Sottotitolo (opzionale)</small>
 										</div>
 										<div class="sirio-title-bar-action">
-											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+											<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri<span class="sr-only">: Apre finestra modale</span></button>
 										</div>
 									</div>
 									<div class="sirio-drawer">
@@ -2103,7 +2112,7 @@ for (var elemRange of elemsRange) {
 																<div class="col-auto">
 																	<div class="sirio-chip-selection">
 																		<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
-																		<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+																		<label for="input-checkbox-chips-drawer-2">Valore chip lungo</label>
 																	</div>
 																</div>
 																<div class="col-auto">
@@ -2158,7 +2167,7 @@ for (var elemRange of elemsRange) {
 																	<div class="col-auto">
 																		<div class="sirio-chip-selection">
 																			<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
-																			<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+																			<label for="input-checkbox-chips-drawer-2">Valore chip lungo</label>
 																		</div>
 																	</div>
 																	<div class="col-auto">
@@ -2332,7 +2341,7 @@ for (var elemRange of elemsRange) {
 			<small>Sottotitolo (opzionale)</small>
 		</div>
 		<div class="sirio-title-bar-action">
-			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri</button>
+			<button class="sirio-btn sirio-btn-primary sirio-btn-icon" id="collapseBtnDark3" type="button"  data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-filter" title="Filtri"><span class="fas fa-filter" aria-hidden="true"></span>Filtri<span class="sr-only">: Apre finestra modale</span></button>
 		</div>
 	</div>
 	<div class="sirio-drawer">
@@ -2358,7 +2367,7 @@ for (var elemRange of elemsRange) {
 								<div class="col-auto">
 									<div class="sirio-chip-selection">
 										<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
-										<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+										<label for="input-checkbox-chips-drawer-2">Valore chip lungo</label>
 									</div>
 								</div>
 								<div class="col-auto">
@@ -2413,7 +2422,7 @@ for (var elemRange of elemsRange) {
 									<div class="col-auto">
 										<div class="sirio-chip-selection">
 											<input type="checkbox" id="input-checkbox-chips-drawer-2" name="input-checkbox-chips-drawer-2" value="2">
-											<label for="input-checkbox-chips-drawer-2">Valore chip esageratamente molto lungo</label>
+											<label for="input-checkbox-chips-drawer-2">Valore chip lungo</label>
 										</div>
 									</div>
 									<div class="col-auto">
@@ -2892,6 +2901,7 @@ for (var elemRange of elemsRange) {
 		<!-- JS Webkit -->
 		<script src="../assets/js/sirio-webkit-min.js"></script>
 		<script src="../assets/js/sirio-datepicker-full.js"></script>
+		<script src="../assets/js/splide.min.js"></script>
 
 		<!-- JS Guide -->
 		<script src="js/jquery.min.js"></script>
@@ -2974,6 +2984,118 @@ for (var elemRange of elemsRange) {
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});
 				}
+
+				
+			// Inizializzazione SplideJS Carousel
+			if (document.getElementsByClassName("splide").length) {
+				var splide1 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splide2 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				var splide3 = {
+					0: {
+						gap: 16,
+						perPage: 1,
+						padding: { left: 36, right: 36 },
+						drag: true,
+						arrows: false
+					},
+					768: {
+						perPage: 2,
+						gap: 24,
+						padding: { left: 12, right: 12 },
+						drag: true,
+						arrows: true
+					},
+					1200: {
+						perPage: 3,
+						gap: 32,
+						padding: { left: 16, right: 16 },
+						drag: false,
+						arrows: true
+					}
+				}
+				
+				var splideI18n = {
+					prev: 'Slide precedente',
+					next: 'Slide successiva',
+					pageX: 'Vai alla pagina %s',
+					slideX: 'Vai alla slide %s',
+					first: 'Vai alla prima slide',
+					last: 'Vai all\'ultima slide',
+					play: 'Avvia riproduzione automatica',
+					pause: 'Ferma riproduzione automatica',
+					select: 'Seleziona slide da visualizzare',
+					slideLabel: '%s di %s'
+				}
+				var splideClasses = {
+					prev: 'splide__arrow--prev sirio-btn sirio-btn-icon fas fa-chevron-left',
+					next: 'splide__arrow--next sirio-btn sirio-btn-icon fas fa-chevron-right',
+				}
+
+				var splideElem = document.getElementsByClassName("splide");
+				for (var i = 0; i < splideElem.length; i++) {
+					var bp = splide3;
+					var pages = 3;
+					if (splideElem[i].classList.contains('splide-1')) {
+						bp = splide1;
+						pages = 1;
+					}
+					if (splideElem[i].classList.contains('splide-2')) {
+						bp = splide2;
+						pages = 2;
+					}
+					arrOptions = {
+						perPage: pages,
+						gap: 24,
+						mediaQuery: 'min',
+						breakpoints: bp,
+						classes: splideClasses,
+						i18n: splideI18n
+					}
+					var splideInstance = new Splide(splideElem[i], arrOptions);
+					splideInstance.mount();
+				}
+			}
 		</script>
 
 </body>

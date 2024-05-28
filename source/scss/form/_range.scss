@@ -1,0 +1,86 @@
+// Slider
+@mixin track($fill: 0) {
+	box-sizing: border-box;
+	border: none;
+    border-radius: 6px;
+    height: 3px;
+	background: $color-alias-background-color-disabled;
+	@if $fill == 1 {
+		background: linear-gradient($color-alias-interactive-secondary-default, $color-alias-interactive-secondary-default) 0/ var(--sx) 100% no-repeat $color-alias-background-color-disabled;
+	}
+}
+@mixin fill() {
+	height: 3px;
+	background: $color-alias-interactive-secondary-default
+}
+@mixin thumb($disabled: 0) {
+    @if $disabled == 1 {
+        box-shadow: 0 0 0 2px $color-alias-background-color-disabled;
+        background: $color-alias-background-color-disabled;
+    } @else {
+        box-shadow: 0 0 0 2px $color-alias-interactive-primary-default;
+        background: $color-alias-interactive-primary-default;
+    }
+    border: 2px solid #fff;
+    height: 22px;
+    width: 22px;
+    border-radius: 22px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -9px;
+}
+.#{$prefix}slider {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    & .#{$prefix}form-range {
+        --range: calc(var(--max) - var(--min));
+        --ratio: calc((var(--val) - var(--min))/var(--range));
+        --sx: calc(11px + var(--ratio)*(100% - 22px));
+        flex: 1 0 0%;
+        width: 100%;
+        max-width: 100%;
+        height: 34px;
+        margin-right: 16px;
+        -webkit-appearance: none;
+        &::-webkit-slider-thumb {
+            @include thumb
+        }
+        &::-webkit-slider-runnable-track {
+            @include track(1)
+        }
+        &::-moz-range-progress {
+            @include fill
+        }
+        &::-ms-fill-lower {
+            @include fill
+        }
+        &::-moz-range-track {
+            @include track
+        }
+        &::-moz-range-thumb {
+            @include thumb
+        }
+        &:disabled::-webkit-slider-thumb {
+            @include thumb(1)
+        }
+        &:disabled::-moz-range-thumb {
+            @include thumb(1)
+        }
+    }
+    & .#{$prefix}form-control {
+        flex: 0 0 auto;
+        width: 100px;
+        max-width: 100%;
+    }
+    & .#{$prefix}slider-range {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 28px;
+        width: 100%;
+        padding-right: 116px;
+        font-family: $font-family-mono;
+        pointer-events: none;
+    }
+}

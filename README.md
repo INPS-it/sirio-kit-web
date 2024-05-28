@@ -1,4 +1,4 @@
-# SirioWebKit v.7.0.2
+# SirioWebKit v.8.0.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -40,6 +40,14 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
+### 8.0.0 (2024-03-29)
+
+- **struttura**\Header (added megamenu)
+- **contenuto**\Hero
+- **contenuto**\Carousel
+- **assets**\img\new images for hero and megamenu
+- Bugfixing handle event.key with no data
+
 ### 7.0.2 (2024-02-22)
 
 - **tipografia**\Logo (modified)
@@ -50,9 +58,9 @@ Da inserire in fondo alla pagina HTML
 
 ### 7.0.1 (2023-10-16)
 
-- **javascript**\Propagation of custom events for DropdownSelect, FileUpload, TimePicker and Datepicker components
-- **javascript**\SirioTimePicker - new keydown event management
-- **scss**\variables changed
+- **scss**\Variables changed
+- **js**\DropdownSelect, FileUpload, TimePicker and Datepicker (propagation of custom events)
+- **js**\SirioTimePicker (new keydown event management)
 
 ### 7.0.0 (2023-09-15)
 
@@ -133,6 +141,8 @@ Vengono di seguito elencati i componenti distribuiti con Sirio WebKit.
 - [Bootstrap 5 Grid System](https://getbootstrap.com/), ©Twitter, Inc., licenza MIT
 
 - [Vanilla JS Datepicker](https://mymth.github.io/vanillajs-datepicker), licenza MIT
+
+- [Splide](https://splidejs.com/), licenza MIT
 
 - [Font Awesome Free 6.3.0](https://fontawesome.com/) ©Fonticons, Inc., licenza SIL OFL 1.1
 
