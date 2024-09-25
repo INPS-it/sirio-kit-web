@@ -1,6 +1,9 @@
 // Dropdown
 .#{$prefix}dropdown {
     position: relative;
+    &.#{$prefix}dropdown-detach {
+        z-index: 1;
+    }
     & .#{$prefix}dropdown-menu {
         list-style: none;
         padding: 0;
@@ -83,6 +86,7 @@
         }
         & li.#{$prefix}dropdown-item:first-child {
             border: 0;
+            min-height: 56px;
         }
         & li:not(.#{$prefix}dropdown-item):first-child .#{$prefix}dropdown-item {
             border: 0;

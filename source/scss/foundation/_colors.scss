@@ -20,16 +20,16 @@
     color: $color-alias-text-color-disabled  !important;
 }
 .#{$prefix}text-danger {
-    color: $color-global-semantic-alert-100 !important;
+    color: $color-specific-data-entry-label-color-alert !important;
 }
 .#{$prefix}text-warning {
-    color: $color-global-semantic-warning-100 !important;
+    color: $color-specific-data-entry-label-color-warning !important;
 }
 .#{$prefix}text-info {
     color: $color-global-semantic-info-100 !important;
 }
 .#{$prefix}text-success {
-    color: $color-global-semantic-success-100 !important;
+    color: $color-specific-data-entry-label-color-success !important;
 }
 
 // Background
@@ -125,14 +125,14 @@
     border-color: $color-specific-data-entry-border-color-default !important;
 }
 .#{$prefix}border-danger {
-    border-color: $color-global-semantic-alert-100 !important;
+    border-color: $color-specific-data-entry-border-color-alert !important;
 }
 .#{$prefix}border-warning {
-    border-color: $color-global-semantic-warning-100 !important;
+    border-color: $color-specific-data-entry-border-color-warning !important;
 }
 .#{$prefix}border-info {
     border-color: $color-global-semantic-info-100 !important;
 }
 .#{$prefix}border-success {
-    border-color: $color-global-semantic-success-100 !important;
+    border-color: $color-specific-data-entry-border-color-success !important;
 }

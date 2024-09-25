@@ -124,9 +124,6 @@
         }
       }
       &:checked {
-        & ~ label {
-          color: $color-alias-interactive-primary-default;
-        }
         & ~ label::before {
           border-color: $color-alias-interactive-primary-default;
         }
@@ -135,9 +132,6 @@
           transform: translateX(24px);
         }
         &:hover {
-          & ~ label {
-            color: $color-alias-interactive-primary-hover;
-          }
           & ~ label::before {
             border-color: $color-alias-interactive-primary-hover;
           }

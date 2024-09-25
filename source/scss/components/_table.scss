@@ -30,7 +30,7 @@ th {
 	& th {
 		/*padding: 4px 16px;
 		height: 60px;*/
-		padding: 20px 16px;
+		padding: 20px 12px;
 		font-weight: 600;
 		background-color: $color-alias-background-color-primary-light-40;
 		color: $color-specific-data-entry-label-color-default;
@@ -44,9 +44,7 @@ th {
 		}
 	}
 	& td {
-		/*padding: 4px 16px;
-		height: 56px;*/
-		padding: 18px 16px;
+		padding: 18px 12px;
 		border-bottom: 1px solid $color-global-light-primary-50;
 		border-right: 1px solid $color-global-light-primary-50;
 		&:first-child {
@@ -55,31 +53,44 @@ th {
 		&:last-child {
 			border-right: 1px solid $color-global-light-primary-50;
 		}
+		&.w-0 {
+			white-space: nowrap;
+			text-align: center;
+			width: 0;
+		}
+	}
+	&.#{$prefix}table-xs {
+		th, td {
+			padding: 4px 8px;
+		}
 	}
 	&.#{$prefix}table-sm {
 		th, td {
-			/*height: 40px;*/
-			padding: 10px 16px;
+			padding: 10px 8px;
 		}
 	}
 	&.#{$prefix}table-lg {
 		th, td {
-			/*height: 72px;*/
 			padding: 26px 16px;
 		}
 	}
 	& td .#{$prefix}btn {
 		padding: 4px 1px;
+		&[aria-expanded="true"] {
+			background-color: $color-global-dark-primary-115;
+			border-color: $color-global-dark-primary-115;
+			color: #FFF;
+		}
 	}
-	& tbody tr:nth-of-type(even) td {
+	/*& tbody tr:nth-of-type(even) td {
 		background-color: $color-global-light-primary-40;
-	}
+	}*/
 	&.#{$prefix}table-dark {
 		th {
 			background-color: $color-global-dark-primary-115;
 			color: $color-global-light-primary-40;
-			border-bottom: 1px solid $color-alias-interactive-primary-default;
-			border-right: 1px solid $color-alias-interactive-primary-default;
+			border-bottom: 1px solid $color-alias-interactive-primary-default !important;
+			border-right: 1px solid $color-alias-interactive-primary-default !important;
 			&:first-child {
 				border-left: 1px solid $color-global-dark-primary-115;
 			}
@@ -167,28 +178,36 @@ th {
 	content: ".";
 	left: 0;
 	display: block;
-	width: 8px;
+	width: 4px;
 	color: $color-global-accent-100;
-	border-right: 8px solid $color-global-accent-100;
+	border-right: 4px solid $color-global-accent-100;
 	top: 0;
 	bottom: 32px;
 	align-self: auto;
 	margin-bottom: 16px;
 	z-index: 10;
+	@media (min-width: 768px) {
+		width: 8px;
+		border-right: 8px solid $color-global-accent-100;
+	}
 }
 .#{$prefix}table-overflow-end:after {
 	position: sticky;
 	content: ".";
 	right: -1px;
 	display: block;
-	width: 8px;
+	width: 4px;
 	color: $color-global-accent-100;
-	border-right: 8px solid $color-global-accent-100;
+	border-right: 4px solid $color-global-accent-100;
 	top: 0;
 	bottom: 32px;
 	align-self: auto;
 	margin-bottom: 16px;
 	z-index: 10;
+	@media (min-width: 768px) {
+		width: 8px;
+		border-right: 8px solid $color-global-accent-100;
+	}
 }
 
 
@@ -264,108 +283,99 @@ th {
 	}
 }
 
-// Table Accordion
-.#{$prefix}table-accordion {
-	tr {
-		display: flex;
-		flex-flow: row wrap;
+.#{$prefix}table-action-fixed {
+	overflow-y: auto;
+	max-height: 450px;
+	&.#{$prefix}table-overflow-end::after{
+                width: 0px;
+		border-right: 0px solid transparent;
 	}
-	td,
-	th {
-		padding: 5px;
-		flex: 1;
-		display: block;
-		text-align: left;
+	&.#{$prefix}table-overflow-start:before, &.#{$prefix}table-overflow-end:after {
+		margin-bottom: 0;
 	}
-	th:last-child {
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-		clip: rect(1px 1px 1px 1px);
-		/* IE6, IE7 */
-		clip: rect(1px, 1px, 1px, 1px);
+	& .#{$prefix}table {
+		margin-bottom: 0;
 	}
-
-	td:last-child[hidden] {
-		display: none;
-	}
-
-	td:last-child {
-		background: #ccc;
-		flex: 1 1 100%;
-	}
-
-	.responsive-cell-header {
-		display: none;
-	}
-
-	@media only screen and (max-width: 600px) {
-		table tr {
-			display: block;
-			border: 1px solid black;
+	& thead th:last-child {
+		position: sticky;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		filter: drop-shadow(-12px 0px 4px rgba(0, 0, 0, .1));
+		box-shadow: inset -1px 0px 0 0 $color-global-light-primary-50;
+		&:first-child {
+			box-shadow: inset 0px 1px 0 0 $color-global-light-primary-50;
 		}
+	}
+	& .#{$prefix}table-dark thead th:last-child {
+		box-shadow: inset 1px 0px 0 0 $color-alias-background-color-primary-dark-115;
+		filter: drop-shadow(-12px 0px 4px rgba(255, 255, 255, .1));
+	}
+	& tbody td:last-child {
+		position: sticky;
+		right: 0;
+		border: 0 !important;
+		background-color: #fff;
+		filter: drop-shadow(-12px 0px 4px rgba(0, 0, 0, .1));
+		box-shadow: inset -1px 0px 0 0 $color-global-light-primary-50;
+		border-bottom: 1px solid $color-global-light-primary-50 !important;
+	}
+}
 
-		table thead {
-			position: absolute !important;
+/* Table card */
+@media screen and (max-width: 768px) {
+	.#{$prefix}table-card {
+		border: 0;
+		thead {
+			border: none;
+			clip: rect(0 0 0 0);
 			height: 1px;
-			width: 1px;
+			margin: -1px;
 			overflow: hidden;
-			clip: rect(1px 1px 1px 1px);
-			/* IE6, IE7 */
-			clip: rect(1px, 1px, 1px, 1px);
+			padding: 0;
+			position: absolute;
+			width: 1px;
 		}
-
-		.responsive-cell-header {
-			display: inline;
-			font-weight: bold;
+		tr {
+			background-color: #fff;
+			display: block;
+			margin-bottom: 1em;
+			border: 1px solid $color-alias-background-color-primary-light-50;
+			padding: 0.5rem;
+			&:nth-child(even) {
+				background-color: $color-alias-background-color-primary-light-40;
+			}
+			td {
+				border: 0 !important;
+				padding: 0;
+				margin-bottom: 1em;
+				text-align: left !important;
+				display: flex;
+				flex-wrap: wrap;
+				width: 100% !important;
+				color: $color-specific-data-entry-label-color-default;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				&::before {
+					-ms-flex: 0 0 100%;
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+				&:not(.#{$prefix}table-btn)::before {
+					content: attr(data-label);
+					display: block;
+					font-weight: 700;
+				}
+				.font-mono {
+					color: #000
+				}
+				@media (max-width: 768px) {
+					& .sirio-btn+.sirio-btn {
+						margin-left: 24px;
+					}
+				}
+			}
 		}
-	}
-}
-
-
-
-/* Skeleton loading */
-@keyframes loadingSkeleton {
-	0% {
-		background-position: 300% 0;
-	}
-	100% {
-		background-position: -200% 0;
-	}
-}
-table.#{$prefix}skeleton {
-	border-collapse: separate;
-	border-spacing: 10px 0.5rem;
-	& th {
-		border-radius: 7px;
-		background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 80%);
-		background-size: 200px 100%;
-		background-position: -200px 0;
-		background-repeat: no-repeat;
-		animation: loadingSkeleton 2s infinite;
-		font-size: 0px;
-		border: 0;
-		& *, &:before, &:after {
-			display: none;
-		}
-	}
-	& td {
-		background-color: #c6ccd2 !important;
-		border-radius: 4px;
-		animation-duration: 3s;
-		animation-fill-mode: forwards;
-		animation-iteration-count: infinite;
-		animation-name: placeholderSkeletonMini;
-		animation-timing-function: linear;
-		background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 80%);
-		background-image: linear-gradient(100deg, #c6ccd2 0%, #dedfe0 20%, #c6ccd2 40%, #c6ccd2 100%);
-
-		animation: loadingSkeleton 2s infinite;
-		font-size: 0px;
-		border: 0;
-		& *, &:before, &:after {
-			display: none;
-		}
-	}
+  	}
 }

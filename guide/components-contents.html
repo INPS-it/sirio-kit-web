@@ -358,6 +358,75 @@
 </div>
 </xmp></pre>
 							</div>
+
+							<h4 class="guide-title">Dropdown detach</h4>
+
+							<div class="blockquote">
+								<p>In alcuni casi può essere necessario avere un dropdown con il codice html del menu fuori dal contenitore dove è stato inserito, come nel caso delle tabelle con overflow che ne taglierebbe parzialmente la visualizzazione. In questo caso basterà aggiungere l'attributo <code>data-sirio-detach="true"</code> al contenitore <code>div.sirio-dropdown</code></p>
+							</div>
+
+							
+							<div class="guide-example">
+								<div class="guide-row">
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+											<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-1" data-sirio-toggle="dropdown" aria-expanded="false">
+												Dropdown menu
+											</button>
+											<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-detach-1" data-sirio-visible="false">
+												<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="guide-col-auto">
+										<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+											<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-2" data-sirio-toggle="dropdown" aria-expanded="true">
+												Dropdown menu a destra
+											</button>
+											<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-2" data-sirio-visible="true">
+												<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+												<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+
+							<div class="code" aria-hidden="true" id="code-dropdown-detach">
+								<p class="guide-code-title">Dropdown detach:</p>
+<pre><xmp>
+<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+	<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-1" data-sirio-toggle="dropdown" aria-expanded="false">
+		Dropdown menu
+	</button>
+	<ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-detach-1" data-sirio-visible="false">
+		<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+	</ul>
+</div>
+</xmp></pre>
+
+								<p class="guide-code-title">Dropdown detach a destra:</p>
+<pre><xmp>
+<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+	<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-2" data-sirio-toggle="dropdown" aria-expanded="false">
+		Dropdown menu
+	</button>
+	<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-2" data-sirio-visible="false">
+		<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+		<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+	</ul>
+</div>
+</xmp></pre>
+							</div>
 							<hr class="guide-separator">
 
 							<h4 class="guide-title">Javascript: Eventi e metodi</h4>
@@ -2484,12 +2553,12 @@
 													<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
-												<td>
+												<td class="w-0">
 													<span class="sirio-tag">Scaduto</span><br>
 												</td>
 											</tr>
@@ -2498,12 +2567,12 @@
 													<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
-												<td>
+												<td class="w-0">
 													<span class="sirio-tag">Scaduto</span><br>
 												</td>
 											</tr>
@@ -2512,12 +2581,12 @@
 													<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
-												<td>
+												<td class="w-0">
 													<span class="sirio-tag">Scaduto</span><br>
 												</td>
 											</tr>
@@ -2526,12 +2595,12 @@
 													<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
-												<td>
+												<td class="w-0">
 													<span class="sirio-tag">Scaduto</span><br>
 												</td>
 											</tr>
@@ -2540,12 +2609,12 @@
 													<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
 												<td>
-													<span class="font-mono">05/05/2017</span>
+													<span>05/05/2017</span>
 												</td>
-												<td>
+												<td class="w-0">
 													<span class="sirio-tag">Scaduto</span><br>
 												</td>
 											</tr>
@@ -2583,12 +2652,12 @@
 					<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
-				<td>
+				<td class="w-0">
 					<span class="sirio-tag">Scaduto</span><br>
 				</td>
 			</tr>
@@ -2597,12 +2666,12 @@
 					<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
-				<td>
+				<td class="w-0">
 					<span class="sirio-tag">Scaduto</span><br>
 				</td>
 			</tr>
@@ -2611,12 +2680,12 @@
 					<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
-				<td>
+				<td class="w-0">
 					<span class="sirio-tag">Scaduto</span><br>
 				</td>
 			</tr>
@@ -2625,12 +2694,12 @@
 					<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
-				<td>
+				<td class="w-0">
 					<span class="sirio-tag">Scaduto</span><br>
 				</td>
 			</tr>
@@ -2639,12 +2708,12 @@
 					<span class="cell-title">Corso per addetti alla lotta agli incendi ed evacuazione - medio rischio incendio - suddiviso in tre sessioni della durata di 8 ore</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
 				<td>
-					<span class="font-mono">05/05/2017</span>
+					<span>05/05/2017</span>
 				</td>
-				<td>
+				<td class="w-0">
 					<span class="sirio-tag">Scaduto</span><br>
 				</td>
 			</tr>
@@ -2696,14 +2765,14 @@
 													</div>
 												</td>
 												<td>AS</td>
-												<td>1246745987345987</td>
+												<td><span class="font-mono">1246745987345987</span></td>
 												<td>10/10/2020</td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td>10/10/2020</td>
 												<td>10/10/2020</td>
-												<td>242342</td>
-												<td>34534534</td>
+												<td><span class="font-mono">242342</span></td>
+												<td><span class="font-mono">34534534</span></td>
 											</tr>
 											<tr>
 												<td>
@@ -2716,14 +2785,14 @@
 													</div>
 												</td>
 												<td>AS</td>
-												<td>1246745987345987</td>
+												<td><span class="font-mono">1246745987345987</span></td>
 												<td>10/10/2020</td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td>10/10/2020</td>
 												<td>10/10/2020</td>
-												<td>242342</td>
-												<td>34534534</td>
+												<td><span class="font-mono">242342</span></td>
+												<td><span class="font-mono">34534534</span></td>
 											</tr>
 											<tr>
 												<td>
@@ -2736,14 +2805,14 @@
 													</div>
 												</td>
 												<td>AS</td>
-												<td>1246745987345987</td>
+												<td><span class="font-mono">1246745987345987</span></td>
 												<td>10/10/2020</td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td class="text-right"><span class="font-mono">1.000,00</span></td>
 												<td>10/10/2020</td>
 												<td>10/10/2020</td>
-												<td>242342</td>
-												<td>34534534</td>
+												<td><span class="font-mono">242342</span></td>
+												<td><span class="font-mono">34534534</span></td>
 											</tr>
 										</tbody>
 									</table>
@@ -2790,14 +2859,14 @@
 					</div>
 				</td>
 				<td>AS</td>
-				<td>1246745987345987</td>
+				<td><span class="font-mono">1246745987345987</span></td>
 				<td>10/10/2020</td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td>10/10/2020</td>
 				<td>10/10/2020</td>
-				<td>242342</td>
-				<td>34534534</td>
+				<td><span class="font-mono">242342</span></td>
+				<td><span class="font-mono">34534534</span></td>
 			</tr>
 			<tr>
 				<td>
@@ -2810,14 +2879,14 @@
 					</div>
 				</td>
 				<td>AS</td>
-				<td>1246745987345987</td>
+				<td><span class="font-mono">1246745987345987</span></td>
 				<td>10/10/2020</td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td>10/10/2020</td>
 				<td>10/10/2020</td>
-				<td>242342</td>
-				<td>34534534</td>
+				<td><span class="font-mono">242342</span></td>
+				<td><span class="font-mono">34534534</span></td>
 			</tr>
 			<tr>
 				<td>
@@ -2830,14 +2899,14 @@
 					</div>
 				</td>
 				<td>AS</td>
-				<td>1246745987345987</td>
+				<td><span class="font-mono">1246745987345987</span></td>
 				<td>10/10/2020</td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td class="text-right"><span class="font-mono">1.000,00</span></td>
 				<td>10/10/2020</td>
 				<td>10/10/2020</td>
-				<td>242342</td>
-				<td>34534534</td>
+				<td><span class="font-mono">242342</span></td>
+				<td><span class="font-mono">34534534</span></td>
 			</tr>
 		</tbody>
 	</table>
@@ -2854,11 +2923,12 @@
 								<p>La tabella con drawer viene utilizzata per consultare ulteriori informazioni relative al record di riferimento senza abbandonare il contesto della tabella.</p>
 								<p>Le informazioni aggiuntive vengono mostrate al click sull’azione “Visualizza” presente nella colonna “Altro”.</p>
 								<p>Al termine del codice html della tabella è presente quello del drawer da riempire dinamicamente col contenuto in base alle esigenze.</p>
+								<p>Per vedere i <strong>tre esempi disponibili</strong> fare click sul bottone con l'icona con l'occhio</p>
 							</div>
 
 							<div class="guide-example">
 								<div class="sirio-table-responsive">
-									<table class="sirio-table sirio-table-dark" id="table-drawer">
+									<table class="sirio-table sirio-table-dark" id="table-drawer-1">
 										<thead>
 											<tr>
 												<th scope="col">
@@ -2870,45 +2940,76 @@
 												<th scope="col">
 													Colonna numero 3
 												</th>
-												<th scope="col" class="text-center">
-													Altro
+												<th scope="col">
+													Azioni
 												</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td>Titolo 1</td>
+												<td>Drawer con dettaglio riga</td>
 												<td>Contenuto</td>
 												<td>Contenuto</td>
-												<td class="text-center text-nowrap">
-													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
-												</td>
-											</tr>
-											<tr>
-												<td>Titolo 2</td>
-												<td>Contenuto</td>
-												<td>Contenuto</td>
-												<td class="text-center text-nowrap">
-													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
-												</td>
-											</tr>
-											<tr>
-												<td>Titolo 3</td>
-												<td>Contenuto</td>
-												<td>Contenuto</td>
-												<td class="text-center text-nowrap">
-													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con dettaglio riga" title="Visualizza Drawer con dettaglio riga" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-1"><span class="fas fa-eye" aria-hidden="true"></span></button>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
+
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark" id="table-drawer-2">
+										<thead>
+											<tr>
+												<th scope="col">
+													Colonna numero 1
+												</th>
+												<th scope="col">
+													Colonna numero 2
+												</th>
+												<th scope="col">
+													Colonna numero 3
+												</th>
+												<th scope="col">
+													Azioni
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Drawer con azioni</td>
+												<td>Contenuto</td>
+												<td>Contenuto</td>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con azioni" title="Visualizza Drawer con azioni" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-2"><span class="fas fa-eye" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td>Drawer con azioni (collassate)</td>
+												<td>Contenuto</td>
+												<td>Contenuto</td>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con azioni (collassate)" title="Visualizza Drawer con azioni (collassate)" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-3"><span class="fas fa-eye" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<!-- Drawer -->
 								<div class="sirio-drawer sirio-drawer-table">
-									<div class="sirio-dialog" id="dialog-drawer-table" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table" data-sirio-component="dialog" data-sirio-visible="false">
+									<div class="sirio-dialog" id="dialog-drawer-table-1" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-1" data-sirio-component="dialog" data-sirio-visible="false">
 										<div class="sirio-dialog-wrapper">
 											<div class="sirio-dialog-content">
 												<div class="sirio-dialog-header">
-													<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table">Titolo 1</h2>
+													<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-1">Drawer con dettaglio riga</h2>
 													<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
 														<span class="fas fa-times" aria-hidden="true"></span>
 													</button>
@@ -2938,7 +3039,117 @@
 														<p><strong>Titolo colonna di dettaglio</strong></p>
 														<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
 													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Drawer con azioni -->
+								<div class="sirio-drawer sirio-drawer-table">
+									<div class="sirio-dialog" id="dialog-drawer-table-2" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-2" data-sirio-component="dialog" data-sirio-visible="false">
+										<div class="sirio-dialog-wrapper">
+											<div class="sirio-dialog-content">
+												<div class="sirio-dialog-header">
+													<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-2">Drawer con azioni</h2>
+													<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+														<span class="fas fa-times" aria-hidden="true"></span>
+													</button>
+												</div>
+												<div class="sirio-dialog-body">
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+													</div>
 													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectu at, fringilla id sem.</p>
+													</div>
+													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lella id sem.</p>
+													</div>
+													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p><a href="#">Lorem ipsum</a></p>
+													</div>
+
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+													</div>
+												</div>
+												<div class="sirio-dialog-footer">
+													<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Drawer con azioni collassate -->
+								<div class="sirio-drawer sirio-drawer-table">
+									<div class="sirio-dialog" id="dialog-drawer-table-3" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-3" data-sirio-component="dialog" data-sirio-visible="false">
+										<div class="sirio-dialog-wrapper">
+											<div class="sirio-dialog-content">
+												<div class="sirio-dialog-header">
+													<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-3">Drawer con molte azioni</h2>
+													<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+														<span class="fas fa-times" aria-hidden="true"></span>
+													</button>
+												</div>
+												<div class="sirio-dialog-body">
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+													</div>
+													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectu at, fringilla id sem.</p>
+													</div>
+													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lella id sem.</p>
+													</div>
+													
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p><a href="#">Lorem ipsum</a></p>
+													</div>
+
+													<div class="sirio-info">
+														<p><strong>Titolo colonna di dettaglio</strong></p>
+														<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+													</div>
+												</div>
+												<div class="sirio-dialog-footer">
+													<div class="row justify-content-between align-items-center w-100">
+														<div class="col-auto sirio-text-white">
+															<strong>Azioni</strong>
+														</div>
+														<div class="col-auto">
+															<div class="sirio-dropdown" data-sirio-component="dropdown">
+																<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-in-drawer" data-sirio-toggle="dropdown" aria-expanded="false">
+																	<span class="sr-only">Scegli una funzione</span>
+																	<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+																</button>
+																<ul class="sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right" aria-labelledby="dropdown-in-drawer"
+																	data-sirio-visible="false">
+																	<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+																	<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+																	<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+																	<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -2950,7 +3161,7 @@
 								<p class="guide-code-title">Tabella con drawer:</p>
 <pre><xmp>
 <div class="sirio-table-responsive">
-	<table class="sirio-table sirio-table-dark" id="table-drawer">
+	<table class="sirio-table sirio-table-dark" id="table-drawer-1">
 		<thead>
 			<tr>
 				<th scope="col">
@@ -2962,45 +3173,76 @@
 				<th scope="col">
 					Colonna numero 3
 				</th>
-				<th scope="col" class="text-center">
-					Altro
+				<th scope="col">
+					Azioni
 				</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Titolo 1</td>
+				<td>Drawer con dettaglio riga</td>
 				<td>Contenuto</td>
 				<td>Contenuto</td>
-				<td class="text-center text-nowrap">
-					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
-				</td>
-			</tr>
-			<tr>
-				<td>Titolo 2</td>
-				<td>Contenuto</td>
-				<td>Contenuto</td>
-				<td class="text-center text-nowrap">
-					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
-				</td>
-			</tr>
-			<tr>
-				<td>Titolo 3</td>
-				<td>Contenuto</td>
-				<td>Contenuto</td>
-				<td class="text-center text-nowrap">
-					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table"><span class="fas fa-eye" aria-hidden="true"></span></button>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con dettaglio riga" title="Visualizza Drawer con dettaglio riga" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-1"><span class="fas fa-eye" aria-hidden="true"></span></button>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
+
+<div class="sirio-table-responsive">
+	<table class="sirio-table sirio-table-dark" id="table-drawer-2">
+		<thead>
+			<tr>
+				<th scope="col">
+					Colonna numero 1
+				</th>
+				<th scope="col">
+					Colonna numero 2
+				</th>
+				<th scope="col">
+					Colonna numero 3
+				</th>
+				<th scope="col">
+					Azioni
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Drawer con azioni</td>
+				<td>Contenuto</td>
+				<td>Contenuto</td>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con azioni" title="Visualizza Drawer con azioni" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-2"><span class="fas fa-eye" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td>Drawer con azioni (collassate)</td>
+				<td>Contenuto</td>
+				<td>Contenuto</td>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Visualizza Drawer con azioni (collassate)" title="Visualizza Drawer con azioni (collassate)" data-sirio-toggle="dialog" data-sirio-target="#dialog-drawer-table-3"><span class="fas fa-eye" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- Drawer -->
 <div class="sirio-drawer sirio-drawer-table">
-	<div class="sirio-dialog" id="dialog-drawer-table" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table" data-sirio-component="dialog" data-sirio-visible="false">
+	<div class="sirio-dialog" id="dialog-drawer-table-1" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-1" data-sirio-component="dialog" data-sirio-visible="false">
 		<div class="sirio-dialog-wrapper">
 			<div class="sirio-dialog-content">
 				<div class="sirio-dialog-header">
-					<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table">Titolo 1</h2>
+					<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-1">Drawer con dettaglio riga</h2>
 					<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
 						<span class="fas fa-times" aria-hidden="true"></span>
 					</button>
@@ -3030,11 +3272,604 @@
 						<p><strong>Titolo colonna di dettaglio</strong></p>
 						<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
 					</div>
-					
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Drawer con azioni -->
+<div class="sirio-drawer sirio-drawer-table">
+	<div class="sirio-dialog" id="dialog-drawer-table-2" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-2" data-sirio-component="dialog" data-sirio-visible="false">
+		<div class="sirio-dialog-wrapper">
+			<div class="sirio-dialog-content">
+				<div class="sirio-dialog-header">
+					<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-2">Drawer con azioni</h2>
+					<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+						<span class="fas fa-times" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="sirio-dialog-body">
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectu at, fringilla id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lella id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p><a href="#">Lorem ipsum</a></p>
+					</div>
+
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+					</div>
+				</div>
+				<div class="sirio-dialog-footer">
+					<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Stampa il dettaglio del record" title="Stampa il dettaglio del record"><span class="fas fa-print" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Scarica il file ZIP del dettaglio del record" title="Scarica il file ZIP del dettaglio del record"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Elimina il record" title="Elimina il record"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Drawer con azioni collassate -->
+<div class="sirio-drawer sirio-drawer-table">
+	<div class="sirio-dialog" id="dialog-drawer-table-3" tabindex="-1" role="dialog" aria-labelledby="heading-dialog-drawer-table-3" data-sirio-component="dialog" data-sirio-visible="false">
+		<div class="sirio-dialog-wrapper">
+			<div class="sirio-dialog-content">
+				<div class="sirio-dialog-header">
+					<h2 class="sirio-dialog-title" id="heading-dialog-drawer-table-3">Drawer con molte azioni</h2>
+					<button type="button" class="sirio-btn sirio-btn-close" data-sirio-dismiss="dialog" aria-label="Close">
+						<span class="fas fa-times" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="sirio-dialog-body">
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectu at, fringilla id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lella id sem.</p>
+					</div>
+					
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p><a href="#">Lorem ipsum</a></p>
+					</div>
+
+					<div class="sirio-info">
+						<p><strong>Titolo colonna di dettaglio</strong></p>
+						<p>Suspendisse purus lectus, accumsan vitae malesuada lobortis, maximus vel enim. Proin nulla augue, ultricies quis mattis at, fringilla id sem.</p>
+					</div>
+				</div>
+				<div class="sirio-dialog-footer">
+					<div class="row justify-content-between align-items-center w-100">
+						<div class="col-auto sirio-text-white">
+							<strong>Azioni</strong>
+						</div>
+						<div class="col-auto">
+							<div class="sirio-dropdown" data-sirio-component="dropdown">
+								<button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-in-drawer" data-sirio-toggle="dropdown" aria-expanded="false">
+									<span class="sr-only">Scegli una funzione</span>
+									<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+								</button>
+								<ul class="sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right" aria-labelledby="dropdown-in-drawer"
+									data-sirio-visible="false">
+									<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+									<li><a class="sirio-dropdown-item" href="#">Label</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</xmp></pre>
+							</div>
+							
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Tabella action dropdown</h4>
+
+							<div class="blockquote">
+								<p>Nel caso si abbia un numero elevato di azioni, c’è la possibilità di collassarle in un menu dropdown, sia in versione
+								desktop che mobile. In alternativa può essere utilizzata la gestione dinamica che prevede la visualizzazione delle
+								azioni in versione non collassata per il desktop e collassata per il mobile.</p>
+								<p>L'esempio qui mostrato prevede per desktop la visualizzazione di tutte le azioni, nella versione responsive il bottone dropdown.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark">
+										<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+										<thead>
+											<tr>
+												<th scope="col">Causale</th>
+												<th scope="col">Codice</th>
+												<th scope="col">Periodo</th>
+												<th scope="col">Azioni</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>AS12345</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<div class="d-none d-md-block">
+														<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12345" title="Modifica il record AB12345"><span class="fas fa-pen" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12345" title="Scarica il file ZIP di AB12345"><span class="fas fa-download" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12345" title="Elimina il record AB12345"><span class="fas fa-trash" aria-hidden="true"></span></button>
+													</div>
+													<div class="d-md-none text-center">
+														<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+															<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-1" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+																<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+															</button>
+															<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-1" data-sirio-visible="true">
+																<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+															</ul>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>AS12346</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<div class="d-none d-md-block">
+														<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12346" title="Modifica il record AB12346"><span class="fas fa-pen" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12346" title="Scarica il file ZIP di AB12346"><span class="fas fa-download" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12346" title="Elimina il record AB12346"><span class="fas fa-trash" aria-hidden="true"></span></button>
+													</div>
+													<div class="d-md-none text-center">
+														<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+															<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-2" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+																<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+															</button>
+															<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-2" data-sirio-visible="true">
+																<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+															</ul>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>AS12347</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<div class="d-none d-md-block">
+														<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+														<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+													</div>
+													<div class="d-md-none text-center">
+														<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+															<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-3" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+																<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+															</button>
+															<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-3" data-sirio-visible="true">
+																<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+																<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+															</ul>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabelle-action-dropdown">
+								<p class="guide-code-title">Tabella action dropdown:</p>
+<pre><xmp>
+<div class="sirio-table-responsive">
+	<table class="sirio-table sirio-table-dark">
+		<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+		<thead>
+			<tr>
+				<th scope="col">Causale</th>
+				<th scope="col">Codice</th>
+				<th scope="col">Periodo</th>
+				<th scope="col">Azioni</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>AS12345</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<div class="d-none d-md-block">
+						<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12345" title="Modifica il record AB12345"><span class="fas fa-pen" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12345" title="Scarica il file ZIP di AB12345"><span class="fas fa-download" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12345" title="Elimina il record AB12345"><span class="fas fa-trash" aria-hidden="true"></span></button>
+					</div>
+					<div class="d-md-none text-center">
+						<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+							<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-1" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+								<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+							</button>
+							<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-1" data-sirio-visible="true">
+								<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>AS12346</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<div class="d-none d-md-block">
+						<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12346" title="Modifica il record AB12346"><span class="fas fa-pen" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12346" title="Scarica il file ZIP di AB12346"><span class="fas fa-download" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12346" title="Elimina il record AB12346"><span class="fas fa-trash" aria-hidden="true"></span></button>
+					</div>
+					<div class="d-md-none text-center">
+						<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+							<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-2" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+								<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+							</button>
+							<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-2" data-sirio-visible="true">
+								<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>AS12347</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<div class="d-none d-md-block">
+						<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+						<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+					</div>
+					<div class="d-md-none text-center">
+						<div class="sirio-dropdown" data-sirio-component="dropdown" data-sirio-detach="true">
+							<button class="sirio-btn sirio-btn-ellipsis" type="button" id="dropdown-example-detach-table-3" data-sirio-toggle="dropdown" aria-expanded="true" aria-label="Scegli un'azione" title="Scegli un'azione">
+								<span class="fas fa-ellipsis-h" aria-hidden="true"></span>
+							</button>
+							<ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-table-3" data-sirio-visible="true">
+								<li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+								<li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</xmp></pre>
+							</div>
+							
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Tabella action sticky</h4>
+
+							<div class="blockquote">
+								<p>Per chi ha l'esigenza di avere la colonna delle azioni sempre visibili quando la tabella supera l'area orizzontale della finestra.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive sirio-table-action-fixed">
+									<table class="sirio-table sirio-table-dark">
+										<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+										<thead>
+											<tr>
+												<th scope="col">Causale</th>
+												<th scope="col">Codice</th>
+												<th scope="col">Periodo</th>
+												<th scope="col">Importo</th>
+												<th scope="col">Rata</th>
+												<th scope="col">Data Scadenza</th>
+												<th scope="col">Data Rinnovo</th>
+												<th scope="col">Azioni</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>AS12345</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12345" title="Modifica il record AB12345"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12345" title="Scarica il file ZIP di AB12345"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12345" title="Elimina il record AB12345"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td>AS12346</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12346" title="Modifica il record AB12346"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12346" title="Scarica il file ZIP di AB12346"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12346" title="Elimina il record AB12346"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td>AS12347</td>
+												<td><span class="font-mono">1246745987345987</span></td>
+												<td>10/10/2020</td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td class="text-right"><span class="font-mono">1.000,00</span></td>
+												<td>10/10/2020</td>
+												<td>10/10/2020</td>
+												<td class="w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabelle-action-sticky">
+								<p class="guide-code-title">Tabella action sticky:</p>
+<pre><xmp>
+<div class="sirio-table-responsive sirio-table-action-fixed">
+	<table class="sirio-table sirio-table-dark">
+		<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+		<thead>
+			<tr>
+				<th scope="col">Causale</th>
+				<th scope="col">Codice</th>
+				<th scope="col">Periodo</th>
+				<th scope="col">Importo</th>
+				<th scope="col">Rata</th>
+				<th scope="col">Data Scadenza</th>
+				<th scope="col">Data Rinnovo</th>
+				<th scope="col">Azioni</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>AS12345</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12345" title="Modifica il record AB12345"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12345" title="Scarica il file ZIP di AB12345"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12345" title="Elimina il record AB12345"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td>AS12346</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB12346" title="Modifica il record AB12346"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB12346" title="Scarica il file ZIP di AB12346"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB12346" title="Elimina il record AB12346"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td>AS12347</td>
+				<td><span class="font-mono">1246745987345987</span></td>
+				<td>10/10/2020</td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td class="text-right"><span class="font-mono">1.000,00</span></td>
+				<td>10/10/2020</td>
+				<td>10/10/2020</td>
+				<td class="w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</xmp></pre>
+							</div>
+							
+
+							<hr class="guide-separator">
+							
+							<h4 class="guide-title">Tabella responsive card</h4>
+
+							<div class="blockquote">
+								<p>Per chi ha necessità che le righe della tabella si trasformino in card nella visualizzazione responsive.</p>
+							</div>
+
+							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-dark sirio-table-card">
+										<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+										<thead>
+											<tr>
+												<th scope="col">Header 1</th>
+												<th scope="col">Header 2</th>
+												<th scope="col">Header 3</th>
+												<th scope="col">Header 4</th>
+												<th scope="col">Header 5</th>
+												<th scope="col">Azioni</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td data-label="Header 2">AB1234</td>
+												<td data-label="Header 2"><a href="#">Link</a></td>
+												<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+												<td data-label="Header 4">Consectetur adipiscing elit</td>
+												<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+												<td class="justify-content-end w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td data-label="Header 2">AB1235</td>
+												<td data-label="Header 2"><a href="#">Link</a></td>
+												<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+												<td data-label="Header 4">Consectetur adipiscing elit</td>
+												<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+												<td class="justify-content-end w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1235" title="Modifica il record AB1235"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1235" title="Scarica il file ZIP di AB1235"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1235" title="Elimina il record AB1235"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td data-label="Header 2">AB1236</td>
+												<td data-label="Header 2"><a href="#">Link</a></td>
+												<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+												<td data-label="Header 4">Consectetur adipiscing elit</td>
+												<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+												<td class="justify-content-end w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1236" title="Modifica il record AB1236"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1236" title="Scarica il file ZIP di AB1236"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1236" title="Elimina il record AB1236"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td data-label="Header 2">AB1237</td>
+												<td data-label="Header 2"><a href="#">Link</a></td>
+												<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+												<td data-label="Header 4">Consectetur adipiscing elit</td>
+												<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+												<td class="justify-content-end w-0">
+													<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1237" title="Modifica il record AB1237"><span class="fas fa-pen" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1237" title="Scarica il file ZIP di AB1237"><span class="fas fa-download" aria-hidden="true"></span></button>
+													<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1237" title="Elimina il record AB1237"><span class="fas fa-trash" aria-hidden="true"></span></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="code" aria-hidden="true" id="code-tabelle-card">
+								<p class="guide-code-title">Tabella responsive card:</p>
+<pre><xmp>
+<div class="sirio-table-responsive">
+	<table class="sirio-table sirio-table-dark sirio-table-card">
+		<caption class="sr-only">Nome della lista elementi visualizzati</caption>
+		<thead>
+			<tr>
+				<th scope="col">Header 1</th>
+				<th scope="col">Header 2</th>
+				<th scope="col">Header 3</th>
+				<th scope="col">Header 4</th>
+				<th scope="col">Header 5</th>
+				<th scope="col">Azioni</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Header 2">AB1234</td>
+				<td data-label="Header 2"><a href="#">Link</a></td>
+				<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+				<td data-label="Header 4">Consectetur adipiscing elit</td>
+				<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+				<td class="justify-content-end w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1234" title="Modifica il record AB1234"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1234" title="Scarica il file ZIP di AB1234"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1234" title="Elimina il record AB1234"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td data-label="Header 2">AB1235</td>
+				<td data-label="Header 2"><a href="#">Link</a></td>
+				<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+				<td data-label="Header 4">Consectetur adipiscing elit</td>
+				<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+				<td class="justify-content-end w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1235" title="Modifica il record AB1235"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1235" title="Scarica il file ZIP di AB1235"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1235" title="Elimina il record AB1235"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td data-label="Header 2">AB1236</td>
+				<td data-label="Header 2"><a href="#">Link</a></td>
+				<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+				<td data-label="Header 4">Consectetur adipiscing elit</td>
+				<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+				<td class="justify-content-end w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1236" title="Modifica il record AB1236"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1236" title="Scarica il file ZIP di AB1236"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1236" title="Elimina il record AB1236"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+			<tr>
+				<td data-label="Header 2">AB1237</td>
+				<td data-label="Header 2"><a href="#">Link</a></td>
+				<td data-label="Header 3"><span class="font-mono">0123456</span></td>
+				<td data-label="Header 4">Consectetur adipiscing elit</td>
+				<td data-label="Header 5" class="w-0"><span class="sirio-tag text-nowrap">Label tag</span></td>
+				<td class="justify-content-end w-0">
+					<button class="sirio-btn sirio-btn-icon" aria-label="Modifica il record AB1237" title="Modifica il record AB1237"><span class="fas fa-pen" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Scarica il file ZIP di AB1237" title="Scarica il file ZIP di AB1237"><span class="fas fa-download" aria-hidden="true"></span></button>
+					<button class="sirio-btn sirio-btn-icon" aria-label="Elimina il record AB1237" title="Elimina il record AB1237"><span class="fas fa-trash" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 </xmp></pre>
 							</div>
@@ -3045,10 +3880,35 @@
 							<h4 class="guide-title">Spacing</h4>
 							
 							<div class="blockquote">
-								<p>Sono state predisposte le classi <code>sirio-table-sm</code> e <code>sirio-table-lg</code> per avere meno o più altezza delle celle rispetto a quella di default.</p>
+								<p>Sono state predisposte le classi <code>sirio-table-xs</code>, <code>sirio-table-sm</code> e <code>sirio-table-lg</code> per avere meno o più altezza delle celle rispetto a quella di default.</p>
 							</div>
 
 							<div class="guide-example">
+								<div class="sirio-table-responsive">
+									<table class="sirio-table sirio-table-xs" id="table-xs">
+										<thead>
+											<tr>
+												<th scope="col">
+													Lorem ipsum dolor sit amet
+												</th>
+												<th scope="col">
+													Consectetur adipiscing elit
+												</th>
+												<th scope="col">
+													Sed do eiusmod tempor incididunt 
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Lorem ipsum dolor sit amet</td>
+												<td>Consectetur adipiscing elit</td>
+												<td>Sed do eiusmod tempor incididunt</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
 								<div class="sirio-table-responsive">
 									<table class="sirio-table sirio-table-sm" id="table-sm">
 										<thead>
@@ -3249,7 +4109,7 @@
 									</div>
 									<div class="sirio-pagination-cursor">
 										<ul class="sirio-pagination-list">
-											<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+											<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
 											<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 										</ul>
 									</div>
@@ -3278,7 +4138,7 @@
 									</div>
 									<div class="sirio-pagination-cursor">
 										<ul class="sirio-pagination-list">
-											<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+											<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
 											<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 										</ul>
 									</div>
@@ -3320,7 +4180,7 @@
 	</div>
 	<div class="sirio-pagination-cursor">
 		<ul class="sirio-pagination-list">
-			<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+			<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
 			<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 		</ul>
 	</div>
@@ -3352,7 +4212,7 @@
 	</div>
 	<div class="sirio-pagination-cursor">
 		<ul class="sirio-pagination-list">
-			<li><a href="#"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
+			<li><a href="#" class="disabled" tabindex="-1"><span class="sr-only">Pagina precedente</span><span class="fas fa-angle-left" aria-hidden="true"></span></a></li>
 			<li><a href="#"><span class="sr-only">Pagina successiva</span><span class="fas fa-angle-right" aria-hidden="true"></span></a></li>
 		</ul>
 	</div>
@@ -4031,7 +4891,7 @@ dialogObj.show()
 										<div class="sirio-alert sirio-alert-error" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 											<div class="sirio-alert-body">
 												<div class="sirio-alert-message">
-													<p><strong>Alert di errore</strong> Repellendus ullamcorper repellat harum.</p>
+													<p><strong>Titolo Errore</strong> Repellendus ullamcorper repellat harum.</p>
 												</div>
 												<div class="sirio-alert-link">
 													<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4050,7 +4910,7 @@ dialogObj.show()
 										<div class="sirio-alert sirio-alert-info" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 											<div class="sirio-alert-body">
 												<div class="sirio-alert-message">
-													<p><strong>Alert di info</strong> Repellendus ullamcorper repellat harum.</p>
+													<p><strong>Titolo Informativo</strong> Repellendus ullamcorper repellat harum.</p>
 												</div>
 												<div class="sirio-alert-link">
 													<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4069,7 +4929,7 @@ dialogObj.show()
 										<div class="sirio-alert sirio-alert-warning" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 											<div class="sirio-alert-body">
 												<div class="sirio-alert-message">
-													<p><strong>Alert di attenzione</strong> Repellendus ullamcorper repellat harum.</p>
+													<p><strong>Titolo Avviso</strong> Repellendus ullamcorper repellat harum.</p>
 												</div>
 												<div class="sirio-alert-link">
 													<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4088,7 +4948,7 @@ dialogObj.show()
 										<div class="sirio-alert sirio-alert-success" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 											<div class="sirio-alert-body">
 												<div class="sirio-alert-message">
-													<p><strong>Alert di successo</strong> Repellendus ullamcorper repellat harum.</p>
+													<p><strong>Titolo Successo</strong> Repellendus ullamcorper repellat harum.</p>
 												</div>
 												<div class="sirio-alert-link">
 													<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4126,7 +4986,7 @@ var alertObj = new SirioLib.SirioAlert(alertConID)
 <div class="sirio-alert sirio-alert-error" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 	<div class="sirio-alert-body">
 		<div class="sirio-alert-message">
-			<p><strong>Alert di errore</strong> Repellendus ullamcorper repellat harum.</p>
+			<p><strong>Titolo Errore</strong> Repellendus ullamcorper repellat harum.</p>
 		</div>
 		<div class="sirio-alert-link">
 			<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4145,7 +5005,7 @@ var alertObj = new SirioLib.SirioAlert(alertConID)
 <div class="sirio-alert sirio-alert-info" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 	<div class="sirio-alert-body">
 		<div class="sirio-alert-message">
-			<p><strong>Alert di info</strong> Repellendus ullamcorper repellat harum.</p>
+			<p><strong>Titolo Informativo</strong> Repellendus ullamcorper repellat harum.</p>
 		</div>
 		<div class="sirio-alert-link">
 			<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4164,7 +5024,7 @@ var alertObj = new SirioLib.SirioAlert(alertConID)
 <div class="sirio-alert sirio-alert-warning" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 	<div class="sirio-alert-body">
 		<div class="sirio-alert-message">
-			<p><strong>Alert di attenzione</strong> Repellendus ullamcorper repellat harum.</p>
+			<p><strong>Titolo Avviso</strong> Repellendus ullamcorper repellat harum.</p>
 		</div>
 		<div class="sirio-alert-link">
 			<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4183,7 +5043,7 @@ var alertObj = new SirioLib.SirioAlert(alertConID)
 <div class="sirio-alert sirio-alert-success" data-sirio-component="alert" data-sirio-visible="true" role="alert">
 	<div class="sirio-alert-body">
 		<div class="sirio-alert-message">
-			<p><strong>Alert di successo</strong> Repellendus ullamcorper repellat harum.</p>
+			<p><strong>Titolo Successo</strong> Repellendus ullamcorper repellat harum.</p>
 		</div>
 		<div class="sirio-alert-link">
 			<a href="#" class="sirio-link-accent">Testo link</a>
@@ -4732,46 +5592,43 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 															<a href="#" class="sirio-stepper-content">
 																<span class="sr-only">Completato</span>
 																<span class="sirio-stepper-marker"></span>
-																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
-																		cominciare</span></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di cominciare</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item is-success">
 															<a href="#" class="sirio-stepper-content">
 																<span class="sr-only">Completato</span>
 																<span class="sirio-stepper-marker"></span>
-																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
-																		anagrafici</span></span>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
 															</a>
 														</li>
 														<li class="sirio-stepper-item is-active" aria-current="step">
-															<a href="#" class="sirio-stepper-content">
+															<div class="sirio-stepper-content">
 																<span class="sr-only">Step attivo</span>
 																<span class="sirio-stepper-marker"></span>
-																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
-																		successo</span></span>
-															</a>
+																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
+															</div>
 														</li>
 														<li class="sirio-stepper-item">
-															<a href="#" class="sirio-stepper-content">
+															<div class="sirio-stepper-content">
 																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
-															</a>
+															</div>
 														</li>
 														<li class="sirio-stepper-item">
-															<a href="#" class="sirio-stepper-content">
+															<div class="sirio-stepper-content">
 																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
-															</a>
+															</div>
 														</li>
 														<li class="sirio-stepper-item">
-															<a href="#" class="sirio-stepper-content">
+															<div class="sirio-stepper-content">
 																<span class="sr-only">Non completato</span>
 																<span class="sirio-stepper-marker"></span>
 																<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
-															</a>
+															</div>
 														</li>
 													</ol>
 												</nav>
@@ -4803,46 +5660,43 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 							<a href="#" class="sirio-stepper-content">
 								<span class="sr-only">Completato</span>
 								<span class="sirio-stepper-marker"></span>
-								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di
-										cominciare</span></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Prima di cominciare</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item is-success">
 							<a href="#" class="sirio-stepper-content">
 								<span class="sr-only">Completato</span>
 								<span class="sirio-stepper-marker"></span>
-								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati
-										anagrafici</span></span>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Dati anagrafici</span></span>
 							</a>
 						</li>
 						<li class="sirio-stepper-item is-active" aria-current="step">
-							<a href="#" class="sirio-stepper-content">
+							<div class="sirio-stepper-content">
 								<span class="sr-only">Step attivo</span>
 								<span class="sirio-stepper-marker"></span>
-								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è
-										successo</span></span>
-							</a>
+								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Cosa è successo</span></span>
+							</div>
 						</li>
 						<li class="sirio-stepper-item">
-							<a href="#" class="sirio-stepper-content">
+							<div class="sirio-stepper-content">
 								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Contatti</span></span>
-							</a>
+							</div>
 						</li>
 						<li class="sirio-stepper-item">
-							<a href="#" class="sirio-stepper-content">
+							<div class="sirio-stepper-content">
 								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Anteprima</span></span>
-							</a>
+							</div>
 						</li>
 						<li class="sirio-stepper-item">
-							<a href="#" class="sirio-stepper-content">
+							<div class="sirio-stepper-content">
 								<span class="sr-only">Non completato</span>
 								<span class="sirio-stepper-marker"></span>
 								<span class="sirio-stepper-text"><span class="sirio-stepper-title">Invio</span></span>
-							</a>
+							</div>
 						</li>
 					</ol>
 				</nav>
@@ -4855,27 +5709,27 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 
 							<div class="guide-example">
 								<div role="group" aria-label="Barra di avanzamento">
-									<ol class="sirio-stepper-nav">
+									<ol class="sirio-stepper-nav py-1">
 										<li class="sirio-stepper-item is-warning">
 											<span class="sr-only">Warning</span>
-											<div class="sirio-stepper-content">
+											<a href="#" class="sirio-stepper-content">
 												<span class="sirio-stepper-marker"></span>
 												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Warning</span></span>
-											</div>
+											</a>
 										</li>
 										<li class="sirio-stepper-item is-error">
 											<span class="sr-only">Error</span>
-											<div class="sirio-stepper-content">
+											<a href="#" class="sirio-stepper-content">
 												<span class="sirio-stepper-marker"></span>
 												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Error</span></span>
-											</div>
+											</a>
 										</li>
 										<li class="sirio-stepper-item is-success">
 											<span class="sr-only">Completato</span>
-											<div class="sirio-stepper-content">
+											<a href="#" class="sirio-stepper-content">
 												<span class="sirio-stepper-marker"></span>
 												<span class="sirio-stepper-text"><span class="sirio-stepper-title">Completato</span></span>
-											</div>
+											</a>
 										</li>
 										<li class="sirio-stepper-item is-active" aria-current="step">
 											<span class="sr-only">Step attivo</span>
@@ -4903,24 +5757,24 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 	<ol class="sirio-stepper-nav">
 		<li class="sirio-stepper-item is-warning">
 			<span class="sr-only">Warning</span>
-			<div class="sirio-stepper-content">
+			<a href="#" class="sirio-stepper-content">
 				<span class="sirio-stepper-marker"></span>
 				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Warning</span></span>
-			</div>
+			</a>
 		</li>
 		<li class="sirio-stepper-item is-error">
 			<span class="sr-only">Error</span>
-			<div class="sirio-stepper-content">
+			<a href="#" class="sirio-stepper-content">
 				<span class="sirio-stepper-marker"></span>
 				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Error</span></span>
-			</div>
+			</a>
 		</li>
 		<li class="sirio-stepper-item is-success">
 			<span class="sr-only">Completato</span>
-			<div class="sirio-stepper-content">
+			<a href="#" class="sirio-stepper-content">
 				<span class="sirio-stepper-marker"></span>
 				<span class="sirio-stepper-text"><span class="sirio-stepper-title">Completato</span></span>
-			</div>
+			</a>
 		</li>
 		<li class="sirio-stepper-item is-active" aria-current="step">
 			<span class="sr-only">Step attivo</span>
@@ -4970,10 +5824,10 @@ var toastObj = new SirioLib.SirioToast(toastConID);
 								<div class="sirio-bg-primary-light-40">
 									<div class="row g-0 justify-content-between">
 										<div class="col-auto">
-											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone"><span class="fas fa-arrow-left" aria-hidden="true"></span>Indietro</button>
+											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone" title="Label bottone"><span class="fas fa-arrow-left" aria-hidden="true"></span>Indietro</button>
 										</div>
 										<div class="col-auto">
-											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone">Avanti<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+											<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone" title="Label bottone">Avanti<span class="fas fa-arrow-right" aria-hidden="true"></span></button>
 										</div>
 									</div>
 								</div>
@@ -5928,7 +6782,6 @@ if (document.getElementsByClassName("splide").length) {
 					today: "Oggi",
 					monthsTitle: "Mesi",
 					clear: "Cancella",
-					weekStart: 1,
 					format: "dd/mm/yyyy",
 
 					// Aggiunte per l'aria-label dei bottoni in testata 
@@ -5955,6 +6808,7 @@ if (document.getElementsByClassName("splide").length) {
 						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
+							weekStart: 1,
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
 							autohide: true
@@ -5967,6 +6821,7 @@ if (document.getElementsByClassName("splide").length) {
 					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
+						weekStart: 1,
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});

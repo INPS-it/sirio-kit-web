@@ -265,7 +265,7 @@ a {
         outline: 0;
         box-shadow: none;
     }
-    [data-sirio-keyboard="true"] :focus {
+    [data-sirio-keyboard="true"] :focus, input:focus, textarea:focus, .#{$prefix}dropdown-select:focus:not(:focus-visible) {
         outline: 1px solid $color-alias-interactive-border-focus;
         outline-offset: 3px;
         border-radius: 4px;

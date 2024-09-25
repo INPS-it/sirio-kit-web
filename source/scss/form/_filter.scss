@@ -1,4 +1,10 @@
 // Filter
+@media (max-width: 768px) {
+	.#{$prefix}filter .#{$prefix}btn.w-100  {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
 .#{$prefix}filter-selected {
 	padding: 24px;
 	background-color: $color-alias-background-color-primary-light-40;
@@ -31,7 +37,9 @@
 	}
 	&.#{$prefix}drawer-table {
 		& .#{$prefix}dialog-content {
-			max-width: 486px;
+			@media (min-width: 992px) {
+				max-width: 550px
+			}
 		}
 		& .#{$prefix}dialog-title {
 			font-size: #{$typography-alias-h5-md-size-06}px;
@@ -40,16 +48,33 @@
 			font-weight: 600;
 		}
 		& .#{$prefix}dialog-header {
-			padding: 24px 8px 24px 32px;
+			padding: 24px 8px 24px 16px;
+			@media (min-width: 992px) {
+				padding: 24px 8px 24px 32px;
+			}
 		}
 		& .#{$prefix}dialog-body {
-			padding: 0 22px 0 32px;
+			padding: 0 16px;
 			margin-right: 16px;
 			margin-bottom: 24px;
+			@media (min-width: 992px) {
+				padding: 0 22px 0 32px;
+			}
 		}
-	}
-	& .#{$prefix}btn-close .fas {
-		transform: scale(1.5);
+		& .#{$prefix}dialog-footer {
+			background-color: $color-global-primary-100;
+			padding: 8px 16px;
+			flex-direction: row;
+    		flex-wrap: nowrap;
+			& .#{$prefix}btn {
+				margin: 0 0 0 8px;
+				width: auto;
+				padding: 16px;
+				&:focus {
+					outline-color: #fff;
+				}
+			}
+		}
 	}
 	& .#{$prefix}dialog-header {
 		padding: 24px 32px 0;
@@ -76,7 +101,6 @@
 		& .#{$prefix}info {
 			padding: 24px 0 8px;
 			border-bottom: 1px solid $color-alias-background-color-primary-light-50;
-			margin-bottom: 16px;
 			background-color: #fff;
 			& p {
 				font-size: #{$typography-global-font-size-04}px;
@@ -97,6 +121,7 @@
 			padding-left: 16px;
 			padding-right: 16px;
 			white-space: nowrap;
+			margin: 0;
 		}
 	}
 	/*
@@ -125,6 +150,7 @@
 	}
 }
 .#{$prefix}drawer .#{$prefix}dialog-sidenav {
+	background-color: $color-alias-overlay-15-secondary-100 !important;
 	& .#{$prefix}dialog-header {
 		padding: 24px 0 0 32px;
 	}
@@ -132,7 +158,13 @@
 @media (min-width: 992px) {
 	.#{$prefix}drawer .#{$prefix}dialog-sidenav {
 		z-index: auto;
-		background-color: transparent;
+		background-color: $color-alias-background-color-primary-light-40 !important;
+		&.#{$prefix}bg-primary-light-40 {
+			background-color: $color-alias-background-color-primary-light-40;
+			& .#{$prefix}dialog-content, & .#{$prefix}dialog-body {
+				background-color: $color-alias-background-color-primary-light-40;
+			}
+		}
 		& .#{$prefix}dialog-content {
 			position: relative;
     		animation: none !important;

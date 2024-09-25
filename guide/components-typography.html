@@ -475,13 +475,13 @@
 										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-danger"><strong>.sirio-text-danger</strong><br>#AA224F</p>
 									</div>
 									<div class="guide-col-md-4">
-										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-warning"><strong>.sirio-text-warning</strong><br>#E26334</p>
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-warning"><strong>.sirio-text-warning</strong><br>#CB4D1E</p>
 									</div>
 									<div class="guide-col-md-4">
 										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-info"><strong>.sirio-text-info</strong><br>#2f6dd5</p>
 									</div>
 									<div class="guide-col-md-4">
-										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-success"><strong>.sirio-text-success</strong><br> #049894</p>
+										<p class="sirio-bg-primary-0 guide-border p-4 pt-5 sirio-text-success"><strong>.sirio-text-success</strong><br> #008069</p>
 									</div>
 								</div>
 							</div>
@@ -594,7 +594,7 @@
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-bg-warning guide-border"></div>
-										<p><strong>.sirio-bg-warning</strong><br> #E26334</p>
+										<p><strong>.sirio-bg-warning</strong><br> #CB4D1E</p>
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-bg-warning-110 guide-border"></div>
@@ -606,7 +606,7 @@
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-bg-success guide-border"></div>
-										<p><strong>.sirio-bg-success</strong><br> #049894</p>
+										<p><strong>.sirio-bg-success</strong><br> #008069</p>
 									</div>
 								</div>
 							</div>
@@ -629,7 +629,7 @@
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-border-warning guide-border"></div>
-										<p><strong>.sirio-border-warning</strong><br> #E26334</p>
+										<p><strong>.sirio-border-warning</strong><br> #CB4D1E</p>
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-border-info guide-border"></div>
@@ -637,7 +637,7 @@
 									</div>
 									<div class="guide-col-md-4">
 										<div class="text-black p-4 pt-5 sirio-border-success guide-border"></div>
-										<p><strong>.sirio-border-success</strong><br> #049894</p>
+										<p><strong>.sirio-border-success</strong><br> #008069</p>
 									</div>
 								</div>
 							</div>
@@ -1060,7 +1060,6 @@
 					today: "Oggi",
 					monthsTitle: "Mesi",
 					clear: "Cancella",
-					weekStart: 1,
 					format: "dd/mm/yyyy",
 
 					// Aggiunte per l'aria-label dei bottoni in testata 
@@ -1087,6 +1086,7 @@
 						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
+							weekStart: 1,
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
 							autohide: true
@@ -1099,6 +1099,7 @@
 					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
+						weekStart: 1,
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});
