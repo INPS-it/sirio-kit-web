@@ -2104,7 +2104,6 @@ SirioLib.SirioSticky.init();
 					today: "Oggi",
 					monthsTitle: "Mesi",
 					clear: "Cancella",
-					weekStart: 1,
 					format: "dd/mm/yyyy",
 
 					// Aggiunte per l'aria-label dei bottoni in testata 
@@ -2131,6 +2130,7 @@ SirioLib.SirioSticky.init();
 						var datepicker = new Datepicker(elem, {
 							format: "dd/mm/yyyy",
 							language: "it",
+							weekStart: 1,
 							prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 							nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
 							autohide: true
@@ -2143,6 +2143,7 @@ SirioLib.SirioSticky.init();
 					var datepickerRange = new DateRangePicker(elemRange, {
 						format: "dd/mm/yyyy",
 						language: "it",
+						weekStart: 1,
 						prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
 						nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
 					});

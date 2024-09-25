@@ -20,6 +20,21 @@
     list-style: none;
     & li {
         margin-bottom: 8px;
+        & .#{$prefix}chip {
+            max-width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 16px;
+            & .#{$prefix}chip-label {
+                overflow: hidden;
+                display: block;
+                text-overflow: ellipsis;
+                padding: 4px 0;
+            }
+            & .#{$prefix}btn {
+                padding: 0 3px;
+            }
+        }
         &:last-child {
             margin: 0;
         }

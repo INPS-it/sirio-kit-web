@@ -1,4 +1,4 @@
-# SirioWebKit v.8.0.0
+# SirioWebKit v.8.1.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -36,9 +36,26 @@ Da inserire in fondo alla pagina HTML
 <!-- JS WebKit -->
 <script src="js/sirio-datepicker-full.js"></script>
 <script src="js/sirio-webkit.js"></script>
+<script src="js/splide.min.js"></script>
 ```
 
 ## Changelog
+
+### 8.1.0 (2024-09-25)
+
+- **contenuto**\Dialog (nuova gestione tab)
+- **contenuto**\Utils (gestione centralizzata chiusura con escape)
+- **form**\Searchbar (gestione bottone X per cancellazione valore)
+- **form**\DropdownMenu (aggiunta funzionalità dropdown-detached)
+- **tipografia**\Colori (warning modified)
+- **contenuto**\Step Progress Bar (esempi modificati)
+- **contenuto**\Tabelle (esempi modificati + table responsive card + table action fixed + table drawer aggiornata)
+- **contenuto**\Paginazione (esempi modificati)
+- **contenuto**\Notifiche (css modificati)
+- **form**\Chip (esempi e css modificati)
+- **form**\Searchbar (add placeholder)
+- **form**\Validazione (label modificati)
+- **form**\Filtri (aggiunti filtri orizzontali + titoli con popover + correzione esempi)
 
 ### 8.0.0 (2024-03-29)
 
@@ -55,6 +72,17 @@ Da inserire in fondo alla pagina HTML
 - **tipografia**\Colori (warning modified)
 - **contenuto**\Tag (warning modified)
 - **struttura**\Footer (twitter icon modified)
+- **contenuto**\Tab (getter and setter for buttons added)
+- **form**\Dropdown Select (selected value aria-label management added)
+- **form**\Dropdown Select (handle duplication of select issue)
+- **form**\Dropdown Select (initialization using value attribute)
+- **form**\Upload (addNewFile method added)
+- **form**\TimePicker (label handling in aria label)
+- **form**\SirioSlider modify component (compliant W3C specs for null value)
+- Management of the data-sirio-keyboard attribute (loss of focus on accordion, collapse, dropdown)
+- Propagation of custom events for components initialization
+- Possibility to disable automatic initialization added
+- Components classes for manual components initialization exported
 
 ### 7.0.1 (2023-10-16)
 

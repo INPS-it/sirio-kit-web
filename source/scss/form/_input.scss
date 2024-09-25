@@ -116,6 +116,7 @@ textarea.#{$prefix}form-control {
   background-size: 10px;
   background-repeat: no-repeat;
   background-position: right 18px top 50%;
+  font-family: "Roboto Mono", monospace;
 }
 
 
@@ -139,13 +140,21 @@ label + .#{$prefix}form-text-help, .#{$prefix}label + .#{$prefix}form-text-help 
   align-items: stretch;
   width: 100%;
   & > .#{$prefix}form-control , & > .#{$prefix}dropdown {
-    position: relative;
+    position: static;
     flex: 1 1 auto;
     width: 1%;
     min-width: 0;
   }
 }
-
+.#{$prefix}input-group .#{$prefix}btn-icon {
+  border: 1px solid $color-specific-data-entry-border-color-default;
+}
+.#{$prefix}input-group .#{$prefix}btn-icon:not(:last-child) {
+  border-radius: 0;
+}
+.#{$prefix}input-group .#{$prefix}btn-icon:disabled {
+  display: none;
+}
 .#{$prefix}input-group > :not(:last-child):not(.#{$prefix}btn), .#{$prefix}input-group > .#{$prefix}dropdown > :first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -171,4 +180,34 @@ label + .#{$prefix}form-text-help, .#{$prefix}label + .#{$prefix}form-text-help 
 [data-sirio-keyboard="true"] .#{$prefix}form-control:focus {
   color: $color-specific-data-entry-placeholder-color-focus;
   border-color: $color-specific-data-entry-placeholder-color-focus;
+}
+
+.#{$prefix}input-group.#{$prefix}input-group-autocomplete {
+  & > .#{$prefix}btn-reset {
+    margin-left: -4px;
+    position: relative;
+    border-left: 0;
+    background: white;
+    z-index: 1;
+    &:last-child {
+      border-right: 1px solid $color-specific-data-entry-border-color-default;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+  & > :not(:first-child) {
+    margin-left: -4px;
+    z-index: 1;
+  }
+  & > .#{$prefix}dropdown > :first-child {
+    border: 1px solid $color-specific-data-entry-border-color-default;
+    border-radius: 4px;
+  }
+  & :focus {
+    box-shadow: 0 0 0 2px #fff !important;
+    position: relative;
+    z-index: 2;
+    border: 1px solid;
+    border-radius: 4px;
+  }
 }
