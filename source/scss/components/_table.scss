@@ -104,6 +104,7 @@ th {
 		flex-wrap: nowrap;
 		.#{$prefix}form-check {
 			transform: scale(.75);
+			margin-bottom:0;
 			& label:before {
 				background-color: #fff;
 			}

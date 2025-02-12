@@ -19,7 +19,7 @@
     margin: 0;
     list-style: none;
     & li {
-        margin-bottom: 8px;
+        padding: 8px 0;
         & .#{$prefix}chip {
             max-width: 100%;
             justify-content: space-between;
@@ -36,7 +36,7 @@
             }
         }
         &:last-child {
-            margin: 0;
+            padding-bottom: 0;
         }
     }
 }

@@ -68,9 +68,10 @@ small {
 	font-size: 0.875em;
 }
 mark {
-	padding: 3px;
-    background-color: $color-global-light-primary-50;
-    color: $color-global-dark-primary-130;
+	padding: 0 3px;
+    font-weight: 700;
+    background-color: $color-global-semantic-warning-80;
+    color: #000;
 }
 sub,
 sup {
@@ -147,7 +148,7 @@ p::selection {
 // Heading
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     font-weight: 700;
     color: $color-global-secondary-100;
 }
@@ -209,7 +210,7 @@ h6, .h6 {
 }
 
 // Link
-a {
+a, .#{$prefix}text-link {
     color: $color-alias-interactive-primary-default;
     font-weight: 700;
     &:visited {
@@ -319,12 +320,11 @@ a {
             position: absolute;
             top: 8px;
             width: 8px;
-            background-color: $color-alias-background-color-primary-light-60;
+            background-color: $color-alias-interactive-primary-default;
             left: -30px;
         }
         & a {
-            color: $color-global-dark-primary-120;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: underline;
         }
     }
@@ -334,7 +334,7 @@ a {
     margin: 0;
     padding: 0;
     & a {
-        border-bottom: 1px solid #d9e4f7;
+        border-bottom: 1px solid $color-global-light-primary-50;
         padding: 16px 0;
         font-weight: 700;
         display: flex;
@@ -355,12 +355,33 @@ a {
     }
 }
 
+.#{$prefix}list-border {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    & li {
+        border-bottom: 1px solid $color-global-light-primary-50;
+        padding: 1.5rem 0;
+    }
+    & li:last-child {
+        border-bottom: 0;
+    }
+    @media (max-width: 576px) {
+        .border-right {
+            border: 0;
+        }
+    }
+}
+
 // Vari
 .#{$prefix}font-weight-400 {
     font-weight: 400 !important;
 }
 .#{$prefix}font-weight-600 {
     font-weight: 600 !important;
+}
+.#{$prefix}font-weight-700 {
+    font-weight: 700 !important;
 }
 .#{$prefix}text-underline {
     text-decoration: underline;

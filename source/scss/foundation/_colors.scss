@@ -121,8 +121,14 @@
 .#{$prefix}border-primary-light-50 {
     border-color: $color-alias-background-color-primary-light-50 !important;
 }
+.#{$prefix}border-primary-light-60 {
+    border-color: $color-alias-background-color-primary-light-60 !important;
+}
 .#{$prefix}border-secondary {
     border-color: $color-specific-data-entry-border-color-default !important;
+}
+.#{$prefix}border-secondary-light-60 {
+    border-color: $color-global-light-secondary-60 !important;
 }
 .#{$prefix}border-danger {
     border-color: $color-specific-data-entry-border-color-alert !important;

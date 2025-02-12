@@ -200,6 +200,47 @@ fieldset:disabled a.#{$prefix}btn {
   pointer-events: none;
 }
 
+// Button link
+.#{$prefix}btn-link {
+  text-decoration: underline;
+  background-color: transparent !important;
+  color: $color-alias-interactive-primary-default;
+  padding: 0;
+  border: 0;
+  + .#{$prefix}btn-link {
+    margin-left: 16px;
+  }
+  &:hover {
+    background-color: transparent !important;
+    text-decoration: none;
+    color: $color-alias-interactive-primary-default;
+  }
+  &:active {
+    background-color: transparent !important;
+    color: $color-alias-interactive-primary-default;
+  }
+}
+.#{$prefix}btn-link-light {
+  text-decoration: underline;
+  background-color: transparent !important;
+  color: #fff;
+  padding: 0;
+  border: 0;
+  line-height: 26px;
+  + .#{$prefix}btn-link {
+    margin-left: 16px;
+  }
+  &:hover {
+    background-color: transparent !important;
+    text-decoration: none;
+    color: #fff;
+  }
+  &:active, &:visited {
+    background-color: transparent !important;
+    color: #fff;
+  }
+}
+
 // Button block
 .#{$prefix}btn-block {
   display: block;

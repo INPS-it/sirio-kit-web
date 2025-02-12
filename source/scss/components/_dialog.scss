@@ -59,10 +59,10 @@
     justify-content: space-between;
     padding-bottom: 16px;
     & .#{$prefix}btn-close {
-        padding: 16px 16px;
+        padding: 12px 12px;
         margin: -16px 0 -16px auto;
         opacity: 1;
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 .#{$prefix}dialog-title {
@@ -89,6 +89,21 @@
     & .#{$prefix}btn {
         width: 100%;
         margin: 0 0 16px;
+    }
+}
+.#{$prefix}dialog-scroll {
+    height: calc(100% - 48px);
+    & .#{$prefix}dialog-content {
+        height: 100%;
+    }
+    & .#{$prefix}dialog-body {
+        outline: 1px solid $color-specific-data-entry-border-color-default;
+        outline-offset: 2px;
+        border-radius: 4px;
+        overflow: hidden;
+        padding: 8px 16px;
+        height: 100%;
+        margin: 0 3px;
     }
 }
 

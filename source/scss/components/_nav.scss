@@ -41,6 +41,81 @@
     border-bottom-color: $color-alias-interactive-primary-pressed !important;
   }
 }
+.#{$prefix}nav.#{$prefix}nav-dark .#{$prefix}nav-link {
+  color: #fff;
+  &:hover, &.active,
+  &:focus,
+  &[aria-expanded=true],
+  &[aria-expanded=true]:focus,
+  &[aria-expanded=true]:hover {
+    color: #fff !important;
+    border-bottom-color: #fff !important;
+    outline-color: #FFF;
+  }
+}
+.#{$prefix}service-nav {
+  background-color: $color-global-dark-primary-110;
+  color: #fff;
+  .#{$prefix}dropdown > .#{$prefix}nav-link:after {
+    display: inline-block;
+    content: "\f078";
+    font-family: "Font Awesome 6 Free", serif;
+    text-align: center;
+    font-weight: 900;
+    margin-left: 8px;
+  }
+  .#{$prefix}dropdown > .#{$prefix}nav-link {
+    padding: 8px;
+  }
+  .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded=true]:after {
+    content: "\f077";
+  }
+  .#{$prefix}dropdown-menu {
+    background-color: $color-global-dark-primary-110;
+    color: #fff;
+    padding: 24px;
+    min-width: 250px;
+    transform: translate(0, 40px);
+    border-radius: 0;
+    border: 0;
+    & a, & a:active, & a:visited {
+      color: #FFF;
+    }
+    & a:hover {
+      text-decoration: none;
+    }
+    & a:focus {
+      outline-color: #FFF;
+    }
+    & .#{$prefix}list-unstyled li {
+      margin: 8px 0;
+    }
+    & .#{$prefix}list-unstyled.#{$prefix}list-link a:after {
+      margin-left: 0;
+    }
+    .#{$prefix}dropdown-menu-heading {
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 700;
+      color: #fff;  
+    }
+    .border-top {
+      border-color: $color-global-light-primary-50;  
+    }
+  }
+  .#{$prefix}dropdown-megamenu {
+    position: static;
+    & .#{$prefix}dropdown-menu {
+      border-radius: 0;
+      border: 0;
+      transform: none;
+      inset: inherit;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+}
 
 [data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}nav-link:focus, [data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}btn:focus {
   outline: 1px solid $color-alias-interactive-border-focus;

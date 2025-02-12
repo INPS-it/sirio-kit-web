@@ -250,6 +250,7 @@
     margin: 3px;
     box-shadow: none;
     overflow: visible;
+    z-index: inherit;
     & > * {
       width: 100%;
     }
