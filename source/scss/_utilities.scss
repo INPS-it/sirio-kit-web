@@ -11,6 +11,10 @@
 }
 
 // Screanreader Only
+.sr-only-focusable:focus {
+  z-index: 2000 !important;
+  position: relative !important;
+}
 .sr-only,
 .sr-only-focusable:not(:focus):not(:focus-within) {
   position: absolute !important;
@@ -111,19 +115,29 @@
 }
 
 // Overflow hover
-.overflow-hover {
-  overflow-y: hidden !important;
-  overflow-x: scroll !important;
-}
 .overflow {
   overflow: auto;
+  &::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $color-alias-background-color-primary-light-40;
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-alias-background-color-primary-light-50;
+    border-radius: 6px;
+  }
 }
 .overflow-hover:hover {
   overflow-x: auto !important;
 }
 .overflow-hover {
+  overflow-y: hidden !important;
+  overflow-x: scroll !important;
   &::-webkit-scrollbar {
-    height: 10px;
+    height: 8px;
   }
   &::-webkit-scrollbar-track {
     background-color: transparent;
@@ -136,19 +150,6 @@
     border-radius: 5px;
   }
   &:hover::-webkit-scrollbar-thumb {
-    background-color: $color-alias-background-color-primary-light-50;
-    border-radius: 5px;
-  }
-}
-.overflow {
-  &::-webkit-scrollbar {
-    height: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: $color-alias-background-color-primary-light-40;
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
     background-color: $color-alias-background-color-primary-light-50;
     border-radius: 5px;
   }
@@ -176,4 +177,24 @@
       padding: 0;
     }
   }
+}
+
+// Sirio Shadow
+.#{$prefix}shadow-1 {
+  box-shadow: $elevation-elevation-01;
+}
+.#{$prefix}shadow-2 {
+  box-shadow: $elevation-elevation-02;
+}
+.#{$prefix}shadow-3 {
+  box-shadow: $elevation-elevation-03;
+}
+.#{$prefix}shadow-4 {
+  box-shadow: $elevation-elevation-04;
+}
+
+/* Varie */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }

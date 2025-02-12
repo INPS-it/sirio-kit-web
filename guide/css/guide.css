@@ -372,6 +372,9 @@ h4.guide-title:before {
     line-height: 12px;
     font-weight: bold;
 }
+.guide-example-template:before {
+    content: 'TEMPLATE';
+}
 .guide-example [data-sirio-component="dialog"][data-sirio-visible="false"] {
 	padding: 48px;
 	display: block;

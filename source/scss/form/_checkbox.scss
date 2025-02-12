@@ -5,9 +5,10 @@
   display: block;
   min-height: 24px;
   padding-left: 24px;
+  margin-bottom: 16px;
   &.#{$prefix}form-check-inline {
     display: inline-flex;
-    margin-right: 16px;
+    margin-right: 32px;
   }
   & input {
     position: absolute;
@@ -37,7 +38,7 @@
     position: relative;
     vertical-align: top;
     font-weight: 400;
-    color: #000814;
+    color: $color-specific-data-entry-label-color-default;
     padding-left: 10px;
     line-height: 24px;
     margin-bottom: 8px;

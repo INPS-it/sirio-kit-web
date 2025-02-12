@@ -1,6 +1,6 @@
 /*!
- * Sirio WebKit v.8.1.0
- * Copyright 2024 INPS
+ * Sirio WebKit v.8.2.0
+ * Copyright 2025 INPS
  */
 var SirioLib;
 /******/ (() => { // webpackBootstrap
@@ -611,7 +611,7 @@ _SirioChip_chipElement = new WeakMap(), _SirioChip_onDismiss = new WeakMap(), _S
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -755,19 +755,9 @@ class SirioDialog {
         }
     }
     static isDialog(id) {
-        const validRoles = ["dialog", "alertdialog"];
         const dialogElement = document.getElementById(id);
         if (dialogElement != null) {
-            let role = dialogElement.getAttribute("role");
-            if (typeof role === "string") {
-                if (validRoles.includes(role))
-                    return true;
-                else
-                    return false;
-            }
-            else {
-                return false;
-            }
+            return true;
         }
         else {
             return false;
@@ -818,10 +808,11 @@ class SirioDialog {
             }
         }
     }
-    hide() {
+    hide(noevent = false) {
         if (__classPrivateFieldGet(this, _SirioDialog_dialogElement, "f") != null) {
             if (__classPrivateFieldGet(this, _SirioDialog_onHide, "f") != undefined) {
-                __classPrivateFieldGet(this, _SirioDialog_onHide, "f").call(this);
+                if (!noevent)
+                    __classPrivateFieldGet(this, _SirioDialog_onHide, "f").call(this);
             }
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").removeAttribute("aria-modal");
             __classPrivateFieldGet(this, _SirioDialog_dialogElement, "f").setAttribute("data-sirio-visible", "false");
@@ -832,7 +823,8 @@ class SirioDialog {
             __classPrivateFieldGet(this, _SirioDialog_instances, "m", _SirioDialog_removeTrapFocus).call(this);
             (0, Utils_1.removeEscapeCallback)(__classPrivateFieldGet(this, _SirioDialog_dialogElement, "f"));
             if (__classPrivateFieldGet(this, _SirioDialog_onHidden, "f") != undefined) {
-                __classPrivateFieldGet(this, _SirioDialog_onHidden, "f").call(this);
+                if (!noevent)
+                    __classPrivateFieldGet(this, _SirioDialog_onHidden, "f").call(this);
             }
         }
     }
@@ -909,7 +901,7 @@ SirioDialog.nDialogsOpen = 0;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -1452,7 +1444,7 @@ _SirioDropdownAutocomplete_triggerId = new WeakMap(), _SirioDropdownAutocomplete
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -1874,7 +1866,7 @@ const placements = {
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -1999,7 +1991,7 @@ class SirioDropdownSelect {
             __classPrivateFieldSet(this, _SirioDropdownSelect_defaultVPos, __classPrivateFieldGet(this, _SirioDropdownSelect_menu, "f").classList.contains("sirio-dropdown-menu-top") ? "top" : "bottom", "f");
             __classPrivateFieldSet(this, _SirioDropdownSelect_checkVPosTimeout, null, "f");
             __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").addEventListener("click", () => this.toggle());
-            __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").addEventListener("keydown", (event) => {
+            __classPrivateFieldGet(this, _SirioDropdownSelect_dropdown, "f").addEventListener("keydown", (event) => {
                 __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleKeys).call(this, event);
             });
             __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleItems).call(this);
@@ -2179,7 +2171,7 @@ class SirioDropdownSelect {
     }
     removeEventListeners() {
         __classPrivateFieldGet(this, _SirioDropdownSelect_trigger, "f").removeEventListener("click", () => this.toggle());
-        document.removeEventListener("keydown", (event) => {
+        __classPrivateFieldGet(this, _SirioDropdownSelect_dropdown, "f").removeEventListener("keydown", (event) => {
             __classPrivateFieldGet(this, _SirioDropdownSelect_instances, "m", _SirioDropdownSelect_handleKeys).call(this, event);
         });
         window.removeEventListener("scroll", () => {
@@ -2233,10 +2225,13 @@ _SirioDropdownSelect_triggerId = new WeakMap(), _SirioDropdownSelect_trigger = n
             }
         }
     }
+    console.log("Includes", __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").includes(activeElement), this.isHidden());
     if (__classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").includes(activeElement) && !this.isHidden()) {
+        console.log("ARROW DOWN activeElement", activeElement);
         let index = __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").indexOf(activeElement);
         switch (key) {
             case "arrowdown":
+                console.log("ARROW DOWN 2 activeElement", activeElement);
                 event.preventDefault();
                 if (index < __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f").length - 1) {
                     __classPrivateFieldGet(this, _SirioDropdownSelect_items, "f")[index + 1].focus();
@@ -2739,7 +2734,7 @@ _SirioFileUpload_inputElementId = new WeakMap(), _SirioFileUpload_inputElement =
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -3122,7 +3117,7 @@ SirioSlider.sliders = {};
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.0.0
+// Sirio WebKit v8.2.0
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -3134,17 +3129,16 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _SirioSticky_instances, _SirioSticky_stickyContainer, _SirioSticky_wrapper, _SirioSticky_isSticky, _SirioSticky_checkToSticky, _SirioSticky_checkToUnsticky, _SirioSticky_setSticky, _SirioSticky_unsetSticky, _SirioSticky_getUnstickyStartTrigger;
+var _SirioSticky_instances, _SirioSticky_wrapper, _SirioSticky_isSticky, _SirioSticky_checkToSticky, _SirioSticky_checkToUnsticky, _SirioSticky_setSticky, _SirioSticky_unsetSticky, _SirioSticky_getUnstickyStartTrigger;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioSticky = void 0;
 const Utils_1 = __webpack_require__(523);
 class SirioSticky {
     constructor(stickyContainer) {
         _SirioSticky_instances.add(this);
-        _SirioSticky_stickyContainer.set(this, void 0);
         _SirioSticky_wrapper.set(this, void 0);
         _SirioSticky_isSticky.set(this, void 0);
-        __classPrivateFieldSet(this, _SirioSticky_stickyContainer, stickyContainer, "f");
+        this.stickyContainer = stickyContainer;
         __classPrivateFieldSet(this, _SirioSticky_wrapper, null, "f");
         __classPrivateFieldSet(this, _SirioSticky_isSticky, false, "f");
     }
@@ -3184,6 +3178,7 @@ class SirioSticky {
             });
         }
         SirioSticky.lastScrollTop = st <= 0 ? 0 : st;
+        SirioSticky.isCalculating = false;
     }
     static handleResize() {
         SirioSticky.unsetAllSticky();
@@ -3191,6 +3186,7 @@ class SirioSticky {
         SirioSticky.stickys.forEach((sticky) => {
             SirioSticky.cumulativeHeight += __classPrivateFieldGet(sticky, _SirioSticky_instances, "m", _SirioSticky_checkToSticky).call(sticky, SirioSticky.cumulativeHeight);
         });
+        SirioSticky.isCalculating = false;
     }
     static unsetAllSticky() {
         SirioSticky.stickys.forEach((sticky) => {
@@ -3202,12 +3198,12 @@ class SirioSticky {
     }
 }
 exports.SirioSticky = SirioSticky;
-_SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap(), _SirioSticky_isSticky = new WeakMap(), _SirioSticky_instances = new WeakSet(), _SirioSticky_checkToSticky = function _SirioSticky_checkToSticky(cumulativeHeight) {
+_SirioSticky_wrapper = new WeakMap(), _SirioSticky_isSticky = new WeakMap(), _SirioSticky_instances = new WeakSet(), _SirioSticky_checkToSticky = function _SirioSticky_checkToSticky(cumulativeHeight) {
     if (!__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
-        let startTrigger = window.scrollY + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+        let startTrigger = window.scrollY + this.stickyContainer.getBoundingClientRect().top + this.stickyContainer.offsetHeight;
         if (window.scrollY + cumulativeHeight > startTrigger) {
             __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_setSticky).call(this, cumulativeHeight);
-            return +__classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+            return +this.stickyContainer.offsetHeight;
         }
     }
     return 0;
@@ -3215,7 +3211,7 @@ _SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap
     if (__classPrivateFieldGet(this, _SirioSticky_isSticky, "f")) {
         let startTrigger = window.scrollY + __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_getUnstickyStartTrigger).call(this);
         if (window.scrollY + cumulativeHeight <= startTrigger) {
-            let offsetHeight = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
+            let offsetHeight = this.stickyContainer.offsetHeight;
             __classPrivateFieldGet(this, _SirioSticky_instances, "m", _SirioSticky_unsetSticky).call(this);
             return -offsetHeight;
         }
@@ -3224,28 +3220,122 @@ _SirioSticky_stickyContainer = new WeakMap(), _SirioSticky_wrapper = new WeakMap
 }, _SirioSticky_setSticky = function _SirioSticky_setSticky(cumulativeHeight) {
     var _a;
     let wrapper = document.createElement("DIV");
-    wrapper.style.height = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight + "px";
-    (_a = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(wrapper, __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f"));
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "true");
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").style.top = cumulativeHeight + "px";
+    wrapper.style.height = this.stickyContainer.offsetHeight + "px";
+    (_a = this.stickyContainer.parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(wrapper, this.stickyContainer);
+    this.stickyContainer.setAttribute("data-sirio-toggle", "true");
+    this.stickyContainer.style.top = cumulativeHeight + "px";
     __classPrivateFieldSet(this, _SirioSticky_wrapper, wrapper, "f");
     __classPrivateFieldSet(this, _SirioSticky_isSticky, true, "f");
 }, _SirioSticky_unsetSticky = function _SirioSticky_unsetSticky() {
     var _a;
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "false");
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").style.top = "";
+    this.stickyContainer.setAttribute("data-sirio-toggle", "false");
+    this.stickyContainer.style.top = "";
     (_a = __classPrivateFieldGet(this, _SirioSticky_wrapper, "f")) === null || _a === void 0 ? void 0 : _a.remove();
     __classPrivateFieldSet(this, _SirioSticky_isSticky, false, "f");
 }, _SirioSticky_getUnstickyStartTrigger = function _SirioSticky_getUnstickyStartTrigger() {
-    let current = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getAttribute("data-sirio-toggle");
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", "false");
-    let startTrigger = __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").getBoundingClientRect().top + __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").offsetHeight;
-    __classPrivateFieldGet(this, _SirioSticky_stickyContainer, "f").setAttribute("data-sirio-toggle", current || "false");
+    let current = this.stickyContainer.getAttribute("data-sirio-toggle");
+    this.stickyContainer.setAttribute("data-sirio-toggle", "false");
+    let startTrigger = this.stickyContainer.getBoundingClientRect().top + this.stickyContainer.offsetHeight;
+    this.stickyContainer.setAttribute("data-sirio-toggle", current || "false");
     return startTrigger;
 };
 SirioSticky.stickys = new Map();
 SirioSticky.lastScrollTop = 0;
 SirioSticky.cumulativeHeight = 0;
+SirioSticky.isCalculating = false;
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (event) => {
+        const anchor = event.target;
+        if (anchor.tagName.toLocaleUpperCase() === 'A') {
+            const hasDataSirioAttribute = Array.from(anchor.attributes).some(attr => attr.name.startsWith('data-sirio'));
+            const targetHref = anchor.getAttribute('href');
+            if (!hasDataSirioAttribute && targetHref && targetHref != "#" && (targetHref === null || targetHref === void 0 ? void 0 : targetHref.startsWith('#'))) {
+                const id = targetHref.slice(1);
+                const targetElement = document.getElementById(id);
+                if (!targetElement || !anchor.closest('[data-sirio-sticky-scroll="true"]')) {
+                    return;
+                }
+                event.preventDefault();
+                smoothScrollWithStickyOffset(targetElement);
+            }
+        }
+    });
+    window.addEventListener('hashchange', function () {
+        scrollToByHash();
+    });
+    scrollToByHash();
+});
+function scrollToByHash() {
+    const hash = window.location.hash;
+    if (hash) {
+        const targetId = hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo(0, 0);
+            smoothScrollWithStickyOffset(targetElement);
+        }
+    }
+}
+;
+function smoothScrollWithStickyOffset(targetElement) {
+    if (targetElement instanceof HTMLElement) {
+        calculateStickyOffset(targetElement.offsetTop).then((stickyOffset) => {
+            const targetTop = targetElement.offsetTop - stickyOffset;
+            window.scrollTo({
+                top: targetTop,
+                behavior: 'smooth',
+            });
+        });
+    }
+}
+function calculateStickyOffset(expectedOffset) {
+    return new Promise((resolve) => {
+        // Create a container to simulate the sticky elements outside the viewport
+        const simulationContainer = document.createElement('div');
+        simulationContainer.setAttribute('data-sirio-simulation', 'true');
+        simulationContainer.style.position = 'absolute';
+        simulationContainer.style.top = '0';
+        simulationContainer.style.left = '-1px';
+        simulationContainer.style.width = '100%';
+        simulationContainer.style.visibility = 'hidden';
+        const scrollDirection = expectedOffset > window.scrollY ? 1 : -1;
+        // Clone sticky elements into the simulation container
+        let stickyClone = [];
+        SirioSticky.stickys.forEach((sticky) => {
+            const clone = cloneContainerWithHeight(sticky.stickyContainer, scrollDirection);
+            simulationContainer.appendChild(clone);
+            stickyClone.push(clone);
+        });
+        document.body.appendChild(simulationContainer);
+        // Calculate the cumulative height of the involved sticky elements
+        let cumulativeHeight = 0;
+        for (let i = 0; i < stickyClone.length; i++) {
+            if (stickyClone[i].offsetTop > expectedOffset - cumulativeHeight) {
+                simulationContainer.removeChild(stickyClone[i]);
+            }
+            else {
+                cumulativeHeight += stickyClone[i].offsetHeight;
+            }
+        }
+        document.body.removeChild(simulationContainer);
+        resolve(cumulativeHeight);
+    });
+}
+function cloneContainerWithHeight(element, scrollDirection) {
+    var _a;
+    const defaultStickyState = (_a = element.getAttribute('data-sirio-toggle')) !== null && _a !== void 0 ? _a : 'false';
+    element.setAttribute('data-sirio-toggle', 'false');
+    const offsetTop = element.offsetTop;
+    const realHeight = window.getComputedStyle(element).height;
+    element.setAttribute('data-sirio-toggle', 'true');
+    const stickyHeight = window.getComputedStyle(element).height;
+    element.setAttribute('data-sirio-toggle', defaultStickyState);
+    const clonedElement = document.createElement('div');
+    clonedElement.style.height = stickyHeight;
+    clonedElement.style.position = 'absolute';
+    clonedElement.style.top = scrollDirection === 1 ? offsetTop + "px" : (offsetTop - parseInt(realHeight)) + "px";
+    return clonedElement;
+}
 
 
 /***/ }),
@@ -3686,11 +3776,15 @@ class SirioTabElement {
         return __classPrivateFieldGet(this, _SirioTabElement_disabled, "f");
     }
     enable() {
-        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").classList.remove("disable");
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").classList.remove("disabled");
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").addEventListener("keydown", this.onKeydown.bind(this));
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").addEventListener("click", this.onClick.bind(this));
         __classPrivateFieldSet(this, _SirioTabElement_disabled, false, "f");
     }
     disable() {
-        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").classList.add("disable");
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").classList.add("disabled");
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").removeEventListener("keydown", this.onKeydown.bind(this));
+        __classPrivateFieldGet(this, _SirioTabElement_triggerElement, "f").removeEventListener("click", this.onClick.bind(this));
         __classPrivateFieldSet(this, _SirioTabElement_disabled, true, "f");
     }
     getTabPanel() {
@@ -3855,7 +3949,7 @@ SirioTable.tables = new Map();
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -4665,7 +4759,7 @@ _SirioToast_toastEl = new WeakMap(), _SirioToast_dismissEl = new WeakMap(), _Sir
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-// Sirio WebKit v8.0.0
+// Sirio WebKit v8.1.1
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -4851,7 +4945,7 @@ SirioTooltip.tooltips = new Map();
 /***/ ((__unused_webpack_module, exports) => {
 
 
-// Sirio WebKit v8.1.0
+// Sirio WebKit v8.1.1
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeid = makeid;
 exports.dataSirioKeyboardHandler = dataSirioKeyboardHandler;
@@ -5171,15 +5265,17 @@ document.addEventListener('keydown', function (event) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
+// This entry needs to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
 (() => {
 var exports = __webpack_exports__;
 
-// Sirio WebKit v8.0.0
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SirioTooltip = exports.SirioToast = exports.SirioTimePicker = exports.SirioTable = exports.SirioTab = exports.SirioSticky = exports.SirioSlider = exports.SirioPopover = exports.SirioFileUpload = exports.SirioDropdownSelect = exports.SirioDropdownMenu = exports.SirioDropdownAutocomplete = exports.SirioDialog = exports.SirioBreadcrumb = exports.SirioAlert = exports.SirioAccordion = void 0;
 exports.getComponentById = getComponentById;
 exports.getComponentByElement = getComponentByElement;
+exports.init = init;
+exports.observe = observe;
+// Sirio WebKit v8.2.0
 const SirioPopover_1 = __webpack_require__(943);
 Object.defineProperty(exports, "SirioPopover", ({ enumerable: true, get: function () { return SirioPopover_1.SirioPopover; } }));
 const SirioAccordion_1 = __webpack_require__(556);
@@ -5229,7 +5325,6 @@ function initialize() {
     SirioTable_1.SirioTable.init();
     SirioTimePicker_1.SirioTimePicker.init();
     SirioSticky_1.SirioSticky.init();
-    console.log("INIT SIRIO");
 }
 function getComponentById(id, type) {
     switch (type) {
@@ -5276,6 +5371,9 @@ function getComponentByElement(element, type) {
 function handleAddedNodes(addedNodes) {
     addedNodes.forEach(function (node) {
         if (node instanceof Element) {
+            if (node.closest('[data-sirio-simulation="true"]') !== null) {
+                return;
+            }
             // Breadcrumb
             let breadcrumbComponentElements = (0, Utils_2.querySelectorAllIncludeSelf)(node, `[data-sirio-component="breadcrumb"]`);
             breadcrumbComponentElements.forEach(function (breadcrumbComponentEl) {
@@ -5466,6 +5564,13 @@ if (typeof SIRIOWEBKIT_AUTO_INIT === "undefined" || SIRIOWEBKIT_AUTO_INIT !== fa
     initialize();
     if (typeof SIRIOWEBKIT_ENABLE_OBSERVER === "undefined" || SIRIOWEBKIT_ENABLE_OBSERVER !== false)
         observer.observe(document, { subtree: true, childList: true });
+}
+function init() {
+    initialize();
+    observe();
+}
+function observe() {
+    observer.observe(document, { subtree: true, childList: true });
 }
 
 })();

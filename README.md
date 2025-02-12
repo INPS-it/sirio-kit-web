@@ -1,4 +1,4 @@
-# SirioWebKit v.8.1.0
+# SirioWebKit v.8.2.0
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -41,7 +41,16 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
-### 8.1.0 (2024-09-25)
+### 8.2.0 (2024-01-16)
+
+- **contenuto**\Tabella Sorting (modified html)
+- **contenuto**\Tabella allineamento caselle con checkbox (modified css)
+- **contenuto**\Paginazione (modified html)
+- **contenuto**\Filtri selezionati (modified html)
+- **contenuto**\Dialog (deleted role attribute)
+- **form**\Checkbox (add padding inline)
+
+### 8.1.0 (2024-09-02)
 
 - **contenuto**\Dialog (nuova gestione tab)
 - **contenuto**\Utils (gestione centralizzata chiusura con escape)

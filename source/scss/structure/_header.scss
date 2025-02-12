@@ -101,6 +101,7 @@
                 position: absolute;
                 left: 0;
                 right: 0;
+                z-index: 1002;
                 box-shadow: 0 2000px 0 2000px $color-alias-overlay-90-dark-primary-120;
                 &:after {
                     content: '';
@@ -129,7 +130,7 @@
                     right: 0;
                     top: 250px;
                     bottom: 0;
-                    z-index: 1;
+                    z-index: 1001;
                     background-color: $color-alias-overlay-90-dark-primary-120;
                 }
                 & .#{$prefix}dropdown-menu {
@@ -308,7 +309,7 @@
     &[data-sirio-component="sticky"][data-sirio-toggle="true"] {
         background-color: #ffffff;
         box-shadow: $elevation-elevation-01;
-        z-index: 1001;
+        z-index: 1002;
         @media (min-width: 992px) {
             & .logo, & .#{$prefix}header-top, & #header-search {
                 display: none !important;
@@ -339,6 +340,119 @@
     }
 }
 
+.#{$prefix}service-header {
+    background-color: $color-global-dark-primary-115;
+    color: #fff;
+    &[data-sirio-component=sticky][data-sirio-toggle=true]{
+        z-index: 1001;
+    }
+    .h5 {
+        font-size: 1.125rem;
+        line-height: 27px;
+    }
+    .border-left {
+        border-color: transparent;
+    }
+    & .#{$prefix}service-header-content {
+        min-height: 48px;
+    }
+    & .#{$prefix}btn-primary {
+        background-color: transparent;
+        border-color: transparent;
+    }
+    & .#{$prefix}dropdown .#{$prefix}btn + .#{$prefix}dropdown-menu[data-sirio-visible=true] {
+        transform: translate(0, 34px);
+        min-width: 180px;
+    }
+    & .#{$prefix}dropdown .#{$prefix}btn-link-light {
+        > span:not(.#{$prefix}avatar) {
+            text-decoration: underline;
+        }
+        &:hover > span:not(.#{$prefix}avatar) {
+            text-decoration: none;
+        }
+    }
+    @media (min-width: 992px) {
+        .h5 {
+            font-size: 1.25rem;
+            line-height: 30px;
+        }
+        .border-left {
+            border-color: $color-global-light-primary-50;
+        }
+        & .#{$prefix}service-header-function .#{$prefix}dropdown-menu li {
+            margin-right: 16px;
+            &:last-child {
+                margin-right: 24px;
+            }
+        }
+        .#{$prefix}service-header-function button[data-sirio-toggle=dropdown] {
+            display: none;
+        }
+        .#{$prefix}service-header-function .#{$prefix}dropdown-menu {
+            display: flex;
+            position: relative;
+            flex-wrap: nowrap;
+            justify-content: end;
+            border: 0;
+            bottom: 0;
+            top: 0;
+            transform: none !important;
+            background: 0 0;
+            z-index: inherit;
+        }
+        .#{$prefix}service-header-function .#{$prefix}dropdown-menu .#{$prefix}dropdown-item {
+            text-decoration: underline;
+            background-color: transparent !important;
+            color: #fff;
+            padding: 8px;
+            border: 0 !important;
+            border-radius: 8px;
+            line-height: 26px;
+            &.active {
+                background-image: none !important;
+            }
+            &:hover {
+                background-color: transparent !important;
+                text-decoration: none;
+                color: #fff;
+            }
+            &:active,
+            &:visited {
+                background-color: transparent !important;
+                color: #fff;
+            }
+            &:focus {
+                outline-color: #fff;
+            }
+        }
+    }
+    .#{$prefix}btn-link-light:focus, .#{$prefix}btn-icon:focus {
+        outline-color: #fff;
+    }
+    .#{$prefix}dropdown .#{$prefix}dropdown-menu[data-sirio-visible=true] {
+        z-index: 1001;
+    }
+}
+
+.#{$prefix}header .#{$prefix}dialog-sidenav.#{$prefix}dialog-nav-mobile .#{$prefix}dialog-wrapper .#{$prefix}dialog-content {
+    & .#{$prefix}dialog-header {
+        height: auto;
+        & .#{$prefix}btn {
+            padding: 16px 24px;
+        }
+    }
+    & > .#{$prefix}dialog-body {
+        position: relative;
+        & .#{$prefix}dialog {
+            top: 0;
+            position: absolute;
+            & .#{$prefix}dialog-body {
+                position: static;
+            }
+        }
+    }
+}
 
 // Avatar
 .#{$prefix}avatar {
@@ -360,5 +474,8 @@
         text-align: center;
         line-height: 1em;
         position: absolute;
+    }
+    &.#{$prefix}bg-white {
+        color: $color-alias-text-color-primary-dark-110;
     }
 }

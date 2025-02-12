@@ -1,0 +1,16 @@
+$prefix: "sirio-";
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px) !default;
+
+// Font
+$font-family-sans: "Titillium Web", Geneva, Tahoma, sans-serif;
+$font-family-serif: "Lora", serif;
+$font-family-mono: "Roboto Mono", monospace;
+$font-family-icon: "Font Awesome 6 Free", serif;

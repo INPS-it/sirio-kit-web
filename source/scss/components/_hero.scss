@@ -31,10 +31,23 @@
     margin-top: 24px;
   }
 }
-@media (max-width: 576px) {
+
+@media (max-width: 768px) {
   .#{$prefix}hero {
     & .container, & .container-fluid {
-      --bs-gutter-x: 32px;
+      --bs-gutter-x: 16px;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .#{$prefix}hero {
+    & .#{$prefix}hero-title {
+      font-size: #{$typography-alias-h3-lg-size-10}px;
+      line-height: #{$typography-alias-h3-lg-line-height-10}px;
+    }
+    & .#{$prefix}hero-subtitle {
+      font-size: #{$typography-alias-h5-md-size-06}px;
+      line-height: #{$typography-alias-h5-md-line-height-06}px;
     }
   }
 }

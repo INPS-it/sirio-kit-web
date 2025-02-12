@@ -14,11 +14,20 @@
             }
         }
     }
+    & .#{$prefix}footer-feedback {
+        @media (max-width: 576px) {
+            .h5 {
+                font-size: #{$typography-alias-h6-md-size-05}px;
+                line-height: #{$typography-alias-h6-md-line-height-05}px;
+            }
+        }
+    }
 
     .#{$prefix}footer-grid {
+        padding: 0 0 16px 0;
         display: grid;
         grid-template-columns: auto 1fr 1fr;
-        gap: 16px;
+        gap: 8px;
         grid-auto-flow: row;
         grid-template-areas:
             "social social social"
@@ -30,7 +39,9 @@
     .#{$prefix}footer-logo {
         grid-area: logo;
         & img {
-            width: 66px;
+            width: 85px;
+            margin-top: .25rem;
+            margin-right: 1rem;
         }
     }
     .#{$prefix}footer-address {
@@ -106,7 +117,7 @@
 
     @media (min-width: 992px) {
         .#{$prefix}footer-grid {
-            padding: 0 16px;
+            padding: 16px 0;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas:
                 "logo logo address"
