@@ -1,33 +1,37 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Chips
-.#{$prefix}chip {
+.#{variables-addon.$prefix}chip {
     display: inline-flex;
     justify-content: space-evenly;
-    background: $color-alias-interactive-secondary-default;
-    border: 2px solid $color-alias-interactive-secondary-default;
-    color: $color-global-primary-000;
+    background: variables.$color-alias-interactive-secondary-default;
+    border: 2px solid variables.$color-alias-interactive-secondary-default;
+    color: variables.$color-global-primary-000;
     border-radius: 32px;
     white-space: nowrap;
-    font-size: #{$typography-global-font-size-04}px;
-    line-height: #{$typography-global-font-size-04}px;
+    font-size: #{variables.$typography-global-font-size-04}px;
+    line-height: #{variables.$typography-global-font-size-04}px;
     font-weight: 700;
     padding: 8px 16px;
     &:hover {
-        background-color: $color-alias-interactive-secondary-hover;
-        border-color: $color-alias-interactive-secondary-hover;
+        background-color: variables.$color-alias-interactive-secondary-hover;
+        border-color: variables.$color-alias-interactive-secondary-hover;
     }
-    &:disabled, &.disabled {
-        background-color: $color-alias-background-color-disabled;
-        border-color: $color-alias-background-color-disabled;
-        color: $color-alias-text-color-disabled;
-        .#{$prefix}btn {
+    &:disabled,
+    &.disabled {
+        background-color: variables.$color-alias-background-color-disabled;
+        border-color: variables.$color-alias-background-color-disabled;
+        color: variables.$color-alias-text-color-disabled;
+        .#{variables-addon.$prefix}btn {
             background-color: transparent;
             border-color: transparent !important;
-            color: $color-alias-text-color-disabled;
+            color: variables.$color-alias-text-color-disabled;
             pointer-events: none;
             cursor: default;
         }
     }
-    .#{$prefix}chip-label {
+    .#{variables-addon.$prefix}chip-label {
         text-decoration: none;
         &:hover {
             text-decoration: none;
@@ -36,24 +40,24 @@
             margin-right: 8px;
         }
     }
-    & .#{$prefix}btn {
+    & .#{variables-addon.$prefix}btn {
         padding: 0;
         width: 28px;
         height: 28px;
         border-radius: 100% !important;
         margin: -6px -14px -6px 8px;
-        border: 1px solid $color-global-primary-000 !important;
+        border: 1px solid variables.$color-global-primary-000 !important;
         &:focus {
-            outline-color: #FFB13D;
+            outline-color: #ffb13d;
         }
     }
 }
 
-
 // Chips selector
-.#{$prefix}chip-selection {
+.#{variables-addon.$prefix}chip-selection {
     position: relative;
-    input[type="checkbox"], input[type="radio"] {
+    input[type='checkbox'],
+    input[type='radio'] {
         position: absolute;
         left: 0;
         z-index: -1;
@@ -61,11 +65,11 @@
         height: 100%;
         opacity: 0;
         & + label {
-            font-size: #{$typography-global-font-size-04}px;
-            line-height: #{$typography-global-font-size-04}px;
-            background-color: $color-global-primary-000;
-            border: solid 2px $color-alias-interactive-primary-default;
-            color: $color-alias-interactive-primary-default;
+            font-size: #{variables.$typography-global-font-size-04}px;
+            line-height: #{variables.$typography-global-font-size-04}px;
+            background-color: variables.$color-global-primary-000;
+            border: solid 2px variables.$color-alias-interactive-primary-default;
+            color: variables.$color-alias-interactive-primary-default;
             cursor: pointer;
             border-radius: 32px;
             padding: 8px 16px;
@@ -78,15 +82,16 @@
                 margin-right: 8px;
             }
             &:hover {
-                background-color: $color-global-primary-000;
-                border: solid 2px $color-alias-interactive-primary-hover;
-                color: $color-alias-interactive-primary-hover;
+                background-color: variables.$color-global-primary-000;
+                border: solid 2px
+                    variables.$color-alias-interactive-primary-hover;
+                color: variables.$color-alias-interactive-primary-hover;
             }
         }
         &:checked + label {
-            background-color: $color-alias-interactive-primary-default;
-            border: solid 2px $color-alias-interactive-primary-default;
-            color: $color-global-primary-000;
+            background-color: variables.$color-alias-interactive-primary-default;
+            border: solid 2px variables.$color-alias-interactive-primary-default;
+            color: variables.$color-global-primary-000;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3e");
             background-size: 16px;
             background-repeat: no-repeat;
@@ -94,35 +99,29 @@
             padding-left: 36px;
         }
         &:disabled + label {
-            color: $color-alias-text-color-disabled;
+            color: variables.$color-alias-text-color-disabled;
             background-color: transparent;
-            border-color: $color-alias-background-color-disabled;
+            border-color: variables.$color-alias-background-color-disabled;
             pointer-events: none;
         }
         &:checked:disabled + label {
-            color: $color-alias-text-color-disabled;
-            background-color: $color-alias-background-color-disabled;
-            border-color: $color-alias-background-color-disabled;
+            color: variables.$color-alias-text-color-disabled;
+            background-color: variables.$color-alias-background-color-disabled;
+            border-color: variables.$color-alias-background-color-disabled;
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23545454' viewBox='0 0 512 512'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3e");
         }
-    }
-    input[type="checkbox"]:checked + label:hover {
-        background-color: $color-alias-interactive-primary-hover;
-        border: solid 2px $color-alias-interactive-primary-hover;
-        color: $color-global-primary-000;
-    }
-    input[type="radio"]:checked + label:hover {
-        cursor: default;
-    }
-}
-
-[data-sirio-keyboard="true"] .#{$prefix}chip-selection {
-    input[type="checkbox"],
-    input[type="radio"] {
-        &:focus+label {
-            outline: 2px solid $color-alias-interactive-border-focus;
+        &:focus-visible + label {
+            outline: 2px solid variables.$color-alias-interactive-border-focus;
             outline-offset: 2px;
         }
+    }
+    input[type='checkbox']:checked + label:hover {
+        background-color: variables.$color-alias-interactive-primary-hover;
+        border: solid 2px variables.$color-alias-interactive-primary-hover;
+        color: variables.$color-global-primary-000;
+    }
+    input[type='radio']:checked + label:hover {
+        cursor: default;
     }
 }

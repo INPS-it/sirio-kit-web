@@ -1,13 +1,18 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Nav
-.#{$prefix}nav {
+.#{variables-addon.$prefix}nav {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  &[data-sirio-visible="false"] {
+
+  &[data-sirio-visible='false'] {
     display: none;
   }
-  & .#{$prefix}nav-link {
+
+  & .#{variables-addon.$prefix}nav-link {
     text-align: left;
     border-left: 0;
     border-right: 0;
@@ -21,91 +26,121 @@
     margin-right: 24px;
     text-decoration: none;
     font-weight: 400;
-    color: $color-alias-interactive-secondary-default;
-    & .#{$prefix}tag {
+    color: variables.$color-alias-interactive-secondary-default;
+
+    & .#{variables-addon.$prefix}tag {
       margin: 0 0 0 8px;
     }
   }
-  & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
+
+  &
+  .#{variables-addon.$prefix}nav-item:last-child
+  .#{variables-addon.$prefix}nav-link {
     margin-right: 0;
   }
-  & .#{$prefix}nav-link:hover {
-    color: $color-alias-interactive-primary-hover !important;
-    border-bottom-color: $color-alias-interactive-primary-hover !important;
+
+  & .#{variables-addon.$prefix}nav-link:hover {
+    color: variables.$color-alias-interactive-primary-hover !important;
+    border-bottom-color: variables.$color-alias-interactive-primary-hover !important;
   }
-  & .#{$prefix}nav-link.active,
-  & .#{$prefix}nav-link[aria-expanded=true],
-  & .#{$prefix}nav-link[aria-expanded=true]:focus,
-  & .#{$prefix}nav-link[aria-expanded=true]:hover {
-    color: $color-alias-interactive-primary-pressed !important;
-    border-bottom-color: $color-alias-interactive-primary-pressed !important;
+
+  & .#{variables-addon.$prefix}nav-link.active,
+  & .#{variables-addon.$prefix}nav-link[aria-expanded='true'],
+  & .#{variables-addon.$prefix}nav-link[aria-expanded='true']:focus,
+  & .#{variables-addon.$prefix}nav-link[aria-expanded='true']:hover {
+    color: variables.$color-alias-interactive-primary-pressed !important;
+    border-bottom-color: variables.$color-alias-interactive-primary-pressed !important;
   }
 }
-.#{$prefix}nav.#{$prefix}nav-dark .#{$prefix}nav-link {
+
+.#{variables-addon.$prefix}nav.#{variables-addon.$prefix}nav-dark
+.#{variables-addon.$prefix}nav-link {
   color: #fff;
-  &:hover, &.active,
+
+  &:hover,
+  &.active,
   &:focus,
-  &[aria-expanded=true],
-  &[aria-expanded=true]:focus,
-  &[aria-expanded=true]:hover {
+  &[aria-expanded='true'],
+  &[aria-expanded='true']:focus,
+  &[aria-expanded='true']:hover {
     color: #fff !important;
     border-bottom-color: #fff !important;
-    outline-color: #FFF;
+    outline-color: #fff;
   }
 }
-.#{$prefix}service-nav {
-  background-color: $color-global-dark-primary-110;
+
+.#{variables-addon.$prefix}service-nav {
+  background-color: variables.$color-global-dark-primary-110;
   color: #fff;
-  .#{$prefix}dropdown > .#{$prefix}nav-link:after {
+
+  .#{variables-addon.$prefix}dropdown
+  > .#{variables-addon.$prefix}nav-link:after {
     display: inline-block;
-    content: "\f078";
-    font-family: "Font Awesome 6 Free", serif;
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free', serif;
     text-align: center;
     font-weight: 900;
     margin-left: 8px;
   }
-  .#{$prefix}dropdown > .#{$prefix}nav-link {
+
+  .#{variables-addon.$prefix}dropdown > .#{variables-addon.$prefix}nav-link {
     padding: 8px;
   }
-  .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded=true]:after {
-    content: "\f077";
+
+  .#{variables-addon.$prefix}dropdown
+  > .#{variables-addon.$prefix}nav-link[aria-expanded='true']:after {
+    content: '\f077';
   }
-  .#{$prefix}dropdown-menu {
-    background-color: $color-global-dark-primary-110;
+
+  .#{variables-addon.$prefix}dropdown-menu {
+    background-color: variables.$color-global-dark-primary-110;
     color: #fff;
     padding: 24px;
     min-width: 250px;
     transform: translate(0, 40px);
     border-radius: 0;
     border: 0;
-    & a, & a:active, & a:visited {
-      color: #FFF;
+
+    & a,
+    & a:active,
+    & a:visited {
+      color: #fff;
     }
+
     & a:hover {
       text-decoration: none;
     }
+
     & a:focus {
-      outline-color: #FFF;
+      outline-color: #fff;
     }
-    & .#{$prefix}list-unstyled li {
+
+    & .#{variables-addon.$prefix}list-unstyled li {
       margin: 8px 0;
     }
-    & .#{$prefix}list-unstyled.#{$prefix}list-link a:after {
+
+    &
+    .#{variables-addon.$prefix}list-unstyled.#{variables-addon.$prefix}list-link
+    a:after {
       margin-left: 0;
     }
-    .#{$prefix}dropdown-menu-heading {
+
+    .#{variables-addon.$prefix}dropdown-menu-heading {
       font-size: 24px;
       line-height: 36px;
       font-weight: 700;
-      color: #fff;  
+      color: #fff;
     }
+
     .border-top {
-      border-color: $color-global-light-primary-50;  
+      border-color: variables.$color-global-light-primary-50;
     }
   }
-  .#{$prefix}dropdown-megamenu {
+
+  .#{variables-addon.$prefix}dropdown-megamenu {
     position: static;
-    & .#{$prefix}dropdown-menu {
+
+    & .#{variables-addon.$prefix}dropdown-menu {
       border-radius: 0;
       border: 0;
       transform: none;
@@ -117,132 +152,156 @@
   }
 }
 
-[data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}nav-link:focus, [data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}btn:focus {
-  outline: 1px solid $color-alias-interactive-border-focus;
+.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}nav-link:focus-visible,
+.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}btn:focus-visible {
+  outline: 1px solid variables.$color-alias-interactive-border-focus;
   outline-offset: -1px;
   border-radius: 0;
 }
-[data-sirio-keyboard="true"] .#{$prefix}nav-side .#{$prefix}nav-link:focus:before {
-  border-bottom: 1px solid $color-alias-interactive-border-focus;
+
+.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}nav-link:focus-visible:before {
+  border-bottom: 1px solid variables.$color-alias-interactive-border-focus;
 }
 
-.#{$prefix}nav-side {
+.#{variables-addon.$prefix}nav-side {
   flex-direction: column;
   width: 100%;
-  & .#{$prefix}nav {
-    background-color: $color-global-light-primary-40;
+
+  & .#{variables-addon.$prefix}nav {
+    background-color: variables.$color-global-light-primary-40;
     flex-direction: column;
     width: 100%;
+
+    & .#{variables-addon.$prefix}nav-link {
+      padding-left: 32px;
+
+      &.active,
+      &:hover {
+        padding-left: 28px;
+      }
+    }
+
+    & ul {
+      margin: 0;
+    }
   }
-  & [data-sirio-visible="false"] {
+
+  & [data-sirio-visible='false'] {
     display: none;
   }
-  & [data-sirio-visible="true"] {
+
+  & [data-sirio-visible='true'] {
     display: flex;
   }
-  & .#{$prefix}nav-item {
+
+  & .#{variables-addon.$prefix}nav-item {
     position: relative;
+
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      border-top: 1px solid $color-global-light-primary-50;
+      border-top: 1px solid variables.$color-global-light-primary-50;
     }
+
     &:last-child:before {
       display: none;
     }
   }
-  & .#{$prefix}nav-link {
+
+  & .#{variables-addon.$prefix}nav-link {
     padding: 16px;
     font-weight: 600;
     margin: 0;
     border: 0;
     position: relative;
-    &[data-sirio-toggle="collapse"] {
+
+    & .#{variables-addon.$prefix}nav-item {
+      padding-left: 24px;
+    }
+
+    &[data-sirio-toggle='collapse'] {
       display: flex;
       justify-content: space-between;
+
       &:after {
-        content: "\f107";
-        font-family: $font-family-icon;
+        content: '\f107';
+        font-family: variables-addon.$font-family-icon;
         font-weight: 900;
         vertical-align: middle;
         margin-left: 16px;
         font-size: 24px;
       }
-      &[aria-expanded="true"] {
-        background-color: $color-global-light-primary-50;
+
+      &[aria-expanded='true'] {
+        background-color: variables.$color-global-light-primary-50;
+
         &:after {
-          content: "\f106";
+          content: '\f106';
         }
       }
-      
     }
+
     &:hover {
-      color: $color-alias-interactive-primary-default !important;
+      color: variables.$color-alias-interactive-primary-default !important;
       position: relative;
       padding-left: 12px;
-      border-left: 4px solid $color-alias-interactive-primary-default;
-      transition: background .5s;
+      border-left: 4px solid variables.$color-alias-interactive-primary-default;
+      transition: background 0.5s;
     }
+
     &.active {
-      color: $color-alias-interactive-primary-pressed !important;
-      background-color: $color-global-light-primary-50;
+      color: variables.$color-alias-interactive-primary-pressed !important;
+      background-color: variables.$color-global-light-primary-50;
       position: relative;
       padding-left: 12px;
-      border-left: 4px solid $color-alias-interactive-primary-pressed;
+      border-left: 4px solid variables.$color-alias-interactive-primary-pressed;
     }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid variables.$color-global-light-primary-50;
+    }
+
     &.disabled {
-      background-color: $color-alias-background-color-disabled;
-      color: $color-alias-text-color-disabled;
-    }
-    
-  }
-  & .#{$prefix}nav {
-    & .#{$prefix}nav-link {
-      padding-left: 24px;
-      &.active, &:hover {
-        padding-left: 20px;
-      }
-      &:before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-bottom: 1px solid $color-global-light-primary-50;
-      }
-    }
-    & .#{$prefix}nav {
-      & .#{$prefix}nav-link {
-        padding-left: 32px;
-        &.active, &:hover {
-          padding-left: 28px;
-        }
-      }
+      background-color: variables.$color-alias-background-color-disabled;
+      color: variables.$color-alias-text-color-disabled;
     }
   }
-  & ul {
-    margin: 0;
+
+
+}
+
+
+
+@keyframes slideUpContent {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
   }
 }
 
-@keyframes slideUpContent {
-    0% { top: 100%; }
-    100% { top: 0; }
-}
-.#{$prefix}dialog-sidenav {
+.#{variables-addon.$prefix}dialog-sidenav {
   background: none;
   animation: none;
   z-index: 1000;
-  & .#{$prefix}dialog-wrapper {
+
+  & .#{variables-addon.$prefix}dialog-wrapper {
     max-width: inherit;
     margin: 0;
     min-height: 100%;
     display: block;
   }
-  & .#{$prefix}dialog-content {
+
+  & .#{variables-addon.$prefix}dialog-content {
     transition: 1s all;
     position: absolute;
     top: 100%;
@@ -255,43 +314,49 @@
     box-shadow: none;
     animation: slideUpContent 1s;
   }
-  &[data-sirio-visible="true"] {
+
+  &[data-sirio-visible='true'] {
     z-index: 1050;
-    & .#{$prefix}dialog-content {
+
+    & .#{variables-addon.$prefix}dialog-content {
       top: 0;
     }
   }
-  & .#{$prefix}dialog-header {
+
+  & .#{variables-addon.$prefix}dialog-header {
     padding: 0;
   }
-  & .#{$prefix}dialog-body {
+
+  & .#{variables-addon.$prefix}dialog-body {
     background: #fff;
     height: 100%;
     overflow: auto;
   }
-  & .#{$prefix}sidenav-title {
+
+  & .#{variables-addon.$prefix}sidenav-title {
     font-weight: 700;
     font-size: 20px;
     line-height: 21px;
-    color: $color-alias-interactive-primary-default;
+    color: variables.$color-alias-interactive-primary-default;
     border-bottom: 4px solid;
     padding: 16px;
     margin: 32px 0 0;
   }
 
-  & .#{$prefix}sidenav-info {
-    border-bottom: 1px solid $color-alias-background-color-primary-light-60;
+  & .#{variables-addon.$prefix}sidenav-info {
+    border-bottom: 1px solid variables.$color-alias-background-color-primary-light-60;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 24px;
     gap: 24px;
-    background: $color-alias-background-color-primary-light-50;
-    color: $color-alias-text-color-primary-dark-110;
+    background: variables.$color-alias-background-color-primary-light-50;
+    color: variables.$color-alias-text-color-primary-dark-110;
     margin: 0 0 32px;
   }
 }
-.#{$prefix}btn-sidenav {
+
+.#{variables-addon.$prefix}btn-sidenav {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -303,23 +368,27 @@
   line-height: 24px;
   text-align: left;
   z-index: 1;
+
   & small {
     display: block;
     font-size: 16px;
     font-weight: normal;
   }
+
   &:after {
-    content: "\f106";
-    font-family: $font-family-icon;
+    content: '\f106';
+    font-family: variables-addon.$font-family-icon;
     font-weight: 900;
     vertical-align: middle;
     margin-left: 16px;
     font-size: 24px;
   }
-  &[data-sirio-dismiss="dialog"]:after {
-    content: "\f00d";
+
+  &[data-sirio-dismiss='dialog']:after {
+    content: '\f00d';
   }
-  &.#{$prefix}btn-fixed-bottom {
+
+  &.#{variables-addon.$prefix}btn-fixed-bottom {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -329,18 +398,22 @@
   }
 }
 
-
 @media (min-width: 992px) {
-  .#{$prefix}dialog-sidenav,
-  .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
+  .#{variables-addon.$prefix}dialog-sidenav,
+  .#{variables-addon.$prefix}dialog-sidenav
+  .#{variables-addon.$prefix}dialog-content {
     position: relative;
     display: block !important;
   }
 
-  .#{$prefix}dialog-sidenav .#{$prefix}sidenav-info, .#{$prefix}dialog-sidenav .#{$prefix}dialog-header, .#{$prefix}dialog-sidenav-open {
+  .#{variables-addon.$prefix}dialog-sidenav
+  .#{variables-addon.$prefix}sidenav-info,
+  .#{variables-addon.$prefix}dialog-sidenav
+  .#{variables-addon.$prefix}dialog-header,
+  .#{variables-addon.$prefix}dialog-sidenav-open {
     display: none;
   }
-  .#{$prefix}dialog-sidenav {
+  .#{variables-addon.$prefix}dialog-sidenav {
     display: flex;
   }
 }

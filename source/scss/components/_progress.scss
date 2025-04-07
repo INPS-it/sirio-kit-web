@@ -1,5 +1,8 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Progress Bar
-.#{$prefix}progress {
+.#{variables-addon.$prefix}progress {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -7,31 +10,31 @@
     width: 100%;
     height: 12px;
     border-radius: 12px;
-    background-color: $color-alias-background-color-primary-light-40;
+    background-color: variables.$color-alias-background-color-primary-light-40;
 }
-.#{$prefix}progress[value]::-webkit-progress-bar {
-    background-color: $color-alias-background-color-primary-light-40;
+.#{variables-addon.$prefix}progress[value]::-webkit-progress-bar {
+    background-color: variables.$color-alias-background-color-primary-light-40;
     border-radius: 12px;
     padding: 2px;
 }
-.#{$prefix}progress[value]::-webkit-progress-value {
-    background-image: $color-specific-progressbar-background-color;
+.#{variables-addon.$prefix}progress[value]::-webkit-progress-value {
+    background-image: variables.$color-specific-progressbar-background-color;
     border-radius: 8px;
     height: 8px;
 }
-.#{$prefix}progress[value]::-moz-progress-value {
-    background-image: $color-specific-progressbar-background-color;
+.#{variables-addon.$prefix}progress[value]::-moz-progress-value {
+    background-image: variables.$color-specific-progressbar-background-color;
     border-radius: 8px;
     height: 8px;
 }
-.#{$prefix}progress[value]::-moz-progress-bar {
-    background: $color-specific-progressbar-background-color;
+.#{variables-addon.$prefix}progress[value]::-moz-progress-bar {
+    background: variables.$color-specific-progressbar-background-color;
     margin: 2px;
     border-radius: 8px;
     height: 8px;
 }
-.#{$prefix}progress-number {
-    font-family: $font-family-mono;
+.#{variables-addon.$prefix}progress-number {
+    font-family: variables-addon.$font-family-mono;
     font-size: 10px;
     line-height: 12px;
     display: block;

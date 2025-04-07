@@ -1,5 +1,8 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Breadcrumb
-.#{$prefix}breadcrumb {
+.#{variables-addon.$prefix}breadcrumb {
     display: flex;
     flex-wrap: wrap;
     font-size: 16px;
@@ -8,19 +11,19 @@
     padding: 0;
     margin: 16px 0;
     list-style: none;
-    color: $color-alias-interactive-secondary-default;
-    
+    color: variables.$color-alias-interactive-secondary-default;
+
     & li {
         & + li {
             padding-left: 8px;
             &:before {
                 padding-right: 8px;
-                color: $color-alias-interactive-primary-default;
-                content: "/";
+                color: variables.$color-alias-interactive-primary-default;
+                content: '/';
             }
         }
         &.active {
-            color: $color-alias-interactive-secondary-default;
+            color: variables.$color-alias-interactive-secondary-default;
         }
         & .fas {
             margin-right: 8px;
@@ -39,41 +42,43 @@
         background: transparent;
         border: 0;
         padding: 0 2px;
-        color: $color-alias-interactive-primary-default;
+        color: variables.$color-alias-interactive-primary-default;
         font-weight: 600;
         &:hover {
             text-decoration: underline !important;
         }
     }
-    &.#{$prefix}breadcrumb-dark {
-        color: $color-alias-interactive-primary-000-default;
+    &.#{variables-addon.$prefix}breadcrumb-dark {
+        color: variables.$color-alias-interactive-primary-000-default;
         & li {
-            &+li:before {
-                color: $color-alias-interactive-accent-default;
+            & + li:before {
+                color: variables.$color-alias-interactive-accent-default;
             }
             &.active {
-                color: $color-alias-interactive-primary-000-default;
+                color: variables.$color-alias-interactive-primary-000-default;
             }
             & a {
-                color: $color-alias-interactive-accent-default;  
+                color: variables.$color-alias-interactive-accent-default;
                 &:hover {
-                    color: $color-alias-interactive-accent-hover;
+                    color: variables.$color-alias-interactive-accent-hover;
                 }
             }
         }
         & button {
-            color: $color-alias-interactive-accent-default;
+            color: variables.$color-alias-interactive-accent-default;
             &:hover {
-                color: $color-alias-interactive-accent-hover;
+                color: variables.$color-alias-interactive-accent-hover;
             }
         }
     }
 }
-[data-sirio-component='breadcrumb'][data-sirio-visible='truncate'] li:nth-child(n+3):nth-last-child(n+2){
+[data-sirio-component='breadcrumb'][data-sirio-visible='truncate']
+    li:nth-child(n + 3):nth-last-child(n + 2) {
     display: none;
 }
 @media (min-width: 576px) {
-    [data-sirio-keyboard="true"] .#{$prefix}breadcrumb-dark a:focus, [data-sirio-keyboard="true"] .#{$prefix}breadcrumb-dark button:focus  {
-        outline-color: $color-alias-interactive-accent-focus;
+        .#{variables-addon.$prefix}breadcrumb-dark a:focus-visible,
+        .#{variables-addon.$prefix}breadcrumb-dark button:focus-visible {
+        outline-color: variables.$color-alias-interactive-accent-focus;
     }
-} 
+}

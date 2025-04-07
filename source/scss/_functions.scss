@@ -1,19 +1,34 @@
+@use 'sass:map';
+@use 'sass:math';
+
 // Functions
 @function value($name, $value) {
-  @if map-has-key($name, $value) {
-    $value: map-get($name, $value);
+  @if map.has-key($name, $value) {
+    $value: map.get($name, $value);
     @return $value;
   }
 
   @return null;
 }
 
-@function color($palette, $type, $tone) {
-  @if map-has-key($palette, $type) {
-    $type: map-get($palette, $type);
+/* converti px in rem es: font-size: rem(32); = font-size: 2rem */
+$html-font-size: 16;
+/* converti px in rem es: font-size: rem(32); = font-size: 2rem */
+@function rem($size, $is-positive: true) {
+  $remSize: math.div($size, $html-font-size);
+  @if $is-positive {
+    @return #{$remSize}rem;
+  } @else {
+    @return -#{$remSize}rem;
+  }
+}
 
-    @if map-has-key($type, $tone) {
-      $tone: map-get($type, $tone);
+@function color($palette, $type, $tone) {
+  @if map.has-key($palette, $type) {
+    $type: map.get($palette, $type);
+
+    @if map.has-key($type, $tone) {
+      $tone: map.get($type, $tone);
       @return $tone;
     }
 
@@ -23,8 +38,7 @@
   @return null;
 }
 
-
-@mixin property($property,$value) {
+@mixin property($property, $value) {
   @if $value != null {
     #{$property}: $value;
   }
@@ -33,11 +47,11 @@
 @mixin media-breakpoint($breakpoint) {
   @if $breakpoint ==0 {
     @content;
-  }
-
-  @else {
+  } @else {
     @media (min-width: $breakpoint) {
       @content;
     }
   }
 }
+
+

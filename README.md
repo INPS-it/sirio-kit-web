@@ -1,4 +1,4 @@
-# SirioWebKit v.8.2.0
+# SirioWebKit v.8.2.1
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -35,11 +35,24 @@ Da inserire in fondo alla pagina HTML
 ```html
 <!-- JS WebKit -->
 <script src="js/sirio-datepicker-full.js"></script>
-<script src="js/sirio-webkit.js"></script>
+<script src="js/sirio-webkit-min.js"></script>
 <script src="js/splide.min.js"></script>
 ```
 
 ## Changelog
+
+### 8.2.1 (2025-03-28)
+- **js**\SirioDialog, SirioDropdownAutocomplete, SirioDropdownMenu, SirioDropdownSelect, SirioFileUpload and SirioTimePicker (fix bug on manual inizialization of component)
+- **form**\TimePicker (type: button on increment/decrement arrow-button)
+- **tipografia**\`font-size` (Aggiornata l’unità di misura da px a rem)
+- **contenuto**\Implementato su di `focus-visible` (In sostituzione del _workaround_ del `dataSirioKeyboardHandler`)
+- **contenuto**\Paginazione (Migliorata accessibilità a screen-reader)
+- **contenuto**\Bottoni (Rimosso `role="menu"` dove errato)
+- **struttura**\Search input (Assegnato `type="search"`)
+- **contenuto**\Tab (Risolto problema di accessibilità, ammesso anche uso di `div` al posto di `ul`)
+- **contenuto**\Tabella (Aggiunta funzionalità tabella espandibile)
+- **contenuto**\DropdownMenu (Migliorata accessibilità)
+- **contenuto**\DropdownSelect (Migliorata accessibilità)
 
 ### 8.2.0 (2024-01-16)
 

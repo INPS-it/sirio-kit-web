@@ -1,8 +1,11 @@
+@use '../variables';
+@use '../variables-addon';
+
 // File Upload
-.#{$prefix}upload .#{$prefix}form-text-help {
+.#{variables-addon.$prefix}upload .#{variables-addon.$prefix}form-text-help {
     margin-bottom: 8px;
 }
-.#{$prefix}upload-file {
+.#{variables-addon.$prefix}upload-file {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -10,28 +13,28 @@
     position: absolute;
     z-index: -1;
     &:focus + label {
-        outline: 2px solid $color-alias-interactive-border-focus;
+        outline: 2px solid variables.$color-alias-interactive-border-focus;
         outline-offset: 2px;
     }
 }
-.#{$prefix}upload-file-list {
+.#{variables-addon.$prefix}upload-file-list {
     padding: 0;
     margin: 0;
     list-style: none;
     & li {
         padding: 8px 0;
-        & .#{$prefix}chip {
+        & .#{variables-addon.$prefix}chip {
             max-width: 100%;
             justify-content: space-between;
             align-items: center;
             padding: 4px 16px;
-            & .#{$prefix}chip-label {
+            & .#{variables-addon.$prefix}chip-label {
                 overflow: hidden;
                 display: block;
                 text-overflow: ellipsis;
                 padding: 4px 0;
             }
-            & .#{$prefix}btn {
+            & .#{variables-addon.$prefix}btn {
                 padding: 0 3px;
             }
         }

@@ -1,18 +1,24 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Stepper
-.#{$prefix}stepper {
-  background-color: $color-alias-background-color-primary-light-40;
+.#{variables-addon.$prefix}stepper {
+  background-color: variables.$color-alias-background-color-primary-light-40;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  & .#{$prefix}stepper-count {
+
+  & .#{variables-addon.$prefix}stepper-count {
     flex: 0 0 auto;
     width: 50%;
     padding: 16px;
   }
-  & .#{$prefix}stepper-selector {
+
+  & .#{variables-addon.$prefix}stepper-selector {
     flex: 0 0 auto;
     width: 50%;
-    & .#{$prefix}btn {
+
+    & .#{variables-addon.$prefix}btn {
       display: flex;
       padding: 16px;
       width: 100%;
@@ -21,9 +27,11 @@
       background-size: 18px;
       background-repeat: no-repeat;
       background-position: right 12px top 50%;
-      &[aria-expanded=true] {
+
+      &[aria-expanded='true'] {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%232f6dd5' viewBox='0 0 448 512'%3E%3Cpath d='M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z'/%3e%3c/svg%3e");
       }
+
       & span {
         overflow: hidden;
         white-space: nowrap;
@@ -31,39 +39,48 @@
         margin-right: 16px;
         display: block;
       }
-      &:not(:disabled):not(.disabled).active,&:not(:disabled):not(.disabled):active {
+
+      &:not(:disabled):not(.disabled).active,
+      &:not(:disabled):not(.disabled):active {
         background-color: transparent;
-        color: $color-alias-interactive-primary-default;
+        color: variables.$color-alias-interactive-primary-default;
         border-color: transparent;
       }
     }
   }
 }
-.#{$prefix}stepper-content {
+
+.#{variables-addon.$prefix}stepper-content {
   display: flex;
   flex-wrap: nowrap;
   padding: 0 16px;
-  & .#{$prefix}stepper-marker {
+
+  & .#{variables-addon.$prefix}stepper-marker {
     flex: 0 0 auto;
   }
-  & .#{$prefix}stepper-text {
+
+  & .#{variables-addon.$prefix}stepper-text {
     flex: 1 0 0%;
     text-align: right;
   }
 }
-.#{$prefix}stepper-selector .#{$prefix}dropdown-menu {
+
+.#{variables-addon.$prefix}stepper-selector
+.#{variables-addon.$prefix}dropdown-menu {
   width: 100%;
   inset: 8px auto auto 0;
-  box-shadow: $elevation-elevation-02;
+  box-shadow: variables.$elevation-elevation-02;
   border: 0;
   border-radius: 0;
-  & .#{$prefix}stepper-nav {
+
+  & .#{variables-addon.$prefix}stepper-nav {
     margin: 0;
     padding: 4px 0;
     width: 100%;
   }
 }
-.#{$prefix}stepper-item {
+
+.#{variables-addon.$prefix}stepper-item {
   display: block;
   position: relative;
   text-align: center;
@@ -72,6 +89,7 @@
   padding: 0;
   min-width: 28px;
   counter-increment: step-counter;
+
   &:not(:last-child)::after {
     content: '';
     display: block;
@@ -82,17 +100,107 @@
     left: 30px;
     width: 2px;
     height: 100%;
-    background-color: $color-alias-background-color-disabled;
+    background-color: variables.$color-alias-background-color-disabled;
     transition: background-color 0.3s;
+  }
 
+  &:after {
+    background-color: variables.$color-alias-background-color-disabled;
+  }
+
+  & a:hover .#{variables-addon.$prefix}stepper-marker {
+    outline: 1px solid variables.$color-alias-background-color-disabled;
+    outline-offset: 3px;
+  }
+
+  &.is-success {
+    & .#{variables-addon.$prefix}stepper-marker {
+      background-color: variables.$color-global-semantic-success-100;
+      color: #fff;
+
+      &:before {
+        content: '';
+        height: 16px;
+        left: -20px;
+        top: 6px;
+        width: 16px;
+        background-size: 14px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3E%3C/svg%3E");
+      }
+    }
+
+    & a:hover .#{variables-addon.$prefix}stepper-marker {
+      outline: 1px solid variables.$color-global-semantic-success-100;
+    }
+  }
+
+  &.is-active {
+    & .#{variables-addon.$prefix}stepper-marker {
+      background-color: variables.$color-alias-interactive-primary-default;
+      color: #fff;
+    }
+
+    & a:hover .#{variables-addon.$prefix}stepper-marker {
+      outline: 1px solid variables.$color-alias-interactive-primary-default;
+    }
+  }
+
+  &.is-error {
+    & .#{variables-addon.$prefix}stepper-marker {
+      background-color: variables.$color-global-semantic-alert-100;
+      color: #fff;
+
+      &:before {
+        content: '';
+        height: 16px;
+        left: -20px;
+        top: 6px;
+        width: 16px;
+        background-size: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 576 512'%3E%3Cpath d='M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
+      }
+    }
+
+    & a:hover .#{variables-addon.$prefix}stepper-marker {
+      outline: 1px solid variables.$color-global-semantic-alert-100;
+    }
+  }
+
+  &.is-warning {
+    & .#{variables-addon.$prefix}stepper-marker {
+      background-color: variables.$color-global-semantic-warning-100;
+      color: #fff;
+
+      &:before {
+        content: '';
+        height: 16px;
+        left: -20px;
+        top: 6px;
+        width: 16px;
+        background-size: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
+      }
+    }
+
+    & a:hover .#{variables-addon.$prefix}stepper-marker {
+      outline: 1px solid variables.$color-global-semantic-warning-100;
+    }
   }
 }
-.#{$prefix}stepper-item a {
+
+.#{variables-addon.$prefix}stepper-item a {
   text-decoration: none;
   font-weight: 400;
-  color: $color-global-secondary-100;
+  color: variables.$color-global-secondary-100;
 }
-.#{$prefix}stepper-marker {
+
+.#{variables-addon.$prefix}stepper-marker {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,13 +210,14 @@
   width: 30px;
   height: 30px;
   padding-bottom: 1px;
-  color: $color-global-secondary-100;
-  background-color: $color-alias-background-color-disabled;
+  color: variables.$color-global-secondary-100;
+  background-color: variables.$color-alias-background-color-disabled;
   font-weight: 600;
   border: 2px solid transparent;
   border-radius: 50%;
   transition: background-color, border-color;
   transition-duration: 0.3s;
+
   &:before {
     content: counter(step-counter);
     display: inline-block;
@@ -120,127 +229,58 @@
     font-weight: 600;
   }
 }
-.#{$prefix}stepper-title {
+
+.#{variables-addon.$prefix}stepper-title {
   margin-top: 0;
-  color: $color-global-secondary-100;
+  color: variables.$color-global-secondary-100;
 }
-.#{$prefix}stepper-text {
+
+.#{variables-addon.$prefix}stepper-text {
   display: block;
   padding: 8px;
 }
-.#{$prefix}stepper-item {
-  &:after {
-    background-color: $color-alias-background-color-disabled;
-  }
-  & a:hover .#{$prefix}stepper-marker {
-    outline: 1px solid $color-alias-background-color-disabled;
-    outline-offset: 3px;
-  }
-  &.is-success {
-    & .#{$prefix}stepper-marker {
-      background-color: $color-global-semantic-success-100;
-      color: #fff;
-      &:before {
-        content: "";
-        height: 16px;
-        left: -20px;
-        top: 6px;
-        width: 16px;
-        background-size: 14px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3E%3C/svg%3E");
-      }
-    }
-    & a:hover .#{$prefix}stepper-marker {
-      outline: 1px solid $color-global-semantic-success-100;
-    }
-  }
-  &.is-active {
-    & .#{$prefix}stepper-marker {
-      background-color: $color-alias-interactive-primary-default;
-      color: #fff;
-    }
-    & a:hover .#{$prefix}stepper-marker {
-      outline: 1px solid $color-alias-interactive-primary-default;
-    }
-  }
-  &.is-error {
-    & .#{$prefix}stepper-marker {
-      background-color: $color-global-semantic-alert-100;
-      color: #fff;
-      &:before {
-        content: "";
-        height: 16px;
-        left: -20px;
-        top: 6px;
-        width: 16px;
-        background-size: 15px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 576 512'%3E%3Cpath d='M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
-      }
-    }
-    & a:hover .#{$prefix}stepper-marker {
-      outline: 1px solid $color-global-semantic-alert-100;
-    }
-  }
-  &.is-warning {
-    & .#{$prefix}stepper-marker {
-      background-color: $color-global-semantic-warning-100;
-      color: #fff;
-      &:before {
-        content: "";
-        height: 16px;
-        left: -20px;
-        top: 6px;
-        width: 16px;
-        background-size: 15px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
-      }
-    }
-    & a:hover .#{$prefix}stepper-marker {
-      outline: 1px solid $color-global-semantic-warning-100;
-    }
-  } 
-  
-}
-.#{$prefix}stepper-nav .#{$prefix}stepper-text {
+
+.#{variables-addon.$prefix}stepper-nav .#{variables-addon.$prefix}stepper-text {
   display: inline-block;
   white-space: inherit;
   padding-right: 0;
   padding-left: 0;
 }
-.#{$prefix}stepper-nav .#{$prefix}stepper-title {
+
+.#{variables-addon.$prefix}stepper-nav
+.#{variables-addon.$prefix}stepper-title {
   margin: 0 12px;
   text-align: left;
   display: block;
   line-height: 1.2rem;
 }
+
 @media (max-width: 576px) {
-  .#{$prefix}stepper .#{$prefix}dropdown-menu {
+  .#{variables-addon.$prefix}stepper
+  .#{variables-addon.$prefix}dropdown-menu {
     right: 0;
     left: auto;
   }
 }
+
 @media (min-width: 992px) {
-  .#{$prefix}stepper {
+  .#{variables-addon.$prefix}stepper {
     background-color: transparent;
     display: block;
-    & .#{$prefix}stepper-selector {
+
+    & .#{variables-addon.$prefix}stepper-selector {
       width: 100%;
     }
   }
-  .#{$prefix}stepper-nav {
+  .#{variables-addon.$prefix}stepper-nav {
     display: flex;
     margin: auto;
     list-style: none;
     padding: 3px;
     overflow: hidden;
   }
-  .#{$prefix}stepper-selector .#{$prefix}dropdown-menu {
+  .#{variables-addon.$prefix}stepper-selector
+  .#{variables-addon.$prefix}dropdown-menu {
     position: relative;
     display: flex !important;
     width: auto;
@@ -251,11 +291,12 @@
     box-shadow: none;
     overflow: visible;
     z-index: inherit;
+
     & > * {
       width: 100%;
     }
   }
-  .#{$prefix}stepper-item:not(:last-child)::after {
+  .#{variables-addon.$prefix}stepper-item:not(:last-child)::after {
     content: '';
     display: block;
     position: absolute;
@@ -266,22 +307,25 @@
     left: inherit;
     width: 100%;
     height: 2px;
-    background-color: $color-alias-background-color-disabled;
+    background-color: variables.$color-alias-background-color-disabled;
     transition: background-color 0.3s;
     transform: translateX(calc(+50% - 14px));
   }
-  .#{$prefix}stepper-selector .#{$prefix}btn, .#{$prefix}stepper-count {
+  .#{variables-addon.$prefix}stepper-selector .#{variables-addon.$prefix}btn,
+  .#{variables-addon.$prefix}stepper-count {
     display: none !important;
   }
-  .#{$prefix}stepper-nav .#{$prefix}stepper-title {
+  .#{variables-addon.$prefix}stepper-nav
+  .#{variables-addon.$prefix}stepper-title {
     margin: 0;
     text-align: center;
     max-width: 100px;
   }
-  .#{$prefix}stepper-content {
+  .#{variables-addon.$prefix}stepper-content {
     display: block;
     padding: 0;
-    & .#{$prefix}stepper-text {
+
+    & .#{variables-addon.$prefix}stepper-text {
       text-align: center;
     }
   }

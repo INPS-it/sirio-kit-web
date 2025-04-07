@@ -1,6 +1,9 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Pagination
-.#{$prefix}pagination {
-    border: 1px solid $color-global-light-primary-40;
+.#{variables-addon.$prefix}pagination {
+    border: 1px solid variables.$color-global-light-primary-40;
     border-radius: 4px;
     margin: 24px 0;
     flex-wrap: wrap;
@@ -17,15 +20,15 @@
     & select {
         width: 82px;
         min-width: 82px;
-        font-family: $font-family-mono;
+        font-family: variables-addon.$font-family-mono;
         font-weight: 400;
     }
-    & .#{$prefix}pagination-items {
-        background-color: $color-alias-text-color-primary-light-50;
+    & .#{variables-addon.$prefix}pagination-items {
+        background-color: variables.$color-alias-text-color-primary-light-50;
         flex: 1 0 0%;
     }
-    & .#{$prefix}pagination-page {
-        background-color: $color-alias-text-color-primary-light-50;
+    & .#{variables-addon.$prefix}pagination-page {
+        background-color: variables.$color-alias-text-color-primary-light-50;
         position: relative;
         &:nth-child(2):before {
             content: '';
@@ -34,26 +37,27 @@
             left: 0;
             bottom: 8px;
             width: 1px;
-            background-color: $color-global-mid-primary-70;
+            background-color: variables.$color-global-mid-primary-70;
         }
     }
-    & .#{$prefix}pagination-items span, .#{$prefix}pagination-page span {
-        font-family: $font-family-mono;
+    & .#{variables-addon.$prefix}pagination-items span,
+    .#{variables-addon.$prefix}pagination-page span {
+        font-family: variables-addon.$font-family-mono;
         font-weight: 400;
     }
-    & .#{$prefix}pagination-cursor {
+    & .#{variables-addon.$prefix}pagination-cursor {
         margin-left: auto;
         padding: 12px 8px;
     }
 }
-.#{$prefix}pagination-list {
+.#{variables-addon.$prefix}pagination-list {
     display: inline-flex;
     list-style: none;
     margin: 0;
     padding: 0;
     li {
-        a {
-            color: $color-alias-interactive-secondary-default;
+        a, .ellipsis {
+            color: variables.$color-alias-interactive-secondary-default;
             padding: 14px;
             text-decoration: none;
             display: block;
@@ -62,38 +66,39 @@
             font-size: 16px;
             border-radius: 4px;
             margin: 0 3px;
-            &[aria-current]  {
-                color: $color-global-primary-000;
-                background-color: $color-alias-interactive-primary-pressed;
+            &[aria-current] {
+                color: variables.$color-global-primary-000;
+                background-color: variables.$color-alias-interactive-primary-pressed;
             }
             &[href]:hover {
-                color: $color-global-primary-000;
-                background-color: $color-alias-interactive-primary-hover;
+                color: variables.$color-global-primary-000;
+                background-color: variables.$color-alias-interactive-primary-hover;
                 text-decoration: none;
             }
             &:not(:disabled):not(.disabled):active,
             &:not(:disabled):not(.disabled).active {
-                color: $color-global-primary-000;
-                background-color: $color-alias-interactive-primary-pressed;
+                color: variables.$color-global-primary-000;
+                background-color: variables.$color-alias-interactive-primary-pressed;
             }
-            &.disabled  {
-                color: $color-alias-text-color-disabled !important;
-                background-color: $color-alias-background-color-disabled;
+            &.disabled {
+                color: variables.$color-alias-text-color-disabled !important;
+                background-color: variables.$color-alias-background-color-disabled;
             }
         }
-        &:last-child a, &:first-child a {
-            color: $color-alias-interactive-primary-default;
+        &:last-child a,
+        &:first-child a {
+            color: variables.$color-alias-interactive-primary-default;
             &:hover {
-                color: $color-global-primary-000;
+                color: variables.$color-global-primary-000;
             }
         }
     }
 }
-.#{$prefix}pagination-center {
+.#{variables-addon.$prefix}pagination-center {
     text-align: center;
     margin: 24px 0;
-    & .#{$prefix}pagination-list {
-        border: 1px solid $color-global-light-primary-40;
+    & .#{variables-addon.$prefix}pagination-list {
+        border: 1px solid variables.$color-global-light-primary-40;
         border-radius: 4px;
         padding: 12px;
     }
