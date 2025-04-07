@@ -1,144 +1,147 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Colors
 
 // Text
-.#{$prefix}text-white {
-    color: $color-alias-text-color-primary-light-0 !important;
+.#{variables-addon.$prefix}text-white {
+    color: variables.$color-alias-text-color-primary-light-0 !important;
 }
-.#{$prefix}text-light {
-    color: $color-alias-text-color-primary-light-40 !important;
+.#{variables-addon.$prefix}text-light {
+    color: variables.$color-alias-text-color-primary-light-40 !important;
 }
-.#{$prefix}text-primary {
-    color: $color-alias-text-color-primary-dark-110 !important;
+.#{variables-addon.$prefix}text-primary {
+    color: variables.$color-alias-text-color-primary-dark-110 !important;
 }
-.#{$prefix}text-secondary {
-    color: $color-alias-text-color-secondary-dark-100 !important;
+.#{variables-addon.$prefix}text-secondary {
+    color: variables.$color-alias-text-color-secondary-dark-100 !important;
 }
-.#{$prefix}text-dark {
-    color: $color-alias-text-color-secondary-dark-130 !important;
+.#{variables-addon.$prefix}text-dark {
+    color: variables.$color-alias-text-color-secondary-dark-130 !important;
 }
-.#{$prefix}text-disabled {
-    color: $color-alias-text-color-disabled  !important;
+.#{variables-addon.$prefix}text-disabled {
+    color: variables.$color-alias-text-color-disabled !important;
 }
-.#{$prefix}text-danger {
-    color: $color-specific-data-entry-label-color-alert !important;
+.#{variables-addon.$prefix}text-danger {
+    color: variables.$color-specific-data-entry-label-color-alert !important;
 }
-.#{$prefix}text-warning {
-    color: $color-specific-data-entry-label-color-warning !important;
+.#{variables-addon.$prefix}text-warning {
+    color: variables.$color-specific-data-entry-label-color-warning !important;
 }
-.#{$prefix}text-info {
-    color: $color-global-semantic-info-100 !important;
+.#{variables-addon.$prefix}text-info {
+    color: variables.$color-global-semantic-info-100 !important;
 }
-.#{$prefix}text-success {
-    color: $color-specific-data-entry-label-color-success !important;
+.#{variables-addon.$prefix}text-success {
+    color: variables.$color-specific-data-entry-label-color-success !important;
 }
 
 // Background
-.#{$prefix}bg-white {
-    background-color: #FFFFFF !important;
+.#{variables-addon.$prefix}bg-white {
+    background-color: #ffffff !important;
 }
-.#{$prefix}bg-primary-light-40 {
-    background-color: $color-alias-background-color-primary-light-40 !important;
+.#{variables-addon.$prefix}bg-primary-light-40 {
+    background-color: variables.$color-alias-background-color-primary-light-40 !important;
 }
-.#{$prefix}bg-primary-light-50 {
-    background-color: $color-alias-background-color-primary-light-50 !important;
+.#{variables-addon.$prefix}bg-primary-light-50 {
+    background-color: variables.$color-alias-background-color-primary-light-50 !important;
 }
-.#{$prefix}bg-primary-light-60 {
-    background-color: $color-alias-background-color-primary-light-60 !important;
+.#{variables-addon.$prefix}bg-primary-light-60 {
+    background-color: variables.$color-alias-background-color-primary-light-60 !important;
 }
-.#{$prefix}bg-primary {
-    background-color: $color-global-primary-100 !important;
+.#{variables-addon.$prefix}bg-primary {
+    background-color: variables.$color-global-primary-100 !important;
 }
-.#{$prefix}bg-primary-dark-110 {
-    background-color: $color-alias-background-color-primary-dark-110 !important;
+.#{variables-addon.$prefix}bg-primary-dark-110 {
+    background-color: variables.$color-alias-background-color-primary-dark-110 !important;
 }
-.#{$prefix}bg-primary-dark-115 {
-    background-color: $color-alias-background-color-primary-dark-115 !important;
+.#{variables-addon.$prefix}bg-primary-dark-115 {
+    background-color: variables.$color-alias-background-color-primary-dark-115 !important;
 }
-.#{$prefix}bg-primary-dark-120 {
-    background-color: $color-alias-background-color-primary-dark-120 !important;
+.#{variables-addon.$prefix}bg-primary-dark-120 {
+    background-color: variables.$color-alias-background-color-primary-dark-120 !important;
 }
-.#{$prefix}bg-secondary-light-40 {
-    background-color: $color-alias-background-color-secondary-light-40 !important;
+.#{variables-addon.$prefix}bg-secondary-light-40 {
+    background-color: variables.$color-alias-background-color-secondary-light-40 !important;
 }
-.#{$prefix}bg-secondary-light-50 {
-    background-color: $color-alias-background-color-secondary-light-50 !important;
+.#{variables-addon.$prefix}bg-secondary-light-50 {
+    background-color: variables.$color-alias-background-color-secondary-light-50 !important;
 }
-.#{$prefix}bg-secondary-light-90 {
-    background-color: $color-alias-background-color-secondary-mid-90 !important;
+.#{variables-addon.$prefix}bg-secondary-light-90 {
+    background-color: variables.$color-alias-background-color-secondary-mid-90 !important;
 }
-.#{$prefix}bg-secondary {
-    background-color: $color-global-secondary-100 !important;
+.#{variables-addon.$prefix}bg-secondary {
+    background-color: variables.$color-global-secondary-100 !important;
 }
-.#{$prefix}bg-secondary-dark-110 {
-    background-color: $color-alias-background-color-secondary-dark-110 !important;
+.#{variables-addon.$prefix}bg-secondary-dark-110 {
+    background-color: variables.$color-alias-background-color-secondary-dark-110 !important;
 }
-.#{$prefix}bg-secondary-dark-120 {
-    background-color: $color-alias-background-color-secondary-dark-120 !important;
+.#{variables-addon.$prefix}bg-secondary-dark-120 {
+    background-color: variables.$color-alias-background-color-secondary-dark-120 !important;
 }
-.#{$prefix}bg-secondary-dark-125 {
-    background-color: $color-alias-background-color-secondary-dark-125 !important;
+.#{variables-addon.$prefix}bg-secondary-dark-125 {
+    background-color: variables.$color-alias-background-color-secondary-dark-125 !important;
 }
-.#{$prefix}bg-dark {
-    background-color: $color-alias-background-color-secondary-dark-130 !important;
+.#{variables-addon.$prefix}bg-dark {
+    background-color: variables.$color-alias-background-color-secondary-dark-130 !important;
 }
-.#{$prefix}bg-danger {
-    background-color: $color-global-semantic-alert-100 !important;
+.#{variables-addon.$prefix}bg-danger {
+    background-color: variables.$color-global-semantic-alert-100 !important;
 }
-.#{$prefix}bg-warning-80 {
-    background-color: $color-global-semantic-warning-80 !important;
+.#{variables-addon.$prefix}bg-warning-80 {
+    background-color: variables.$color-global-semantic-warning-80 !important;
 }
-.#{$prefix}bg-warning-90 {
-    background-color: $color-global-semantic-warning-90 !important;
+.#{variables-addon.$prefix}bg-warning-90 {
+    background-color: variables.$color-global-semantic-warning-90 !important;
 }
-.#{$prefix}bg-warning {
-    background-color: $color-global-semantic-warning-100 !important;
+.#{variables-addon.$prefix}bg-warning {
+    background-color: variables.$color-global-semantic-warning-100 !important;
 }
-.#{$prefix}bg-warning-110 {
-    background-color: $color-global-semantic-warning-110 !important;
+.#{variables-addon.$prefix}bg-warning-110 {
+    background-color: variables.$color-global-semantic-warning-110 !important;
 }
-.#{$prefix}bg-info {
-    background-color: $color-global-semantic-info-100 !important;
+.#{variables-addon.$prefix}bg-info {
+    background-color: variables.$color-global-semantic-info-100 !important;
 }
-.#{$prefix}bg-success {
-    background-color: $color-global-semantic-success-100 !important;
+.#{variables-addon.$prefix}bg-success {
+    background-color: variables.$color-global-semantic-success-100 !important;
 }
 
 // Background gradient
-.#{$prefix}bg-gradient-1 {
-    background-image: $color-global-gradient-01;
+.#{variables-addon.$prefix}bg-gradient-1 {
+    background-image: variables.$color-global-gradient-01;
 }
-.#{$prefix}bg-gradient-2 {
-    background-image: $color-global-gradient-02;
+.#{variables-addon.$prefix}bg-gradient-2 {
+    background-image: variables.$color-global-gradient-02;
 }
-.#{$prefix}bg-gradient-3 {
-    background-image: $color-global-gradient-03;
+.#{variables-addon.$prefix}bg-gradient-3 {
+    background-image: variables.$color-global-gradient-03;
 }
 
 // Border
-.#{$prefix}border-primary {
-    border-color: $color-global-primary-100 !important;
+.#{variables-addon.$prefix}border-primary {
+    border-color: variables.$color-global-primary-100 !important;
 }
-.#{$prefix}border-primary-light-50 {
-    border-color: $color-alias-background-color-primary-light-50 !important;
+.#{variables-addon.$prefix}border-primary-light-50 {
+    border-color: variables.$color-alias-background-color-primary-light-50 !important;
 }
-.#{$prefix}border-primary-light-60 {
-    border-color: $color-alias-background-color-primary-light-60 !important;
+.#{variables-addon.$prefix}border-primary-light-60 {
+    border-color: variables.$color-alias-background-color-primary-light-60 !important;
 }
-.#{$prefix}border-secondary {
-    border-color: $color-specific-data-entry-border-color-default !important;
+.#{variables-addon.$prefix}border-secondary {
+    border-color: variables.$color-specific-data-entry-border-color-default !important;
 }
-.#{$prefix}border-secondary-light-60 {
-    border-color: $color-global-light-secondary-60 !important;
+.#{variables-addon.$prefix}border-secondary-light-60 {
+    border-color: variables.$color-global-light-secondary-60 !important;
 }
-.#{$prefix}border-danger {
-    border-color: $color-specific-data-entry-border-color-alert !important;
+.#{variables-addon.$prefix}border-danger {
+    border-color: variables.$color-specific-data-entry-border-color-alert !important;
 }
-.#{$prefix}border-warning {
-    border-color: $color-specific-data-entry-border-color-warning !important;
+.#{variables-addon.$prefix}border-warning {
+    border-color: variables.$color-specific-data-entry-border-color-warning !important;
 }
-.#{$prefix}border-info {
-    border-color: $color-global-semantic-info-100 !important;
+.#{variables-addon.$prefix}border-info {
+    border-color: variables.$color-global-semantic-info-100 !important;
 }
-.#{$prefix}border-success {
-    border-color: $color-specific-data-entry-border-color-success !important;
+.#{variables-addon.$prefix}border-success {
+    border-color: variables.$color-specific-data-entry-border-color-success !important;
 }

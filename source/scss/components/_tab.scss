@@ -1,271 +1,344 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Tab
-.#{$prefix}tab {
+.#{variables-addon.$prefix}tab {
+  position: relative;
+
+  &
+  .#{variables-addon.$prefix}tab-content
+  .#{variables-addon.$prefix}tab-item {
+    padding: 8px 0;
     position: relative;
-    & .#{$prefix}tab-content .#{$prefix}tab-item {
-        padding: 8px 0;
-        position: relative;
-    }
+  }
 }
-.#{$prefix}tab-nav {
-    border-bottom: 0px solid $color-global-primary-100;
-    color: $color-alias-interactive-secondary-default;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    display: flex;
-    list-style: none;
-    padding: 4px 0;
-    margin: 0;
-    overflow: auto;
+
+.#{variables-addon.$prefix}tab-nav {
+  border-bottom: 0px solid variables.$color-global-primary-100;
+  color: variables.$color-alias-interactive-secondary-default;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  display: flex;
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  overflow: auto;
+  white-space: nowrap;
+
+  & div, & li {
+    margin: 0 3px 0 0;
     white-space: nowrap;
-    & li {
-        margin: 0 3px 0 0;
-        white-space: nowrap;
-        font-size: 20px;
-        & a {
-            padding: 16px 40px;
-            background-color: $color-global-light-primary-40;
-            border-left: 1px solid $color-global-light-primary-40;
-            border-right: 1px solid $color-global-light-primary-40;
-            color: $color-alias-interactive-secondary-default;
-            border-radius: 2px;
-            text-decoration: none;
-            font-weight: 400;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            & .fas, & .far, & .fa {
-                margin: 0 4px;
-                font-size: 16px;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                left: 0;
-                border-radius: 3px 3px 0 0;
-                padding: 2px;
-                display: block;
-                background-color: $color-global-light-primary-40;
-                z-index: 1;
-            }
-            &:hover {
-                background-color: $color-global-light-primary-40;
-                color: $color-alias-interactive-primary-hover;
-                &:before {
-                    background-color: $color-alias-interactive-primary-hover;
-                }
-            }
-            &:not(:disabled):not(.disabled):active {
-                background-color: $color-global-light-primary-40;
-                color: $color-alias-interactive-primary-pressed;
-                &:before {
-                    background-color: $color-alias-interactive-primary-pressed;
-                }
-            }
-            &:focus {
-                background-color: $color-global-primary-000;
-                z-index: 1;
-                outline: none;
-                &:before {
-                    background-color: $color-alias-interactive-primary-default;
-                }
-            }
-            &:disabled, &.disabled {
-                background-color: $color-alias-background-color-disabled;
-                border-color: $color-alias-background-color-disabled;
-                color: $color-alias-text-color-disabled;
-                &:before {
-                    display: none;
-                }
-            }
-            &[aria-selected="true"], &[aria-selected="true"]:hover {
-                background-color: $color-global-primary-000;
-                color: $color-alias-interactive-secondary-default;
-                font-weight: 700;
-                position: relative;
-                cursor: default;
-                &:before {
-                    background-color: $color-alias-interactive-primary-default;
-                }
-            }
-        }
-    }
-    &.#{$prefix}tab-nav-line {
-        position: relative;
+    font-size: 20px;
+
+    & a {
+      padding: 16px 40px;
+      background-color: variables.$color-global-light-primary-40;
+      border-left: 1px solid variables.$color-global-light-primary-40;
+      border-right: 1px solid variables.$color-global-light-primary-40;
+      color: variables.$color-alias-interactive-secondary-default;
+      border-radius: 2px;
+      text-decoration: none;
+      font-weight: 400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      & .fas,
+      & .far,
+      & .fa {
+        margin: 0 4px;
+        font-size: 16px;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        border-radius: 3px 3px 0 0;
+        padding: 2px;
+        display: block;
+        background-color: variables.$color-global-light-primary-40;
+        z-index: 1;
+      }
+
+      &:hover {
+        background-color: variables.$color-global-light-primary-40;
+        color: variables.$color-alias-interactive-primary-hover;
+
         &:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 4px;
-            left: 4px;
-            border-radius: 3px;
-            padding: 2px;
-            display: block;
-            background-color: $color-global-light-primary-40;
-            z-index: 1;
+          background-color: variables.$color-alias-interactive-primary-hover;
         }
-        & li {
-            margin: 0 3px -4px 0;
-            &:last-child {
-                margin-right: 0;
-            }
-            & a {
-                background-color: transparent;
-                border: 0;
-                &:before {
-                    top: auto;
-                    bottom: 0;
-                    border-radius: 3px;
-                }
-                &[aria-selected="true"] {
-                    background-color: transparent;
-                    border-color: $color-alias-interactive-primary-default;
-                }
-                &:hover {
-                    background-color: transparent;
-                    border-color: $color-alias-interactive-primary-hover;
-                }
-                &:focus {
-                    border-color: $color-alias-interactive-primary-default;
-                }
-                &:disabled, &.disabled {
-                    background-color: $color-alias-background-color-disabled;
-                    &:before {
-                        display: none;
-                    }
-                }
-            }
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        background-color: variables.$color-global-light-primary-40;
+        color: variables.$color-alias-interactive-primary-pressed;
+
+        &:before {
+          background-color: variables.$color-alias-interactive-primary-pressed;
         }
+      }
+
+      &:focus {
+        background-color: variables.$color-global-primary-000;
+        z-index: 1;
+        outline: none;
+
+        &:before {
+          background-color: variables.$color-alias-interactive-primary-default;
+        }
+      }
+
+      &:disabled,
+      &.disabled {
+        background-color: variables.$color-alias-background-color-disabled;
+        border-color: variables.$color-alias-background-color-disabled;
+        color: variables.$color-alias-text-color-disabled;
+
+        &:before {
+          display: none;
+        }
+      }
+
+      &[aria-selected='true'],
+      &[aria-selected='true']:hover {
+        background-color: variables.$color-global-primary-000;
+        color: variables.$color-alias-interactive-secondary-default;
+        font-weight: 700;
+        position: relative;
+        cursor: default;
+
+        &:before {
+          background-color: variables.$color-alias-interactive-primary-default;
+        }
+      }
     }
+  }
+
+  &.#{variables-addon.$prefix}tab-nav-line {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 4px;
+      left: 4px;
+      border-radius: 3px;
+      padding: 2px;
+      display: block;
+      background-color: variables.$color-global-light-primary-40;
+      z-index: 1;
+    }
+
+    & div, & li {
+      margin: 0 3px -4px 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & a {
+        background-color: transparent;
+        border: 0;
+
+        &:before {
+          top: auto;
+          bottom: 0;
+          border-radius: 3px;
+        }
+
+        &[aria-selected='true'] {
+          background-color: transparent;
+          border-color: variables.$color-alias-interactive-primary-default;
+        }
+
+        &:hover {
+          background-color: transparent;
+          border-color: variables.$color-alias-interactive-primary-hover;
+        }
+
+        &:focus {
+          border-color: variables.$color-alias-interactive-primary-default;
+        }
+
+        &:disabled,
+        &.disabled {
+          background-color: variables.$color-alias-background-color-disabled;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Tab Vertical
 @media (min-width: 768px) {
-    .#{$prefix}tab-vertical {
-        display: flex;
-        flex-direction: row;
-        & .#{$prefix}tab-nav {
-            flex: 0 0 25%;
-            position: relative;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            & li {
-                margin-bottom: 2px;
-                margin-right: 0;
-                font-size: 16px;
-                & a {
-                    border-right: 0;
-                    position: relative;
-                    justify-content: left;
-                    padding: 8px 16px;
-                    &:before {
-                        right: auto;
-                        bottom: 0;
-                        border-radius: 3px 0 0 3px;
-                    }
-                    &[aria-selected="true"] {
-                        border-top: 1px solid $color-global-light-primary-40;
-                        border-bottom: 1px solid $color-global-light-primary-40;
-                    }
-                    &:hover {
-                        background-color: $color-global-light-primary-40;
-                    }
-                    &:focus {
-                        background-color: $color-global-primary-000;
-                    }
-                } 
-            }
-            &.#{$prefix}tab-nav-line {
-                &:before {
-                    right: 0;
-                    left: auto;
-                    top: 4px;
-                    bottom: 4px;
-                    border-radius: 3px;
-                }
-                & li {
-                    margin-bottom: 2px;
-                    & a {
-                        border: 0;
-                        &:before {
-                            right: 0;
-                            left: auto;
-                            top: 0;
-                            bottom: 0;
-                            border-radius: 3px;
-                        }
-                    }
-                }
-            }
+  .#{variables-addon.$prefix}tab-vertical {
+    display: flex;
+    flex-direction: row;
+
+    & .#{variables-addon.$prefix}tab-nav {
+      flex: 0 0 25%;
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      & div, & li {
+        margin-bottom: 2px;
+        margin-right: 0;
+        font-size: 16px;
+
+        & a {
+          border-right: 0;
+          position: relative;
+          justify-content: left;
+          padding: 8px 16px;
+
+          &:before {
+            right: auto;
+            bottom: 0;
+            border-radius: 3px 0 0 3px;
+          }
+
+          &[aria-selected='true'] {
+            border-top: 1px solid variables.$color-global-light-primary-40;
+            border-bottom: 1px solid variables.$color-global-light-primary-40;
+          }
+
+          &:hover {
+            background-color: variables.$color-global-light-primary-40;
+          }
+
+          &:focus {
+            background-color: variables.$color-global-primary-000;
+          }
         }
-        & .#{$prefix}tab-content .#{$prefix}tab-item {
-            padding: 0 8px;
-            margin-left: 8px;
+      }
+
+      &.#{variables-addon.$prefix}tab-nav-line {
+        &:before {
+          right: 0;
+          left: auto;
+          top: 4px;
+          bottom: 4px;
+          border-radius: 3px;
         }
+
+        & div, & li {
+          margin-bottom: 2px;
+
+          & a {
+            border: 0;
+
+            &:before {
+              right: 0;
+              left: auto;
+              top: 0;
+              bottom: 0;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
     }
+
+    &
+    .#{variables-addon.$prefix}tab-content
+    .#{variables-addon.$prefix}tab-item {
+      padding: 0 8px;
+      margin-left: 8px;
+    }
+  }
 }
 
 // Tab control
-.#{$prefix}tab-control {
-    display: none;
+.#{variables-addon.$prefix}tab-control {
+  display: none;
 }
-.#{$prefix}tab-scroll {
-    .#{$prefix}tab-nav {
-        margin: 0 48px;
-        padding: 4px 0;
-        overflow: hidden;
-    }
-    & .#{$prefix}tab-control {
-        position: absolute;
-        top: 5px;
-        left: 0;
-        right: 0;
-        height: 54px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+
+.#{variables-addon.$prefix}tab-scroll {
+  .#{variables-addon.$prefix}tab-nav {
+    margin: 0 48px;
+    padding: 4px 0;
+    overflow: hidden;
+  }
+
+  & .#{variables-addon.$prefix}tab-control {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 // Tab into collapse
-.#{$prefix}title-bar-collapse {
-    .#{$prefix}tab-nav {
-        padding: 0;
-        overflow: hidden;
-    }
-    .#{$prefix}tab-scroll .#{$prefix}tab-control {
-        top: 24px;
-        left: 24px;
-        right: 24px;
-    }
-    & .#{$prefix}tab-body {
-        background-color: white;
-    }
-    & .#{$prefix}tab .#{$prefix}tab-content .#{$prefix}tab-item {
-        padding: 0;
-    }
+.#{variables-addon.$prefix}title-bar-collapse {
+  .#{variables-addon.$prefix}tab-nav {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .#{variables-addon.$prefix}tab-scroll
+  .#{variables-addon.$prefix}tab-control {
+    top: 24px;
+    left: 24px;
+    right: 24px;
+  }
+
+  & .#{variables-addon.$prefix}tab-body {
+    background-color: white;
+  }
+
+  &
+  .#{variables-addon.$prefix}tab
+  .#{variables-addon.$prefix}tab-content
+  .#{variables-addon.$prefix}tab-item {
+    padding: 0;
+  }
 }
 
-[data-sirio-keyboard="true"] .#{$prefix}tab-nav li a:focus {
-    box-shadow: inset 0 0 0 1px $color-alias-interactive-border-focus;
+.#{variables-addon.$prefix}tab-nav li a:focus-visible,
+.#{variables-addon.$prefix}tab-nav div a:focus-visible {
+  box-shadow: inset 0 0 0 1px variables.$color-alias-interactive-border-focus;
+  outline: none !important;
 }
 
-.#{$prefix}tab-item {
-    opacity: 1;
-    animation: fadeIn 1s;
-    &[data-sirio-visible="false"] {
-        display: none;
-        opacity: 0;
-    }
+.#{variables-addon.$prefix}tab-item {
+  opacity: 1;
+  animation: fadeIn 1s;
+
+  &[data-sirio-visible='false'] {
+    display: none;
+    opacity: 0;
+  }
 }
+
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

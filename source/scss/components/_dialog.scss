@@ -1,6 +1,9 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Dialog
-.#{$prefix}dialog {
-    background-color: $color-alias-overlay-90-dark-primary-120;
+.#{variables-addon.$prefix}dialog {
+    background-color: variables.$color-alias-overlay-90-dark-primary-120;
     position: fixed;
     top: 0;
     left: 0;
@@ -10,12 +13,9 @@
     overflow: auto;
     outline: 0;
     opacity: 1;
-    animation: fadeIn .5s;
-}
+    animation: fadeIn 0.5s;
 
-// Animazione
-.#{$prefix}dialog {
-    & .#{$prefix}dialog-content {
+    & .#{variables-addon.$prefix}dialog-content {
         opacity: 1;
         animation: fadeInContent 1s;
     }
@@ -24,13 +24,20 @@
         opacity: 0;
     }
 }
+
 @keyframes fadeInContent {
-    0% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-.#{$prefix}dialog-wrapper {
+.#{variables-addon.$prefix}dialog-wrapper {
     position: relative;
     width: auto;
     margin: 0.5rem;
@@ -39,34 +46,34 @@
     display: flex;
     align-items: center;
 }
-.#{$prefix}dialog-content {
+.#{variables-addon.$prefix}dialog-content {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: $color-global-primary-000;
+    background-color: variables.$color-global-primary-000;
     background-clip: padding-box;
     outline: 0;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: $elevation-elevation-04;
+    box-shadow: variables.$elevation-elevation-04;
     height: auto;
 }
-.#{$prefix}dialog-header {
+.#{variables-addon.$prefix}dialog-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 16px;
-    & .#{$prefix}btn-close {
+    & .#{variables-addon.$prefix}btn-close {
         padding: 12px 12px;
         margin: -16px 0 -16px auto;
         opacity: 1;
         font-size: 24px;
     }
 }
-.#{$prefix}dialog-title {
-    color: #454D56;
+.#{variables-addon.$prefix}dialog-title {
+    color: #454d56;
     font-size: 1.5rem;
     line-height: 2.25rem;
     font-weight: 700;
@@ -75,29 +82,30 @@
     & .fas {
         font-size: 24px;
         display: block;
-        color: $color-global-primary-100;
+        color: variables.$color-global-primary-100;
         margin-bottom: 16px;
     }
 }
-.#{$prefix}dialog-footer {
+.#{variables-addon.$prefix}dialog-footer {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
     flex-direction: column;
     padding-top: 16px;
-    & .#{$prefix}btn {
+    & .#{variables-addon.$prefix}btn {
         width: 100%;
         margin: 0 0 16px;
     }
 }
-.#{$prefix}dialog-scroll {
+.#{variables-addon.$prefix}dialog-scroll {
     height: calc(100% - 48px);
-    & .#{$prefix}dialog-content {
+    & .#{variables-addon.$prefix}dialog-content {
         height: 100%;
     }
-    & .#{$prefix}dialog-body {
-        outline: 1px solid $color-specific-data-entry-border-color-default;
+    & .#{variables-addon.$prefix}dialog-body {
+        outline: 1px solid
+            variables.$color-specific-data-entry-border-color-default;
         outline-offset: 2px;
         border-radius: 4px;
         overflow: hidden;
@@ -108,56 +116,56 @@
 }
 
 @media (min-width: 576px) {
-    .#{$prefix}dialog-wrapper {
+    .#{variables-addon.$prefix}dialog-wrapper {
         max-width: 600px;
         margin: 24px auto;
         min-height: calc(100% - 48px);
     }
-    .#{$prefix}dialog-sm {
+    .#{variables-addon.$prefix}dialog-sm {
         max-width: 300px;
     }
-    .#{$prefix}dialog-lg {
+    .#{variables-addon.$prefix}dialog-lg {
         max-width: 800px;
     }
-    .#{$prefix}dialog-xl {
+    .#{variables-addon.$prefix}dialog-xl {
         max-width: 1140px;
     }
-    .#{$prefix}dialog-content {
+    .#{variables-addon.$prefix}dialog-content {
         padding: 32px;
         margin: 0 24px;
     }
-    .#{$prefix}dialog-header {
+    .#{variables-addon.$prefix}dialog-header {
         padding: 0 0 32px;
     }
-    .#{$prefix}dialog-title .fas {
+    .#{variables-addon.$prefix}dialog-title .fas {
         font-size: 32px;
         margin-bottom: 24px;
     }
-    .#{$prefix}dialog-footer {
+    .#{variables-addon.$prefix}dialog-footer {
         padding: 32px 0 0;
         flex-direction: row;
     }
-    .#{$prefix}dialog-footer .#{$prefix}btn {
+    .#{variables-addon.$prefix}dialog-footer .#{variables-addon.$prefix}btn {
         width: auto;
-        & + .#{$prefix}btn{
+        & + .#{variables-addon.$prefix}btn {
             margin-left: 24px;
         }
     }
 }
 
 // Dialog fullscreen
-.#{$prefix}dialog-full {
+.#{variables-addon.$prefix}dialog-full {
     animation: none;
-    & .#{$prefix}dialog-wrapper {
+    & .#{variables-addon.$prefix}dialog-wrapper {
         margin: 0;
         height: 100%;
         max-width: 100%;
-        & .#{$prefix}dialog-content {
+        & .#{variables-addon.$prefix}dialog-content {
             height: 100vh;
             border-radius: 0;
             animation: none;
             margin: 0;
-            & .#{$prefix}dialog-body {
+            & .#{variables-addon.$prefix}dialog-body {
                 overflow-y: auto;
                 overflow-x: hidden;
                 position: relative;

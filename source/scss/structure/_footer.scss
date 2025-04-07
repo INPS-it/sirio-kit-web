@@ -1,57 +1,60 @@
+@use '../variables';
+@use '../variables-addon';
+
 // Footer
-.#{$prefix}footer {
-    background-color: $color-global-dark-primary-120;
-    color: $color-alias-text-color-primary-light-0;
+.#{variables-addon.$prefix}footer {
+    background-color: variables.$color-global-dark-primary-120;
+    color: variables.$color-alias-text-color-primary-light-0;
 
     & .container-fluid {
         padding: 16px 24px;
     }
-    & .#{$prefix}footer-action {
-        background-color: $color-global-dark-primary-115;
+    & .#{variables-addon.$prefix}footer-action {
+        background-color: variables.$color-global-dark-primary-115;
         @media (max-width: 576px) {
-            .#{$prefix}btn {
+            .#{variables-addon.$prefix}btn {
                 width: 100%;
             }
         }
     }
-    & .#{$prefix}footer-feedback {
+    & .#{variables-addon.$prefix}footer-feedback {
         @media (max-width: 576px) {
             .h5 {
-                font-size: #{$typography-alias-h6-md-size-05}px;
-                line-height: #{$typography-alias-h6-md-line-height-05}px;
+                font-size: #{variables.$typography-alias-h6-md-size-05}px;
+                line-height: #{variables.$typography-alias-h6-md-line-height-05}px;
             }
         }
     }
 
-    .#{$prefix}footer-grid {
+    .#{variables-addon.$prefix}footer-grid {
         padding: 0 0 16px 0;
         display: grid;
         grid-template-columns: auto 1fr 1fr;
         gap: 8px;
         grid-auto-flow: row;
         grid-template-areas:
-            "social social social"
-            "logo address address";
+            'social social social'
+            'logo address address';
     }
-    .#{$prefix}footer-social {
+    .#{variables-addon.$prefix}footer-social {
         grid-area: social;
     }
-    .#{$prefix}footer-logo {
+    .#{variables-addon.$prefix}footer-logo {
         grid-area: logo;
         & img {
             width: 85px;
-            margin-top: .25rem;
+            margin-top: 0.25rem;
             margin-right: 1rem;
         }
     }
-    .#{$prefix}footer-address {
+    .#{variables-addon.$prefix}footer-address {
         grid-area: address;
         & p {
             margin: 0;
         }
     }
-    .#{$prefix}footer-sitemap {
-        border-bottom: 1px solid $color-global-dark-primary-115;
+    .#{variables-addon.$prefix}footer-sitemap {
+        border-bottom: 1px solid variables.$color-global-dark-primary-115;
         & .container-fluid {
             padding: 0;
         }
@@ -73,42 +76,42 @@
             font-weight: 700;
             margin-bottom: 11px;
         }
-        & .#{$prefix}list-unstyled li {
+        & .#{variables-addon.$prefix}list-unstyled li {
             margin-bottom: 8px;
         }
         & .col-12 {
             position: relative;
         }
-        & .#{$prefix}accordion-header {
-            border-top: 1px solid $color-global-dark-primary-115;
-            border-bottom: 1px solid $color-global-dark-primary-115;
-            & .#{$prefix}accordion-trigger {
+        & .#{variables-addon.$prefix}accordion-header {
+            border-top: 1px solid variables.$color-global-dark-primary-115;
+            border-bottom: 1px solid variables.$color-global-dark-primary-115;
+            & .#{variables-addon.$prefix}accordion-trigger {
                 background-color: transparent;
                 border-color: transparent;
                 padding: 24px 0;
-        
+
                 &:hover,
                 &:active {
                     background-color: transparent;
-                    border-color: transparent
+                    border-color: transparent;
                 }
             }
         }
-        & .#{$prefix}accordion-body {
-            border-bottom: 1px solid $color-global-dark-primary-115;
+        & .#{variables-addon.$prefix}accordion-body {
+            border-bottom: 1px solid variables.$color-global-dark-primary-115;
             & > .h6 {
                 padding-top: 16px !important;
             }
         }
     }
-    .#{$prefix}footer-copy {
-        background-color: $color-global-dark-primary-115;
+    .#{variables-addon.$prefix}footer-copy {
+        background-color: variables.$color-global-dark-primary-115;
         & .container-fluid {
             padding: 16px 32px;
-        }  
+        }
         &:before {
-            content: "";
-            background-color: $color-global-dark-primary-115;
+            content: '';
+            background-color: variables.$color-global-dark-primary-115;
             height: 1px;
             display: block;
             margin: 0 32px;
@@ -116,24 +119,25 @@
     }
 
     @media (min-width: 992px) {
-        .#{$prefix}footer-grid {
+        .#{variables-addon.$prefix}footer-grid {
             padding: 16px 0;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas:
-                "logo logo address"
-                "logo logo social";
+                'logo logo address'
+                'logo logo social';
         }
-        .#{$prefix}footer-address br {
+        .#{variables-addon.$prefix}footer-address br {
             display: none;
         }
-        .#{$prefix}footer-social > * {
+        .#{variables-addon.$prefix}footer-social > * {
             margin: 0;
         }
-        .#{$prefix}footer-sitemap {
+        .#{variables-addon.$prefix}footer-sitemap {
             margin-bottom: 8px;
             padding-top: 32px;
             padding-bottom: 32px;
-            & > .h5, & > .h6 {
+            & > .h5,
+            & > .h6 {
                 padding-top: 0 !important;
             }
             & .container-fluid {
@@ -142,15 +146,21 @@
             & .container-fluid > .row > * {
                 padding: 0 8px;
             }
-            & .#{$prefix}btn.#{$prefix}btn-icon {
+            &
+                .#{variables-addon.$prefix}btn.#{variables-addon.$prefix}btn-icon {
                 display: none;
             }
-            & [data-sirio-visible="false"] {
+            & [data-sirio-visible='false'] {
                 display: block;
             }
-            & .#{$prefix}accordion-body {
+            & .#{variables-addon.$prefix}accordion-body {
                 border: 0;
             }
         }
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+        outline-color: variables.$color-alias-interactive-accent-focus !important;
     }
 }

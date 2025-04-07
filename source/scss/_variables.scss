@@ -1,4 +1,3 @@
-
 // Do not edit directly
 // Generated on Tue, 17 Sep 2024 13:42:01 GMT
 
@@ -43,9 +42,22 @@ $color-global-semantic-info-100: #2f6dd5;
 $color-global-semantic-alert-110: #7f1a3b;
 $color-global-semantic-alert-120: #551128;
 $color-global-semantic-alert-130: #3f0d1b;
-$color-global-gradient-01: linear-gradient(90deg, rgba(47, 109, 213, 1) 0%, rgba(24, 206, 231, 1) 100%);
-$color-global-gradient-02: linear-gradient(-90deg, rgba(0, 36, 96, 1) 0%, rgba(47, 109, 213, 1) 50%, rgba(24, 206, 231, 1) 100%);
-$color-global-gradient-03: linear-gradient(90deg, rgba(47, 109, 213, 1) 0%, rgba(0, 36, 96, 1) 100%);
+$color-global-gradient-01: linear-gradient(
+    90deg,
+    rgba(47, 109, 213, 1) 0%,
+    rgba(24, 206, 231, 1) 100%
+);
+$color-global-gradient-02: linear-gradient(
+    -90deg,
+    rgba(0, 36, 96, 1) 0%,
+    rgba(47, 109, 213, 1) 50%,
+    rgba(24, 206, 231, 1) 100%
+);
+$color-global-gradient-03: linear-gradient(
+    90deg,
+    rgba(47, 109, 213, 1) 0%,
+    rgba(0, 36, 96, 1) 100%
+);
 $color-alias-interactive-accent-default: #18cee7;
 $color-alias-interactive-accent-hover: #8ce7f3;
 $color-alias-interactive-accent-focus: #18cee7;
@@ -95,8 +107,17 @@ $color-alias-background-color-secondary-dark-120: #17191c;
 $color-alias-background-color-secondary-dark-125: #0b0d0e;
 $color-alias-background-color-secondary-dark-130: #000000;
 $color-alias-interactive-border-focus: #0065d1;
-$color-alias-gradient-accent-primary-dark: linear-gradient(-90deg, rgba(0, 36, 96, 1) 0%, rgba(47, 109, 213, 1) 50%, rgba(24, 206, 231, 1) 100%);
-$color-alias-gradient-accent-primary: linear-gradient(90deg, rgba(47, 109, 213, 1) 0%, rgba(24, 206, 231, 1) 100%);
+$color-alias-gradient-accent-primary-dark: linear-gradient(
+    -90deg,
+    rgba(0, 36, 96, 1) 0%,
+    rgba(47, 109, 213, 1) 50%,
+    rgba(24, 206, 231, 1) 100%
+);
+$color-alias-gradient-accent-primary: linear-gradient(
+    90deg,
+    rgba(47, 109, 213, 1) 0%,
+    rgba(24, 206, 231, 1) 100%
+);
 $color-alias-overlay-90-dark-primary-120: rgba(0, 23, 61, 0.9);
 $color-alias-overlay-15-secondary-100: rgba(69, 77, 86, 0.15);
 $color-alias-overlay-25-primary-000: rgba(255, 255, 255, 0.25);
@@ -128,8 +149,17 @@ $color-specific-option-background-color-hover: #00368f;
 $color-specific-option-background-color-focus: #2f6dd5;
 $color-specific-option-background-color-pressed: #00173d;
 $color-specific-option-background-color-valued: #2f6dd5;
-$color-specific-progressbar-background-color: linear-gradient(-90deg, rgba(0, 36, 96, 1) 0%, rgba(47, 109, 213, 1) 50%, rgba(24, 206, 231, 1) 100%);
-$color-specific-card-overlay-gradient-img: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+$color-specific-progressbar-background-color: linear-gradient(
+    -90deg,
+    rgba(0, 36, 96, 1) 0%,
+    rgba(47, 109, 213, 1) 50%,
+    rgba(24, 206, 231, 1) 100%
+);
+$color-specific-card-overlay-gradient-img: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+);
 $typography-global-font-family-01: Titillium Web;
 $typography-global-font-family-02: Lora;
 $typography-global-font-family-03: Roboto Mono;
