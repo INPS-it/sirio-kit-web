@@ -1,0 +1,1 @@
+var SirioConfig=[{component:"SirioBase",idServizio:200,host:"#{HOST_API}#",cacheExpiration:30,debug:!1,enableEvent:!0,enableLifecycleEvent:!1}];

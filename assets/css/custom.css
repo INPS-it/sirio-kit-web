@@ -1,0 +1,91 @@
+#guide-home-link a {
+    text-transform: unset;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#guide-home-link a:after {
+    content: "\f015";
+    font-family: "Font Awesome 6 Free", serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 1rem
+}
+
+#guidewc-menu-link a {
+    text-transform: unset;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#guidewc-menu-link a:after {
+    content: "\f08e";
+    font-family: "Font Awesome 6 Free", serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 1rem
+}
+
+#guide-menu-link a {
+    text-transform: unset;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#guide-menu-link a:after {
+    content: "\f08e";
+    font-family: "Font Awesome 6 Free", serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 1rem
+}
+
+#guide-home-changelog a {
+    text-transform: unset;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#guide-home-changelog a:after {
+    content: "\f015";
+    font-family: "Font Awesome 6 Free", serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 1rem
+}
+
+#guide-menu-changelog a {
+    text-transform: unset;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#guide-menu-changelog a:after {
+    content: "\f08e";
+    font-family: "Font Awesome 6 Free", serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 1rem
+}
+
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#btn-back-to-back {
+    position: fixed;
+    bottom: 20px;
+    right: 400px;
+}
+
+.container-xxl {
+    margin-bottom: 10%!important;
+}
