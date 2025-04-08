@@ -1,403 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Guida utilizzo Web KIT SIRIO">
-  <title>Home - Sirio Webkit</title>
-
-  <!-- CSS Plugin -->
-  <link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../assets/css/datepicker.min.css">
-  <link rel="stylesheet" href="../assets/css/splide.min.css">
-
-  <!-- CSS Fonts -->
-  <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../assets/css/font-titillium-web.css">
-  <link rel="stylesheet" href="../assets/css/font-lora.css">
-  <link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
-
-  <!-- CSS UIKit -->
-  <link rel="stylesheet" href="../assets/css/webkit.min.css">
-
-  <!-- CSS Guida -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
-  <link rel="stylesheet" href="../assets/css/guide.css">
-  <link rel="stylesheet" href="../guide/css/guidewk.css">
-
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="../assets/img/favicon/manifest.json" crossorigin="use-credentials">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="description" content="Guida utilizzo Web KIT SIRIO">
+    <title>Home - Sirio Webkit</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../assets/css/datepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/splide.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-titillium-web.css">
+    <link rel="stylesheet" href="../assets/css/font-lora.css">
+    <link rel="stylesheet" href="../assets/css/font-roboto-mono.css">
+    <link rel="stylesheet" href="../assets/css/webkit.min.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/guide.css">
+    <link rel="stylesheet" href="../guide/css/guidewk.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/favicon/manifest.json" crossorigin="use-credentials">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <div class="guide-wrapper">
-  <div class="guide-container">
-    <div class="guide-flex">
-      <aside class="guide-aside">
-        <div class="guide-sticky">
-
-          <header class="guide-header">
-            <h1><a href="../index.html"><img class="guide-logo" alt="" src="../assets/img/logo-inps.svg"></a>
-              <span><strong>Sirio</strong> WebKit <small></small></span></h1>
-            <button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"><span
-                class="fas fa-bars"></span></button>
-          </header>
-
-          <nav aria-label="Menu dei componenti" class="guide-nav">
-            <div class="guide-row">
-              <div class="guide-col">
-                <h2 class="guide-title">Menu Sirio Webkit</h2>
-              </div>
-              <div class="guide-col-auto">
-                <button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');"><span
-                    class="fas fa-times"></span></button>
-              </div>
-            </div>
-            <ul id="guide-nav">
-              <li>
-                <a href="#nav-structure">
-                  Struttura
-                </a>
-                <ul id="nav-structure">
-                  <li><a href="./components-structure.html#page">Pagina</a></li>
-                  <li><a href="./components-structure.html#javascript">Javascript</a></li>
-                  <li><a href="./components-structure.html#grid">System Grid</a></li>
-                  <li><a href="./components-structure.html#headercmp">Header</a></li>
-                  <li><a href="./components-structure.html#footercmp">Footer</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#nav-typography">
-                  Tipografia
-                </a>
-                <ul id="nav-typography">
-                  <li><a href="./components-typography.html#font">Font</a></li>
-                  <li><a href="./components-typography.html#heading">Heading</a></li>
-                  <li><a href="./components-typography.html#colors">Colori</a></li>
-                  <li><a href="./components-typography.html#icons">Icone</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#nav-contents">
-                  Contenuto
-                </a>
-                <ul id="nav-contents">
-                  <li><a href="./components-contents.html#breadcrumb">Breadcrumb</a></li>
-                  <li><a href="./components-contents.html#dropdown">Dropdown</a></li>
-                  <li><a href="./components-contents.html#card">Card</a></li>
-                  <li><a href="./components-contents.html#tag">Tag</a></li>
-                  <li><a href="./components-contents.html#tab">Tab</a></li>
-                  <li><a href="./components-contents.html#collapse">Collapse</a></li>
-                  <li><a href="./components-contents.html#accordion">Accordion</a></li>
-                  <li><a href="./components-contents.html#sidenav">Menu Spalla</a></li>
-                  <li><a href="./components-contents.html#title-bar">Title Bar</a></li>
-                  <li><a href="./components-contents.html#tabelle">Tabelle</a></li>
-                  <li><a href="./components-contents.html#paginazione">Paginazione</a></li>
-                  <li><a href="./components-contents.html#tooltip">Tooltip</a></li>
-                  <li><a href="./components-contents.html#dialog">Dialog</a></li>
-                  <li><a href="./components-contents.html#notifiche">Notifiche</a></li>
-                  <li><a href="./components-contents.html#avvisi">Avvisi</a></li>
-                  <li><a href="./components-contents.html#stepper">Step Progress Bar</a></li>
-                  <li><a href="./components-contents.html#hero">Hero</a></li>
-                  <li><a href="./components-contents.html#carousel">Carousel</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#nav-form">
-                  Form
-                </a>
-                <ul id="nav-form">
-                  <li><a href="./components-form.html#bottoni">Bottoni</a></li>
-                  <li><a href="./components-form.html#input">Input</a></li>
-                  <li><a href="./components-form.html#input-group">Input Group</a></li>
-                  <li><a href="./components-form.html#selectDropdown">Dropdown Select</a></li>
-                  <li><a href="./components-form.html#autocomplete">Autocomplete</a></li>
-                  <li><a href="./components-form.html#searchbar">Searchbar</a></li>
-                  <li><a href="./components-form.html#selezione">Selezione</a></li>
-                  <li><a href="./components-form.html#fileupload">File Upload</a></li>
-                  <li><a href="./components-form.html#slider">Slider</a></li>
-                  <li><a href="./components-form.html#datepicker">Date & Time Picker</a></li>
-                  <li><a href="./components-form.html#chip">Chip</a></li>
-                  <li><a href="./components-form.html#progress">Progress Bar</a></li>
-                  <li><a href="./components-form.html#validation">Validazione</a></li>
-                  <li><a href="./components-form.html#filter">Filtri</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#nav-template">
-                  Template
-                </a>
-                <ul id="nav-template">
-                  <li><a href="./components-template.html#intro">Introduzione</a></li>
-                  <li><a href="./components-template.html#landing">Landing Page</a></li>
-                  <li><a href="./components-template.html#nav">Navigazione</a></li>
-                  <li><a href="./components-template.html#list">Lista dati</a></li>
-                  <li><a href="./components-template.html#summary">Riepilogo Dati</a></li>
-                  <li><a href="./components-template.html#news">Notizie</a></li>
-                  <li><a href="./components-template.html#wizard">Wizard</a></li>
-                  <li><a href="./components-template.html#form">Form</a></li>
-                  <li><a href="./components-template.html#areas">Aree tematiche</a></li>
-                  <li><a href="./components-template.html#search">Ricerca</a></li>
-                  <li><a href="./components-template.html#faq">FAQ</a></li>
-                  <li><a href="./components-template.html#diagnostic">Diagnostico</a></li>
-                  <li><a href="./components-template.html#disclaimer">Disclaimer</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul style="padding-top:0px;padding-bottom:0px" id="guide-menu-link">
-              <li><a href="../guidewc/index.html">Web Components</a></li>
-            </ul>
-            <ul id="guide-home-link" tyle="padding-top:0px;padding-bottom:0px">
-              <li><a href="../index.html">Torna alla home</a></li>
-            </ul>
-          </nav>
+    <div class="guide-container">
+        <div class="guide-flex">
+            <aside class="guide-aside">
+                <div class="guide-sticky">
+                    <header class="guide-header"><h1><a href="index.html"><img class="guide-logo" alt=""
+                                                                                  src="../assets/img/logo-inps.svg"></a><span><strong>Sirio</strong> WebKit <small></small></span>
+                    </h1>
+                        <button class="guide-btn guide-btn-icon guide-btn-menu"
+                                onclick="$('.guide-nav').addClass('open');"><span class="fas fa-bars"></span></button>
+                    </header>
+                    <nav aria-label="Menu dei componenti" class="guide-nav">
+                        <div class="guide-row">
+                            <div class="guide-col"><h2 class="guide-title">Menu Sirio Webkit</h2></div>
+                            <div class="guide-col-auto">
+                                <button class="guide-btn guide-btn-icon" onclick="$('.guide-nav').removeClass('open');">
+                                    <span class="fas fa-times"></span></button>
+                            </div>
+                        </div>
+                        <ul id="guide-nav">
+                            <li><a href="#nav-structure">Struttura</a>
+                                <ul id="nav-structure">
+                                    <li><a href="./components-structure.html#page">Pagina</a></li>
+                                    <li><a href="./components-structure.html#javascript">Javascript</a></li>
+                                    <li><a href="./components-structure.html#grid">System Grid</a></li>
+                                    <li><a href="./components-structure.html#headercmp">Header</a></li>
+                                    <li><a href="./components-structure.html#footercmp">Footer</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#nav-typography">Tipografia</a>
+                                <ul id="nav-typography">
+                                    <li><a href="./components-typography.html#font">Font</a></li>
+                                    <li><a href="./components-typography.html#heading">Heading</a></li>
+                                    <li><a href="./components-typography.html#colors">Colori</a></li>
+                                    <li><a href="./components-typography.html#icons">Icone</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#nav-contents">Contenuto</a>
+                                <ul id="nav-contents">
+                                    <li><a href="./components-contents.html#breadcrumb">Breadcrumb</a></li>
+                                    <li><a href="./components-contents.html#dropdown">Dropdown</a></li>
+                                    <li><a href="./components-contents.html#card">Card</a></li>
+                                    <li><a href="./components-contents.html#tag">Tag</a></li>
+                                    <li><a href="./components-contents.html#tab">Tab</a></li>
+                                    <li><a href="./components-contents.html#collapse">Collapse</a></li>
+                                    <li><a href="./components-contents.html#accordion">Accordion</a></li>
+                                    <li><a href="./components-contents.html#sidenav">Menu Spalla</a></li>
+                                    <li><a href="./components-contents.html#title-bar">Title Bar</a></li>
+                                    <li><a href="./components-contents.html#tabelle">Tabelle</a></li>
+                                    <li><a href="./components-contents.html#paginazione">Paginazione</a></li>
+                                    <li><a href="./components-contents.html#tooltip">Tooltip</a></li>
+                                    <li><a href="./components-contents.html#dialog">Dialog</a></li>
+                                    <li><a href="./components-contents.html#notifiche">Notifiche</a></li>
+                                    <li><a href="./components-contents.html#avvisi">Avvisi</a></li>
+                                    <li><a href="./components-contents.html#stepper">Step Progress Bar</a></li>
+                                    <li><a href="./components-contents.html#hero">Hero</a></li>
+                                    <li><a href="./components-contents.html#carousel">Carousel</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#nav-form">Form</a>
+                                <ul id="nav-form">
+                                    <li><a href="./components-form.html#bottoni">Bottoni</a></li>
+                                    <li><a href="./components-form.html#input">Input</a></li>
+                                    <li><a href="./components-form.html#input-group">Input Group</a></li>
+                                    <li><a href="./components-form.html#selectDropdown">Dropdown Select</a></li>
+                                    <li><a href="./components-form.html#autocomplete">Autocomplete</a></li>
+                                    <li><a href="./components-form.html#searchbar">Searchbar</a></li>
+                                    <li><a href="./components-form.html#selezione">Selezione</a></li>
+                                    <li><a href="./components-form.html#fileupload">File Upload</a></li>
+                                    <li><a href="./components-form.html#slider">Slider</a></li>
+                                    <li><a href="./components-form.html#datepicker">Date & Time Picker</a></li>
+                                    <li><a href="./components-form.html#chip">Chip</a></li>
+                                    <li><a href="./components-form.html#progress">Progress Bar</a></li>
+                                    <li><a href="./components-form.html#validation">Validazione</a></li>
+                                    <li><a href="./components-form.html#filter">Filtri</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="guide-home-link" tyle="padding-top:0px;padding-bottom:0px">
+                            <li><a href="index.html">Torna alla home</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <main class="guide-main"><h2 class="guide-title">Introduzione</h2>
+                <div class="p-4"><p>La libreria SirioWebKit permette di realizzare interfacce web per l'INPS seguendo i
+                    pattern e i componenti definiti nello UI Kit del <a href="https://www.inps.design/" target="_blank"
+                                                                        rel="noopener">Design System Sirio</a>.</p>
+                    <p>L'approccio agnostico della libreria permette la coesistenza con altre librerie limitando
+                        eventuali conflitti.</p></div>
+                <br>
+                <section class="guide-section"><h3 class="guide-title">Changelog</h3><h4 class="guide-title">v.
+                    8.2.1</h4>
+                    <div class="changelog" id="changelog-btn-sirio-8-2-1">
+                        <ul>
+                            <li><strong>js</strong>\SirioDialog, SirioDropdownAutocomplete, SirioDropdownMenu,
+                                SirioDropdownSelect, SirioFileUpload and SirioTimePicker (fix bug on manual
+                                inizialization of component)
+                            </li>
+                            <li><strong>form</strong>\TimePicker (type: button on increment/decrement arrow-button)</li>
+                            <li><strong>tipografia</strong>`font-size` (Aggiornata l’unità di misura da px a rem)</li>
+                            <li><strong>contenuto</strong>\Implementato su di <code>focus-visible</code> (In
+                                sostituzione del <em>workaround</em> del <code>dataSirioKeyboardHandler</code>)
+                            </li>
+                            <li><strong>contenuto</strong>\Paginazione (Migliorata accessibilità a screen-reader)</li>
+                            <li><strong>contenuto</strong>\Bottoni (Rimosso <code>role="menu"</code> dove errato)</li>
+                            <li><strong>struttura</strong>\Search input (Assegnato <code>type="search"</code>)</li>
+                            <li><strong>contenuto</strong>\Tab (Risolto problema di accessibilità, ammesso anche uso di
+                                <code>div</code> al posto di <code>ul</code>)
+                            </li>
+                            <li><strong>contenuto</strong>\Tabella (Aggiunta funzionalità tabella espandibile)</li>
+                            <li><strong>contenuto</strong>\DropdownMenu (Migliorata accessibilità)</li>
+                            <li><strong>contenuto</strong>\DropdownSelect (Migliorata accessibilità)</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 8.2.0</h4>
+                    <div class="changelog" id="changelog-btn-sirio-8-2-0">
+                        <ul>
+                            <li>**contenuto**\Tabella Sorting (modified html)</li>
+                            <li>**contenuto**\Paginazione (modified html)</li>
+                            <li>**contenuto**\Filtri selezionati (modified html)</li>
+                            <li>**contenuto**\Dialog (deleted role attribute)</li>
+                            <li>**contenuto**\Dialog (add noevent property on hide method)</li>
+                            <li>**form**\Checkbox (add padding inline)</li>
+                            <li>**template**\Landing Page</li>
+                            <li>**template**\Navigazione</li>
+                            <li>**template**\Lista dati</li>
+                            <li>**template**\Riepilogo Dati</li>
+                            <li>**template**\Notizie</li>
+                            <li>**template**\Wizard</li>
+                            <li>**template**\Form</li>
+                            <li>**template**\Ricerca</li>
+                            <li>**template**\FAQ</li>
+                            <li>**template**\Diagnostico</li>
+                            <li>**template**\Disclaimer</li>
+                            <li>**template**\Aree tematiche</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 8.1.0</h4>
+                    <div class="changelog" id="changelog-btn-sirio-8-1-0">
+                        <ul>
+                            <li>**contenuto**\Dropdown detach</li>
+                            <li>**contenuto**\Tab (added methods)</li>
+                            <li>**contenuto**\Table (added section action dropdown)</li>
+                            <li>**contenuto**\Table (added section action sticky)</li>
+                            <li>**contenuto**\Table (added section responsive card)</li>
+                            <li>**form**\File Upload (added method)</li>
+                            <li>**assets**\css\guide.css added class for Table</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 8.0.0</h4>
+                    <div class="changelog" id="changelog-btn-sirio-8-0-0">
+                        <ul>
+                            <li>**struttura**\Header (added megamenu)</li>
+                            <li>**contenuto**\Hero</li>
+                            <li>**contenuto**\Carousel</li>
+                            <li>**assets**\img\new images for hero and megamenu</li>
+                            <li>Bugfixing handle event.key with no data</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 7.0.2</h4>
+                    <div class="changelog" id="changelog-btn-sirio-7-0-2">
+                        <ul>
+                            <li>**tipografia**\Logo (modified)</li>
+                            <li>**tipografia**\Icone (fontawesome v6.4.2)</li>
+                            <li>**tipografia**\Colori (warning modified)</li>
+                            <li>**contenuto**\Tag (warning modified)</li>
+                            <li>**struttura**\Footer (twitter icon modified)</li>
+                            <li>**contenuto**\Tab (getter and setter for buttons added)</li>
+                            <li>**form**\Dropdown Select (selected value aria-label management added)</li>
+                            <li>**form**\Dropdown Select (handle duplication of select issue)</li>
+                            <li>**form**\Dropdown Select (initialization using value attribute)</li>
+                            <li>**form**\Upload (addNewFile method added)</li>
+                            <li>**form**\TimePicker (label handling in aria label)</li>
+                            <li>**javascript**\Propagation of custom events for components initialization</li>
+                            <li>**javascript**\Possibility to disable automatic initialization added</li>
+                            <li>**javascript**\Components classes for manual components initialization exported</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 7.0.1 (2023-10-16)</h4>
+                    <div class="changelog" id="changelog-btn-sirio-7-0-1">
+                        <ul>
+                            <li>Propagation of custom events for DropdownSelect, FileUpload, TimePicker and Datepicker
+                                components
+                            </li>
+                            <li>SirioTimePicker - new keydown event management</li>
+                            <li>**scss**\variables changed</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 7.0.0 (2023-09-15)</h4>
+                    <div class="changelog" id="changelog-btn-sirio-7-0-0">
+                        <ul>
+                            <li>contenuto\Card (header moved)</li>
+                            <li>contenuto\Tab (added nav)</li>
+                            <li>contenuto\Title Bar</li>
+                            <li>contenuto\Tabelle (added drawer)</li>
+                            <li>form\Filtri</li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">v. 6.0.0 (2023-05-19)</h4>
+                    <div class="changelog" id="changelog-btn-sirio-6-0-0">
+                        <ul>
+                            <li>struttura\Header (added submenu mobile)</li>
+                            <li>contenuto\Menu Spalla</li>
+                            <li>contenuto\Avvisi</li>
+                            <li>contenuto\Step Progress Bar (fixed bug hover)</li>
+                            <li>form\Upload (added maximum number of files)</li>
+                            <li>form\Dropdown Select (added reset method)</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="guide-section"><h3 class="guide-title">Licenze</h3>
+                    <ul>
+                        <li><p><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap 5 Grid
+                            System</a>, ©Twitter, Inc., licenza MIT</p></li>
+                        <li><p><a href="https://mymth.github.io/vanillajs-datepicker" target="_blank" rel="noopener">Vanilla
+                            JS Datepicker</a>, licenza MIT</p></li>
+                        <li><p><a href="https://splidejs.com/" target="_blank" rel="noopener">Splide</a>, licenza MIT
+                        </p></li>
+                        <li><p><a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome Free
+                            6.4.2</a> ©Fonticons, Inc., licenza SIL OFL 1.1</p></li>
+                        <li><p><a href="http://nta.accademiadiurbino.it/titillium/" target="_blank" rel="noopener">Font
+                            Titillium Web</a> ©Accademia di Belle Arti di Urbino and students of MA course of Visual
+                            design, Inc., licenza SIL OFL 1.1</p></li>
+                        <li><p><a href="http://www.cyreal.org/fonts/lora/" target="_blank" rel="noopener">Font Lora</a>
+                            ©Cyreal Fonts, licenza SIL OFL 1.1</p></li>
+                        <li><p><a href="https://github.com/googlefonts/robotomono" target="_blank" rel="noopener">Font
+                            Roboto Mono</a> ©The Roboto Mono Project Authors, licenza SIL OFL 1.1</p></li>
+                    </ul>
+                </section>
+                <section class="guide-section"><h3 class="guide-title">Browser supportati</h3>
+                    <ul>
+                        <li>Chrome >= 60</li>
+                        <li>Firefox >= 60</li>
+                        <li>iOS >= 12</li>
+                        <li>Safari >= 12</li>
+                        <li>Edge >= 79</li>
+                        <li>not Explorer &lt;= 11</li>
+                    </ul>
+                </section>
+            </main>
         </div>
-      </aside>
-      <main class="guide-main">
-        <h2 class="guide-title">Introduzione</h2>
-        <div class="p-4">
-          <p>La libreria SirioWebKit permette di realizzare interfacce web per l'INPS seguendo i pattern e i componenti
-            definiti nello UI Kit del <a href="https://www.inps.design/" target="_blank" rel="noopener">Design System
-              Sirio</a>.</p>
-          <p>
-            L'approccio agnostico della libreria permette la coesistenza con altre librerie limitando eventuali
-            conflitti.
-          </p>
-        </div>
-        <br>
-        <section class="guide-section">
-          <h3 class="guide-title">Changelog </h3>
-          <h4 class="guide-title">v. 8.2.1</h4>
-          <div class="changelog" id="changelog-btn-sirio-8-2-1">
-            <ul>
-              <li>
-                <strong>js</strong>\SirioDialog, SirioDropdownAutocomplete, SirioDropdownMenu, SirioDropdownSelect,
-                SirioFileUpload and SirioTimePicker (fix bug on manual inizialization of component)
-              </li>
-              <li>
-                <strong>form</strong>\TimePicker (type: button on increment/decrement arrow-button)
-              </li>
-              <li>
-                <strong>tipografia</strong>`font-size` (Aggiornata l’unità di misura da px a rem)
-              </li>
-              <li>
-                <strong>contenuto</strong>\Implementato su di <code>focus-visible</code> (In sostituzione del <em>workaround</em>
-                del <code>dataSirioKeyboardHandler</code>)
-              </li>
-              <li>
-                <strong>contenuto</strong>\Paginazione (Migliorata accessibilità a screen-reader)
-              </li>
-              <li>
-                <strong>contenuto</strong>\Bottoni (Rimosso <code>role="menu"</code> dove errato)
-              </li>
-              <li>
-                <strong>struttura</strong>\Search input (Assegnato <code>type="search"</code>)
-              </li>
-              <li>
-                <strong>contenuto</strong>\Tab (Risolto problema di accessibilità, ammesso anche uso di <code>div</code>
-                al posto di <code>ul</code>)
-              </li>
-              <li>
-                <strong>contenuto</strong>\Tabella (Aggiunta funzionalità tabella espandibile)
-              </li>
-              <li>
-                <strong>contenuto</strong>\DropdownMenu (Migliorata accessibilità)
-              </li>
-              <li>
-                <strong>contenuto</strong>\DropdownSelect (Migliorata accessibilità)
-              </li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 8.2.0</h4>
-          <div class="changelog" id="changelog-btn-sirio-8-2-0">
-            <ul>
-              <li>**contenuto**\Tabella Sorting (modified html)</li>
-              <li>**contenuto**\Paginazione (modified html)</li>
-              <li>**contenuto**\Filtri selezionati (modified html)</li>
-              <li>**contenuto**\Dialog (deleted role attribute)</li>
-              <li>**contenuto**\Dialog (add noevent property on hide method)</li>
-              <li>**form**\Checkbox (add padding inline)</li>
-              <li>**template**\Landing Page</li>
-              <li>**template**\Navigazione</li>
-              <li>**template**\Lista dati</li>
-              <li>**template**\Riepilogo Dati</li>
-              <li>**template**\Notizie</li>
-              <li>**template**\Wizard</li>
-              <li>**template**\Form</li>
-              <li>**template**\Ricerca</li>
-              <li>**template**\FAQ</li>
-              <li>**template**\Diagnostico</li>
-              <li>**template**\Disclaimer</li>
-              <li>**template**\Aree tematiche</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 8.1.0</h4>
-          <div class="changelog" id="changelog-btn-sirio-8-1-0">
-            <ul>
-              <li>**contenuto**\Dropdown detach</li>
-              <li>**contenuto**\Tab (added methods)</li>
-              <li>**contenuto**\Table (added section action dropdown)</li>
-              <li>**contenuto**\Table (added section action sticky)</li>
-              <li>**contenuto**\Table (added section responsive card)</li>
-              <li>**form**\File Upload (added method)</li>
-              <li>**assets**\css\guide.css added class for Table</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 8.0.0</h4>
-          <div class="changelog" id="changelog-btn-sirio-8-0-0">
-            <ul>
-              <li>**struttura**\Header (added megamenu)</li>
-              <li>**contenuto**\Hero</li>
-              <li>**contenuto**\Carousel</li>
-              <li>**assets**\img\new images for hero and megamenu</li>
-              <li>Bugfixing handle event.key with no data</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 7.0.2</h4>
-          <div class="changelog" id="changelog-btn-sirio-7-0-2">
-            <ul>
-              <li>**tipografia**\Logo (modified)</li>
-              <li>**tipografia**\Icone (fontawesome v6.4.2)</li>
-              <li>**tipografia**\Colori (warning modified)</li>
-              <li>**contenuto**\Tag (warning modified)</li>
-              <li>**struttura**\Footer (twitter icon modified)</li>
-              <li>**contenuto**\Tab (getter and setter for buttons added)</li>
-              <li>**form**\Dropdown Select (selected value aria-label management added)</li>
-              <li>**form**\Dropdown Select (handle duplication of select issue)</li>
-              <li>**form**\Dropdown Select (initialization using value attribute)</li>
-              <li>**form**\Upload (addNewFile method added)</li>
-              <li>**form**\TimePicker (label handling in aria label)</li>
-              <li>**javascript**\Propagation of custom events for components initialization</li>
-              <li>**javascript**\Possibility to disable automatic initialization added</li>
-              <li>**javascript**\Components classes for manual components initialization exported</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 7.0.1 (2023-10-16)</h4>
-          <div class="changelog" id="changelog-btn-sirio-7-0-1">
-            <ul>
-              <li>
-                Propagation of custom events
-                for DropdownSelect, FileUpload, TimePicker and Datepicker components
-              </li>
-              <li>SirioTimePicker - new keydown event management</li>
-              <li>**scss**\variables changed</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 7.0.0 (2023-09-15)</h4>
-          <div class="changelog" id="changelog-btn-sirio-7-0-0">
-            <ul>
-              <li>contenuto\Card (header moved)</li>
-              <li>contenuto\Tab (added nav)</li>
-              <li>contenuto\Title Bar</li>
-              <li>contenuto\Tabelle (added drawer)</li>
-              <li>form\Filtri</li>
-            </ul>
-          </div>
-          <h4 class="guide-title">v. 6.0.0 (2023-05-19)</h4>
-          <div class="changelog" id="changelog-btn-sirio-6-0-0">
-            <ul>
-              <li>struttura\Header (added submenu mobile)</li>
-              <li>contenuto\Menu Spalla</li>
-              <li>contenuto\Avvisi</li>
-              <li>contenuto\Step Progress Bar (fixed bug hover)</li>
-              <li>form\Upload (added maximum number of files)</li>
-              <li>form\Dropdown Select (added reset method)</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="guide-section">
-          <h3 class="guide-title">Licenze</h3>
-          <ul>
-            <li>
-              <p><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap 5 Grid System</a>,
-                ©Twitter, Inc., licenza MIT</p>
-            </li>
-            <li>
-              <p><a href="https://mymth.github.io/vanillajs-datepicker" target="_blank" rel="noopener">Vanilla JS
-                Datepicker</a>, licenza MIT</p>
-            </li>
-            <li>
-              <p><a href="https://splidejs.com/" target="_blank" rel="noopener">Splide</a>, licenza MIT</p>
-            </li>
-            <li>
-              <p><a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome Free 6.4.2</a>
-                ©Fonticons, Inc., licenza SIL OFL 1.1</p>
-            </li>
-            <li>
-              <p>
-                <a href="http://nta.accademiadiurbino.it/titillium/" target="_blank" rel="noopener">Font Titillium
-                  Web</a> ©Accademia di Belle Arti di
-                Urbino and students of MA course of Visual design, Inc., licenza SIL OFL 1.1
-              </p>
-            </li>
-            <li>
-              <p><a href="http://www.cyreal.org/fonts/lora/" target="_blank" rel="noopener">Font Lora</a> ©Cyreal Fonts,
-                licenza SIL OFL 1.1</p>
-            </li>
-            <li>
-              <p>
-                <a href="https://github.com/googlefonts/robotomono" target="_blank" rel="noopener">Font Roboto Mono</a>
-                ©The Roboto Mono Project Authors,
-                licenza SIL OFL 1.1
-              </p>
-            </li>
-          </ul>
-        </section>
-
-        <section class="guide-section">
-          <h3 class="guide-title">Browser supportati</h3>
-          <ul>
-            <li>Chrome >= 60</li>
-            <li>Firefox >= 60</li>
-            <li>iOS >= 12</li>
-            <li>Safari >= 12</li>
-            <li>Edge >= 79</li>
-            <li>not Explorer &lt;= 11</li>
-          </ul>
-        </section>
-      </main>
     </div>
-  </div>
 </div>
-
 <button type="button" class="guide-btn guide-btn-icon" id="guide-scroll-top" title="Torna all'inizio"
-        aria-hidden="true">
-  <span class="fas fa-chevron-up"></span>
-</button>
-
-<!-- JS Webkit -->
+        aria-hidden="true"><span class="fas fa-chevron-up"></span></button>
 <script src="../assets/js/sirio-webkit-min.js"></script>
-
-<!-- JS Guide -->
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/highlight.pack.js"></script>
 <script src="../assets/js/clipboard.min.js"></script>
 <script src="../assets/js/appGuidLogic.js"></script>
-
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", () => {
+<script>document.addEventListener("DOMContentLoaded", () => {
     var guideAppPage = new GuideAppPage();
-    guideAppPage.init(<%= SIRIO_WEB_KIT_VERSION %>); //inject by webpack
-  })
-</script>
-
+    guideAppPage.init("8.2.1"); //inject by webpack
+})</script>
 </body>
 </html>
