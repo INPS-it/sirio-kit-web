@@ -1,4 +1,6 @@
-import {version} from 'version.json'
+//const for VERSION PLEASE update me every realase on github
+const manualVersion = "9.0.0"
+
 class GuideApp {
     static openCollapse(e) {
         let t = e.attr("href").replace("components", "nav");
@@ -1059,7 +1061,7 @@ class GuideAppPage {
         })), $(document).on("click", '.guide-section [href="#"]', (function (e) {
             e.preventDefault()
         })), $(document).ready((function () {
-            let t = e ?? version;
+            let t = manualVersion ? manualVersion: 'INSERT_VERSION_HERE';
             if ($("header small, footer small").html("ver " + t), $(window).on("scroll", (function () {
                 $(this).scrollTop() >= 350 ? $("#guide-scroll-top").fadeIn(200) : $("#guide-scroll-top").fadeOut(200)
             })), $(document).on("click", "#guide-scroll-top", (function (e) {
