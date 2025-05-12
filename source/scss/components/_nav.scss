@@ -232,7 +232,11 @@
         font-weight: 900;
         vertical-align: middle;
         margin-left: 16px;
-        font-size: 24px;
+        font-size: 20px;
+        width: 16px;
+        display: inline-flex;
+        height: 16px;
+        align-items: center;
       }
 
       &[aria-expanded='true'] {
@@ -381,7 +385,11 @@
     font-weight: 900;
     vertical-align: middle;
     margin-left: 16px;
-    font-size: 24px;
+    font-size: 20px;
+    width: 16px;
+    display: inline-flex;
+    height: 16px;
+    align-items: center;
   }
 
   &[data-sirio-dismiss='dialog']:after {

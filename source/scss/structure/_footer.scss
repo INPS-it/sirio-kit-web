@@ -27,17 +27,24 @@
     }
 
     .#{variables-addon.$prefix}footer-grid {
-        padding: 0 0 16px 0;
+        //padding: 0 0 16px 0;
         display: grid;
         grid-template-columns: auto 1fr 1fr;
         gap: 8px;
         grid-auto-flow: row;
         grid-template-areas:
-            'social social social'
-            'logo address address';
+            'logo address address'
+            'social social social';
     }
     .#{variables-addon.$prefix}footer-social {
         grid-area: social;
+
+        ul {
+            margin: 0;
+            .sirio-btn-icon {
+                padding: 6px 12px;
+            }
+        }
     }
     .#{variables-addon.$prefix}footer-logo {
         grid-area: logo;
@@ -121,7 +128,7 @@
     @media (min-width: 992px) {
         .#{variables-addon.$prefix}footer-grid {
             padding: 16px 0;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-areas:
                 'logo logo address'
                 'logo logo social';

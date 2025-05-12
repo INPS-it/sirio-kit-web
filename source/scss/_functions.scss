@@ -11,9 +11,8 @@
   @return null;
 }
 
-/* converti px in rem es: font-size: rem(32); = font-size: 2rem */
 $html-font-size: 16;
-/* converti px in rem es: font-size: rem(32); = font-size: 2rem */
+// converti px in rem es: font-size: rem(32); = font-size: 2rem
 @function rem($size, $is-positive: true) {
   $remSize: math.div($size, $html-font-size);
   @if $is-positive {

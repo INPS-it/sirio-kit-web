@@ -17,15 +17,30 @@
             margin: 0 8px;
         }
     }
+
     & select {
         width: 82px;
         min-width: 82px;
         font-family: variables-addon.$font-family-mono;
         font-weight: 400;
     }
+
+    & .#{variables-addon.$prefix}pagination-label {
+        font-family: variables-addon.$font-family-sans !important;
+        font-size: 1rem;
+        font-weight: 600 !important;
+    }
+
     & .#{variables-addon.$prefix}pagination-items {
         background-color: variables.$color-alias-text-color-primary-light-50;
         flex: 1 0 0%;
+
+        span[aria-hidden='true'],
+        select.sirio-form-control {
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
     }
     & .#{variables-addon.$prefix}pagination-page {
         background-color: variables.$color-alias-text-color-primary-light-50;
@@ -38,6 +53,10 @@
             bottom: 8px;
             width: 1px;
             background-color: variables.$color-global-mid-primary-70;
+        }
+
+        @media (max-width: 768px) {
+            display: none;
         }
     }
     & .#{variables-addon.$prefix}pagination-items span,

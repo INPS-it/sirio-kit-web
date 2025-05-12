@@ -1,4 +1,4 @@
-# SirioWebKit v.8.2.1
+# SirioWebKit
 
 Viene messa a disposizione una guida html per poter approfondire l'uso dei componenti del webkit.
 
@@ -40,6 +40,18 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+
+### 9.0.0
+- **contenuto**\Bottoni – Aggiunta variante **small**, **medium - BG White** e **medium - BG Black**
+- **contenuto**\Title Bar – Sostituiti i bottoni con la variante **medium**
+-  **contenuto**\Dropdown menù – Supporto per le tag `button` per una migliore integrazione nella Title Bar
+-  **contenuto**\Pagination – Rimossa la variante “Items per page + Number of page + Cursor” e migliorato comportamento responsive da _mobile_
+-  **contenuto**\Card – Sostituita icona a "cuore" `fa-heart` con quella a "segnalibro" `fa-bookmark`
+-  **contenuto**\Avviso – Aggiunti avvisi semantici: `warning`, `success` e `alert`
+-  **contenuto**\Step Progress Bar – Aggiornato componente nello stile e nell'HTML
+-  **contenuto**\Tag – Aggiunta nuova tag con icona `sirio-tag-hero`
+-  **contenuto**\Hero – Inserita nuova tag con icona `sirio-tag-hero`
+-  **contenuto**\Footer – Aggiunte due nuove icone social, invertito da mobile ordine "sede legale" e "social"
 
 ### 8.2.1 (2025-03-28)
 - **js**\SirioDialog, SirioDropdownAutocomplete, SirioDropdownMenu, SirioDropdownSelect, SirioFileUpload and SirioTimePicker (fix bug on manual inizialization of component)
