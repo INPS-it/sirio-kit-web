@@ -1,21 +1,19 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Tab
-.#{variables-addon.$prefix}tab {
+.#{$prefix}tab {
   position: relative;
 
-  &
-  .#{variables-addon.$prefix}tab-content
-  .#{variables-addon.$prefix}tab-item {
+  & .#{$prefix}tab-content .#{$prefix}tab-item {
     padding: 8px 0;
     position: relative;
   }
 }
 
-.#{variables-addon.$prefix}tab-nav {
-  border-bottom: 0px solid variables.$color-global-primary-100;
-  color: variables.$color-alias-interactive-secondary-default;
+.#{$prefix}tab-nav {
+  border-bottom: 0 solid $color-global-primary-100;
+  color: $color-alias-interactive-secondary-default;
   flex-wrap: nowrap;
   flex-direction: row;
   display: flex;
@@ -32,10 +30,10 @@
 
     & a {
       padding: 16px 40px;
-      background-color: variables.$color-global-light-primary-40;
-      border-left: 1px solid variables.$color-global-light-primary-40;
-      border-right: 1px solid variables.$color-global-light-primary-40;
-      color: variables.$color-alias-interactive-secondary-default;
+      background-color: $color-global-light-primary-40;
+      border-left: 1px solid $color-global-light-primary-40;
+      border-right: 1px solid $color-global-light-primary-40;
+      color: $color-alias-interactive-secondary-default;
       border-radius: 2px;
       text-decoration: none;
       font-weight: 400;
@@ -60,43 +58,43 @@
         border-radius: 3px 3px 0 0;
         padding: 2px;
         display: block;
-        background-color: variables.$color-global-light-primary-40;
+        background-color: $color-global-light-primary-40;
         z-index: 1;
       }
 
       &:hover {
-        background-color: variables.$color-global-light-primary-40;
-        color: variables.$color-alias-interactive-primary-hover;
+        background-color: $color-global-light-primary-40;
+        color: $color-alias-interactive-primary-hover;
 
         &:before {
-          background-color: variables.$color-alias-interactive-primary-hover;
+          background-color: $color-alias-interactive-primary-hover;
         }
       }
 
       &:not(:disabled):not(.disabled):active {
-        background-color: variables.$color-global-light-primary-40;
-        color: variables.$color-alias-interactive-primary-pressed;
+        background-color: $color-global-light-primary-40;
+        color: $color-alias-interactive-primary-pressed;
 
         &:before {
-          background-color: variables.$color-alias-interactive-primary-pressed;
+          background-color: $color-alias-interactive-primary-pressed;
         }
       }
 
       &:focus {
-        background-color: variables.$color-global-primary-000;
+        background-color: $color-global-primary-000;
         z-index: 1;
         outline: none;
 
         &:before {
-          background-color: variables.$color-alias-interactive-primary-default;
+          background-color: $color-alias-interactive-primary-default;
         }
       }
 
       &:disabled,
       &.disabled {
-        background-color: variables.$color-alias-background-color-disabled;
-        border-color: variables.$color-alias-background-color-disabled;
-        color: variables.$color-alias-text-color-disabled;
+        background-color: $color-alias-background-color-disabled;
+        border-color: $color-alias-background-color-disabled;
+        color: $color-alias-text-color-disabled;
 
         &:before {
           display: none;
@@ -105,20 +103,20 @@
 
       &[aria-selected='true'],
       &[aria-selected='true']:hover {
-        background-color: variables.$color-global-primary-000;
-        color: variables.$color-alias-interactive-secondary-default;
+        background-color: $color-global-primary-000;
+        color: $color-alias-interactive-secondary-default;
         font-weight: 700;
         position: relative;
         cursor: default;
 
         &:before {
-          background-color: variables.$color-alias-interactive-primary-default;
+          background-color: $color-alias-interactive-primary-default;
         }
       }
     }
   }
 
-  &.#{variables-addon.$prefix}tab-nav-line {
+  &.#{$prefix}tab-nav-line {
     position: relative;
 
     &:before {
@@ -130,7 +128,7 @@
       border-radius: 3px;
       padding: 2px;
       display: block;
-      background-color: variables.$color-global-light-primary-40;
+      background-color: $color-global-light-primary-40;
       z-index: 1;
     }
 
@@ -153,21 +151,21 @@
 
         &[aria-selected='true'] {
           background-color: transparent;
-          border-color: variables.$color-alias-interactive-primary-default;
+          border-color: $color-alias-interactive-primary-default;
         }
 
         &:hover {
           background-color: transparent;
-          border-color: variables.$color-alias-interactive-primary-hover;
+          border-color: $color-alias-interactive-primary-hover;
         }
 
         &:focus {
-          border-color: variables.$color-alias-interactive-primary-default;
+          border-color: $color-alias-interactive-primary-default;
         }
 
         &:disabled,
         &.disabled {
-          background-color: variables.$color-alias-background-color-disabled;
+          background-color: $color-alias-background-color-disabled;
 
           &:before {
             display: none;
@@ -180,11 +178,11 @@
 
 // Tab Vertical
 @media (min-width: 768px) {
-  .#{variables-addon.$prefix}tab-vertical {
+  .#{$prefix}tab-vertical {
     display: flex;
     flex-direction: row;
 
-    & .#{variables-addon.$prefix}tab-nav {
+    & .#{$prefix}tab-nav {
       flex: 0 0 25%;
       position: relative;
       width: 100%;
@@ -209,21 +207,21 @@
           }
 
           &[aria-selected='true'] {
-            border-top: 1px solid variables.$color-global-light-primary-40;
-            border-bottom: 1px solid variables.$color-global-light-primary-40;
+            border-top: 1px solid $color-global-light-primary-40;
+            border-bottom: 1px solid $color-global-light-primary-40;
           }
 
           &:hover {
-            background-color: variables.$color-global-light-primary-40;
+            background-color: $color-global-light-primary-40;
           }
 
           &:focus {
-            background-color: variables.$color-global-primary-000;
+            background-color: $color-global-primary-000;
           }
         }
       }
 
-      &.#{variables-addon.$prefix}tab-nav-line {
+      &.#{$prefix}tab-nav-line {
         &:before {
           right: 0;
           left: auto;
@@ -250,9 +248,7 @@
       }
     }
 
-    &
-    .#{variables-addon.$prefix}tab-content
-    .#{variables-addon.$prefix}tab-item {
+    & .#{$prefix}tab-content .#{$prefix}tab-item {
       padding: 0 8px;
       margin-left: 8px;
     }
@@ -260,18 +256,18 @@
 }
 
 // Tab control
-.#{variables-addon.$prefix}tab-control {
+.#{$prefix}tab-control {
   display: none;
 }
 
-.#{variables-addon.$prefix}tab-scroll {
-  .#{variables-addon.$prefix}tab-nav {
+.#{$prefix}tab-scroll {
+  .#{$prefix}tab-nav {
     margin: 0 48px;
     padding: 4px 0;
     overflow: hidden;
   }
 
-  & .#{variables-addon.$prefix}tab-control {
+  & .#{$prefix}tab-control {
     position: absolute;
     top: 5px;
     left: 0;
@@ -284,38 +280,34 @@
 }
 
 // Tab into collapse
-.#{variables-addon.$prefix}title-bar-collapse {
-  .#{variables-addon.$prefix}tab-nav {
+.#{$prefix}title-bar-collapse {
+  .#{$prefix}tab-nav {
     padding: 0;
     overflow: hidden;
   }
 
-  .#{variables-addon.$prefix}tab-scroll
-  .#{variables-addon.$prefix}tab-control {
+  .#{$prefix}tab-scroll .#{$prefix}tab-control {
     top: 24px;
     left: 24px;
     right: 24px;
   }
 
-  & .#{variables-addon.$prefix}tab-body {
+  & .#{$prefix}tab-body {
     background-color: white;
   }
 
-  &
-  .#{variables-addon.$prefix}tab
-  .#{variables-addon.$prefix}tab-content
-  .#{variables-addon.$prefix}tab-item {
+  & .#{$prefix}tab .#{$prefix}tab-content .#{$prefix}tab-item {
     padding: 0;
   }
 }
 
-.#{variables-addon.$prefix}tab-nav li a:focus-visible,
-.#{variables-addon.$prefix}tab-nav div a:focus-visible {
-  box-shadow: inset 0 0 0 1px variables.$color-alias-interactive-border-focus;
+.#{$prefix}tab-nav li a:focus-visible,
+.#{$prefix}tab-nav div a:focus-visible {
+  box-shadow: inset 0 0 0 1px $color-alias-interactive-border-focus;
   outline: none !important;
 }
 
-.#{variables-addon.$prefix}tab-item {
+.#{$prefix}tab-item {
   opacity: 1;
   animation: fadeIn 1s;
 

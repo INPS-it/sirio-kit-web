@@ -1,32 +1,32 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Footer
-.#{variables-addon.$prefix}footer {
-    background-color: variables.$color-global-dark-primary-120;
-    color: variables.$color-alias-text-color-primary-light-0;
+.#{$prefix}footer {
+    background-color: $color-global-dark-primary-120;
+    color: $color-alias-text-color-primary-light-0;
 
     & .container-fluid {
         padding: 16px 24px;
     }
-    & .#{variables-addon.$prefix}footer-action {
-        background-color: variables.$color-global-dark-primary-115;
+    & .#{$prefix}footer-action {
+        background-color: $color-global-dark-primary-115;
         @media (max-width: 576px) {
-            .#{variables-addon.$prefix}btn {
+            .#{$prefix}btn {
                 width: 100%;
             }
         }
     }
-    & .#{variables-addon.$prefix}footer-feedback {
+    & .#{$prefix}footer-feedback {
         @media (max-width: 576px) {
             .h5 {
-                font-size: #{variables.$typography-alias-h6-md-size-05}px;
-                line-height: #{variables.$typography-alias-h6-md-line-height-05}px;
+                font-size: #{$typography-alias-h6-md-size-05}px;
+                line-height: #{$typography-alias-h6-md-line-height-05}px;
             }
         }
     }
 
-    .#{variables-addon.$prefix}footer-grid {
+    .#{$prefix}footer-grid {
         //padding: 0 0 16px 0;
         display: grid;
         grid-template-columns: auto 1fr 1fr;
@@ -36,7 +36,7 @@
             'logo address address'
             'social social social';
     }
-    .#{variables-addon.$prefix}footer-social {
+    .#{$prefix}footer-social {
         grid-area: social;
 
         ul {
@@ -46,7 +46,7 @@
             }
         }
     }
-    .#{variables-addon.$prefix}footer-logo {
+    .#{$prefix}footer-logo {
         grid-area: logo;
         & img {
             width: 85px;
@@ -54,14 +54,14 @@
             margin-right: 1rem;
         }
     }
-    .#{variables-addon.$prefix}footer-address {
+    .#{$prefix}footer-address {
         grid-area: address;
         & p {
             margin: 0;
         }
     }
-    .#{variables-addon.$prefix}footer-sitemap {
-        border-bottom: 1px solid variables.$color-global-dark-primary-115;
+    .#{$prefix}footer-sitemap {
+        border-bottom: 1px solid $color-global-dark-primary-115;
         & .container-fluid {
             padding: 0;
         }
@@ -83,16 +83,16 @@
             font-weight: 700;
             margin-bottom: 11px;
         }
-        & .#{variables-addon.$prefix}list-unstyled li {
+        & .#{$prefix}list-unstyled li {
             margin-bottom: 8px;
         }
         & .col-12 {
             position: relative;
         }
-        & .#{variables-addon.$prefix}accordion-header {
-            border-top: 1px solid variables.$color-global-dark-primary-115;
-            border-bottom: 1px solid variables.$color-global-dark-primary-115;
-            & .#{variables-addon.$prefix}accordion-trigger {
+        & .#{$prefix}accordion-header {
+            border-top: 1px solid $color-global-dark-primary-115;
+            border-bottom: 1px solid $color-global-dark-primary-115;
+            & .#{$prefix}accordion-trigger {
                 background-color: transparent;
                 border-color: transparent;
                 padding: 24px 0;
@@ -104,21 +104,21 @@
                 }
             }
         }
-        & .#{variables-addon.$prefix}accordion-body {
-            border-bottom: 1px solid variables.$color-global-dark-primary-115;
+        & .#{$prefix}accordion-body {
+            border-bottom: 1px solid $color-global-dark-primary-115;
             & > .h6 {
                 padding-top: 16px !important;
             }
         }
     }
-    .#{variables-addon.$prefix}footer-copy {
-        background-color: variables.$color-global-dark-primary-115;
+    .#{$prefix}footer-copy {
+        background-color: $color-global-dark-primary-115;
         & .container-fluid {
             padding: 16px 32px;
         }
         &:before {
             content: '';
-            background-color: variables.$color-global-dark-primary-115;
+            background-color: $color-global-dark-primary-115;
             height: 1px;
             display: block;
             margin: 0 32px;
@@ -126,20 +126,20 @@
     }
 
     @media (min-width: 992px) {
-        .#{variables-addon.$prefix}footer-grid {
+        .#{$prefix}footer-grid {
             padding: 16px 0;
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
                 'logo logo address'
                 'logo logo social';
         }
-        .#{variables-addon.$prefix}footer-address br {
+        .#{$prefix}footer-address br {
             display: none;
         }
-        .#{variables-addon.$prefix}footer-social > * {
+        .#{$prefix}footer-social > * {
             margin: 0;
         }
-        .#{variables-addon.$prefix}footer-sitemap {
+        .#{$prefix}footer-sitemap {
             margin-bottom: 8px;
             padding-top: 32px;
             padding-bottom: 32px;
@@ -154,13 +154,13 @@
                 padding: 0 8px;
             }
             &
-                .#{variables-addon.$prefix}btn.#{variables-addon.$prefix}btn-icon {
+                .#{$prefix}btn.#{$prefix}btn-icon {
                 display: none;
             }
             & [data-sirio-visible='false'] {
                 display: block;
             }
-            & .#{variables-addon.$prefix}accordion-body {
+            & .#{$prefix}accordion-body {
                 border: 0;
             }
         }
@@ -168,6 +168,6 @@
 
     a:focus-visible,
     button:focus-visible {
-        outline-color: variables.$color-alias-interactive-accent-focus !important;
+        outline-color: $color-alias-interactive-accent-focus !important;
     }
 }

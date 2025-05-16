@@ -1,8 +1,8 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Nav
-.#{variables-addon.$prefix}nav {
+.#{$prefix}nav {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -12,7 +12,7 @@
     display: none;
   }
 
-  & .#{variables-addon.$prefix}nav-link {
+  & .#{$prefix}nav-link {
     text-align: left;
     border-left: 0;
     border-right: 0;
@@ -26,35 +26,32 @@
     margin-right: 24px;
     text-decoration: none;
     font-weight: 400;
-    color: variables.$color-alias-interactive-secondary-default;
+    color: $color-alias-interactive-secondary-default;
 
-    & .#{variables-addon.$prefix}tag {
+    & .#{$prefix}tag {
       margin: 0 0 0 8px;
     }
   }
 
-  &
-  .#{variables-addon.$prefix}nav-item:last-child
-  .#{variables-addon.$prefix}nav-link {
+  & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
     margin-right: 0;
   }
 
-  & .#{variables-addon.$prefix}nav-link:hover {
-    color: variables.$color-alias-interactive-primary-hover !important;
-    border-bottom-color: variables.$color-alias-interactive-primary-hover !important;
+  & .#{$prefix}nav-link:hover {
+    color: $color-alias-interactive-primary-hover !important;
+    border-bottom-color: $color-alias-interactive-primary-hover !important;
   }
 
-  & .#{variables-addon.$prefix}nav-link.active,
-  & .#{variables-addon.$prefix}nav-link[aria-expanded='true'],
-  & .#{variables-addon.$prefix}nav-link[aria-expanded='true']:focus,
-  & .#{variables-addon.$prefix}nav-link[aria-expanded='true']:hover {
-    color: variables.$color-alias-interactive-primary-pressed !important;
-    border-bottom-color: variables.$color-alias-interactive-primary-pressed !important;
+  & .#{$prefix}nav-link.active,
+  & .#{$prefix}nav-link[aria-expanded='true'],
+  & .#{$prefix}nav-link[aria-expanded='true']:focus,
+  & .#{$prefix}nav-link[aria-expanded='true']:hover {
+    color: $color-alias-interactive-primary-pressed !important;
+    border-bottom-color: $color-alias-interactive-primary-pressed !important;
   }
 }
 
-.#{variables-addon.$prefix}nav.#{variables-addon.$prefix}nav-dark
-.#{variables-addon.$prefix}nav-link {
+.#{$prefix}nav.#{$prefix}nav-dark .#{$prefix}nav-link {
   color: #fff;
 
   &:hover,
@@ -69,12 +66,11 @@
   }
 }
 
-.#{variables-addon.$prefix}service-nav {
-  background-color: variables.$color-global-dark-primary-110;
+.#{$prefix}service-nav {
+  background-color: $color-global-dark-primary-110;
   color: #fff;
 
-  .#{variables-addon.$prefix}dropdown
-  > .#{variables-addon.$prefix}nav-link:after {
+  .#{$prefix}dropdown > .#{$prefix}nav-link:after {
     display: inline-block;
     content: '\f078';
     font-family: 'Font Awesome 6 Free', serif;
@@ -83,17 +79,16 @@
     margin-left: 8px;
   }
 
-  .#{variables-addon.$prefix}dropdown > .#{variables-addon.$prefix}nav-link {
+  .#{$prefix}dropdown > .#{$prefix}nav-link {
     padding: 8px;
   }
 
-  .#{variables-addon.$prefix}dropdown
-  > .#{variables-addon.$prefix}nav-link[aria-expanded='true']:after {
+  .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded='true']:after {
     content: '\f077';
   }
 
-  .#{variables-addon.$prefix}dropdown-menu {
-    background-color: variables.$color-global-dark-primary-110;
+  .#{$prefix}dropdown-menu {
+    background-color: $color-global-dark-primary-110;
     color: #fff;
     padding: 24px;
     min-width: 250px;
@@ -115,17 +110,15 @@
       outline-color: #fff;
     }
 
-    & .#{variables-addon.$prefix}list-unstyled li {
+    & .#{$prefix}list-unstyled li {
       margin: 8px 0;
     }
 
-    &
-    .#{variables-addon.$prefix}list-unstyled.#{variables-addon.$prefix}list-link
-    a:after {
+    & .#{$prefix}list-unstyled.#{$prefix}list-link a:after {
       margin-left: 0;
     }
 
-    .#{variables-addon.$prefix}dropdown-menu-heading {
+    .#{$prefix}dropdown-menu-heading {
       font-size: 24px;
       line-height: 36px;
       font-weight: 700;
@@ -133,14 +126,14 @@
     }
 
     .border-top {
-      border-color: variables.$color-global-light-primary-50;
+      border-color: $color-global-light-primary-50;
     }
   }
 
-  .#{variables-addon.$prefix}dropdown-megamenu {
+  .#{$prefix}dropdown-megamenu {
     position: static;
 
-    & .#{variables-addon.$prefix}dropdown-menu {
+    & .#{$prefix}dropdown-menu {
       border-radius: 0;
       border: 0;
       transform: none;
@@ -152,27 +145,27 @@
   }
 }
 
-.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}nav-link:focus-visible,
-.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}btn:focus-visible {
-  outline: 1px solid variables.$color-alias-interactive-border-focus;
+.#{$prefix}nav-side .#{$prefix}nav-link:focus-visible,
+.#{$prefix}nav-side .#{$prefix}btn:focus-visible {
+  outline: 1px solid $color-alias-interactive-border-focus;
   outline-offset: -1px;
   border-radius: 0;
 }
 
-.#{variables-addon.$prefix}nav-side .#{variables-addon.$prefix}nav-link:focus-visible:before {
-  border-bottom: 1px solid variables.$color-alias-interactive-border-focus;
+.#{$prefix}nav-side .#{$prefix}nav-link:focus-visible:before {
+  border-bottom: 1px solid $color-alias-interactive-border-focus;
 }
 
-.#{variables-addon.$prefix}nav-side {
+.#{$prefix}nav-side {
   flex-direction: column;
   width: 100%;
 
-  & .#{variables-addon.$prefix}nav {
-    background-color: variables.$color-global-light-primary-40;
+  & .#{$prefix}nav {
+    background-color: $color-global-light-primary-40;
     flex-direction: column;
     width: 100%;
 
-    & .#{variables-addon.$prefix}nav-link {
+    & .#{$prefix}nav-link {
       padding-left: 32px;
 
       &.active,
@@ -194,7 +187,7 @@
     display: flex;
   }
 
-  & .#{variables-addon.$prefix}nav-item {
+  & .#{$prefix}nav-item {
     position: relative;
 
     &:before {
@@ -203,7 +196,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      border-top: 1px solid variables.$color-global-light-primary-50;
+      border-top: 1px solid $color-global-light-primary-50;
     }
 
     &:last-child:before {
@@ -211,14 +204,14 @@
     }
   }
 
-  & .#{variables-addon.$prefix}nav-link {
+  & .#{$prefix}nav-link {
     padding: 16px;
     font-weight: 600;
     margin: 0;
     border: 0;
     position: relative;
 
-    & .#{variables-addon.$prefix}nav-item {
+    & .#{$prefix}nav-item {
       padding-left: 24px;
     }
 
@@ -228,7 +221,7 @@
 
       &:after {
         content: '\f107';
-        font-family: variables-addon.$font-family-icon;
+        font-family: $font-family-icon;
         font-weight: 900;
         vertical-align: middle;
         margin-left: 16px;
@@ -240,7 +233,7 @@
       }
 
       &[aria-expanded='true'] {
-        background-color: variables.$color-global-light-primary-50;
+        background-color: $color-global-light-primary-50;
 
         &:after {
           content: '\f106';
@@ -249,19 +242,19 @@
     }
 
     &:hover {
-      color: variables.$color-alias-interactive-primary-default !important;
+      color: $color-alias-interactive-primary-default !important;
       position: relative;
       padding-left: 12px;
-      border-left: 4px solid variables.$color-alias-interactive-primary-default;
+      border-left: 4px solid $color-alias-interactive-primary-default;
       transition: background 0.5s;
     }
 
     &.active {
-      color: variables.$color-alias-interactive-primary-pressed !important;
-      background-color: variables.$color-global-light-primary-50;
+      color: $color-alias-interactive-primary-pressed !important;
+      background-color: $color-global-light-primary-50;
       position: relative;
       padding-left: 12px;
-      border-left: 4px solid variables.$color-alias-interactive-primary-pressed;
+      border-left: 4px solid $color-alias-interactive-primary-pressed;
     }
 
     &:before {
@@ -270,18 +263,17 @@
       bottom: 0;
       left: 0;
       right: 0;
-      border-bottom: 1px solid variables.$color-global-light-primary-50;
+      border-bottom: 1px solid $color-global-light-primary-50;
     }
 
     &.disabled {
-      background-color: variables.$color-alias-background-color-disabled;
-      color: variables.$color-alias-text-color-disabled;
+      background-color: $color-alias-background-color-disabled;
+      color: $color-alias-text-color-disabled;
     }
   }
 
 
 }
-
 
 
 @keyframes slideUpContent {
@@ -293,19 +285,19 @@
   }
 }
 
-.#{variables-addon.$prefix}dialog-sidenav {
+.#{$prefix}dialog-sidenav {
   background: none;
   animation: none;
   z-index: 1000;
 
-  & .#{variables-addon.$prefix}dialog-wrapper {
+  & .#{$prefix}dialog-wrapper {
     max-width: inherit;
     margin: 0;
     min-height: 100%;
     display: block;
   }
 
-  & .#{variables-addon.$prefix}dialog-content {
+  & .#{$prefix}dialog-content {
     transition: 1s all;
     position: absolute;
     top: 100%;
@@ -322,45 +314,45 @@
   &[data-sirio-visible='true'] {
     z-index: 1050;
 
-    & .#{variables-addon.$prefix}dialog-content {
+    & .#{$prefix}dialog-content {
       top: 0;
     }
   }
 
-  & .#{variables-addon.$prefix}dialog-header {
+  & .#{$prefix}dialog-header {
     padding: 0;
   }
 
-  & .#{variables-addon.$prefix}dialog-body {
+  & .#{$prefix}dialog-body {
     background: #fff;
     height: 100%;
     overflow: auto;
   }
 
-  & .#{variables-addon.$prefix}sidenav-title {
+  & .#{$prefix}sidenav-title {
     font-weight: 700;
     font-size: 20px;
     line-height: 21px;
-    color: variables.$color-alias-interactive-primary-default;
+    color: $color-alias-interactive-primary-default;
     border-bottom: 4px solid;
     padding: 16px;
     margin: 32px 0 0;
   }
 
-  & .#{variables-addon.$prefix}sidenav-info {
-    border-bottom: 1px solid variables.$color-alias-background-color-primary-light-60;
+  & .#{$prefix}sidenav-info {
+    border-bottom: 1px solid $color-alias-background-color-primary-light-60;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 24px;
     gap: 24px;
-    background: variables.$color-alias-background-color-primary-light-50;
-    color: variables.$color-alias-text-color-primary-dark-110;
+    background: $color-alias-background-color-primary-light-50;
+    color: $color-alias-text-color-primary-dark-110;
     margin: 0 0 32px;
   }
 }
 
-.#{variables-addon.$prefix}btn-sidenav {
+.#{$prefix}btn-sidenav {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -381,7 +373,7 @@
 
   &:after {
     content: '\f106';
-    font-family: variables-addon.$font-family-icon;
+    font-family: $font-family-icon;
     font-weight: 900;
     vertical-align: middle;
     margin-left: 16px;
@@ -396,7 +388,7 @@
     content: '\f00d';
   }
 
-  &.#{variables-addon.$prefix}btn-fixed-bottom {
+  &.#{$prefix}btn-fixed-bottom {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -407,21 +399,18 @@
 }
 
 @media (min-width: 992px) {
-  .#{variables-addon.$prefix}dialog-sidenav,
-  .#{variables-addon.$prefix}dialog-sidenav
-  .#{variables-addon.$prefix}dialog-content {
+  .#{$prefix}dialog-sidenav,
+  .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
     position: relative;
     display: block !important;
   }
 
-  .#{variables-addon.$prefix}dialog-sidenav
-  .#{variables-addon.$prefix}sidenav-info,
-  .#{variables-addon.$prefix}dialog-sidenav
-  .#{variables-addon.$prefix}dialog-header,
-  .#{variables-addon.$prefix}dialog-sidenav-open {
+  .#{$prefix}dialog-sidenav .#{$prefix}sidenav-info,
+  .#{$prefix}dialog-sidenav .#{$prefix}dialog-header,
+  .#{$prefix}dialog-sidenav-open {
     display: none;
   }
-  .#{variables-addon.$prefix}dialog-sidenav {
+  .#{$prefix}dialog-sidenav {
     display: flex;
   }
 }

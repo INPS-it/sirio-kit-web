@@ -1,35 +1,37 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Tag
-.#{variables-addon.$prefix}tag {
-    background-color: variables.$color-global-secondary-100;
-    color: variables.$color-global-primary-000;
-    font-size: #{variables.$typography-global-font-size-04}px;
-    line-height: #{variables.$typography-global-font-size-05}px;
-    font-weight: 700;
-    border-radius: 30px;
-    padding: 4px 16px 4px 16px;
-    display: inline-block;
-    margin-bottom: 5px;
+.#{$prefix}tag {
+  background-color: $color-global-secondary-100;
+  color: $color-global-primary-000;
+  font-size: #{$typography-global-font-size-04}px;
+  line-height: #{$typography-global-font-size-05}px;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 4px 16px 4px 16px;
+  display: inline-block;
+  margin-bottom: 5px;
 
-    &-hero {
-        display: inline-flex;
-        gap: 8px;
-        padding: 8px 16px;
-        line-height: 24px;
-        align-items: center;
-        background-color: variables.$color-global-light-primary-40;
-        color: variables.$color-global-dark-primary-115;
+  &-hero {
+    display: inline-flex;
+    gap: 8px;
+    padding: 8px 16px;
+    line-height: 24px;
+    align-items: center;
+    background-color: $color-global-light-primary-40;
+    color: $color-global-dark-primary-115;
 
-        .fas, .fa, .far {
-            font-size: 1rem;
-        }
+    .fas, .fa, .far {
+      font-size: 1rem;
     }
+  }
 }
-.#{variables-addon.$prefix}tag.#{variables-addon.$prefix}bg-warning-80 {
-    color: variables.$color-alias-text-color-secondary-dark-130;
+
+.#{$prefix}tag.#{$prefix}bg-warning-80 {
+  color: $color-alias-text-color-secondary-dark-130;
 }
-.#{variables-addon.$prefix}tag.#{variables-addon.$prefix}bg-primary-light-40 {
-    color: variables.$color-global-dark-primary-115;
+
+.#{$prefix}tag.#{$prefix}bg-primary-light-40 {
+  color: $color-global-dark-primary-115;
 }

@@ -1,5 +1,5 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Base
 *,
@@ -16,11 +16,11 @@
 
 body {
   margin: 0;
-  font-family: variables-addon.$font-family-sans;
-  font-size: #{variables.$typography-global-font-size-04}px;
-  line-height: #{variables.$typography-global-line-heights-04}px;
+  font-family: $font-family-sans;
+  font-size: #{$typography-global-font-size-04}px;
+  line-height: #{$typography-global-line-heights-04}px;
   font-weight: 400;
-  color: variables.$color-global-dark-primary-130;
+  color: $color-global-dark-primary-130;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -44,7 +44,7 @@ iframe {
 }
 
 *:focus-visible {
-  outline: 2px solid variables.$color-global-primary-100 !important;
+  outline: 2px solid $color-global-primary-100 !important;
   outline-offset: 1px;
 }
 
@@ -55,7 +55,7 @@ iframe {
 /* Fallback for browsers without :focus-visible support */
 @supports not selector(:focus-visible) {
   :focus {
-    outline: 2px solid variables.$color-global-primary-100 !important;
+    outline: 2px solid $color-global-primary-100 !important;
     outline-offset: 1px;
   }
 }

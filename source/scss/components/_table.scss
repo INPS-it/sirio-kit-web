@@ -1,5 +1,5 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Table
 table {
@@ -10,7 +10,7 @@ table {
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
-  color: variables.$color-global-dark-primary-130;
+  color: $color-global-dark-primary-130;
   text-align: left;
 }
 
@@ -30,40 +30,40 @@ th {
   border-width: 0;
 }
 
-.#{variables-addon.$prefix}table {
+.#{$prefix}table {
   width: 100%;
-  color: variables.$color-global-secondary-100;
+  color: $color-global-secondary-100;
   margin-bottom: 16px;
   background-color: #fff;
 
   & th {
     padding: 20px 12px;
     font-weight: 600;
-    background-color: variables.$color-alias-background-color-primary-light-40;
-    color: variables.$color-specific-data-entry-label-color-default;
-    border-bottom: 1px solid variables.$color-global-light-primary-50;
-    border-right: 1px solid variables.$color-global-light-primary-50;
+    background-color: $color-alias-background-color-primary-light-40;
+    color: $color-specific-data-entry-label-color-default;
+    border-bottom: 1px solid $color-global-light-primary-50;
+    border-right: 1px solid $color-global-light-primary-50;
 
     &:first-child {
-      border-left: 1px solid variables.$color-alias-background-color-primary-light-40;
+      border-left: 1px solid $color-alias-background-color-primary-light-40;
     }
 
     &:last-child {
-      border-right: 1px solid variables.$color-alias-background-color-primary-light-40;
+      border-right: 1px solid $color-alias-background-color-primary-light-40;
     }
   }
 
   & td {
     padding: 18px 12px;
-    border-bottom: 1px solid variables.$color-global-light-primary-50;
-    border-right: 1px solid variables.$color-global-light-primary-50;
+    border-bottom: 1px solid $color-global-light-primary-50;
+    border-right: 1px solid $color-global-light-primary-50;
 
     &:first-child {
-      border-left: 1px solid variables.$color-global-light-primary-50;
+      border-left: 1px solid $color-global-light-primary-50;
     }
 
     &:last-child {
-      border-right: 1px solid variables.$color-global-light-primary-50;
+      border-right: 1px solid $color-global-light-primary-50;
     }
 
     &.w-0 {
@@ -73,59 +73,59 @@ th {
     }
   }
 
-  &.#{variables-addon.$prefix}table-xs {
+  &.#{$prefix}table-xs {
     th,
     td {
       padding: 4px 8px;
     }
   }
 
-  &.#{variables-addon.$prefix}table-sm {
+  &.#{$prefix}table-sm {
     th,
     td {
       padding: 10px 8px;
     }
   }
 
-  &.#{variables-addon.$prefix}table-lg {
+  &.#{$prefix}table-lg {
     th,
     td {
       padding: 26px 16px;
     }
   }
 
-  & td .#{variables-addon.$prefix}btn {
+  & td .#{$prefix}btn {
     padding: 4px 1px;
 
     &[aria-expanded='true'] {
-      background-color: variables.$color-global-dark-primary-115;
-      border-color: variables.$color-global-dark-primary-115;
+      background-color: $color-global-dark-primary-115;
+      border-color: $color-global-dark-primary-115;
       color: #fff;
     }
   }
 
-  &.#{variables-addon.$prefix}table-dark {
+  &.#{$prefix}table-dark {
     th {
-      background-color: variables.$color-global-dark-primary-115;
-      color: variables.$color-global-light-primary-40;
-      border-bottom: 1px solid variables.$color-alias-interactive-primary-default !important;
-      border-right: 1px solid variables.$color-alias-interactive-primary-default !important;
+      background-color: $color-global-dark-primary-115;
+      color: $color-global-light-primary-40;
+      border-bottom: 1px solid $color-alias-interactive-primary-default !important;
+      border-right: 1px solid $color-alias-interactive-primary-default !important;
 
       &:first-child {
-        border-left: 1px solid variables.$color-global-dark-primary-115;
+        border-left: 1px solid $color-global-dark-primary-115;
       }
 
       &:last-child {
-        border-right: 1px solid variables.$color-global-dark-primary-115;
+        border-right: 1px solid $color-global-dark-primary-115;
       }
     }
   }
 
-  & .#{variables-addon.$prefix}table-check {
+  & .#{$prefix}table-check {
     display: flex;
     flex-wrap: nowrap;
 
-    .#{variables-addon.$prefix}form-check {
+    .#{$prefix}form-check {
       transform: scale(0.75);
       margin-bottom: 0;
 
@@ -137,7 +137,7 @@ th {
 }
 
 // Table sorting
-.#{variables-addon.$prefix}sorting {
+.#{$prefix}sorting {
   cursor: pointer;
   position: relative;
   padding-right: 30px !important;
@@ -160,11 +160,11 @@ th {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232f6dd5' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
   }
 
-  &.#{variables-addon.$prefix}sorting-desc:after {
+  &.#{$prefix}sorting-desc:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
   }
 
-  &.#{variables-addon.$prefix}sorting-asc:after {
+  &.#{$prefix}sorting-asc:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
   }
 
@@ -175,16 +175,16 @@ th {
   }
 }
 
-.#{variables-addon.$prefix}table-dark .#{variables-addon.$prefix}sorting {
+.#{$prefix}table-dark .#{$prefix}sorting {
   &:before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2318CEE7' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
   }
 
-  &.#{variables-addon.$prefix}sorting-desc:after {
+  &.#{$prefix}sorting-desc:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
   }
 
-  &.#{variables-addon.$prefix}sorting-asc:after {
+  &.#{$prefix}sorting-asc:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
   }
 
@@ -197,7 +197,7 @@ th {
 }
 
 // Table responsive
-.#{variables-addon.$prefix}table-responsive {
+.#{$prefix}table-responsive {
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
@@ -210,14 +210,14 @@ th {
   }
 }
 
-.#{variables-addon.$prefix}table-overflow-start:before {
+.#{$prefix}table-overflow-start:before {
   position: sticky;
   content: '.';
   left: 0;
   display: block;
   width: 4px;
-  color: variables.$color-global-accent-100;
-  border-right: 4px solid variables.$color-global-accent-100;
+  color: $color-global-accent-100;
+  border-right: 4px solid $color-global-accent-100;
   top: 0;
   bottom: 32px;
   align-self: auto;
@@ -226,18 +226,18 @@ th {
 
   @media (min-width: 768px) {
     width: 8px;
-    border-right: 8px solid variables.$color-global-accent-100;
+    border-right: 8px solid $color-global-accent-100;
   }
 }
 
-.#{variables-addon.$prefix}table-overflow-end:after {
+.#{$prefix}table-overflow-end:after {
   position: sticky;
   content: '.';
   right: -1px;
   display: block;
   width: 4px;
-  color: variables.$color-global-accent-100;
-  border-right: 4px solid variables.$color-global-accent-100;
+  color: $color-global-accent-100;
+  border-right: 4px solid $color-global-accent-100;
   top: 0;
   bottom: 32px;
   align-self: auto;
@@ -246,21 +246,21 @@ th {
 
   @media (min-width: 768px) {
     width: 8px;
-    border-right: 8px solid variables.$color-global-accent-100;
+    border-right: 8px solid $color-global-accent-100;
   }
 }
 
 // Table first column fixed
-.#{variables-addon.$prefix}table-column-fixed-first {
+.#{$prefix}table-column-fixed-first {
   overflow-y: auto;
   max-height: 450px;
 
-  &.#{variables-addon.$prefix}table-overflow-start:before,
-  &.#{variables-addon.$prefix}table-overflow-end:after {
+  &.#{$prefix}table-overflow-start:before,
+  &.#{$prefix}table-overflow-end:after {
     margin-bottom: 0;
   }
 
-  & .#{variables-addon.$prefix}table {
+  & .#{$prefix}table {
     margin-bottom: 0;
   }
 
@@ -270,14 +270,14 @@ th {
     left: 0;
     z-index: 1;
     border: 0 !important;
-    box-shadow: inset -1px 0 0 0 variables.$color-global-light-primary-50;
+    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
   }
 
   & tbody tr > *:first-child {
     position: sticky;
     left: 0;
     border: 0 !important;
-    box-shadow: inset -1px 1px 0 0 variables.$color-global-light-primary-50;
+    box-shadow: inset -1px 1px 0 0 $color-global-light-primary-50;
     background-color: #ffffff;
   }
 
@@ -285,35 +285,35 @@ th {
     background-color: #ffffff;
   }
 
-  &.#{variables-addon.$prefix}table-overflow-start {
+  &.#{$prefix}table-overflow-start {
     &:before {
       display: none;
     }
 
     & thead tr > *:first-child {
-      box-shadow: inset -6px 0px 0 0 variables.$color-global-accent-100;
+      box-shadow: inset -6px 0px 0 0 $color-global-accent-100;
       padding-right: 24px;
     }
 
     & tbody tr > *:first-child {
-      box-shadow: inset 0 1px 0 0 variables.$color-global-light-primary-50,
-      inset -6px 0px 0 0 variables.$color-global-accent-100;
+      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50,
+      inset -6px 0px 0 0 $color-global-accent-100;
       padding-right: 24px;
     }
   }
 }
 
 // Table th fixed
-.#{variables-addon.$prefix}table-th-fixed {
+.#{$prefix}table-th-fixed {
   overflow-y: auto;
   max-height: 450px;
 
-  &.#{variables-addon.$prefix}table-overflow-start:before,
-  &.#{variables-addon.$prefix}table-overflow-end:after {
+  &.#{$prefix}table-overflow-start:before,
+  &.#{$prefix}table-overflow-end:after {
     margin-bottom: 0;
   }
 
-  & .#{variables-addon.$prefix}table {
+  & .#{$prefix}table {
     margin-bottom: 0;
   }
 
@@ -322,10 +322,10 @@ th {
     top: 0;
     z-index: 1;
     border: 0 !important;
-    box-shadow: inset 1px 1px 0 0 variables.$color-global-light-primary-50;
+    box-shadow: inset 1px 1px 0 0 $color-global-light-primary-50;
 
     &:first-child {
-      box-shadow: inset 0px 1px 0 0 variables.$color-global-light-primary-50;
+      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
     }
   }
 
@@ -333,25 +333,25 @@ th {
     position: sticky;
     left: 0;
     border: 0 !important;
-    box-shadow: inset -1px 1px 0 0 variables.$color-global-accent-100;
+    box-shadow: inset -1px 1px 0 0 $color-global-accent-100;
   }
 }
 
-.#{variables-addon.$prefix}table-action-fixed {
+.#{$prefix}table-action-fixed {
   overflow-y: auto;
   max-height: 450px;
 
-  &.#{variables-addon.$prefix}table-overflow-end::after {
-    width: 0px;
-    border-right: 0px solid transparent;
+  &.#{$prefix}table-overflow-end::after {
+    width: 0;
+    border-right: 0 solid transparent;
   }
 
-  &.#{variables-addon.$prefix}table-overflow-start:before,
-  &.#{variables-addon.$prefix}table-overflow-end:after {
+  &.#{$prefix}table-overflow-start:before,
+  &.#{$prefix}table-overflow-end:after {
     margin-bottom: 0;
   }
 
-  & .#{variables-addon.$prefix}table {
+  & .#{$prefix}table {
     margin-bottom: 0;
   }
 
@@ -361,15 +361,15 @@ th {
     right: 0;
     z-index: 1;
     filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
-    box-shadow: inset -1px 0 0 0 variables.$color-global-light-primary-50;
+    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
 
     &:first-child {
-      box-shadow: inset 0 1px 0 0 variables.$color-global-light-primary-50;
+      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
     }
   }
 
-  & .#{variables-addon.$prefix}table-dark thead th:last-child {
-    box-shadow: inset 1px 0 0 0 variables.$color-alias-background-color-primary-dark-115;
+  & .#{$prefix}table-dark thead th:last-child {
+    box-shadow: inset 1px 0 0 0 $color-alias-background-color-primary-dark-115;
     filter: drop-shadow(-12px 0 4px rgba(255, 255, 255, 0.1));
   }
 
@@ -379,14 +379,14 @@ th {
     border: 0 !important;
     background-color: #fff;
     filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
-    box-shadow: inset -1px 0 0 0 variables.$color-global-light-primary-50;
-    border-bottom: 1px solid variables.$color-global-light-primary-50 !important;
+    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
+    border-bottom: 1px solid $color-global-light-primary-50 !important;
   }
 }
 
 /* Table card */
 @media screen and (max-width: 768px) {
-  .#{variables-addon.$prefix}table-card {
+  .#{$prefix}table-card {
     border: 0;
 
     thead {
@@ -404,11 +404,11 @@ th {
       background-color: #fff;
       display: block;
       margin-bottom: 1em;
-      border: 1px solid variables.$color-alias-background-color-primary-light-50;
+      border: 1px solid $color-alias-background-color-primary-light-50;
       padding: 0.5rem;
 
       &:nth-child(even) {
-        background-color: variables.$color-alias-background-color-primary-light-40;
+        background-color: $color-alias-background-color-primary-light-40;
       }
 
       td {
@@ -419,7 +419,7 @@ th {
         display: flex;
         flex-wrap: wrap;
         width: 100% !important;
-        color: variables.$color-specific-data-entry-label-color-default;
+        color: $color-specific-data-entry-label-color-default;
 
         &:last-child {
           margin-bottom: 0;
@@ -431,14 +431,14 @@ th {
           max-width: 100%;
         }
 
-        &:not(.#{variables-addon.$prefix}table-btn)::before {
+        &:not(.#{$prefix}table-btn)::before {
           content: attr(data-label);
           display: block;
           font-weight: 700;
         }
 
         .font-mono {
-          color: variables.$color-global-dark-secondary-130;
+          color: $color-global-dark-secondary-130;
         }
 
         @media (max-width: 768px) {
@@ -451,7 +451,7 @@ th {
   }
 }
 
-.#{variables-addon.$prefix}table-expandable {
+.#{$prefix}table-expandable {
   &--maximized {
     position: fixed;
     top: 0;
@@ -459,7 +459,7 @@ th {
     width: 100%;
     height: 100vh;
     padding: 16px !important;
-    background-color: variables.$color-global-primary-000;
+    background-color: $color-global-primary-000;
     z-index: 1001;
     justify-content: flex-start;
     display: block;

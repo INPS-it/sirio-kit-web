@@ -1,111 +1,121 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Dropdown
-.#{variables-addon.$prefix}dropdown {
-    position: relative;
-    &.#{variables-addon.$prefix}dropdown-detach {
-        z-index: 1002;
+.#{$prefix}dropdown {
+  position: relative;
+
+  &.#{$prefix}dropdown-detach {
+    z-index: 1002;
+  }
+
+  & .#{$prefix}dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    border: 1px solid $color-global-secondary-100;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 180px;
+    text-align: left;
+    background-color: #fff;
+    background-clip: padding-box;
+    inset: 8px auto auto 0px;
+    transform: translate(0px, 48px);
+
+    &.#{$prefix}dropdown-menu-top {
+      bottom: 24px;
+      top: inherit;
+      transform: translateY(-34px);
     }
-    & .#{variables-addon.$prefix}dropdown-menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        border-radius: 4px;
-        border: 1px solid variables.$color-global-secondary-100;
-        position: absolute;
-        z-index: 1000;
-        display: none;
-        min-width: 180px;
-        text-align: left;
-        background-color: #fff;
-        background-clip: padding-box;
-        inset: 8px auto auto 0px;
-        transform: translate(0px, 48px);
-        &.#{variables-addon.$prefix}dropdown-menu-top {
-            bottom: 24px;
-            top: inherit;
-            transform: translateY(-34px);
-        }
-        @media (max-width: 576px) {
-            min-width: auto;
-            left: 0;
-            right: 0;
-        }
-        &[data-sirio-visible='true'] {
-            display: block;
-        }
-        &-right {
-            right: 0;
-            left: auto;
-        }
-        &[role='listbox'] {
-            max-height: 240px;
-            overflow: auto;
-            width: 100%;
-        }
-        & .#{variables-addon.$prefix}dropdown-item {
-            padding: 16px 48px 16px 16px;
-            display: block;
-            color: variables.$color-global-secondary-90;
-            border-top: 1px solid variables.$color-global-secondary-90;
-            &:hover {
-                color: variables.$color-global-primary-000;
-                background-color: variables.$color-specific-option-background-color-hover;
-                border-top: 1px solid
-                    variables.$color-specific-option-background-color-hover;
-            }
-            &:focus {
-                color: variables.$color-global-secondary-90;
-                background-color: transparent;
-                border-radius: 0;
-                outline: 2px solid
-                    variables.$color-specific-option-background-color-focus;
-                outline-offset: -2px;
-                & + .#{variables-addon.$prefix}dropdown-item {
-                    border-color: transparent;
-                }
-            }
-            &.hover {
-                color: variables.$color-global-primary-000;
-                background-color: variables.$color-specific-option-background-color-hover;
-                background-image: linear-gradient(
-                    variables.$color-specific-option-background-color-hover,
-                    variables.$color-specific-option-background-color-hover
-                );
-                border-top: 1px solid
-                    variables.$color-specific-option-background-color-hover;
-            }
-            &:not(:disabled):not(.disabled):active {
-                color: variables.$color-global-primary-000;
-                background-color: variables.$color-specific-option-background-color-pressed;
-                border-top: 1px solid
-                    variables.$color-specific-option-background-color-pressed;
-                outline: 0;
-            }
-            &[aria-selected='true'],
-            &.active {
-                color: variables.$color-global-primary-000;
-                background-color: variables.$color-specific-option-background-color-valued;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
-                background-size: 16px;
-                background-repeat: no-repeat;
-                background-position: right 16px top 50%;
-                border-top: 1px solid
-                    variables.$color-specific-option-background-color-valued;
-            }
-        }
-        & li.#{variables-addon.$prefix}dropdown-item:first-child {
-            border: 0;
-            min-height: 56px;
-        }
-        &
-            li:not(.#{variables-addon.$prefix}dropdown-item):first-child
-            .#{variables-addon.$prefix}dropdown-item {
-            border: 0;
-            & + li:not(.#{variables-addon.$prefix}dropdown-item) {
-                border-color: transparent;
-            }
-        }
+
+    @media (max-width: 576px) {
+      min-width: auto;
+      left: 0;
+      right: 0;
     }
+
+    &[data-sirio-visible='true'] {
+      display: block;
+    }
+
+    &-right {
+      right: 0;
+      left: auto;
+    }
+
+    &[role='listbox'] {
+      max-height: 240px;
+      overflow: auto;
+      width: 100%;
+    }
+
+    & .#{$prefix}dropdown-item {
+      padding: 16px 48px 16px 16px;
+      display: block;
+      color: $color-global-secondary-90;
+      border-top: 1px solid $color-global-secondary-90;
+
+      &:hover {
+        color: $color-global-primary-000;
+        background-color: $color-specific-option-background-color-hover;
+        border-top: 1px solid $color-specific-option-background-color-hover;
+      }
+
+      &:focus {
+        color: $color-global-secondary-90;
+        background-color: transparent;
+        border-radius: 0;
+        outline: 2px solid $color-specific-option-background-color-focus;
+        outline-offset: -2px;
+
+        & + .#{$prefix}dropdown-item {
+          border-color: transparent;
+        }
+      }
+
+      &.hover {
+        color: $color-global-primary-000;
+        background-color: $color-specific-option-background-color-hover;
+        background-image: linear-gradient(
+                        $color-specific-option-background-color-hover,
+                        $color-specific-option-background-color-hover
+        );
+        border-top: 1px solid $color-specific-option-background-color-hover;
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        color: $color-global-primary-000;
+        background-color: $color-specific-option-background-color-pressed;
+        border-top: 1px solid $color-specific-option-background-color-pressed;
+        outline: 0;
+      }
+
+      &[aria-selected='true'],
+      &.active {
+        color: $color-global-primary-000;
+        background-color: $color-specific-option-background-color-valued;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
+        background-size: 16px;
+        background-repeat: no-repeat;
+        background-position: right 16px top 50%;
+        border-top: 1px solid $color-specific-option-background-color-valued;
+      }
+    }
+
+    & li.#{$prefix}dropdown-item:first-child {
+      border: 0;
+      min-height: 56px;
+    }
+
+    & li:not(.#{$prefix}dropdown-item):first-child .#{$prefix}dropdown-item {
+      border: 0;
+
+      & + li:not(.#{$prefix}dropdown-item) {
+        border-color: transparent;
+      }
+    }
+  }
 }

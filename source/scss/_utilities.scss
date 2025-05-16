@@ -1,5 +1,5 @@
-@use 'variables';
-@use 'variables-addon';
+@use 'variables' as *;
+@use 'variables-addon' as *;
 
 // Utilities
 
@@ -14,7 +14,7 @@
     transition: height 0.35s ease;
 }
 
-// Screanreader Only
+// Screen reader Only
 .sr-only-focusable:focus {
     z-index: 2000 !important;
     position: relative !important;
@@ -143,12 +143,12 @@
     }
 
     &::-webkit-scrollbar-track {
-        background-color: variables.$color-alias-background-color-primary-light-40;
+        background-color: $color-alias-background-color-primary-light-40;
         border-radius: 6px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: variables.$color-alias-background-color-primary-light-50;
+        background-color: $color-alias-background-color-primary-light-50;
         border-radius: 6px;
     }
 }
@@ -174,18 +174,18 @@
     }
 
     &:hover::-webkit-scrollbar-track {
-        background-color: variables.$color-alias-background-color-primary-light-40;
+        background-color: $color-alias-background-color-primary-light-40;
         border-radius: 5px;
     }
 
     &:hover::-webkit-scrollbar-thumb {
-        background-color: variables.$color-alias-background-color-primary-light-50;
+        background-color: $color-alias-background-color-primary-light-50;
         border-radius: 5px;
     }
 }
 
 // Sirio Content Slider
-.#{variables-addon.$prefix}content-slider {
+.#{$prefix}content-slider {
     display: flex;
     flex-wrap: wrap;
 
@@ -194,7 +194,7 @@
         flex: 0 0 auto;
     }
 
-    & .#{variables-addon.$prefix}content-slider-area {
+    & .#{$prefix}content-slider-area {
         flex-basis: 0;
         flex-grow: 1;
         position: relative;
@@ -203,7 +203,7 @@
         white-space: nowrap;
         overflow: hidden;
 
-        & .#{variables-addon.$prefix}tab-nav {
+        & .#{$prefix}tab-nav {
             overflow: hidden;
             padding: 0;
         }
@@ -211,20 +211,20 @@
 }
 
 // Sirio Shadow
-.#{variables-addon.$prefix}shadow-1 {
-    box-shadow: variables.$elevation-elevation-01;
+.#{$prefix}shadow-1 {
+    box-shadow: $elevation-elevation-01;
 }
 
-.#{variables-addon.$prefix}shadow-2 {
-    box-shadow: variables.$elevation-elevation-02;
+.#{$prefix}shadow-2 {
+    box-shadow: $elevation-elevation-02;
 }
 
-.#{variables-addon.$prefix}shadow-3 {
-    box-shadow: variables.$elevation-elevation-03;
+.#{$prefix}shadow-3 {
+    box-shadow: $elevation-elevation-03;
 }
 
-.#{variables-addon.$prefix}shadow-4 {
-    box-shadow: variables.$elevation-elevation-04;
+.#{$prefix}shadow-4 {
+    box-shadow: $elevation-elevation-04;
 }
 
 /* Varie */

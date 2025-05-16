@@ -1,31 +1,32 @@
-@use '../functions';
-@use '../variables';
-@use '../variables-addon';
+@use '../functions' as *;
+@use '../variables' as * ;
+@use '../variables-addon' as *;
 
 // Stepper
-.#{variables-addon.$prefix}stepper {
-  background-color: variables.$color-alias-background-color-primary-light-40;
+.#{$prefix}stepper {
+  background-color: $color-alias-background-color-primary-light-40;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   position: relative;
 
-  & .#{variables-addon.$prefix}stepper-count,
-  & .#{variables-addon.$prefix}stepper-main-title {
+  & .#{$prefix}stepper-count,
+  & .#{$prefix}stepper-main-title {
     width: 70%;
     padding: 16px;
   }
-  & .#{variables-addon.$prefix}stepper-main-title {
-    font-size: functions.rem(20);
+
+  & .#{$prefix}stepper-main-title {
+    font-size: rem(20);
     font-weight: 600;
     word-break: break-word;
   }
 
-  & .#{variables-addon.$prefix}stepper-selector {
+  & .#{$prefix}stepper-selector {
     width: 30%;
     text-align: right;
 
-    & .#{variables-addon.$prefix}btn {
+    & .#{$prefix}btn {
       display: inline-flex;
       padding: 16px 24px 16px 16px;
       justify-content: space-between;
@@ -55,65 +56,68 @@
       &:not(:disabled):not(.disabled).active,
       &:not(:disabled):not(.disabled):active {
         background-color: transparent;
-        color: variables.$color-alias-interactive-primary-default;
+        color: $color-alias-interactive-primary-default;
         border-color: transparent;
       }
     }
   }
 }
 
-.#{variables-addon.$prefix}stepper-content {
+.#{$prefix}stepper-content {
   display: flex;
   flex-wrap: nowrap;
   padding: 0 16px;
 
-  & .#{variables-addon.$prefix}stepper-marker {
+  & .#{$prefix}stepper-marker {
     flex: 0 0 auto;
   }
 
-  & .#{variables-addon.$prefix}stepper-text {
-    flex: 1 0 0%;
+  & .#{$prefix}stepper-text {
+    flex: 1 0 0;
     text-align: right;
   }
 }
-a.#{variables-addon.$prefix}stepper-content,
-button.#{variables-addon.$prefix}stepper-content {
-  .#{variables-addon.$prefix}stepper-title {
-  text-decoration: underline !important;
-  font-weight: 600;
+
+a.#{$prefix}stepper-content,
+button.#{$prefix}stepper-content {
+  .#{$prefix}stepper-title {
+    text-decoration: underline !important;
+    font-weight: 600;
   }
 }
 
-.#{variables-addon.$prefix}stepper-selector .#{variables-addon.$prefix}dropdown-menu {
+.#{$prefix}stepper-selector .#{$prefix}dropdown-menu {
   width: 100%;
   inset: 8px auto auto 0;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.10);
   border: 0;
   border-radius: 0;
 
-  & .#{variables-addon.$prefix}stepper-nav {
+  & .#{$prefix}stepper-nav {
     margin: 0;
     padding: 4px 0;
     width: 100%;
   }
 }
-.#{variables-addon.$prefix}dropdown-menu[data-sirio-visible="true"] {
-  .#{variables-addon.$prefix}stepper-nav {
 
-    background-color: variables.$color-alias-background-color-primary-light-40;
+.#{$prefix}dropdown-menu[data-sirio-visible="true"] {
+  .#{$prefix}stepper-nav {
+
+    background-color: $color-alias-background-color-primary-light-40;
   }
 }
-.#{variables-addon.$prefix}stepper-selector {
+
+.#{$prefix}stepper-selector {
   .sirio-dropdown {
     position: static;
   }
 }
 
-.#{variables-addon.$prefix}stepper-item {
+.#{$prefix}stepper-item {
   display: block;
   position: relative;
   text-align: center;
-  flex: 1 1 0%;
+  flex: 1 1 0;
   margin: 0;
   padding: 0;
   min-width: 28px;
@@ -129,22 +133,22 @@ button.#{variables-addon.$prefix}stepper-content {
     left: 30px;
     width: 2px;
     height: 100%;
-    background-color: variables.$color-alias-background-color-disabled;
+    background-color: $color-alias-background-color-disabled;
     transition: background-color 0.3s;
   }
 
   &:after {
-    background-color: variables.$color-alias-background-color-disabled;
+    background-color: $color-alias-background-color-disabled;
   }
 
-  & a:hover .#{variables-addon.$prefix}stepper-marker {
-    outline: 1px solid variables.$color-alias-background-color-disabled;
+  & a:hover .#{$prefix}stepper-marker {
+    outline: 1px solid $color-alias-background-color-disabled;
     outline-offset: 3px;
   }
 
   &.is-success {
-    & .#{variables-addon.$prefix}stepper-marker {
-      background-color: variables.$color-global-semantic-success-100;
+    & .#{$prefix}stepper-marker {
+      background-color: $color-global-semantic-success-100;
       color: #fff;
 
       &:before {
@@ -160,25 +164,25 @@ button.#{variables-addon.$prefix}stepper-content {
       }
     }
 
-    & a:hover .#{variables-addon.$prefix}stepper-marker {
-      outline: 1px solid variables.$color-global-semantic-success-100;
+    & a:hover .#{$prefix}stepper-marker {
+      outline: 1px solid $color-global-semantic-success-100;
     }
   }
 
   &.is-active {
-    & .#{variables-addon.$prefix}stepper-marker {
-      background-color: variables.$color-alias-interactive-primary-default;
+    & .#{$prefix}stepper-marker {
+      background-color: $color-alias-interactive-primary-default;
       color: #fff;
     }
 
-    & a:hover .#{variables-addon.$prefix}stepper-marker {
-      outline: 1px solid variables.$color-alias-interactive-primary-default;
+    & a:hover .#{$prefix}stepper-marker {
+      outline: 1px solid $color-alias-interactive-primary-default;
     }
   }
 
   &.is-error {
-    & .#{variables-addon.$prefix}stepper-marker {
-      background-color: variables.$color-global-semantic-alert-100;
+    & .#{$prefix}stepper-marker {
+      background-color: $color-global-semantic-alert-100;
       color: #fff;
 
       &:before {
@@ -194,14 +198,14 @@ button.#{variables-addon.$prefix}stepper-content {
       }
     }
 
-    & a:hover .#{variables-addon.$prefix}stepper-marker {
-      outline: 1px solid variables.$color-global-semantic-alert-100;
+    & a:hover .#{$prefix}stepper-marker {
+      outline: 1px solid $color-global-semantic-alert-100;
     }
   }
 
   &.is-warning {
-    & .#{variables-addon.$prefix}stepper-marker {
-      background-color: variables.$color-global-semantic-warning-100;
+    & .#{$prefix}stepper-marker {
+      background-color: $color-global-semantic-warning-100;
       color: #fff;
 
       &:before {
@@ -217,19 +221,19 @@ button.#{variables-addon.$prefix}stepper-content {
       }
     }
 
-    & a:hover .#{variables-addon.$prefix}stepper-marker {
-      outline: 1px solid variables.$color-global-semantic-warning-100;
+    & a:hover .#{$prefix}stepper-marker {
+      outline: 1px solid $color-global-semantic-warning-100;
     }
   }
 }
 
-.#{variables-addon.$prefix}stepper-item a {
+.#{$prefix}stepper-item a {
   text-decoration: none;
   font-weight: 400;
-  color: variables.$color-global-secondary-100;
+  color: $color-global-secondary-100;
 }
 
-.#{variables-addon.$prefix}stepper-marker {
+.#{$prefix}stepper-marker {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,8 +243,8 @@ button.#{variables-addon.$prefix}stepper-content {
   width: 30px;
   height: 30px;
   padding-bottom: 1px;
-  color: variables.$color-global-secondary-100;
-  background-color: variables.$color-alias-background-color-disabled;
+  color: $color-global-secondary-100;
+  background-color: $color-alias-background-color-disabled;
   font-weight: 600;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -259,24 +263,24 @@ button.#{variables-addon.$prefix}stepper-content {
   }
 }
 
-.#{variables-addon.$prefix}stepper-title {
+.#{$prefix}stepper-title {
   margin-top: 0;
-  color: variables.$color-global-secondary-100;
+  color: $color-global-secondary-100;
 }
 
-.#{variables-addon.$prefix}stepper-text {
+.#{$prefix}stepper-text {
   display: block;
   padding: 8px;
 }
 
-.#{variables-addon.$prefix}stepper-nav .#{variables-addon.$prefix}stepper-text {
+.#{$prefix}stepper-nav .#{$prefix}stepper-text {
   display: inline-block;
   white-space: inherit;
   padding-right: 0;
   padding-left: 0;
 }
 
-.#{variables-addon.$prefix}stepper-nav .#{variables-addon.$prefix}stepper-title {
+.#{$prefix}stepper-nav .#{$prefix}stepper-title {
   margin: 12px;
   text-align: left;
   display: block;
@@ -284,29 +288,29 @@ button.#{variables-addon.$prefix}stepper-content {
 }
 
 @media (max-width: 576px) {
-  .#{variables-addon.$prefix}stepper .#{variables-addon.$prefix}dropdown-menu {
+  .#{$prefix}stepper .#{$prefix}dropdown-menu {
     right: 0;
     left: auto;
   }
 }
 
 @media (min-width: 992px) {
-  .#{variables-addon.$prefix}stepper {
+  .#{$prefix}stepper {
     background-color: transparent;
     display: block;
 
-    & .#{variables-addon.$prefix}stepper-selector {
+    & .#{$prefix}stepper-selector {
       width: 100%;
     }
   }
-  .#{variables-addon.$prefix}stepper-nav {
+  .#{$prefix}stepper-nav {
     display: flex;
     margin: auto;
     list-style: none;
     padding: 3px;
     overflow: hidden;
   }
-  .#{variables-addon.$prefix}stepper-selector .#{variables-addon.$prefix}dropdown-menu {
+  .#{$prefix}stepper-selector .#{$prefix}dropdown-menu {
     position: relative;
     display: flex !important;
     width: auto;
@@ -322,7 +326,7 @@ button.#{variables-addon.$prefix}stepper-content {
       width: 100%;
     }
   }
-  .#{variables-addon.$prefix}stepper-item:not(:last-child)::after {
+  .#{$prefix}stepper-item:not(:last-child)::after {
     content: '';
     display: block;
     position: absolute;
@@ -333,26 +337,25 @@ button.#{variables-addon.$prefix}stepper-content {
     left: inherit;
     width: 100%;
     height: 2px;
-    background-color: variables.$color-alias-background-color-disabled;
+    background-color: $color-alias-background-color-disabled;
     transition: background-color 0.3s;
     transform: translateX(calc(+50% - 14px));
   }
-  .#{variables-addon.$prefix}stepper-selector .#{variables-addon.$prefix}btn,
-  .#{variables-addon.$prefix}stepper-count,
-  .#{variables-addon.$prefix}stepper-main-title {
+  .#{$prefix}stepper-selector .#{$prefix}btn,
+  .#{$prefix}stepper-count,
+  .#{$prefix}stepper-main-title {
     display: none !important;
   }
-  .#{variables-addon.$prefix}stepper-nav
-  .#{variables-addon.$prefix}stepper-title {
+  .#{$prefix}stepper-nav .#{$prefix}stepper-title {
     margin: 0;
     text-align: center;
     max-width: 100px;
   }
-  .#{variables-addon.$prefix}stepper-content {
+  .#{$prefix}stepper-content {
     display: block;
     padding: 0;
 
-    & .#{variables-addon.$prefix}stepper-text {
+    & .#{$prefix}stepper-text {
       text-align: center;
     }
   }

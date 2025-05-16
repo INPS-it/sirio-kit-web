@@ -1,93 +1,111 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Form
 button {
-    border-radius: 0;
+  border-radius: 0;
 }
+
 label,
-.#{variables-addon.$prefix}label {
-    display: block;
-    color: variables.$color-specific-data-entry-label-color-default;
-    font-size: #{variables.$typography-alias-label-md-size-04}px;
-    line-height: #{variables.$typography-alias-label-md-size-04}px;
-    margin-bottom: 8px;
-    font-weight: 600;
+.#{$prefix}label {
+  display: block;
+  color: $color-specific-data-entry-label-color-default;
+  font-size: #{$typography-alias-label-md-size-04}px;
+  line-height: #{$typography-alias-label-md-size-04}px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
+
 label:hover,
-.#{variables-addon.$prefix}label:hover {
-    color: variables.$color-specific-data-entry-label-color-hover;
+.#{$prefix}label:hover {
+  color: $color-specific-data-entry-label-color-hover;
 }
-legend.#{variables-addon.$prefix}label {
-    margin-bottom: 16px;
+
+legend.#{$prefix}label {
+  margin-bottom: 16px;
 }
+
 input,
 button,
 select,
 optgroup,
 textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
+
 button,
 select {
-    text-transform: none;
+  text-transform: none;
 }
+
 [role='button'] {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 select {
-    word-wrap: normal;
+  word-wrap: normal;
 }
+
 select:disabled {
-    opacity: 1;
+  opacity: 1;
 }
+
 [list]::-webkit-calendar-picker-indicator {
-    display: none;
+  display: none;
 }
+
 button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-    -webkit-appearance: button;
+  -webkit-appearance: button;
 }
+
 button:not(:disabled),
 [type='button']:not(:disabled),
 [type='reset']:not(:disabled),
 [type='submit']:not(:disabled) {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 ::-moz-focus-inner {
-    padding: 0;
-    border-style: none;
+  padding: 0;
+  border-style: none;
 }
+
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
+
 fieldset {
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
+
 legend {
-    float: left;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 0.5rem;
-    font-size: calc(1.275rem + 0.3vw);
-    line-height: inherit;
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: calc(1.275rem + 0.3vw);
+  line-height: inherit;
 }
+
 @media (min-width: 1200px) {
-    legend {
-        font-size: 1.5rem;
-    }
+  legend {
+    font-size: 1.5rem;
+  }
 }
+
 legend + * {
-    clear: left;
+  clear: left;
 }
+
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
 ::-webkit-datetime-edit-minute,
@@ -95,28 +113,35 @@ legend + * {
 ::-webkit-datetime-edit-day-field,
 ::-webkit-datetime-edit-month-field,
 ::-webkit-datetime-edit-year-field {
-    padding: 0;
+  padding: 0;
 }
+
 ::-webkit-inner-spin-button {
-    height: auto;
+  height: auto;
 }
+
 [type='search'] {
-    outline-offset: -2px;
-    -webkit-appearance: textfield;
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
 }
+
 ::-webkit-search-decoration {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
+
 ::-webkit-color-swatch-wrapper {
-    padding: 0;
+  padding: 0;
 }
+
 ::-webkit-file-upload-button {
-    font: inherit;
-    -webkit-appearance: button;
+  font: inherit;
+  -webkit-appearance: button;
 }
+
 output {
-    display: inline-block;
+  display: inline-block;
 }
+
 progress {
-    vertical-align: baseline;
+  vertical-align: baseline;
 }

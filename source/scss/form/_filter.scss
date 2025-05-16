@@ -1,209 +1,236 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Filter
 @media (max-width: 768px) {
-    .#{variables-addon.$prefix}filter .#{variables-addon.$prefix}btn.w-100 {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
+  .#{$prefix}filter .#{$prefix}btn.w-100 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
-.#{variables-addon.$prefix}filter-selected {
-    padding: 24px;
-    background-color: variables.$color-alias-background-color-primary-light-40;
+
+.#{$prefix}filter-selected {
+  padding: 24px;
+  background-color: $color-alias-background-color-primary-light-40;
 }
 
 // Filter drawer
-.#{variables-addon.$prefix}drawer {
-    .#{variables-addon.$prefix}dialog-wrapper {
-        position: static;
+.#{$prefix}drawer {
+  .#{$prefix}dialog-wrapper {
+    position: static;
+    width: auto;
+    margin: 0;
+    pointer-events: none;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .#{$prefix}dialog-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 935px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+    height: auto;
+  }
+
+  &.#{$prefix}drawer-table {
+    & .#{$prefix}dialog-content {
+      @media (min-width: 992px) {
+        max-width: 550px;
+      }
+    }
+
+    & .#{$prefix}dialog-title {
+      font-size: #{$typography-alias-h5-md-size-06}px;
+      line-height: #{$typography-alias-h5-md-line-height-06}px;
+      color: $color-alias-text-color-primary-100;
+      font-weight: 600;
+    }
+
+    & .#{$prefix}dialog-header {
+      padding: 24px 8px 24px 16px;
+      @media (min-width: 992px) {
+        padding: 24px 8px 24px 32px;
+      }
+    }
+
+    & .#{$prefix}dialog-body {
+      padding: 0 16px;
+      margin-right: 16px;
+      margin-bottom: 24px;
+      @media (min-width: 992px) {
+        padding: 0 22px 0 32px;
+      }
+    }
+
+    & .#{$prefix}dialog-footer {
+      background-color: $color-global-primary-100;
+      padding: 8px 16px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      & .#{$prefix}btn {
+        margin: 0 0 0 8px;
         width: auto;
-        margin: 0;
-        pointer-events: none;
-        min-height: 100%;
-        display: flex;
-        align-items: center;
+        padding: 16px;
+
+        &:focus {
+          outline-color: #fff;
+        }
+      }
     }
-    .#{variables-addon.$prefix}dialog-content {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        max-width: 935px;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-radius: 0;
-        padding: 0;
-        height: auto;
-    }
-    &.#{variables-addon.$prefix}drawer-table {
-        & .#{variables-addon.$prefix}dialog-content {
-            @media (min-width: 992px) {
-                max-width: 550px;
-            }
-        }
-        & .#{variables-addon.$prefix}dialog-title {
-            font-size: #{variables.$typography-alias-h5-md-size-06}px;
-            line-height: #{variables.$typography-alias-h5-md-line-height-06}px;
-            color: variables.$color-alias-text-color-primary-100;
-            font-weight: 600;
-        }
-        & .#{variables-addon.$prefix}dialog-header {
-            padding: 24px 8px 24px 16px;
-            @media (min-width: 992px) {
-                padding: 24px 8px 24px 32px;
-            }
-        }
-        & .#{variables-addon.$prefix}dialog-body {
-            padding: 0 16px;
-            margin-right: 16px;
-            margin-bottom: 24px;
-            @media (min-width: 992px) {
-                padding: 0 22px 0 32px;
-            }
-        }
-        & .#{variables-addon.$prefix}dialog-footer {
-            background-color: variables.$color-global-primary-100;
-            padding: 8px 16px;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            & .#{variables-addon.$prefix}btn {
-                margin: 0 0 0 8px;
-                width: auto;
-                padding: 16px;
-                &:focus {
-                    outline-color: #fff;
-                }
-            }
-        }
-    }
-    & .#{variables-addon.$prefix}dialog-header {
-        padding: 24px 32px 0;
-    }
-    & .#{variables-addon.$prefix}dialog-body {
-        background: #fff;
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding: 24px 22px 14px 32px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background-color: variables.$color-alias-background-color-primary-light-40;
-            border-radius: 5px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: variables.$color-alias-background-color-primary-light-50;
-            border-radius: 5px;
-        }
-        & .#{variables-addon.$prefix}info {
-            padding: 24px 0 8px;
-            border-bottom: 1px solid
-                variables.$color-alias-background-color-primary-light-50;
-            background-color: #fff;
-            & p {
-                font-size: #{variables.$typography-global-font-size-04}px;
-                line-height: #{variables.$typography-global-line-heights-04}px;
-                color: variables.$color-global-secondary-100;
-                & strong {
-                    font-weight: 600;
-                }
-            }
-        }
+  }
+
+  & .#{$prefix}dialog-header {
+    padding: 24px 32px 0;
+  }
+
+  & .#{$prefix}dialog-body {
+    background: #fff;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 22px 14px 32px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
     }
 
-    & .#{variables-addon.$prefix}dialog-footer {
-        box-shadow: variables.$elevation-elevation-01;
-        padding: 24px 32px;
-        & .#{variables-addon.$prefix}btn {
-            padding-left: 16px;
-            padding-right: 16px;
-            white-space: nowrap;
-            margin: 0;
-        }
+    &::-webkit-scrollbar-track {
+      background-color: $color-alias-background-color-primary-light-40;
+      border-radius: 5px;
     }
-    /*
-	& .#{variables-addon.$prefix}chip-selection label {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		max-width: 150px;
-	}*/
 
-    // Animazione
-    .#{variables-addon.$prefix}dialog {
-        overflow: hidden;
-        background-color: variables.$color-alias-overlay-15-secondary-100;
-        animation: fadeIn 0.5s !important;
-        & .#{variables-addon.$prefix}dialog-content {
-            opacity: 1;
-            animation: rightToLeftInContent 1.5s !important;
-            transition: all 1s;
-            left: inherit;
-        }
-        &[hidden] {
-            display: none;
-            opacity: 1;
-        }
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-alias-background-color-primary-light-50;
+      border-radius: 5px;
     }
-}
-.#{variables-addon.$prefix}drawer .#{variables-addon.$prefix}dialog-sidenav {
-    background-color: variables.$color-alias-overlay-15-secondary-100 !important;
-    & .#{variables-addon.$prefix}dialog-header {
-        padding: 24px 0 0 32px;
+
+    & .#{$prefix}info {
+      padding: 24px 0 8px;
+      border-bottom: 1px solid $color-alias-background-color-primary-light-50;
+      background-color: #fff;
+
+      & p {
+        font-size: #{$typography-global-font-size-04}px;
+        line-height: #{$typography-global-line-heights-04}px;
+        color: $color-global-secondary-100;
+
+        & strong {
+          font-weight: 600;
+        }
+      }
     }
+  }
+
+  & .#{$prefix}dialog-footer {
+    box-shadow: $elevation-elevation-01;
+    padding: 24px 32px;
+
+    & .#{$prefix}btn {
+      padding-left: 16px;
+      padding-right: 16px;
+      white-space: nowrap;
+      margin: 0;
+    }
+  }
+
+  /*
+  & .#{$prefix}chip-selection label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 150px;
+  }*/
+
+  // Animazione
+  .#{$prefix}dialog {
+    overflow: hidden;
+    background-color: $color-alias-overlay-15-secondary-100;
+    animation: fadeIn 0.5s !important;
+
+    & .#{$prefix}dialog-content {
+      opacity: 1;
+      animation: rightToLeftInContent 1.5s !important;
+      transition: all 1s;
+      left: inherit;
+    }
+
+    &[hidden] {
+      display: none;
+      opacity: 1;
+    }
+  }
 }
+
+.#{$prefix}drawer .#{$prefix}dialog-sidenav {
+  background-color: $color-alias-overlay-15-secondary-100 !important;
+
+  & .#{$prefix}dialog-header {
+    padding: 24px 0 0 32px;
+  }
+}
+
 @media (min-width: 992px) {
-    .#{variables-addon.$prefix}drawer
-        .#{variables-addon.$prefix}dialog-sidenav {
-        z-index: auto;
-        background-color: variables.$color-alias-background-color-primary-light-40 !important;
-        &.#{variables-addon.$prefix}bg-primary-light-40 {
-            background-color: variables.$color-alias-background-color-primary-light-40;
-            & .#{variables-addon.$prefix}dialog-content,
-            & .#{variables-addon.$prefix}dialog-body {
-                background-color: variables.$color-alias-background-color-primary-light-40;
-            }
-        }
-        & .#{variables-addon.$prefix}dialog-content {
-            position: relative;
-            animation: none !important;
-        }
-        & .#{variables-addon.$prefix}dialog-body {
-            overflow: hidden;
-            padding: 24px 16px;
-            margin: 0;
-        }
-        & .#{variables-addon.$prefix}dialog-header {
-            display: block;
-            padding: 0 16px;
-        }
-        &
-            .#{variables-addon.$prefix}dialog-header
-            .#{variables-addon.$prefix}btn-close {
-            display: none;
-        }
-        & .#{variables-addon.$prefix}dialog-footer {
-            box-shadow: none;
-            display: block;
-            padding: 24px 16px;
-        }
+  .#{$prefix}drawer .#{$prefix}dialog-sidenav {
+    z-index: auto;
+    background-color: $color-alias-background-color-primary-light-40 !important;
+
+    &.#{$prefix}bg-primary-light-40 {
+      background-color: $color-alias-background-color-primary-light-40;
+
+      & .#{$prefix}dialog-content,
+      & .#{$prefix}dialog-body {
+        background-color: $color-alias-background-color-primary-light-40;
+      }
     }
+
+    & .#{$prefix}dialog-content {
+      position: relative;
+      animation: none !important;
+    }
+
+    & .#{$prefix}dialog-body {
+      overflow: hidden;
+      padding: 24px 16px;
+      margin: 0;
+    }
+
+    & .#{$prefix}dialog-header {
+      display: block;
+      padding: 0 16px;
+    }
+
+    & .#{$prefix}dialog-header .#{$prefix}btn-close {
+      display: none;
+    }
+
+    & .#{$prefix}dialog-footer {
+      box-shadow: none;
+      display: block;
+      padding: 24px 16px;
+    }
+  }
 }
 
 @keyframes rightToLeftInContent {
-    0% {
-        right: -1000px;
-    }
-    33% {
-        right: -1000px;
-    }
-    100% {
-        right: 0;
-    }
+  0% {
+    right: -1000px;
+  }
+  33% {
+    right: -1000px;
+  }
+  100% {
+    right: 0;
+  }
 }

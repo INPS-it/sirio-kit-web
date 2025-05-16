@@ -1,10 +1,10 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Tag
-.#{variables-addon.$prefix}notify {
-  background-color: variables.$color-alias-background-color-primary-light-40;
-  color: variables.$color-global-dark-primary-130;
+.#{$prefix}notify {
+  background-color: $color-alias-background-color-primary-light-40;
+  color: $color-global-dark-primary-130;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12,15 +12,15 @@
   padding: 24px 16px;
   gap: 16px;
 
-  & .#{variables-addon.$prefix}notify-title {
+  & .#{$prefix}notify-title {
     font-weight: 700;
     font-size: 28px;
     line-height: 42px;
-    color: variables.$color-alias-text-color-secondary-dark-100;
+    color: $color-alias-text-color-secondary-dark-100;
   }
 
-  & .#{variables-addon.$prefix}notify-icon {
-    color: variables.$color-alias-text-color-secondary-dark-100;
+  & .#{$prefix}notify-icon {
+    color: $color-alias-text-color-secondary-dark-100;
     position: relative;
     flex: 0 0 auto;
     width: auto;
@@ -29,7 +29,7 @@
     line-height: 42px;
   }
 
-  & .#{variables-addon.$prefix}notify-body {
+  & .#{$prefix}notify-body {
     position: relative;
     width: 100%;
     flex-basis: 0;
@@ -41,7 +41,7 @@
     }
   }
 
-  & .#{variables-addon.$prefix}notify-action {
+  & .#{$prefix}notify-action {
     align-self: end;
     padding-left: 40px;
     margin-top: 16px;
@@ -51,88 +51,88 @@
     max-width: 100%;
   }
 
-  &.#{variables-addon.$prefix}notify-dark {
-    background-color: variables.$color-alias-background-color-primary-dark-115;
-    color: variables.$color-alias-text-color-primary-light-40;
+  &.#{$prefix}notify-dark {
+    background-color: $color-alias-background-color-primary-dark-115;
+    color: $color-alias-text-color-primary-light-40;
 
-    & .#{variables-addon.$prefix}notify-title,
-    & .#{variables-addon.$prefix}notify-icon {
+    & .#{$prefix}notify-title,
+    & .#{$prefix}notify-icon {
       color: #fff;
     }
 
-    & .#{variables-addon.$prefix}notify-body a {
-      color: variables.$color-alias-interactive-accent-default;
+    & .#{$prefix}notify-body a {
+      color: $color-alias-interactive-accent-default;
 
       &:visited {
-        color: variables.$color-alias-interactive-accent-default;
+        color: $color-alias-interactive-accent-default;
       }
 
       &:hover {
-        color: variables.$color-alias-interactive-accent-hover;
+        color: $color-alias-interactive-accent-hover;
       }
 
       &:not(:disabled):not(.disabled):active {
-        color: variables.$color-alias-interactive-accent-pressed;
+        color: $color-alias-interactive-accent-pressed;
       }
 
       &:focus {
-        outline-color: variables.$color-alias-interactive-accent-focus !important;
+        outline-color: $color-alias-interactive-accent-focus !important;
       }
     }
   }
 
   &-wrapper {
-    background: variables.$color-alias-background-color-primary-light-40;
-    border-bottom: solid 1px variables.$color-alias-background-color-primary-light-50;
+    background: $color-alias-background-color-primary-light-40;
+    border-bottom: solid 1px $color-alias-background-color-primary-light-50;
 
     &-dark {
-      background: variables.$color-alias-background-color-primary-dark-115;
-      border-bottom: solid 1px variables.$color-alias-background-color-primary-light-50;
+      background: $color-alias-background-color-primary-dark-115;
+      border-bottom: solid 1px $color-alias-background-color-primary-light-50;
     }
   }
 
   &-success,
   &-warning,
   &-alert {
-    background-color: variables.$color-global-primary-000;
+    background-color: $color-global-primary-000;
     border-bottom: none;
 
     .sirio-notify {
-      background-color: variables.$color-global-primary-000;
+      background-color: $color-global-primary-000;
     }
   }
 
   &-success {
     span.fas, span.fa, span.far {
-      color: variables.$color-global-semantic-success-100;
+      color: $color-global-semantic-success-100;
     }
   }
 
   &-warning {
     span.fas, span.fa, span.far {
-      color: variables.$color-global-semantic-warning-100;
+      color: $color-global-semantic-warning-100;
     }
   }
 
   &-alert {
     span.fas, span.fa, span.far {
-      color: variables.$color-global-semantic-alert-100;
+      color: $color-global-semantic-alert-100;
     }
   }
 }
 
 @media (min-width: 992px) {
-  .#{variables-addon.$prefix}notify {
+  .#{$prefix}notify {
     padding: 24px 56px;
 
-    & .#{variables-addon.$prefix}notify-action {
+    & .#{$prefix}notify-action {
       flex: 0 0 auto;
       width: auto;
     }
   }
 }
 
-[class*='container'] .#{variables-addon.$prefix}notify {
+[class*='container'] .#{$prefix}notify {
   padding-left: 0;
   padding-right: 0;
 }

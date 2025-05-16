@@ -1,103 +1,113 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Accordion
-.#{variables-addon.$prefix}accordion-header {
-    margin: 0;
-    padding: 0;
-    .#{variables-addon.$prefix}accordion-trigger {
-        background-color: variables.$color-global-primary-000;
-        border: 1px solid variables.$color-global-light-primary-50;
-        color: variables.$color-alias-text-color-primary-dark-110;
-        font-size: 16px;
-        padding: 24px 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        width: 100%;
-        font-weight: 600;
-        &:after {
-            display: inline-block;
-            content: '\f078';
-            font-family: variables-addon.$font-family-icon;
-            text-align: center;
-            font-weight: 900;
-        }
-        &[aria-expanded='true'] {
-            background-color: variables.$color-global-light-primary-40;
-            border-color: variables.$color-global-light-primary-40;
-            color: variables.$color-alias-text-color-primary-dark-110;
-            &:after {
-                content: '\f077';
-            }
-        }
-        &:hover {
-            background-color: variables.$color-global-light-primary-40;
-            border-color: variables.$color-global-light-primary-40;
-            color: variables.$color-alias-text-color-primary-dark-110;
-        }
-        &:focus span {
-            color: variables.$color-alias-text-color-primary-dark-110;
-            text-decoration: underline;
-        }
-        &:not(:disabled):not(.disabled):active,
-        &:not(:disabled):not(.disabled).active {
-            color: variables.$color-alias-text-color-primary-dark-110;
-        }
-        &:disabled {
-            background-color: variables.$color-alias-background-color-disabled;
-            border-color: variables.$color-alias-background-color-disabled;
-            color: variables.$color-alias-text-color-disabled;
-        }
-        &:focus {
-            border-radius: 0;
-        }
+.#{$prefix}accordion-header {
+  margin: 0;
+  padding: 0;
+
+  .#{$prefix}accordion-trigger {
+    background-color: $color-global-primary-000;
+    border: 1px solid $color-global-light-primary-50;
+    color: $color-alias-text-color-primary-dark-110;
+    font-size: 16px;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+
+    &:after {
+      display: inline-block;
+      content: '\f078';
+      font-family: $font-family-icon;
+      text-align: center;
+      font-weight: 900;
     }
+
+    &[aria-expanded='true'] {
+      background-color: $color-global-light-primary-40;
+      border-color: $color-global-light-primary-40;
+      color: $color-alias-text-color-primary-dark-110;
+
+      &:after {
+        content: '\f077';
+      }
+    }
+
+    &:hover {
+      background-color: $color-global-light-primary-40;
+      border-color: $color-global-light-primary-40;
+      color: $color-alias-text-color-primary-dark-110;
+    }
+
+    &:focus span {
+      color: $color-alias-text-color-primary-dark-110;
+      text-decoration: underline;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+      color: $color-alias-text-color-primary-dark-110;
+    }
+
+    &:disabled {
+      background-color: $color-alias-background-color-disabled;
+      border-color: $color-alias-background-color-disabled;
+      color: $color-alias-text-color-disabled;
+    }
+
+    &:focus {
+      border-radius: 0;
+    }
+  }
 }
 
 // Dark version
-.#{variables-addon.$prefix}accordion-dark
-    .#{variables-addon.$prefix}accordion-header
-    .#{variables-addon.$prefix}accordion-trigger {
-    background-color: variables.$color-alias-interactive-primary-default;
-    border: 1px solid variables.$color-alias-interactive-primary-default;
-    color: variables.$color-global-primary-000;
-    &[aria-expanded='true'] {
-        background-color: variables.$color-alias-interactive-primary-pressed;
-        border-color: variables.$color-alias-interactive-primary-pressed;
-        color: variables.$color-global-primary-000;
-    }
-    &:hover {
-        background-color: variables.$color-alias-interactive-primary-hover;
-        border-color: variables.$color-alias-interactive-primary-hover;
-        color: variables.$color-global-primary-000;
-    }
-    &:focus span {
-        color: variables.$color-global-primary-000;
-    }
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled).active {
-        color: variables.$color-global-primary-000;
-    }
-    &:disabled {
-        background-color: variables.$color-alias-background-color-disabled;
-        border-color: variables.$color-alias-background-color-disabled;
-        color: variables.$color-alias-text-color-disabled;
-    }
-}
-.#{variables-addon.$prefix}accordion-dark
-    .#{variables-addon.$prefix}accordion-item:not(:first-child)
-    .#{variables-addon.$prefix}accordion-header {
-    margin-top: 2px;
+.#{$prefix}accordion-dark .#{$prefix}accordion-header .#{$prefix}accordion-trigger {
+  background-color: $color-alias-interactive-primary-default;
+  border: 1px solid $color-alias-interactive-primary-default;
+  color: $color-global-primary-000;
+
+  &[aria-expanded='true'] {
+    background-color: $color-alias-interactive-primary-pressed;
+    border-color: $color-alias-interactive-primary-pressed;
+    color: $color-global-primary-000;
+  }
+
+  &:hover {
+    background-color: $color-alias-interactive-primary-hover;
+    border-color: $color-alias-interactive-primary-hover;
+    color: $color-global-primary-000;
+  }
+
+  &:focus span {
+    color: $color-global-primary-000;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: $color-global-primary-000;
+  }
+
+  &:disabled {
+    background-color: $color-alias-background-color-disabled;
+    border-color: $color-alias-background-color-disabled;
+    color: $color-alias-text-color-disabled;
+  }
 }
 
-.#{variables-addon.$prefix}accordion-body
-    .#{variables-addon.$prefix}accordion-content {
-    background-color: variables.$color-global-primary-000;
-    border: 1px solid variables.$color-global-light-primary-40;
-    padding: 16px;
-    @media (min-width: 768px) {
-        padding: 32px 64px;
-    }
+.#{$prefix}accordion-dark .#{$prefix}accordion-item:not(:first-child) .#{$prefix}accordion-header {
+  margin-top: 2px;
+}
+
+.#{$prefix}accordion-body .#{$prefix}accordion-content {
+  background-color: $color-global-primary-000;
+  border: 1px solid $color-global-light-primary-40;
+  padding: 16px;
+  @media (min-width: 768px) {
+    padding: 32px 64px;
+  }
 }
