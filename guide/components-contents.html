@@ -129,8 +129,8 @@
                                 </ul>
                             </li>
                         </ul>
-                        <ul id="guide-home-link" style="padding-top:0px;padding-bottom:0px">
-                            <li><a href="index.html">Torna alla home</a></li>
+                        <ul style="padding-top:0px;padding-bottom:0px" id="guide-menu-link">
+                            <li><a href="../guide/index.html">Web KIT</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -4191,12 +4191,311 @@
                     </div>
                     <div class="code" aria-hidden="true" id="code-tabelle-expandable">
                         <p class="guide-code-title">Tabella espandibile:</p>
-                        <pre><code id="panel-content-maximizable-code"></code></pre>
-                        <script type="text/javascript">
-                            /*Copy the example code*/
-                            const HTMLCode = document.getElementById('panel-content-maximizable').outerHTML;
-                            document.getElementById('panel-content-maximizable-code').innerText = HTMLCode.toString();
-                        </script>
+                        <pre>
+                            <code id="panel-content-maximizable-code">
+&lt;div class=&quot;sirio-table-expandable&quot; id=&quot;panel-content-maximizable&quot;&gt;
+  &lt;div class=&quot;sirio-filter&quot; id=&quot;sirio-filter-horizontal&quot;&gt;
+    &lt;div class=&quot;sirio-title-bar sirio-title-bar-dark&quot;&gt;
+      &lt;div class=&quot;sirio-title-bar-title&quot; role=&quot;heading&quot; aria-level=&quot;3&quot;&gt;
+        Titolo della tabella
+      &lt;/div&gt;
+      &lt;div class=&quot;sirio-title-bar-action&quot;&gt;
+        &lt;button
+            class=&quot;sirio-btn sirio-btn-primary sirio-btn-icon sirio-btn-medium&quot;
+            id=&quot;collapse-btn-filter-horizontal-1&quot;
+            type=&quot;button&quot;
+            data-sirio-toggle=&quot;collapse&quot;
+            data-sirio-target=&quot;#collapse-filter-horizontal-1&quot;
+            aria-expanded=&quot;false&quot;
+            aria-controls=&quot;collapse-filter-horizontal-1&quot;
+            title=&quot;Mostra filtri&quot;&gt;
+          &lt;span class=&quot;fas fa-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;sirio-msg-show&quot;&gt;Mostra filtri&lt;/span&gt;
+          &lt;span class=&quot;sirio-msg-hide&quot;&gt;Nascondi filtri&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button
+            class=&quot;sirio-table-expandable-button sirio-btn sirio-btn-primary sirio-btn-icon sirio-btn-medium&quot;
+            data-label-maximize=&quot;Espandi&quot;
+            data-label-minimize=&quot;Riduci&quot;
+            data-table-aria-label=&quot;Titolo della tabella&quot;
+            data-breakpoint=&quot;md&quot;
+            type=&quot;button&quot;
+            title=&quot;Espandi&quot;
+            aria-label=&quot;Espandi la tabella&quot;&gt;
+          &lt;span class=&quot;fas fa-expand&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;sirio-table-expandable-button-label&quot;&gt;Espandi&lt;/span&gt;
+          &lt;span class=&quot;sr-only&quot;&gt;la tabella&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sirio-title-bar-collapse&quot;&gt;
+      &lt;div id=&quot;collapse-filter-horizontal-1&quot; role=&quot;region&quot; aria-labelledby=&quot;collapse-btn-filter-horizontal-1&quot; data-sirio-visible=&quot;false&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;row g-3 mb-4&quot;&gt;
+            &lt;div class=&quot;col-12&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;input-text-filter-horizontal-1&quot;&gt;Label:&lt;/label&gt;
+                &lt;input
+                    type=&quot;text&quot;
+                    id=&quot;input-text-filter-horizontal-1&quot;
+                    name=&quot;input-text-filter-horizontal-1&quot;
+                    class=&quot;sirio-form-control&quot;
+                    placeholder=&quot;text&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-md-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;input-text-filter-horizontal-2&quot;&gt;Label:&lt;/label&gt;
+                &lt;input
+                    type=&quot;text&quot;
+                    id=&quot;input-text-filter-horizontal-2&quot;
+                    name=&quot;input-text-filter-horizontal-2&quot;
+                    class=&quot;sirio-form-control&quot;
+                    placeholder=&quot;text&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-md-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;input-text-filter-horizontal-date&quot;&gt;Data:&lt;/label&gt;
+                &lt;input
+                    type=&quot;text&quot; id=&quot;input-text-filter-horizontal-date&quot;
+                    name=&quot;input-text-filter-horizontal-date&quot;
+                    class=&quot;sirio-form-control sirio-datepicker&quot;
+                    placeholder=&quot;gg/mm/aaaa&quot;
+                    autocomplete=&quot;off&quot;
+                    maxlength=&quot;10&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;row g-3 justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-6 col-md-auto&quot;&gt;
+              &lt;button type=&quot;button&quot; class=&quot;sirio-btn sirio-btn-secondary w-100&quot;&gt;
+                Elimina filtri
+              &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-6 col-md-auto&quot;&gt;
+              &lt;button type=&quot;button&quot; class=&quot;sirio-btn sirio-btn-primary w-100&quot;&gt;
+                Applica filtri
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;sirio-table-responsive&quot;&gt;
+    &lt;table class=&quot;sirio-table sirio-table-dark&quot;&gt;
+      &lt;caption class=&quot;sr-only&quot;&gt;Nome della lista elementi visualizzati&lt;/caption&gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;Causale&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Codice&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Periodo&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Colonna d'esempio&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Colonna d'esempio&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Colonna d'esempio&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Colonna d'esempio&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Colonna d'esempio&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Azioni&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;AS12347&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;font-mono&quot;&gt;1246745987345987&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;10/10/2020&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td class=&quot;w-0&quot;&gt;
+          &lt;div class=&quot;d-none d-md-block&quot;&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Modifica il record AB1234&quot;
+                title=&quot;Modifica il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-pen&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Scarica il file ZIP di AB1234&quot;
+                title=&quot;Scarica il file ZIP di AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-download&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Elimina il record AB1234&quot;
+                title=&quot;Elimina il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-md-none text-center&quot;&gt;
+            &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot; data-sirio-detach=&quot;true&quot;&gt;
+              &lt;button
+                  class=&quot;sirio-btn sirio-btn-ellipsis&quot;
+                  type=&quot;button&quot;
+                  id=&quot;dropdown-example-detach-table-01&quot;
+                  data-sirio-toggle=&quot;dropdown&quot;
+                  aria-expanded=&quot;true&quot;
+                  aria-label=&quot;Scegli un'azione&quot;
+                  title=&quot;Scegli un'azione&quot;&gt;
+                &lt;span class=&quot;fas fa-ellipsis-h&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+              &lt;/button&gt;
+              &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; aria-labelledby=&quot;dropdown-example-detach-table-01&quot; data-sirio-visible=&quot;true&quot;&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Verba volant&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;AS12347&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;font-mono&quot;&gt;1246745987345987&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;10/10/2020&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td class=&quot;w-0&quot;&gt;
+          &lt;div class=&quot;d-none d-md-block&quot;&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Modifica il record AB1234&quot;
+                title=&quot;Modifica il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-pen&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Scarica il file ZIP di AB1234&quot;
+                title=&quot;Scarica il file ZIP di AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-download&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Elimina il record AB1234&quot;
+                title=&quot;Elimina il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-md-none text-center&quot;&gt;
+            &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot; data-sirio-detach=&quot;true&quot;&gt;
+              &lt;button
+                  class=&quot;sirio-btn sirio-btn-ellipsis&quot;
+                  type=&quot;button&quot;
+                  id=&quot;dropdown-example-detach-table-02&quot;
+                  data-sirio-toggle=&quot;dropdown&quot;
+                  aria-expanded=&quot;true&quot;
+                  aria-label=&quot;Scegli un'azione&quot;
+                  title=&quot;Scegli un'azione&quot;&gt;
+                &lt;span class=&quot;fas fa-ellipsis-h&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+              &lt;/button&gt;
+              &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; aria-labelledby=&quot;dropdown-example-detach-table-02&quot; data-sirio-visible=&quot;true&quot;&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Verba volant&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;AS12347&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;font-mono&quot;&gt;1246745987345987&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;10/10/2020&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td&gt;Valore d'esempio&lt;/td&gt;
+        &lt;td class=&quot;w-0&quot;&gt;
+          &lt;div class=&quot;d-none d-md-block&quot;&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Modifica il record AB1234&quot;
+                title=&quot;Modifica il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-pen&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Scarica il file ZIP di AB1234&quot;
+                title=&quot;Scarica il file ZIP di AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-download&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button
+                class=&quot;sirio-btn sirio-btn-icon&quot;
+                aria-label=&quot;Elimina il record AB1234&quot;
+                title=&quot;Elimina il record AB1234&quot;&gt;
+              &lt;span class=&quot;fas fa-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;d-md-none text-center&quot;&gt;
+            &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot; data-sirio-detach=&quot;true&quot;&gt;
+              &lt;button
+                  class=&quot;sirio-btn sirio-btn-ellipsis&quot;
+                  type=&quot;button&quot;
+                  id=&quot;dropdown-example-detach-table-03&quot;
+                  data-sirio-toggle=&quot;dropdown&quot;
+                  aria-expanded=&quot;true&quot;
+                  aria-label=&quot;Scegli un'azione&quot;
+                  title=&quot;Scegli un'azione&quot;&gt;
+                &lt;span class=&quot;fas fa-ellipsis-h&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+              &lt;/button&gt;
+              &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; aria-labelledby=&quot;dropdown-example-detach-table-03&quot; data-sirio-visible=&quot;true&quot;&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Verba volant&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;sirio-pagination&quot;&gt;
+    &lt;div class=&quot;sirio-pagination-items&quot;&gt;
+      Elementi per pagina:
+      &lt;label for=&quot;input-number-items-0&quot; class=&quot;sr-only&quot;&gt;Seleziona numero elementi per pagina&lt;/label&gt;
+      &lt;select id=&quot;input-number-items-0&quot; name=&quot;input-number-items&quot; class=&quot;sirio-form-control&quot;&gt;
+        &lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+        &lt;option value=&quot;20&quot;&gt;20&lt;/option&gt;
+        &lt;option value=&quot;30&quot;&gt;30&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;span&gt;1&lt;/span&gt; - &lt;span&gt;10&lt;/span&gt; di &lt;span&gt;100&lt;/span&gt; elementi
+    &lt;/div&gt;
+    &lt;div class=&quot;sirio-pagination-page&quot;&gt;
+      &lt;label for=&quot;input-number-page-0&quot; class=&quot;sr-only&quot;&gt;Numero pagine&lt;/label&gt;
+      &lt;select id=&quot;input-number-page-0&quot; name=&quot;input-number-page&quot; class=&quot;sirio-form-control&quot;&gt;
+        &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+        &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+        &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+      &lt;/select&gt;
+      di &lt;span&gt;10&lt;/span&gt; pagine
+    &lt;/div&gt;
+    &lt;div class=&quot;sirio-pagination-cursor&quot;&gt;
+      &lt;ul class=&quot;sirio-pagination-list&quot;&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot; class=&quot;disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Pagina precedente&lt;/span&gt;
+            &lt;span class=&quot;fas fa-angle-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Pagina successiva&lt;/span&gt;
+            &lt;span class=&quot;fas fa-angle-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </code>
+                        </pre>
                     </div>
 
                     <hr class="guide-separator">
@@ -7037,12 +7336,13 @@ if (document.getElementsByClassName("splide").length) {
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/highlight.pack.js"></script>
 <script src="../assets/js/clipboard.min.js"></script>
-<script src="../assets/js/appGuideLogic.js"></script>
+<script src="../assets/js/appGuidLogic.js"></script>
 
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", () => {
         var guideAppPage = new GuideAppPage();
         guideAppPage.init();
+
     });
 
     if ($('.sirio-alert').length) {
