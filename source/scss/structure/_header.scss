@@ -1,24 +1,24 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Header
-.#{variables-addon.$prefix}header {
+.#{$prefix}header {
   background-color: #ffffff;
 
-  & .#{variables-addon.$prefix}header-top {
-    border-bottom: 1px solid variables.$color-global-light-primary-50;
+  & .#{$prefix}header-top {
+    border-bottom: 1px solid $color-global-light-primary-50;
 
-    & .#{variables-addon.$prefix}dropdown-menu {
+    & .#{$prefix}dropdown-menu {
       inset: inherit;
       transform: none;
       min-width: 200px;
 
-      &.#{variables-addon.$prefix}dropdown-menu-right {
+      &.#{$prefix}dropdown-menu-right {
         right: 0;
       }
     }
 
-    & .#{variables-addon.$prefix}btn-lang + .#{variables-addon.$prefix}dropdown-menu {
+    & .#{$prefix}btn-lang + .#{$prefix}dropdown-menu {
       min-width: auto;
     }
 
@@ -27,12 +27,12 @@
       & .container-fluid {
         padding: 0;
       }
-      & .#{variables-addon.$prefix}btn .fas {
+      & .#{$prefix}btn .fas {
         font-size: 24px;
       }
       &
-      .#{variables-addon.$prefix}btn-light
-      .#{variables-addon.$prefix}avatar {
+      .#{$prefix}btn-light
+      .#{$prefix}avatar {
         margin: -5px -4px;
       }
     }
@@ -45,56 +45,56 @@
   }
 
   @media (min-width: 992px) {
-    & .#{variables-addon.$prefix}btn-light {
-      color: variables.$color-alias-interactive-primary-default;
+    & .#{$prefix}btn-light {
+      color: $color-alias-interactive-primary-default;
 
       &:visited {
-        color: variables.$color-alias-interactive-primary-default;
+        color: $color-alias-interactive-primary-default;
 
-        & .#{variables-addon.$prefix}avatar {
-          background-color: variables.$color-alias-interactive-primary-default;
+        & .#{$prefix}avatar {
+          background-color: $color-alias-interactive-primary-default;
         }
       }
 
       &:hover {
-        color: variables.$color-alias-interactive-primary-hover;
+        color: $color-alias-interactive-primary-hover;
 
-        & .#{variables-addon.$prefix}avatar {
-          background-color: variables.$color-alias-interactive-primary-hover;
+        & .#{$prefix}avatar {
+          background-color: $color-alias-interactive-primary-hover;
         }
       }
 
       &:not(:disabled):not(.disabled):active,
       &:not(:disabled):not(.disabled).active {
-        color: variables.$color-alias-interactive-primary-pressed;
+        color: $color-alias-interactive-primary-pressed;
 
-        & .#{variables-addon.$prefix}avatar {
-          background-color: variables.$color-alias-interactive-primary-pressed;
+        & .#{$prefix}avatar {
+          background-color: $color-alias-interactive-primary-pressed;
         }
       }
     }
   }
 
   // Nav Top
-  & .#{variables-addon.$prefix}btn-lang {
+  & .#{$prefix}btn-lang {
     font-weight: 400;
     position: relative;
     border-radius: 0;
   }
 
-  & .#{variables-addon.$prefix}btn-light {
+  & .#{$prefix}btn-light {
     border-radius: 0;
     padding: 14px 16px;
     position: relative;
 
-    &.#{variables-addon.$prefix}btn-icon {
+    &.#{$prefix}btn-icon {
       padding: 14px 12px;
     }
   }
 
   // Nav Main
-  & .#{variables-addon.$prefix}nav-main.#{variables-addon.$prefix}nav {
-    & .#{variables-addon.$prefix}nav-link {
+  & .#{$prefix}nav-main.#{$prefix}nav {
+    & .#{$prefix}nav-link {
       padding: 6px 0 16px;
       margin-right: 40px;
       font-weight: 600;
@@ -102,15 +102,15 @@
     }
 
     &
-    .#{variables-addon.$prefix}nav-item:last-child
-    .#{variables-addon.$prefix}nav-link {
+    .#{$prefix}nav-item:last-child
+    .#{$prefix}nav-link {
       margin-right: 0;
     }
 
-    & .#{variables-addon.$prefix}dropdown {
+    & .#{$prefix}dropdown {
       position: static;
 
-      & > .#{variables-addon.$prefix}nav-link:after {
+      & > .#{$prefix}nav-link:after {
         display: inline-block;
         content: '\f078';
         font-family: 'Font Awesome 6 Free', serif;
@@ -120,11 +120,11 @@
       }
 
       &
-      > .#{variables-addon.$prefix}nav-link[aria-expanded='true']:after {
+      > .#{$prefix}nav-link[aria-expanded='true']:after {
         content: '\f077';
       }
 
-      & .#{variables-addon.$prefix}dropdown-menu {
+      & .#{$prefix}dropdown-menu {
         border-radius: 0;
         border: 0;
         transform: none;
@@ -133,7 +133,7 @@
         left: 0;
         right: 0;
         z-index: 1002;
-        box-shadow: 0 2000px 0 2000px variables.$color-alias-overlay-90-dark-primary-120;
+        box-shadow: 0 2000px 0 2000px $color-alias-overlay-90-dark-primary-120;
 
         &:after {
           content: '';
@@ -146,17 +146,17 @@
           background-color: #f2f6fc;
         }
 
-        & .#{variables-addon.$prefix}list-unstyled li {
+        & .#{$prefix}list-unstyled li {
           margin-bottom: 16px;
         }
 
-        & .#{variables-addon.$prefix}list-link li a:after {
+        & .#{$prefix}list-link li a:after {
           margin-left: 8px;
         }
       }
 
       &:has(
-                    .#{variables-addon.$prefix}dropdown-menu[data-sirio-visible='true']
+                    .#{$prefix}dropdown-menu[data-sirio-visible='true']
                 ) {
         &:after {
           content: '';
@@ -168,10 +168,10 @@
           top: 250px;
           bottom: 0;
           z-index: 1001;
-          background-color: variables.$color-alias-overlay-90-dark-primary-120;
+          background-color: $color-alias-overlay-90-dark-primary-120;
         }
 
-        & .#{variables-addon.$prefix}dropdown-menu {
+        & .#{$prefix}dropdown-menu {
           box-shadow: none;
         }
       }
@@ -179,45 +179,45 @@
   }
 
   // Nav mobile
-  & .#{variables-addon.$prefix}dialog-nav-mobile {
-    & .#{variables-addon.$prefix}dialog-wrapper {
+  & .#{$prefix}dialog-nav-mobile {
+    & .#{$prefix}dialog-wrapper {
       max-width: 100%;
 
-      & .#{variables-addon.$prefix}dialog-content {
+      & .#{$prefix}dialog-content {
         padding: 0;
         box-shadow: none;
         overflow: inherit;
         background: transparent;
 
         &
-        .#{variables-addon.$prefix}dialog-content
-        .#{variables-addon.$prefix}dialog-header {
+        .#{$prefix}dialog-content
+        .#{$prefix}dialog-header {
           margin-top: 22px;
         }
 
-        & .#{variables-addon.$prefix}dialog-header {
+        & .#{$prefix}dialog-header {
           height: 55px;
           padding: 0;
           background: #fff;
           justify-content: left;
           align-items: center;
 
-          & .#{variables-addon.$prefix}btn {
+          & .#{$prefix}btn {
             margin: 0;
             padding: 14px 12px;
             border-radius: 0;
 
-            &.#{variables-addon.$prefix}btn-home {
+            &.#{$prefix}btn-home {
               padding: 10px 0px;
               margin-left: -1px;
             }
 
-            &.#{variables-addon.$prefix}btn-close {
+            &.#{$prefix}btn-close {
               padding: 16px 14px;
             }
 
-            &.#{variables-addon.$prefix}btn-back {
-              color: variables.$color-global-secondary-100;
+            &.#{$prefix}btn-back {
+              color: $color-global-secondary-100;
               display: flex;
               align-items: center;
 
@@ -228,7 +228,7 @@
             }
           }
 
-          & .#{variables-addon.$prefix}dialog-heading {
+          & .#{$prefix}dialog-heading {
             margin: 0 10px;
             font-size: 20px;
             line-height: 30px;
@@ -236,16 +236,16 @@
           }
         }
 
-        & .#{variables-addon.$prefix}dialog-body {
-          background-color: variables.$color-alias-background-color-primary-light-40;
+        & .#{$prefix}dialog-body {
+          background-color: $color-alias-background-color-primary-light-40;
 
-          & .#{variables-addon.$prefix}dialog {
+          & .#{$prefix}dialog {
             top: 55px;
 
-            & .#{variables-addon.$prefix}dialog-content {
+            & .#{$prefix}dialog-content {
               background-color: #fff;
 
-              & .#{variables-addon.$prefix}dialog-body {
+              & .#{$prefix}dialog-body {
                 background-color: #fff;
                 padding: 0 48px 16px;
               }
@@ -253,36 +253,36 @@
           }
         }
 
-        & .#{variables-addon.$prefix}nav-lang {
+        & .#{$prefix}nav-lang {
           justify-content: center;
           padding: 0 0 16px;
         }
 
-        & .#{variables-addon.$prefix}nav-mobile {
+        & .#{$prefix}nav-mobile {
           flex-direction: column;
           padding: 16px 20px;
 
-          & .#{variables-addon.$prefix}div-tools {
+          & .#{$prefix}div-tools {
             margin: 1.5rem -0.75rem;
             border-radius: 4px;
           }
 
-          & .#{variables-addon.$prefix}btn-tools {
+          & .#{$prefix}btn-tools {
             display: flex;
             padding: 1.5rem !important;
             align-items: center;
-            color: variables.$color-alias-text-color-secondary-dark-100;
+            color: $color-alias-text-color-secondary-dark-100;
 
             & .nav-tools-open {
-              color: variables.$color-alias-interactive-primary-default;
+              color: $color-alias-interactive-primary-default;
               text-decoration: underline;
             }
 
             &:not(:disabled):not(.disabled):active {
-              color: variables.$color-global-primary-000;
+              color: $color-global-primary-000;
 
               & .nav-tools-open {
-                color: variables.$color-global-primary-000;
+                color: $color-global-primary-000;
               }
             }
 
@@ -314,20 +314,20 @@
             }
           }
 
-          & .#{variables-addon.$prefix}nav-link {
+          & .#{$prefix}nav-link {
             font-size: 16px;
             padding: 16px 0;
             margin: 0;
-            color: variables.$color-global-dark-primary-115 !important;
+            color: $color-global-dark-primary-115 !important;
             display: flex;
             width: 100%;
             font-weight: 600;
             justify-content: space-between;
-            border-bottom: 1px solid variables.$color-alias-background-color-primary-light-50 !important;
+            border-bottom: 1px solid $color-alias-background-color-primary-light-50 !important;
 
-            &.#{variables-addon.$prefix}nav-link-chevron:after {
+            &.#{$prefix}nav-link-chevron:after {
               content: '\f105';
-              font-family: variables-addon.$font-family-icon;
+              font-family: $font-family-icon;
               font-weight: 900;
               vertical-align: middle;
               margin: 0 8px;
@@ -335,26 +335,26 @@
             }
 
             &:hover {
-              color: variables.$color-alias-interactive-primary-hover !important;
+              color: $color-alias-interactive-primary-hover !important;
             }
 
             &.active {
-              color: variables.$color-alias-interactive-primary-default !important;
+              color: $color-alias-interactive-primary-default !important;
             }
 
             &.disabled,
             &:disabled {
-              color: variables.$color-alias-text-color-disabled !important;
+              color: $color-alias-text-color-disabled !important;
             }
           }
 
           &
-          .#{variables-addon.$prefix}nav-item:last-child
-          .#{variables-addon.$prefix}nav-link {
+          .#{$prefix}nav-item:last-child
+          .#{$prefix}nav-link {
             border-bottom: 0 !important;
           }
 
-          & .#{variables-addon.$prefix}nav-mobile {
+          & .#{$prefix}nav-mobile {
             padding: 0;
             margin-right: -8px;
           }
@@ -364,7 +364,7 @@
   }
 
   // Header Sticky
-  ##{variables-addon.$prefix}header-sticky .logo {
+  ##{$prefix}header-sticky .logo {
     width: 80px;
   }
 
@@ -384,11 +384,11 @@
 
   &[data-sirio-component='sticky'][data-sirio-toggle='true'] {
     background-color: #ffffff;
-    box-shadow: variables.$elevation-elevation-01;
+    box-shadow: $elevation-elevation-01;
     z-index: 1002;
     @media (min-width: 992px) {
       & .logo,
-      & .#{variables-addon.$prefix}header-top,
+      & .#{$prefix}header-top,
       & #header-search {
         display: none !important;
       }
@@ -400,8 +400,8 @@
     }
 
     &
-    .#{variables-addon.$prefix}nav-main.#{variables-addon.$prefix}nav
-    .#{variables-addon.$prefix}nav-link {
+    .#{$prefix}nav-main.#{$prefix}nav
+    .#{$prefix}nav-link {
       padding: 8px 0;
       font-size: 16px;
     }
@@ -417,7 +417,7 @@
   }
 
   & .border-top {
-    border-top: 1px solid variables.$color-global-light-primary-50;
+    border-top: 1px solid $color-global-light-primary-50;
   }
 
   & .position-relative {
@@ -425,8 +425,8 @@
   }
 }
 
-.#{variables-addon.$prefix}service-header {
-  background-color: variables.$color-global-dark-primary-115;
+.#{$prefix}service-header {
+  background-color: $color-global-dark-primary-115;
   color: #fff;
 
   &[data-sirio-component='sticky'][data-sirio-toggle='true'] {
@@ -442,31 +442,31 @@
     border-color: transparent;
   }
 
-  & .#{variables-addon.$prefix}service-header-content {
+  & .#{$prefix}service-header-content {
     min-height: 48px;
   }
 
-  & .#{variables-addon.$prefix}btn-primary {
+  & .#{$prefix}btn-primary {
     background-color: transparent;
     border-color: transparent;
   }
 
   &
-  .#{variables-addon.$prefix}dropdown
-  .#{variables-addon.$prefix}btn
-  + .#{variables-addon.$prefix}dropdown-menu[data-sirio-visible='true'] {
+  .#{$prefix}dropdown
+  .#{$prefix}btn
+  + .#{$prefix}dropdown-menu[data-sirio-visible='true'] {
     transform: translate(0, 34px);
     min-width: 180px;
   }
 
   &
-  .#{variables-addon.$prefix}dropdown
-  .#{variables-addon.$prefix}btn-link-light {
-    > span:not(.#{variables-addon.$prefix}avatar) {
+  .#{$prefix}dropdown
+  .#{$prefix}btn-link-light {
+    > span:not(.#{$prefix}avatar) {
       text-decoration: underline;
     }
 
-    &:hover > span:not(.#{variables-addon.$prefix}avatar) {
+    &:hover > span:not(.#{$prefix}avatar) {
       text-decoration: none;
     }
   }
@@ -477,11 +477,11 @@
       line-height: 30px;
     }
     .border-left {
-      border-color: variables.$color-global-light-primary-50;
+      border-color: $color-global-light-primary-50;
     }
     &
-    .#{variables-addon.$prefix}service-header-function
-    .#{variables-addon.$prefix}dropdown-menu
+    .#{$prefix}service-header-function
+    .#{$prefix}dropdown-menu
     li {
       margin-right: 16px;
 
@@ -489,12 +489,12 @@
         margin-right: 24px;
       }
     }
-    .#{variables-addon.$prefix}service-header-function
+    .#{$prefix}service-header-function
     button[data-sirio-toggle='dropdown'] {
       display: none;
     }
-    .#{variables-addon.$prefix}service-header-function
-    .#{variables-addon.$prefix}dropdown-menu {
+    .#{$prefix}service-header-function
+    .#{$prefix}dropdown-menu {
       display: flex;
       position: relative;
       flex-wrap: nowrap;
@@ -506,9 +506,9 @@
       background: 0 0;
       z-index: inherit;
     }
-    .#{variables-addon.$prefix}service-header-function
-    .#{variables-addon.$prefix}dropdown-menu
-    .#{variables-addon.$prefix}dropdown-item {
+    .#{$prefix}service-header-function
+    .#{$prefix}dropdown-menu
+    .#{$prefix}dropdown-item {
       text-decoration: underline;
       background-color: transparent !important;
       color: #fff;
@@ -539,37 +539,37 @@
     }
   }
 
-  .#{variables-addon.$prefix}btn-link-light:focus,
-  .#{variables-addon.$prefix}btn-icon:focus {
+  .#{$prefix}btn-link-light:focus,
+  .#{$prefix}btn-icon:focus {
     outline-color: #fff;
   }
 
-  .#{variables-addon.$prefix}dropdown
-  .#{variables-addon.$prefix}dropdown-menu[data-sirio-visible='true'] {
+  .#{$prefix}dropdown
+  .#{$prefix}dropdown-menu[data-sirio-visible='true'] {
     z-index: 1001;
   }
 }
 
-.#{variables-addon.$prefix}header
-.#{variables-addon.$prefix}dialog-sidenav.#{variables-addon.$prefix}dialog-nav-mobile
-.#{variables-addon.$prefix}dialog-wrapper
-.#{variables-addon.$prefix}dialog-content {
-  & .#{variables-addon.$prefix}dialog-header {
+.#{$prefix}header
+.#{$prefix}dialog-sidenav.#{$prefix}dialog-nav-mobile
+.#{$prefix}dialog-wrapper
+.#{$prefix}dialog-content {
+  & .#{$prefix}dialog-header {
     height: auto;
 
-    & .#{variables-addon.$prefix}btn {
+    & .#{$prefix}btn {
       padding: 16px 24px;
     }
   }
 
-  & > .#{variables-addon.$prefix}dialog-body {
+  & > .#{$prefix}dialog-body {
     position: relative;
 
-    & .#{variables-addon.$prefix}dialog {
+    & .#{$prefix}dialog {
       top: 0;
       position: absolute;
 
-      & .#{variables-addon.$prefix}dialog-body {
+      & .#{$prefix}dialog-body {
         position: static;
       }
     }
@@ -577,7 +577,7 @@
 }
 
 // Avatar
-.#{variables-addon.$prefix}avatar {
+.#{$prefix}avatar {
   display: inline-flex;
   overflow: hidden;
   border-radius: 50%;
@@ -586,7 +586,7 @@
   margin: -10px -4px;
   justify-content: center;
   align-items: center;
-  background: variables.$color-alias-interactive-primary-default;
+  background: $color-alias-interactive-primary-default;
   color: #fff;
   box-sizing: content-box;
   transition: background-color 0.2s;
@@ -599,7 +599,7 @@
     position: absolute;
   }
 
-  &.#{variables-addon.$prefix}bg-white {
-    color: variables.$color-alias-text-color-primary-dark-110;
+  &.#{$prefix}bg-white {
+    color: $color-alias-text-color-primary-dark-110;
   }
 }

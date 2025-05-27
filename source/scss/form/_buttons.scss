@@ -1,9 +1,9 @@
-@use '../functions';
-@use '../variables';
-@use '../variables-addon';
+@use '../functions' as *;
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Buttons
-//  - ATTENZIONE: il colore di accent pressed prensete nelle variabili è diverso da quello specificato nella guida Sirio
+// ATTENZIONE: il colore di accent pressed presente nelle variabili è diverso da quello specificato nella guida Sirio
 $btn: (
     ghost: '',
     primary: -primary,
@@ -15,289 +15,333 @@ $btn: (
 );
 $btn-palettes: (
     ghost: (
-        color-default: variables.$color-alias-interactive-primary-default,
+        color-default: $color-alias-interactive-primary-default,
         bg-default: transparent,
         border-default: transparent,
-        color-hover: variables.$color-alias-interactive-primary-hover,
+        color-hover: $color-alias-interactive-primary-hover,
         bg-hover: transparent,
         border-hover: transparent,
-        color-pressed: variables.$color-global-primary-000,
-        bg-pressed: variables.$color-alias-interactive-primary-pressed,
-        border-pressed: variables.$color-alias-interactive-primary-pressed,
-        color-focus: variables.$color-alias-interactive-primary-focus,
+        color-pressed: $color-global-primary-000,
+        bg-pressed: $color-alias-interactive-primary-pressed,
+        border-pressed: $color-alias-interactive-primary-pressed,
+        color-focus: $color-alias-interactive-primary-focus,
         bg-focus: transparent,
         border-focus: transparent,
-        color-disabled: variables.$color-alias-text-color-disabled,
+        color-disabled: $color-alias-text-color-disabled,
         bg-disabled: transparent,
         border-disabled: transparent,
     ),
     primary: (
-        color-default: variables.$color-global-primary-000,
-        bg-default: variables.$color-alias-interactive-primary-default,
-        border-default: variables.$color-alias-interactive-primary-default,
-        color-hover: variables.$color-global-primary-000,
-        bg-hover: variables.$color-alias-interactive-primary-hover,
-        border-hover: variables.$color-alias-interactive-primary-hover,
-        color-pressed: variables.$color-global-primary-000,
-        bg-pressed: variables.$color-alias-interactive-primary-pressed,
-        border-pressed: variables.$color-alias-interactive-primary-pressed,
-        color-focus: variables.$color-global-primary-000,
-        bg-focus: variables.$color-alias-interactive-primary-focus,
-        border-focus: variables.$color-alias-interactive-primary-focus,
-        color-disabled: variables.$color-alias-text-color-disabled,
-        bg-disabled: variables.$color-alias-background-color-disabled,
-        border-disabled: variables.$color-alias-background-color-disabled,
+        color-default: $color-global-primary-000,
+        bg-default: $color-alias-interactive-primary-default,
+        border-default: $color-alias-interactive-primary-default,
+        color-hover: $color-global-primary-000,
+        bg-hover: $color-alias-interactive-primary-hover,
+        border-hover: $color-alias-interactive-primary-hover,
+        color-pressed: $color-global-primary-000,
+        bg-pressed: $color-alias-interactive-primary-pressed,
+        border-pressed: $color-alias-interactive-primary-pressed,
+        color-focus: $color-global-primary-000,
+        bg-focus: $color-alias-interactive-primary-focus,
+        border-focus: $color-alias-interactive-primary-focus,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: $color-alias-background-color-disabled,
+        border-disabled: $color-alias-background-color-disabled,
     ),
     secondary: (
-        color-default: variables.$color-global-primary-000,
-        bg-default: variables.$color-alias-interactive-secondary-default,
-        border-default: variables.$color-alias-interactive-secondary-default,
-        color-hover: variables.$color-global-primary-000,
-        bg-hover: variables.$color-alias-interactive-secondary-hover,
-        border-hover: variables.$color-alias-interactive-secondary-hover,
-        color-pressed: variables.$color-global-primary-000,
-        bg-pressed: variables.$color-alias-interactive-secondary-pressed,
-        border-pressed: variables.$color-alias-interactive-secondary-pressed,
-        color-focus: variables.$color-global-primary-000,
-        bg-focus: variables.$color-alias-interactive-secondary-focus,
-        border-focus: variables.$color-alias-interactive-secondary-focus,
-        color-disabled: variables.$color-alias-text-color-disabled,
-        bg-disabled: variables.$color-alias-background-color-disabled,
-        border-disabled: variables.$color-alias-background-color-disabled,
+        color-default: $color-global-primary-000,
+        bg-default: $color-alias-interactive-secondary-default,
+        border-default: $color-alias-interactive-secondary-default,
+        color-hover: $color-global-primary-000,
+        bg-hover: $color-alias-interactive-secondary-hover,
+        border-hover: $color-alias-interactive-secondary-hover,
+        color-pressed: $color-global-primary-000,
+        bg-pressed: $color-alias-interactive-secondary-pressed,
+        border-pressed: $color-alias-interactive-secondary-pressed,
+        color-focus: $color-global-primary-000,
+        bg-focus: $color-alias-interactive-secondary-focus,
+        border-focus: $color-alias-interactive-secondary-focus,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: $color-alias-background-color-disabled,
+        border-disabled: $color-alias-background-color-disabled,
     ),
     tertiary: (
-        color-default: variables.$color-alias-interactive-primary-default,
+        color-default: $color-alias-interactive-primary-default,
         bg-default: transparent,
-        border-default: variables.$color-alias-interactive-primary-default,
-        color-hover: variables.$color-alias-interactive-primary-hover,
+        border-default: $color-alias-interactive-primary-default,
+        color-hover: $color-alias-interactive-primary-hover,
         bg-hover: transparent,
-        border-hover: variables.$color-alias-interactive-primary-hover,
-        color-pressed: variables.$color-alias-interactive-primary-pressed,
+        border-hover: $color-alias-interactive-primary-hover,
+        color-pressed: $color-alias-interactive-primary-pressed,
         bg-pressed: transparent,
-        border-pressed: variables.$color-alias-interactive-primary-pressed,
-        color-focus: variables.$color-alias-interactive-primary-focus,
+        border-pressed: $color-alias-interactive-primary-pressed,
+        color-focus: $color-alias-interactive-primary-focus,
         bg-focus: transparent,
-        border-focus: variables.$color-alias-interactive-primary-focus,
-        color-disabled: variables.$color-alias-text-color-disabled,
+        border-focus: $color-alias-interactive-primary-focus,
+        color-disabled: $color-alias-text-color-disabled,
         bg-disabled: transparent,
-        border-disabled: variables.$color-alias-background-color-disabled,
+        border-disabled: $color-alias-background-color-disabled,
     ),
     tertiary-light: (
-        color-default: variables.$color-alias-interactive-accent-default,
+        color-default: $color-alias-interactive-accent-default,
         bg-default: transparent,
-        border-default: variables.$color-alias-interactive-accent-default,
-        color-hover: variables.$color-alias-interactive-accent-hover,
+        border-default: $color-alias-interactive-accent-default,
+        color-hover: $color-alias-interactive-accent-hover,
         bg-hover: transparent,
-        border-hover: variables.$color-alias-interactive-accent-hover,
-        color-pressed: variables.$color-alias-interactive-accent-pressed,
+        border-hover: $color-alias-interactive-accent-hover,
+        color-pressed: $color-alias-interactive-accent-pressed,
         bg-pressed: transparent,
-        border-pressed: variables.$color-alias-interactive-accent-pressed,
-        color-focus: variables.$color-alias-interactive-accent-focus,
+        border-pressed: $color-alias-interactive-accent-pressed,
+        color-focus: $color-alias-interactive-accent-focus,
         bg-focus: transparent,
-        border-focus: variables.$color-alias-interactive-accent-focus,
-        color-disabled: variables.$color-alias-text-color-disabled,
+        border-focus: $color-alias-interactive-accent-focus,
+        color-disabled: $color-alias-text-color-disabled,
         bg-disabled: transparent,
-        border-disabled: variables.$color-alias-background-color-disabled,
+        border-disabled: $color-alias-background-color-disabled,
     ),
     danger: (
-        color-default: variables.$color-global-primary-000,
-        bg-default: variables.$color-alias-interactive-alert-default,
-        border-default: variables.$color-alias-interactive-alert-default,
-        color-hover: variables.$color-global-primary-000,
-        bg-hover: variables.$color-alias-interactive-alert-hover,
-        border-hover: variables.$color-alias-interactive-alert-hover,
-        color-pressed: variables.$color-global-primary-000,
-        bg-pressed: variables.$color-alias-interactive-alert-pressed,
-        border-pressed: variables.$color-alias-interactive-alert-pressed,
-        color-focus: variables.$color-global-primary-000,
-        bg-focus: variables.$color-alias-interactive-alert-focus,
-        border-focus: variables.$color-alias-interactive-alert-focus,
-        color-disabled: variables.$color-alias-text-color-disabled,
-        bg-disabled: variables.$color-alias-background-color-disabled,
-        border-disabled: variables.$color-alias-background-color-disabled,
+        color-default: $color-global-primary-000,
+        bg-default: $color-alias-interactive-alert-default,
+        border-default: $color-alias-interactive-alert-default,
+        color-hover: $color-global-primary-000,
+        bg-hover: $color-alias-interactive-alert-hover,
+        border-hover: $color-alias-interactive-alert-hover,
+        color-pressed: $color-global-primary-000,
+        bg-pressed: $color-alias-interactive-alert-pressed,
+        border-pressed: $color-alias-interactive-alert-pressed,
+        color-focus: $color-global-primary-000,
+        bg-focus: $color-alias-interactive-alert-focus,
+        border-focus: $color-alias-interactive-alert-focus,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: $color-alias-background-color-disabled,
+        border-disabled: $color-alias-background-color-disabled,
     ),
     light: (
-        color-default: variables.$color-alias-interactive-secondary-default,
-        bg-default: variables.$color-alias-background-color-primary-light-40,
-        border-default: variables.$color-alias-background-color-primary-light-40,
-        color-hover: variables.$color-alias-interactive-secondary-hover,
-        bg-hover: variables.$color-alias-background-color-primary-light-40,
-        border-hover: variables.$color-alias-background-color-primary-light-40,
-        color-pressed: variables.$color-alias-interactive-secondary-pressed,
-        bg-pressed: variables.$color-alias-background-color-primary-light-40,
-        border-pressed: variables.$color-alias-background-color-primary-light-40,
-        color-focus: variables.$color-alias-interactive-secondary-focus,
-        bg-focus: variables.$color-alias-background-color-primary-light-40,
-        border-focus: variables.$color-alias-background-color-primary-light-40,
-        color-disabled: variables.$color-alias-text-color-disabled,
-        bg-disabled: variables.$color-alias-background-color-primary-light-40,
-        border-disabled:
-            variables.$color-alias-background-color-primary-light-40,
+        color-default: $color-alias-interactive-secondary-default,
+        bg-default: $color-alias-background-color-primary-light-40,
+        border-default: $color-alias-background-color-primary-light-40,
+        color-hover: $color-alias-interactive-secondary-hover,
+        bg-hover: $color-alias-background-color-primary-light-40,
+        border-hover: $color-alias-background-color-primary-light-40,
+        color-pressed: $color-alias-interactive-secondary-pressed,
+        bg-pressed: $color-alias-background-color-primary-light-40,
+        border-pressed: $color-alias-background-color-primary-light-40,
+        color-focus: $color-alias-interactive-secondary-focus,
+        bg-focus: $color-alias-background-color-primary-light-40,
+        border-focus: $color-alias-background-color-primary-light-40,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: $color-alias-background-color-primary-light-40,
+        border-disabled: $color-alias-background-color-primary-light-40,
     ),
 );
 
 @each $name, $theme in $btn {
-    .#{variables-addon.$prefix}btn#{$theme} {
-        @if $name == 'ghost' {
-            display: inline-block;
-            font-weight: 700;
-            border: 2px solid transparent;
-            text-align: center;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            padding: 14px 40px;
-            font-size: 16px;
-            line-height: 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition:
-                color 0.15s ease-in-out,
-                background-color 0.15s ease-in-out,
-                border-color 0.15s ease-in-out,
-                box-shadow 0.15s ease-in-out;
-            & .fas,
-            & .far,
-            & .fa {
-                margin: 0 4px;
-            }
-            & + .#{variables-addon.$prefix}btn {
-                margin-left: 8px;
-            }
-        }
-        color: functions.color($btn-palettes, $name, color-default);
-        background-color: functions.color($btn-palettes, $name, bg-default);
-        border-color: functions.color($btn-palettes, $name, border-default);
-        &:visited {
-            color: functions.color($btn-palettes, $name, color-default);
-            background-color: functions.color($btn-palettes, $name, bg-default);
-            border-color: functions.color($btn-palettes, $name, border-default);
-        }
-        &:hover {
-            color: functions.color($btn-palettes, $name, color-hover);
-            background-color: functions.color($btn-palettes, $name, bg-hover);
-            border-color: functions.color($btn-palettes, $name, border-hover);
-        }
-        &:disabled,
-        &.disabled {
-            color: functions.color($btn-palettes, $name, color-disabled);
-            background-color: functions.color(
-                $btn-palettes,
-                $name,
-                bg-disabled
-            );
-            border-color: functions.color(
-                $btn-palettes,
-                $name,
-                border-disabled
-            );
-            pointer-events: none;
-        }
-        &:not(:disabled):not(.disabled):active,
-        &:not(:disabled):not(.disabled).active {
-            color: functions.color($btn-palettes, $name, color-pressed);
-            background-color: functions.color($btn-palettes, $name, bg-pressed);
-            border-color: functions.color($btn-palettes, $name, border-pressed);
-        }
+  .#{$prefix}btn#{$theme} {
+    @if $name == 'ghost' {
+      display: inline-flex;
+      gap: 8px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      padding: 14px 40px;
+      font-size: 1rem;
+      line-height: 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: color 0.15s ease-in-out,
+      background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+
+      & + .#{$prefix}btn {
+        margin-left: 8px;
+      }
     }
+    color: color($btn-palettes, $name, color-default);
+    background-color: color($btn-palettes, $name, bg-default);
+    border-color: color($btn-palettes, $name, border-default);
+
+    &:visited {
+      color: color($btn-palettes, $name, color-default);
+      background-color: color($btn-palettes, $name, bg-default);
+      border-color: color($btn-palettes, $name, border-default);
+    }
+
+    &:hover {
+      color: color($btn-palettes, $name, color-hover);
+      background-color: color($btn-palettes, $name, bg-hover);
+      border-color: color($btn-palettes, $name, border-hover);
+    }
+
+    &:disabled,
+    &.disabled {
+      color: color($btn-palettes, $name, color-disabled);
+      background-color: color(
+                      $btn-palettes,
+                      $name,
+                      bg-disabled
+      );
+      border-color: color(
+                      $btn-palettes,
+                      $name,
+                      border-disabled
+      );
+      pointer-events: none;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+      color: color($btn-palettes, $name, color-pressed);
+      background-color: color($btn-palettes, $name, bg-pressed);
+      border-color: color($btn-palettes, $name, border-pressed);
+    }
+  }
 }
 
-.#{variables-addon.$prefix}expanded-true[aria-expanded='true'] {
-    display: none;
+.#{$prefix}expanded-true[aria-expanded='true'] {
+  display: none;
 }
-.#{variables-addon.$prefix}btn-icon {
-    padding: 14px 12px;
+
+.#{$prefix}btn-icon {
+  padding: 14px 12px;
 }
+
 @media (prefers-reduced-motion: reduce) {
-    .#{variables-addon.$prefix}btn {
-        transition: none;
-    }
+  .#{$prefix}btn {
+    transition: none;
+  }
 }
-a.#{variables-addon.$prefix}btn.disabled,
-fieldset:disabled a.#{variables-addon.$prefix}btn {
-    pointer-events: none;
+
+a.#{$prefix}btn.disabled,
+fieldset:disabled a.#{$prefix}btn {
+  pointer-events: none;
 }
 
 // Button link
-.#{variables-addon.$prefix}btn-link {
-    text-decoration: underline;
+.#{$prefix}btn-link {
+  text-decoration: underline;
+  background-color: transparent !important;
+  color: $color-alias-interactive-primary-default;
+  padding: 0;
+  border: 0;
+
+  + .#{$prefix}btn-link {
+    margin-left: 16px;
+  }
+
+  &:hover {
     background-color: transparent !important;
-    color: variables.$color-alias-interactive-primary-default;
-    padding: 0;
-    border: 0;
-    + .#{variables-addon.$prefix}btn-link {
-        margin-left: 16px;
-    }
-    &:hover {
-        background-color: transparent !important;
-        text-decoration: none;
-        color: variables.$color-alias-interactive-primary-default;
-    }
-    &:active {
-        background-color: transparent !important;
-        color: variables.$color-alias-interactive-primary-default;
-    }
+    text-decoration: none;
+    color: $color-alias-interactive-primary-default;
+  }
+
+  &:active {
+    background-color: transparent !important;
+    color: $color-alias-interactive-primary-default;
+  }
 }
-.#{variables-addon.$prefix}btn-link-light {
-    text-decoration: underline;
+
+.#{$prefix}btn-link-light {
+  text-decoration: underline;
+  background-color: transparent !important;
+  color: #fff;
+  padding: 0;
+  border: 0;
+  line-height: 26px;
+
+  + .#{$prefix}btn-link {
+    margin-left: 16px;
+  }
+
+  &:hover {
+    background-color: transparent !important;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &:active,
+  &:visited {
     background-color: transparent !important;
     color: #fff;
-    padding: 0;
-    border: 0;
-    line-height: 26px;
-    + .#{variables-addon.$prefix}btn-link {
-        margin-left: 16px;
-    }
-    &:hover {
-        background-color: transparent !important;
-        text-decoration: none;
-        color: #fff;
-    }
-    &:active,
-    &:visited {
-        background-color: transparent !important;
-        color: #fff;
-    }
+  }
 }
 
 // Button block
-.#{variables-addon.$prefix}btn-block {
-    display: block;
-    width: 100%;
-    + .#{variables-addon.$prefix}btn-block {
-        margin-top: 16px;
-    }
+.#{$prefix}btn-block {
+  display: block;
+  width: 100%;
+
+  .fas, .far, .fa {
+    margin-left: 8px;
+  }
+
+  + .#{$prefix}btn-block {
+    margin-top: 16px;
+  }
 }
+
 input[type='submit'],
 input[type='reset'],
 input[type='button'] {
-    &.#{variables-addon.$prefix}btn-block {
-        width: 100%;
-    }
+  &.#{$prefix}btn-block {
+    width: 100%;
+  }
 }
+
 // Button ripple
-.#{variables-addon.$prefix}btn-ripple {
-    background-position: center;
-    transition: background 0.8s;
-    border-radius: 50%;
+.#{$prefix}btn-ripple {
+  background-position: center;
+  transition: background 0.8s;
+  border-radius: 50%;
+  border-color: transparent;
+
+  &:hover {
+    background: transparent radial-gradient(
+                    circle,
+                    transparent 1%,
+                    $color-alias-background-color-primary-light-50 1%
+    ) center/15000%;
+  }
+
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    background-color: $color-alias-background-color-primary-light-50;
+    background-size: 100%;
+    color: $color-alias-interactive-primary-pressed;
+    transition: background 0s;
     border-color: transparent;
-    &:hover {
-        background: transparent
-            radial-gradient(
-                circle,
-                transparent 1%,
-                variables.$color-alias-background-color-primary-light-50 1%
-            )
-            center/15000%;
-    }
-    &:active,
-    &:not(:disabled):not(.disabled):active {
-        background-color: variables.$color-alias-background-color-primary-light-50;
-        background-size: 100%;
-        color: variables.$color-alias-interactive-primary-pressed;
-        transition: background 0s;
-        border-color: transparent;
-    }
+  }
+}
+
+// Button small
+.#{$prefix}btn-small {
+  padding: 4px;
+
+  .fas, .far, .fa {
+    min-width: 16px;
+    min-height: 16px;
+  }
+}
+
+.#{$prefix}btn-medium {
+  padding: 10px 12px;
+}
+
+// Button bgBlack
+.#{$prefix}btn-white {
+  color: $color-global-primary-000;
+
+  &:hover {
+    background-color: $color-alias-interactive-primary-hover;
+    color: $color-global-primary-000;
+  }
+
+  &:disabled {
+    background-color: $color-alias-background-color-disabled;
+  }
 }

@@ -1,67 +1,79 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Carousel
-.#{variables-addon.$prefix}carousel {
-    & .splide__track {
-        padding-top: 20px;
-        padding-bottom: 54px;
+.#{$prefix}carousel {
+  & .splide__track {
+    padding-top: 20px;
+    padding-bottom: 54px;
+  }
+
+  & .splide__pagination li {
+    bottom: 16px;
+    line-height: inherit;
+  }
+
+  & .splide__pagination__page {
+    height: 12px;
+    width: 12px;
+    background: $color-alias-interactive-secondary-default;
+    border-radius: 12px;
+    opacity: 1;
+    margin: 3px 8px;
+  }
+
+  & .splide__pagination__page.is-active {
+    transform: none;
+    background: $color-alias-interactive-primary-default;
+    width: 28px;
+  }
+
+  & .splide__arrow svg {
+    display: none;
+  }
+
+  & .splide__arrow.sirio-btn {
+    padding: 14px 12px;
+    height: auto;
+    width: auto;
+    font-size: 24px;
+    opacity: 1;
+  }
+
+  & .splide__arrow--prev {
+    left: 8px;
+  }
+
+  & .splide__arrow--next {
+    right: 8px;
+  }
+
+  @media (min-width: 768px) {
+    &.splide {
+      padding-left: 42px;
+      padding-right: 42px;
     }
-    & .splide__pagination li {
-        bottom: 16px;
-        line-height: inherit;
-    }
-    & .splide__pagination__page {
-        height: 12px;
-        width: 12px;
-        background: variables.$color-alias-interactive-secondary-default;
-        border-radius: 12px;
-        opacity: 1;
-        margin: 3px 8px;
-    }
-    & .splide__pagination__page.is-active {
-        transform: none;
-        background: variables.$color-alias-interactive-primary-default;
-        width: 28px;
-    }
-    & .splide__arrow svg {
-        display: none;
-    }
-    & .splide__arrow.sirio-btn {
-        padding: 14px 12px;
-        height: auto;
-        width: auto;
-        font-size: 24px;
-        opacity: 1;
-    }
-    & .splide__arrow--prev {
-        left: 8px;
-    }
-    & .splide__arrow--next {
-        right: 8px;
-    }
-    @media (min-width: 768px) {
-        &.splide {
-            padding-left: 42px;
-            padding-right: 42px;
-        }
-    }
+  }
 }
 
-.#{variables-addon.$prefix}carousel-dark {
-    & .splide__pagination__page {
-        background: variables.$color-alias-interactive-accent-default;
+.#{$prefix}carousel-dark {
+  & .splide__pagination__page {
+    background: $color-alias-interactive-accent-default;
+  }
+
+  & .splide__pagination__page.is-active {
+    background: $color-alias-interactive-primary-000-default;
+  }
+
+  & .splide__arrow.sirio-btn {
+    color: $color-alias-interactive-primary-000-default;
+
+    &:disabled {
+      color: $color-alias-text-color-disabled;
     }
-    & .splide__pagination__page.is-active {
-        background: variables.$color-alias-interactive-primary-000-default;
-    }
-    & .splide__arrow.sirio-btn {
-        color: variables.$color-alias-interactive-primary-000-default;
-        &:disabled {
-            color: variables.$color-alias-text-color-disabled;
-        }
-    }
+  }
 }
+
 .splide.is-focus-in .splide__arrow:focus-visible {
-    outline: 2px solid variables.$color-alias-interactive-border-focus !important;
+  outline: 2px solid $color-alias-interactive-border-focus !important;
 }

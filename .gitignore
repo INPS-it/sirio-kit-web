@@ -352,3 +352,6 @@ MigrationBackup/
 # Idea
 .idea
 
+# DS-Store
+.DS-Store
+

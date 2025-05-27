@@ -289,7 +289,7 @@ a:hover {
 }
 .guide-nav > ul > li > a:after {
     content: "\f077";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", sans-serif;
     font-weight: 900;
     vertical-align: middle;
     margin-left: 1rem
@@ -372,9 +372,6 @@ h4.guide-title:before {
     line-height: 12px;
     font-weight: bold;
 }
-.guide-example-template:before {
-    content: 'TEMPLATE';
-}
 .guide-example [data-sirio-component="dialog"][data-sirio-visible="false"] {
 	padding: 48px;
 	display: block;
@@ -413,10 +410,9 @@ h4.guide-title:before {
 .blockquote::before {
     font-size: 32px;
     font-weight: 900;
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free",sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
@@ -523,24 +519,22 @@ code.hljs {
 	background-color: #fff;
 	text-align: left;
 	border: 2px solid;
-    padding: 6px 8px;
-    border-radius: 5px;
-}
-.view-source{
+	padding: 6px 8px;
+	border-radius: 5px;
 	text-decoration: none !important;
 }
-.view-source::before{
+
+.view-source::before {
 	display: inline-block;
-    content: "\f077";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
+	content: "\f077";
+	font-family: "Font Awesome 5 Free",sans-serif;
+	font-weight: 900;
+	vertical-align: middle;
 	text-align: center;
 	width: 1.25rem;
-}
-.view-source::before {
 	margin-right: .5rem;
 }
+
 .view-source.guide-collapsed::before {
 	content: "\f078";
 }

@@ -1,6 +1,6 @@
-@use '../functions';
-@use '../variables';
-@use '../variables-addon';
+@use '../functions' as *;
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Typography
 :root {
@@ -88,7 +88,7 @@ small {
 mark {
   padding: 0 3px;
   font-weight: 700;
-  background-color: variables.$color-global-semantic-warning-80;
+  background-color: $color-global-semantic-warning-80;
   color: #000;
 }
 
@@ -112,8 +112,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: variables-addon.$font-family-mono;
-  font-size: functions.rem(16);
+  font-family: $font-family-mono;
+  font-size: rem(16);
   direction: ltr; /* rtl:ignore */
   unicode-bidi: bidi-override;
 }
@@ -123,7 +123,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
-  font-size: functions.rem(14);
+  font-size: rem(14);
 }
 
 pre code {
@@ -133,7 +133,7 @@ pre code {
 }
 
 code {
-  font-size: functions.rem(14);
+  font-size: rem(14);
   color: #d63384;
   word-wrap: break-word;
 }
@@ -144,7 +144,7 @@ a > code {
 
 kbd {
   padding: 0.2rem 0.4rem;
-  font-size: functions.rem(14);
+  font-size: rem(14);
   color: #fff;
   background-color: #212529;
   border-radius: 0.2rem;
@@ -152,13 +152,13 @@ kbd {
 
 kbd kbd {
   padding: 0;
-  font-size: functions.rem(14);
+  font-size: rem(14);
   font-weight: 700;
 }
 
 p::selection {
-  background-color: variables.$color-global-light-primary-50;
-  color: variables.$color-global-dark-primary-130;
+  background-color: $color-global-light-primary-50;
+  color: $color-global-dark-primary-130;
 }
 
 // Font
@@ -190,113 +190,113 @@ h6,
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 700;
-  color: variables.$color-global-secondary-100;
+  color: $color-global-secondary-100;
 }
 
 h1,
 .h1 {
-  color: variables.$color-global-dark-primary-110;
-  font-size: functions.rem(variables.$typography-alias-h1-md-size-13);
-  line-height: functions.rem(variables.$typography-alias-h1-md-line-height-13);
+  color: $color-global-dark-primary-110;
+  font-size: rem($typography-alias-h1-md-size-13);
+  line-height: rem($typography-alias-h1-md-line-height-13);
 }
 
 h2,
 .h2 {
-  font-size: functions.rem(variables.$typography-alias-h2-md-size-11);
-  line-height: functions.rem(variables.$typography-alias-h2-md-line-height-11);
+  font-size: rem($typography-alias-h2-md-size-11);
+  line-height: rem($typography-alias-h2-md-line-height-11);
 }
 
 h3,
 .h3 {
-  font-size: functions.rem(variables.$typography-alias-h3-md-size-09);
-  line-height: functions.rem(variables.$typography-alias-h3-md-line-height-09);
+  font-size: rem($typography-alias-h3-md-size-09);
+  line-height: rem($typography-alias-h3-md-line-height-09);
 }
 
 h4,
 .h4 {
-  font-size: functions.rem(variables.$typography-alias-h4-md-size-07);
-  line-height: functions.rem(variables.$typography-alias-h4-md-line-height-07);
+  font-size: rem($typography-alias-h4-md-size-07);
+  line-height: rem($typography-alias-h4-md-line-height-07);
 }
 
 h5,
 .h5 {
-  font-size: functions.rem(variables.$typography-alias-h5-md-size-06);
-  line-height: functions.rem(variables.$typography-alias-h5-md-line-height-06);
+  font-size: rem($typography-alias-h5-md-size-06);
+  line-height: rem($typography-alias-h5-md-line-height-06);
   font-weight: 600;
 }
 
 h6,
 .h6 {
-  font-size: functions.rem(variables.$typography-alias-h6-md-size-05);
-  line-height: functions.rem(variables.$typography-alias-h6-md-line-height-05);
+  font-size: rem($typography-alias-h6-md-size-05);
+  line-height: rem($typography-alias-h6-md-line-height-05);
   font-weight: 600;
 }
 
 @media (min-width: 992px) {
   h1,
   .h1 {
-    font-size: functions.rem(variables.$typography-alias-h1-lg-size-14);
-    line-height: functions.rem(variables.$typography-alias-h1-lg-line-height-14);
+    font-size: rem($typography-alias-h1-lg-size-14);
+    line-height: rem($typography-alias-h1-lg-line-height-14);
   }
   h2,
   .h2 {
-    font-size: functions.rem(variables.$typography-alias-h2-lg-size-12);
-    line-height: functions.rem(variables.$typography-alias-h2-lg-line-height-12);
+    font-size: rem($typography-alias-h2-lg-size-12);
+    line-height: rem($typography-alias-h2-lg-line-height-12);
   }
   h3,
   .h3 {
-    font-size: functions.rem(variables.$typography-alias-h3-lg-size-10);
-    line-height: functions.rem(variables.$typography-alias-h3-lg-line-height-10);
+    font-size: rem($typography-alias-h3-lg-size-10);
+    line-height: rem($typography-alias-h3-lg-line-height-10);
   }
   h4,
   .h4 {
-    font-size: functions.rem(variables.$typography-alias-h4-lg-size-08);
-    line-height: functions.rem(variables.$typography-alias-h4-lg-line-height-08);
+    font-size: rem($typography-alias-h4-lg-size-08);
+    line-height: rem($typography-alias-h4-lg-line-height-08);
   }
   P {
-    font-size: functions.rem(variables.$typography-alias-p-lg-size-05);
-    line-height: functions.rem(variables.$typography-alias-p-lg-line-height-05);
+    font-size: rem($typography-alias-p-lg-size-05);
+    line-height: rem($typography-alias-p-lg-line-height-05);
   }
 }
 
 @media (min-width: 1200px) {
   h1,
   .h1 {
-    font-size: functions.rem(variables.$typography-alias-h1-xl-size-15);
-    line-height: functions.rem(variables.$typography-alias-h1-xl-line-height-15);
+    font-size: rem($typography-alias-h1-xl-size-15);
+    line-height: rem($typography-alias-h1-xl-line-height-15);
   }
 }
 
 // Link
 a,
-.#{variables-addon.$prefix}text-link {
-  color: variables.$color-alias-interactive-primary-default;
+.#{$prefix}text-link {
+  color: $color-alias-interactive-primary-default;
   font-weight: 700;
 
   &:visited {
-    color: variables.$color-alias-interactive-primary-default;
+    color: $color-alias-interactive-primary-default;
   }
 
   &:hover {
-    color: variables.$color-alias-interactive-primary-hover;
+    color: $color-alias-interactive-primary-hover;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
-    color: variables.$color-alias-interactive-primary-pressed;
+    color: $color-alias-interactive-primary-pressed;
   }
 
-  &.disabled:not(.#{variables-addon.$prefix}btn),
-  &:not(.#{variables-addon.$prefix}btn):disabled,
-  &[disabled]:not(.#{variables-addon.$prefix}btn) {
-    color: variables.$color-alias-text-color-disabled;
+  &.disabled:not(.#{$prefix}btn),
+  &:not(.#{$prefix}btn):disabled,
+  &[disabled]:not(.#{$prefix}btn) {
+    color: $color-alias-text-color-disabled;
   }
 
   &[disabled] {
     pointer-events: none;
   }
 
-  &:not(.#{variables-addon.$prefix}btn) {
+  &:not(.#{$prefix}btn) {
     text-decoration: underline;
   }
 
@@ -312,20 +312,20 @@ a,
   cursor: not-allowed !important;
 }
 
-.#{variables-addon.$prefix}link-accent {
-  color: variables.$color-alias-interactive-accent-default;
+.#{$prefix}link-accent {
+  color: $color-alias-interactive-accent-default;
 
   &:visited {
-    color: variables.$color-alias-interactive-accent-default;
+    color: $color-alias-interactive-accent-default;
   }
 
   &:hover {
-    color: variables.$color-alias-interactive-accent-hover;
+    color: $color-alias-interactive-accent-hover;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
-    color: variables.$color-alias-interactive-accent-pressed;
+    color: $color-alias-interactive-accent-pressed;
   }
 }
 
@@ -333,72 +333,73 @@ a,
 @media (min-width: 576px) {
   input:focus-visible,
   textarea:focus-visible,
-  .#{variables-addon.$prefix}dropdown-select:focus:not(:focus-visible) {
-    outline: 1px solid variables.$color-alias-interactive-border-focus;
+  .#{$prefix}dropdown-select:focus:not(:focus-visible) {
+    outline: 1px solid $color-alias-interactive-border-focus;
     outline-offset: 1px;
     border-radius: 4px;
     z-index: 1;
   }
-  .#{variables-addon.$prefix}link-accent:focus,
-  .#{variables-addon.$prefix}btn-tertiary-light:focus-visible {
-    outline-color: variables.$color-alias-interactive-accent-focus !important;
+  .#{$prefix}link-accent:focus,
+  .#{$prefix}btn-tertiary-light:focus-visible {
+    outline-color: $color-alias-interactive-accent-focus !important;
   }
 }*/
 
 input:focus-visible,
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid variables.$color-global-primary-100;
+  outline: 2px solid $color-global-primary-100;
   outline-offset: 1px;
 }
 
-.#{variables-addon.$prefix}card-dark,
-.#{variables-addon.$prefix}alert,
-.#{variables-addon.$prefix}notify-dark,
-.#{variables-addon.$prefix}tooltip {
+.#{$prefix}card-dark,
+.#{$prefix}alert,
+.#{$prefix}notify-dark,
+.#{$prefix}tooltip {
   input:focus-visible,
   a:focus-visible,
   button:focus-visible {
-    outline-color: variables.$color-alias-interactive-accent-focus !important;
-  }
-}
-.#{variables-addon.$prefix}title-bar-dark {
-  input:focus-visible,
-  a:focus-visible,
-  button:focus-visible {
-    outline-color: variables.$color-global-primary-000 !important;
+    outline-color: $color-alias-interactive-accent-focus !important;
   }
 }
 
-.#{variables-addon.$prefix}link-accent:focus,
-.#{variables-addon.$prefix}btn-tertiary-light:focus-visible {
-  outline-color: variables.$color-alias-interactive-accent-focus !important;
+.#{$prefix}title-bar-dark {
+  input:focus-visible,
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: $color-global-primary-000 !important;
+  }
+}
+
+.#{$prefix}link-accent:focus,
+.#{$prefix}btn-tertiary-light:focus-visible {
+  outline-color: $color-alias-interactive-accent-focus !important;
 }
 
 // Icon fontawesome size
 .fa-16 {
-  font-size: functions.rem(16);
+  font-size: rem(16);
 }
 
 .fa-24 {
-  font-size: functions.rem(24);
+  font-size: rem(24);
 }
 
 .fa-32 {
-  font-size: functions.rem(32);
+  font-size: rem(32);
 }
 
 .fa-64 {
-  font-size: functions.rem(64);
+  font-size: rem(64);
 }
 
 // List
-.#{variables-addon.$prefix}list-unstyled {
+.#{$prefix}list-unstyled {
   list-style: none;
   padding-left: 0;
 }
 
-.#{variables-addon.$prefix}list-inline > * {
+.#{$prefix}list-inline > * {
   display: inline-block;
   margin-right: 8px;
 
@@ -407,7 +408,7 @@ button:focus-visible {
   }
 }
 
-.#{variables-addon.$prefix}list {
+.#{$prefix}list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -425,7 +426,7 @@ button:focus-visible {
       position: absolute;
       top: 8px;
       width: 8px;
-      background-color: variables.$color-alias-interactive-primary-default;
+      background-color: $color-alias-interactive-primary-default;
       left: -30px;
     }
 
@@ -436,13 +437,13 @@ button:focus-visible {
   }
 }
 
-.#{variables-addon.$prefix}list-link {
+.#{$prefix}list-link {
   list-style: none;
   margin: 0;
   padding: 0;
 
   & a {
-    border-bottom: 1px solid variables.$color-global-light-primary-50;
+    border-bottom: 1px solid $color-global-light-primary-50;
     padding: 16px 0;
     font-weight: 700;
     display: flex;
@@ -451,7 +452,7 @@ button:focus-visible {
     &:after {
       display: block;
       content: '\f061';
-      font-family: variables-addon.$font-family-icon;
+      font-family: $font-family-icon;
       text-align: center;
       font-weight: 900;
       float: right;
@@ -465,13 +466,13 @@ button:focus-visible {
   }
 }
 
-.#{variables-addon.$prefix}list-border {
+.#{$prefix}list-border {
   list-style: none;
   margin: 0;
   padding: 0;
 
   & li {
-    border-bottom: 1px solid variables.$color-global-light-primary-50;
+    border-bottom: 1px solid $color-global-light-primary-50;
     padding: 1.5rem 0;
   }
 
@@ -487,18 +488,18 @@ button:focus-visible {
 }
 
 // Vari
-.#{variables-addon.$prefix}font-weight-400 {
-  font-weight: variables-addon.$font-weight-regular !important;
+.#{$prefix}font-weight-400 {
+  font-weight: $font-weight-regular !important;
 }
 
-.#{variables-addon.$prefix}font-weight-600 {
-  font-weight: variables-addon.$font-weight-semibold !important;
+.#{$prefix}font-weight-600 {
+  font-weight: $font-weight-semibold !important;
 }
 
-.#{variables-addon.$prefix}font-weight-700 {
-  font-weight: variables-addon.$font-weight-bold !important;
+.#{$prefix}font-weight-700 {
+  font-weight: $font-weight-bold !important;
 }
 
-.#{variables-addon.$prefix}text-underline {
+.#{$prefix}text-underline {
   text-decoration: underline;
 }

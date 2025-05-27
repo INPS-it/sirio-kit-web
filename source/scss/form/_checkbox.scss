@@ -1,220 +1,239 @@
-@use '../variables';
-@use '../variables-addon';
+@use '../variables' as *;
+@use '../variables-addon' as *;
 
 // Selezione
-.#{variables-addon.$prefix}form-check {
+.#{$prefix}form-check {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 24px;
+  padding-left: 24px;
+  margin-bottom: 16px;
+
+  &.#{$prefix}form-check-inline {
+    display: inline-flex;
+    margin-right: 32px;
+  }
+
+  & input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+
+    &:checked ~ label::before {
+      border-color: $color-alias-interactive-primary-pressed;
+    }
+
+    &:hover ~ label {
+      color: $color-alias-interactive-primary-hover;
+
+      &::after {
+        border-color: $color-alias-interactive-primary-hover;
+      }
+    }
+
+    &[disabled] ~ label,
+    &:disabled ~ label {
+      color: $color-alias-text-color-disabled;
+    }
+
+    &[disabled] ~ label::before,
+    &:disabled ~ label::before {
+      background-color: $color-alias-background-color-disabled;
+      border-color: $color-alias-background-color-disabled;
+    }
+  }
+
+  & label {
     position: relative;
-    z-index: 1;
-    display: block;
-    min-height: 24px;
-    padding-left: 24px;
-    margin-bottom: 16px;
-    &.#{variables-addon.$prefix}form-check-inline {
-        display: inline-flex;
-        margin-right: 32px;
+    vertical-align: top;
+    font-weight: 400;
+    color: $color-specific-data-entry-label-color-default;
+    padding-left: 10px;
+    line-height: 24px;
+    margin-bottom: 8px;
+
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      content: '';
+      top: 0;
+      left: -24px;
+      width: 24px;
+      height: 24px;
+      background: 50% / 50% 50% no-repeat;
+      border-radius: 4px;
     }
-    & input {
-        position: absolute;
-        left: 0;
-        z-index: -1;
-        width: 24px;
-        height: 24px;
-        opacity: 0;
-        &:checked ~ label::before {
-            border-color: variables.$color-alias-interactive-primary-pressed;
-        }
-        &:hover ~ label {
-            color: variables.$color-alias-interactive-primary-hover;
-            &::after {
-                border-color: variables.$color-alias-interactive-primary-hover;
-            }
-        }
-        &[disabled] ~ label,
-        &:disabled ~ label {
-            color: variables.$color-alias-text-color-disabled;
-        }
-        &[disabled] ~ label::before,
-        &:disabled ~ label::before {
-            background-color: variables.$color-alias-background-color-disabled;
-            border-color: variables.$color-alias-background-color-disabled;
-        }
+
+    &:before {
+      border: 1px solid $color-alias-interactive-secondary-default;
     }
+
+    &:hover::before {
+      border-color: $color-alias-interactive-primary-hover;
+    }
+  }
+
+  // Checkbox
+  & input[type='checkbox']:checked ~ label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3e%3cpath fill='%230B0D0E' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
+    background-size: 12px;
+  }
+
+  & input[type='checkbox']:disabled:checked ~ label::after {
+    background-color: #e3e5e8;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512' %3e%3cpath fill='%235B6571' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
+  }
+
+  // Radio
+  & input[type='radio'] ~ label::before {
+    border-radius: 50%;
+  }
+
+  & input[type='radio']:checked ~ label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230B0D0E'/%3e%3c/svg%3e");
+    background-size: 18px;
+  }
+
+  & input[type='radio']:disabled:checked ~ label::after {
+    background-color: #e3e5e8;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%235B6571'/%3e%3c/svg%3e");
+  }
+
+  // toggle
+  &.#{$prefix}form-toggle {
+    padding-left: 50px;
+
     & label {
-        position: relative;
-        vertical-align: top;
-        font-weight: 400;
-        color: variables.$color-specific-data-entry-label-color-default;
-        padding-left: 10px;
-        line-height: 24px;
-        margin-bottom: 8px;
-        &:before,
-        &:after {
-            position: absolute;
-            display: block;
-            pointer-events: none;
-            content: '';
-            top: 0;
-            left: -24px;
-            width: 24px;
-            height: 24px;
-            background: 50% / 50% 50% no-repeat;
-            border-radius: 4px;
-        }
-        &:before {
-            border: 1px solid
-                variables.$color-alias-interactive-secondary-default;
-        }
-        &:hover::before {
-            border-color: variables.$color-alias-interactive-primary-hover;
-        }
+      cursor: pointer;
+
+      &:before {
+        left: -50px;
+        width: 50px;
+        top: 0;
+        border-radius: 24px;
+        height: 24px;
+        pointer-events: all;
+      }
+
+      &:after {
+        top: 4px;
+        left: -45px;
+        height: 16px;
+        width: 16px;
+        background: #454d56;
+        border-radius: 24px;
+        transition: transform 0.15s ease-in-out,
+        background 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
+        -webkit-transform 0.15s ease-in-out;
+      }
     }
 
-    // Checkbox
-    & input[type='checkbox']:checked ~ label::after {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3e%3cpath fill='%230B0D0E' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
-        background-size: 12px;
-    }
-    & input[type='checkbox']:disabled:checked ~ label::after {
-        background-color: #e3e5e8;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512' %3e%3cpath fill='%235B6571' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3e%3c/svg%3e");
-    }
-
-    // Radio
-    & input[type='radio'] ~ label::before {
-        border-radius: 50%;
-    }
-    & input[type='radio']:checked ~ label::after {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230B0D0E'/%3e%3c/svg%3e");
-        background-size: 18px;
-    }
-    & input[type='radio']:disabled:checked ~ label::after {
-        background-color: #e3e5e8;
-        border-radius: 50%;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%235B6571'/%3e%3c/svg%3e");
-    }
-
-    // toggle
-    &.#{variables-addon.$prefix}form-toggle {
-        padding-left: 50px;
-        & label {
-            cursor: pointer;
-            &:before {
-                left: -50px;
-                width: 50px;
-                top: 0;
-                border-radius: 24px;
-                height: 24px;
-                pointer-events: all;
-            }
-            &:after {
-                top: 4px;
-                left: -45px;
-                height: 16px;
-                width: 16px;
-                background: #454d56;
-                border-radius: 24px;
-                transition:
-                    background 0.15s ease-in-out,
-                    border-color 0.15s ease-in-out,
-                    box-shadow 0.15s ease-in-out,
-                    -webkit-transform 0.15s ease-in-out;
-                transition:
-                    transform 0.15s ease-in-out,
-                    background 0.15s ease-in-out,
-                    border-color 0.15s ease-in-out,
-                    box-shadow 0.15s ease-in-out;
-                transition:
-                    transform 0.15s ease-in-out,
-                    background 0.15s ease-in-out,
-                    border-color 0.15s ease-in-out,
-                    box-shadow 0.15s ease-in-out,
-                    -webkit-transform 0.15s ease-in-out;
-            }
+    & input {
+      &:hover {
+        & ~ label {
+          color: $color-alias-interactive-secondary-hover;
         }
 
-        & input {
-            &:hover {
-                & ~ label {
-                    color: variables.$color-alias-interactive-secondary-hover;
-                }
-                & ~ label::before {
-                    border-color: variables.$color-alias-interactive-secondary-hover;
-                }
-                & ~ label::after {
-                    background: variables.$color-alias-interactive-secondary-hover;
-                }
-            }
-            &:checked {
-                & ~ label::before {
-                    border-color: variables.$color-alias-interactive-primary-default;
-                }
-                & ~ label::after {
-                    background: variables.$color-alias-interactive-primary-default;
-                    transform: translateX(24px);
-                }
-                &:hover {
-                    & ~ label::before {
-                        border-color: variables.$color-alias-interactive-primary-hover;
-                    }
-                    & ~ label::after {
-                        background: variables.$color-alias-interactive-primary-hover;
-                    }
-                }
-            }
-            &:disabled {
-                & ~ label {
-                    color: variables.$color-alias-text-color-disabled !important;
-                    cursor: default;
-                }
-                & ~ label::before {
-                    border-color: variables.$color-alias-background-color-disabled !important;
-                }
-                & ~ label::after {
-                    background: variables.$color-alias-text-color-disabled !important;
-                }
-            }
+        & ~ label::before {
+          border-color: $color-alias-interactive-secondary-hover;
         }
+
+        & ~ label::after {
+          background: $color-alias-interactive-secondary-hover;
+        }
+      }
+
+      &:checked {
+        & ~ label::before {
+          border-color: $color-alias-interactive-primary-default;
+        }
+
+        & ~ label::after {
+          background: $color-alias-interactive-primary-default;
+          transform: translateX(24px);
+        }
+
+        &:hover {
+          & ~ label::before {
+            border-color: $color-alias-interactive-primary-hover;
+          }
+
+          & ~ label::after {
+            background: $color-alias-interactive-primary-hover;
+          }
+        }
+      }
+
+      &:disabled {
+        & ~ label {
+          color: $color-alias-text-color-disabled !important;
+          cursor: default;
+        }
+
+        & ~ label::before {
+          border-color: $color-alias-background-color-disabled !important;
+        }
+
+        & ~ label::after {
+          background: $color-alias-text-color-disabled !important;
+        }
+      }
     }
-    // Toggle allineata a destra
-    &.#{variables-addon.$prefix}form-toggle-dx {
-        padding: 0;
-        & label {
-            padding-left: 0;
-            padding-right: 48px;
-            display: block;
-        }
-        & label::before {
-            right: 0;
-            left: auto;
-        }
-        & label::after {
-            right: 29px;
-            left: auto;
-        }
+  }
+
+  // Toggle allineata a destra
+  &.#{$prefix}form-toggle-dx {
+    padding: 0;
+
+    & label {
+      padding-left: 0;
+      padding-right: 48px;
+      display: block;
     }
 
-    // Handle focus-visible
-    input:not([disabled]):focus-visible ~ label {
-        &::before {
-            border-color: variables.$color-alias-interactive-primary-focus;
-            outline: 1px solid variables.$color-alias-interactive-border-focus;
-            outline-offset: 2px;
-        }
+    & label::before {
+      right: 0;
+      left: auto;
     }
 
-    &:not(.sirio-form-toggle:not(:checked)) input:not([disabled]):focus ~ label {
-        color: variables.$color-alias-interactive-primary-focus;
+    & label::after {
+      right: 29px;
+      left: auto;
     }
+  }
+
+  // Handle focus-visible
+  input:not([disabled]):focus-visible ~ label {
+    &::before {
+      border-color: $color-alias-interactive-primary-focus;
+      outline: 1px solid $color-alias-interactive-border-focus;
+      outline-offset: 2px;
+    }
+  }
+
+  &:not(.sirio-form-toggle:not(:checked)) input:not([disabled]):focus ~ label {
+    color: $color-alias-interactive-primary-focus;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .#{variables-addon.$prefix}form-toggle label::after {
-        transition: none;
-    }
+  .#{$prefix}form-toggle label::after {
+    transition: none;
+  }
 }
+
 .sirio-table-dark thead input:not([disabled]):focus-visible ~ label {
-    &::before {
-        border-color: variables.$color-global-primary-000;
-        outline: 1px solid variables.$color-global-primary-000;
-    }
+  &::before {
+    border-color: $color-global-primary-000;
+    outline: 1px solid $color-global-primary-000;
+  }
 }
