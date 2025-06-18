@@ -41,6 +41,9 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
+### 9.0.1
+- **contenuto**\Alert – Aggiunto role `status` sul metodo `isAlert` di istanza della classe.
+
 ### 9.0.0
 -  <strong>contenuto</strong>\Bottoni (Aggiunta variante **small**, **medium - BG White** e **medium - BG Black**)
 -  <strong>contenuto</strong>\Title Bar (Sostituiti i bottoni con la variante **medium**)
