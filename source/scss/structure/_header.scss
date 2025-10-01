@@ -1,3 +1,4 @@
+@use '../functions' as *;
 @use '../variables' as *;
 @use '../variables-addon' as *;
 
@@ -41,6 +42,31 @@
     a:focus-visible {
       outline-offset: 0;
       z-index: 10;
+    }
+
+    .row {
+      .col-auto:last-child {
+        a.sirio-btn-light:has(.d-xl-inline-block) {
+          padding-top: 15px;
+          padding-bottom: 15px;
+
+          @media (min-width: 992px) {
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
+
+          @media (min-width: 1200px) {
+            padding-top: 14px;
+            padding-bottom: 14px;
+          }
+        }
+
+        a.sirio-btn-light:has(.d-lg-inline-block) {
+          @media (max-width: 992px) {
+            padding: 15px 16px;
+          }
+        }
+      }
     }
   }
 
@@ -96,33 +122,22 @@
   & .#{$prefix}nav-main.#{$prefix}nav {
     & .#{$prefix}nav-link {
       padding: 6px 0 16px;
-      margin-right: 40px;
+      margin-right: 32px;
       font-weight: 600;
-      font-size: 20px;
+      font-size: rem(20);
+
+      @media (max-width: 1200px) {
+        font-size: rem(18);
+      }
     }
 
-    &
-    .#{$prefix}nav-item:last-child
-    .#{$prefix}nav-link {
+    & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
       margin-right: 0;
     }
 
     & .#{$prefix}dropdown {
       position: static;
 
-      & > .#{$prefix}nav-link:after {
-        display: inline-block;
-        content: '\f078';
-        font-family: 'Font Awesome 6 Free', serif;
-        text-align: center;
-        font-weight: 900;
-        margin-left: 8px;
-      }
-
-      &
-      > .#{$prefix}nav-link[aria-expanded='true']:after {
-        content: '\f077';
-      }
 
       & .#{$prefix}dropdown-menu {
         border-radius: 0;
@@ -155,9 +170,7 @@
         }
       }
 
-      &:has(
-                    .#{$prefix}dropdown-menu[data-sirio-visible='true']
-                ) {
+      &:has(.#{$prefix}dropdown-menu[data-sirio-visible='true']) {
         &:after {
           content: '';
           position: fixed;
@@ -196,24 +209,29 @@
         }
 
         & .#{$prefix}dialog-header {
-          height: 55px;
+          height: 58px;
           padding: 0;
           background: #fff;
           justify-content: left;
           align-items: center;
 
           & .#{$prefix}btn {
-            margin: 0;
+            margin: 0 0 6px 0;
             padding: 14px 12px;
             border-radius: 0;
 
             &.#{$prefix}btn-home {
-              padding: 10px 0px;
-              margin-left: -1px;
+              padding: 10px 0;
+              margin: 0;
             }
 
             &.#{$prefix}btn-close {
-              padding: 16px 14px;
+              padding: 14px 12px;
+              margin: 0;
+
+              span.fas {
+                width: 21px
+              }
             }
 
             &.#{$prefix}btn-back {
@@ -238,6 +256,14 @@
 
         & .#{$prefix}dialog-body {
           background-color: $color-alias-background-color-primary-light-40;
+
+          & .#{$prefix}bg-white {
+            margin-top: -2px;
+          }
+
+          & .#{$prefix}nav-mobile {
+            margin-top: 2px;
+          }
 
           & .#{$prefix}dialog {
             top: 55px;
@@ -459,9 +485,7 @@
     min-width: 180px;
   }
 
-  &
-  .#{$prefix}dropdown
-  .#{$prefix}btn-link-light {
+  & .#{$prefix}dropdown .#{$prefix}btn-link-light {
     > span:not(.#{$prefix}avatar) {
       text-decoration: underline;
     }
@@ -479,22 +503,19 @@
     .border-left {
       border-color: $color-global-light-primary-50;
     }
-    &
-    .#{$prefix}service-header-function
-    .#{$prefix}dropdown-menu
+    & .#{$prefix}service-header-function .#{$prefix}dropdown-menu
     li {
       margin-right: 16px;
 
       &:last-child {
-        margin-right: 24px;
+        margin-right: 0;
       }
     }
     .#{$prefix}service-header-function
     button[data-sirio-toggle='dropdown'] {
       display: none;
     }
-    .#{$prefix}service-header-function
-    .#{$prefix}dropdown-menu {
+    .#{$prefix}service-header-function .#{$prefix}dropdown-menu {
       display: flex;
       position: relative;
       flex-wrap: nowrap;
@@ -506,9 +527,7 @@
       background: 0 0;
       z-index: inherit;
     }
-    .#{$prefix}service-header-function
-    .#{$prefix}dropdown-menu
-    .#{$prefix}dropdown-item {
+    .#{$prefix}service-header-function .#{$prefix}dropdown-menu .#{$prefix}dropdown-item {
       text-decoration: underline;
       background-color: transparent !important;
       color: #fff;
@@ -544,16 +563,12 @@
     outline-color: #fff;
   }
 
-  .#{$prefix}dropdown
-  .#{$prefix}dropdown-menu[data-sirio-visible='true'] {
+  .#{$prefix}dropdown .#{$prefix}dropdown-menu[data-sirio-visible='true'] {
     z-index: 1001;
   }
 }
 
-.#{$prefix}header
-.#{$prefix}dialog-sidenav.#{$prefix}dialog-nav-mobile
-.#{$prefix}dialog-wrapper
-.#{$prefix}dialog-content {
+.#{$prefix}header .#{$prefix}dialog-sidenav.#{$prefix}dialog-nav-mobile .#{$prefix}dialog-wrapper .#{$prefix}dialog-content {
   & .#{$prefix}dialog-header {
     height: auto;
 
@@ -577,18 +592,24 @@
 }
 
 // Avatar
+.#{$prefix}btn-user-menu {
+  padding: 6px 12px !important;
+
+  @media (max-width: 992px) {
+    padding: 15px 12px !important;
+  }
+}
+
 .#{$prefix}avatar {
   display: inline-flex;
   overflow: hidden;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  margin: -10px -4px;
   justify-content: center;
   align-items: center;
   background: $color-alias-interactive-primary-default;
   color: #fff;
-  box-sizing: content-box;
   transition: background-color 0.2s;
 
   & span {
@@ -601,5 +622,11 @@
 
   &.#{$prefix}bg-white {
     color: $color-alias-text-color-primary-dark-110;
+  }
+}
+
+.#{$prefix}dialog-nav-mobile {
+  & .logo-mobile {
+    margin: 0 10px !important;
   }
 }

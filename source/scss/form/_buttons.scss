@@ -140,6 +140,8 @@ $btn-palettes: (
     @if $name == 'ghost' {
       display: inline-flex;
       gap: 8px;
+      justify-content: center;
+      align-items: center;
       font-weight: 700;
       border: 2px solid transparent;
       text-align: center;
