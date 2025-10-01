@@ -10,6 +10,7 @@
   border-radius: 4px 4px 0 0;
   padding: 8px 16px;
   color: #000;
+  min-height: 60px;
 
   & .#{$prefix}title-bar-title {
     font-size: #{$typography-alias-h5-md-size-06}px;

@@ -23,6 +23,7 @@ hr:not([size]) {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1rem
 }
 
 summary {
@@ -71,6 +72,7 @@ dd {
   margin-bottom: 0.5rem;
   margin-left: 0;
 }
+
 
 blockquote {
   margin: 0 0 1rem;
@@ -253,7 +255,7 @@ h6,
     font-size: rem($typography-alias-h4-lg-size-08);
     line-height: rem($typography-alias-h4-lg-line-height-08);
   }
-  P {
+  p {
     font-size: rem($typography-alias-p-lg-size-05);
     line-height: rem($typography-alias-p-lg-line-height-05);
   }
@@ -328,22 +330,6 @@ a,
     color: $color-alias-interactive-accent-pressed;
   }
 }
-
-/*// Focus
-@media (min-width: 576px) {
-  input:focus-visible,
-  textarea:focus-visible,
-  .#{$prefix}dropdown-select:focus:not(:focus-visible) {
-    outline: 1px solid $color-alias-interactive-border-focus;
-    outline-offset: 1px;
-    border-radius: 4px;
-    z-index: 1;
-  }
-  .#{$prefix}link-accent:focus,
-  .#{$prefix}btn-tertiary-light:focus-visible {
-    outline-color: $color-alias-interactive-accent-focus !important;
-  }
-}*/
 
 input:focus-visible,
 a:focus-visible,
@@ -502,4 +488,30 @@ button:focus-visible {
 
 .#{$prefix}text-underline {
   text-decoration: underline;
+}
+
+.#{$prefix}prose {
+  max-inline-size: 75ch;
+
+  &-sm {
+    max-inline-size: 65ch;
+
+    p, li {
+      font-size: 1rem
+    }
+  }
+
+  &-lg {
+    max-inline-size: 85ch;
+  }
+
+  li {
+    list-style: square;
+  }
+
+  @media (min-width: 992px) {
+    li, p {
+      font-size: rem(18)
+    }
+  }
 }

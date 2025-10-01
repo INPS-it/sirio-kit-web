@@ -58,7 +58,8 @@
       color: $color-global-secondary-90;
       border-top: 1px solid $color-global-secondary-90;
 
-      &:hover {
+      &:hover,
+      &:hover a, {
         color: $color-global-primary-000;
         background-color: $color-specific-option-background-color-hover;
         border-top: 1px solid $color-specific-option-background-color-hover;

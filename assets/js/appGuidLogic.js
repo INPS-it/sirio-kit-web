@@ -1,0 +1,1173 @@
+const manualVersion = "9.0.0";
+
+class GuideApp {
+    static openCollapse(e) {
+        $(e.attr("href").replace("components", "nav")).slideToggle("slow"), e.toggleClass("guide-collapsed")
+    }
+
+    static closeCollapse(e) {
+        $(e.attr("href").replace("components", "nav")).hide(0), e.toggleClass("guide-collapsed")
+    }
+
+    formatHTML(e) {
+        let t = "\n", i = 0, l = [];
+        for (e = e.replace(RegExp("<pre>((.|\\t|\\n|\\r)+)?</pre>"), function (e) {
+            return l.push({indent: "", tag: e}), "<--TEMPPRE" + i++ + "/-->"
+        }).replace(RegExp("<[^<>]+>[^<]?", "g"), function (e) {
+            let i, r = /<\/?([^\s/>]+)/.exec(e)[1], n = RegExp("<--TEMPPRE(\\d+)/-->").exec(e);
+            return n && (l[n[1]].indent = t), ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "menuitem", "meta", "param", "source", "track", "wbr"].indexOf(r) >= 0 ? i = t + e : 0 > e.indexOf("</") ? (i = ">" !== e.charAt(e.length - 1) ? t + e.substr(0, e.length - 1) + t + "	" + e.substr(e.length - 1, e.length) : t + e, n || (t += "	")) : (t = t.substr(0, t.length - 1), i = ">" !== e.charAt(e.length - 1) ? t + e.substr(0, e.length - 1) + t + e.substr(e.length - 1, e.length) : t + e), i
+        }), i = l.length; i--;) e = e.replace("<--TEMPPRE" + i + "/-->", l[i].tag.replace("<pre>", "<pre>\n").replace("</pre>", l[i].indent + "</pre>"));
+        return "\n" === e.charAt(0) ? e.substr(1, e.length - 1) : e
+    }
+
+    highlightAuto(e) {
+        try {
+            return guideApp.formatHTML('<pre><code class="hljs xml">' + hljs.highlightAuto(e).value + "</code></pre>")
+        } catch {
+            return ""
+        }
+    }
+
+    addBlurListener(e, t, i) {
+        e.addEventListener("blur", async e => {
+            t.innerHTML = e.target.value, await document.getElementById(i).updateComplete;
+            try {
+                document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById(i).outerHTML)
+            } catch (l) {
+                return
+            }
+        })
+    }
+
+    copyHtmlExample(e, t) {
+        let i = document.getElementById(e).innerHTML;
+        document.getElementById(t).innerText = i.toString()
+    }
+}
+
+const guideApp = new GuideApp;
+
+class SirioAccordionDemo {
+    async init(e) {
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = document.querySelector("#resultHtmlComponent"), o = document.querySelector("#btnAction"),
+            a = document.querySelector("#code-tab-object"), d = document.querySelector("#code-tabc-object");
+        this.firstRun = e ?? !0;
+        let s = '<sirio-accordion sirio-runtime="angular-dev" id="accordion-object-html">\n        <sirio-accordion-item title="Accordion Title#1" active>\n            Il componente fisarmonica fornisce grandi quantit\xe0 di contenuto in un piccolo spazio\n            attraverso la divulgazione progressiva. L\'utente ottiene dettagli chiave sul contenuto\n            sottostante e pu\xf2 scegliere di espandere quel contenuto entro i vincoli\n            della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili\n            o quando lo spazio verticale \xe8 un premio.\n        </sirio-accordion-item>\n        <sirio-accordion-item title="Accordion Title#2">\n            Il componente fisarmonica fornisce grandi quantit\xe0 di contenuto in un piccolo spazio\n            attraverso la divulgazione progressiva. L\'utente ottiene dettagli chiave sul contenuto\n            sottostante e pu\xf2 scegliere di espandere quel contenuto entro i vincoli\n            della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili\n            o quando lo spazio verticale \xe8 un premio.\n        </sirio-accordion-item>\n        <sirio-accordion-item title="Accordion Title#3">\n            Il componente fisarmonica fornisce grandi quantit\xe0 di contenuto in un piccolo spazio\n            attraverso la divulgazione progressiva. L\'utente ottiene dettagli chiave sul contenuto\n            sottostante e pu\xf2 scegliere di espandere quel contenuto entro i vincoli\n            della fisarmonica. Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili\n            o quando lo spazio verticale \xe8 un premio.\n        </sirio-accordion-item>\n        </sirio-accordion>';
+        t.value = s, n.innerHTML = s, guideApp.addBlurListener(t, n, "accordion-object-html"), d.style.display = "none", r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", a.style.display = "Standard" === i ? "block" : "none", d.style.display = "HTML" === i ? "block" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = s, n.innerHTML = s, document.getElementById("accordion-object-html")?.updateComplete?.then(() => {
+                document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("accordion-object-html")?.outerHTML)
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("accordion-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        let e = document.getElementById("accordion-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            let t = document.getElementById("itemsInput").getValue();
+            e.setAttribute("item", t), document.getElementById("btnDark").getSelectedValues() ? e.setAttribute("dark", "") : e.removeAttribute("dark")
+        }
+        let i = document.getElementById("codeView");
+        await e.updateComplete, i.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioAlertDemo {
+    async init(e) {
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = document.querySelector("#resultHtmlComponent"), o = document.querySelector("#btnAction"),
+            a = document.querySelector("#btnDemo");
+        this.firstRun = e ?? !0;
+        let d = '<sirio-alert type="error" title="Titolo alert" text="Testo alert" id="alert-example-html" link-text="Testo link" link-url="#" visible></sirio-alert>';
+        t.value = d, n.innerHTML = d, guideApp.addBlurListener(t, n, "alert-example-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), a.setAttribute("disabled", "disabled"), n.children[0].remove(), t.value = d, n.innerHTML = d, document.getElementById("alert-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("alert-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), a.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("alert-example-prop")?.outerHTML)
+        }), document.getElementById("btnColor").disabled = !0, await this.apply()
+    }
+
+    async apply() {
+        let e = document.querySelector("#resultPropComponent"), t = document.getElementById("alert-example-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            let i, l = document.getElementById("title").getValue();
+            t.title = l;
+            let r = document.getElementById("text").getValue();
+            t.text = r;
+            let n = document.getElementById("type").getSelectedValues()[0];
+            t.type = n;
+            let o = document.getElementById("linkText").getValue();
+            "" != o ? t.linkText = o : t.removeAttribute("link-text");
+            let a = document.getElementById("linkUrl").getValue();
+            "" != a ? t.linkUrl = a : t.removeAttribute("link-url");
+            let d = document.getElementById("toast").getSelectedValues();
+            t.toast = d;
+            let s = document.getElementById("delay").getValue();
+            d && (alert.delay = s), d ? (i = document.getElementById("toast-live-demo"), e.classList.add("guide-col-auto"), e.classList.remove("guide-col-12"), i.delay = s) : (i = document.getElementById("alert-live-demo"), e.classList.add("guide-col-12"), e.classList.remove("guide-col-auto"));
+            let u = document.getElementById("btnAlert").getSelectedValues(),
+                p = document.getElementById("btnText").getValue(),
+                c = document.getElementById("btnColor").getSelectedValues()[0],
+                m = document.getElementById("icon").getValue();
+            i.title = l, i.text = r, i.type = n, i.linkText = o, i.linkUrl = a;
+            let g = document.getElementById("button-example-prop"), y = document.getElementById("button-demo-prop");
+            if (u) g || (g = document.createElement("sirio-button")), y || (y = document.createElement("sirio-button")), g.setAttribute("id", "button-example-prop"), g.setAttribute("text", p), g.setAttribute("color", c), g.setAttribute("icon", m), g.firstRender = !1, this.alertComponent?.prepend(g), y.setAttribute("id", "button-demo-prop"), y.setAttribute("text", p), y.setAttribute("color", c), y.setAttribute("icon", m), y.firstRender = !1, i?.prepend(y); else {
+                let h = document.querySelectorAll(".sirio-alert-btn");
+                h && h.forEach(e => e.remove()), g && g.remove(), y && y.remove()
+            }
+            t.requestUpdate(), i.requestUpdate()
+        }
+        let b = document.getElementById("codeView");
+        await t.updateComplete, b.innerHTML = guideApp.highlightAuto(t.outerHTML)
+    }
+
+    delayInput() {
+        let e = document.getElementById("toast").getSelectedValues();
+        document.getElementById("delay").disabled = !e
+    }
+
+    btnActionInput() {
+        let e = document.getElementById("btnAlert").getSelectedValues(), t = document.getElementById("btnText"),
+            i = document.getElementById("btnColor"), l = document.getElementById("icon");
+        t.disabled = !e, i.disabled = !e, l.disabled = !e
+    }
+
+    liveDemo() {
+        let e = document.getElementById("toast").getSelectedValues(), t = document.querySelector("#alert-live-demo"),
+            i = document.querySelector("#toast-live-demo");
+        e ? i.SirioToast() : t.SirioAlert()
+    }
+}
+
+class SirioBreadcrumbDemo {
+    async init(e) {
+        this.firstRun = e ?? !0, await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("sirio-breadcrumb");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("itemsInput").getValue();
+            e.setAttribute("items", t)
+        }
+        let i = document.getElementById("codeView");
+        await e.updateComplete, i.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioButtonDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-button sirio-runtime="angular-dev" id="button-example-html"\n            type="button" text="Primario" \n            color="primary">\n        </sirio-button>\n        <div id="collapseID-1" role="region" data-sirio-visible="false">\n            <div>\n                Il componente fisarmonica fornisce grandi quantit\xe0 di contenuto \n                in un piccolo spazio attraverso la divulgazione progressiva. \n                L\'utente ottiene dettagli chiave sul contenuto sottostante e pu\xf2 scegliere \n                di espandere quel contenuto entro i vincoli della fisarmonica. \n                Le fisarmoniche funzionano particolarmente bene sulle interfacce mobili \n                o quando lo spazio verticale \xe8 un premio.\n            </div>\n        </div>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "button-example-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("button-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("button-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("button-example-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("button-example-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            let t = document.getElementById("buttonType").getSelectedValues();
+            "collapse" === t ? (e.setAttribute("target", "collapseID-1"), e.setAttribute("toggle", t)) : "-" !== t ? e.setAttribute("type", t) : e.setAttribute("type", "");
+            let i = document.getElementById("titleInput").getValue();
+            e.setAttribute("text", i);
+            let l = document.getElementById("buttonColor").getSelectedValues();
+            "-" !== l && e.setAttribute("color", l);
+            let r = document.getElementById("inputIcon").getValue();
+            r && e.setAttribute("icon", r);
+            let n = document.getElementById("icon-placement").getSelectedValues();
+            e.setAttribute("icon-placement", n);
+            let o = document.getElementById("inputEvent").getSelectedValues();
+            e.setAttribute("event-enabled", !o);
+            let a = document.getElementById("inputDebug").getSelectedValues();
+            e.setAttribute("debug", !a), document.getElementById("for-mobile").getSelectedValues() ? e.setAttribute("for-mobile", "") : e.removeAttribute("for-mobile"), document.getElementById("inputDisable").getSelectedValues() ? e.setAttribute("disabled", "") : e.removeAttribute("disabled")
+        }
+        let d = document.getElementById("codeView");
+        await e.updateComplete, d.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioCardDemo {
+    async init() {
+        let e = document.querySelector("#editor"), t = document.querySelector("#resultHtmlComponent"),
+            i = '  \n                <sirio-card id="card-example-html">\n                    <sirio-card-header tag="Categoria" date="13 Nov 2021"></sirio-card-header>\n                    <sirio-card-body \n                        title="<a href=\'#\'>Titolo lorem ipsum dolor consectetur adipisci eli</a>"\n                        subtitle="Lorem ipsum dolor sit amet consectetur adipisci eli"\n                        signature="Firma autore">\n                        <p>\n                            Lorem ipsum dolor sit amet, consectetur adipisci elit,\n                            sed do eiusmod tempor incidunt ut labore et dolore magna aliqua\n                        </p>\n                    </sirio-card-body>\n                    <sirio-card-footer>\n                        <sirio-card-action type="link" url="#" icon="fas fa-share-alt"></sirio-card-action>\n                        <sirio-card-action type="link" url="#" icon="fas fa-heart"></sirio-card-action>\n                    </sirio-card-footer>\n                </sirio-card>\n        ';
+        e.value = i, t.innerHTML = i, guideApp.addBlurListener(e, t, "card-example-html"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("card-example-html")?.outerHTML)
+    }
+}
+
+class SirioChipDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-chip id="chip-example-html" type="checkbox" text="Chip" event-enabled="true"></sirio-chip>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "chip-example-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("chip-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("chip-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("chip-example-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("chip-example-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("text").getValue();
+            e.text = t;
+            var i = document.getElementById("type").getSelectedValues()[0];
+            e.type = i;
+            var l = document.getElementById("icon").getValue();
+            "" !== l && (e.icon = l), document.getElementById("InputDisable").getSelectedValues() ? e.setAttribute("disabled", "") : e.removeAttribute("disabled"), document.getElementById("InputChiudi").getSelectedValues() ? e.setAttribute("close-button", "Elimina") : e.removeAttribute("close-button")
+        }
+        let r = document.getElementById("codeView");
+        await e.updateComplete, r.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioDatetimeDemo {
+    initDatetimeStandard() {
+        let e = document.querySelector("#resultPropComponent sirio-datetime .sirio-datepicker");
+        new Datepicker(e, {
+            format: "dd/mm/yyyy",
+            language: "it",
+            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+            autohide: !0
+        })
+    }
+
+    initDatetimeRange() {
+        let e = document.querySelector("#resultPropComponent sirio-datetime .sirio-datepicker-range");
+        new DateRangePicker(e, {
+            format: "dd/mm/yyyy",
+            language: "it",
+            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+        })
+    }
+
+    initDatetimeHtml() {
+        let e = document.querySelector("#datetime-example-html .sirio-datepicker");
+        e && new Datepicker(e, {
+            format: "dd/mm/yyyy",
+            language: "it",
+            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
+            autohide: !0
+        });
+        let t = document.querySelector("#datetime-example-html .sirio-datepicker-range");
+        t && new DateRangePicker(t, {
+            format: "dd/mm/yyyy",
+            language: "it",
+            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
+            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
+        })
+    }
+
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-datetime type="date" id="datetime-example-html" name="datetime-example-html" label="Datetime/Timepicker:" placeholder="Inserisci data/ora"></sirio-datetime>';
+        t.value = a, n.innerHTML = a, t.addEventListener("blur", e => {
+            n.innerHTML = e.target.value, setTimeout(function () {
+                (new SirioDatetimeDemo).initDatetimeHtml()
+            }, 100), document.getElementById("datetime-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("datetime-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })
+        }), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, setTimeout(function () {
+                (new SirioDatetimeDemo).initDatetimeHtml()
+            }, 100), document.getElementById("datetime-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("datetime-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("datetime-example-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("datetime-example-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            e.setAttribute("id", crypto.randomUUID());
+            var t = document.getElementById("dateType").getSelectedValues()[0];
+            t ? e.setAttribute("type", t) : e.setAttribute("type", ""), "range" === t && (e.setAttribute("id-start", "range-date"), e.setAttribute("name-start", "range-start"), e.setAttribute("id-end", "range-date"), e.setAttribute("name-end", "range-end"));
+            var i = document.getElementById("label").getValue();
+            e.setAttribute("label", i);
+            var l = document.getElementById("placeholder").getValue();
+            e.setAttribute("placeholder", l)
+        }
+        let r = document.getElementById("codeView");
+        await e.updateComplete, setTimeout(function () {
+            var i = new SirioDatetimeDemo;
+            "date" === t && i.initDatetimeStandard(), "range" === t && i.initDatetimeRange(), r.innerHTML = guideApp.highlightAuto(e.outerHTML)
+        }, 100)
+    }
+}
+
+class SirioDialogDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-dialog id="dialog-object-html" title="Titolo finestra di dialogo">\n            <sirio-content slot="dialog-body">\n                <p>\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, \n                    sed do eiusmod tempor incididunt ut labore et dolore \n                    magna aliqua.\n                </p>\n            </sirio-content>\n            <sirio-button id="btn-dialog-html" color="primary" text="Conferma"></sirio-button>\n        </sirio-dialog>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "dialog-object-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("dialog-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dialog-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dialog-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("dialog-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("type").getSelectedValues()[0];
+            e.setAttribute("type", t);
+            var i = document.getElementById("title").getValue();
+            e.setAttribute("title", i);
+            var l = document.getElementById("itemsInput").getValue();
+            e.querySelector('[slot="dialog-body"]').innerHTML = l
+        }
+        let r = document.getElementById("codeView");
+        await e.updateComplete, r.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioDropdownDemo {
+    async init() {
+        let e = document.querySelector("#editor"), t = document.querySelector("#resultHtmlComponent"),
+            i = '<sirio-dropdown id="dropdown-example-html" items=\'[\n    {"text": "Opzione 1", "url": "#"},\n    {"text": "Opzione 2", "url": "#"},\n    {"text": "Opzione 3", "url": "#"}]\'\n    text="Dropdown menu" color="primary">\n</sirio-dropdown>';
+        e.value = i, t.innerHTML = i, guideApp.addBlurListener(e, t, "dropdown-example-html"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dropdown-example-html")?.outerHTML)
+    }
+}
+
+class SirioFilterDemo {
+    async init() {
+        let e = document.querySelector("#editor"), t = document.querySelector("#resultHtmlComponent"),
+            i = '<sirio-filter title="Filtri" id="filter-example-html" type="vertical" filter-selected>\n    <sirio-filter-group title="Section Title #1" title-info="Titolo info" \n        content-info="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, \n        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>" show-item=5>\n        <sirio-chip id="filter-chip-1" value="1" name="filter-chip-1" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-2" value="1" name="filter-chip-2" \n            text="Valore chip lungo" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-3" value="1" name="filter-chip-3" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-4" value="1" name="filter-chip-4" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-5" value="1" name="filter-chip-5" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-6" value="1" name="filter-chip-6" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-7" value="1" name="filter-chip-7" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-8" value="1" name="filter-chip-8" \n            text="Valore chip" type="checkbox"></sirio-chip>\n        <sirio-chip id="filter-chip-9" value="1" name="filter-chip-9" \n            text="Valore chip" type="checkbox"></sirio-chip>\n    </sirio-filter-group>\n    <sirio-filter-group title="Section Title #2" title-info="Titolo info" \n        content-info="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, \n        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>">\n        <sirio-input label="Label:" type="text" id="filter-input-1" name="filter-input-1" \n            placeholder="text"></sirio-input>\n        <sirio-input label="Label:" type="text" id="filter-input-2" name="filter-input-2" \n            placeholder="text"></sirio-input>\n    </sirio-filter-group>\n    <sirio-filter-btn id="btn-1" type-btn="cancel" text="Elimina filtri"></sirio-filter-btn>\n    <sirio-filter-btn id="btn-2" type-btn="confirm" text="Applica filtri"></sirio-filter-btn>\n</sirio-filter>\n        ';
+        e.value = i, t.innerHTML = i, guideApp.addBlurListener(e, t, "filter-example-html"), codeStandard.style.display = "none", document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("filter-example-html")?.outerHTML)
+    }
+}
+
+class SirioGridDemo {
+    async init(e) {
+        document.querySelector("#item-control"), document.querySelector("#editor"), document.querySelector("#switch-mode-button"), document.querySelector("#viewProp");
+        let t = document.querySelector("#viewHtml");
+        document.querySelector("#resultPropComponent"), document.querySelector("#btnAction"), document.querySelector("#code-grid-object"), document.querySelector("#code-gridJS-object"), this.firstRun = e ?? !0, t.style.display = "none", await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("grid-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            let t = document.getElementById("items"), i = document.getElementById("columnDef");
+            try {
+                let l = t?.getAttribute("value") || "", r = i?.getAttribute("value") || "",
+                    n = l.replace(/\b(\w+):/g, '"$1":');
+                n = n.replace(/'/g, '"');
+                let o = JSON.parse(n), a = JSON.parse(r.replace(/\n/g, "").replace(/\s+/g, " "));
+                e.items = o, e.columnDef = a
+            } catch (d) {
+                console.error("Errore durante il parsing di items o columnDef:", d), e.items = [], e.columnDef = []
+            }
+            var s = document.getElementById("spacing").getSelectedValues()[0];
+            "-" == s ? e.removeAttribute("spacing") : e.setAttribute("spacing", s), document.getElementById("dark").getSelectedValues() ? e.setAttribute("dark", "") : e.removeAttribute("dark"), document.getElementById("fixed").getSelectedValues() ? e.setAttribute("fixed", "") : e.removeAttribute("fixed"), document.getElementById("card").getSelectedValues() ? e.setAttribute("card", "") : e.removeAttribute("card")
+        }
+        let u = document.getElementById("codeView");
+        await e.updateComplete, u.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioHeroDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-hero id="hero-object-html" items=\'[{ "title": "Home", "url": "https://www.inps.it/", "target": "_blank" }, { "title": "Lorem Ipsum" }, { "title": "Dolor sit amet" }]\' heading="Titolo hero" subheading="Sottotitolo" sr-breadcrumb-label="" img="../../assets/img/img-hero.svg" call-to-action=\'{ "text": "Testo link" }\'>\n                <p>\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n                    Sed ullamcorper ante aliquet lectus imperdiet, \n                    <a href="#">nec vehicula sapien</a> placerat. \n                    Etiam sollicitudin elementum ligula eget aliquet. Fusce mollis facilisis leo.\n                </p>\n        </sirio-hero>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "hero-object-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("hero-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("hero-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("hero-object-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("hero-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("inputHeading").getValue();
+            e.setAttribute("heading", t);
+            var i = document.getElementById("inputSubheading").getValue();
+            e.setAttribute("subheading", i);
+            var l = document.getElementById("itemsInput").getValue();
+            e.setAttribute("items", l);
+            var r = document.getElementById("inputContent").getValue();
+            e.setAttribute("content", r);
+            var n = document.getElementById("btnText").getValue();
+            e.setAttribute("call-to-action", `{ "text": "${n}" }`)
+        }
+        let o = document.getElementById("codeView");
+        await e.updateComplete, o.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioCarouselDemo {
+    async init() {
+        let e = document.querySelector("#editor"), t = document.querySelector("#resultHtmlComponent"),
+            i = '\n        <sirio-carousel splide="1" id="carousel-object-html">\n            <sirio-card id="sirioCard#1">\n                <sirio-card-header tag="Categoria" date="13 Nov 2021" src="../../assets/img/example-1.jpg" \n                    image-position="left"></sirio-card-header>\n                <sirio-card-body \n                    title=\'<h4><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>\'\n                    subtitle="Lorem ipsum dolor sit amet consectetur adipisci eli"\n                    signature="Firma autore">\n                    <p>\n                        Lorem ipsum dolor sit amet, consectetur adipisci elit, \n                        sed do eiusmod tempor incidunt ut labore et dolore magna aliqua\n                    </p>\n                </sirio-card-body>\n                <sirio-card-footer>\n                    <sirio-card-action type="link" url="#" icon="fas fa-share-alt"></sirio-card-action>\n                    <sirio-card-action type="link" url="#" icon="fas fa-heart"></sirio-card-action>\n                </sirio-card-footer>\n            </sirio-card>\n            <sirio-card id="sirioCard#2">\n                <sirio-card-header tag="Categoria" date="13 Nov 2021" src="../../assets/img/example-2.jpg" \n                    image-position="left"></sirio-card-header>\n                <sirio-card-body \n                    title=\'<h4><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>\'\n                    subtitle="Lorem ipsum dolor sit amet consectetur adipisci eli"\n                    signature="Firma autore">\n                    <p>\n                        Lorem ipsum dolor sit amet, consectetur adipisci elit, \n                        sed do eiusmod tempor incidunt ut labore et dolore magna aliqua\n                    </p>\n                </sirio-card-body>\n                <sirio-card-footer>\n                    <sirio-card-action type="link" url="#" icon="fas fa-share-alt"></sirio-card-action>\n                    <sirio-card-action type="link" url="#" icon="fas fa-heart"></sirio-card-action>\n                </sirio-card-footer>\n            </sirio-card>\n            <sirio-card id="sirioCard#3">\n                <sirio-card-header tag="Categoria" date="13 Nov 2021" src="../../assets/img/example-3.jpg" \n                    image-position="left"></sirio-card-header>\n                <sirio-card-body \n                    title=\'<h4><a href="#">Titolo lorem ipsum dolor consectetur adipisci eli</a></h4>\'\n                    subtitle="Lorem ipsum dolor sit amet consectetur adipisci eli"\n                    signature="Firma autore">\n                    <p>\n                        Lorem ipsum dolor sit amet, consectetur adipisci elit, \n                        sed do eiusmod tempor incidunt ut labore et dolore magna aliqua\n                    </p>\n                </sirio-card-body>\n                <sirio-card-footer>\n                    <sirio-card-action type="link" url="#" icon="fas fa-share-alt"></sirio-card-action>\n                    <sirio-card-action type="link" url="#" icon="fas fa-heart"></sirio-card-action>\n                </sirio-card-footer>\n            </sirio-card>\n        </sirio-carousel>';
+        e.value = i, t.innerHTML = i, guideApp.addBlurListener(e, t, "carousel-object-html"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("carousel-object-html")?.outerHTML)
+    }
+}
+
+class SirioInfoDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-info id="info-example-html" title="Titolo attenzione" call-to-action=\'{ "text": "Testo link" }\'>\n            <p>\n                Ac iaculis posuere turpis diam mi non viverra tempus eget.\n                Nunc volutpat nunc erat risus eleifend convallis viverra bibendum.\n                Mattis ante mauris sit montes.\n                <a href="#">ipsam lectus nec?</a> Explicabo consequuntur incididunt ipsam.\n            </p>\n        </sirio-info>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "info-example-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("info-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("info-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("info-example-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("info-example-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("title").getValue();
+            e.setAttribute("title", t);
+            var i = document.getElementById("btnText").getValue();
+            e.setAttribute("call-to-action", `{ "text": "${i}" }`), document.getElementById("inputMode").getSelectedValues() ? e.setAttribute("dark", "") : e.removeAttribute("dark"), document.getElementById("disabled").getSelectedValues() ? e.setAttribute("disabled", "") : e.removeAttribute("disabled")
+        }
+        let l = document.getElementById("codeView");
+        await e.updateComplete, l.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioInputDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        document.querySelector("#maxInput"), this.firstRun = e ?? !0;
+        let a = '<sirio-input prevent-default\n            id="first-field" \n            aria-label="campo di test"\n            type="autocomplete" \n            placeholder="Questo \xe8 un componente <sirio-input>"\n            texthelp="Modifica il codice nell\'editor e visualizza i cambiamenti"\n            label="Campo di test" \n            item=\'["Opzione 1", "Opzione 2", "Opzione 3"]\'\n        ></sirio-input>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "first-field"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("first-field")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("first-field")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("input1")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("input1");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("inputType").getSelectedValues()[0];
+            e.setAttribute("type", t);
+            var i = document.getElementById("labelInput").getValue();
+            e.setAttribute("label", i);
+            var l = document.getElementById("placeholderInput").getValue();
+            e.setAttribute("placeholder", l);
+            var r = document.getElementById("helpInput").getValue();
+            e.setAttribute("texthelp", r);
+            var n = document.getElementById("maxInput").getValue();
+            n && e.setAttribute("maxlength", n);
+            var o = document.getElementById("valueInput").getValue();
+            o && e.setAttribute("value", o);
+            var a = document.getElementById("rowInput").getValue();
+            e.setAttribute("rows", a);
+            var d = document.getElementById("inputEvent").getSelectedValues();
+            e.setAttribute("event-enabled", !d);
+            var s = document.getElementById("inputDebug").getSelectedValues();
+            e.setAttribute("debug", !s), document.getElementById("inputDisable").getSelectedValues() ? e.setAttribute("disabled", "") : e.removeAttribute("disabled")
+        }
+        let u = document.getElementById("codeView");
+        await e.updateComplete, u.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioPanelExpandDemo {
+    constructor() {
+        this.panelEl = document.getElementById("myPanel"), this.titleBarEl = document.getElementById("dummyTitleBar"), this.expandBtnEl = document.getElementById("myExpandBtn"), this.outputEl = document.getElementById("codeOutput"), this.bpSelectEl = document.getElementById("dataBreakpoint"), this.codePanel = document.getElementById("code-panel"), this.switchBtn = document.getElementById("switch-mode-button"), this.codeVisible = !1
+    }
+
+    init() {
+        this.switchBtn.addEventListener("click", () => {
+            this.codeVisible = !this.codeVisible, this.codePanel.style.display = this.codeVisible ? "block" : "none", this.switchBtn.text = this.codeVisible ? "Nascondi" : "HTML", document.querySelector(".view-source")?.click()
+        }), this.updateCode()
+    }
+
+    applyProperties() {
+        let e = document.getElementById("labelExpand").value, t = document.getElementById("labelCollapse").value,
+            i = document.getElementById("accessLabel").value, l = this.bpSelectEl.value || "";
+        this.expandBtnEl.labelExpand = e || "", this.expandBtnEl.labelCollapse = t || "", this.expandBtnEl.accessLabel = i || "", this.expandBtnEl.dataBreakpoint = l, this.updateCode()
+    }
+
+    updateCode() {
+        let e = `
+<sirio-panel-expandable id="myPanel">
+  <sirio-title-bar id="dummyTitleBar">
+  <!-- sirio-tool per filtri -->\n    <sirio-panel-expand-btn
+      id="myExpandBtn"
+      label-expand="${this.expandBtnEl.labelExpand || ""}"
+      label-collapse="${this.expandBtnEl.labelCollapse || ""}"
+      access-label="${this.expandBtnEl.accessLabel || ""}"
+      data-breakpoint="${this.expandBtnEl.dataBreakpoint || ""}"
+    ></sirio-panel-expand-btn>
+  </sirio-title-bar>
+  
+  <!-- sirio-filter -->\n  <!-- sirio-grid -->\n  <!-- sirio-pager -->\n  
+</sirio-panel-expandable>
+      `.trim();
+        this.outputEl.textContent = e
+    }
+}
+
+class SirioPagerDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor-1"), i = document.querySelector("#editor-2"),
+            l = document.querySelector("#switch-mode-button"), r = document.querySelector("#viewProp"),
+            n = document.querySelector("#viewHtml"),
+            o = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent-1")),
+            a = document.querySelector("#resultHtmlComponent-2"), d = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let s = '<sirio-pager sirio-runtime="angular-dev" id="pager-object-html-1" total-items="100" has-select\n            items-per-page-options=\'[{"text": 10, "value": 10}, {"text": 20, "value": 20},\n            {"text": 30, "value": 30}]\'>\n            <sirio-pager-nav type="left"></sirio-pager-nav>\n            <sirio-pager-nav type="right"></sirio-pager-nav>\n        </sirio-pager>',
+            u = '<sirio-pager sirio-runtime="angular-dev" id="pager-object-html-2" total-items="60" items-per-page="10">\n            <sirio-pager-list delimiter-index="5" smart prevent-default>\n            </sirio-pager-list>\n        </sirio-pager>';
+        t.value = s, o.innerHTML = s, i.value = u, a.innerHTML = u, guideApp.addBlurListener(t, o, "pager-object-html-1"), guideApp.addBlurListener(i, a, "pager-object-html-2"), n.style.display = "none", o.style.display = "none", a.style.display = "none", l.addEventListener("click", e => {
+            let l = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === l ? "Standard" : "HTML", r.style.display = "Standard" === l ? "" : "none", n.style.display = "HTML" === l ? "" : "none", resultPropComponent.style.display = "Standard" === l ? "" : "none", o.style.display = "HTML" === l ? "" : "none", a.style.display = "HTML" === l ? "" : "none", "HTML" === l && (d.setAttribute("disabled", "disabled"), t.value = s, o.innerHTML = s, document.getElementById("pager-object-html-1")?.updateComplete?.then(() => {
+                try {
+                    document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("pager-object-html-1")?.outerHTML)
+                } catch (e) {
+                }
+            }), i.value = u, a.innerHTML = u, document.getElementById("pager-object-html-2")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("pager-object-html-2")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), d.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("pager-object-prop")?.outerHTML), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("pager-object-prop-navigator")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("pager-object-prop"),
+            t = document.getElementById("pager-object-prop-navigator");
+        if (this.firstRun) this.firstRun = !1; else {
+            var i = document.getElementById("itemsInput").getValue();
+            e.setAttribute("items-per-page-options", i), document.getElementById("inputJumper").getSelectedValues() ? e.setAttribute("has-jumper", "") : e.removeAttribute("has-jumper");
+            var l = document.getElementById("totalItems1").getValue();
+            e.setAttribute("total-items", l);
+            var r = document.getElementById("totalItems2").getValue();
+            t.setAttribute("total-items", r);
+            var n = document.getElementById("itemsPerPage").getValue();
+            t.setAttribute("items-per-page", n);
+            var o = document.querySelector("#pager-object-prop-navigator sirio-pager-list"),
+                a = document.getElementById("delimiter").getValue();
+            o.setAttribute("delimiter-index", a - 1)
+        }
+        let d = document.getElementById("codeView");
+        await e.updateComplete, await t.updateComplete, d.innerHTML = guideApp.highlightAuto(e.outerHTML), d.innerHTML = guideApp.highlightAuto(t.outerHTML)
+    }
+}
+
+class SirioProgressbarDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-progress-bar id="progressbar-example-html-1" label="Progress label" value="20"></sirio-progress-bar>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "progressbar-example-html-1"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("progressbar-example-html-1")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("progressbar-example-html-1")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("progressbar-example-prop-1")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("progressbar-example-prop-1");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("label").getValue();
+            e.setAttribute("label", t);
+            var i = document.getElementById("perc").getValue();
+            e.setAttribute("value", i)
+        }
+        let l = document.getElementById("codeView");
+        await e.updateComplete, l.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioSearchbarDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        document.querySelector("#itemsHtml"), this.firstRun = e ?? !0;
+        let a = '<sirio-searchbar id="searchbar-object-html"\n        label=\'Campo testo autocomplete (es.: "rel")\'\n        placeholder="Questo \xe8 un campo sirio-searchbar" btn-text="Ricerca" btn-icon="fas fa-search" item=\'["relazionale","relazione","relazioni","relazioni industriali","relegare","relegazioni","religione","religioni","religiosa"]\'>\n        </sirio-searchbar>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "searchbar-object-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("searchbar-object-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("searchbar-object-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("searchbar-object-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("searchbar-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("label").getValue();
+            e.setAttribute("label", t);
+            var i = document.getElementById("placeholder").getValue();
+            e.setAttribute("placeholder", i);
+            var l = document.getElementById("btn-text").getValue();
+            e.setAttribute("btn-text", l);
+            var r = document.getElementById("btn-icon").getValue();
+            e.setAttribute("btn-icon", r), document.getElementById("disabled").getSelectedValues() ? e.setAttribute("disabled", "") : e.removeAttribute("disabled");
+            var n = document.getElementById("items");
+            try {
+                e.setOptionElements(JSON.parse(n.getValue()))
+            } catch (o) {
+                return
+            }
+        }
+        let a = document.getElementById("codeView");
+        await e.updateComplete, a.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioSelectDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor-1"), i = document.querySelector("#editor-2"),
+            l = document.querySelector("#editor-3"), r = document.querySelector("#editor-4"),
+            n = document.querySelector("#switch-mode-button"), o = document.querySelector("#viewProp"),
+            a = document.querySelector("#viewHtml"),
+            d = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent-1")),
+            s = document.querySelector("#resultHtmlComponent-2"), u = document.querySelector("#resultHtmlComponent-3"),
+            p = document.querySelector("#resultHtmlComponent-4"), c = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let m = '<sirio-select type="dropdown-select" label="Dropdown Select Singola" \n                            id="dropdown-select-html" name="dropdown-select-html" items=\'\n        [\n            {"text": "Seleziona un valore", "value": "0"},\n            {"text": "Opzione 1", "value": "1"},\n            {"text": "Opzione 2", "value": "2"},\n            {"text": "Opzione 3", "value": "3"},\n            {"text": "Opzione 4", "value": "4"},\n            {"text": "Opzione 5", "value": "5"},\n            {"text": "Opzione 6", "value": "6"}\n        ]\'></sirio-select>',
+            g = '<sirio-select type="dropdown-select" label="Dropdown Select Multipla" \n                                id="dropdown-select-multiple-html" name="dropdown-select-multiple-html" title="Seleziona uno o pi\xf9 elementi" items=\'\n        [\n            {"text": "Opzione 1", "value": "1"},\n            {"text": "Opzione 2", "value": "2"},\n            {"text": "Opzione 3", "value": "3"},\n            {"text": "Opzione 4", "value": "4"},\n            {"text": "Opzione 5", "value": "5"},\n            {"text": "Opzione 6", "value": "6"}\n        ]\' multiple></sirio-select>',
+            y = '<sirio-select id="checkboxRadio-html" label="Checkbox" type="checkbox"\n                items=\'[\n            {"id": "input-checkbox-vert-1", "name":"input-checkbox-vert-1", \n            "value": "1", "label": "Opzione 1"},\n            {"id": "input-checkbox-vert-2", "name":"input-checkbox-vert-2", \n            "value": "2", "label": "Opzione 2"},\n            {"id": "input-checkbox-vert-3", "name":"input-checkbox-vert-3", \n            "value": "3", "label": "Opzione 3"}\n        ]\'></sirio-select>',
+            h = '<sirio-select id="toggleSelect-html" name="toggleSelect-html" label="Toggle" \n            type="toggle" value="1"></sirio-select>';
+        t.value = m, d.innerHTML = m, i.value = g, s.innerHTML = g, l.value = y, u.innerHTML = y, r.value = h, p.innerHTML = h, guideApp.addBlurListener(t, d, "dropdown-select-html"), guideApp.addBlurListener(i, s, "dropdown-select-multiple-html"), guideApp.addBlurListener(l, u, "checkboxRadio-html"), guideApp.addBlurListener(r, p, "toggleSelect-html"), a.style.display = "none", d.style.display = "none", s.style.display = "none", u.style.display = "none", p.style.display = "none", n.addEventListener("click", e => {
+            let n = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === n ? "Standard" : "HTML", o.style.display = "Standard" === n ? "" : "none", a.style.display = "HTML" === n ? "" : "none", resultPropComponent.style.display = "Standard" === n ? "" : "none", d.style.display = "HTML" === n ? "" : "none", s.style.display = "HTML" === n ? "" : "none", u.style.display = "HTML" === n ? "" : "none", p.style.display = "HTML" === n ? "" : "none", "HTML" === n && (c.setAttribute("disabled", "disabled"), t.value = m, d.innerHTML = m, document.getElementById("dropdown-select-html")?.updateComplete?.then(() => {
+                try {
+                    document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dropdown-select-html")?.outerHTML)
+                } catch (e) {
+                }
+            }), i.value = g, s.innerHTML = g, document.getElementById("dropdown-select-multiple-html")?.updateComplete?.then(() => {
+                try {
+                    document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dropdown-select-multiple-html")?.outerHTML)
+                } catch (e) {
+                }
+            }), l.value = y, u.innerHTML = y, document.getElementById("checkboxRadio-html")?.updateComplete?.then(() => {
+                try {
+                    document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("checkboxRadio-html")?.outerHTML)
+                } catch (e) {
+                }
+            }), r.value = h, p.innerHTML = h, document.getElementById("toggleSelect-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("toggleSelect-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), c.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dropdown-select-prop")?.outerHTML), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("dropdown-select-multiple-prop")?.outerHTML), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("checkboxRadio-prop")?.outerHTML), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("toggleSelect-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("dropdown-select-prop"),
+            t = document.getElementById("dropdown-select-multiple-prop"),
+            i = document.getElementById("checkboxRadio-prop"), l = document.getElementById("toggleSelect-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var r = document.getElementById("itemsDropdown");
+            try {
+                e.setOptionElements(JSON.parse(r.getValue()))
+            } catch (n) {
+            }
+            var o = document.getElementById("labelDropdown").getValue();
+            e.setAttribute("label", o);
+            var a = document.getElementById("itemsDropdownMultiple");
+            try {
+                t.setOptionElements(JSON.parse(a.getValue()))
+            } catch (d) {
+            }
+            var s = document.getElementById("labelDropdownMUltiple").getValue();
+            t.setAttribute("label", s);
+            var u = document.getElementById("titleDropdownMultiple").getValue();
+            t.setAttribute("title", u);
+            var p = document.getElementById("type").getSelectedValues()[0];
+            i.setAttribute("type", p);
+            var c = document.getElementById("itemsChechboxRadio").getValue();
+            i.setAttribute("items", c);
+            var m = document.getElementById("labelChechboxRadio").getValue();
+            i.setAttribute("label", m);
+            var g = document.getElementById("labelToggle").getValue();
+            l.setAttribute("label", g), document.getElementById("checked").getSelectedValues() ? l.setAttribute("checked", "") : l.removeAttribute("checked"), document.getElementById("dx").getSelectedValues() ? l.setAttribute("dx", "") : l.removeAttribute("dx")
+        }
+        let y = document.getElementById("codeView");
+        await e.updateComplete, y.innerHTML = guideApp.highlightAuto(e.outerHTML), await t.updateComplete, y.innerHTML = guideApp.highlightAuto(t.outerHTML), await i.updateComplete, y.innerHTML = guideApp.highlightAuto(i.outerHTML), await l.updateComplete, y.innerHTML = guideApp.highlightAuto(l.outerHTML)
+    }
+}
+
+class SirioSidenavDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-sidenav id="sidenav-object-html" title="Web Component nome sezione" \n        items=\'[\n            { "content": "Label 1" },\n            { "content": "Label 2" },\n            { "content": "Label 3", "childItems": \n                [\n                { "content": "Child 1", "childItems": \n                [\n                    { "content": "Grandchild 1", "active": true  },\n                    { "content": "Grandchild 2" },\n                    { "content": "Grandchild 3" }]},\n                    { "content": "Child 2" }] \n                },\n            { "content": "Label 4", "childItems": \n                [\n                { "content": "Child 1" },\n                { "content": "Child 2" },\n                { "content": "Child 3" }]},\n            { "content": "Label 5" }]\'></sirio-sidenav>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "sidenav-object-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("sidenav-object-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("sidenav-object-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("sidenav-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("sidenav-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("itemsInput").getValue();
+            e.setAttribute("items", t);
+            var i = document.getElementById("title").getValue();
+            e.setAttribute("title", i)
+        }
+        let l = document.getElementById("codeView");
+        await e.updateComplete, l.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioSliderDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-slider id="slider-demo-html" value="40" min="0" max="100" label="Slider label" description="* Lorem ipsum dolor sit amet, consectetur adipisci elit."></sirio-slider>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "slider-demo-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("slider-demo-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("slider-demo-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), o.removeAttribute("disabled"), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("slider-demo-prop")?.outerHTML)
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("slider-demo-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("label").getValue();
+            e.setAttribute("label", t);
+            var i = document.getElementById("description").getValue();
+            e.setAttribute("description", i);
+            var l = document.getElementById("value").getValue();
+            try {
+                e.setValue(l)
+            } catch (r) {
+            }
+            var n = document.getElementById("min").getValue();
+            e.setAttribute("min", n);
+            var o = document.getElementById("max").getValue();
+            e.setAttribute("max", o), document.getElementById("inputDisable").getSelectedValues() ? e.setAttribute("disabled", "disabled") : e.removeAttribute("disabled")
+        }
+        let a = document.getElementById("codeView");
+        await e.updateComplete, a.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioStepperDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction"), a = document.querySelector("#code-stepper-object"),
+            d = document.querySelector("#code-stepperc-object");
+        this.firstRun = e ?? !0;
+        let s = '<sirio-stepper id="stepper-object-html" items=\'[\n            { "text": "Prima di cominciare", "status": "success" },\n            { "text": "Dati anagrafici", "status": "success" },\n            { "text": "Cosa \xe8 successo", "status": "active" },\n            { "text": "Contatti" },\n            { "text": "Anteprima" },\n            { "text": "Invio" }\n        ]\'>\n        </sirio-stepper>';
+        t.value = s, n.innerHTML = s, guideApp.addBlurListener(t, n, "stepper-object-html"), d.style.display = "none", r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", a.style.display = "Standard" === i ? "block" : "none", d.style.display = "HTML" === i ? "block" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = s, n.innerHTML = s, document.getElementById("stepper-object-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("stepper-object-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("stepper-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("stepper-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("itemsInput").getValue();
+            e.setAttribute("items", t), document.getElementById("inputResponsive").getSelectedValues() ? e.setAttribute("responsive", "") : e.removeAttribute("responsive")
+        }
+        let i = document.getElementById("codeView");
+        await e.updateComplete, i.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioTabDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction"), a = document.querySelector("#code-tab-object"),
+            d = document.querySelector("#code-tabc-object");
+        this.firstRun = e ?? !0;
+        let s = '<sirio-tab id="tab-object-html" type="HorizontalTabContainer" \n            nav-item-left-text="Scorri a sinistra" \n            nav-item-right-text="Scorri a destra" \n            nav-item-left-icon="fa-angle-left" \n            nav-item-right-icon="fa-angle-right">\n        <sirio-tab-item label="Label tab" selected>\n            <p>\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            </p>\n        </sirio-tab-item>\n        <sirio-tab-item label="Label tab">\n            <p>\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            </p>\n        </sirio-tab-item>\n        <sirio-tab-item label="Label tab con icona" icon="fas fa-file">\n            <p>\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            </p>\n        </sirio-tab-item>\n        <sirio-tab-item label="Label tab disabled" disabled>\n            <p>\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            </p>\n        </sirio-tab-item>\n        <sirio-tab-item label="Label tab">\n            <p>\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            </p>\n        </sirio-tab-item>\n        </sirio-tab>';
+        t.value = s, n.innerHTML = s, guideApp.addBlurListener(t, n, "tab-object-html"), d.style.display = "none", r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", a.style.display = "Standard" === i ? "block" : "none", d.style.display = "HTML" === i ? "block" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = s, n.innerHTML = s, document.getElementById("tab-object-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("tab-object-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("tab-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("tab-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("item").getValue();
+            e.setAttribute("item", t);
+            var i = document.getElementById("type").getSelectedValues()[0];
+            e.setAttribute("type", i);
+            var l = document.getElementById("iconRight").getValue();
+            l ? e.setAttribute("nav-item-right-icon", l) : e.removeAttribute("nav-item-right-icon");
+            var r = document.getElementById("iconLeft").getValue();
+            r ? e.setAttribute("nav-item-left-icon", r) : e.removeAttribute("nav-item-left-icon");
+            var n = document.getElementById("iconRightText").getValue();
+            n ? e.setAttribute("nav-item-right-text", n) : e.removeAttribute("nav-item-right-text");
+            var o = document.getElementById("iconLeftText").getValue();
+            o ? e.setAttribute("nav-item-left-text", o) : e.removeAttribute("nav-item-left-text")
+        }
+        let a = document.getElementById("codeView");
+        await e.updateComplete, a.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioTitleBarDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<sirio-title-bar id="titleBar-example-html" title="Titolo" subtitle="Sottotitolo (opzionale)" icon="fa-ellipsis-h">\n            <sirio-title-bar-tool title="Cerca" label="Cerca" icon="fa-search"></sirio-title-bar-tool>\n            <sirio-title-bar-tool title="Impostazioni" label="Impostazioni" icon="fa-sliders-h"></sirio-title-bar-tool>\n            <sirio-title-bar-tool title="Filtri" label="Filtri" icon="fa-filter"></sirio-title-bar-tool>\n        </sirio-title-bar>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "titleBar-example-html"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("titleBar-example-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("titleBar-example-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("titleBar-example-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("titleBar-example-prop"), t = document.getElementById("stb1"),
+            i = document.getElementById("stb2"), l = document.getElementById("stb3");
+        if (this.firstRun) this.firstRun = !1; else {
+            var r = document.getElementById("title").getValue();
+            e.setAttribute("title", r);
+            var n = document.getElementById("subtitle").getValue();
+            e.setAttribute("subtitle", n), document.getElementById("dark").getSelectedValues() ? e.setAttribute("dark", "") : e.removeAttribute("dark");
+            var o = document.getElementById("title1").getValue();
+            t.setAttribute("title", o);
+            var a = document.getElementById("icon1").getValue();
+            t.setAttribute("icon", a);
+            var d = document.getElementById("title2").getValue();
+            i.setAttribute("title", d);
+            var s = document.getElementById("icon2").getValue();
+            i.setAttribute("icon", s);
+            var u = document.getElementById("title3").getValue();
+            l.setAttribute("title", u);
+            var p = document.getElementById("icon3").getValue();
+            l.setAttribute("icon", p)
+        }
+        let c = document.getElementById("codeView");
+        await e.updateComplete, c.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class SirioTooltipDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#editor"), i = document.querySelector("#switch-mode-button"),
+            l = document.querySelector("#viewProp"), r = document.querySelector("#viewHtml"),
+            n = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            o = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let a = '<label>\n        Popover top-start\n        <sirio-button id="btn-tooltip-ts-1" icon="fa-info-circle" aria-label="Popover top-start"></sirio-button>\n        <sirio-tooltip for="btn-tooltip-ts-1" type="popover"\n                    placement="top-start"\n                    title="Popover top-start">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n            <a href=\'#\' class=\'sirio-btn sirio-btn-tertiary-light\'>Azione</a>\n        </sirio-tooltip>\n        </label>';
+        t.value = a, n.innerHTML = a, guideApp.addBlurListener(t, n, "btn-tooltip-ts-1"), r.style.display = "none", n.style.display = "none", i.addEventListener("click", e => {
+            let i = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === i ? "Standard" : "HTML", l.style.display = "Standard" === i ? "" : "none", r.style.display = "HTML" === i ? "" : "none", resultPropComponent.style.display = "Standard" === i ? "" : "none", n.style.display = "HTML" === i ? "" : "none", "HTML" === i && (o.setAttribute("disabled", "disabled"), t.value = a, n.innerHTML = a, document.getElementById("btn-tooltip-ts-1")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("btn-tooltip-ts-1")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("tooltip-object-prop")?.outerHTML), o.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("tooltip-btn-object-prop"), t = document.getElementById("tooltip-object-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var i = document.getElementById("title").getValue();
+            t.setAttribute("title", i);
+            var l = document.getElementById("titleBtn").getValue();
+            e.setAttribute("text", l);
+            var r = document.getElementById("type").getSelectedValues();
+            t.setAttribute("placement", r), t.requestUpdate(), e.requestUpdate()
+        }
+        let n = document.getElementById("codeView");
+        await t.updateComplete, n.innerHTML = guideApp.highlightAuto(t.outerHTML)
+    }
+}
+
+class SirioValidationDemo {
+    async init(e) {
+        document.querySelector("#item-control");
+        let t = document.querySelector("#switch-mode-button"), i = document.querySelector("#viewProp"),
+            l = document.querySelector("#viewHtml"),
+            r = (document.querySelector("#resultPropComponent"), document.querySelector("#resultHtmlComponent")),
+            n = document.querySelector("#btnAction");
+        this.firstRun = e ?? !0;
+        let o = '<sirio-input label="Text:" type="text" id="input-text-valid-html" name="input-text-valid" placeholder="Inserisci il testo"></sirio-input>\n        <sirio-validation id="input-text-valid-message-html" for="input-text-valid-html" text="Lorem ipsum onopossum tagit tua" type="valid"></sirio-validation>';
+        editor.value = o, r.innerHTML = o, guideApp.addBlurListener(editor, r, "input-text-valid-message-html"), l.style.display = "none", r.style.display = "none", t.addEventListener("click", e => {
+            let t = e.currentTarget.text;
+            e.currentTarget.text = "HTML" === t ? "Standard" : "HTML", i.style.display = "Standard" === t ? "" : "none", l.style.display = "HTML" === t ? "" : "none", resultPropComponent.style.display = "Standard" === t ? "" : "none", r.style.display = "HTML" === t ? "" : "none", "HTML" === t && (n.setAttribute("disabled", "disabled"), editor.value = o, r.innerHTML = o, document.getElementById("input-text-valid-message-html")?.updateComplete?.then(() => {
+                try {
+                    return void (document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("input-text-valid-message-html")?.outerHTML))
+                } catch (e) {
+                    return
+                }
+            })), document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("input-text-valid-message-prop")?.outerHTML), n.removeAttribute("disabled")
+        }), await this.apply()
+    }
+
+    async apply() {
+        var e = document.getElementById("input-text-valid-message-prop");
+        if (this.firstRun) this.firstRun = !1; else {
+            var t = document.getElementById("type").getSelectedValues()[0];
+            e.setAttribute("type", t);
+            var i = document.getElementById("message").getValue();
+            e.setAttribute("text", i)
+        }
+        let l = document.getElementById("codeView");
+        await e.updateComplete, l.innerHTML = guideApp.highlightAuto(e.outerHTML)
+    }
+}
+
+class GuideAppPage {
+    async init(e) {
+        $(document).on("click", "#guide-nav > li > a", function (e) {
+            e.preventDefault(), GuideApp.openCollapse($(this))
+        }), $(document).on("click", ".guide-nav.open #guide-nav li li a", function (e) {
+            $(".guide-nav.open").removeClass("open")
+        }), $("#guide-nav > li > a").each(function () {
+            0 > window.location.pathname.indexOf($(this).attr("href").replace("#nav", "")) && GuideApp.closeCollapse($(this))
+        }), $(document).on("click", '.guide-section [href="#"]', function (e) {
+            e.preventDefault()
+        }), $(document).ready(function () {
+            if ($("header small, footer small").html("ver 9.0.1"), $(window).on("scroll", function () {
+                $(this).scrollTop() >= 350 ? $("#guide-scroll-top").fadeIn(200) : $("#guide-scroll-top").fadeOut(200)
+            }), $(document).on("click", "#guide-scroll-top", function (e) {
+                $("body,html").animate({scrollTop: 0}, 500), e.preventDefault()
+            }), $(document).on("click", 'a[href=""]', function (e) {
+                e.preventDefault()
+            }), $("div.changelog").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("pre").each(function (t) {
+                    $(this).attr("id", e + "-" + t)
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">Visualizza</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            }), $("div.code").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("pre").each(function (t) {
+                    $(this).attr("id", e + "-" + t), $(this).before('<button class="btn btn-xs btn-copy" data-clipboard-action="copy" data-clipboard-target="#' + e + "-" + t + ' code">Copia</button>')
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">Mostra il codice</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            }), $("div.link").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("pre").each(function (t) {
+                    $(this).attr("id", e + "-" + t), $(this).before('<button class="btn btn-xs btn-copy" data-clipboard-action="copy" data-clipboard-target="#' + e + "-" + t + ' code">Copia</button>')
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">Visualizza Link</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            }), $("div.obsoleteSirioMenu").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("pre").each(function (t) {
+                    $(this).attr("id", e + "-" + t)
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">SIRIO-MENU [obsoleto]</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            }), $(document).on("click", '[data-guide-toggle="collapse"]', function (e) {
+                e.preventDefault(), $(this).toggleClass("guide-collapsed");
+                let t = $(this).attr("href");
+                $(t).slideToggle("slow")
+            }), $("xmp").each(function () {
+                let e = $(this).html().toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                $(this).replaceWith("<code>" + e + "</code>")
+            }), $("pre").length) {
+                hljs.initHighlighting();
+                let e = new ClipboardJS(".btn-copy");
+                e.on("success", function (e) {
+                    e.clearSelection(), window.alert("Codice copiato con successo!")
+                }), e.on("error", function (e) {
+                    e.clearSelection(), window.alert("Premi Ctrl+C per copiare il codice.")
+                })
+            }
+        })
+    }
+}
+
+class GuideAppPageWC {
+    async init() {
+        $(document).ready(function () {
+            $("div.info").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("div").each(function (t) {
+                    $(this).attr("id", e + "-" + t)
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">Mostra la guida</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            }), $("div.changeLog").each(function () {
+                let e = $(this).attr("id");
+                $(this).find("div").each(function (t) {
+                    $(this).attr("id", e + "-" + t)
+                }), $(this).replaceWith('<a class="view-source guide-collapsed" data-guide-toggle="collapse" href="#src-' + e + '">Mostra le modifiche</a><div id="src-' + e + '" class="guide-collapse">' + $(this).html() + "</div>")
+            })
+        })
+    }
+}
+
+try {
+    module.exports = {
+        GuideApp,
+        GuideAppPage,
+        GuideAppPageWC,
+        SirioAccordionDemo,
+        SirioAlertDemo,
+        SirioBreadcrumbDemo,
+        SirioButtonDemo,
+        SirioCardDemo,
+        SirioChipDemo,
+        SirioDatetimeDemo,
+        SirioDialogDemo,
+        SirioDropdownDemo,
+        SirioFilterDemo,
+        SirioGridDemo,
+        SirioHeroDemo,
+        SirioCarouselDemo,
+        SirioInfoDemo,
+        SirioInputDemo,
+        SirioPanelExpandDemo,
+        SirioPagerDemo,
+        SirioProgressbarDemo,
+        SirioSearchbarDemo,
+        SirioSelectDemo,
+        SirioSidenavDemo,
+        SirioSliderDemo,
+        SirioStepperDemo,
+        SirioTabDemo,
+        SirioTitleBarDemo,
+        SirioTooltipDemo,
+        SirioValidationDemo
+    }
+} catch {
+}
