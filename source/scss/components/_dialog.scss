@@ -104,6 +104,10 @@
   & .#{$prefix}btn {
     width: 100%;
     margin: 0 0 16px;
+
+    & + .#{$prefix}btn {
+      margin-left: 16px;
+    }
   }
 }
 

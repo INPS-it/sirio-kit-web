@@ -5,239 +5,289 @@
 
 // Visibility
 [data-sirio-visible='false'] {
-    display: none;
+  display: none;
 }
 
 [data-sirio-visible='collapsing'] {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.35s ease;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
 }
 
 // Screen reader Only
 .sr-only-focusable:focus {
-    z-index: 2000 !important;
-    position: relative !important;
+  z-index: 2000 !important;
+  position: relative !important;
 }
 
 .sr-only,
 .sr-only-focusable:not(:focus):not(:focus-within) {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 // Fullscreen
 [data-sirio-fullscreen='true'] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    overflow: hidden;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 9999;
 }
 
 // Sticky
 [data-sirio-component='sticky'][data-sirio-toggle='true'] {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
 // Width e Height
 .w-100 {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .h-100 {
-    height: 100% !important;
+  height: 100% !important;
 }
 
 // Margin
 .ml-auto {
-    margin-left: auto !important;
+  margin-left: auto !important;
 }
 
 .mr-auto {
-    margin-right: auto !important;
+  margin-right: auto !important;
 }
 
 .mt-auto {
-    margin-top: auto !important;
+  margin-top: auto !important;
 }
 
 .mb-auto {
-    margin-bottom: auto !important;
+  margin-bottom: auto !important;
 }
 
 .m-auto {
-    margin: auto !important;
+  margin: auto !important;
 }
 
 .my-auto {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
 
 .mx-auto {
-    margin-left: auto !important;
-    margin-right: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 // Border
 .border {
-    border: 1px solid;
+  border: 1px solid;
 }
 
 .border-top {
-    border-top: 1px solid;
+  border-top: 1px solid;
 }
 
 .border-left {
-    border-left: 1px solid;
+  border-left: 1px solid;
 }
 
 .border-bottom {
-    border-bottom: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .border-right {
-    border-right: 1px solid;
+  border-right: 1px solid;
 }
 
 // Alignment
 .text-left {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .text-center {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 .text-right {
-    text-align: right !important;
+  text-align: right !important;
 }
 
 .text-nowrap {
-    white-space: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.text-underline-none {
+  text-decoration: none !important;
 }
 
 // Overflow hover
 .overflow {
-    overflow: auto;
+  overflow: auto;
 
-    &::-webkit-scrollbar {
-        height: 12px;
-        width: 12px;
-    }
+  &::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
 
-    &::-webkit-scrollbar-track {
-        background-color: $color-alias-background-color-primary-light-40;
-        border-radius: 6px;
-    }
+  &::-webkit-scrollbar-track {
+    background-color: $color-alias-background-color-primary-light-40;
+    border-radius: 6px;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: $color-alias-background-color-primary-light-50;
-        border-radius: 6px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-alias-background-color-primary-light-50;
+    border-radius: 6px;
+  }
 }
 
 .overflow-hover:hover {
-    overflow-x: auto !important;
+  overflow-x: auto !important;
 }
 
 .overflow-hover {
-    overflow-y: hidden !important;
-    overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  overflow-x: scroll !important;
 
-    &::-webkit-scrollbar {
-        height: 8px;
-    }
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
 
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 
-    &:hover::-webkit-scrollbar-track {
-        background-color: $color-alias-background-color-primary-light-40;
-        border-radius: 5px;
-    }
+  &:hover::-webkit-scrollbar-track {
+    background-color: $color-alias-background-color-primary-light-40;
+    border-radius: 5px;
+  }
 
-    &:hover::-webkit-scrollbar-thumb {
-        background-color: $color-alias-background-color-primary-light-50;
-        border-radius: 5px;
-    }
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: $color-alias-background-color-primary-light-50;
+    border-radius: 5px;
+  }
 }
 
 // Sirio Content Slider
 .#{$prefix}content-slider {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    & button {
-        position: relative;
-        flex: 0 0 auto;
+  & button {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  & .#{$prefix}content-slider-area {
+    flex-basis: 0;
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & .#{$prefix}tab-nav {
+      overflow: hidden;
+      padding: 0;
     }
-
-    & .#{$prefix}content-slider-area {
-        flex-basis: 0;
-        flex-grow: 1;
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-
-        & .#{$prefix}tab-nav {
-            overflow: hidden;
-            padding: 0;
-        }
-    }
+  }
 }
 
 // Sirio Shadow
 .#{$prefix}shadow-1 {
-    box-shadow: $elevation-elevation-01;
+  box-shadow: $elevation-elevation-01;
 }
 
 .#{$prefix}shadow-2 {
-    box-shadow: $elevation-elevation-02;
+  box-shadow: $elevation-elevation-02;
 }
 
 .#{$prefix}shadow-3 {
-    box-shadow: $elevation-elevation-03;
+  box-shadow: $elevation-elevation-03;
 }
 
 .#{$prefix}shadow-4 {
-    box-shadow: $elevation-elevation-04;
+  box-shadow: $elevation-elevation-04;
 }
 
 /* Varie */
 .img-fluid {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .list-none {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    li {
-        list-style: none;
-    }
+  li {
+    list-style: none;
+  }
+}
+
+.fs-6 {
+  font-size: 1rem;
+}
+
+.border-0 {
+  border: 0;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.max-w-lg {
+  max-width: 992px;
+}
+
+.gap-1 {
+  gap: .5rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.gap-3 {
+  gap: 1.5rem;
+}
+
+.rounded {
+  border-radius: .25rem;
+}
+
+.w-\[100-100\] {
+  width: calc(100% - 100px);
+}
+
+.w-min-\[300\] {
+  min-width: 300px;
+}
+
+@media (min-width: 992px) {
+  .w-lg-auto {
+    width: auto !important;
+  }
 }

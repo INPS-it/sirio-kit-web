@@ -3,20 +3,20 @@
 
 // Table
 table {
-  caption-side: bottom;
-  border-collapse: collapse;
+    caption-side: bottom;
+    border-collapse: collapse;
 }
 
 caption {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color: $color-global-dark-primary-130;
-  text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: $color-global-dark-primary-130;
+    text-align: left;
 }
 
 th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
+    text-align: inherit;
+    text-align: -webkit-match-parent;
 }
 
 thead,
@@ -25,452 +25,469 @@ tfoot,
 tr,
 td,
 th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
 }
 
 .#{$prefix}table {
-  width: 100%;
-  color: $color-global-secondary-100;
-  margin-bottom: 16px;
-  background-color: #fff;
+    width: 100%;
+    color: $color-global-secondary-100;
+    margin-bottom: 16px;
+    background-color: #fff;
 
-  & th {
-    padding: 20px 12px;
-    font-weight: 600;
-    background-color: $color-alias-background-color-primary-light-40;
-    color: $color-specific-data-entry-label-color-default;
-    border-bottom: 1px solid $color-global-light-primary-50;
-    border-right: 1px solid $color-global-light-primary-50;
+    & th {
+        padding: 20px 12px;
+        font-weight: 600;
+        background-color: $color-alias-background-color-primary-light-50;
+        color: $color-specific-data-entry-label-color-default;
+        border-bottom: 1px solid $color-global-light-primary-60;
+        border-right: 1px solid $color-global-light-primary-60;
 
-    &:first-child {
-      border-left: 1px solid $color-alias-background-color-primary-light-40;
+        &:first-child {
+            border-left: 1px solid
+                $color-alias-background-color-primary-light-50;
+        }
+
+        &:last-child {
+            border-right: 1px solid
+                $color-alias-background-color-primary-light-50;
+        }
     }
 
-    &:last-child {
-      border-right: 1px solid $color-alias-background-color-primary-light-40;
+    & td {
+        padding: 18px 12px;
+        border-bottom: 1px solid $color-global-light-primary-50;
+        border-right: 1px solid $color-global-light-primary-50;
+
+        &:first-child {
+            border-left: 1px solid $color-global-light-primary-50;
+        }
+
+        &:last-child {
+            border-right: 1px solid $color-global-light-primary-50;
+        }
+
+        &.w-0 {
+            white-space: nowrap;
+            text-align: center;
+            width: 0;
+        }
     }
-  }
 
-  & td {
-    padding: 18px 12px;
-    border-bottom: 1px solid $color-global-light-primary-50;
-    border-right: 1px solid $color-global-light-primary-50;
-
-    &:first-child {
-      border-left: 1px solid $color-global-light-primary-50;
+    &.#{$prefix}table-xs {
+        th,
+        td {
+            padding: 4px 8px;
+        }
     }
 
-    &:last-child {
-      border-right: 1px solid $color-global-light-primary-50;
+    &.#{$prefix}table-sm {
+        th,
+        td {
+            padding: 10px 8px;
+        }
     }
 
-    &.w-0 {
-      white-space: nowrap;
-      text-align: center;
-      width: 0;
+    &.#{$prefix}table-lg {
+        th,
+        td {
+            padding: 26px 16px;
+        }
     }
-  }
 
-  &.#{$prefix}table-xs {
-    th,
-    td {
-      padding: 4px 8px;
+    & td .#{$prefix}btn {
+        padding: 4px 3px;
+
+        &[aria-expanded='true'] {
+            background-color: $color-global-dark-primary-115;
+            border-color: $color-global-dark-primary-115;
+            color: #fff;
+        }
     }
-  }
 
-  &.#{$prefix}table-sm {
-    th,
-    td {
-      padding: 10px 8px;
+    &.#{$prefix}table-dark {
+        th {
+            background-color: $color-global-dark-primary-115;
+            color: $color-global-light-primary-40;
+            border-bottom: 1px solid $color-alias-interactive-primary-default !important;
+            border-right: 1px solid $color-alias-interactive-primary-default !important;
+
+            &:first-child {
+                border-left: 1px solid $color-global-dark-primary-115;
+            }
+
+            &:last-child {
+                border-right: 1px solid $color-global-dark-primary-115;
+            }
+        }
+        tr:nth-child(even) {
+            td {
+                background-color: $color-global-light-primary-40 !important;
+            }
+        }
     }
-  }
 
-  &.#{$prefix}table-lg {
-    th,
-    td {
-      padding: 26px 16px;
+    &.#{$prefix}table-light {
+        // TODO: to be update with new color and apply to light version too
+        tr:nth-child(even) {
+            td {
+                background-color: $color-global-light-primary-40 !important;
+            }
+        }
     }
-  }
 
-  & td .#{$prefix}btn {
-    padding: 4px 1px;
+    & .#{$prefix}table-check {
+        display: flex;
+        flex-wrap: nowrap;
 
-    &[aria-expanded='true'] {
-      background-color: $color-global-dark-primary-115;
-      border-color: $color-global-dark-primary-115;
-      color: #fff;
+        .#{$prefix}form-check {
+            transform: scale(0.75);
+            margin-bottom: 0;
+
+            & label:before {
+                background-color: #fff;
+            }
+        }
     }
-  }
-
-  &.#{$prefix}table-dark {
-    th {
-      background-color: $color-global-dark-primary-115;
-      color: $color-global-light-primary-40;
-      border-bottom: 1px solid $color-alias-interactive-primary-default !important;
-      border-right: 1px solid $color-alias-interactive-primary-default !important;
-
-      &:first-child {
-        border-left: 1px solid $color-global-dark-primary-115;
-      }
-
-      &:last-child {
-        border-right: 1px solid $color-global-dark-primary-115;
-      }
-    }
-  }
-
-  & .#{$prefix}table-check {
-    display: flex;
-    flex-wrap: nowrap;
-
-    .#{$prefix}form-check {
-      transform: scale(0.75);
-      margin-bottom: 0;
-
-      & label:before {
-        background-color: #fff;
-      }
-    }
-  }
 }
 
 // Table sorting
 .#{$prefix}sorting {
-  cursor: pointer;
-  position: relative;
-  padding-right: 30px !important;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px !important;
 
-  &:before,
-  &:after {
-    position: absolute;
-    display: block;
-    width: 12px;
-    right: 10px;
-    bottom: 0;
-    top: 0;
-    content: '';
-    background-size: 12px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+    &:before,
+    &:after {
+        position: absolute;
+        display: block;
+        width: 12px;
+        right: 10px;
+        bottom: 0;
+        top: 0;
+        content: '';
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
-  &:before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232f6dd5' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
-  }
+    &:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232f6dd5' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
+    }
 
-  &.#{$prefix}sorting-desc:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
-  }
+    &.#{$prefix}sorting-desc:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
+    }
 
-  &.#{$prefix}sorting-asc:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
-  }
+    &.#{$prefix}sorting-asc:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300173d' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
+    }
 
-  &:focus {
-    outline-offset: -3px;
-    z-index: 1;
-    border-radius: 0;
-  }
+    &:focus {
+        outline-offset: -3px;
+        z-index: 1;
+        border-radius: 0;
+    }
 }
 
 .#{$prefix}table-dark .#{$prefix}sorting {
-  &:before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2318CEE7' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
-  }
+    &:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2318CEE7' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'/%3E%3C/svg%3E");
+    }
 
-  &.#{$prefix}sorting-desc:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
-  }
+    &.#{$prefix}sorting-desc:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z'/%3E%3C/svg%3E");
+    }
 
-  &.#{$prefix}sorting-asc:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
-  }
+    &.#{$prefix}sorting-asc:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 320 512'%3E%3Cpath d='M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z'/%3E%3C/svg%3E");
+    }
 
-  &:focus {
-    outline: 2px solid #fff;
-    outline-offset: -3px;
-    z-index: 1;
-    border-radius: 0;
-  }
+    &:focus {
+        outline: 2px solid #fff;
+        outline-offset: -3px;
+        z-index: 1;
+        border-radius: 0;
+    }
 }
 
 // Table responsive
 .#{$prefix}table-responsive {
-  overflow-x: auto;
-  overflow-y: hidden;
-  position: relative;
-  display: flex;
-  height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    display: flex;
+    height: 100%;
 
-  & th {
-    position: sticky;
-    top: 0;
-  }
+    & th {
+        position: sticky;
+        top: 0;
+    }
 }
 
 .#{$prefix}table-overflow-start:before {
-  position: sticky;
-  content: '.';
-  left: 0;
-  display: block;
-  width: 4px;
-  color: $color-global-accent-100;
-  border-right: 4px solid $color-global-accent-100;
-  top: 0;
-  bottom: 32px;
-  align-self: auto;
-  margin-bottom: 16px;
-  z-index: 10;
+    position: sticky;
+    content: '.';
+    left: 0;
+    display: block;
+    width: 4px;
+    color: $color-global-accent-100;
+    border-right: 4px solid $color-global-accent-100;
+    top: 0;
+    bottom: 32px;
+    align-self: auto;
+    margin-bottom: 16px;
+    z-index: 10;
 
-  @media (min-width: 768px) {
-    width: 8px;
-    border-right: 8px solid $color-global-accent-100;
-  }
+    @media (min-width: 768px) {
+        width: 8px;
+        border-right: 8px solid $color-global-accent-100;
+    }
 }
 
 .#{$prefix}table-overflow-end:after {
-  position: sticky;
-  content: '.';
-  right: -1px;
-  display: block;
-  width: 4px;
-  color: $color-global-accent-100;
-  border-right: 4px solid $color-global-accent-100;
-  top: 0;
-  bottom: 32px;
-  align-self: auto;
-  margin-bottom: 16px;
-  z-index: 10;
+    position: sticky;
+    content: '.';
+    right: -1px;
+    display: block;
+    width: 4px;
+    color: $color-global-accent-100;
+    border-right: 4px solid $color-global-accent-100;
+    top: 0;
+    bottom: 32px;
+    align-self: auto;
+    margin-bottom: 16px;
+    z-index: 10;
 
-  @media (min-width: 768px) {
-    width: 8px;
-    border-right: 8px solid $color-global-accent-100;
-  }
+    @media (min-width: 768px) {
+        width: 8px;
+        border-right: 8px solid $color-global-accent-100;
+    }
 }
 
 // Table first column fixed
 .#{$prefix}table-column-fixed-first {
-  overflow-y: auto;
-  max-height: 450px;
+    overflow-y: auto;
 
-  &.#{$prefix}table-overflow-start:before,
-  &.#{$prefix}table-overflow-end:after {
-    margin-bottom: 0;
-  }
+    &.#{$prefix}table-overflow-start:before,
+    &.#{$prefix}table-overflow-end:after {
+        margin-bottom: 0;
+    }
 
-  & .#{$prefix}table {
-    margin-bottom: 0;
-  }
-
-  & thead tr > *:first-child {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    border: 0 !important;
-    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
-  }
-
-  & tbody tr > *:first-child {
-    position: sticky;
-    left: 0;
-    border: 0 !important;
-    box-shadow: inset -1px 1px 0 0 $color-global-light-primary-50;
-    background-color: #ffffff;
-  }
-
-  & tbody tr:nth-of-type(odd) > *:first-child {
-    background-color: #ffffff;
-  }
-
-  &.#{$prefix}table-overflow-start {
-    &:before {
-      display: none;
+    & .#{$prefix}table {
+        margin-bottom: 0;
     }
 
     & thead tr > *:first-child {
-      box-shadow: inset -6px 0px 0 0 $color-global-accent-100;
-      padding-right: 24px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        border: 0 !important;
+        box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
     }
 
     & tbody tr > *:first-child {
-      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50,
-      inset -6px 0px 0 0 $color-global-accent-100;
-      padding-right: 24px;
+        position: sticky;
+        left: 0;
+        border: 0 !important;
+        box-shadow: inset -1px 1px 0 0 $color-global-light-primary-50;
+        background-color: #ffffff;
     }
-  }
+
+    & tbody tr:nth-of-type(odd) > *:first-child {
+        background-color: #ffffff;
+    }
+
+    &.#{$prefix}table-overflow-start {
+        &:before {
+            display: none;
+        }
+
+        & thead tr > *:first-child {
+            box-shadow: inset -6px 0px 0 0 $color-global-accent-100;
+            padding-right: 24px;
+        }
+
+        & tbody tr > *:first-child {
+            box-shadow:
+                inset 0 1px 0 0 $color-global-light-primary-50,
+                inset -6px 0px 0 0 $color-global-accent-100;
+            padding-right: 24px;
+        }
+    }
 }
 
 // Table th fixed
 .#{$prefix}table-th-fixed {
-  overflow-y: auto;
-  max-height: 450px;
+    overflow-y: auto;
+    max-height: 450px;
 
-  &.#{$prefix}table-overflow-start:before,
-  &.#{$prefix}table-overflow-end:after {
-    margin-bottom: 0;
-  }
-
-  & .#{$prefix}table {
-    margin-bottom: 0;
-  }
-
-  & thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    border: 0 !important;
-    box-shadow: inset 1px 1px 0 0 $color-global-light-primary-50;
-
-    &:first-child {
-      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
+    &.#{$prefix}table-overflow-start:before,
+    &.#{$prefix}table-overflow-end:after {
+        margin-bottom: 0;
     }
-  }
 
-  & tbody th {
-    position: sticky;
-    left: 0;
-    border: 0 !important;
-    box-shadow: inset -1px 1px 0 0 $color-global-accent-100;
-  }
+    & .#{$prefix}table {
+        margin-bottom: 0;
+    }
+
+    & thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        border: 0 !important;
+        box-shadow: inset 1px 1px 0 0 $color-global-light-primary-50;
+
+        &:first-child {
+            box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
+        }
+    }
+
+    & tbody th {
+        position: sticky;
+        left: 0;
+        border: 0 !important;
+        box-shadow: inset -1px 1px 0 0 $color-global-accent-100;
+    }
 }
 
 .#{$prefix}table-action-fixed {
-  overflow-y: auto;
-  max-height: 450px;
+    overflow-y: auto;
+    max-height: 450px;
 
-  &.#{$prefix}table-overflow-end::after {
-    width: 0;
-    border-right: 0 solid transparent;
-  }
-
-  &.#{$prefix}table-overflow-start:before,
-  &.#{$prefix}table-overflow-end:after {
-    margin-bottom: 0;
-  }
-
-  & .#{$prefix}table {
-    margin-bottom: 0;
-  }
-
-  & thead th:last-child {
-    position: sticky;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
-    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
-
-    &:first-child {
-      box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
+    &.#{$prefix}table-overflow-end::after {
+        width: 0;
+        border-right: 0 solid transparent;
     }
-  }
 
-  & .#{$prefix}table-dark thead th:last-child {
-    box-shadow: inset 1px 0 0 0 $color-alias-background-color-primary-dark-115;
-    filter: drop-shadow(-12px 0 4px rgba(255, 255, 255, 0.1));
-  }
+    &.#{$prefix}table-overflow-start:before,
+    &.#{$prefix}table-overflow-end:after {
+        margin-bottom: 0;
+    }
 
-  & tbody td:last-child {
-    position: sticky;
-    right: 0;
-    border: 0 !important;
-    background-color: #fff;
-    filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
-    box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
-    border-bottom: 1px solid $color-global-light-primary-50 !important;
-  }
+    & .#{$prefix}table {
+        margin-bottom: 0;
+    }
+
+    & thead th:last-child {
+        position: sticky;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
+        box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
+
+        &:first-child {
+            box-shadow: inset 0 1px 0 0 $color-global-light-primary-50;
+        }
+    }
+
+    & .#{$prefix}table-dark thead th:last-child {
+        box-shadow: inset 1px 0 0 0
+            $color-alias-background-color-primary-dark-115;
+        filter: drop-shadow(-12px 0 4px rgba(255, 255, 255, 0.1));
+    }
+
+    & tbody td:last-child {
+        position: sticky;
+        right: 0;
+        border: 0 !important;
+        background-color: #fff;
+        filter: drop-shadow(-12px 0 4px rgba(0, 0, 0, 0.1));
+        box-shadow: inset -1px 0 0 0 $color-global-light-primary-50;
+        border-bottom: 1px solid $color-global-light-primary-50 !important;
+    }
 }
 
 /* Table card */
 @media screen and (max-width: 768px) {
-  .#{$prefix}table-card {
-    border: 0;
+    .#{$prefix}table-card {
+        border: 0;
 
-    thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        tr {
+            background-color: #fff;
+            display: block;
+            margin-bottom: 1em;
+            border: 1px solid $color-alias-background-color-primary-light-50;
+            padding: 0.5rem;
+
+            &:nth-child(even) {
+                background-color: $color-alias-background-color-primary-light-40;
+            }
+
+            td {
+                border: 0 !important;
+                padding: 0;
+                margin-bottom: 1em;
+                text-align: left !important;
+                display: flex;
+                flex-wrap: wrap;
+                width: 100% !important;
+                color: $color-specific-data-entry-label-color-default;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &::before {
+                    -ms-flex: 0 0 100%;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+
+                &:not(.#{$prefix}table-btn)::before {
+                    content: attr(data-label);
+                    display: block;
+                    font-weight: 700;
+                }
+
+                .font-mono {
+                    color: $color-global-dark-secondary-130;
+                }
+
+                @media (max-width: 768px) {
+                    & .sirio-btn + .sirio-btn {
+                        margin-left: 24px;
+                    }
+                }
+            }
+        }
     }
-
-    tr {
-      background-color: #fff;
-      display: block;
-      margin-bottom: 1em;
-      border: 1px solid $color-alias-background-color-primary-light-50;
-      padding: 0.5rem;
-
-      &:nth-child(even) {
-        background-color: $color-alias-background-color-primary-light-40;
-      }
-
-      td {
-        border: 0 !important;
-        padding: 0;
-        margin-bottom: 1em;
-        text-align: left !important;
-        display: flex;
-        flex-wrap: wrap;
-        width: 100% !important;
-        color: $color-specific-data-entry-label-color-default;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        &::before {
-          -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-          max-width: 100%;
-        }
-
-        &:not(.#{$prefix}table-btn)::before {
-          content: attr(data-label);
-          display: block;
-          font-weight: 700;
-        }
-
-        .font-mono {
-          color: $color-global-dark-secondary-130;
-        }
-
-        @media (max-width: 768px) {
-          & .sirio-btn + .sirio-btn {
-            margin-left: 24px;
-          }
-        }
-      }
-    }
-  }
 }
 
 .#{$prefix}table-expandable {
-  &--maximized {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    padding: 16px !important;
-    background-color: $color-global-primary-000;
-    z-index: 1001;
-    justify-content: flex-start;
-    display: block;
-    overflow-y: scroll;
+    &--maximized {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 16px !important;
+        background-color: $color-global-primary-000;
+        z-index: 1001;
+        justify-content: flex-start;
+        display: block;
+        overflow-y: scroll;
 
-    .tabpane-intro {
-      display: none;
-    }
+        .tabpane-intro {
+            display: none;
+        }
 
-    .sirio-table-responsive {
-      height: auto;
+        .sirio-table-responsive {
+            height: auto;
+        }
     }
-  }
 }

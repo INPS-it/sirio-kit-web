@@ -123,6 +123,9 @@
             display: block;
             margin: 0 32px;
         }
+        strong {
+            font-weight: $font-weight-regular;
+        }
     }
 
     @media (min-width: 992px) {
@@ -153,8 +156,7 @@
             & .container-fluid > .row > * {
                 padding: 0 8px;
             }
-            &
-                .#{$prefix}btn.#{$prefix}btn-icon {
+            & .#{$prefix}btn.#{$prefix}btn-icon {
                 display: none;
             }
             & [data-sirio-visible='false'] {
@@ -169,5 +171,13 @@
     a:focus-visible,
     button:focus-visible {
         outline-color: $color-alias-interactive-accent-focus !important;
+    }
+}
+
+body:has(.sirio-dialog-sidenav-open) {
+    @media (max-width: 992px) {
+        .#{$prefix}footer {
+            margin-bottom: 84px;
+        }
     }
 }

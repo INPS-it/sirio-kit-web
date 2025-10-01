@@ -49,6 +49,12 @@
     color: $color-alias-interactive-primary-pressed !important;
     border-bottom-color: $color-alias-interactive-primary-pressed !important;
   }
+
+  &.#{$prefix}nav-top {
+    .#{$prefix}nav-link {
+      margin-right: 16px;
+    }
+  }
 }
 
 .#{$prefix}nav.#{$prefix}nav-dark .#{$prefix}nav-link {
@@ -401,7 +407,7 @@
 @media (min-width: 992px) {
   .#{$prefix}dialog-sidenav,
   .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
-    position: relative;
+    position: static !important;
     display: block !important;
   }
 

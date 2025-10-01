@@ -41,6 +41,11 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
+### 9.0.2
+- **utilities**\Stile - supporto per template 3.0
+- **contenuto**\Header - supporto per label di produzione, miglior comportamento responsive, aggiunto blocco utente su header sticky se autenticato, semplificazione dom semantico
+- **contenuto**\Sidenav - rimozione `role menu`
+
 ### 9.0.1
 - **contenuto**\Alert – Aggiunto role `status` sul metodo `isAlert` di istanza della classe.
 
