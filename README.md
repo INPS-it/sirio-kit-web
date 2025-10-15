@@ -41,6 +41,10 @@ Da inserire in fondo alla pagina HTML
 
 ## Changelog
 
+### 9.0.3
+- **contenuto**\Tabella - Aggiornamento DS Sirio 9.1.0
+- **struttura**\Footer - Rimozione grassetto dallo strong del pie' di pagina
+
 ### 9.0.2
 - **utilities**\Stile - supporto per template 3.0
 - **contenuto**\Header - supporto per label di produzione, miglior comportamento responsive, aggiunto blocco utente su header sticky se autenticato, semplificazione dom semantico
