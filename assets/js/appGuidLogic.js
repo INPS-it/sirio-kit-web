@@ -1,5 +1,3 @@
-const manualVersion = "9.0.0";
-
 class GuideApp {
     static openCollapse(e) {
         $(e.attr("href").replace("components", "nav")).slideToggle("slow"), e.toggleClass("guide-collapsed")
@@ -1072,7 +1070,7 @@ class GuideAppPage {
         }), $(document).on("click", '.guide-section [href="#"]', function (e) {
             e.preventDefault()
         }), $(document).ready(function () {
-            if ($("header small, footer small").html("ver 9.0.1"), $(window).on("scroll", function () {
+            if ($("header small, footer small").html("ver 9.0.3"), $(window).on("scroll", function () {
                 $(this).scrollTop() >= 350 ? $("#guide-scroll-top").fadeIn(200) : $("#guide-scroll-top").fadeOut(200)
             }), $(document).on("click", "#guide-scroll-top", function (e) {
                 $("body,html").animate({scrollTop: 0}, 500), e.preventDefault()
