@@ -40,7 +40,6 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
-
 ### 9.0.4
 - **Struttura**\Header - Adeguamento per i web-component
 
