@@ -191,7 +191,8 @@ label + .#{$prefix}form-text-help,
 }
 
 .#{$prefix}input-group > :not(:last-child):not(.#{$prefix}btn),
-.#{$prefix}input-group > .#{$prefix}dropdown > :first-child {
+.#{$prefix}input-group > .#{$prefix}dropdown > :first-child,
+.sirio-input-group [name="main-search"] {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;

@@ -40,6 +40,11 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+### 9.0.5
+
+- **contenuto**\Tabella - Correzione sovrapposizione checkbox con l'header delle tabelle
+- **contenuto**\Tab - Correzione selettore nel distruttore del componente
+
 ### 9.0.4
 - **Struttura**\Header - Adeguamento per i web-component
 

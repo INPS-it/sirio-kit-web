@@ -43,6 +43,10 @@
       outline-offset: 0;
       z-index: 10;
     }
+    button.sirio-btn-icon:focus-visible,
+    a.sirio-btn-icon:focus-visible {
+      outline-offset: -2px;
+    }
 
     .row {
       .col-auto:last-child {
@@ -106,12 +110,15 @@
     font-weight: 400;
     position: relative;
     border-radius: 0;
+    color: $color-global-secondary-100;
   }
 
   & .#{$prefix}btn-light {
     border-radius: 0;
     padding: 14px 16px;
     position: relative;
+    max-height: 48px;
+    min-width: 48px;
 
     &.#{$prefix}btn-icon {
       padding: 14px 12px;
@@ -121,7 +128,7 @@
   // Nav Main
   & .#{$prefix}nav-main.#{$prefix}nav {
     & .#{$prefix}nav-link {
-      padding: 6px 0 16px;
+      padding: 6px 0 10px;
       margin-right: 32px;
       font-weight: 600;
       font-size: rem(20);
@@ -449,6 +456,18 @@
   & .position-relative {
     position: relative;
   }
+
+  & .#{$prefix}ico-alert {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: rem(12);
+    height: rem(12);
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid $color-global-light-primary-40;
+    background-color: $color-global-semantic-warning-100;
+  }
 }
 
 .#{$prefix}service-header {
@@ -594,6 +613,7 @@
 // Avatar
 .#{$prefix}btn-user-menu {
   padding: 6px 12px !important;
+  min-width: 60px;
 
   @media (max-width: 992px) {
     padding: 15px 12px !important;

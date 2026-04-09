@@ -20,10 +20,18 @@ hr:not([size]) {
   height: 1px;
 }
 
-p {
+p, .p {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1rem
+}
+
+.p {
+  font-size: rem(16);
+
+  @media (min-width: 992px) {
+    font-size: rem(18);
+  }
 }
 
 summary {
@@ -512,6 +520,16 @@ button:focus-visible {
   @media (min-width: 992px) {
     li, p {
       font-size: rem(18)
+    }
+  }
+}
+
+ul.#{$prefix}list-square {
+  li {
+    margin-bottom: 8px;
+    list-style: square;
+    &::marker {
+      color: $color-global-primary-100;
     }
   }
 }
