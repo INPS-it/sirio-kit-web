@@ -40,10 +40,13 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+### 9.0.7
+
+- **contenuto**\Autocomplete - fix bug su dislocamento pannello delle opzioni
+
 ### 9.0.6
 
 - **contenuto**\Toast - consentire toast diversi da tipo warning `role="alert"`
-
 
 ### 9.0.5
 
