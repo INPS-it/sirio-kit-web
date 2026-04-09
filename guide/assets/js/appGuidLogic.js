@@ -2664,7 +2664,7 @@ class SirioValidationDemo {
 
 class GuideAppPage {
     async init(ver) {
-        var version ='9.0.4';
+        var version ='9.0.6';
 
         $(document).on('click', '#guide-nav > li > a', function (e) {
             e.preventDefault();
