@@ -15,14 +15,14 @@
     margin: 0;
     border-radius: 4px;
     border: 1px solid $color-global-secondary-100;
-    position: absolute;
+    position: absolute !important;
     z-index: 1000;
     display: none;
     min-width: 180px;
     text-align: left;
     background-color: #fff;
     background-clip: padding-box;
-    inset: 8px auto auto 0px;
+    inset: 8px auto auto 0;
     transform: translate(0px, 48px);
 
     &.#{$prefix}dropdown-menu-top {
