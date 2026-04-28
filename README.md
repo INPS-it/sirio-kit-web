@@ -40,8 +40,10 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
-### 9.0.5
+### 9.0.6
+- **contenuto**\Toast - consentire toast diversi da tipo warning `role="alert"`
 
+### 9.0.5
 - **contenuto**\Tabella - Correzione sovrapposizione checkbox con l'header delle tabelle
 - **contenuto**\Tab - Correzione selettore nel distruttore del componente
 
