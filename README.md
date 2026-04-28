@@ -40,6 +40,9 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+### 9.0.8
+- **contenuto**\Step progress bar - Fix posizione dello step progress bar
+
 ### 9.0.7
 - **contenuto**\Autocomplete - fix bug su dislocamento pannello delle opzioni
 

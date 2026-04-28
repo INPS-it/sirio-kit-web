@@ -99,7 +99,7 @@
       & .#{$prefix}dropdown-menu {
         display: flex;
         justify-content: end;
-        position: relative;
+        position: relative !important;
         flex-wrap: nowrap;
         border: 0;
         bottom: 0;
