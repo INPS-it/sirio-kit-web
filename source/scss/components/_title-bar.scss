@@ -65,10 +65,17 @@
         color: #5b6772;
         border: none;
         border-top: 1px solid #5b6772;
+        justify-content: start;
+        align-items: center;
 
         &:hover {
           background: transparent;
           color: $color-alias-interactive-secondary-hover;
+        }
+
+        &:focus-visible {
+          outline: 2px solid $color-global-primary-100 !important;
+          border-radius: 4px;
         }
       }
 
