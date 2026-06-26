@@ -26,6 +26,10 @@
     width: 30%;
     text-align: right;
 
+    &:has(button[aria-expanded="false"]) .sirio-dropdown-menu {
+      position: relative !important;
+    }
+
     & .#{$prefix}btn {
       display: inline-flex;
       padding: 16px 24px 16px 16px;
