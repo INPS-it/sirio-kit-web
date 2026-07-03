@@ -13,6 +13,7 @@
         width: 100%;
       }
     }
+
     & .container-fluid {
       padding: 16px 0;
     }
@@ -34,8 +35,8 @@
     gap: 8px;
     grid-auto-flow: row;
     grid-template-areas:
-            'logo address address'
-            'social social social';
+      'logo address address'
+      'social social social';
   }
 
   .#{$prefix}footer-social {
@@ -53,13 +54,19 @@
   .#{$prefix}footer-logo {
     grid-area: logo;
 
-    & img {
-      width: 85px;
+    & a {
+      display: inline-block;
       margin-top: 0.25rem;
       margin-right: 1rem;
       @media (max-width: 992px) {
-        width: 59px;
         margin-bottom: 1rem;
+      }
+    }
+
+    & img {
+      width: 85px;
+      @media (max-width: 992px) {
+        width: 59px;
       }
     }
   }
@@ -103,8 +110,12 @@
     }
 
     & .#{$prefix}accordion-header {
-      border-top: 1px solid $color-global-dark-primary-115;
-      border-bottom: 1px solid $color-global-dark-primary-115;
+      border-top: none;
+      border-bottom: 1px solid $color-global-dark-primary-110;
+
+      &:has([aria-expanded='true']) {
+        border-bottom: none;
+      }
 
       & .#{$prefix}accordion-trigger {
         background-color: transparent;
@@ -120,11 +131,24 @@
     }
 
     & .#{$prefix}accordion-body {
-      border-bottom: 1px solid $color-global-dark-primary-115;
+      border-bottom: 1px solid $color-global-dark-primary-110;
 
       & > .h6 {
         padding-top: 16px !important;
       }
+    }
+
+    .border-top {
+      border-top: solid 1px $color-global-dark-primary-110;
+    }
+
+    .border-bottom {
+      border-bottom: solid 1px $color-global-dark-primary-110;
+      height: 100%;
+    }
+
+    .border-none {
+      border: none !important;
     }
   }
 
@@ -149,19 +173,24 @@
     .#{$prefix}footer-grid {
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
-                'logo logo address'
-                'logo logo social';
+        'logo logo address'
+        'logo logo social';
     }
-    .#{$prefix}footer-address br {
-      display: none;
+    .#{$prefix}footer-address {
+      font-size: 18px;
+      line-height: 150%;
+
+      br {
+        display: none;
+      }
     }
     .#{$prefix}footer-social > * {
       margin: 0;
     }
     .#{$prefix}footer-sitemap {
       margin-bottom: 8px;
-      padding-top: 32px;
-      padding-bottom: 32px;
+      padding-bottom: 48px;
+      padding-top: 48px;
 
       & > .h5,
       & > .h6 {
@@ -178,6 +207,11 @@
 
       & .#{$prefix}accordion-body {
         border: 0;
+      }
+
+      & .border-lg-bottom {
+        border-bottom: solid 1px $color-global-dark-primary-110;
+        height: 100%;
       }
     }
   }

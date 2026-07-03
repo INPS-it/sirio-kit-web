@@ -304,6 +304,10 @@ a:hover {
     padding: 12px 0 24px 0;
     margin-top: 12px;
 }
+[id].guide-title,
+.guide-section [id] {
+	scroll-margin-top: 24px;
+}
 h2.guide-title {
 	font-size: 36px;
 	line-height: 44px;

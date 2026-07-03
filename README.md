@@ -40,6 +40,21 @@ Da inserire in fondo alla pagina HTML
 ```
 
 ## Changelog
+### 9.1.0
+- **Struttura**\Header
+  - Supporto di stile per il multilingua
+  - Definizione di un nome accessibile per tutte le `nav`
+  - Bug fix `border-bottom` del menu mobile non visibile
+  - Supporto di stile per utente autenticato
+  - Revisione attributi ARIA
+  - Revisione di tutte le etichette
+- **Struttura**\Footer
+  - Definizione di un nome accessibile per tutte le `nav`
+  - Revisione attributi ARIA
+  - Revisione di tutte le etichette
+  - Adeguamento a DS 9.1.0
+- **contenuto**/Step progress bar - fix bug su ingombro dello step progress bar
+
 ### 9.0.8
 - **contenuto**\Step progress bar - Fix posizione dello step progress bar
 

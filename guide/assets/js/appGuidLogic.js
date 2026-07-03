@@ -1,4 +1,14 @@
 class GuideApp {
+    static getAngularGuideV20Url(hostname = window.location.hostname) {
+        if (hostname.includes('sviluppo')) {
+            return 'https://intranet.sviluppo.inps.it/APP02/Servizi.Net/GuidaLibNGSirio20';
+        }
+        if (hostname.includes('collaudo')) {
+            return 'https://intranet.collaudo.inps.it/APP02/Servizi.Net/GuidaLibNGSirio20';
+        }
+        return 'https://intranet.inps.it/APP02/Servizi.Net/GuidaLibNGSirio20';
+    }
+
     static openCollapse($this){
         let id = $this.attr("href").replace("components","nav")
         $(id).slideToggle('slow');
@@ -2664,7 +2674,7 @@ class SirioValidationDemo {
 
 class GuideAppPage {
     async init(ver) {
-        var version ='9.0.8';
+        var version ='9.1.0';
 
         $(document).on('click', '#guide-nav > li > a', function (e) {
             e.preventDefault();
@@ -2684,6 +2694,9 @@ class GuideAppPage {
         });
 
         $(document).ready(function() {
+            document.querySelectorAll('.angular-guide-v20').forEach(function(link) {
+                link.href = GuideApp.getAngularGuideV20Url();
+            });
 
             // Version
             let displayVersion = ver ?? version;
@@ -2773,6 +2786,32 @@ class GuideAppPage {
                     e.clearSelection();
                     window.alert('Premi Ctrl+C per copiare il codice.');
                 });
+            }
+
+            if (window.location.hash) {
+                var hash = window.location.hash;
+
+                var scrollToTarget = function() {
+                    requestAnimationFrame(function() {
+                        var target = document.querySelector(hash);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                };
+
+                var updates = [];
+                document.querySelectorAll('*').forEach(function(el) {
+                    if (el.tagName.includes('-') && el.updateComplete) {
+                        updates.push(el.updateComplete);
+                    }
+                });
+
+                if (updates.length > 0) {
+                    Promise.all(updates).then(scrollToTarget);
+                } else {
+                    scrollToTarget();
+                }
             }
         });
     }
