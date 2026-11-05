@@ -637,49 +637,23 @@ class SirioChipDemo {
     }
 }
 
-class SirioDatetimeDemo {
-    initDatetimeStandard() {
-        const elems = document.querySelector("#resultPropComponent sirio-datetime .sirio-datepicker");
-        const datepicker = new Datepicker(elems, {
-            format: "dd/mm/yyyy",
-            language: "it",
-            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
-            autohide: true
-        });
+class SirioDatePickerDemo {
+    static pickerSelector = ":is(sirio-date-picker, sirio-date-range, sirio-time-picker)";
+
+    constructor(componentType = "date") {
+        this.componentType = componentType;
     }
 
-    initDatetimeRange() {
-        const elemRange = document.querySelector("#resultPropComponent sirio-datetime .sirio-datepicker-range");
-        const datepickerRange = new DateRangePicker(elemRange, {
-            format: "dd/mm/yyyy",
-            language: "it",
-            prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-            nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
-        });
+    async initPickerStandard() {
+        await document.querySelector("#resultPropComponent :is(sirio-date-picker, sirio-time-picker)")?.updateComplete;
     }
 
-    initDatetimeHtml() {
-        const elems = document.querySelector("#datetime-example-html .sirio-datepicker");
-        if (elems) {
-            const datepicker = new Datepicker(elems, {
-                format: "dd/mm/yyyy",
-                language: "it",
-                prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-                nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>',
-                autohide: true
-            });
-        }
+    async initPickerRange() {
+        await document.querySelector("#resultPropComponent sirio-date-range")?.updateComplete;
+    }
 
-        const elemRange = document.querySelector("#datetime-example-html .sirio-datepicker-range");
-        if (elemRange) {
-            const datepickerRange = new DateRangePicker(elemRange, {
-                format: "dd/mm/yyyy",
-                language: "it",
-                prevArrow: '<span class="fas fa-angle-left" aria-hidden="true"></span>',
-                nextArrow: '<span class="fas fa-angle-right" aria-hidden="true"></span>'
-            });
-        }
+    async initPickerHtml() {
+        await document.querySelector("#datetime-example-html")?.updateComplete;
     }
 
     async init(run) {
@@ -692,8 +666,15 @@ class SirioDatetimeDemo {
         const resultHtmlComponent = document.querySelector('#resultHtmlComponent');
         const actionButton = document.querySelector('#btnAction');
         this.firstRun = run ?? true;
+        this._datesDisabledList = this._datesDisabledList || [];
+        this._datesHighlightedList = this._datesHighlightedList || [];
 
-        const initialTemplate =`<sirio-datetime type="date" id="datetime-example-html" name="datetime-example-html" label="Datetime/Timepicker:" placeholder="Inserisci data/ora"></sirio-datetime>`
+        const initialTemplates = {
+            date: `<sirio-date-picker id="datetime-example-html" name="datetime-example-html" label="Data:" placeholder="gg/mm/aaaa"></sirio-date-picker>`,
+            range: `<sirio-date-range id="datetime-example-html" label="Data range:" placeholder="gg/mm/aaaa" id-start="range-start" name-start="range-start" id-end="range-end" name-end="range-end"></sirio-date-range>`,
+            time: `<sirio-time-picker id="datetime-example-html" name="datetime-example-html" label="Orario:" placeholder="hh:mm"></sirio-time-picker>`,
+        };
+        const initialTemplate = initialTemplates[this.componentType] || initialTemplates.date;
 
         editor.value = initialTemplate;
         resultHtmlComponent.innerHTML = initialTemplate;
@@ -701,8 +682,9 @@ class SirioDatetimeDemo {
         editor.addEventListener('blur', (e) => { {
             resultHtmlComponent.innerHTML = e.target.value;
             setTimeout(function(){
-                var demo = new SirioDatetimeDemo();
-                demo.initDatetimeHtml();
+                var demo = new SirioDatePickerDemo();
+                demo.initPickerHtml();
+                demo._refreshLiveValuePreview();
             }, 100);
 
             document.getElementById("datetime-example-html")?.updateComplete?.then(() => {
@@ -731,8 +713,9 @@ class SirioDatetimeDemo {
                 editor.value = initialTemplate;
                 resultHtmlComponent.innerHTML = initialTemplate;
                 setTimeout(function(){
-                    var demo = new SirioDatetimeDemo();
-                    demo.initDatetimeHtml();
+                    var demo = new SirioDatePickerDemo();
+                    demo.initPickerHtml();
+                    demo._refreshLiveValuePreview();
                 }, 100);
 
                 document.getElementById("datetime-example-html")?.updateComplete?.then(() => {
@@ -746,51 +729,300 @@ class SirioDatetimeDemo {
             }
             actionButton.removeAttribute("disabled");
             document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("datetime-example-prop")?.outerHTML);
+            this._refreshLiveValuePreview();
 
         });
 
+        this._bindCalendarOptionControls();
+        this._bindLiveValuePreview();
+        this._toggleCalendarOptionsVisibility();
+
         await this.apply();
+        this._refreshLiveValuePreview();
+    }
+
+    _bindLiveValuePreview() {
+        if (this._liveValueBound) return;
+        this._liveValueBound = true;
+
+        const result = document.querySelector(".guide-result");
+        result?.addEventListener("sirioEvent", (e) => {
+            const wcId = e.detail?.WebComponent?.id;
+            if (wcId === "datetime-example-prop" || wcId === "datetime-example-html") {
+                this._refreshLiveValuePreview();
+            }
+        });
+        result?.addEventListener("change", () => this._refreshLiveValuePreview());
+    }
+
+    _getActiveDemoPicker() {
+        const htmlVisible = document.getElementById("resultHtmlComponent")?.style?.display !== "none";
+        if (htmlVisible) {
+            return document.getElementById("datetime-example-html")
+                || document.querySelector("#resultHtmlComponent " + SirioDatePickerDemo.pickerSelector);
+        }
+        return document.getElementById("datetime-example-prop")
+            || document.querySelector("#resultPropComponent " + SirioDatePickerDemo.pickerSelector);
+    }
+
+    _formatDemoPickerValue(comp) {
+        if (!comp) return "—";
+        const tag = comp.tagName?.toLowerCase();
+        let raw;
+        if (tag === "sirio-date-range") {
+            raw = comp.getSelectedRange?.() ?? comp.value;
+        } else if (tag === "sirio-time-picker") {
+            raw = comp.getSelectedTime?.() ?? comp.value;
+        } else {
+            raw = comp.getSelectedDate?.() ?? comp.value;
+        }
+        if (raw == null || raw === "") return "—";
+        if (typeof raw === "object") {
+            if (!raw.startDate && !raw.endDate) return "—";
+            return JSON.stringify(raw);
+        }
+        return String(raw);
+    }
+
+    _refreshLiveValuePreview() {
+        const text = document.getElementById("liveValueText");
+        if (!text) return;
+        text.textContent = this._formatDemoPickerValue(this._getActiveDemoPicker());
+    }
+
+    _bindCalendarOptionControls() {
+        if (this._calendarControlsBound) return;
+        this._calendarControlsBound = true;
+
+        document.getElementById("datesDisabled")?.addEventListener("sirioEvent", (e) => {
+            const date = e.detail?.headerData?.dateString
+                || document.getElementById("datesDisabled")?.getSelectedDate?.();
+            if (!date) return;
+            if (!this._datesDisabledList.includes(date)) {
+                this._datesDisabledList.push(date);
+                this._refreshDateListPreview("datesDisabledPreview", this._datesDisabledList);
+            }
+        });
+
+        document.getElementById("datesHighlighted")?.addEventListener("sirioEvent", (e) => {
+            const date = e.detail?.headerData?.dateString
+                || document.getElementById("datesHighlighted")?.getSelectedDate?.();
+            if (!date) return;
+            if (!this._datesHighlightedList.includes(date)) {
+                this._datesHighlightedList.push(date);
+                this._refreshDateListPreview("datesHighlightedPreview", this._datesHighlightedList);
+            }
+        });
+
+    }
+
+    _refreshDateListPreview(previewId, list) {
+        const preview = document.getElementById(previewId);
+        if (!preview) return;
+        preview.textContent = list?.length ? list.join(", ") : "nessuna";
+    }
+
+    _toggleCalendarOptionsVisibility() {
+        const dateType = this.componentType || "date";
+        const isCalendar = dateType === "date" || dateType === "range";
+        const isRange = dateType === "range";
+        const isSingle = dateType === "date" || dateType === "time";
+
+        const calendarPanel = document.getElementById("calendarOptions");
+        if (calendarPanel) {
+            calendarPanel.hidden = !isCalendar;
+            calendarPanel.style.display = isCalendar ? "" : "none";
+        }
+
+        const singlePanel = document.getElementById("singleValueOptions");
+        if (singlePanel) {
+            singlePanel.hidden = !isSingle;
+            singlePanel.style.display = isSingle ? "" : "none";
+        }
+
+        const rangePanel = document.getElementById("rangeValueOptions");
+        if (rangePanel) {
+            rangePanel.hidden = !isRange;
+            rangePanel.style.display = isRange ? "" : "none";
+        }
+    }
+
+    _isDemoToggleOn(id) {
+        const el = document.getElementById(id);
+        if (!el || typeof el.getSelectedValues !== "function") return false;
+        const selected = el.getSelectedValues();
+        if (Array.isArray(selected)) return selected.length > 0 && selected[0] !== "0" && selected[0] !== false;
+        return !!selected && selected !== "0";
+    }
+
+    _setBooleanAttr(el, name, enabled) {
+        if (enabled) el.setAttribute(name, "");
+        else el.removeAttribute(name);
+    }
+
+    _ensureDemoElement(dateType) {
+        const container = document.getElementById("resultPropComponent");
+        if (!container) return null;
+        const tag = dateType === "range"
+            ? "sirio-date-range"
+            : dateType === "time"
+                ? "sirio-time-picker"
+                : "sirio-date-picker";
+        let compDt = document.getElementById("datetime-example-prop");
+        if (compDt && compDt.tagName?.toLowerCase() === tag) return compDt;
+
+        const fresh = document.createElement(tag);
+        fresh.id = "datetime-example-prop";
+        fresh.setAttribute("debug", "true");
+        fresh.setAttribute("event-enabled", "true");
+        fresh.setAttribute("event-lifecycle-enabled", "true");
+        if (compDt) compDt.replaceWith(fresh);
+        else container.appendChild(fresh);
+        return fresh;
     }
 
     async apply() {
         var compDt = document.getElementById("datetime-example-prop");
+        if (!compDt) return;
+
+        var dateType;
         if(!this.firstRun) {
-            compDt.setAttribute("id", crypto.randomUUID());
-            var dateType = document.getElementById("dateType").getSelectedValues()[0];
-            if (dateType) {
-                compDt.setAttribute("type", dateType);
+            dateType = this.componentType || "date";
+
+            compDt = this._ensureDemoElement(dateType);
+            if (!compDt) return;
+
+            if (dateType === "range") {
+                this._setOrRemoveAttr(compDt, "id-start", this._getDemoFieldValue("idStart") || "range-start");
+                this._setOrRemoveAttr(compDt, "name-start", this._getDemoFieldValue("nameStart") || "range-start");
+                this._setOrRemoveAttr(compDt, "id-end", this._getDemoFieldValue("idEnd") || "range-end");
+                this._setOrRemoveAttr(compDt, "name-end", this._getDemoFieldValue("nameEnd") || "range-end");
+                this._setOrRemoveAttr(compDt, "date-start", this._getDemoFieldValue("dateStart"));
+                this._setOrRemoveAttr(compDt, "date-end", this._getDemoFieldValue("dateEnd"));
+                compDt.removeAttribute("value");
             } else {
-                compDt.setAttribute("type", "");
+                compDt.removeAttribute("id-start");
+                compDt.removeAttribute("name-start");
+                compDt.removeAttribute("id-end");
+                compDt.removeAttribute("name-end");
+                compDt.removeAttribute("date-start");
+                compDt.removeAttribute("date-end");
+                this._setOrRemoveAttr(compDt, "value", this._getDemoFieldValue("fieldValue"));
             }
 
-            if(dateType === 'range'){
-                compDt.setAttribute("id-start", "range-date");
-                compDt.setAttribute("name-start", "range-start");
-                compDt.setAttribute("id-end", "range-date");
-                compDt.setAttribute("name-end", "range-end");
-            }
-
-            var label = document.getElementById("label").getValue();
+            var label = document.getElementById("label")?.getValue?.() ?? "";
             compDt.setAttribute("label", label);
 
-            var perc = document.getElementById("placeholder").getValue();
-            compDt.setAttribute("placeholder",perc);
+            this._setOrRemoveAttr(compDt, "text-help", this._getDemoFieldValue("textHelp"));
+
+            var perc = document.getElementById("placeholder")?.getValue?.() ?? "";
+            compDt.setAttribute("placeholder", perc);
+
+            if (dateType === "time") {
+                this._setOrRemoveAttr(compDt, "language", this._getDemoFieldValue("language") || "it");
+            } else {
+                compDt.removeAttribute("language");
+                document.dispatchEvent(
+                    new CustomEvent("languageChange", {
+                        bubbles: true,
+                        detail: { langCode: this._getDemoFieldValue("language") || "it" },
+                    }),
+                );
+            }
+            this._setOrRemoveAttr(compDt, "name", this._getDemoFieldValue("fieldName") || "datetime-example-prop");
+            this._setOrRemoveAttr(compDt, "target", this._getDemoFieldValue("target"));
+
+            this._setBooleanAttr(compDt, "disabled", this._isDemoToggleOn("disabled"));
+            this._setBooleanAttr(compDt, "required", this._isDemoToggleOn("required"));
+            this._setBooleanAttr(compDt, "aria-required", this._isDemoToggleOn("ariaRequired"));
+            this._setBooleanAttr(compDt, "aria-invalid", this._isDemoToggleOn("ariaInvalid"));
+
+            this._toggleCalendarOptionsVisibility();
+            this._applyPickerOptions(compDt, dateType);
         } else { this.firstRun = false; }
 
         const container = document.getElementById("codeView")
         await compDt.updateComplete;
+        const demoSelf = this;
         setTimeout(function(){
-            var demo = new SirioDatetimeDemo();
-            if (dateType === 'date') {
-                demo.initDatetimeStandard();
+            var demo = new SirioDatePickerDemo();
+            if (dateType === 'date' || dateType === 'time') {
+                demo.initPickerStandard();
             }
 
             if (dateType === 'range') {
-                demo.initDatetimeRange();
+                demo.initPickerRange();
             }
 
             container.innerHTML = guideApp.highlightAuto(compDt.outerHTML);
+            demoSelf._refreshLiveValuePreview();
         }, 100);
+    }
+
+    _getDemoFieldValue(id) {
+        const el = document.getElementById(id);
+        if (!el) return "";
+        if (typeof el.getSelectedDate === "function" && el.tagName?.toLowerCase() === "sirio-date-picker") {
+            return el.getSelectedDate() || el.value || "";
+        }
+        if (typeof el.getValue === "function") return el.getValue() ?? "";
+        if (typeof el.getSelectedValues === "function") {
+            const selected = el.getSelectedValues();
+            return Array.isArray(selected) ? (selected[0] ?? "") : (selected ?? "");
+        }
+        return el.value ?? "";
+    }
+
+    _setOrRemoveAttr(el, name, value) {
+        const trimmed = typeof value === "string" ? value.trim() : value;
+        if (trimmed === "" || trimmed == null) {
+            el.removeAttribute(name);
+            return;
+        }
+        el.setAttribute(name, trimmed);
+    }
+
+    _applyPickerOptions(compDt, dateType) {
+        const isCalendar = dateType === "date" || dateType === "range";
+
+        if (!isCalendar) {
+            [
+                "format",
+                "min-date",
+                "max-date",
+                "default-view-date",
+                "days-of-week-disabled",
+                "heading-level",
+                "dialog-z-index",
+                "how-many-years-in-the-past",
+                "how-many-years-in-the-future",
+            ].forEach((attr) => compDt.removeAttribute(attr));
+            compDt.datesDisabled = [];
+            compDt.datesHighlighted = [];
+            compDt.beforeShowDay = null;
+            return;
+        }
+
+        this._setOrRemoveAttr(compDt, "format", this._getDemoFieldValue("format"));
+        this._setOrRemoveAttr(compDt, "min-date", this._getDemoFieldValue("minDate"));
+        this._setOrRemoveAttr(compDt, "max-date", this._getDemoFieldValue("maxDate"));
+        this._setOrRemoveAttr(compDt, "default-view-date", this._getDemoFieldValue("defaultViewDate"));
+        this._setOrRemoveAttr(compDt, "days-of-week-disabled", this._getDemoFieldValue("daysOfWeekDisabled"));
+        this._setOrRemoveAttr(compDt, "heading-level", this._getDemoFieldValue("headingLevel"));
+        this._setOrRemoveAttr(compDt, "dialog-z-index", this._getDemoFieldValue("dialogZIndex"));
+        this._setOrRemoveAttr(compDt, "how-many-years-in-the-past", this._getDemoFieldValue("howManyYearsInThePast"));
+        this._setOrRemoveAttr(compDt, "how-many-years-in-the-future", this._getDemoFieldValue("howManyYearsInTheFuture"));
+
+        compDt.datesDisabled = [...(this._datesDisabledList || [])];
+        compDt.datesHighlighted = [...(this._datesHighlightedList || [])];
+
+        const beforeShowSample = this._getDemoFieldValue("beforeShowDaySample");
+        if (beforeShowSample === "first-of-month") {
+            compDt.beforeShowDay = (date) =>
+                date.getDate() === 1 ? { classes: "border" } : undefined;
+        } else {
+            compDt.beforeShowDay = null;
+        }
     }
 }
 
@@ -1026,7 +1258,7 @@ class SirioHeroDemo {
         const actionButton = document.querySelector('#btnAction');
         this.firstRun = run ?? true;
 
-        const initialTemplate = `<sirio-hero id="hero-object-html" items='[{ "title": "Home", "url": "https://www.inps.it/", "target": "_blank" }, { "title": "Lorem Ipsum" }, { "title": "Dolor sit amet" }]' heading="Titolo hero" subheading="Sottotitolo" sr-breadcrumb-label="" img="../../assets/img/img-hero.svg" call-to-action='{ "text": "Testo link" }'>
+        const initialTemplate = `<sirio-hero id="hero-object-html" heading="Titolo hero" subheading="Sottotitolo" img="../../assets/img/img-hero.svg" call-to-action='{ "text": "Testo link" }'>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Sed ullamcorper ante aliquet lectus imperdiet, 
@@ -1082,21 +1314,11 @@ class SirioHeroDemo {
             var sottotitolo = document.getElementById("inputSubheading").getValue();
             hero.setAttribute("subheading", sottotitolo);
 
-            var itemsInput = document.getElementById("itemsInput").getValue();
-            hero.setAttribute("items", itemsInput);
-
             var contenuto = document.getElementById("inputContent").getValue();
             hero.setAttribute("content", contenuto);
 
             var btnText = document.getElementById("btnText").getValue();
             hero.setAttribute("call-to-action", `{ "text": "${btnText}" }`);
-
-            let tagText = document.getElementById("inputTagText")?.getValue?.();
-            let tagIcon = document.getElementById("inputTagIcon")?.getValue?.();
-            if (tagIcon && tagText) {
-                hero.setAttribute("hero-tag", `{"icon": "${tagIcon}", "text": "${tagText}"}`);
-            }
-
 
         } else { this.firstRun = false; }
 
@@ -2674,7 +2896,7 @@ class SirioValidationDemo {
 
 class GuideAppPage {
     async init(ver) {
-        var version ='9.1.0';
+        var version ='9.2.0';
 
         $(document).on('click', '#guide-nav > li > a', function (e) {
             e.preventDefault();
@@ -2845,7 +3067,7 @@ class GuideAppPageWC {
 try
 { module.exports = {
     GuideApp, GuideAppPage, GuideAppPageWC, SirioAccordionDemo, SirioAlertDemo, SirioBreadcrumbDemo, SirioButtonDemo,
-    SirioCardDemo, SirioChipDemo, SirioDatetimeDemo, SirioDialogDemo, SirioDropdownDemo, SirioFilterDemo, SirioGridDemo, SirioHeroDemo, SirioCarouselDemo,
+    SirioCardDemo, SirioChipDemo, SirioDatePickerDemo, SirioDialogDemo, SirioDropdownDemo, SirioFilterDemo, SirioGridDemo, SirioHeroDemo, SirioCarouselDemo,
     SirioInfoDemo, SirioNotifyDemo, SirioInputDemo,SirioPanelExpandDemo, SirioPagerDemo,SirioProgressbarDemo, SirioSearchbarDemo, SirioSelectDemo, SirioSidenavDemo,
     SirioSliderDemo, SirioStepperDemo, SirioTabDemo, SirioTitleBarDemo, SirioTooltipDemo, SirioValidationDemo }
 } catch { }

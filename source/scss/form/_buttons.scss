@@ -6,10 +6,12 @@
 // ATTENZIONE: il colore di accent pressed presente nelle variabili è diverso da quello specificato nella guida Sirio
 $btn: (
     ghost: '',
+    ghost-danger: '-ghost-danger',
     primary: -primary,
     secondary: -secondary,
     tertiary: -tertiary,
     tertiary-light: -tertiary-light,
+    tertiary-danger: -tertiary-danger,
     danger: -danger,
     light: -light,
 );
@@ -24,6 +26,23 @@ $btn-palettes: (
         color-pressed: $color-global-primary-000,
         bg-pressed: $color-alias-interactive-primary-pressed,
         border-pressed: $color-alias-interactive-primary-pressed,
+        color-focus: $color-alias-interactive-primary-focus,
+        bg-focus: transparent,
+        border-focus: transparent,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: transparent,
+        border-disabled: transparent,
+    ),
+    ghost-danger: (
+        color-default: $color-alias-interactive-alert-default,
+        bg-default: transparent,
+        border-default: transparent,
+        color-hover: $color-alias-interactive-alert-hover,
+        bg-hover: transparent,
+        border-hover: transparent,
+        color-pressed: $color-global-primary-000,
+        bg-pressed: $color-alias-interactive-alert-pressed,
+        border-pressed: $color-alias-interactive-alert-pressed,
         color-focus: $color-alias-interactive-primary-focus,
         bg-focus: transparent,
         border-focus: transparent,
@@ -99,6 +118,23 @@ $btn-palettes: (
         bg-disabled: transparent,
         border-disabled: $color-alias-background-color-disabled,
     ),
+    tertiary-danger: (
+        color-default: $color-alias-interactive-alert-default,
+        bg-default: transparent,
+        border-default: $color-alias-interactive-alert-default,
+        color-hover: $color-alias-interactive-alert-hover,
+        bg-hover: transparent,
+        border-hover: $color-alias-interactive-alert-hover,
+        color-pressed: $color-alias-interactive-alert-pressed,
+        bg-pressed: transparent,
+        border-pressed: $color-alias-interactive-alert-pressed,
+        color-focus: $color-global-primary-000,
+        bg-focus: transparent,
+        border-focus: $color-alias-interactive-alert-focus,
+        color-disabled: $color-alias-text-color-disabled,
+        bg-disabled: transparent,
+        border-disabled: $color-alias-background-color-disabled,
+    ),
     danger: (
         color-default: $color-global-primary-000,
         bg-default: $color-alias-interactive-alert-default,
@@ -136,214 +172,213 @@ $btn-palettes: (
 );
 
 @each $name, $theme in $btn {
-  .#{$prefix}btn#{$theme} {
-    @if $name == 'ghost' {
-      display: inline-flex;
-      gap: 8px;
-      justify-content: center;
-      align-items: center;
-      font-weight: 700;
-      border: 2px solid transparent;
-      text-align: center;
-      vertical-align: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      padding: 14px 40px;
-      font-size: 1rem;
-      line-height: 16px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: color 0.15s ease-in-out,
-      background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out,
-      box-shadow 0.15s ease-in-out;
+    .#{$prefix}btn#{$theme} {
+        @if $name == 'ghost' {
+            display: inline-flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            border: 2px solid transparent;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            line-height: 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition:
+                color 0.15s ease-in-out,
+                background-color 0.15s ease-in-out,
+                border-color 0.15s ease-in-out,
+                box-shadow 0.15s ease-in-out;
 
-      & + .#{$prefix}btn {
-        margin-left: 8px;
-      }
-    }
-    color: color($btn-palettes, $name, color-default);
-    background-color: color($btn-palettes, $name, bg-default);
-    border-color: color($btn-palettes, $name, border-default);
+            & + .#{$prefix}btn {
+                margin-left: 8px;
+            }
+        }
+        color: color($btn-palettes, $name, color-default);
+        background-color: color($btn-palettes, $name, bg-default);
+        border-color: color($btn-palettes, $name, border-default);
 
-    &:visited {
-      color: color($btn-palettes, $name, color-default);
-      background-color: color($btn-palettes, $name, bg-default);
-      border-color: color($btn-palettes, $name, border-default);
-    }
+        &:visited {
+            color: color($btn-palettes, $name, color-default);
+            background-color: color($btn-palettes, $name, bg-default);
+            border-color: color($btn-palettes, $name, border-default);
+        }
 
-    &:hover {
-      color: color($btn-palettes, $name, color-hover);
-      background-color: color($btn-palettes, $name, bg-hover);
-      border-color: color($btn-palettes, $name, border-hover);
-    }
+        &:hover {
+            color: color($btn-palettes, $name, color-hover);
+            background-color: color($btn-palettes, $name, bg-hover);
+            border-color: color($btn-palettes, $name, border-hover);
+        }
 
-    &:disabled,
-    &.disabled {
-      color: color($btn-palettes, $name, color-disabled);
-      background-color: color(
-                      $btn-palettes,
-                      $name,
-                      bg-disabled
-      );
-      border-color: color(
-                      $btn-palettes,
-                      $name,
-                      border-disabled
-      );
-      pointer-events: none;
-    }
+        &:disabled,
+        &.disabled {
+            color: color($btn-palettes, $name, color-disabled);
+            background-color: color($btn-palettes, $name, bg-disabled);
+            border-color: color($btn-palettes, $name, border-disabled);
+            pointer-events: none;
+        }
 
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled).active {
-      color: color($btn-palettes, $name, color-pressed);
-      background-color: color($btn-palettes, $name, bg-pressed);
-      border-color: color($btn-palettes, $name, border-pressed);
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            color: color($btn-palettes, $name, color-pressed);
+            background-color: color($btn-palettes, $name, bg-pressed);
+            border-color: color($btn-palettes, $name, border-pressed);
+        }
     }
-  }
 }
 
 .#{$prefix}expanded-true[aria-expanded='true'] {
-  display: none;
+    display: none;
 }
 
 .#{$prefix}btn-icon {
-  padding: 14px 12px;
+    padding: 14px 12px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .#{$prefix}btn {
-    transition: none;
-  }
+    .#{$prefix}btn {
+        transition: none;
+    }
 }
 
 a.#{$prefix}btn.disabled,
 fieldset:disabled a.#{$prefix}btn {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 // Button link
 .#{$prefix}btn-link {
-  text-decoration: underline;
-  background-color: transparent !important;
-  color: $color-alias-interactive-primary-default;
-  padding: 0;
-  border: 0;
-
-  + .#{$prefix}btn-link {
-    margin-left: 16px;
-  }
-
-  &:hover {
-    background-color: transparent !important;
-    text-decoration: none;
-    color: $color-alias-interactive-primary-default;
-  }
-
-  &:active {
+    text-decoration: underline;
     background-color: transparent !important;
     color: $color-alias-interactive-primary-default;
-  }
+    padding: 0;
+    border: 0;
+
+    + .#{$prefix}btn-link {
+        margin-left: 16px;
+    }
+
+    &:hover {
+        background-color: transparent !important;
+        text-decoration: none;
+        color: $color-alias-interactive-primary-default;
+    }
+
+    &:active {
+        background-color: transparent !important;
+        color: $color-alias-interactive-primary-default;
+    }
 }
 
 .#{$prefix}btn-link-light {
-  text-decoration: underline;
-  background-color: transparent !important;
-  color: #fff;
-  padding: 0;
-  border: 0;
-  line-height: 26px;
-
-  + .#{$prefix}btn-link {
-    margin-left: 16px;
-  }
-
-  &:hover {
-    background-color: transparent !important;
-    text-decoration: none;
-    color: #fff;
-  }
-
-  &:active,
-  &:visited {
+    text-decoration: underline;
     background-color: transparent !important;
     color: #fff;
-  }
+    padding: 0;
+    border: 0;
+    line-height: 26px;
+
+    + .#{$prefix}btn-link {
+        margin-left: 16px;
+    }
+
+    &:hover {
+        background-color: transparent !important;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:active,
+    &:visited {
+        background-color: transparent !important;
+        color: #fff;
+    }
 }
 
 // Button block
 .#{$prefix}btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 
-  .fas, .far, .fa {
-    margin-left: 8px;
-  }
+    .fas,
+    .far,
+    .fa {
+        margin-left: 8px;
+    }
 
-  + .#{$prefix}btn-block {
-    margin-top: 16px;
-  }
+    + .#{$prefix}btn-block {
+        margin-top: 16px;
+    }
 }
 
 input[type='submit'],
 input[type='reset'],
 input[type='button'] {
-  &.#{$prefix}btn-block {
-    width: 100%;
-  }
+    &.#{$prefix}btn-block {
+        width: 100%;
+    }
 }
 
 // Button ripple
 .#{$prefix}btn-ripple {
-  background-position: center;
-  transition: background 0.8s;
-  border-radius: 50%;
-  border-color: transparent;
-
-  &:hover {
-    background: transparent radial-gradient(
-                    circle,
-                    transparent 1%,
-                    $color-alias-background-color-primary-light-50 1%
-    ) center/15000%;
-  }
-
-  &:active,
-  &:not(:disabled):not(.disabled):active {
-    background-color: $color-alias-background-color-primary-light-50;
-    background-size: 100%;
-    color: $color-alias-interactive-primary-pressed;
-    transition: background 0s;
+    background-position: center;
+    transition: background 0.8s;
+    border-radius: 50%;
     border-color: transparent;
-  }
+
+    &:hover {
+        background: transparent
+            radial-gradient(
+                circle,
+                transparent 1%,
+                $color-alias-background-color-primary-light-50 1%
+            )
+            center/15000%;
+    }
+
+    &:active,
+    &:not(:disabled):not(.disabled):active {
+        background-color: $color-alias-background-color-primary-light-50;
+        background-size: 100%;
+        color: $color-alias-interactive-primary-pressed;
+        transition: background 0s;
+        border-color: transparent;
+    }
 }
 
 // Button small
 .#{$prefix}btn-small {
-  padding: 4px;
+    padding: 4px;
 
-  .fas, .far, .fa {
-    min-width: 16px;
-    min-height: 16px;
-  }
+    .fas,
+    .far,
+    .fa {
+        min-width: 16px;
+        min-height: 16px;
+    }
 }
 
 .#{$prefix}btn-medium {
-  padding: 10px 12px;
+    padding: 10px 12px;
 }
 
 // Button bgBlack
 .#{$prefix}btn-white {
-  color: $color-global-primary-000;
-
-  &:hover {
-    background-color: $color-alias-interactive-primary-hover;
     color: $color-global-primary-000;
-  }
 
-  &:disabled {
-    background-color: $color-alias-background-color-disabled;
-  }
+    &:hover {
+        background-color: $color-alias-interactive-primary-hover;
+        color: $color-global-primary-000;
+    }
+
+    &:disabled {
+        background-color: $color-alias-background-color-disabled;
+    }
 }

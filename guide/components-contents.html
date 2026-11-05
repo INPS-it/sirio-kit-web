@@ -121,7 +121,14 @@
                                     <li><a href="./components-form.html#selezione">Selezione</a></li>
                                     <li><a href="./components-form.html#fileupload">File Upload</a></li>
                                     <li><a href="./components-form.html#slider">Slider</a></li>
-                                    <li><a href="./components-form.html#datepicker">Date & Time Picker</a></li>
+                                    <li>
+                                        <a href="./components-form.html#datepickervanilla" title="Deprecato">
+                                            <s>Date Picker Vanilla</s>
+                                        </a>
+                                    </li>
+                                    <li><a href="./components-form.html#datepicker">Date Picker</a></li>
+                                    <li><a href="./components-form.html#daterangepicker">Date Range Picker</a></li>
+                                    <li><a href="./components-form.html#timepicker">Time Picker</a></li>
                                     <li><a href="./components-form.html#chip">Chip</a></li>
                                     <li><a href="./components-form.html#progress">Progress Bar</a></li>
                                     <li><a href="./components-form.html#validation">Validazione</a></li>
@@ -4832,42 +4839,42 @@
                     <div class="guide-example">
                         <div class="guide-row">
                             <div class="guide-col-md-4">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" title="Tooltip top start">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" data-title="Tooltip top start">
                                     Tooltip top start
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-center">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip top">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" data-title="Tooltip top">
                                     Tooltip top
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" title="Tooltip top-end">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" data-title="Tooltip top-end">
                                     Tooltip top-end
                                 </button>
                             </div>
                             <div class="guide-col-md-6">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" title="Tooltip a destra">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" data-title="Tooltip a destra">
                                     Tooltip a destra
                                 </button>
                             </div>
                             <div class="guide-col-md-6 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" title="Tooltip a sinistra">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" data-title="Tooltip a sinistra">
                                     Tooltip a sinistra
                                 </button>
                             </div>
                             <div class="guide-col-md-4">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" title="Tooltip bottom start">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" data-title="Tooltip bottom start">
                                     Tooltip bottom start
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-center">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" title="Tooltip bottom">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" data-title="Tooltip bottom">
                                     Tooltip bottom
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" title="Tooltip bottom-end">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" data-title="Tooltip bottom-end">
                                     Tooltip bottom-end
                                 </button>
                             </div>
@@ -4878,7 +4885,7 @@
                         <p class="guide-code-title">Tooltip solo testo:</p>
                         <pre><code>
 &lt;button type=&quot;button&quot; class=&quot;sirio-btn sirio-btn-primary&quot; data-sirio-toggle=&quot;tooltip&quot;
-    data-sirio-placement=&quot;top&quot; title=&quot;Tooltip in alto&quot;&gt;
+    data-sirio-placement=&quot;top&quot; data-title=&quot;Tooltip in alto&quot;&gt;
 	Tooltip in alto
 &lt;/button&gt;
 </code></pre>
@@ -4888,42 +4895,42 @@
                     <div class="guide-example">
                         <div class="guide-row">
                             <div class="guide-col-md-4">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" title="Tooltip top start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-start" data-title="Tooltip top start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip top start
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-center">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" title="Tooltip top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top" data-title="Tooltip top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip top
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" title="Tooltip top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="top-end" data-title="Tooltip top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip top-end
                                 </button>
                             </div>
                             <div class="guide-col-md-6">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" title="Tooltip a destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="right" data-title="Tooltip a destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip a destra
                                 </button>
                             </div>
                             <div class="guide-col-md-6 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" title="Tooltip a sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="left" data-title="Tooltip a sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip a sinistra
                                 </button>
                             </div>
                             <div class="guide-col-md-4">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" title="Tooltip bottom start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-start" data-title="Tooltip bottom start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip bottom start
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-center">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" title="Tooltip bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom" data-title="Tooltip bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip bottom
                                 </button>
                             </div>
                             <div class="guide-col-md-4 text-right">
-                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" title="Tooltip bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
+                                <button type="button" class="sirio-btn sirio-btn-primary" data-sirio-toggle="tooltip" data-sirio-placement="bottom-end" data-title="Tooltip bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>">
                                     Tooltip bottom-end
                                 </button>
                             </div>
@@ -4934,7 +4941,7 @@
                         <p class="guide-code-title">Tooltip titolo + descrizione:</p>
                         <pre><code>
 &lt;button type=&quot;button&quot; class=&quot;sirio-btn sirio-btn-primary&quot; data-sirio-toggle=&quot;tooltip&quot;
-    data-sirio-placement=&quot;top&quot; title=&quot;Tooltip in alto&quot;
+    data-sirio-placement=&quot;top&quot; data-title=&quot;Tooltip in alto&quot;
     data-sirio-content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut&lt;/p&gt;&quot;&gt;
 	Tooltip in alto
@@ -4950,42 +4957,42 @@
                         <div class="guide-row">
                             <div class="guide-col-md-4">
                                 <label for="input-text">Popover top-start
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-start" title="Popover top-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-start" data-title="Popover top-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-4 text-center">
                                 <label for="input-text">Popover top
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top" title="Popover top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top" data-title="Popover top" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-4 text-right">
                                 <label for="input-text">Popover top-end
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-end" title="Popover top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="top-end" data-title="Popover top-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-6">
                                 <label for="input-text">Popover destra
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="right" title="Popover destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="right" data-title="Popover destra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-6 text-right">
                                 <label for="input-text">Popover sinistra
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="left" title="Popover sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="left" data-title="Popover sinistra" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-4">
                                 <label for="input-text">Popover bottom-start
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-start" title="Popover bottom-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-start" data-title="Popover bottom-start" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-4 text-center">
                                 <label for="input-text">Popover bottom
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom" title="Popover bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom" data-title="Popover bottom" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                             <div class="guide-col-md-4 text-right">
                                 <label for="input-text">Popover bottom-end
-                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-end" title="Popover bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
+                                    <button type="button" class="sirio-btn sirio-btn-icon" data-sirio-toggle="popover" data-sirio-placement="bottom-end" data-title="Popover bottom-end" data-sirio-content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href='#' class='sirio-btn sirio-btn-tertiary-light'>Azione</a>"><span class="fas fa-info-circle" aria-hidden="true"></span></button>
                                 </label>
                             </div>
                         </div>
@@ -4995,7 +5002,7 @@
                         <pre><code>
 &lt;button type=&quot;button&quot; class=&quot;sirio-btn sirio-btn-icon&quot;
     data-sirio-toggle=&quot;popover&quot; data-sirio-placement=&quot;top&quot;
-    title=&quot;Popover top&quot; data-sirio-content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    data-title=&quot;Popover top&quot; data-sirio-content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
     &lt;a href='#' class='sirio-btn sirio-btn-tertiary-light'&gt;Azione&lt;/a&gt;&quot;&gt;
     &lt;span class=&quot;fas fa-info-circle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
@@ -6002,6 +6009,10 @@ data-sirio-visible=&quot;true&quot; role=&quot;alert&quot;&gt;
                         </p>
                         <ul>
                             <li>
+                                <strong>Info:</strong>
+                                fornisce informazioni contestuali utili alla comprensione di un’azione, di un dato o di uno stato del sistema
+                            </li>
+                            <li>
                                 <strong>Success:</strong>
                                 per indicare il corretto completamento di un'operazione o per comunicazioni informative positive sul sistema.
                             </li>
@@ -6016,6 +6027,35 @@ data-sirio-visible=&quot;true&quot; role=&quot;alert&quot;&gt;
                         </ul>
                     </div>
                     <div class="guide-example">
+                    <div class="guide-row mb-3" id="notify-info-example">
+<div class="sirio-notify-wrapper sirio-notify-info" role="status">
+    <div class="container-fluid">
+        <div class="sirio-notify">
+            <div class="sirio-notify-icon">
+                <span class="fas fa-info-circle fa-24" aria-hidden="true"></span>
+            </div>
+            <!-- Corpo messaggio -->
+            <div class="sirio-notify-body">
+                <p class="sirio-notify-title">Titolo avviso info</p>
+                <p>
+                    Ac iaculis posuere turpis diam mi non viverra tempus eget.
+                    Nunc volutpat nunc erat risus eleifend convallis viverra
+                    bibendum. Mattis ante mauris sit montes. Scelerisque dui
+                    arcu tempus proin massa massa ultricies nunc duis.
+                    <a href="#">ipsam lectus nec?</a>
+                    Explicabo consequuntur incididunt ipsam.
+                </p>
+            </div>
+            <!-- Call to action (opzionale) -->
+            <div class="sirio-notify-action">
+                <a href="#" class="sirio-btn sirio-btn-tertiary">
+                    Testo link
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                        </div>
                     <div class="guide-row mb-3" id="notify-success-example">
 <div class="sirio-notify-wrapper sirio-notify-success" role="status">
     <div class="container-fluid">
@@ -6105,6 +6145,8 @@ data-sirio-visible=&quot;true&quot; role=&quot;alert&quot;&gt;
                         </div>
                     </div>
                     <div class="code" aria-hidden="true" id="code-btn-black-white">
+                        <p class="guide-code-title">Avviso semantico di tipo <strong>info</strong></p>
+                        <pre><code id="notify-info-code"></code></pre>
                         <p class="guide-code-title">Avviso semantico di tipo <strong>success</strong></p>
                         <pre><code id="notify-success-code"></code></pre>
                         <p class="guide-code-title">Avviso semantico di tipo <strong>warning</strong></p>
@@ -6114,6 +6156,7 @@ data-sirio-visible=&quot;true&quot; role=&quot;alert&quot;&gt;
                         <script type="text/javascript">
                             /*Copy the example code*/
                             document.addEventListener('DOMContentLoaded', () => {
+                                guideApp.copyHtmlExample('notify-info-example', 'notify-info-code');
                                 guideApp.copyHtmlExample('notify-success-example', 'notify-success-code');
                                 guideApp.copyHtmlExample('notify-warning-example', 'notify-warning-code');
                                 guideApp.copyHtmlExample('notify-alert-example', 'notify-alert-code');
@@ -6482,20 +6525,6 @@ data-sirio-visible=&quot;true&quot; role=&quot;alert&quot;&gt;
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 mb-lg-4">
-                <!-- Breadcrumb -->
-                <nav aria-label="Breadcrumb" data-sirio-component="breadcrumb">
-                    <p class="sr-only">Ti trovi in:</p>
-                    <ol class="sirio-breadcrumb" role="list">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li class="active">Dolor sit amet<span class="sr-only"> Pagina corrente</span></li>
-                    </ol>
-                </nav>
-                <!-- Hero tag -->
-                <span class="sirio-tag sirio-tag-hero">
-                    <span class="fas fa-folder-open" aria-hidden="true"></span>
-                    Servizio
-                </span>
                 <h1 class="sirio-hero-title">Titolo hero</h1>
                 <p class="sirio-hero-subtitle">Sottotitolo</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper ante aliquet lectus imperdiet, <a href="#">nec vehicula sapien</a> placerat. Etiam sollicitudin elementum ligula eget aliquet. Fusce mollis facilisis leo.</p>
@@ -7332,7 +7361,7 @@ if (document.getElementsByClassName("splide").length) {
 
 <!-- JS Webkit -->
 <script src="assets/js/sirio-webkit-min.js"></script>
-<script src="assets/js/sirio-datepicker-full.js"></script>
+<script src="assets/js/sirio-date-picker.umd.js"></script>
 <script src="assets/js/splide.min.js"></script>
 
 <!-- JS Guide -->

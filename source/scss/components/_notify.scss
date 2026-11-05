@@ -3,136 +3,152 @@
 
 // Tag
 .#{$prefix}notify {
-  background-color: $color-alias-background-color-primary-light-40;
-  color: $color-global-dark-primary-130;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 24px 16px;
-  gap: 16px;
+    background-color: $color-alias-background-color-primary-light-40;
+    color: $color-global-dark-primary-130;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 24px 16px;
+    gap: 16px;
 
-  & .#{$prefix}notify-title {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 42px;
-    color: $color-alias-text-color-secondary-dark-100;
-  }
-
-  & .#{$prefix}notify-icon {
-    color: $color-alias-text-color-secondary-dark-100;
-    position: relative;
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 100%;
-    font-size: 24px;
-    line-height: 42px;
-  }
-
-  & .#{$prefix}notify-body {
-    position: relative;
-    width: 100%;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-
-    & p:last-child {
-      margin-bottom: 0;
+    & .#{$prefix}notify-title {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 42px;
+        color: $color-alias-text-color-secondary-dark-100;
     }
-  }
 
-  & .#{$prefix}notify-action {
-    align-self: end;
-    padding-left: 40px;
-    margin-top: 16px;
-    flex: 0 0 100%;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  &.#{$prefix}notify-dark {
-    background-color: $color-alias-background-color-primary-dark-115;
-    color: $color-alias-text-color-primary-light-40;
-
-    & .#{$prefix}notify-title,
     & .#{$prefix}notify-icon {
-      color: #fff;
+        color: $color-alias-text-color-secondary-dark-100;
+        position: relative;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+        font-size: 24px;
+        line-height: 42px;
     }
 
-    & .#{$prefix}notify-body a {
-      color: $color-alias-interactive-accent-default;
+    & .#{$prefix}notify-body {
+        position: relative;
+        width: 100%;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
 
-      &:visited {
-        color: $color-alias-interactive-accent-default;
-      }
-
-      &:hover {
-        color: $color-alias-interactive-accent-hover;
-      }
-
-      &:not(:disabled):not(.disabled):active {
-        color: $color-alias-interactive-accent-pressed;
-      }
-
-      &:focus {
-        outline-color: $color-alias-interactive-accent-focus !important;
-      }
+        & p:last-child {
+            margin-bottom: 0;
+        }
     }
-  }
 
-  &-wrapper {
-    background: $color-alias-background-color-primary-light-40;
-    border-bottom: solid 1px $color-alias-background-color-primary-light-50;
-
-    &-dark {
-      background: $color-alias-background-color-primary-dark-115;
-      border-bottom: solid 1px $color-alias-background-color-primary-light-50;
+    & .#{$prefix}notify-action {
+        align-self: end;
+        padding-left: 40px;
+        margin-top: 16px;
+        flex: 0 0 100%;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
     }
-  }
 
-  &-success,
-  &-warning,
-  &-alert {
-    background-color: $color-global-primary-000;
-    border-bottom: none;
+    &.#{$prefix}notify-dark {
+        background-color: $color-alias-background-color-primary-dark-115;
+        color: $color-alias-text-color-primary-light-40;
 
-    .sirio-notify {
-      background-color: $color-global-primary-000;
+        & .#{$prefix}notify-title,
+        & .#{$prefix}notify-icon {
+            color: #fff;
+        }
+
+        & .#{$prefix}notify-body a {
+            color: $color-alias-interactive-accent-default;
+
+            &:visited {
+                color: $color-alias-interactive-accent-default;
+            }
+
+            &:hover {
+                color: $color-alias-interactive-accent-hover;
+            }
+
+            &:not(:disabled):not(.disabled):active {
+                color: $color-alias-interactive-accent-pressed;
+            }
+
+            &:focus {
+                outline-color: $color-alias-interactive-accent-focus !important;
+            }
+        }
     }
-  }
 
-  &-success {
-    span.fas, span.fa, span.far {
-      color: $color-global-semantic-success-100;
-    }
-  }
+    &-wrapper {
+        background: $color-alias-background-color-primary-light-40;
+        border-bottom: solid 1px $color-alias-background-color-primary-light-50;
 
-  &-warning {
-    span.fas, span.fa, span.far {
-      color: $color-global-semantic-warning-100;
+        &-dark {
+            background: $color-alias-background-color-primary-dark-115;
+            border-bottom: solid 1px
+                $color-alias-background-color-primary-light-50;
+        }
     }
-  }
 
-  &-alert {
-    span.fas, span.fa, span.far {
-      color: $color-global-semantic-alert-100;
+    &-success,
+    &-warning,
+    &-info,
+    &-alert {
+        background-color: $color-global-primary-000;
+        border-bottom: none;
+
+        .sirio-notify {
+            background-color: $color-global-primary-000;
+        }
     }
-  }
+
+    &-info {
+        span.fas,
+        span.fa,
+        span.far {
+            color: $color-global-primary-100;
+        }
+    }
+
+    &-success {
+        span.fas,
+        span.fa,
+        span.far {
+            color: $color-global-semantic-success-100;
+        }
+    }
+
+    &-warning {
+        span.fas,
+        span.fa,
+        span.far {
+            color: $color-global-semantic-warning-100;
+        }
+    }
+
+    &-alert {
+        span.fas,
+        span.fa,
+        span.far {
+            color: $color-global-semantic-alert-100;
+        }
+    }
 }
 
 @media (min-width: 992px) {
-  .#{$prefix}notify {
-    padding: 24px 56px;
+    .#{$prefix}notify {
+        padding: 24px 56px;
 
-    & .#{$prefix}notify-action {
-      flex: 0 0 auto;
-      width: auto;
+        & .#{$prefix}notify-action {
+            flex: 0 0 auto;
+            width: auto;
+        }
     }
-  }
 }
 
 [class*='container'] .#{$prefix}notify {
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }

@@ -69,9 +69,17 @@
 }
 
 .floating-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px 4px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 8px;
 }
 
 #btn-back-to-top {
@@ -87,5 +95,5 @@
 }
 
 .container-xxl {
-    margin-bottom: 10%!important;
+    margin-bottom: 2rem !important;
 }

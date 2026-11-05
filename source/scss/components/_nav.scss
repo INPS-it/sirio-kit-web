@@ -3,230 +3,379 @@
 
 // Nav
 .#{$prefix}nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-
-  &[data-sirio-visible='false'] {
-    display: none;
-  }
-
-  & .#{$prefix}nav-link {
-    text-align: left;
-    border-left: 0;
-    border-right: 0;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    background-color: transparent;
-    padding: 8px 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 24px;
-    text-decoration: none;
-    font-weight: 400;
-    color: $color-alias-interactive-secondary-default;
 
-    & .#{$prefix}tag {
-      margin: 0 0 0 8px;
+    &[data-sirio-visible='false'] {
+        display: none;
     }
-  }
 
-  & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
-    margin-right: 0;
-  }
+    & .#{$prefix}nav-link {
+        text-align: left;
+        border-left: 0;
+        border-right: 0;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        background-color: transparent;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 24px;
+        text-decoration: none;
+        font-weight: 400;
+        color: $color-alias-interactive-secondary-default;
 
-  & .#{$prefix}nav-link:hover {
-    color: $color-alias-interactive-primary-hover !important;
-    border-bottom-color: $color-alias-interactive-primary-hover !important;
-  }
-
-  & .#{$prefix}nav-link.active,
-  & .#{$prefix}nav-link[aria-expanded='true'],
-  & .#{$prefix}nav-link[aria-expanded='true']:focus,
-  & .#{$prefix}nav-link[aria-expanded='true']:hover {
-    color: $color-alias-interactive-primary-pressed !important;
-    border-bottom-color: $color-alias-interactive-primary-pressed !important;
-  }
-
-  &.#{$prefix}nav-top {
-    .#{$prefix}nav-link {
-      margin-right: 16px;
+        & .#{$prefix}tag {
+            margin: 0 0 0 8px;
+        }
     }
-  }
+
+    & .#{$prefix}nav-item:last-child .#{$prefix}nav-link {
+        margin-right: 0;
+    }
+
+    & .#{$prefix}nav-link:hover {
+        color: $color-alias-interactive-primary-hover !important;
+        border-bottom-color: $color-alias-interactive-primary-hover !important;
+    }
+
+    & .#{$prefix}nav-link.active,
+    & .#{$prefix}nav-link[aria-expanded='true'],
+    & .#{$prefix}nav-link[aria-expanded='true']:focus,
+    & .#{$prefix}nav-link[aria-expanded='true']:hover {
+        color: $color-alias-interactive-primary-pressed !important;
+        border-bottom-color: $color-alias-interactive-primary-pressed !important;
+    }
+
+    &.#{$prefix}nav-top {
+        .#{$prefix}nav-link {
+            margin-right: 16px;
+        }
+    }
 }
 
 .#{$prefix}nav.#{$prefix}nav-dark .#{$prefix}nav-link {
-  color: #fff;
+    color: #fff;
 
-  &:hover,
-  &.active,
-  &:focus,
-  &[aria-expanded='true'],
-  &[aria-expanded='true']:focus,
-  &[aria-expanded='true']:hover {
-    color: #fff !important;
-    border-bottom-color: #fff !important;
-    outline-color: #fff;
-  }
+    &:hover,
+    &.active,
+    &:focus,
+    &[aria-expanded='true'],
+    &[aria-expanded='true']:focus,
+    &[aria-expanded='true']:hover {
+        color: #fff !important;
+        border-bottom-color: #fff !important;
+        outline-color: #fff;
+    }
 }
 
 .#{$prefix}service-nav {
-  background-color: $color-global-dark-primary-110;
-  color: #fff;
-
-  .#{$prefix}dropdown > .#{$prefix}nav-link:after {
-    display: inline-block;
-    content: '\f078';
-    font-family: 'Font Awesome 6 Free', serif;
-    text-align: center;
-    font-weight: 900;
-    margin-left: 8px;
-  }
-
-  .#{$prefix}dropdown > .#{$prefix}nav-link {
-    padding: 8px;
-  }
-
-  .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded='true']:after {
-    content: '\f077';
-  }
-
-  .#{$prefix}dropdown-menu {
     background-color: $color-global-dark-primary-110;
     color: #fff;
-    padding: 24px;
-    min-width: 250px;
-    transform: translate(0, 40px);
-    border-radius: 0;
-    border: 0;
 
-    & a,
-    & a:active,
-    & a:visited {
-      color: #fff;
+    .#{$prefix}dropdown > .#{$prefix}nav-link:after {
+        display: inline-block;
+        content: '\f078';
+        font-family: 'Font Awesome 6 Free', serif;
+        text-align: center;
+        font-weight: 900;
+        margin-left: 8px;
     }
 
-    & a:hover {
-      text-decoration: none;
+    .#{$prefix}dropdown > .#{$prefix}nav-link {
+        padding: 8px;
     }
 
-    & a:focus {
-      outline-color: #fff;
+    .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded='true']:after {
+        content: '\f077';
     }
 
-    & .#{$prefix}list-unstyled li {
-      margin: 8px 0;
+    .#{$prefix}dropdown-menu {
+        background-color: $color-global-dark-primary-110;
+        color: #fff;
+        padding: 24px;
+        min-width: 250px;
+        transform: translate(0, 40px);
+        border-radius: 0;
+        border: 0;
+
+        & a,
+        & a:active,
+        & a:visited {
+            color: #fff;
+        }
+
+        & a:hover {
+            text-decoration: none;
+        }
+
+        & a:focus {
+            outline-color: #fff;
+        }
+
+        & .#{$prefix}list-unstyled li {
+            margin: 8px 0;
+        }
+
+        & .#{$prefix}list-unstyled.#{$prefix}list-link a:after {
+            margin-left: 0;
+        }
+
+        .#{$prefix}dropdown-menu-heading {
+            font-size: 24px;
+            line-height: 36px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .border-top {
+            border-color: $color-global-light-primary-50;
+        }
     }
 
-    & .#{$prefix}list-unstyled.#{$prefix}list-link a:after {
-      margin-left: 0;
-    }
+    .#{$prefix}dropdown-megamenu {
+        position: static;
 
-    .#{$prefix}dropdown-menu-heading {
-      font-size: 24px;
-      line-height: 36px;
-      font-weight: 700;
-      color: #fff;
+        & .#{$prefix}dropdown-menu {
+            border-radius: 0;
+            border: 0;
+            transform: none;
+            inset: inherit;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
     }
-
-    .border-top {
-      border-color: $color-global-light-primary-50;
-    }
-  }
-
-  .#{$prefix}dropdown-megamenu {
-    position: static;
-
-    & .#{$prefix}dropdown-menu {
-      border-radius: 0;
-      border: 0;
-      transform: none;
-      inset: inherit;
-      position: absolute;
-      left: 0;
-      right: 0;
-    }
-  }
 }
 
 .#{$prefix}nav-side .#{$prefix}nav-link:focus-visible,
 .#{$prefix}nav-side .#{$prefix}btn:focus-visible {
-  outline: 1px solid $color-alias-interactive-border-focus;
-  outline-offset: -1px;
-  border-radius: 0;
+    outline: 1px solid $color-alias-interactive-border-focus;
+    outline-offset: -1px;
+    border-radius: 0;
 }
 
 .#{$prefix}nav-side .#{$prefix}nav-link:focus-visible:before {
-  border-bottom: 1px solid $color-alias-interactive-border-focus;
+    border-bottom: 1px solid $color-alias-interactive-border-focus;
 }
 
 .#{$prefix}nav-side {
-  flex-direction: column;
-  width: 100%;
-
-  & .#{$prefix}nav {
-    background-color: $color-global-light-primary-40;
     flex-direction: column;
     width: 100%;
 
-    & .#{$prefix}nav-link {
-      padding-left: 32px;
+    & .#{$prefix}nav {
+        background-color: $color-global-light-primary-40;
+        flex-direction: column;
+        width: 100%;
 
-      &.active,
-      &:hover {
-        padding-left: 28px;
-      }
+        & .#{$prefix}nav-link {
+            padding-left: 32px;
+
+            &.active,
+            &:hover {
+                padding-left: 28px;
+            }
+        }
+
+        & ul {
+            margin: 0;
+        }
     }
 
-    & ul {
-      margin: 0;
-    }
-  }
-
-  & [data-sirio-visible='false'] {
-    display: none;
-  }
-
-  & [data-sirio-visible='true'] {
-    display: flex;
-  }
-
-  & .#{$prefix}nav-item {
-    position: relative;
-
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-top: 1px solid $color-global-light-primary-50;
+    & [data-sirio-visible='false'] {
+        display: none;
     }
 
-    &:last-child:before {
-      display: none;
+    & [data-sirio-visible='true'] {
+        display: flex;
     }
-  }
-
-  & .#{$prefix}nav-link {
-    padding: 16px;
-    font-weight: 600;
-    margin: 0;
-    border: 0;
-    position: relative;
 
     & .#{$prefix}nav-item {
-      padding-left: 24px;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid $color-global-light-primary-50;
+        }
+
+        &:last-child:before {
+            display: none;
+        }
     }
 
-    &[data-sirio-toggle='collapse'] {
-      display: flex;
-      justify-content: space-between;
+    & .#{$prefix}nav-link {
+        padding: 16px;
+        font-weight: 600;
+        margin: 0;
+        border: 0;
+        position: relative;
 
-      &:after {
-        content: '\f107';
+        & .#{$prefix}nav-item {
+            padding-left: 24px;
+        }
+
+        &[data-sirio-toggle='collapse'] {
+            display: flex;
+            justify-content: space-between;
+
+            &:after {
+                content: '\f107';
+                font-family: $font-family-icon;
+                font-weight: 900;
+                vertical-align: middle;
+                margin-left: 16px;
+                font-size: 20px;
+                width: 16px;
+                display: inline-flex;
+                height: 16px;
+                align-items: center;
+            }
+
+            &[aria-expanded='true'] {
+                background-color: $color-global-light-primary-50;
+
+                &:after {
+                    content: '\f106';
+                }
+            }
+        }
+
+        &:hover {
+            color: $color-alias-interactive-primary-default !important;
+            position: relative;
+            padding-left: 12px;
+            border-left: 4px solid $color-alias-interactive-primary-default;
+            transition: background 0.5s;
+        }
+
+        &.active {
+            color: $color-alias-interactive-primary-pressed !important;
+            background-color: $color-global-light-primary-50;
+            position: relative;
+            padding-left: 12px;
+            border-left: 4px solid $color-alias-interactive-primary-pressed;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid $color-global-light-primary-50;
+        }
+
+        &.disabled {
+            background-color: $color-alias-background-color-disabled;
+            color: $color-alias-text-color-disabled;
+        }
+    }
+}
+
+@keyframes slideUpContent {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.#{$prefix}dialog-sidenav {
+    background: none;
+    animation: none;
+    z-index: 1000;
+
+    & .#{$prefix}dialog-wrapper {
+        max-width: inherit;
+        margin: 0;
+        min-height: 100%;
+        display: block;
+    }
+
+    & .#{$prefix}dialog-content {
+        transition: 1s all;
+        position: absolute;
+        top: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        animation: slideUpContent 1s;
+    }
+
+    &[data-sirio-visible='true'] {
+        z-index: 1050;
+
+        & .#{$prefix}dialog-content {
+            top: 0;
+        }
+    }
+
+    & .#{$prefix}dialog-header {
+        padding: 0;
+    }
+
+    & .#{$prefix}dialog-body {
+        background: #fff;
+        height: 100%;
+        overflow: auto;
+    }
+
+    & .#{$prefix}sidenav-title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 21px;
+        color: $color-alias-interactive-primary-default;
+        border-bottom: 4px solid;
+        padding: 16px;
+        margin: 32px 0 0;
+    }
+
+    & .#{$prefix}sidenav-info {
+        border-bottom: 1px solid $color-alias-background-color-primary-light-60;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 24px;
+        gap: 24px;
+        background: $color-alias-background-color-primary-light-50;
+        color: $color-alias-text-color-primary-dark-110;
+        margin: 0 0 32px;
+    }
+}
+
+.#{$prefix}btn-sidenav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0;
+    width: 100%;
+    font-size: 18px;
+    padding: 16px 24px;
+    line-height: 24px;
+    text-align: left;
+    z-index: 1;
+
+    & small {
+        display: block;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    &:after {
+        content: '\f106';
         font-family: $font-family-icon;
         font-weight: 900;
         vertical-align: middle;
@@ -236,187 +385,35 @@
         display: inline-flex;
         height: 16px;
         align-items: center;
-      }
-
-      &[aria-expanded='true'] {
-        background-color: $color-global-light-primary-50;
-
-        &:after {
-          content: '\f106';
-        }
-      }
     }
 
-    &:hover {
-      color: $color-alias-interactive-primary-default !important;
-      position: relative;
-      padding-left: 12px;
-      border-left: 4px solid $color-alias-interactive-primary-default;
-      transition: background 0.5s;
+    &[data-sirio-dismiss='dialog']:after {
+        content: '\f00d';
     }
 
-    &.active {
-      color: $color-alias-interactive-primary-pressed !important;
-      background-color: $color-global-light-primary-50;
-      position: relative;
-      padding-left: 12px;
-      border-left: 4px solid $color-alias-interactive-primary-pressed;
+    &.#{$prefix}btn-fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        z-index: 999;
     }
-
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-bottom: 1px solid $color-global-light-primary-50;
-    }
-
-    &.disabled {
-      background-color: $color-alias-background-color-disabled;
-      color: $color-alias-text-color-disabled;
-    }
-  }
-
-
-}
-
-
-@keyframes slideUpContent {
-  0% {
-    top: 100%;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-.#{$prefix}dialog-sidenav {
-  background: none;
-  animation: none;
-  z-index: 1000;
-
-  & .#{$prefix}dialog-wrapper {
-    max-width: inherit;
-    margin: 0;
-    min-height: 100%;
-    display: block;
-  }
-
-  & .#{$prefix}dialog-content {
-    transition: 1s all;
-    position: absolute;
-    top: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-    animation: slideUpContent 1s;
-  }
-
-  &[data-sirio-visible='true'] {
-    z-index: 1050;
-
-    & .#{$prefix}dialog-content {
-      top: 0;
-    }
-  }
-
-  & .#{$prefix}dialog-header {
-    padding: 0;
-  }
-
-  & .#{$prefix}dialog-body {
-    background: #fff;
-    height: 100%;
-    overflow: auto;
-  }
-
-  & .#{$prefix}sidenav-title {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 21px;
-    color: $color-alias-interactive-primary-default;
-    border-bottom: 4px solid;
-    padding: 16px;
-    margin: 32px 0 0;
-  }
-
-  & .#{$prefix}sidenav-info {
-    border-bottom: 1px solid $color-alias-background-color-primary-light-60;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 24px;
-    gap: 24px;
-    background: $color-alias-background-color-primary-light-50;
-    color: $color-alias-text-color-primary-dark-110;
-    margin: 0 0 32px;
-  }
-}
-
-.#{$prefix}btn-sidenav {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0;
-  width: 100%;
-  font-size: 18px;
-  padding: 16px 24px;
-  line-height: 24px;
-  text-align: left;
-  z-index: 1;
-
-  & small {
-    display: block;
-    font-size: 16px;
-    font-weight: normal;
-  }
-
-  &:after {
-    content: '\f106';
-    font-family: $font-family-icon;
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 16px;
-    font-size: 20px;
-    width: 16px;
-    display: inline-flex;
-    height: 16px;
-    align-items: center;
-  }
-
-  &[data-sirio-dismiss='dialog']:after {
-    content: '\f00d';
-  }
-
-  &.#{$prefix}btn-fixed-bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    z-index: 999;
-  }
 }
 
 @media (min-width: 992px) {
-  .#{$prefix}dialog-sidenav,
-  .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
-    position: static !important;
-    display: block !important;
-  }
+    .#{$prefix}dialog-sidenav,
+    .#{$prefix}dialog-sidenav .#{$prefix}dialog-content {
+        position: static !important;
+        display: block !important;
+    }
 
-  .#{$prefix}dialog-sidenav .#{$prefix}sidenav-info,
-  .#{$prefix}dialog-sidenav .#{$prefix}dialog-header,
-  .#{$prefix}dialog-sidenav-open {
-    display: none;
-  }
-  .#{$prefix}dialog-sidenav {
-    display: flex;
-  }
+    .#{$prefix}dialog-sidenav .#{$prefix}sidenav-info,
+    .#{$prefix}dialog-sidenav .#{$prefix}dialog-header,
+    .#{$prefix}dialog-sidenav-open {
+        display: none;
+    }
+    .#{$prefix}dialog-sidenav {
+        display: flex;
+    }
 }

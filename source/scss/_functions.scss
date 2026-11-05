@@ -3,54 +3,52 @@
 
 // Functions
 @function value($name, $value) {
-  @if map.has-key($name, $value) {
-    $value: map.get($name, $value);
-    @return $value;
-  }
+    @if map.has-key($name, $value) {
+        $value: map.get($name, $value);
+        @return $value;
+    }
 
-  @return null;
+    @return null;
 }
 
 $html-font-size: 16;
 // converti px in rem es: font-size: rem(32); = font-size: 2rem
 @function rem($size, $is-positive: true) {
-  $remSize: math.div($size, $html-font-size);
-  @if $is-positive {
-    @return #{$remSize}rem;
-  } @else {
-    @return -#{$remSize}rem;
-  }
+    $remSize: math.div($size, $html-font-size);
+    @if $is-positive {
+        @return #{$remSize}rem;
+    } @else {
+        @return -#{$remSize}rem;
+    }
 }
 
 @function color($palette, $type, $tone) {
-  @if map.has-key($palette, $type) {
-    $type: map.get($palette, $type);
+    @if map.has-key($palette, $type) {
+        $type: map.get($palette, $type);
 
-    @if map.has-key($type, $tone) {
-      $tone: map.get($type, $tone);
-      @return $tone;
+        @if map.has-key($type, $tone) {
+            $tone: map.get($type, $tone);
+            @return $tone;
+        }
+
+        @return null;
     }
 
     @return null;
-  }
-
-  @return null;
 }
 
 @mixin property($property, $value) {
-  @if $value != null {
-    #{$property}: $value;
-  }
+    @if $value != null {
+        #{$property}: $value;
+    }
 }
 
 @mixin media-breakpoint($breakpoint) {
-  @if $breakpoint ==0 {
-    @content;
-  } @else {
-    @media (min-width: $breakpoint) {
-      @content;
+    @if $breakpoint ==0 {
+        @content;
+    } @else {
+        @media (min-width: $breakpoint) {
+            @content;
+        }
     }
-  }
 }
-
-

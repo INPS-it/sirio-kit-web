@@ -5,57 +5,57 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :root {
-    scroll-behavior: smooth;
-  }
+    :root {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
-  margin: 0;
-  font-family: $font-family-sans;
-  font-size: #{$typography-global-font-size-04}px;
-  line-height: #{$typography-global-line-heights-04}px;
-  font-weight: 400;
-  color: $color-global-secondary-100;
-  background-color: #fff;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    font-family: $font-family-sans;
+    font-size: #{$typography-global-font-size-04}px;
+    line-height: #{$typography-global-line-heights-04}px;
+    font-weight: 400;
+    color: $color-global-secondary-100;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 figure {
-  margin: 0 0 1rem;
+    margin: 0 0 1rem;
 }
 
 img,
 svg {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 iframe {
-  border: 0;
+    border: 0;
 }
 
 [hidden] {
-  display: none !important;
+    display: none !important;
 }
 
 *:focus-visible {
-  outline: 2px solid $color-global-primary-100 !important;
-  outline-offset: 1px;
+    outline: 2px solid $color-global-primary-100 !important;
+    outline-offset: 2px;
 }
 
 :focus {
-  outline: none;
+    outline: none;
 }
 
 /* Fallback for browsers without :focus-visible support */
 @supports not selector(:focus-visible) {
-  :focus {
-    outline: 2px solid $color-global-primary-100 !important;
-    outline-offset: 1px;
-  }
+    :focus {
+        outline: 2px solid $color-global-primary-100 !important;
+        outline-offset: 2px;
+    }
 }

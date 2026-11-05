@@ -1,235 +1,250 @@
 @use '../variables' as *;
+@use '../functions' as *;
 @use '../variables-addon' as *;
 
 // Footer
 .#{$prefix}footer {
-  background-color: $color-global-dark-primary-120;
-  color: $color-alias-text-color-primary-light-0;
+    background-color: $color-global-dark-primary-120;
+    color: $color-alias-text-color-primary-light-0;
 
-  & .#{$prefix}footer-action {
-    background-color: $color-global-dark-primary-115;
-    @media (max-width: 576px) {
-      .#{$prefix}btn {
-        width: 100%;
-      }
-    }
-
-    & .container-fluid {
-      padding: 16px 0;
-    }
-  }
-
-  & .#{$prefix}footer-feedback {
-    @media (max-width: 576px) {
-      .h5 {
-        font-size: #{$typography-alias-h6-md-size-05}px;
-        line-height: #{$typography-alias-h6-md-line-height-05}px;
-      }
-    }
-  }
-
-  .#{$prefix}footer-grid {
-    display: grid;
-    padding: 16px 0;
-    grid-template-columns: auto 1fr 1fr;
-    gap: 8px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      'logo address address'
-      'social social social';
-  }
-
-  .#{$prefix}footer-social {
-    grid-area: social;
-
-    ul {
-      margin: 0;
-
-      .sirio-btn-icon {
-        padding: 6px 12px;
-      }
-    }
-  }
-
-  .#{$prefix}footer-logo {
-    grid-area: logo;
-
-    & a {
-      display: inline-block;
-      margin-top: 0.25rem;
-      margin-right: 1rem;
-      @media (max-width: 992px) {
-        margin-bottom: 1rem;
-      }
-    }
-
-    & img {
-      width: 85px;
-      @media (max-width: 992px) {
-        width: 59px;
-      }
-    }
-  }
-
-  .#{$prefix}footer-address {
-    grid-area: address;
-
-    & p {
-      margin: 0;
-    }
-  }
-
-  .#{$prefix}footer-sitemap {
-    border-bottom: 1px solid $color-global-dark-primary-110;
-
-    & a {
-      font-weight: 400;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    & .h5 {
-      font-weight: 600;
-      margin-top: 16px;
-    }
-
-    & .h6 {
-      font-weight: 700;
-      margin-bottom: 11px;
-    }
-
-    & .#{$prefix}list-unstyled li {
-      margin-bottom: 8px;
-    }
-
-    & .col-12 {
-      position: relative;
-    }
-
-    & .#{$prefix}accordion-header {
-      border-top: none;
-      border-bottom: 1px solid $color-global-dark-primary-110;
-
-      &:has([aria-expanded='true']) {
-        border-bottom: none;
-      }
-
-      & .#{$prefix}accordion-trigger {
-        background-color: transparent;
-        border-color: transparent;
-        padding: 24px 0;
-
-        &:hover,
-        &:active {
-          background-color: transparent;
-          border-color: transparent;
+    & .#{$prefix}footer-action {
+        background-color: $color-global-dark-primary-115;
+        @media (max-width: 576px) {
+            .#{$prefix}btn {
+                width: 100%;
+            }
         }
-      }
+
+        & .container-fluid {
+            padding: 16px 0;
+        }
     }
 
-    & .#{$prefix}accordion-body {
-      border-bottom: 1px solid $color-global-dark-primary-110;
+    & .#{$prefix}footer-feedback {
+        @media (max-width: 576px) {
+            .h5 {
+                font-size: #{$typography-alias-h6-md-size-05}px;
+                line-height: #{$typography-alias-h6-md-line-height-05}px;
+            }
+        }
+    }
 
-      & > .h6 {
-        padding-top: 16px !important;
-      }
+    .#{$prefix}footer-grid {
+        display: grid;
+        padding: 16px 0;
+        grid-template-columns: auto 1fr 1fr;
+        gap: 8px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            'logo address address'
+            'social social social';
+    }
+
+    .#{$prefix}footer-social {
+        grid-area: social;
+
+        ul {
+            margin: 0;
+
+            .sirio-btn-icon {
+                padding: 6px 12px;
+            }
+        }
+    }
+
+    .#{$prefix}footer-logo {
+        grid-area: logo;
+
+        & a {
+            display: inline-block;
+            margin-top: 0.25rem;
+            margin-right: 1rem;
+            @media (max-width: 992px) {
+                margin-bottom: 1rem;
+            }
+        }
+
+        & img {
+            width: 85px;
+            @media (max-width: 992px) {
+                width: 59px;
+            }
+        }
+    }
+
+    .#{$prefix}footer-address {
+        grid-area: address;
+
+        & p {
+            margin: 0;
+        }
+    }
+
+    .#{$prefix}footer-sitemap {
+        border-bottom: 1px solid $color-global-dark-primary-110;
+
+        & a {
+            font-weight: 400;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        & .h5 {
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        & .h6 {
+            font-weight: 700;
+            margin-bottom: 11px;
+        }
+
+        & .#{$prefix}list-unstyled li {
+            margin-bottom: 8px;
+        }
+
+        & .col-12 {
+            position: relative;
+        }
+
+        & .#{$prefix}accordion-header {
+            border-top: none;
+            border-bottom: 1px solid $color-global-dark-primary-110;
+
+            &:has([aria-expanded='true']) {
+                border-bottom: none;
+            }
+
+            & .#{$prefix}accordion-trigger {
+                background-color: transparent;
+                border-color: transparent;
+                padding: 24px 0;
+
+                &:hover,
+                &:active {
+                    background-color: transparent;
+                    border-color: transparent;
+                }
+            }
+        }
+
+        & .#{$prefix}accordion-body {
+            border-bottom: 1px solid $color-global-dark-primary-110;
+
+            & > .h6 {
+                padding-top: 16px !important;
+            }
+        }
+
+        .border-top {
+            border-top: solid 1px $color-global-dark-primary-110;
+        }
+
+        .border-bottom {
+            border-bottom: solid 1px $color-global-dark-primary-110;
+            height: 100%;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        @media (min-width: 992px) {
+            .container-fluid .sirio-accordion-dark:first-child {
+                .sirio-accordion-body nav li:first-child {
+                    a.sirio-link-accent {
+                        font-weight: $font-weight-bold;
+                        font-size: rem($typography-alias-h5-md-size-06);
+                        line-height: rem(
+                            $typography-alias-h5-md-line-height-06
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$prefix}footer-copy {
+        background-color: $color-global-dark-primary-115;
+        padding: 8px 0;
+
+        &:before {
+            content: '';
+            background-color: $color-global-dark-primary-115;
+            height: 1px;
+            display: block;
+            margin: 0 32px;
+        }
+
+        strong {
+            font-weight: $font-weight-regular;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .#{$prefix}footer-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                'logo logo address'
+                'logo logo social';
+        }
+        .#{$prefix}footer-address {
+            font-size: 18px;
+            line-height: 150%;
+
+            br {
+                display: none;
+            }
+        }
+        .#{$prefix}footer-social > * {
+            margin: 0;
+        }
+        .#{$prefix}footer-sitemap {
+            margin-bottom: 8px;
+            padding-bottom: 48px;
+            padding-top: 48px;
+
+            & > .h5,
+            & > .h6 {
+                padding-top: 0 !important;
+            }
+
+            & .#{$prefix}btn.#{$prefix}btn-icon {
+                display: none;
+            }
+
+            & [data-sirio-visible='false'] {
+                display: block;
+            }
+
+            & .#{$prefix}accordion-body {
+                border: 0;
+            }
+
+            & .border-lg-bottom {
+                border-bottom: solid 1px $color-global-dark-primary-110;
+                height: 100%;
+            }
+        }
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+        outline-color: $color-alias-interactive-accent-focus !important;
     }
 
     .border-top {
-      border-top: solid 1px $color-global-dark-primary-110;
+        border-color: $color-global-dark-primary-110;
     }
-
-    .border-bottom {
-      border-bottom: solid 1px $color-global-dark-primary-110;
-      height: 100%;
-    }
-
-    .border-none {
-      border: none !important;
-    }
-  }
-
-  .#{$prefix}footer-copy {
-    background-color: $color-global-dark-primary-115;
-    padding: 8px 0;
-
-    &:before {
-      content: '';
-      background-color: $color-global-dark-primary-115;
-      height: 1px;
-      display: block;
-      margin: 0 32px;
-    }
-
-    strong {
-      font-weight: $font-weight-regular;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .#{$prefix}footer-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        'logo logo address'
-        'logo logo social';
-    }
-    .#{$prefix}footer-address {
-      font-size: 18px;
-      line-height: 150%;
-
-      br {
-        display: none;
-      }
-    }
-    .#{$prefix}footer-social > * {
-      margin: 0;
-    }
-    .#{$prefix}footer-sitemap {
-      margin-bottom: 8px;
-      padding-bottom: 48px;
-      padding-top: 48px;
-
-      & > .h5,
-      & > .h6 {
-        padding-top: 0 !important;
-      }
-
-      & .#{$prefix}btn.#{$prefix}btn-icon {
-        display: none;
-      }
-
-      & [data-sirio-visible='false'] {
-        display: block;
-      }
-
-      & .#{$prefix}accordion-body {
-        border: 0;
-      }
-
-      & .border-lg-bottom {
-        border-bottom: solid 1px $color-global-dark-primary-110;
-        height: 100%;
-      }
-    }
-  }
-
-  a:focus-visible,
-  button:focus-visible {
-    outline-color: $color-alias-interactive-accent-focus !important;
-  }
-
-  .border-top {
-    border-color: $color-global-dark-primary-110;
-  }
 }
 
 body:has(.sirio-dialog-sidenav-open) {
-  @media (max-width: 992px) {
-    .#{$prefix}footer {
-      margin-bottom: 84px;
+    @media (max-width: 992px) {
+        .#{$prefix}footer {
+            margin-bottom: 84px;
+        }
     }
-  }
 }

@@ -393,7 +393,7 @@ h4.guide-title:before {
 .guide-border {
 	border: 1px solid #a3b5c9;
 }
-.blockquote {
+.blockquote, .simple-blockquote  {
 	padding: 20px 20px 20px 90px;
     border-radius: 8px;
     font-style: italic;
@@ -408,7 +408,20 @@ h4.guide-title:before {
 	position: relative;
     word-break: break-word;
 }
-.blockquote p:last-child {
+.simple-blockquote {
+    padding: 20px;
+    font-style: normal;
+}
+
+.simple-blockquote table td {
+    border: solid 1px #ccdbec;
+    padding: 4px;
+}
+.simple-blockquote table th {
+    background: #ccdbec;
+    padding: 5px;
+}
+.blockquote p:last-child, .simple-blockquote p:last-child {
     margin: 0;
 }
 .blockquote::before {
@@ -432,7 +445,7 @@ h4.guide-title:before {
     color: #ccdbec;
     padding: 10px 10px 10px 4px;
 }
-.blockquote code {
+.blockquote code, .simple-blockquote code {
     margin: 0;
     font-style: normal;
     background: #2f2f2f;
