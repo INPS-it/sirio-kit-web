@@ -52,7 +52,7 @@
       <aside class="guide-aside">
         <div class="guide-sticky">
           <header class="guide-header">
-            <h1><a href="../index.html"><img class="guide-logo" alt="" src="assets/img/logo-inps.svg"></a>
+            <h1><a href="index.html"><img class="guide-logo" alt="" src="assets/img/logo-inps.svg"></a>
               <span><strong>Sirio</strong> WebKit <small></small></span></h1>
             <button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');"
                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"><span
@@ -111,6 +111,7 @@
                   <li><a href="./components-contents.html#paginazione">Paginazione</a></li>
                   <li><a href="./components-contents.html#tooltip">Tooltip</a></li>
                   <li><a href="./components-contents.html#dialog">Dialog</a></li>
+                  <li><a href="./components-contents.html#loader">Loader</a></li>
                   <li><a href="./components-contents.html#notifiche">Notifiche</a></li>
                   <li><a href="./components-contents.html#avvisi">Avvisi</a></li>
                   <li><a href="./components-contents.html#stepper">Step Progress Bar</a></li>
@@ -151,7 +152,7 @@
             
             
             <ul id="guide-home-link" style="padding-top:0px;padding-bottom:0px">
-              <li><a href="../index.html">Torna alla home</a></li>
+              <li><a href="index.html">Torna alla home</a></li>
             </ul>
           </nav>
         </div>
@@ -175,26 +176,26 @@
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-primary-example">
-<button class="sirio-btn sirio-btn-primary">Primario</button>
+<button type="button" class="sirio-btn sirio-btn-primary">Primario</button>
               </div>
               <div class="guide-col-auto" id="btn-primary-icon-example">
-<button class="sirio-btn sirio-btn-primary">
+<button type="button" class="sirio-btn sirio-btn-primary">
   Primario <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-primary-icon-only-example">
-<button class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Label bottone">
+<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-icon" aria-label="Label bottone">
   <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-primary-disabled-example">
-<button class="sirio-btn sirio-btn-primary" disabled>Primario disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-primary" disabled>Primario disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-primary-medium-example">
-<button class="sirio-btn sirio-btn-primary sirio-btn-medium">Primario medio</button>
+<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-medium">Primario medio</button>
               </div>
               <div class="guide-col-auto" id="btn-primary-small-example">
-<button class="sirio-btn sirio-btn-primary sirio-btn-small">Primario small</button>
+<button type="button" class="sirio-btn sirio-btn-primary sirio-btn-small">Primario small</button>
               </div>
             </div>
           </div>
@@ -229,31 +230,31 @@
           <h4 class="guide-title">Bottone secondario</h4>
           <div class="blockquote">
             <p>Utilizza i <strong>bottoni secondari</strong> in combinazione ai bottoni primari con lo scopo di indicare
-              l’azione opposta a qualla principale.</p>
+              l’azione opposta a quella principale.</p>
           </div>
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-secondary-example">
-<button class="sirio-btn sirio-btn-secondary">Secondario</button>
+<button type="button" class="sirio-btn sirio-btn-secondary">Secondario</button>
               </div>
               <div class="guide-col-auto" id="btn-secondary-icon-example">
-<button class="sirio-btn sirio-btn-secondary">
+<button type="button" class="sirio-btn sirio-btn-secondary">
   Secondario <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-secondary-icon-only-example">
-<button class="sirio-btn sirio-btn-secondary sirio-btn-icon" aria-label="Label bottone">
+<button type="button" class="sirio-btn sirio-btn-secondary sirio-btn-icon" aria-label="Label bottone">
   <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-secondary-disabled-example">
-<button class="sirio-btn sirio-btn-secondary" disabled>Secondario disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-secondary" disabled>Secondario disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-secondary-medium-example">
-<button class="sirio-btn sirio-btn-secondary sirio-btn-medium">Secondario medio</button>
+<button type="button" class="sirio-btn sirio-btn-secondary sirio-btn-medium">Secondario medio</button>
               </div>
               <div class="guide-col-auto" id="btn-secondary-small-example">
-<button class="sirio-btn sirio-btn-secondary sirio-btn-small">Secondario small</button>
+<button type="button" class="sirio-btn sirio-btn-secondary sirio-btn-small">Secondario small</button>
               </div>
             </div>
           </div>
@@ -292,26 +293,26 @@
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-tertiary-example">
-<button class="sirio-btn sirio-btn-tertiary">Terziario</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary">Terziario</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-icon-example">
-<button class="sirio-btn sirio-btn-tertiary">
+<button type="button" class="sirio-btn sirio-btn-tertiary">
   Terziario <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-icon-only-example">
-<button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" aria-label="Label bottone">
+<button type="button" class="sirio-btn sirio-btn-tertiary sirio-btn-icon" aria-label="Label bottone">
   <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-disabled-example">
-<button class="sirio-btn sirio-btn-tertiary" disabled>Terziario disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary" disabled>Terziario disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-medium-example">
-<button class="sirio-btn sirio-btn-tertiary sirio-btn-medium">Terziario medio</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary sirio-btn-medium">Terziario medio</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-small-example">
-<button class="sirio-btn sirio-btn-tertiary sirio-btn-small">Terziario small</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary sirio-btn-small">Terziario small</button>
               </div>
             </div>
           </div>
@@ -351,26 +352,26 @@
           <div class="guide-example">
             <div class="guide-row sirio-bg-primary-dark-120">
               <div class="guide-col-auto" id="btn-tertiary-light-example">
-<button class="sirio-btn sirio-btn-tertiary-light">Terziario</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-light">Terziario</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-light-icon-example">
-<button class="sirio-btn sirio-btn-tertiary-light">
+<button type="button" class="sirio-btn sirio-btn-tertiary-light">
   Terziario <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-light-icon-only-example">
-<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" aria-label="Label bottone">
+<button type="button" class="sirio-btn sirio-btn-tertiary-light sirio-btn-icon" aria-label="Label bottone">
   <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-light-disabled-example">
-<button class="sirio-btn sirio-btn-tertiary-light" disabled>Terziario disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-light" disabled>Terziario disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-light-medium-example">
-<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-medium">Terziario medio</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-light sirio-btn-medium">Terziario medio</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-light-small-example">
-<button class="sirio-btn sirio-btn-tertiary-light sirio-btn-small">Terziario small</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-light sirio-btn-small">Terziario small</button>
               </div>
             </div>
           </div>
@@ -409,26 +410,26 @@
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-ghost-example">
-<button class="sirio-btn">Fantasma</button>
+<button type="button" class="sirio-btn">Fantasma</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-icon-example">
-<button class="sirio-btn">
+<button type="button" class="sirio-btn">
   Fantasma <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-icon-only-example">
-<button class="sirio-btn sirio-btn-icon" aria-label="Label bottone">
+<button type="button" class="sirio-btn sirio-btn-icon" aria-label="Label bottone">
   <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-disabled-example">
-<button class="sirio-btn" disabled>Fantasma disabilitato</button>
+<button type="button" class="sirio-btn" disabled>Fantasma disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-medium-example">
-<button class="sirio-btn sirio-btn-medium">Fantasma medio</button>
+<button type="button" class="sirio-btn sirio-btn-medium">Fantasma medio</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-small-example">
-<button class="sirio-btn sirio-btn-small">Fantasma small</button>
+<button type="button" class="sirio-btn sirio-btn-small">Fantasma small</button>
               </div>
             </div>
           </div>
@@ -469,26 +470,21 @@
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-danger-example">
-<button class="sirio-btn sirio-btn-danger">Attenzione</button>
+<button type="button" class="sirio-btn sirio-btn-danger">Attenzione</button>
               </div>
               <div class="guide-col-auto" id="btn-danger-icon-example">
-<button class="sirio-btn sirio-btn-danger">
+<button type="button" class="sirio-btn sirio-btn-danger">
   Attenzione <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
-              <div class="guide-col-auto" id="btn-danger-icon-only-example">
-<button class="sirio-btn sirio-btn-danger sirio-btn-icon" aria-label="Label bottone">
-  <span class="fas fa-arrow-right" aria-hidden="true"></span>
-</button>
-              </div>
               <div class="guide-col-auto" id="btn-danger-disabled-example">
-<button class="sirio-btn sirio-btn-danger" disabled>Attenzione disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-danger" disabled>Attenzione disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-danger-medium-example">
-<button class="sirio-btn sirio-btn-danger sirio-btn-medium">Attenzione medio</button>
+<button type="button" class="sirio-btn sirio-btn-danger sirio-btn-medium">Attenzione medio</button>
               </div>
               <div class="guide-col-auto" id="btn-danger-small-example">
-<button class="sirio-btn sirio-btn-danger sirio-btn-small">Attenzione small</button>
+<button type="button" class="sirio-btn sirio-btn-danger sirio-btn-small">Attenzione small</button>
               </div>
             </div>
           </div>
@@ -497,8 +493,6 @@
             <pre><code id="btn-danger-code"></code></pre>
             <p class="guide-code-title">Bottone attenzione con icona:</p>
             <pre><code id="btn-danger-icon-code"></code></pre>
-            <p class="guide-code-title">Bottone attenzione solo icona:</p>
-            <pre><code id="btn-danger-icon-only-code"></code></pre>
             <p class="guide-code-title">Bottone attenzione disabilitato:</p>
             <pre><code id="btn-danger-disabled-code"></code></pre>
             <p class="guide-code-title">Bottone attenzione medio:</p>
@@ -511,7 +505,6 @@
             document.addEventListener('DOMContentLoaded', () => {
               guideApp.copyHtmlExample('btn-danger-example', 'btn-danger-code');
               guideApp.copyHtmlExample('btn-danger-icon-example', 'btn-danger-icon-code');
-              guideApp.copyHtmlExample('btn-danger-icon-only-example', 'btn-danger-icon-only-code');
               guideApp.copyHtmlExample('btn-danger-disabled-example', 'btn-danger-disabled-code');
               guideApp.copyHtmlExample('btn-danger-medium-example', 'btn-danger-medium-code');
               guideApp.copyHtmlExample('btn-danger-small-example', 'btn-danger-small-code');
@@ -522,26 +515,21 @@
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-ghost-danger-example">
-                <button class="sirio-btn sirio-btn-ghost-danger">Fantasma attenzione</button>
+<button type="button" class="sirio-btn sirio-btn-ghost-danger">Fantasma attenzione</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-danger-icon-example">
-                <button class="sirio-btn sirio-btn-ghost-danger">
-                  Fantasma attenzione <span class="fas fa-arrow-right" aria-hidden="true"></span>
-                </button>
-              </div>
-              <div class="guide-col-auto" id="btn-ghost-danger-icon-only-example">
-                <button class="sirio-btn sirio-btn-ghost-danger sirio-btn-icon" aria-label="Label bottone">
-                  <span class="fas fa-arrow-right" aria-hidden="true"></span>
-                </button>
+<button type="button" class="sirio-btn sirio-btn-ghost-danger">
+  Fantasma attenzione <span class="fas fa-arrow-right" aria-hidden="true"></span>
+</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-danger-disabled-example">
-                <button class="sirio-btn sirio-btn-ghost-danger" disabled>Fantasma attenzione disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-ghost-danger" disabled>Fantasma attenzione disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-danger-medium-example">
-                <button class="sirio-btn sirio-btn-ghost-danger sirio-btn-medium">Fantasma attenzione medio</button>
+<button type="button" class="sirio-btn sirio-btn-ghost-danger sirio-btn-medium">Fantasma attenzione medio</button>
               </div>
               <div class="guide-col-auto" id="btn-ghost-danger-small-example">
-                <button class="sirio-btn sirio-btn-ghost-danger sirio-btn-small">Fantasma attenzione small</button>
+<button type="button" class="sirio-btn sirio-btn-ghost-danger sirio-btn-small">Fantasma attenzione small</button>
               </div>
             </div>
           </div>
@@ -550,8 +538,6 @@
             <pre><code id="btn-ghost-danger-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione con icona:</p>
             <pre><code id="btn-ghost-danger-icon-code"></code></pre>
-            <p class="guide-code-title">Bottone fantasma attenzione solo icona:</p>
-            <pre><code id="btn-ghost-danger-icon-only-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione disabilitato:</p>
             <pre><code id="btn-ghost-danger-disabled-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione medio:</p>
@@ -564,7 +550,6 @@
             document.addEventListener('DOMContentLoaded', () => {
               guideApp.copyHtmlExample('btn-ghost-danger-example', 'btn-ghost-danger-code');
               guideApp.copyHtmlExample('btn-ghost-danger-icon-example', 'btn-ghost-danger-icon-code');
-              guideApp.copyHtmlExample('btn-ghost-danger-icon-only-example', 'btn-ghost-danger-icon-only-code');
               guideApp.copyHtmlExample('btn-ghost-danger-disabled-example', 'btn-ghost-danger-disabled-code');
               guideApp.copyHtmlExample('btn-ghost-danger-medium-example', 'btn-ghost-danger-medium-code');
               guideApp.copyHtmlExample('btn-ghost-danger-small-example', 'btn-ghost-danger-small-code');
@@ -572,30 +557,25 @@
           </script>
 
 
-          <h4 class="guide-title">Bottone terizario attenzione</h4>
+          <h4 class="guide-title">Bottone terziario attenzione</h4>
           <div class="guide-example">
             <div class="guide-row">
               <div class="guide-col-auto" id="btn-tertiary-danger-example">
-<button class="sirio-btn sirio-btn-tertiary-danger">Fantasma attenzione</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-danger">Fantasma attenzione</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-danger-icon-example">
-<button class="sirio-btn sirio-btn-tertiary-danger">
+<button type="button" class="sirio-btn sirio-btn-tertiary-danger">
   Fantasma attenzione <span class="fas fa-arrow-right" aria-hidden="true"></span>
 </button>
               </div>
-              <div class="guide-col-auto" id="btn-tertiary-danger-icon-only-example">
-<button class="sirio-btn sirio-btn-tertiary-danger sirio-btn-icon" aria-label="Label bottone">
-  <span class="fas fa-arrow-right" aria-hidden="true"></span>
-</button>
-              </div>
               <div class="guide-col-auto" id="btn-tertiary-danger-disabled-example">
-<button class="sirio-btn sirio-btn-tertiary-danger" disabled>Fantasma attenzione disabilitato</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-danger" disabled>Fantasma attenzione disabilitato</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-danger-medium-example">
-<button class="sirio-btn sirio-btn-tertiary-danger sirio-btn-medium">Fantasma attenzione medio</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-danger sirio-btn-medium">Fantasma attenzione medio</button>
               </div>
               <div class="guide-col-auto" id="btn-tertiary-danger-small-example">
-<button class="sirio-btn sirio-btn-tertiary-danger sirio-btn-small">Fantasma attenzione small</button>
+<button type="button" class="sirio-btn sirio-btn-tertiary-danger sirio-btn-small">Fantasma attenzione small</button>
               </div>
             </div>
           </div>
@@ -604,8 +584,6 @@
             <pre><code id="btn-tertiary-danger-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione con icona:</p>
             <pre><code id="btn-tertiary-danger-icon-code"></code></pre>
-            <p class="guide-code-title">Bottone fantasma attenzione solo icona:</p>
-            <pre><code id="btn-tertiary-danger-icon-only-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione disabilitato:</p>
             <pre><code id="btn-tertiary-danger-disabled-code"></code></pre>
             <p class="guide-code-title">Bottone fantasma attenzione medio:</p>
@@ -618,7 +596,6 @@
             document.addEventListener('DOMContentLoaded', () => {
               guideApp.copyHtmlExample('btn-tertiary-danger-example', 'btn-tertiary-danger-code');
               guideApp.copyHtmlExample('btn-tertiary-danger-icon-example', 'btn-tertiary-danger-icon-code');
-              guideApp.copyHtmlExample('btn-tertiary-danger-icon-only-example', 'btn-tertiary-danger-icon-only-code');
               guideApp.copyHtmlExample('btn-tertiary-danger-disabled-example', 'btn-tertiary-danger-disabled-code');
               guideApp.copyHtmlExample('btn-tertiary-danger-medium-example', 'btn-tertiary-danger-medium-code');
               guideApp.copyHtmlExample('btn-tertiary-danger-small-example', 'btn-tertiary-danger-small-code');
@@ -894,6 +871,167 @@ select.setOnChange(function() {
 });
 </code></pre>
           </div>
+          <hr class="guide-separator">
+
+
+          <h4 class="guide-title">Dropdown search</h4>
+          <div class="blockquote">
+            <p>
+              Nel caso in cui le option siano numerose è possibile utilizzare la ricerca sulla dropdown sia con scelta singola che multipla.
+            </p>
+            <p>
+              Per attivare la ricerca è sufficiente aggiungere l'attributo <code>data-sirio-search</code> all'elemento <code>select</code>.
+              Il valore di <code>data-sirio-search</code> corrisponde al placeholder del campo di ricerca.
+            </p>
+            <p>
+              Se desideri che la ricerca filtri solo le opzioni che iniziano con il testo cercato aggiungi l'attributo
+              <code>data-sirio-search-startwith="true"</code> alla select.
+            </p>
+          </div>
+          <div class="guide-example" id="dropdown-search-example">
+            <div class="guide-row">
+              <div class="guide-col-md-6">
+                <label for="selectIDsearch">Comune di residenza (scelta singola)</label>
+                <select
+                    name="selectIDsearch"
+                    id="selectIDsearch"
+                    class="sirio-form-control"
+                    data-sirio-component="select"
+                    data-sirio-search="Cerca">
+                  <option value="" selected disabled hidden>Seleziona il Comune</option>
+                  <option value="1">Abbadia Cerreto</option>
+                  <option value="2">Abbadia Lariana</option>
+                  <option value="3">Abbiategrasso</option>
+                  <option value="4">Acquafredda</option>
+                  <option value="5">Acquanegra Cremonese</option>
+                  <option value="6">Adrara San Martino</option>
+                  <option value="7">Agrate Brianza</option>
+                  <option value="8">Albairate</option>
+                  <option value="9">Albiate</option>
+                  <option value="10">Alzano Lombardo</option>
+                  <option value="11">Bergamo</option>
+                  <option value="12">Brescia</option>
+                  <option value="13">Busto Arsizio</option>
+                  <option value="14">Cantù</option>
+                  <option value="15">Como</option>
+                  <option value="16">Cremona</option>
+                  <option value="17">Lecco</option>
+                  <option value="18">Lodi</option>
+                  <option value="19">Mantova</option>
+                  <option value="20">Milano</option>
+                  <option value="21">Monza</option>
+                  <option value="22">Pavia</option>
+                  <option value="23">Sondrio</option>
+                  <option value="24">Varese</option>
+                  <option value="25">Vigevano</option>
+                </select>
+              </div>
+              <div class="guide-col-md-6">
+                <label for="selectIDsearchMultiple">Comuni di interesse (scelta multipla)</label>
+                <select
+                    name="selectIDsearchMultiple"
+                    id="selectIDsearchMultiple"
+                    title="Seleziona uno o più Comuni"
+                    class="sirio-form-control"
+                    data-sirio-component="select"
+                    data-sirio-search="Cerca"
+                    multiple>
+                  <option value="1">Abbadia Cerreto</option>
+                  <option value="2">Abbadia Lariana</option>
+                  <option value="3">Abbiategrasso</option>
+                  <option value="4">Acquafredda</option>
+                  <option value="5">Acquanegra Cremonese</option>
+                  <option value="6">Adrara San Martino</option>
+                  <option value="7">Agrate Brianza</option>
+                  <option value="8">Albairate</option>
+                  <option value="9">Albiate</option>
+                  <option value="10">Alzano Lombardo</option>
+                  <option value="11">Bergamo</option>
+                  <option value="12">Brescia</option>
+                  <option value="13">Busto Arsizio</option>
+                  <option value="14">Cantù</option>
+                  <option value="15">Como</option>
+                  <option value="16">Cremona</option>
+                  <option value="17">Lecco</option>
+                  <option value="18">Lodi</option>
+                  <option value="19">Mantova</option>
+                  <option value="20">Milano</option>
+                  <option value="21">Monza</option>
+                  <option value="22">Pavia</option>
+                  <option value="23">Sondrio</option>
+                  <option value="24">Varese</option>
+                  <option value="25">Vigevano</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="code" aria-hidden="true" id="dropdown-search-code">
+            <p class="guide-code-title">Dropdown Select con ricerca (scelta singola):</p>
+            <pre><code>
+&lt;label for="selectIDsearch" id="selectIDsearch-label">Comune di residenza (scelta singola)&lt;/label>
+&lt;div data-sirio-component="dropdown" class="sirio-dropdown">
+&lt;select name="selectIDsearch" id="selectIDsearch" class="sirio-form-control" data-sirio-component="select" data-sirio-search="Cerca" data-sirio-visible="false" aria-hidden="true" tabindex="-1">
+  &lt;option value="" selected="" disabled="" hidden="">Seleziona il Comune&lt;/option>
+  &lt;option value="1">Abbadia Cerreto&lt;/option>
+  &lt;option value="2">Abbadia Lariana&lt;/option>
+  &lt;option value="3">Abbiategrasso&lt;/option>
+  &lt;option value="4">Acquafredda&lt;/option>
+  &lt;option value="5">Acquanegra Cremonese&lt;/option>
+  &lt;option value="6">Adrara San Martino&lt;/option>
+  &lt;option value="7">Agrate Brianza&lt;/option>
+  &lt;option value="8">Albairate&lt;/option>
+  &lt;option value="9">Albiate&lt;/option>
+  &lt;option value="10">Alzano Lombardo&lt;/option>
+  &lt;option value="11">Bergamo&lt;/option>
+  &lt;option value="12">Brescia&lt;/option>
+  &lt;option value="13">Busto Arsizio&lt;/option>
+  &lt;option value="14">Cantù&lt;/option>
+  &lt;option value="15">Como&lt;/option>
+  &lt;option value="16">Cremona&lt;/option>
+  &lt;option value="17">Lecco&lt;/option>
+  &lt;option value="18">Lodi&lt;/option>
+  &lt;option value="19">Mantova&lt;/option>
+  &lt;option value="20">Milano&lt;/option>
+  &lt;option value="21">Monza&lt;/option>
+  &lt;option value="22">Pavia&lt;/option>
+  &lt;option value="23">Sondrio&lt;/option>
+  &lt;option value="24">Varese&lt;/option>
+  &lt;option value="25">Vigevano&lt;/option>
+&lt;/select>
+          </code></pre>
+            <p class="guide-code-title">Dropdown Select con ricerca (scelta multipla):</p>
+            <pre><code>
+&lt;label for="selectIDsearchMultiple" id="selectIDsearchMultiple-label">Comuni di interesse (scelta multipla)&lt;/label>
+&lt;div data-sirio-component="dropdown" class="sirio-dropdown">
+&lt;select name="selectIDsearchMultiple" id="selectIDsearchMultiple" title="Seleziona uno o più Comuni" class="sirio-form-control" data-sirio-component="select" data-sirio-search="Cerca" multiple data-sirio-visible="false" aria-hidden="true" tabindex="-1">
+  &lt;option value="1">Abbadia Cerreto&lt;/option>
+  &lt;option value="2">Abbadia Lariana&lt;/option>
+  &lt;option value="3">Abbiategrasso&lt;/option>
+  &lt;option value="4">Acquafredda&lt;/option>
+  &lt;option value="5">Acquanegra Cremonese&lt;/option>
+  &lt;option value="6">Adrara San Martino&lt;/option>
+  &lt;option value="7">Agrate Brianza&lt;/option>
+  &lt;option value="8">Albairate&lt;/option>
+  &lt;option value="9">Albiate&lt;/option>
+  &lt;option value="10">Alzano Lombardo&lt;/option>
+  &lt;option value="11">Bergamo&lt;/option>
+  &lt;option value="12">Brescia&lt;/option>
+  &lt;option value="13">Busto Arsizio&lt;/option>
+  &lt;option value="14">Cantù&lt;/option>
+  &lt;option value="15">Como&lt;/option>
+  &lt;option value="16">Cremona&lt;/option>
+  &lt;option value="17">Lecco&lt;/option>
+  &lt;option value="18">Lodi&lt;/option>
+  &lt;option value="19">Mantova&lt;/option>
+  &lt;option value="20">Milano&lt;/option>
+  &lt;option value="21">Monza&lt;/option>
+  &lt;option value="22">Pavia&lt;/option>
+  &lt;option value="23">Sondrio&lt;/option>
+  &lt;option value="24">Varese&lt;/option>
+  &lt;option value="25">Vigevano&lt;/option>
+&lt;/select>
+          </code></pre></div>
+
           <hr class="guide-separator">
           <h4 class="guide-title">Javascript: Eventi e metodi</h4>
           <div class="blockquote">
@@ -1469,7 +1607,7 @@ select.setOnChange(function() {
                            data-sirio-maxfiles="4" aria-describedby="file-upload-text-help">
                     <label for="file-upload" class="sirio-btn sirio-btn-primary">
                       <span>Upload</span>
-                      <span class="fas fa-arrow-up" aria-hidden="true"></span>
+                      <span class="fas fa-folder-open" aria-hidden="true"></span>
                     </label>
                   </div>
                 </form>
@@ -1490,7 +1628,7 @@ select.setOnChange(function() {
             aria-describedby=&quot;file-upload-text-help&quot;&gt;
         &lt;label for=&quot;ID-file-upload&quot; class=&quot;sirio-btn sirio-btn-primary&quot;&gt;
             &lt;span&gt;Upload&lt;/span&gt;
-            &lt;span class=&quot;fas fa-arrow-up&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fas fa-folder-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
         &lt;/label&gt;
 &lt;/div&gt;
 </code></pre>

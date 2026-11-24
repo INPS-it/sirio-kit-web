@@ -5,6 +5,9 @@
 .#{$prefix}dropdown {
     position: relative;
 
+    button {
+        line-height: 120%;
+    }
     &.#{$prefix}dropdown-detach {
         z-index: 1002;
     }
@@ -53,36 +56,79 @@
             width: 100%;
         }
 
+        &.#{$prefix}dropdown-menu-search {
+            width: 100%;
+
+            & .#{$prefix}dropdown-listbox {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                max-height: 240px;
+                overflow: auto;
+                position: relative;
+            }
+
+            & li.#{$prefix}dropdown-item:first-child {
+                border-top: 1px solid $color-global-dark-secondary-130;
+            }
+        }
+
+        & .#{$prefix}dropdown-search {
+            padding: 8px;
+            background-color: $color-global-light-secondary-40;
+
+            & .#{$prefix}form-control {
+                height: 32px;
+                padding: 8px 48px 8px 8px;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23454D56' viewBox='0 0 512 512'%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3e%3c/svg%3e");
+                background-size: 16px;
+                background-repeat: no-repeat;
+                background-position: right 8px top 50%;
+            }
+        }
+
+        & .#{$prefix}dropdown-empty {
+            padding: 16px;
+            border-top: 1px solid $color-global-dark-secondary-130;
+            color: $color-global-secondary-100;
+        }
+
         & .#{$prefix}dropdown-item {
-            padding: 16px 48px 16px 16px;
+            padding: 12px 48px 12px 16px;
             display: block;
             color: $color-global-secondary-100;
+            border: none;
+            background: none;
             border-top: 1px solid $color-global-dark-secondary-130;
             text-decoration: none;
             font-weight: 400;
+            line-height: 23px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            &[hidden] {
+                display: none;
+            }
+
+            // Part of the option matching the search field
+            & .found {
+                font-weight: 700;
+                text-decoration: underline;
+                color: $color-global-primary-100;
+            }
 
             &:hover,
             &:hover a {
                 background-color: $color-global-light-primary-40;
             }
 
-            &:focus-visible {
+            &:focus-visible, &.hover {
                 color: $color-global-secondary-90;
                 border-radius: 0;
                 outline: 2px solid $color-specific-option-background-color-focus;
                 outline-offset: -2px;
 
-            }
-
-            &.hover {
-                color: $color-global-primary-000;
-                background-color: $color-specific-option-background-color-hover;
-                background-image: linear-gradient(
-                    $color-specific-option-background-color-hover,
-                    $color-specific-option-background-color-hover
-                );
-                border-top: 1px solid
-                    $color-specific-option-background-color-hover;
             }
 
             &:not(:disabled):not(.disabled):active {
@@ -101,7 +147,7 @@
 
         & li.#{$prefix}dropdown-item:first-child {
             border: 0;
-            min-height: 56px;
+            min-height: 48px;
         }
 
         &
@@ -111,6 +157,15 @@
 
             & + li:not(.#{$prefix}dropdown-item) {
                 border-color: transparent;
+            }
+        }
+    }
+
+    &:has(> button.sirio-btn-link) {
+        .#{$prefix}dropdown-menu {
+            transform: translateY(24px);
+            &.#{$prefix}dropdown-menu-top {
+                transform: translateY(-8px);
             }
         }
     }

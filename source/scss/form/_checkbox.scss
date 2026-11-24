@@ -72,6 +72,7 @@
 
         &:before {
             border: 1px solid $color-alias-interactive-secondary-default;
+            background-color: $color-global-primary-000;
         }
 
         &:hover::before {

@@ -608,12 +608,41 @@
     line-height: 27px;
   }
 
+  &-dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    border: 1px solid $color-global-secondary-100;
+    position: absolute !important;
+    z-index: 1000;
+    min-width: 180px;
+    text-align: left;
+    background-color: #fff;
+    background-clip: padding-box;
+    inset: 8px auto auto 0;
+    transform: translate(0px, 48px);
+    overflow: hidden;
+  }
+
+  .#{$prefix}dropdown-menu-right {
+    a span.#{$prefix}text-underline {
+      @media (max-width: 992px) {
+        text-decoration: none;
+      }
+    }
+  }
   .border-left {
     border-color: transparent;
   }
 
   & .#{$prefix}service-header-content {
     min-height: 48px;
+  }
+
+  // Let the nested profile dropdown escape the functions menu
+  & .#{$prefix}service-header-function .#{$prefix}dropdown-menu:has(.#{$prefix}service-header-dropdown-menu) {
+    overflow: visible;
   }
 
   & .#{$prefix}btn-primary {
@@ -669,6 +698,7 @@
       transform: none !important;
       background: 0 0;
       z-index: inherit;
+      overflow: visible;
     }
     .#{$prefix}service-header-function
     .#{$prefix}dropdown-menu
@@ -676,7 +706,7 @@
       text-decoration: underline;
       background-color: transparent !important;
       color: #fff;
-      padding: 8px;
+      padding: 6px 8px;
       border: 0 !important;
       border-radius: 8px;
       line-height: 26px;
@@ -699,6 +729,47 @@
 
       &:focus {
         outline-color: #fff;
+      }
+    }
+    // Nested profile dropdown keeps the default dropdown item look
+    .#{$prefix}service-header-function
+    .#{$prefix}service-header-dropdown-menu {
+
+      li[role="none"] {
+        margin-right: 0;
+        border-bottom: 1px solid $color-global-dark-secondary-130;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      .#{$prefix}dropdown-item {
+        text-decoration: none !important;
+        padding: 12px 16px;
+        border-radius: 0;
+        line-height: 23px;
+
+        &,
+        &:active,
+        &:visited,
+        &:hover {
+          color: $color-global-secondary-100;
+        }
+        &:hover {
+          background-color: $color-global-light-primary-40 !important;
+        }
+        &:not(:disabled):not(.disabled):active {
+          background-color: $color-global-light-primary-50 !important;
+          outline: 0;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus {
+          outline-color: currentColor;
+        }
       }
     }
   }
@@ -774,14 +845,7 @@
   }
 }
 
-.#{$prefix}dialog-nav-mobile {
-  & .logo-mobile {
-    margin: 0 10px !important;
-  }
-}
-
 //Skiplink
-
 .skiplink ul {
   display: inline;
 

@@ -1,55 +1,89 @@
 @use '../variables' as *;
+@use '../variables-addon' as *;
+
 /*Loading Spinner*/
-.loading {
-    position: fixed;
-    width: 100%;
+.#{$prefix}loading {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 10;
+  display: none;
+
+  &:not([hidden]) {
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
-    z-index: 99999;
-    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-global-primary-000, 0.9);
+    z-index: -1;
+  }
 
-    &.inline {
-        position: absolute;
-        height: 100%;
-        z-index: 9;
-    }
-
-    .spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -64px;
-        margin-left: -64px;
-        width: 64px;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background:
-            radial-gradient(farthest-side, $color-global-primary-100 94%, #0000)
-                top/6px 6px no-repeat,
-            conic-gradient(#0000 30%, $color-global-primary-100);
-        -webkit-mask: radial-gradient(
+  .#{$prefix}spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 64px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side, $color-global-primary-100 94%, #0000) top/6px 6px no-repeat,
+    conic-gradient(#0000 30%, $color-global-primary-100);
+    -webkit-mask: radial-gradient(
             farthest-side,
             #0000 calc(100% - 6px),
             #000 0
-        );
-        animation: spin 1.2s infinite linear;
+    );
+    animation: spin 1.2s infinite linear;
+  }
 
-        &.white {
-            background:
-                radial-gradient(
-                        farthest-side,
-                        $color-global-primary-000 94%,
-                        #0000
-                    )
-                    top/6px 6px no-repeat,
-                conic-gradient(#0000 30%, $color-global-primary-000);
-        }
+  &.#{$prefix}loading-white {
+    &::after {
+      background-color: rgba($color-global-dark-primary-120, 0.9);
     }
+
+    .#{$prefix}spinner {
+      background: radial-gradient(
+              farthest-side,
+              $color-global-primary-000 94%,
+              #0000
+      ) top/6px 6px no-repeat,
+      conic-gradient(#0000 30%, $color-global-primary-000);
+    }
+  }
+
+  &.#{$prefix}loading-inline {
+    position: absolute;
+    height: 100%;
+
+    .#{$prefix}spinner {
+      position: absolute;
+    }
+  }
+
+  &.#{$prefix}loading-blur {
+    &::after {
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  &.#{$prefix}loading-no-background {
+    &::after {
+      content: none;
+    }
+  }
 }
 
 @keyframes spin {
-    100% {
-        transform: rotate(1turn);
-    }
+  100% {
+    transform: rotate(1turn);
+  }
 }

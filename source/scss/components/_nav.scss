@@ -86,7 +86,8 @@
     }
 
     .#{$prefix}dropdown > .#{$prefix}nav-link {
-        padding: 8px;
+        padding: 12px 8px;
+        line-height: 100%;
     }
 
     .#{$prefix}dropdown > .#{$prefix}nav-link[aria-expanded='true']:after {

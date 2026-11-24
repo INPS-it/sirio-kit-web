@@ -46,7 +46,7 @@
             <aside class="guide-aside">
                 <div class="guide-sticky">
                     <header class="guide-header">
-                        <h1><a href="../index.html"><img class="guide-logo" alt="" src="assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
+                        <h1><a href="index.html"><img class="guide-logo" alt="" src="assets/img/logo-inps.svg"></a> <span><strong>Sirio</strong> WebKit <small></small></span></h1>
                         <button class="guide-btn guide-btn-icon guide-btn-menu" onclick="$('.guide-nav').addClass('open');" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"><span class="fas fa-bars"></span></button>
                     </header>
                     <nav aria-label="Menu dei componenti" class="guide-nav">
@@ -100,6 +100,7 @@
                                     <li><a href="./components-contents.html#paginazione">Paginazione</a></li>
                                     <li><a href="./components-contents.html#tooltip">Tooltip</a></li>
                                     <li><a href="./components-contents.html#dialog">Dialog</a></li>
+                                    <li><a href="./components-contents.html#loader">Loader</a></li>
                                     <li><a href="./components-contents.html#notifiche">Notifiche</a></li>
                                     <li><a href="./components-contents.html#avvisi">Avvisi</a></li>
                                     <li><a href="./components-contents.html#stepper">Step Progress Bar</a></li>
@@ -140,7 +141,7 @@
                         
                         
                         <ul id="guide-home-link" style="padding-top:0px;padding-bottom:0px">
-                            <li><a href="../index.html">Torna alla home</a></li>
+                            <li><a href="index.html">Torna alla home</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -239,7 +240,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-1" data-sirio-toggle="dropdown" aria-expanded="false">
                                         Dropdown menu
                                     </button>
-                                    <ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-1" data-sirio-visible="false">
+                                    <ul class="sirio-dropdown-menu" role="menu" aria-labelledby="dropdown-example-1" data-sirio-visible="false">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -251,7 +252,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-4" data-sirio-toggle="dropdown" aria-expanded="true">
                                         Dropdown menu a destra
                                     </button>
-                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-4" data-sirio-visible="true">
+                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" role="menu" aria-labelledby="dropdown-example-4" data-sirio-visible="true">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -263,7 +264,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-5" data-sirio-toggle="dropdown" aria-expanded="true">
                                         Dropdown menu in alto
                                     </button>
-                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-top" aria-labelledby="dropdown-example-5" data-sirio-visible="true">
+                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-top" role="menu" aria-labelledby="dropdown-example-5" data-sirio-visible="true">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -275,7 +276,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-6" data-sirio-toggle="dropdown" aria-expanded="true">
                                         Dropdown menu in alto a destra
                                     </button>
-                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right sirio-dropdown-menu-top" aria-labelledby="dropdown-example-6" data-sirio-visible="true">
+                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right sirio-dropdown-menu-top" role="menu" aria-labelledby="dropdown-example-6" data-sirio-visible="true">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -287,7 +288,7 @@
                                     <button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" type="button" id="dropdown-example-2" data-sirio-toggle="dropdown" aria-expanded="false">
                                         <span class="sr-only">Scegli una funzione</span><span class="fas fa-ellipsis-h" aria-hidden="true"></span>
                                     </button>
-                                    <ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-2" data-sirio-visible="false">
+                                    <ul class="sirio-dropdown-menu" role="menu" aria-labelledby="dropdown-example-2" data-sirio-visible="false">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -299,10 +300,22 @@
                                     <button class="sirio-btn sirio-btn-tertiary sirio-btn-icon" type="button" id="dropdown-example-3" data-sirio-toggle="dropdown" aria-expanded="false">
                                         <span class="sr-only">Condividi questo elemento con i social</span><span class="fas fa-share-alt" aria-hidden="true"></span>
                                     </button>
-                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-3" data-sirio-visible="false">
+                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" role="menu" aria-labelledby="dropdown-example-3" data-sirio-visible="false">
                                         <li><a class="sirio-dropdown-item" href="#">Facebook</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Instagram</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Twitter</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="guide-col-auto">
+                                <div class="sirio-dropdown" data-sirio-component="dropdown">
+                                    <button class="sirio-btn-link sirio-font-weight-700" type="button" id="dropdown-example-link" data-sirio-toggle="dropdown" aria-expanded="false">
+                                        Dropdown menu
+                                    </button>
+                                    <ul class="sirio-dropdown-menu" role="menu" aria-labelledby="dropdown-example-link" data-sirio-visible="false">
+                                        <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
+                                        <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
+                                        <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -314,7 +327,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot;&gt;
     &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-1&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-    &lt;ul class=&quot;sirio-dropdown-menu&quot; aria-labelledby=&quot;dropdown-example-1&quot; data-sirio-visible=&quot;false&quot;&gt;
+    &lt;ul class=&quot;sirio-dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdown-example-1&quot; data-sirio-visible=&quot;false&quot;&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Verba volant&lt;/a&gt;&lt;/li&gt;
@@ -326,7 +339,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot;&gt;
    &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-2&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; aria-labelledby=&quot;dropdown-example-2&quot;
+   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdown-example-2&quot;
     data-sirio-visible=&quot;false&quot;&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
@@ -339,7 +352,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot;&gt;
    &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-3&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-top&quot; aria-labelledby=&quot;dropdown-example-3&quot;
+   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-top&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdown-example-3&quot;
     data-sirio-visible=&quot;false&quot;&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
@@ -352,7 +365,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot;&gt;
    &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-4&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right&quot;
+   &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-top sirio-dropdown-menu-right&quot; role=&quot;menu&quot;
       aria-labelledby=&quot;dropdown-example-4&quot; data-sirio-visible=&quot;false&quot;&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
@@ -360,6 +373,21 @@
    &lt;/ul&gt;
 &lt;/div&gt;
 </code></pre>
+
+                        <p class="guide-code-title">Dropdown link</p>
+                        <pre><code>
+&lt;div class="sirio-dropdown" data-sirio-component="dropdown">
+    &lt;button class="sirio-btn-link sirio-font-weight-700" type="button" id="dropdown-example-link" data-sirio-toggle="dropdown" aria-expanded="false">
+        Dropdown menu
+    &lt;/button>
+    &lt;ul class="sirio-dropdown-menu" role="menu" aria-labelledby="dropdown-example-link" data-sirio-visible="false">
+        &lt;li>&lt;a class="sirio-dropdown-item" href="#">Lorem ipsum&lt;/a>&lt;/li>
+        &lt;li>&lt;a class="sirio-dropdown-item" href="#">Ipse dixit&lt;/a>&lt;/li>
+        &lt;li>&lt;a class="sirio-dropdown-item" href="#">Verba volant&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/div>
+                        </code></pre>
+
                     </div>
                     <h4 class="guide-title">Dropdown detach</h4>
                     <div class="blockquote">
@@ -372,7 +400,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-1" data-sirio-toggle="dropdown" aria-expanded="false">
                                         Dropdown menu
                                     </button>
-                                    <ul class="sirio-dropdown-menu" aria-labelledby="dropdown-example-detach-1" data-sirio-visible="false">
+                                    <ul class="sirio-dropdown-menu" role="menu" aria-labelledby="dropdown-example-detach-1" data-sirio-visible="false">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -385,7 +413,7 @@
                                     <button class="sirio-btn sirio-btn-primary" type="button" id="dropdown-example-detach-2" data-sirio-toggle="dropdown" aria-expanded="true">
                                         Dropdown menu a destra
                                     </button>
-                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" aria-labelledby="dropdown-example-detach-2" data-sirio-visible="true">
+                                    <ul class="sirio-dropdown-menu sirio-dropdown-menu-right" role="menu" aria-labelledby="dropdown-example-detach-2" data-sirio-visible="true">
                                         <li><a class="sirio-dropdown-item" href="#">Lorem ipsum</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Ipse dixit</a></li>
                                         <li><a class="sirio-dropdown-item" href="#">Verba volant</a></li>
@@ -400,7 +428,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot; data-sirio-detach=&quot;true&quot;&gt;
     &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-detach-1&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-    &lt;ul class=&quot;sirio-dropdown-menu&quot; aria-labelledby=&quot;dropdown-example-detach-1&quot;
+    &lt;ul class=&quot;sirio-dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdown-example-detach-1&quot;
       data-sirio-visible=&quot;false&quot;&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
@@ -414,7 +442,7 @@
 &lt;div class=&quot;sirio-dropdown&quot; data-sirio-component=&quot;dropdown&quot; data-sirio-detach=&quot;true&quot;&gt;
     &lt;button class=&quot;sirio-btn sirio-btn-primary&quot; type=&quot;button&quot; id=&quot;dropdown-example-detach-2&quot;
       data-sirio-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown menu&lt;/button&gt;
-    &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot;
+    &lt;ul class=&quot;sirio-dropdown-menu sirio-dropdown-menu-right&quot; role=&quot;menu&quot;
       aria-labelledby=&quot;dropdown-example-detach-2&quot; data-sirio-visible=&quot;false&quot;&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a class=&quot;sirio-dropdown-item&quot; href=&quot;#&quot;&gt;Ipse dixit&lt;/a&gt;&lt;/li&gt;
@@ -2418,238 +2446,142 @@
                     <div class="blockquote">
                         <p>La tabella deve essere contenuta all'interno di un DIV con classe <strong>sirio-table-responsive</strong>.</p>
                     </div>
-                    <div class="guide-example">
-                        <div class="sirio-table-responsive">
-                            <table class="sirio-table sirio-table-dark" id="table1">
-                                <caption class="sr-only">Nome della lista elementi visualizzati</caption>
-                                <thead>
-                                <tr>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Oggetto" aria-sort="ascending" aria-controls="table1" tabindex="0" class="sirio-sorting sirio-sorting-asc">
-                                        Oggetto
-                                    </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Data di pubblicazione" aria-controls="table1" tabindex="0" class="sirio-sorting">
-                                        Data di pubblicazione
-                                    </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Data di scadenza" aria-controls="table1" tabindex="0" class="sirio-sorting">
-                                        Data di scadenza
-                                    </th>
-                                    <th scope="col">
-                                        Stato
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                                <span class="cell-title">
-                                                    Corso per addetti alla lotta agli incendi
-                                                    ed evacuazione - medio rischio incendio - suddiviso in tre
-                                                    sessioni della durata di 8 ore
-                                                </span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td class="w-0">
-                                        <span class="sirio-tag">Scaduto</span><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <span class="cell-title">
-                                                    Corso per addetti alla lotta agli incendi
-                                                    ed evacuazione - medio rischio incendio - suddiviso in tre
-                                                    sessioni della durata di 8 ore
-                                                </span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td class="w-0">
-                                        <span class="sirio-tag">Scaduto</span><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <span class="cell-title">
-                                                    Corso per addetti alla lotta agli incendi
-                                                    ed evacuazione - medio rischio incendio - suddiviso in tre
-                                                    sessioni della durata di 8 ore
-                                                </span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td class="w-0">
-                                        <span class="sirio-tag">Scaduto</span><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <span class="cell-title">
-                                                    Corso per addetti alla lotta agli incendi
-                                                    ed evacuazione - medio rischio incendio - suddiviso in tre
-                                                    sessioni della durata di 8 ore
-                                                </span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td class="w-0">
-                                        <span class="sirio-tag">Scaduto</span><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <span class="cell-title">
-                                                    Corso per addetti alla lotta agli incendi
-                                                    ed evacuazione - medio rischio incendio - suddiviso in tre
-                                                    sessioni della durata di 8 ore
-                                                </span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td>
-                                        <span>05/05/2017</span>
-                                    </td>
-                                    <td class="w-0">
-                                        <span class="sirio-tag">Scaduto</span><br>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="guide-example" id="base-table-example">
+<div class="sirio-table-responsive">
+    <table class="sirio-table sirio-table-dark" id="table1">
+
+
+        <caption class="sr-only">
+            Nome della lista elementi visualizzati.
+            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+        </caption>
+        <thead>
+        <tr>
+            <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                <button type="button">
+                    Nominativo
+                </button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">
+                    Data di pubblicazione
+                </button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">
+                    Data di scadenza
+                </button>
+            </th>
+            <th scope="col">
+                Stato
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <span class="cell-title">
+                    Corso per addetti alla lotta agli incendi
+                    ed evacuazione - medio rischio incendio - suddiviso in tre
+                    sessioni della durata di 8 ore
+                </span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td class="w-0">
+                <span class="sirio-tag">Scaduto</span><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="cell-title">
+                    Corso per addetti alla lotta agli incendi
+                    ed evacuazione - medio rischio incendio - suddiviso in tre
+                    sessioni della durata di 8 ore
+                </span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td class="w-0">
+                <span class="sirio-tag">Scaduto</span><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="cell-title">
+                    Corso per addetti alla lotta agli incendi
+                    ed evacuazione - medio rischio incendio - suddiviso in tre
+                    sessioni della durata di 8 ore
+                </span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td class="w-0">
+                <span class="sirio-tag">Scaduto</span><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="cell-title">
+                    Corso per addetti alla lotta agli incendi
+                    ed evacuazione - medio rischio incendio - suddiviso in tre
+                    sessioni della durata di 8 ore
+                </span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td class="w-0">
+                <span class="sirio-tag">Scaduto</span><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="cell-title">
+                    Corso per addetti alla lotta agli incendi
+                    ed evacuazione - medio rischio incendio - suddiviso in tre
+                    sessioni della durata di 8 ore
+                </span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td>
+                <span>05/05/2017</span>
+            </td>
+            <td class="w-0">
+                <span class="sirio-tag">Scaduto</span><br>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
                     </div>
                     <div class="code" aria-hidden="true" id="code-tabelle-base">
                         <p class="guide-code-title">Tabelle:</p>
-                        <pre><code>
-&lt;div class=&quot;sirio-table-responsive&quot;&gt;
-   &lt;table class=&quot;sirio-table sirio-table-dark&quot; id=&quot;table1&quot;&gt;
-      &lt;caption class=&quot;sr-only&quot;&gt;Nome della lista elementi visualizzati&lt;/caption&gt;
-      &lt;thead&gt;
-         &lt;tr&gt;
-            &lt;th scope=&quot;col&quot;
-                aria-label=&quot;Oggetto: attiva l'ordinamento della colonna Oggetto&quot;
-                aria-sort=&quot;ascending&quot; aria-controls=&quot;table1&quot;
-                tabindex=&quot;0&quot; class=&quot;sirio-sorting sirio-sorting-asc&quot;&gt;
-               Oggetto
-            &lt;/th&gt;
-            &lt;th scope=&quot;col&quot;
-                aria-label=&quot;Oggetto: attiva l'ordinamento della collonna Data di pubblicazione&quot;
-                aria-controls=&quot;table1&quot; tabindex=&quot;0&quot;
-                class=&quot;sirio-sorting&quot;&gt;
-               Data di pubblicazione
-            &lt;/th&gt;
-            &lt;th scope=&quot;col&quot;
-                aria-label=&quot;Oggetto: attiva l'ordinamento della colonna Data di scadenza&quot;
-                aria-controls=&quot;table1&quot; tabindex=&quot;0&quot;
-                class=&quot;sirio-sorting&quot;&gt;
-               Data di scadenza
-            &lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;
-               Stato
-            &lt;/th&gt;
-         &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-         &lt;tr&gt;
-            &lt;td&gt;
-               &lt;span class=&quot;cell-title&quot;&gt;Corso per addetti alla lotta agli incendi
-               ed evacuazione - medio rischio incendio - suddiviso in tre
-               sessioni della durata di 8 ore&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td class=&quot;w-0&quot;&gt;
-               &lt;span class=&quot;sirio-tag&quot;&gt;Scaduto&lt;/span&gt;&lt;br&gt;
-            &lt;/td&gt;
-         &lt;/tr&gt;
-         &lt;tr&gt;
-            &lt;td&gt;
-               &lt;span class=&quot;cell-title&quot;&gt;Corso per addetti alla lotta agli incendi
-               ed evacuazione - medio rischio incendio - suddiviso in tre
-               sessioni della durata di 8 ore&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td class=&quot;w-0&quot;&gt;
-               &lt;span class=&quot;sirio-tag&quot;&gt;Scaduto&lt;/span&gt;&lt;br&gt;
-            &lt;/td&gt;
-         &lt;/tr&gt;
-         &lt;tr&gt;
-            &lt;td&gt;
-               &lt;span class=&quot;cell-title&quot;&gt;Corso per addetti alla lotta agli incendi
-               ed evacuazione - medio rischio incendio - suddiviso in tre
-               sessioni della durata di 8 ore&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td class=&quot;w-0&quot;&gt;
-               &lt;span class=&quot;sirio-tag&quot;&gt;Scaduto&lt;/span&gt;&lt;br&gt;
-            &lt;/td&gt;
-         &lt;/tr&gt;
-         &lt;tr&gt;
-            &lt;td&gt;
-               &lt;span class=&quot;cell-title&quot;&gt;Corso per addetti alla lotta agli incendi
-               ed evacuazione - medio rischio incendio - suddiviso in tre
-               sessioni della durata di 8 ore&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td class=&quot;w-0&quot;&gt;
-               &lt;span class=&quot;sirio-tag&quot;&gt;Scaduto&lt;/span&gt;&lt;br&gt;
-            &lt;/td&gt;
-         &lt;/tr&gt;
-         &lt;tr&gt;
-            &lt;td&gt;
-               &lt;span class=&quot;cell-title&quot;&gt;Corso per addetti alla lotta agli incendi
-               ed evacuazione - medio rischio incendio - suddiviso in tre
-               sessioni della durata di 8 ore&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-               &lt;span&gt;05/05/2017&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td class=&quot;w-0&quot;&gt;
-               &lt;span class=&quot;sirio-tag&quot;&gt;Scaduto&lt;/span&gt;&lt;br&gt;
-            &lt;/td&gt;
-         &lt;/tr&gt;
-      &lt;/tbody&gt;
-   &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
+                        <pre><code id="base-table-code"></code></pre>
                     </div>
+                    <script type="text/javascript">
+                        /*Copy the example code*/
+                        document.addEventListener('DOMContentLoaded', () => {
+                            guideApp.copyHtmlExample('base-table-example', 'base-table-code');
+                        })
+                    </script>
                     <hr class="guide-separator">
                     <h4 class="guide-title">Tabella con checkbox</h4>
                     <div class="guide-example">
@@ -4199,7 +4131,7 @@
 </div>
                         <!--End Code: -->
                     </div>
-                    <div class="code" aria-hidden="true" id="code-tabelle-expandable">
+                    <div class="code" id="code-tabelle-expandable">
                         <p class="guide-code-title">Tabella espandibile:</p>
                         <pre>
                             <code id="panel-content-maximizable-code">
@@ -4509,6 +4441,485 @@
                     </div>
 
                     <hr class="guide-separator">
+                    <h4 class="guide-title">Tabella con righe espandibili</h4>
+                    <div class="blockquote">
+                        <p>
+                            La tabella con righe espandibili ha la funzione di fornire informazioni aggiuntive non visibili nella visualizzazione predefinita della tabella. La riga espansa è utile per visualizzare informazioni supplementari che hanno un collegamento diretto con la riga padre.
+                        </p>
+                        <p>
+                            Sono previste le seguenti tipologie di contenuto: tabella annidata, informazioni testuali e griglia dati.
+                            Inoltre è necessario assegnare alla tabella la classe <code>sirio-table-nested</code>.
+                        </p>
+                    </div>
+                    <strong class="ms-3 h5 guide-title">Righe con tabella annidata</strong>
+                    <div class="guide-example">
+                        <div id="table-and-table-example">
+<div class="sirio-table-responsive">
+    <table class="sirio-table sirio-table-dark sirio-table-nested" id="table-nested-1">
+        <caption class="sr-only">
+            Caption della tabella padre.
+            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+        </caption>
+        <thead>
+        <tr>
+            <th scope="col"><span class="sr-only">Dettagli</span></th>
+            <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                <button type="button">
+                    Nominativo
+                </button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">
+                    Indirizzo
+                </button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">
+                    Cap
+                </button>
+            </th>
+            <th scope="col">
+                Azioni
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Riga principale: il pulsante mostra/nasconde la riga di dettaglio che segue -->
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-1-row-1-details" aria-label="Dettaglio della riga 1">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 1" title="Modifica la riga 1">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 1" title="Elimina la riga 1">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <!--
+            Riga di dettaglio: una sola cella su tutte le colonne con una tabella annidata
+            che ha caption e intestazioni proprie (le intestazioni esterne non si applicano)
+        -->
+        <tr id="table-1-row-1-details" class="sirio-table-nested-row" hidden>
+            <!-- `colspan` è il numero delle colonne in tabella -->
+            <td colspan="5">
+                <div class="sirio-table-responsive">
+                    <table id="table-1-row-1-details-table" class="sirio-table sirio-table-light sirio-table-card">
+                        <caption class="sr-only">
+                            Caption della tabella figlia.
+                            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Fornitore</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Anno di riferimento</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Compenso erogato</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Compenso erogabile</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-label="Fornitore">OmniCorp Solutions</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>0,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>2.500,00 €</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Fornitore">Globalink Industries</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>2.500,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>0,00 €</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Fornitore">Italfluid S.p.A.</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>304,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>2.196,00 €</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <!-- Altre righe -->
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-1-row-2-details" aria-label="Dettaglio della riga 2">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 2" title="Modifica la riga 2">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 2" title="Elimina la riga 2">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <tr id="table-1-row-2-details" class="sirio-table-nested-row" hidden>
+            <td colspan="5">
+                <div class="sirio-table-responsive">
+                    <table id="table-1-row-2-details-table" class="sirio-table sirio-table-light sirio-table-card">
+                        <caption class="sr-only">
+                            Caption della tabella figlia.
+                            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Fornitore</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Anno di riferimento</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Compenso erogato</button>
+                            </th>
+                            <th scope="col" class="sirio-sorting">
+                                <button type="button">Compenso erogabile</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-label="Fornitore">OmniCorp Solutions</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>0,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>2.500,00 €</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Fornitore">Globalink Industries</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>2.500,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>0,00 €</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Fornitore">Italfluid S.p.A.</td>
+                            <td data-label="Anno di riferimento">2023</td>
+                            <td data-label="Compenso erogato"><span>304,00 €</span></td>
+                            <td data-label="Compenso erogabile"><span>2.196,00 €</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+                        </div>
+                    </div>
+                    <div class="code" id="table-and-table">
+                        <p class="guide-code-title">Tabella annidata</p>
+                        <pre><code id="table-and-table-code"></code></pre>
+                    </div>
+
+                    <strong class="ms-3 h5 guide-title">Righe con informazioni testuali annidate</strong>
+                    <div class="guide-example">
+                        <div id="table-and-text-example">
+<div class="sirio-table-responsive">
+    <table class="sirio-table sirio-table-dark sirio-table-nested" id="table-nested-2">
+        <caption class="sr-only">
+            Caption della tabella padre.
+            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+        </caption>
+        <thead>
+        <tr>
+            <th scope="col"><span class="sr-only">Dettagli</span></th>
+            <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                <button type="button">Nominativo</button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">Indirizzo</button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">Cap</button>
+            </th>
+            <th scope="col">
+                Azioni
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-2-row-1-details" aria-label="Dettaglio della riga 1">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 1" title="Modifica la riga 1">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 1" title="Elimina la riga 1">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <tr id="table-2-row-1-details" class="sirio-table-nested-row" hidden>
+            <td colspan="5">
+                <div class="fa-16">
+                    <strong class="d-block mb-1">
+                        Stato della richiesta
+                    </strong>
+                    La richiesta di pensione è in fase di approvazione.<br />
+                    La compilazione è avvenuta correttamente.<br />
+                    La documentazione inviata è completa.
+                </div>
+            </td>
+        </tr>
+        <!-- Altre righe -->
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-2-row-2-details" aria-label="Dettaglio della riga 2">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 2" title="Modifica la riga 2">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 2" title="Elimina la riga 2">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <tr id="table-2-row-2-details" class="sirio-table-nested-row" hidden>
+            <td colspan="5">
+                <div class="fa-16">
+                    <strong class="d-block mb-1">
+                        Stato della richiesta
+                    </strong>
+                    La richiesta di pensione è in fase di approvazione.<br />
+                    La compilazione è avvenuta correttamente.<br />
+                    La documentazione inviata è completa.
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+                        </div>
+                    </div>
+                    <div class="code" id="table-and-text">
+                        <p class="guide-code-title">Informazioni testuali</p>
+                        <pre><code id="table-and-text-code"></code></pre>
+                    </div>
+
+                    <strong class="ms-3 h5 guide-title">Righe con griglia dati annidata</strong>
+                    <div class="guide-example">
+                        <div id="table-and-grid-example">
+<div class="sirio-table-responsive">
+    <table class="sirio-table sirio-table-dark sirio-table-nested" id="table-nested-3">
+        <caption class="sr-only">
+            Caption della tabella padre.
+            <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+        </caption>
+        <thead>
+        <tr>
+            <th scope="col"><span class="sr-only">Dettagli</span></th>
+            <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                <button type="button">Nominativo</button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">Indirizzo</button>
+            </th>
+            <th scope="col" class="sirio-sorting">
+                <button type="button">Cap</button>
+            </th>
+            <th scope="col">Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-3-row-1-details" aria-label="Dettaglio della riga 1">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 1" title="Modifica la riga 1">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 1" title="Elimina la riga 1">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <tr id="table-3-row-1-details" class="sirio-table-nested-row" hidden>
+            <td colspan="5">
+                <dl class="row g-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Nome</dt>
+                        <dd>Mario Rossi</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Indirizzo</dt>
+                        <dd>Via Roma 42</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Data di nascita</dt>
+                        <dd>15/04/1985</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Professione</dt>
+                        <dd>Ingegnere</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Identificativo domanda</dt>
+                        <dd>A21</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Numero protocollo</dt>
+                        <dd>123456</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Stato domanda</dt>
+                        <dd>In lavorazione</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Data inserimento</dt>
+                        <dd>21/04/2025</dd>
+                    </div>
+                </dl>
+            </td>
+        </tr>
+        <!-- Altre righe -->
+        <tr>
+            <td class="sirio-table-nested-trigger">
+                <button type="button" class="sirio-btn" aria-expanded="false" aria-controls="table-3-row-2-details" aria-label="Dettaglio della riga 2">
+                    <span class="fas fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <span class="cell-title">Elisa Lombardi</span>
+            </td>
+            <td>
+                <span>Piazza Amendola, 1 - Andria</span>
+            </td>
+            <td>
+                <span>76123</span>
+            </td>
+            <td class="w-0">
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Modifica la riga 2" title="Modifica la riga 2">
+                    <span class="fas fa-pen" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="sirio-btn sirio-btn-icon" aria-label="Elimina la riga 2" title="Elimina la riga 2">
+                    <span class="fas fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        <tr id="table-3-row-2-details" class="sirio-table-nested-row" hidden>
+            <td colspan="5">
+                <dl class="row g-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Nome</dt>
+                        <dd>Mario Rossi</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Indirizzo</dt>
+                        <dd>Via Roma 42</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Data di nascita</dt>
+                        <dd>15/04/1985</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Professione</dt>
+                        <dd>Ingegnere</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Identificativo domanda</dt>
+                        <dd>A21</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Numero protocollo</dt>
+                        <dd>123456</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Stato domanda</dt>
+                        <dd>In lavorazione</dd>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <dt>Data inserimento</dt>
+                        <dd>21/04/2025</dd>
+                    </div>
+                </dl>
+            </td>
+        </tr>
+    </table>
+</div>
+                        </div>
+                    </div>
+                    <div class="code" id="table-and-grid">
+                        <p class="guide-code-title">Griglia dati</p>
+                        <pre><code id="table-and-grid-code"></code></pre>
+                    </div>
+                    <script type="text/javascript">
+                        /*Copy the example code*/
+                        document.addEventListener('DOMContentLoaded', () => {
+                            guideApp.copyHtmlExample('table-and-table-example', 'table-and-table-code');
+                            guideApp.copyHtmlExample('table-and-text-example', 'table-and-text-code');
+                            guideApp.copyHtmlExample('table-and-grid-example', 'table-and-grid-code');
+                           })
+                    </script>
+
                     <h4 class="guide-title">Spacing</h4>
                     <div class="blockquote">
                         <p>Sono state predisposte le classi <code>sirio-table-xs</code>, <code>sirio-table-sm</code> e <code>sirio-table-lg</code> per avere meno o più altezza delle celle rispetto a quella di default.</p>
@@ -4627,46 +5038,49 @@
                     <div class="blockquote">
                         <p>Sono state predisposte le classi <code>sirio-sorting-asc</code> e <code>sirio-sorting-desc</code> per la gestione del sorting da aggiungere ai TH con classe <code>sirio-sorting</code> e utilizzare in base alle esigenze di sviluppo.</p>
                         <p>Nell'esempio i tre stati: default (sirio-sorting), discendente (+ sirio-sorting-desc), ascendente (+ sirio-sorting-asc)</p>
+                        <p>In conformità ai pattern di sviluppo WAI-APG la tabella con ordinamento deve presentare nella propria caption l'avviso che "Le intestazioni con pulsante consentono l'ordinamento". Le altre informazioni venongo dedotte dallo stato di <code>aria-sorting</code>.</p>
                     </div>
                     <div class="guide-example">
                         <div class="sirio-table-responsive">
                             <table class="sirio-table" id="table-sorting">
-                                <caption class="sr-only">Tabella con sorting</caption>
+                                <caption class="sr-only">
+                                    Caption della tabella con sorting.
+                                    <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+                                </caption>
                                 <thead>
                                 <tr>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento originario" aria-controls="table-sorting" tabindex="0" class="sirio-sorting">
-                                        Ordinamento originario
+                                    <th scope="col" class="sirio-sorting">
+                                        <button type="button">Ordinamento originario</button>
                                     </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento discendente" aria-sort="descending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting  sirio-sorting-desc">
-                                        Ordinamento discendente
+                                    <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                                        <button type="button">Ordinamento ascendente</button>
                                     </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento ascendente" aria-controls="table-sorting" tabindex="0" class="sirio-sorting sirio-sorting-asc">
-                                        Ordinamento ascendente
+                                    <th scope="col" aria-sort="descending" class="sirio-sorting sirio-sorting-desc">
+                                        <button type="button">Ordinamento discendente</button>
                                     </th>
-                                    <th scope="col">
-                                        Nessun ordinamento
-                                    </th>
+                                    <th scope="col">Nessun ordinamento</th>
                                 </tr>
                                 </thead>
                             </table>
                         </div>
                         <div class="sirio-table-responsive">
                             <table class="sirio-table sirio-table-dark" id="table-sorting-dark">
-                                <caption class="sr-only">Tabella dark con sorting </caption>
+                                <caption class="sr-only">
+                                    Caption della tabella con sorting.
+                                    <span>Le intestazioni con pulsante consentono l'ordinamento</span>
+                                </caption>
                                 <thead>
                                 <tr>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento originario" aria-controls="table-sorting" tabindex="0" class="sirio-sorting">
-                                        Ordinamento originario
+                                    <th scope="col" class="sirio-sorting">
+                                        <button type="button">Ordinamento originario</button>
                                     </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento discendente" aria-sort="descending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting  sirio-sorting-desc">
-                                        Ordinamento discendente
+                                    <th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+                                        <button type="button">Ordinamento ascendente</button>
                                     </th>
-                                    <th scope="col" aria-label="Oggetto: attiva l'ordinamento della colonna Ordinamento ascendente" aria-sort="ascending" aria-controls="table-sorting" tabindex="0" class="sirio-sorting sirio-sorting-asc">
-                                        Ordinamento ascendente
+                                    <th scope="col" aria-sort="descending" class="sirio-sorting sirio-sorting-desc">
+                                        <button type="button">Ordinamento discendente</button>
                                     </th>
-                                    <th scope="col">
-                                        Nessun ordinamento
-                                    </th>
+                                    <th scope="col">Nessun ordinamento</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -4675,26 +5089,51 @@
                     <div class="code" aria-hidden="true" id="code-tabelle-sorting">
                         <p class="guide-code-title">Ordinamento originario:</p>
                         <pre><code>
-&lt;th scope=&quot;col&quot; aria-label=&quot;Oggetto: attiva l'ordinamento della colonna Ordinamento originario&quot;
-    aria-controls=&quot;table-sorting&quot; tabindex=&quot;0&quot; class=&quot;sirio-sorting&quot;&gt;
-	Ordinamento originario
-&lt;/th&gt;
+&lt;table>
+    &lt;caption class="sr-only">
+        Caption della tabella.
+        &lt;span>Le intestazioni con pulsante consentono l'ordinamento&lt;/span>
+    &lt;/caption>
+    &lt;thead>
+    &lt;th scope="col" class="sirio-sorting">
+        &lt;button type="button">Ordinamento originario&lt;/button>
+    &lt;/th>
+    ...
+    &lt;/thead>
+    &lt;tbody>...&lt;/tbody>
+&lt;/table>
 </code></pre>
                         <p class="guide-code-title">Ordinamento discendente:</p>
                         <pre><code>
-&lt;th scope=&quot;col&quot; aria-label=&quot;Oggetto: attiva l'ordinamento della colonna Ordinamento discendente&quot;
-    aria-sort=&quot;descending&quot;
-    aria-controls=&quot;table-sorting&quot; tabindex=&quot;0&quot; class=&quot;sirio-sorting  sirio-sorting-desc&quot;&gt;
-    Ordinamento discendente
-&lt;/th&gt;
+&lt;table>
+    &lt;caption class="sr-only">
+        Caption della tabella.
+        &lt;span>Le intestazioni con pulsante consentono l'ordinamento&lt;/span>
+    &lt;/caption>
+    &lt;thead>
+    &lt;th scope="col" aria-sort="descending" class="sirio-sorting sirio-sorting-desc">
+        &lt;button type="button">Ordinamento discendente&lt;/button>
+    &lt;/th>
+    ...
+    &lt;/thead>
+    &lt;tbody>...&lt;/tbody>
+&lt;/table>
 </code></pre>
                         <p class="guide-code-title">Ordinamento ascendente:</p>
                         <pre><code>
-&lt;th scope=&quot;col&quot; aria-label=&quot;Oggetto: attiva l'ordinamento della colonna Ordinamento ascendente&quot;
-    aria-sort=&quot;ascending&quot; aria-controls=&quot;table-sorting&quot;
-    tabindex=&quot;0&quot; class=&quot;sirio-sorting sirio-sorting-asc&quot;&gt;
-    Ordinamento ascendente
-&lt;/th&gt;
+&lt;table>
+    &lt;caption class="sr-only">
+        Caption della tabella.
+        &lt;span>Le intestazioni con pulsante consentono l'ordinamento&lt;/span>
+    &lt;/caption>
+    &lt;thead>
+    &lt;th scope="col" aria-sort="ascending" class="sirio-sorting sirio-sorting-asc">
+        &lt;button type="button">Ordinamento ascendente&lt;/button>
+    &lt;/th>
+    ...
+    &lt;/thead>
+    &lt;tbody>...&lt;/tbody>
+&lt;/table>
 </code></pre>
                     </div>
                 </section>
@@ -5423,6 +5862,181 @@ dialogObj.show()
                             <li><strong>hide()</strong>: nasconde la finestra di dialogo.</li>
                             <li><strong>toggle()</strong>: mostra o nasconde la finestra di dialogo, a seconda del suo stato attuale (mostrato o nascosto).</li>
                         </ul>
+                    </div>
+                </section>
+
+
+                <section class="guide-section">
+                    <h3 class="guide-title" id="loader">Loader</h3>
+                    <div class="link" aria-hidden="true" id="link-sirio-loader">
+                        <ul id="nav-contents-loader">
+                            <li>
+                                <a href="../guidewc/components-contents.html#loader">Web Component</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h4 class="guide-title">Loader</h4>
+                    <div class="blockquote">
+                        <p>
+                            Il Loader è un componente che segnala un processo in corso evidenziando all’utente che deve rimanere in attesa del completamento di un’azione o del caricamento di un contenuto.
+                            È essenziale per fornire all’utente un feedback immediato durante le operazioni asincrone.
+                        </p>
+                        <p>
+                            Per mostrare o nascondere il loader è sufficiente aggiungere o rimuovere l'attributo <code>hidden</code>.
+                        </p>
+                        <p>
+                            Sono disponibili inoltre alcune classi CSS assegnabili a <code>.sirio-loading</code>. <strong>Nota bene</strong>: se non aggiungi la classe <code>inline</code> il loader si mostra a tutta pagina.
+                        </p>
+                        <table style="font-style: normal;" class="sirio-table sirio-table-sm">
+                            <thead>
+                            <tr>
+                                <th>Classe</th>
+                                <th>Effetto</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>sirio-loading-inline</code></td>
+                                <td>Resta nei limiti del contenitore padre a cui deve essere data la classe <code>position-relative</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sirio-loading-white</code></td>
+                                <td>Mostra uno spinner di colore bianco su sfondo blu</td>
+                            </tr>
+                            <tr>
+                                <td><code>sirio-loading-blur</code></td>
+                                <td>Sfoca lo sfondo dello spinner</td>
+                            </tr>
+                            <tr>
+                                <td><code>sirio-loading-no-background</code></td>
+                                <td>Rimuove lo sfondo dello spinner</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a
+                            id="spinner-doc-link"
+                            href="#spinner-doc"
+                            style="font-style: normal;"
+                            class="view-source guide-collapsed ms-0"
+                            data-guide-toggle="collapse"
+                            aria-expanded="false"
+                            aria-controls="spinner-doc">
+                            Mostra come gestire il caricamento
+                        </a>
+                        <div id="spinner-doc" role="region" class="guide-collapse p-0" style="font-style: normal;">
+                            <h5 class="h4">Come gestire il caricamento</h5>
+                            <p class="sirio-font-weight-700">All'avvio del caricamento:</p>
+                            <ol>
+                                <li>Attendere circa 300–500 ms prima di visualizzare qualsiasi cosa. In questo modo, le richieste veloci vengono completate senza sfarfallii né avvisi. Se i dati arrivano entro tale intervallo di tempo, non fare nulla.</li>
+                                <li>Visualizzare l'indicatore di caricamento: rimuovere l'attributo "hidden" da <code>.sirio-loading</code>.</li>
+                                <li>Contrassegnare l'area occupata:
+                                    <ul>
+                                        <li>Inline: impostare <code>aria-busy="true"</code> sulla sezione.</li>
+                                        <li>Pagina intera: imposta <code>aria-busy="true"</code> su <code>#main</code>.</li>
+                                    </ul>
+                                </li>
+                                <li>Solo per la pagina intera, blocca lo sfondo:
+                                    <ul>
+                                        <li>Salva <code>document.activeElement</code> in modo da poter ripristinare il focus in seguito.</li>
+                                        <li>Imposta l’attributo <code>inert</code> su #app. Gli utenti che utilizzano la tastiera e gli screen reader non potranno più accedere alla pagina e il focus lascerà il contenuto inerte.</li>
+                                    </ul>
+                                </li>
+                                <li>Se il caricamento è stato avviato da un pulsante, imposta <code>aria-disabled="true"</code> su di esso e ignora i click mentre è in corso il caricamento. Non usare <code>disabled</code>: sposta il focus su <code>&lt;body></code> e l’utente perde la posizione in cui si trovava. Puoi anche modificare la sua etichetta, ad esempio "Salvataggio in corso…".</li>
+                                <li>Annuncio: imposta il testo di <code>#loader-status</code> su qualcosa di specifico, come "Caricamento articoli in corso". Modificare solo il testo, mai la visibilità dell’elemento.</li>
+                                <li>Facoltativo, per attese prolungate. Dopo circa 10 s, annunciarlo ancora una volta, ad esempio "Caricamento ancora in corso". Non ripeterlo ogni pochi secondi; diventerebbe fastidioso.</li>
+                            </ol>
+                            <p class="sirio-font-weight-700">Al termine del caricamento (con esito positivo o errore):</p>
+                            <ol>
+                                <li>Se è apparso l’indicatore di caricamento, mantenerlo visibile per almeno circa 500 ms. Altrimenti, farlo lampeggiare brevemente e poi spegnerlo immediatamente.</li>
+                                <li>Nascondere l’indicatore visivo di caricamento: impostare hidden su <code>.sirio-loading</code>.</li>
+                                <li>Impostare <code>aria-busy="false"</code> sull'area.</li>
+                                <li>Solo pagina intera: rimuovere <code>inert</code> da #app. Quindi spostare il focus:
+                                    <ul>
+                                        <li>Se il contenuto è stato sostituito, spostare il focus sull'intestazione del nuovo contenuto. Assegnare prima a tale intestazione <code>tabindex="-1"</code>, in modo che possa ricevere il focus.</li>
+                                        <li>Altrimenti, ripristinare il focus sull'elemento salvato, se è ancora presente nella pagina.</li>
+                                    </ul>
+                                </li>
+                                <li>Ripristinare il pulsante: rimuovere "aria-disabled" e reinserire l’etichetta originale.</li>
+                                <li>Annunciare il risultato:
+                                    <ul>
+                                        <li>Esito positivo: "Articoli caricati", oppure "12 risultati" in caso di ricerca.</li>
+                                        <li>Errore: mostra un messaggio di errore visibile e annuncialo. Per gli errori che richiedono attenzione, utilizza un’area separata con <code>role="alert"</code>.</li>
+                                        <li>Puoi saltare l’annuncio di successo se lo spostamento del focus fa già leggere il nuovo contenuto allo screen reader.</li>
+                                    </ul>
+                                </li>
+                                <li>Svuota <code>#loader-status</code> dopo alcuni secondi. Il messaggio successivo verrà quindi annunciato anche se il testo è lo stesso.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="guide-example">
+                        <div class="guide-row">
+                            <div class="guide-col-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-4 sirio-bg-primary-light-60 p-4 position-relative" aria-busy="false">
+                                        <p>
+                                            Curabitur pharetra tortor et sapien rutrum rutrum. Aliquam sit amet
+                                            neque sodales lorem pulvinar eleifend. Sed ut nunc leo. Nulla
+                                            facilisi. Aenean velit tellus, tempor at convallis quis, ullamcorper
+                                            at lorem. Aenean vitae tellus eu mi luctus lacinia. Quisque euismod
+                                            est tellus, facilisis sodales mauris dictum vitae.
+                                        </p>
+                                        <span class="sirio-loading sirio-loading-inline sirio-loading-blur" aria-hidden="true">
+                                            <span class="sirio-spinner"></span>
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4 sirio-bg-primary-dark-120 p-4 sirio-text-white position-relative" aria-busy="false">
+                                        <p>
+                                            Curabitur pharetra tortor et sapien rutrum rutrum. Aliquam sit amet
+                                            neque sodales lorem pulvinar eleifend. Sed ut nunc leo. Nulla
+                                            facilisi. Aenean velit tellus, tempor at convallis quis, ullamcorper
+                                            at lorem. Aenean vitae tellus eu mi luctus lacinia. Quisque euismod
+                                            est tellus, facilisis sodales mauris dictum vitae.
+                                        </p>
+                                        <span class="sirio-loading sirio-loading-inline sirio-loading-white" aria-hidden="true">
+                                            <span class="sirio-spinner"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code" aria-hidden="true" id="code-loader">
+                        <p class="guide-code-title">Versione inline blur</p>
+                        <pre><code>
+&lt;div class="position-relative sirio-bg-primary-light-60 p-4" aria-busy="true">
+    &lt;p>
+        Curabitur pharetra tortor et sapien rutrum rutrum. Aliquam sit amet
+        neque sodales lorem pulvinar eleifend. Sed ut nunc leo. Nulla
+        facilisi. Aenean velit tellus, tempor at convallis quis, ullamcorper
+        at lorem. Aenean vitae tellus eu mi luctus lacinia. Quisque euismod
+        est tellus, facilisis sodales mauris dictum vitae.
+    &lt;/p>
+    &lt;!-- Aggiungi attributo `hidden` per nascondere il loader -->
+    &lt;span class="sirio-loading sirio-loading-inline sirio-loading-blur" aria-hidden="true">
+        &lt;span class="sirio-spinner">&lt;/span>
+    &lt;/span>
+&lt;/div>
+&lt;!-- Per utilizzare correttamente  role="status" segui le istruzioni riporate in "Come gestire il caricamento" -->
+&lt;div id="loader-status" class="sr-only" role="status">&lt;/div>
+                        </code></pre>
+                        <p class="guide-code-title">Versione inline white</p>
+                        <pre><code>
+&lt;div class="position-relative sirio-bg-primary-dark-120 sirio-text-white p-4" aria-busy="true">
+    &lt;p>
+        Curabitur pharetra tortor et sapien rutrum rutrum. Aliquam sit amet
+        neque sodales lorem pulvinar eleifend. Sed ut nunc leo. Nulla
+        facilisi. Aenean velit tellus, tempor at convallis quis, ullamcorper
+        at lorem. Aenean vitae tellus eu mi luctus lacinia. Quisque euismod
+        est tellus, facilisis sodales mauris dictum vitae.
+    &lt;/p>
+    &lt;!-- Aggiungi attributo `hidden` per nascondere il loader -->
+    &lt;span class="sirio-loading sirio-loading-inline sirio-loading-white" aria-hidden="true">
+        &lt;span class="sirio-spinner">&lt;/span>
+    &lt;/span>
+&lt;/div>
+&lt;!-- Per utilizzare correttamente  role="status" segui le istruzioni riporate in "Come gestire il caricamento" -->
+&lt;div id="loader-status" class="sr-only" role="status">&lt;/div>
+                        </code></pre>
                     </div>
                 </section>
                 <section class="guide-section">

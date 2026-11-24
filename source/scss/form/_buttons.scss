@@ -231,6 +231,10 @@ $btn-palettes: (
             background-color: color($btn-palettes, $name, bg-pressed);
             border-color: color($btn-palettes, $name, border-pressed);
         }
+
+        &:focus-visible {
+            outline-offset: 3px;
+        }
     }
 }
 
@@ -239,7 +243,7 @@ $btn-palettes: (
 }
 
 .#{$prefix}btn-icon {
-    padding: 14px 12px;
+    padding: 14px 15px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -267,7 +271,6 @@ fieldset:disabled a.#{$prefix}btn {
 
     &:hover {
         background-color: transparent !important;
-        text-decoration: none;
         color: $color-alias-interactive-primary-default;
     }
 
@@ -355,7 +358,8 @@ input[type='button'] {
 
 // Button small
 .#{$prefix}btn-small {
-    padding: 4px;
+    padding: 4px 6px;
+    font-weight: $font-weight-semibold;
 
     .fas,
     .far,
@@ -363,10 +367,17 @@ input[type='button'] {
         min-width: 16px;
         min-height: 16px;
     }
+    &.#{$prefix}btn-icon {
+        padding: 4px;
+    }
 }
 
 .#{$prefix}btn-medium {
-    padding: 10px 12px;
+    padding: 8px 12px;
+
+    &.#{$prefix}btn-icon {
+        padding: 8px 9px;
+    }
 }
 
 // Button bgBlack

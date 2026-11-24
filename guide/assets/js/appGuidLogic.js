@@ -1238,6 +1238,10 @@ class SirioGridDemo {
             var card = document.getElementById("card").getSelectedValues();
             if (card) { grid.setAttribute("card", ""); }
             else grid.removeAttribute("card");
+
+            var nested = document.getElementById("nested")?.getSelectedValues();
+            if (nested) { grid.setAttribute("nested", ""); }
+            else grid.removeAttribute("nested");
         } else { this.firstRun = false; }
 
         const container = document.getElementById("codeView");
@@ -1946,6 +1950,80 @@ class SirioProgressbarDemo {
     }
 }
 
+class SirioLoaderDemo {
+    async init(run) {
+        const editor = document.querySelector('#editor');
+        const switchBtn = document.querySelector('#switch-mode-button');
+        const divProp = document.querySelector('#viewProp');
+        const viewHtml = document.querySelector('#viewHtml');
+        const resultPropComponent = document.querySelector('#resultPropComponent');
+        const resultHtmlComponent = document.querySelector('#resultHtmlComponent');
+        const actionButton = document.querySelector('#btnAction');
+        this.firstRun = run ?? true;
+
+        const initialTemplate = `<sirio-loader id="loader-example-html-1" inline blur visible sr-text="Caricamento in corso..."></sirio-loader>`;
+
+        editor.value = initialTemplate;
+        resultHtmlComponent.innerHTML = initialTemplate;
+
+        guideApp.addBlurListener(editor, resultHtmlComponent, "loader-example-html-1");
+
+        viewHtml.style.display = 'none';
+        resultHtmlComponent.style.display = 'none';
+
+        switchBtn.addEventListener('click', (e) => {
+            const val = e.currentTarget.text;
+            e.currentTarget.text = val === 'HTML' ? 'Standard' : 'HTML';
+            divProp.style.display = val === 'Standard' ? '' : 'none';
+            viewHtml.style.display = val === 'HTML' ? '' : 'none';
+            resultPropComponent.style.display = val === 'Standard' ? '' : 'none';
+            resultHtmlComponent.style.display = val === 'HTML' ? '' : 'none';
+
+            if (val === 'HTML') {
+                actionButton.setAttribute("disabled", "disabled");
+                editor.value = initialTemplate;
+                resultHtmlComponent.innerHTML = initialTemplate;
+
+                document.getElementById("loader-example-html-1")?.updateComplete?.then(() => {
+                    try {
+                        document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("loader-example-html-1")?.outerHTML);
+                        return;
+                    } catch (e) {
+                        return;
+                    }
+                });
+            }
+            actionButton.removeAttribute("disabled");
+            document.getElementById("codeView").innerHTML = guideApp.highlightAuto(document.getElementById("loader-example-prop-1")?.outerHTML);
+        });
+
+        await this.apply();
+    }
+
+    async apply() {
+        const loader = document.getElementById("loader-example-prop-1");
+        if (!this.firstRun) {
+            const srText = document.getElementById("srText")?.getValue() || "";
+            if (srText) loader.setAttribute("sr-text", srText);
+            else loader.removeAttribute("sr-text");
+
+            const variant = document.getElementById("variant")?.getSelectedValues?.()?.[0] || "blur";
+            loader.removeAttribute("white");
+            loader.removeAttribute("blur");
+            loader.removeAttribute("no-background");
+            if (variant === "white") loader.setAttribute("white", "");
+            else if (variant === "blur") loader.setAttribute("blur", "");
+            else if (variant === "no-background") loader.setAttribute("no-background", "");
+        } else {
+            this.firstRun = false;
+        }
+
+        const container = document.getElementById("codeView");
+        await loader.updateComplete;
+        container.innerHTML = guideApp.highlightAuto(loader.outerHTML);
+    }
+}
+
 class SirioSearchbarDemo {
     async init(run) {
         const itemControl = document.querySelector('#item-control');
@@ -2201,6 +2279,20 @@ class SirioSelectDemo {
             var labelDropdown = document.getElementById("labelDropdown").getValue();
             dropdownSelect.setAttribute("label", labelDropdown);
 
+            var searchDropdown = document.getElementById("searchDropdown")?.getValue?.() ?? "";
+            if (searchDropdown !== "") {
+                dropdownSelect.setAttribute("search", searchDropdown);
+            } else {
+                dropdownSelect.removeAttribute("search");
+            }
+
+            var searchStartWithDropdown = document.getElementById("searchStartWithDropdown")?.getSelectedValues?.();
+            if (searchStartWithDropdown) {
+                dropdownSelect.setAttribute("search-startwith", "");
+            } else {
+                dropdownSelect.removeAttribute("search-startwith");
+            }
+
             // dropdown select multipla
             var itemsDropdownMultiple = document.getElementById("itemsDropdownMultiple");
             try {
@@ -2212,6 +2304,20 @@ class SirioSelectDemo {
 
             var titleDropdownMultiple = document.getElementById("titleDropdownMultiple").getValue();
             dropdownSelectMultiple.setAttribute("title", titleDropdownMultiple);
+
+            var searchDropdownMultiple = document.getElementById("searchDropdownMultiple")?.getValue?.() ?? "";
+            if (searchDropdownMultiple !== "") {
+                dropdownSelectMultiple.setAttribute("search", searchDropdownMultiple);
+            } else {
+                dropdownSelectMultiple.removeAttribute("search");
+            }
+
+            var searchStartWithDropdownMultiple = document.getElementById("searchStartWithDropdownMultiple")?.getSelectedValues?.();
+            if (searchStartWithDropdownMultiple) {
+                dropdownSelectMultiple.setAttribute("search-startwith", "");
+            } else {
+                dropdownSelectMultiple.removeAttribute("search-startwith");
+            }
 
             // checkbox - radio
             var type = document.getElementById("type").getSelectedValues()[0];
@@ -2896,7 +3002,7 @@ class SirioValidationDemo {
 
 class GuideAppPage {
     async init(ver) {
-        var version ='9.2.0';
+        var version ='10.0.0';
 
         $(document).on('click', '#guide-nav > li > a', function (e) {
             e.preventDefault();
@@ -3068,6 +3174,6 @@ try
 { module.exports = {
     GuideApp, GuideAppPage, GuideAppPageWC, SirioAccordionDemo, SirioAlertDemo, SirioBreadcrumbDemo, SirioButtonDemo,
     SirioCardDemo, SirioChipDemo, SirioDatePickerDemo, SirioDialogDemo, SirioDropdownDemo, SirioFilterDemo, SirioGridDemo, SirioHeroDemo, SirioCarouselDemo,
-    SirioInfoDemo, SirioNotifyDemo, SirioInputDemo,SirioPanelExpandDemo, SirioPagerDemo,SirioProgressbarDemo, SirioSearchbarDemo, SirioSelectDemo, SirioSidenavDemo,
+    SirioInfoDemo, SirioLoaderDemo, SirioNotifyDemo, SirioInputDemo,SirioPanelExpandDemo, SirioPagerDemo,SirioProgressbarDemo, SirioSearchbarDemo, SirioSelectDemo, SirioSidenavDemo,
     SirioSliderDemo, SirioStepperDemo, SirioTabDemo, SirioTitleBarDemo, SirioTooltipDemo, SirioValidationDemo }
 } catch { }
